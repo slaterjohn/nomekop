@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { GbBadge } from "@/components/gb/gb-badge";
+import { cardAlt } from "@/lib/card-alt";
 import type { Slot } from "@/lib/layout";
 import type { TcgSet } from "@/lib/tcg/types";
 
@@ -16,10 +17,6 @@ type CardSlotProps = {
     onToggle: () => void;
   };
 };
-
-export function cardAlt(name: string, number: string, printedTotal: number, rarity?: string): string {
-  return `${name} · ${number}/${printedTotal}${rarity ? ` · ${rarity}` : ""}`;
-}
 
 /** One binder pocket: card image (or fallback), number, REV badge, tick mark. */
 export function CardSlot({ slot, set, tick }: CardSlotProps) {
