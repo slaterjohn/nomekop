@@ -42,7 +42,9 @@ afterEach(() => {
 
 describe("PokemonTcgIoSource.getSets", () => {
   it("maps API sets to TcgSet", async () => {
-    const fetchMock = vi.fn(async () => jsonResponse({ data: [SET_JSON], totalCount: 1 }));
+    const fetchMock = vi.fn(async (_url: unknown, _init?: RequestInit) =>
+      jsonResponse({ data: [SET_JSON], totalCount: 1 }),
+    );
     vi.stubGlobal("fetch", fetchMock);
     const source = new PokemonTcgIoSource({ retries: 0 });
     const sets = await source.getSets();
@@ -139,7 +141,7 @@ describe("PokemonTcgIoSource.getCards", () => {
       tcgplayer: undefined,
     }));
     const fetchMock = vi
-      .fn()
+      .fn<(url: unknown, init?: RequestInit) => Promise<Response>>()
       .mockResolvedValueOnce(jsonResponse({ data: page1, totalCount: 258 }))
       .mockResolvedValueOnce(jsonResponse({ data: page2, totalCount: 258 }));
     vi.stubGlobal("fetch", fetchMock);
