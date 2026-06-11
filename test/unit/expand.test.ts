@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { expandSlots } from "@/lib/layout/expand";
+import { expandSlots, type Slot } from "@/lib/layout/expand";
 import type { TcgCard } from "@/lib/tcg/types";
+
+const slotNumber = (s: Slot) => (s.kind === "empty" ? undefined : s.card.number);
 
 function card(number: string, opts: Partial<TcgCard> = {}): TcgCard {
   return {
@@ -22,7 +24,7 @@ const reverseCard = (number: string) =>
 describe("expandSlots — standard mode", () => {
   it("emits one card slot per card, sorted by number", () => {
     const slots = expandSlots([card("2"), card("1")], "standard", true, 102);
-    expect(slots.map((s) => ({ kind: s.kind, n: s.card?.number }))).toEqual([
+    expect(slots.map((s) => ({ kind: s.kind, n: slotNumber(s) }))).toEqual([
       { kind: "card", n: "1" },
       { kind: "card", n: "2" },
     ]);
@@ -38,7 +40,7 @@ describe("expandSlots — standard mode", () => {
 describe("expandSlots — master mode", () => {
   it("interleaves a reverse slot directly after reverse-capable cards", () => {
     const slots = expandSlots([reverseCard("1"), card("2"), reverseCard("3")], "master", true, 102);
-    expect(slots.map((s) => `${s.kind}:${s.card?.number}`)).toEqual([
+    expect(slots.map((s) => `${s.kind}:${slotNumber(s)}`)).toEqual([
       "card:1",
       "reverse:1",
       "card:2",
@@ -63,7 +65,7 @@ describe("expandSlots — secret filtering", () => {
 
   it("includeSecrets=false drops numbers beyond printedTotal and prefixed subsets", () => {
     const slots = expandSlots(cards, "standard", false, 198);
-    expect(slots.map((s) => s.card?.number)).toEqual(["1", "85a", "198"]);
+    expect(slots.map(slotNumber)).toEqual(["1", "85a", "198"]);
   });
 
   it("suffixed numbers within range survive the filter", () => {
