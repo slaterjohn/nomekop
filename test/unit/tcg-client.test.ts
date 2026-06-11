@@ -63,11 +63,13 @@ describe("PokemonTcgIoSource.getSets", () => {
 
   it("sends X-Api-Key when configured", async () => {
     vi.stubEnv("POKEMONTCG_API_KEY", "secret-key");
-    const fetchMock = vi.fn(async () => jsonResponse({ data: [], totalCount: 0 }));
+    const fetchMock = vi.fn(async (_url: unknown, _init?: RequestInit) =>
+      jsonResponse({ data: [], totalCount: 0 }),
+    );
     vi.stubGlobal("fetch", fetchMock);
     await new PokemonTcgIoSource({ retries: 0 }).getSets();
-    const init = fetchMock.mock.calls[0]![1] as RequestInit;
-    expect(new Headers(init.headers).get("X-Api-Key")).toBe("secret-key");
+    const init = fetchMock.mock.calls[0]![1];
+    expect(new Headers(init?.headers).get("X-Api-Key")).toBe("secret-key");
   });
 
   it("retries on 500 then succeeds", async () => {
