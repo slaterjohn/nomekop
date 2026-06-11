@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 import { GbButton } from "@/components/gb/gb-button";
 import { CardSlot } from "@/components/builder/card-slot";
 import type { BinderLayout, Page } from "@/lib/layout";
@@ -73,7 +72,7 @@ export function BinderPreview({ set, layout, tick }: BinderPreviewProps) {
   return (
     // The group is focusable so binder pages flip with the d-pad (arrow keys);
     // the buttons below offer the same controls to every input method.
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex, jsx-a11y/no-noninteractive-element-interactions
     <div role="group" aria-label="Binder pages" tabIndex={0} onKeyDown={onKeyDown} className="outline-offset-4">
       <div className="mb-3 flex items-center justify-between gap-2">
         <GbButton

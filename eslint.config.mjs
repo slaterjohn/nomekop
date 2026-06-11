@@ -9,6 +9,14 @@ const eslintConfig = defineConfig([
   // eslint-config-next already registers the jsx-a11y plugin; only add the
   // recommended ruleset on top (re-registering the plugin is a config error).
   { rules: { ...jsxA11y.flatConfigs.recommended.rules } },
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     ".next/**",
