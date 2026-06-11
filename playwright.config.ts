@@ -7,7 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: process.env.CI ? "github" : "list",
   use: {
-    baseURL: "http://127.0.0.1:3105",
+    baseURL: "http://127.0.0.1:3170",
     trace: "on-first-retry",
   },
   projects: [
@@ -22,14 +22,14 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "pnpm start -p 3105",
-    url: "http://127.0.0.1:3105",
+    command: "pnpm start -p 3170",
+    url: "http://127.0.0.1:3170",
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,
     env: {
       TCG_DATA_SOURCE: "fixture",
       IMG_STUB: "1",
-      PORT: "3105",
+      PORT: "3170",
     },
   },
 });

@@ -107,6 +107,17 @@
       opacity: 1;
     }
   }
+
+  --animate-gb-wipe: gb-wipe 0.32s steps(8, end) both;
+
+  @keyframes gb-wipe {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
 }
 
 /*
