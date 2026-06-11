@@ -51,7 +51,9 @@ describe("expandSlots — master mode", () => {
 
   it("reverse slots reference the same card object", () => {
     const slots = expandSlots([reverseCard("1")], "master", true, 102);
-    expect(slots[1]!.card).toBe(slots[0]!.card);
+    const [first, second] = slots;
+    if (first?.kind === "empty" || second?.kind === "empty") throw new Error("unexpected empty");
+    expect(second!.card).toBe(first!.card);
   });
 });
 
