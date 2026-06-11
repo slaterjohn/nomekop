@@ -28,14 +28,15 @@ export function buildBinderLayout(
 ): BinderLayout {
   const slots = expandSlots(cards, config.mode, config.secrets, set.printedTotal);
   const pages = paginate(slots, config.rows, config.cols);
-  const distinctCards = new Set(
-    slots.filter((s) => s.kind !== "empty").map((s) => (s.kind === "empty" ? "" : s.card.id)),
-  ).size;
+  const cardIds = new Set<string>();
+  for (const s of slots) {
+    if (s.kind !== "empty") cardIds.add(s.card.id);
+  }
   return {
     pages,
     spreads: toSpreads(pages),
     stats: {
-      cards: distinctCards,
+      cards: cardIds.size,
       slots: slots.length,
       pages: pages.length,
       slotsPerPage: config.rows * config.cols,
