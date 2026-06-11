@@ -3,6 +3,7 @@ import { Header } from "@/components/header";
 import { Providers } from "@/components/providers";
 import { Builder } from "@/components/builder/builder";
 import { GbSpinner } from "@/components/gb/gb-spinner";
+import { GbKbdHint } from "@/components/gb/gb-kbd-hint";
 import { Toaster } from "@/components/ui/sonner";
 import { getSets } from "@/lib/tcg";
 import type { TcgSet } from "@/lib/tcg/types";
@@ -36,6 +37,7 @@ export default async function Home() {
           </Suspense>
         </Providers>
       </main>
+      <GbKbdHint />
       <footer className="border-t-4 border-gb-ink px-4 py-3 text-center font-pixel text-[10px]">
         BINDERMON · NOT AFFILIATED WITH NINTENDO / THE POKEMON COMPANY
       </footer>
