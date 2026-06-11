@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bindermon
 
-## Getting Started
+Pokemon TCG binder layouts, checklists and printables — wrapped in an original
+Game Boy aesthetic.
 
-First, run the development server:
+Pick any set, choose your binder grid (1–5 × 1–5), optionally interleave
+reverse-holo parallels (master set), tick off what you've collected, and print
+A4 PDFs: binder pages, a checklist, and true-size pocket placeholders.
+
+![The builder in Game Boy green](docs/images/builder.png)
+
+## Features
+
+- **Every set** from the Pokemon TCG API, searchable and grouped by series
+- **Grid configuration** with presets (2×2, 3×3, 4×3, 4×4)
+- **Master set mode** — reverse holos interleaved next to their base card,
+  detected from price data with an era/rarity fallback
+- **Secret rares toggle** (numbers beyond the printed total and TG/GG subsets)
+- **Binder preview** as facing-page spreads with page-flip navigation
+- **Collection tick-off** persisted locally (no accounts), HP-bar progress
+- **Three printables**, identical in browser print and PDF download:
+  binder pages · checklist · cut-out placeholders (with crop marks)
+- **Five Game Boy palettes** (DMG, Pocket, Kanto Red, Cerulean, High Contrast)
+  — every pairing WCAG AA, enforced by tests
+- **Keyboard-first**: d-pad style menus, roving focus, the blinking ▶ cursor is
+  the focus indicator; fully usable without a pointer
+- **Optional 8-bit sound** (off by default) and animations that respect
+  `prefers-reduced-motion`
+
+![Generated A4 PDF page](docs/images/pdf-page.png)
+
+## Quickstart
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev            # live data from pokemontcg.io (no key needed)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Offline demo mode (only Base Set + Scarlet & Violet, no network):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+TCG_DATA_SOURCE=fixture pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+An API key (free, [dev.pokemontcg.io](https://dev.pokemontcg.io)) raises rate
+limits — put it in `.env` as `POKEMONTCG_API_KEY`. See `.env.example` for all
+options.
 
-## Learn More
+## Docker
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker compose up --build
+# → http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The image bundles system Chromium for the PDF pipeline and persists the API
+cache in a named volume.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+| Command      | What it does                                     |
+| ------------ | ------------------------------------------------ |
+| `pnpm dev`   | dev server                                       |
+| `pnpm build` | production build (`STANDALONE=1` for Docker)     |
+| `pnpm start` | serve the production build                       |
+| `pnpm test`  | unit + component tests (Vitest, RTL, vitest-axe) |
+| `pnpm e2e`   | Playwright suite (run `pnpm build` first)        |
+| `pnpm check` | lint + typecheck + unit tests                    |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/                  Next.js App Router
+  api/sets            cached set list
+  api/cards/[setId]   cached cards per set
+  api/img             allowlisted caching image proxy (PDF hermeticity)
+  api/pdf             Puppeteer renders /print/* to A4 (p-limit 3, retry, rate limit)
+  print/{binder,checklist,placeholders}   A4 print views (browser-printable too)
+components/gb/        the Game Boy design system (listbox menus, dialog boxes,
+                      HP bars, spinners — accessible semantics underneath)
+lib/layout/           pure layout engine: collector-number sort, variant
+                      interleaving, pagination into pages/spreads
+lib/tcg/              CardDataSource: pokemontcg.io client or committed fixtures
+lib/cache.ts          layered memory+disk TTL cache, stale-while-revalidate
+```
+
+The same React components render the on-screen preview, the print routes and
+the PDFs — one layout engine, three outputs.
+
+## Accessibility
+
+WCAG 2.2 AA is a tested requirement: palette contrast is computed in unit
+tests, axe runs against every theme in CI (component level and full-page in a
+real browser), the complete flow works keyboard-only, and all motion collapses
+under `prefers-reduced-motion`. Found a gap? Please open an issue.
+
+## Testing
+
+~170 unit/component tests (Vitest + Testing Library + vitest-axe) and a
+Playwright suite covering the happy path, keyboard-only use, five-theme axe
+sweeps, reduced motion, print routes and PDF page-count verification against
+the layout engine. Fixtures are real captured API responses, so everything
+runs offline and deterministically.
+
+## Credits
+
+Card data and images from the [Pokemon TCG API](https://pokemontcg.io).
+Bindermon is a fan-made tool, not affiliated with Nintendo, Game Freak or The
+Pokemon Company.

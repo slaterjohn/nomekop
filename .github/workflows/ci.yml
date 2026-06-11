@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main, feature/**]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Unit & component tests
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: End-to-end tests
+        run: pnpm e2e
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t bindermon:ci .
+
+  # Deployment scaffold (spec §11): wire up registry credentials + VPS secrets
+  # before enabling. Intentionally inert until then.
+  #
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: docker
+  #   if: github.ref == 'refs/heads/main'
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Log in to registry
+  #       run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login $REGISTRY -u "${{ secrets.REGISTRY_USER }}" --password-stdin
+  #     - name: Build and push
+  #       run: |
+  #         docker build -t $REGISTRY/bindermon:${{ github.sha }} .
+  #         docker push $REGISTRY/bindermon:${{ github.sha }}
+  #     - name: Deploy to VPS
+  #       run: ssh deploy@your-vps "cd /srv/bindermon && docker compose pull && docker compose up -d"
