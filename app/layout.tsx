@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
-import { ThemeProvider } from "@/components/theme/theme-provider";
 
 const pressStart = Press_Start_2P({
   variable: "--font-press-start",
@@ -40,7 +39,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           SKIP TO CONTENT
         </a>
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
       </body>
     </html>
   );

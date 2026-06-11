@@ -6,8 +6,6 @@ type GbToggleProps = {
   label: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
-  /** Optional extra description announced with the switch. */
-  description?: string;
   className?: string;
 };
 
@@ -15,14 +13,13 @@ type GbToggleProps = {
  * A switch in Game Boy clothing: label, sliding ink block, ON/OFF readout.
  * Native <button role="switch"> gives Space/Enter handling for free.
  */
-export function GbToggle({ label, checked, onChange, description, className }: GbToggleProps) {
+export function GbToggle({ label, checked, onChange, className }: GbToggleProps) {
   return (
     <button
       type="button"
       role="switch"
       aria-checked={checked}
       aria-label={label}
-      aria-description={description}
       onClick={() => onChange(!checked)}
       className={cn(
         "group inline-flex min-h-11 cursor-pointer items-center gap-2 border-[3px] border-transparent px-1 py-1",

@@ -14,11 +14,14 @@ import { useReducedMotion } from "@/lib/use-reduced-motion";
 export function useTypewriter(text: string, speedMs = 18) {
   const reduced = useReducedMotion();
   const [count, setCount] = useState(reduced ? text.length : 0);
-  const done = count >= text.length;
-
-  useEffect(() => {
+  // Reset when inputs change — React's "adjust state during render" pattern
+  // (avoids a cascading-render effect).
+  const [prev, setPrev] = useState({ text, reduced });
+  if (prev.text !== text || prev.reduced !== reduced) {
+    setPrev({ text, reduced });
     setCount(reduced ? text.length : 0);
-  }, [text, reduced]);
+  }
+  const done = count >= text.length;
 
   useEffect(() => {
     if (reduced || done) return;

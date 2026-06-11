@@ -30,7 +30,7 @@ export function GbDialogBox({
   return (
     // Click-to-skip is a pointer convenience; keyboard users get the full text
     // from the live region immediately, so no key handler is required.
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       data-gb-dialog
       role={tone === "error" ? "alert" : undefined}

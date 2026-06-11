@@ -76,7 +76,6 @@ export function GbMenu<T extends string>({
     <ul
       role="listbox"
       aria-label={label}
-      onKeyDown={onKeyDown}
       className={cn("m-0 list-none border-[3px] border-gb-ink bg-gb-bg p-1", className)}
     >
       {options.map((opt, i) => {
@@ -96,6 +95,7 @@ export function GbMenu<T extends string>({
               setActiveIndex(i);
               onChange(opt.value);
             }}
+            onKeyDown={onKeyDown}
             onFocus={() => setActiveIndex(i)}
             className={cn(
               "flex cursor-pointer items-baseline gap-2 px-2 py-2",

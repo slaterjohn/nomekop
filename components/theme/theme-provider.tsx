@@ -1,47 +1,60 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import { DEFAULT_THEME, THEME_STORAGE_KEY, isThemeId, type ThemeId } from "@/lib/themes";
 
-type ThemeContextValue = {
-  theme: ThemeId;
-  setTheme: (theme: ThemeId) => void;
-};
+// Module-level external store: localStorage is the source of truth, an
+// emitter keeps every subscriber (and other tabs, via 'storage') in sync.
+const listeners = new Set<() => void>();
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
-
-function readStoredTheme(): ThemeId {
-  try {
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    return isThemeId(stored) ? stored : DEFAULT_THEME;
-  } catch {
-    return DEFAULT_THEME;
-  }
+function emit() {
+  listeners.forEach((l) => l());
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeId>(DEFAULT_THEME);
+function subscribe(onChange: () => void): () => void {
+  listeners.add(onChange);
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === THEME_STORAGE_KEY) onChange();
+  };
+  window.addEventListener("storage", onStorage);
+  return () => {
+    listeners.delete(onChange);
+    window.removeEventListener("storage", onStorage);
+  };
+}
 
-  // ThemeScript applied the persisted theme pre-hydration; sync React state to it.
-  useEffect(() => {
-    setThemeState(readStoredTheme());
-  }, []);
+// Fallback for environments where storage writes fail (private browsing):
+// the session still tracks the chosen theme in memory.
+let memoryTheme: ThemeId | null = null;
+
+/** Test-only: clears the in-memory fallback between isolated test cases. */
+export function __resetThemeStoreForTests() {
+  memoryTheme = null;
+}
+
+function getSnapshot(): ThemeId {
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    if (isThemeId(stored)) return stored;
+  } catch {
+    // fall through to memory
+  }
+  return memoryTheme ?? DEFAULT_THEME;
+}
+
+export function useTheme(): { theme: ThemeId; setTheme: (theme: ThemeId) => void } {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, () => DEFAULT_THEME);
 
   const setTheme = useCallback((next: ThemeId) => {
-    setThemeState(next);
+    memoryTheme = next;
     document.documentElement.dataset.theme = next;
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next);
     } catch {
       // Persistence is best-effort (private browsing, quota).
     }
+    emit();
   }, []);
 
-  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
-}
-
-export function useTheme(): ThemeContextValue {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used inside <ThemeProvider>");
-  return ctx;
+  return { theme, setTheme };
 }

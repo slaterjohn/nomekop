@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ThemeProvider, useTheme } from "@/components/theme/theme-provider";
+import { useTheme, __resetThemeStoreForTests } from "@/components/theme/theme-provider";
 import { THEME_STORAGE_KEY } from "@/lib/themes";
 
 function Probe() {
@@ -14,28 +14,21 @@ function Probe() {
   );
 }
 
-describe("ThemeProvider", () => {
+describe("useTheme", () => {
   beforeEach(() => {
     localStorage.clear();
     delete document.documentElement.dataset.theme;
+    __resetThemeStoreForTests();
   });
 
   it("defaults to dmg", () => {
-    render(
-      <ThemeProvider>
-        <Probe />
-      </ThemeProvider>,
-    );
+    render(<Probe />);
     expect(screen.getByTestId("current")).toHaveTextContent("dmg");
   });
 
   it("setTheme updates html[data-theme] and persists", async () => {
     const user = userEvent.setup();
-    render(
-      <ThemeProvider>
-        <Probe />
-      </ThemeProvider>,
-    );
+    render(<Probe />);
     await user.click(screen.getByRole("button", { name: "go pocket" }));
     expect(screen.getByTestId("current")).toHaveTextContent("pocket");
     expect(document.documentElement.dataset.theme).toBe("pocket");
@@ -44,21 +37,13 @@ describe("ThemeProvider", () => {
 
   it("hydrates from a stored theme", () => {
     localStorage.setItem(THEME_STORAGE_KEY, "cerulean");
-    render(
-      <ThemeProvider>
-        <Probe />
-      </ThemeProvider>,
-    );
+    render(<Probe />);
     expect(screen.getByTestId("current")).toHaveTextContent("cerulean");
   });
 
   it("ignores garbage in storage", () => {
     localStorage.setItem(THEME_STORAGE_KEY, "neon-zubat");
-    render(
-      <ThemeProvider>
-        <Probe />
-      </ThemeProvider>,
-    );
+    render(<Probe />);
     expect(screen.getByTestId("current")).toHaveTextContent("dmg");
   });
 });
