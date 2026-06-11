@@ -26,7 +26,14 @@ describe("base1 (vintage, 102 cards, no reverses)", () => {
       mode: "standard",
       secrets: true,
     });
-    expect(layout.stats).toEqual({ cards: 102, slots: 102, pages: 12, slotsPerPage: 9 });
+    expect(layout.stats).toEqual({
+      cards: 102,
+      slots: 102,
+      pages: 12,
+      slotsPerPage: 9,
+      rows: 3,
+      cols: 3,
+    });
     expect(layout.pages[11]!.slots.filter((s) => s.kind === "empty")).toHaveLength(6);
   });
 
@@ -40,7 +47,14 @@ describe("base1 (vintage, 102 cards, no reverses)", () => {
 describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   it("standard with secrets → 258 slots over 29 pages of 3×3", () => {
     const layout = buildBinderLayout(sv1, SV1, { rows: 3, cols: 3, mode: "standard", secrets: true });
-    expect(layout.stats).toEqual({ cards: 258, slots: 258, pages: 29, slotsPerPage: 9 });
+    expect(layout.stats).toEqual({
+      cards: 258,
+      slots: 258,
+      pages: 29,
+      slotsPerPage: 9,
+      rows: 3,
+      cols: 3,
+    });
   });
 
   it("master adds one slot per reverse-capable card, adjacent to its base", () => {

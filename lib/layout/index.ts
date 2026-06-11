@@ -17,6 +17,8 @@ export type BinderLayout = {
     slots: number;
     pages: number;
     slotsPerPage: number;
+    rows: number;
+    cols: number;
   };
 };
 
@@ -40,6 +42,8 @@ export function buildBinderLayout(
       slots: slots.length,
       pages: pages.length,
       slotsPerPage: config.rows * config.cols,
+      rows: config.rows,
+      cols: config.cols,
     },
   };
 }

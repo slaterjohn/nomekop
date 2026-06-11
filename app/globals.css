@@ -82,6 +82,31 @@
       transform: rotate(14deg);
     }
   }
+
+  --animate-gb-flip-in: gb-flip-in 0.28s ease-out;
+  --animate-gb-deal: gb-deal 0.22s ease-out backwards;
+
+  @keyframes gb-flip-in {
+    from {
+      transform: perspective(1200px) rotateY(-8deg);
+      opacity: 0.6;
+    }
+    to {
+      transform: perspective(1200px) rotateY(0deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes gb-deal {
+    from {
+      transform: translateY(6px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }
 
 /*
