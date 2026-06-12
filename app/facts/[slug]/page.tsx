@@ -77,7 +77,7 @@ export default async function FactPage({ params }: Props) {
           ...articleJsonLd(article),
           breadcrumbJsonLd([
             { name: "NOMEKOP", path: "/" },
-            { name: "Fun Facts", path: "/facts" },
+            { name: "FUN FACTS", path: "/facts" },
             { name: article.question, path: `/facts/${slug}` },
           ]),
         ]}

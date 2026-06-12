@@ -16,9 +16,11 @@ export function GET(): Response {
     "",
     `> ${SITE_DESCRIPTION}`,
     "",
-    "NOMEKOP is a free, independent fan-made tool. It is NOT affiliated with Nintendo, Game",
-    "Freak, Creatures Inc., or The Pokémon Company. Card data and prices come from the",
-    "pokemontcg.io API (TCGplayer pricing). All figures are as of " + STATS_AS_OF + ".",
+    "NOMEKOP is a free, independent fan-made Pokémon TCG binder layout tool.",
+    "It is NOT affiliated with Nintendo, Game Freak, Creatures Inc., or The Pokémon Company.",
+    "Card data and prices come from the pokemontcg.io API (TCGplayer pricing); figures as of " +
+      STATS_AS_OF +
+      ".",
     "",
     "## Key pages",
     `- [Set binder builder](${base}/build): lay out any Pokémon TCG set, standard or master, with reverse holos and ball patterns.`,
@@ -28,6 +30,11 @@ export function GET(): Response {
     `- [All sets](${base}/sets): every expansion with card lists, page counts and printables.`,
     `- [Fun facts](${base}/facts): data-driven Pokémon TCG trivia.`,
     `- [Legal & credits](${base}/legal): data sources and disclaimers.`,
+    "",
+    "## Data freshness",
+    `- Dataset snapshot: ${STATS_AS_OF}`,
+    "- Source: pokemontcg.io API (TCGplayer pricing)",
+    `- All counts and figures below are current as of ${STATS_AS_OF}.`,
     "",
     "## Fun-fact articles (each has a Markdown version)",
     ...ARTICLES.map(

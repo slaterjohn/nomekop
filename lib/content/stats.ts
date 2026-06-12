@@ -23,6 +23,7 @@ export const DID_YOU_KNOW: readonly string[] = [
   "The Pokémon TCG has been drawn by 386 different illustrators.",
   "5ban Graphics has illustrated more cards (1,627) than any single artist.",
   "There are 107 cards simply named “Charizard”, spread across 50 sets.",
+  "Ascended Heroes (295 cards) is the largest standard Pokémon TCG expansion; the SWSH Black Star Promos top everything at 304.",
   "The Base Set (January 1999) is the oldest Pokémon TCG set.",
   "Cards exist for 1,020 distinct National Pokédex numbers.",
 ];

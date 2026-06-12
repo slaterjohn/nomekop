@@ -36,6 +36,9 @@ export async function GET(
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=86400",
+      // Point search engines at the HTML article as the canonical of this
+      // non-HTML variant (the HTML page already carries its own canonical).
+      Link: `<${siteUrl()}/facts/${slug}>; rel="canonical"`,
     },
   });
 }

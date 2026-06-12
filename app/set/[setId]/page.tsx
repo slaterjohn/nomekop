@@ -91,8 +91,8 @@ export default async function SetPage({ params }: Props) {
         data={[
           setCollectionJsonLd(set, sorted),
           breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Sets", path: "/sets" },
+            { name: "NOMEKOP", path: "/" },
+            { name: "SETS", path: "/sets" },
             { name: set.name, path: `/set/${set.id}` },
           ]),
         ]}

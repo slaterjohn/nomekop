@@ -48,6 +48,13 @@ export default async function sitemap(props: {
         changeFrequency: "monthly" as const,
         priority: 0.5,
       })),
+      // Each article's Markdown companion (also linked from llms.txt and the
+      // article page) — surfaced here so crawlers discover it at crawl time.
+      ...ARTICLES.map((article) => ({
+        url: `${base}/facts/${article.slug}/markdown`,
+        changeFrequency: "monthly" as const,
+        priority: 0.4,
+      })),
       // One canonical (default-token) Pokédex per generation.
       ...GENERATIONS.map((gen) => ({
         url: `${base}/pokedex/${gen.id}~34`,

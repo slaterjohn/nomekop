@@ -91,8 +91,8 @@ describe("sitemap (core shard)", () => {
     expect(urls).toContain(`${BASE}/facts`);
     expect(urls.filter((url) => url.includes("/set/"))).toHaveLength(FIXTURE_SET_COUNT);
     // home, build, sets, pokedex, pokemon, illustrator, legal, /facts + 6 fact
-    // articles + 9 gen tokens = 23 static entries.
-    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 23);
+    // articles + 6 article Markdown companions + 9 gen tokens = 29 static entries.
+    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 29);
     for (const url of urls) {
       expect(url.startsWith(`${BASE}/`)).toBe(true);
     }

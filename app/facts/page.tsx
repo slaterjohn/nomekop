@@ -4,11 +4,25 @@ import { ARTICLES } from "@/lib/content/articles";
 import { JsonLd } from "@/components/json-ld";
 import { factsCollectionJsonLd } from "@/lib/structured-data";
 
+const FACTS_TITLE = "Pokémon TCG fun facts & trivia";
+const FACTS_DESCRIPTION =
+  "Data-driven Pokémon TCG trivia from NOMEKOP — the first Pikachu card, how many Charizard cards exist, the most prolific illustrators, biggest sets and more.";
+
 export const metadata: Metadata = {
-  title: "Pokémon TCG fun facts & trivia",
-  description:
-    "Data-driven Pokémon TCG trivia from NOMEKOP — the first Pikachu card, how many Charizard cards exist, the most prolific illustrators, biggest sets and more.",
+  title: FACTS_TITLE,
+  description: FACTS_DESCRIPTION,
   alternates: { canonical: "/facts" },
+  openGraph: {
+    type: "website",
+    title: FACTS_TITLE,
+    description: FACTS_DESCRIPTION,
+    url: "/facts",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: FACTS_TITLE,
+    description: FACTS_DESCRIPTION,
+  },
 };
 
 /** The fun-facts library: one card per DB-driven trivia article. */

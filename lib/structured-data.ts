@@ -24,6 +24,20 @@ function numbers(values: Array<number | undefined>): number[] {
   return values.filter((value): value is number => typeof value === "number");
 }
 
+/** Top-level Organization entity for the home page. A dedicated, named
+ *  Organization (rather than only inline publisher objects) gives LLMs and
+ *  rich-results a confident anchor for who produces the site. */
+export function organizationJsonLd(): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: absolute("/"),
+    description: SITE_DESCRIPTION,
+    creator: { "@type": "Organization", name: SITE_NAME },
+  };
+}
+
 /** Site-wide WebSite entity for the home page. */
 export function webSiteJsonLd(): JsonLdObject {
   return {
@@ -32,6 +46,7 @@ export function webSiteJsonLd(): JsonLdObject {
     name: SITE_NAME,
     url: absolute("/"),
     description: SITE_DESCRIPTION,
+    publisher: { "@type": "Organization", name: SITE_NAME, url: absolute("/") },
   };
 }
 
@@ -201,6 +216,19 @@ type ArticleMeta = {
   date: string;
 };
 
+/** ImageObject for an article's per-segment dynamic Open Graph image. Next.js
+ *  serves app/facts/[slug]/opengraph-image.tsx at this path (1200×630, the
+ *  size exported there); referencing it gives BlogPosting a schema.org-
+ *  recommended `image` without shipping a separate asset. */
+function articleImage(slug: string): JsonLdObject {
+  return {
+    "@type": "ImageObject",
+    url: absolute(`/facts/${slug}/opengraph-image`),
+    width: 1200,
+    height: 630,
+  };
+}
+
 /**
  * For a fun-fact article: a BlogPosting plus a single-question FAQPage. The
  * headline question is answered visibly on the page (h1 + opening paragraph),
@@ -216,6 +244,7 @@ export function articleJsonLd(article: ArticleMeta): JsonLdObject[] {
       "@type": "BlogPosting",
       headline: article.title,
       description: article.description,
+      image: articleImage(article.slug),
       datePublished: article.date,
       dateModified: article.date,
       inLanguage: "en",
@@ -240,6 +269,7 @@ export function articleJsonLd(article: ArticleMeta): JsonLdObject[] {
 
 /** Blog entity for the /facts index. */
 export function factsCollectionJsonLd(articles: ArticleMeta[]): JsonLdObject {
+  const publisher = { "@type": "Organization", name: SITE_NAME, url: absolute("/") };
   return {
     "@context": CONTEXT,
     "@type": "Blog",
@@ -247,12 +277,16 @@ export function factsCollectionJsonLd(articles: ArticleMeta[]): JsonLdObject {
     url: absolute("/facts"),
     description: "Data-driven Pokémon TCG trivia and fun facts from NOMEKOP.",
     isPartOf: { "@type": "WebSite", url: absolute("/") },
+    publisher,
     blogPost: articles.map((a) => ({
       "@type": "BlogPosting",
       headline: a.title,
       description: a.description,
+      image: articleImage(a.slug),
       datePublished: a.date,
       url: absolute(`/facts/${a.slug}`),
+      author: publisher,
+      publisher,
     })),
   };
 }

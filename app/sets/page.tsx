@@ -56,8 +56,8 @@ export default async function SetsIndexPage() {
         data={[
           setsIndexJsonLd(sets),
           breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Sets", path: "/sets" },
+            { name: "NOMEKOP", path: "/" },
+            { name: "SETS", path: "/sets" },
           ]),
         ]}
       />
@@ -66,6 +66,11 @@ export default async function SetsIndexPage() {
         <p className="mt-1 font-body text-lg">
           {totalSets} Pokemon TCG expansions across {groups.length} series — pick one for its card
           list, binder page counts and printables.
+        </p>
+        <p className="mt-1 font-body text-lg">
+          <Link href="/facts/biggest-pokemon-tcg-sets" className="underline underline-offset-2">
+            See the biggest sets by card count ▶
+          </Link>
         </p>
       </div>
 

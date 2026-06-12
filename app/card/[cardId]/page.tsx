@@ -89,8 +89,8 @@ export default async function CardPage({ params, searchParams }: Props) {
         data={[
           cardProductJsonLd(card, set),
           breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Sets", path: "/sets" },
+            { name: "NOMEKOP", path: "/" },
+            { name: "SETS", path: "/sets" },
             { name: set.name, path: `/set/${set.id}` },
             { name: `${card.name} ${card.number}`, path: `/card/${card.id}` },
           ]),

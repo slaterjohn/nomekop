@@ -7,8 +7,10 @@ import { JsonLd } from "@/components/json-ld";
 import { FAQ_ENTRIES } from "@/lib/faq";
 import { SITE_NAME } from "@/lib/site";
 import {
+  articleJsonLd,
   breadcrumbJsonLd,
   cardProductJsonLd,
+  factsCollectionJsonLd,
   faqJsonLd,
   setCollectionJsonLd,
   setsIndexJsonLd,
@@ -255,6 +257,116 @@ describe("setsIndexJsonLd", () => {
       expect(String(item.url)).toMatch(new RegExp(`^${BASE}/set/[a-z0-9.]+$`, "i"));
     }
     expect(items.map((item) => item.url)).toContain(`${BASE}/set/base1`);
+  });
+});
+
+describe("articleJsonLd", () => {
+  const article = {
+    slug: "first-pikachu-card",
+    question: "Which was the first Pikachu card?",
+    title: "Which was the first Pikachu card?",
+    description: "The first Pikachu card was Base Set #58 (January 1999).",
+    date: "2026-06-12",
+  };
+
+  it("emits a BlogPosting + FAQPage pair", () => {
+    const data = arr(articleJsonLd(article));
+    expect(data).toHaveLength(2);
+    expect(data[0]!["@type"]).toBe("BlogPosting");
+    expect(data[1]!["@type"]).toBe("FAQPage");
+    for (const node of data) {
+      expect(node["@context"]).toBe("https://schema.org");
+    }
+  });
+
+  it("describes the BlogPosting with headline, dates, language and absolute url", () => {
+    const post = arr(articleJsonLd(article))[0]!;
+    expect(post.headline).toBe(article.title);
+    expect(post.description).toBe(article.description);
+    expect(post.datePublished).toBe(article.date);
+    expect(post.dateModified).toBe(article.date);
+    expect(post.inLanguage).toBe("en");
+    expect(post.url).toBe(`${BASE}/facts/${article.slug}`);
+    expect(obj(post.mainEntityOfPage)).toEqual({
+      "@type": "WebPage",
+      "@id": `${BASE}/facts/${article.slug}`,
+    });
+  });
+
+  it("attributes the BlogPosting to the site as author and publisher", () => {
+    const post = arr(articleJsonLd(article))[0]!;
+    const org = { "@type": "Organization", name: SITE_NAME, url: `${BASE}/` };
+    expect(obj(post.author)).toEqual(org);
+    expect(obj(post.publisher)).toEqual(org);
+  });
+
+  it("carries an ImageObject pointing at the per-article OG image", () => {
+    const post = arr(articleJsonLd(article))[0]!;
+    expect(obj(post.image)).toEqual({
+      "@type": "ImageObject",
+      url: `${BASE}/facts/${article.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+    });
+  });
+
+  it("mirrors the headline question into the FAQPage answer", () => {
+    const faq = arr(articleJsonLd(article))[1]!;
+    const questions = arr(faq.mainEntity);
+    expect(questions).toHaveLength(1);
+    expect(questions[0]!["@type"]).toBe("Question");
+    expect(questions[0]!.name).toBe(article.question);
+    expect(obj(questions[0]!.acceptedAnswer)).toEqual({
+      "@type": "Answer",
+      text: article.description,
+    });
+  });
+});
+
+describe("factsCollectionJsonLd", () => {
+  const articles = [
+    {
+      slug: "first-pikachu-card",
+      question: "Which was the first Pikachu card?",
+      title: "Which was the first Pikachu card?",
+      description: "The first Pikachu card was Base Set #58 (January 1999).",
+      date: "2026-06-12",
+    },
+    {
+      slug: "how-many-charizard-cards",
+      question: "How many Charizard cards are there?",
+      title: "How many Charizard cards are there?",
+      description: "There are 107 cards named Charizard across 50 sets.",
+      date: "2026-06-11",
+    },
+  ];
+
+  it("emits a Blog tied to the WebSite with one blogPost per article", () => {
+    const data = factsCollectionJsonLd(articles);
+    expect(data["@context"]).toBe("https://schema.org");
+    expect(data["@type"]).toBe("Blog");
+    expect(data.url).toBe(`${BASE}/facts`);
+    expect(obj(data.isPartOf)).toEqual({ "@type": "WebSite", url: `${BASE}/` });
+    expect(arr(data.blogPost)).toHaveLength(articles.length);
+  });
+
+  it("describes each nested BlogPosting with headline, date, image, author and absolute url", () => {
+    const posts = arr(factsCollectionJsonLd(articles).blogPost);
+    const org = { "@type": "Organization", name: SITE_NAME, url: `${BASE}/` };
+    posts.forEach((post, index) => {
+      expect(post["@type"]).toBe("BlogPosting");
+      expect(post.headline).toBe(articles[index]!.title);
+      expect(post.description).toBe(articles[index]!.description);
+      expect(post.datePublished).toBe(articles[index]!.date);
+      expect(post.url).toBe(`${BASE}/facts/${articles[index]!.slug}`);
+      expect(obj(post.author)).toEqual(org);
+      expect(obj(post.image)).toEqual({
+        "@type": "ImageObject",
+        url: `${BASE}/facts/${articles[index]!.slug}/opengraph-image`,
+        width: 1200,
+        height: 630,
+      });
+    });
   });
 });
 

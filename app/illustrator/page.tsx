@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { IllustratorSearchForm } from "@/components/illustrator/illustrator-search-form";
@@ -28,6 +29,14 @@ export default function IllustratorLandingPage() {
       <p className="font-body text-xl leading-tight">
         One artist, every card they have ever drawn — across every set. Order by release date,
         then print the whole gallery.
+      </p>
+      <p className="font-body text-xl leading-tight">
+        <Link
+          href="/facts/most-prolific-pokemon-illustrators"
+          className="underline underline-offset-2"
+        >
+          See the most prolific illustrators ▶
+        </Link>
       </p>
 
       <GbScreen title="CHOOSE YOUR ILLUSTRATOR">

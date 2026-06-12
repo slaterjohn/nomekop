@@ -2,6 +2,11 @@
 
 export const SITE_NAME = "Nomekop";
 
+/** Plain-language statement of what the site IS — surfaced on the home page and
+ *  used by AI consumers to establish identity before feature detail. */
+export const SITE_IDENTITY =
+  "NOMEKOP is a free, independent fan-made Pokémon TCG binder layout tool.";
+
 /** ~155 chars — used for the meta description, Open Graph and Twitter cards. */
 export const SITE_DESCRIPTION =
   "Pick any Pokemon TCG set and design your binder layout — master sets with reverse holos and ball patterns, printable A4 pages, checklists and card prices.";

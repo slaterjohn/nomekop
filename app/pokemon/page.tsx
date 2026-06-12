@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { PokemonSearchForm } from "@/components/pokemon/pokemon-search-form";
@@ -30,6 +31,11 @@ export default function PokemonLandingPage() {
       <p className="font-body text-xl leading-tight">
         One Pokémon, every card it has ever appeared on — across every set. Filter to secrets
         or the rarest print per set, order by release date, then print it.
+      </p>
+      <p className="font-body text-xl leading-tight">
+        <Link href="/facts/most-printed-pokemon" className="underline underline-offset-2">
+          Which Pokémon appears on the most cards? ▶
+        </Link>
       </p>
 
       <GbScreen title="CHOOSE YOUR POKÉMON">
