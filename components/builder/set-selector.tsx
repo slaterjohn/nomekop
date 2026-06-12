@@ -101,6 +101,7 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
       </div>
       <CommandInput
         placeholder="SEARCH SETS…"
+        aria-label="Search sets"
         className="font-body text-xl placeholder:text-gb-ink/60"
       />
       <CommandList className="max-h-80">

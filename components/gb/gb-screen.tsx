@@ -15,7 +15,7 @@ export function GbScreen({ title, className, children }: GbScreenProps) {
   return (
     <section
       className={cn(
-        "border-4 border-gb-ink bg-gb-bg shadow-[inset_0_0_0_2px_var(--gb-accent)]",
+        "border-4 border-gb-ink bg-gb-bg shadow-[inset_0_0_0_2px_var(--gb-ink)]",
         className,
       )}
     >

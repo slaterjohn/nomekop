@@ -12,7 +12,7 @@ function gbButtonClasses({ variant = "a", size = "md" }: GbVariantProps, classNa
   return cn(
     "inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 border-[3px] border-gb-ink font-pixel uppercase leading-none",
     "shadow-[3px_3px_0_0_var(--gb-ink)] motion-safe:transition-[transform,box-shadow] motion-safe:duration-75",
-    "disabled:cursor-not-allowed disabled:opacity-50",
+    "disabled:cursor-not-allowed disabled:opacity-75",
     variant === "a" && "bg-gb-accent text-gb-ink",
     variant === "b" && "bg-gb-bg text-gb-ink",
     variant === "plain" && "border-transparent bg-transparent text-gb-ink shadow-none",

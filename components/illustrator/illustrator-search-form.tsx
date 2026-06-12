@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { GbButton } from "@/components/gb/gb-button";
 import { DEFAULT_ILLUSTRATOR_OPTIONS, encodeIllustratorToken } from "@/lib/illustrator-binder";
@@ -10,6 +10,7 @@ import { play } from "@/lib/sound";
 export function IllustratorSearchForm() {
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const errorId = useId();
   const router = useRouter();
 
   const submit = (e: React.FormEvent) => {
@@ -34,6 +35,8 @@ export function IllustratorSearchForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Ken Sugimori"
+          aria-invalid={!!error}
+          aria-describedby={error ? errorId : undefined}
           className="border-[3px] border-gb-ink bg-gb-bg px-3 py-2 font-body text-xl placeholder:text-gb-ink/60"
         />
       </label>
@@ -41,7 +44,7 @@ export function IllustratorSearchForm() {
         BUILD BINDER
       </GbButton>
       {error ? (
-        <p role="alert" className="w-full font-body text-lg">
+        <p id={errorId} role="alert" className="w-full font-body text-lg">
           {error}
         </p>
       ) : null}
