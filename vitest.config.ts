@@ -12,5 +12,8 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.ts"],
     include: ["test/unit/**/*.test.{ts,tsx}"],
     globals: false,
+    // jsdom + large rendered lists are CPU-heavy under parallel workers;
+    // headroom over the 5s default prevents contention flakes.
+    testTimeout: 15_000,
   },
 });

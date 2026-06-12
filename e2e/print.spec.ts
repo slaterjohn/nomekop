@@ -41,7 +41,7 @@ test("unknown set 404s", async ({ page }) => {
   expect(res!.status()).toBe(404);
 });
 
-test("binder sheet visual golden (local only)", async ({ page }, testInfo) => {
+test("binder sheet visual golden (local only)", async ({ page }) => {
   test.skip(!!process.env.CI, "golden generated on darwin; CI relies on DOM assertions");
   await page.goto("/print/binder?set=base1");
   await page.locator(".print-sheet").first().waitFor();

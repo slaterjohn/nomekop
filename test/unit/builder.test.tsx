@@ -73,6 +73,14 @@ function renderBuilder() {
   );
 }
 
+// Click the option directly instead of typing a 15-char search: each keystroke
+// re-filters all 173 sets in jsdom, which is slow enough to flake under
+// parallel workers. Filter-as-you-type behaviour is covered in set-selector tests.
+async function pickScarletViolet(user: ReturnType<typeof userEvent.setup>) {
+  // .* not \s+: jsdom computes accessible names without inter-span spaces.
+  await user.click(await screen.findByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+}
+
 beforeEach(() => {
   nav.reset();
   nav.replace.mockClear();
@@ -92,8 +100,7 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
 
     expect(nav.replace).toHaveBeenCalledWith("/?set=sv1", { scroll: false });
     expect(await screen.findByRole("heading", { name: "CONFIGURE BINDER" })).toBeInTheDocument();
@@ -106,8 +113,7 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards, 200, 80);
     const user = userEvent.setup();
     renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
     expect(screen.getByRole("status")).toHaveTextContent(/LOADING SCARLET & VIOLET/);
     expect(await screen.findByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
   });
@@ -131,8 +137,7 @@ describe("Builder", () => {
     );
     const user = userEvent.setup();
     renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
 
     // React Query retries once with backoff before surfacing the error.
     expect(await screen.findByRole("alert", {}, { timeout: 8000 })).toHaveTextContent(
@@ -147,8 +152,7 @@ describe("Builder", () => {
     mockCardsFetch([]);
     const user = userEvent.setup();
     renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
     expect(await screen.findByText(/WILD MISSINGNO\. APPEARED/)).toBeInTheDocument();
   });
 
@@ -156,8 +160,7 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: "PREVIEW" });
 
     await user.click(screen.getByRole("button", { name: /CHANGE SET/ }));
@@ -169,8 +172,7 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: "PREVIEW" });
 
     expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
@@ -188,8 +190,7 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     const { container } = renderBuilder();
-    await user.type(screen.getByRole("combobox", { name: /search sets/i }), "scarlet & violet");
-    await user.click(screen.getByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: "PREVIEW" });
     expect(await axe(container)).toHaveNoViolations();
   }, 20_000);
