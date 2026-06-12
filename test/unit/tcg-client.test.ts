@@ -201,10 +201,14 @@ describe("FixtureSource", () => {
     expect(sets.some((s) => s.id === "sv1")).toBe(true);
   });
 
-  it("serves base1 cards (102) and sv1 cards (258)", async () => {
+  it("serves base1 (102), sv1 (258) and sv8pt5 (180) cards", async () => {
     const source = new FixtureSource();
     expect(await source.getCards("base1")).toHaveLength(102);
     expect(await source.getCards("sv1")).toHaveLength(258);
+    const pre = await source.getCards("sv8pt5");
+    expect(pre).toHaveLength(180);
+    expect(pre.filter((c) => c.variants.pokeball)).toHaveLength(100);
+    expect(pre.filter((c) => c.variants.masterball)).toHaveLength(67);
   });
 
   it("throws unknown-set for sets without fixture data", async () => {

@@ -9,6 +9,8 @@ import { DEFAULT_CONFIG } from "@/lib/config";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 let sv1Cards: TcgCard[];
+let preCards: TcgCard[];
+
 const sv1Set: TcgSet = {
   id: "sv1",
   name: "Scarlet & Violet",
@@ -20,36 +22,70 @@ const sv1Set: TcgSet = {
   logoUrl: "",
 };
 
+const preSet: TcgSet = {
+  id: "sv8pt5",
+  name: "Prismatic Evolutions",
+  series: "Scarlet & Violet",
+  printedTotal: 131,
+  total: 180,
+  releaseDate: "2025/01/17",
+  symbolUrl: "",
+  logoUrl: "",
+};
+
 beforeAll(async () => {
-  sv1Cards = JSON.parse(
-    await readFile(path.join(process.cwd(), "test", "fixtures", "cards-sv1.json"), "utf8"),
-  );
+  const dir = path.join(process.cwd(), "test", "fixtures");
+  sv1Cards = JSON.parse(await readFile(path.join(dir, "cards-sv1.json"), "utf8"));
+  preCards = JSON.parse(await readFile(path.join(dir, "cards-sv8pt5.json"), "utf8"));
 });
 
-describe("ConfigPanel", () => {
-  it("steppers patch rows and cols", async () => {
+describe("ConfigPanel — binder size", () => {
+  it("marks the default 12 PKT preset and hides steppers", () => {
+    render(
+      <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={vi.fn()} />,
+    );
+    expect(screen.getByRole("button", { name: "12 PKT" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.queryByRole("spinbutton", { name: "ROWS" })).not.toBeInTheDocument();
+  });
+
+  it("pocket presets patch rows and cols", async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();
     render(
       <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={onChange} />,
     );
+    await user.click(screen.getByRole("button", { name: "9 PKT" }));
+    expect(onChange).toHaveBeenCalledWith({ rows: 3, cols: 3 });
+    await user.click(screen.getByRole("button", { name: "16 PKT" }));
+    expect(onChange).toHaveBeenCalledWith({ rows: 4, cols: 4 });
+  });
+
+  it("CUSTOM reveals the steppers, which patch dimensions", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(
+      <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={onChange} />,
+    );
+    await user.click(screen.getByRole("button", { name: "CUSTOM" }));
     await user.click(screen.getByRole("button", { name: "Increase ROWS" }));
     expect(onChange).toHaveBeenCalledWith({ rows: 4 });
-    await user.click(screen.getByRole("button", { name: "Decrease COLS" }));
-    expect(onChange).toHaveBeenCalledWith({ cols: 2 });
   });
 
-  it("presets set both dimensions and mark the active one", async () => {
-    const user = userEvent.setup();
-    const onChange = vi.fn();
+  it("non-preset dimensions open as custom automatically", () => {
     render(
-      <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={onChange} />,
+      <ConfigPanel
+        set={sv1Set}
+        cards={sv1Cards}
+        config={{ ...DEFAULT_CONFIG, set: "sv1", rows: 5, cols: 2 }}
+        onChange={vi.fn()}
+      />,
     );
-    expect(screen.getByRole("button", { name: "3×3" })).toHaveAttribute("aria-pressed", "true");
-    await user.click(screen.getByRole("button", { name: "4×3" }));
-    expect(onChange).toHaveBeenCalledWith({ rows: 4, cols: 3 });
+    expect(screen.getByRole("spinbutton", { name: "ROWS" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "CUSTOM" })).toHaveAttribute("aria-pressed", "true");
   });
+});
 
+describe("ConfigPanel — modes and variants", () => {
   it("collection mode menu patches mode", async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();
@@ -70,7 +106,7 @@ describe("ConfigPanel", () => {
     expect(onChange).toHaveBeenCalledWith({ secrets: false });
   });
 
-  it("stats line reflects the layout engine", () => {
+  it("ball-pattern options hidden for ordinary sets, even in master mode", () => {
     render(
       <ConfigPanel
         set={sv1Set}
@@ -79,15 +115,62 @@ describe("ConfigPanel", () => {
         onChange={vi.fn()}
       />,
     );
-    const reverseCount = sv1Cards.filter((c) => c.variants.reverse).length;
-    const slots = 258 + reverseCount;
-    const pages = Math.ceil(slots / 9);
-    expect(screen.getByText(`258 CARDS → ${slots} POCKETS → ${pages} PAGES`)).toBeInTheDocument();
+    expect(screen.queryByRole("switch", { name: "POKÉ BALL" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("listbox", { name: "Variant placement" })).not.toBeInTheDocument();
   });
 
-  it("axe clean", async () => {
+  it("Prismatic Evolutions master mode reveals ball toggles and placement", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(
+      <ConfigPanel
+        set={preSet}
+        cards={preCards}
+        config={{ ...DEFAULT_CONFIG, set: "sv8pt5", mode: "master" }}
+        onChange={onChange}
+      />,
+    );
+    await user.click(screen.getByRole("switch", { name: "POKÉ BALL" }));
+    expect(onChange).toHaveBeenCalledWith({ pb: false });
+    await user.click(screen.getByRole("switch", { name: "MASTER BALL" }));
+    expect(onChange).toHaveBeenCalledWith({ mb: false });
+    await user.click(screen.getByRole("option", { name: /AT END/ }));
+    expect(onChange).toHaveBeenCalledWith({ place: "end" });
+  });
+
+  it("standard mode hides ball options even for Prismatic Evolutions", () => {
+    render(
+      <ConfigPanel
+        set={preSet}
+        cards={preCards}
+        config={{ ...DEFAULT_CONFIG, set: "sv8pt5" }}
+        onChange={vi.fn()}
+      />,
+    );
+    expect(screen.queryByRole("switch", { name: "POKÉ BALL" })).not.toBeInTheDocument();
+  });
+
+  it("stats line reflects the engine (PRE full master set)", () => {
+    render(
+      <ConfigPanel
+        set={preSet}
+        cards={preCards}
+        config={{ ...DEFAULT_CONFIG, set: "sv8pt5", mode: "master" }}
+        onChange={vi.fn()}
+      />,
+    );
+    // 180 cards + 100 reverse + 100 poké + 67 master = 447 pockets / 12 per page
+    expect(screen.getByText("180 CARDS → 447 POCKETS → 38 PAGES")).toBeInTheDocument();
+  });
+
+  it("axe clean (with variant options open)", async () => {
     const { container } = render(
-      <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={vi.fn()} />,
+      <ConfigPanel
+        set={preSet}
+        cards={preCards}
+        config={{ ...DEFAULT_CONFIG, set: "sv8pt5", mode: "master" }}
+        onChange={vi.fn()}
+      />,
     );
     expect(await axe(container)).toHaveNoViolations();
   });

@@ -106,7 +106,7 @@ describe("Builder", () => {
     expect(await screen.findByRole("heading", { name: "CONFIGURE BINDER" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "PRINT & DOWNLOAD" })).toBeInTheDocument();
-    expect(screen.getByText(/258 CARDS → 258 POCKETS → 29 PAGES/)).toBeInTheDocument();
+    expect(screen.getByText(/258 CARDS → 258 POCKETS → 22 PAGES/)).toBeInTheDocument();
   });
 
   it("shows a loading spinner while cards fetch", async () => {

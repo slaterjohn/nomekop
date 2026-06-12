@@ -7,6 +7,7 @@ import {
   type TcgSet,
 } from "@/lib/tcg/types";
 import { deriveVariants } from "@/lib/tcg/variants";
+import { applyBallPatterns } from "@/lib/tcg/ball-patterns";
 
 const BASE = "https://api.pokemontcg.io/v2";
 const PAGE_SIZE = 250;
@@ -80,7 +81,7 @@ export class PokemonTcgIoSource implements CardDataSource {
       const data = (body.data ?? []) as ApiCard[];
       cards.push(...data.map(mapCard));
       const total = typeof body.totalCount === "number" ? body.totalCount : cards.length;
-      if (cards.length >= total || data.length === 0) return cards;
+      if (cards.length >= total || data.length === 0) return applyBallPatterns(setId, cards);
       page += 1;
     }
   }

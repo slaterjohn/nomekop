@@ -39,18 +39,18 @@ describe("BinderPreview", () => {
   it("renders only the current spread's cards (perf guard)", () => {
     renderPreview();
     // Spread 1 = page 1 only (9 cards); page 2's first card must not be present.
-    expect(screen.getAllByRole("img")).toHaveLength(9);
+    expect(screen.getAllByRole("img")).toHaveLength(12);
   });
 
   it("navigates spreads with buttons and announces the position", async () => {
     const user = userEvent.setup();
     renderPreview();
-    expect(screen.getByText(/PAGE 1 OF 29/i)).toBeInTheDocument();
+    expect(screen.getByText(/PAGE 1 OF 22/i)).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Next pages" }));
-    expect(screen.getByText(/PAGES 2–3 OF 29/i)).toBeInTheDocument();
-    expect(screen.getAllByRole("img")).toHaveLength(18);
+    expect(screen.getByText(/PAGES 2–3 OF 22/i)).toBeInTheDocument();
+    expect(screen.getAllByRole("img")).toHaveLength(24);
     await user.click(screen.getByRole("button", { name: "Previous pages" }));
-    expect(screen.getByText(/PAGE 1 OF 29/i)).toBeInTheDocument();
+    expect(screen.getByText(/PAGE 1 OF 22/i)).toBeInTheDocument();
   });
 
   it("navigates with arrow keys on the binder region", async () => {
@@ -59,9 +59,9 @@ describe("BinderPreview", () => {
     const region = screen.getByRole("group", { name: "Binder pages" });
     region.focus();
     await user.keyboard("{ArrowRight}");
-    expect(screen.getByText(/PAGES 2–3 OF 29/i)).toBeInTheDocument();
+    expect(screen.getByText(/PAGES 2–3 OF 22/i)).toBeInTheDocument();
     await user.keyboard("{ArrowLeft}");
-    expect(screen.getByText(/PAGE 1 OF 29/i)).toBeInTheDocument();
+    expect(screen.getByText(/PAGE 1 OF 22/i)).toBeInTheDocument();
   });
 
   it("clamps navigation at the ends", async () => {
@@ -72,7 +72,7 @@ describe("BinderPreview", () => {
     const region = screen.getByRole("group", { name: "Binder pages" });
     region.focus();
     await user.keyboard("{End}");
-    expect(screen.getByText(/PAGES 28–29 OF 29/i)).toBeInTheDocument();
+    expect(screen.getByText(/PAGE 22 OF 22/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Next pages" })).toBeDisabled();
   });
 
@@ -114,7 +114,7 @@ describe("BinderPreview", () => {
     const layout = buildBinderLayout(fewCards, sv1Set, { ...DEFAULT_CONFIG });
     const { container } = render(<BinderPreview set={sv1Set} layout={layout} />);
     const empties = container.querySelectorAll('[data-gb-empty="true"]');
-    expect(empties).toHaveLength(2);
+    expect(empties).toHaveLength(5);
     empties.forEach((e) => expect(e).toHaveAttribute("aria-hidden", "true"));
   });
 

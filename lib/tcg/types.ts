@@ -16,6 +16,10 @@ export type Variants = {
   normal: boolean;
   reverse: boolean;
   holo: boolean;
+  /** Poké Ball / Master Ball foil mirrors (curated per set — the API has no
+   *  per-card data for these). Optional: absent in older cached payloads. */
+  pokeball?: boolean;
+  masterball?: boolean;
 };
 
 export type PriceRange = {

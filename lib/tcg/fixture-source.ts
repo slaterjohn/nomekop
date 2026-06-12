@@ -24,7 +24,7 @@ export class FixtureSource implements CardDataSource {
       if ((err as NodeJS.ErrnoException).code === "ENOENT") {
         throw new TcgError(
           "unknown-set",
-          `no fixture for set '${setId}' — fixture mode only includes base1 and sv1`,
+          `no fixture for set '${setId}' — fixture mode only includes base1, sv1 and sv8pt5`,
         );
       }
       throw err;

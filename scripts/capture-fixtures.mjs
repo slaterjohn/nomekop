@@ -6,7 +6,7 @@ import path from "node:path";
 
 const BASE = "https://api.pokemontcg.io/v2";
 const OUT = path.join(process.cwd(), "test", "fixtures");
-const CARD_SETS = ["base1", "sv1"];
+const CARD_SETS = ["base1", "sv1", "sv8pt5"];
 
 const headers = { Accept: "application/json" };
 if (process.env.POKEMONTCG_API_KEY) headers["X-Api-Key"] = process.env.POKEMONTCG_API_KEY;
@@ -78,6 +78,20 @@ function trimTcgPlayer(raw) {
   };
 }
 
+// Mirrors lib/tcg/ball-patterns.ts (the API has no per-card ball data).
+const BALL_SETS = new Set(["sv8pt5", "zsv10pt5", "rsv10pt5"]);
+function applyBalls(setId, card) {
+  if (!BALL_SETS.has(setId)) return card;
+  return {
+    ...card,
+    variants: {
+      ...card.variants,
+      pokeball: card.variants.reverse,
+      masterball: card.variants.reverse && card.supertype === "Pokémon",
+    },
+  };
+}
+
 function trimCard(c) {
   return {
     id: c.id,
@@ -114,7 +128,7 @@ for (const setId of CARD_SETS) {
   const cards = [];
   for (let page = 1; ; page++) {
     const body = await get(`/cards?q=${encodeURIComponent(`set.id:${setId}`)}&pageSize=250&page=${page}&orderBy=number`);
-    cards.push(...body.data.map(trimCard));
+    cards.push(...body.data.map((c) => applyBalls(setId, trimCard(c))));
     if (cards.length >= body.totalCount || body.data.length === 0) break;
   }
   await writeFile(path.join(OUT, `cards-${setId}.json`), JSON.stringify(cards, null, 1));

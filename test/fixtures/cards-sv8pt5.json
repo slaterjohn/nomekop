@@ -1,0 +1,5876 @@
+[
+ {
+  "id": "sv8pt5-1",
+  "name": "Exeggcute",
+  "number": "1",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/1.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/1_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-1",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.04,
+     "directLow": 0.03
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-2",
+  "name": "Exeggutor",
+  "number": "2",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/2.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/2_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-2",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.06,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-3",
+  "name": "Pinsir",
+  "number": "3",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/3.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/3_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-3",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.05,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-4",
+  "name": "Budew",
+  "number": "4",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/4.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/4_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-4",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.28,
+     "high": 999,
+     "market": 0.31,
+     "directLow": 0.03
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.11
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-5",
+  "name": "Leafeon",
+  "number": "5",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/5.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/5_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-5",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.35,
+     "high": 4321,
+     "market": 0.33,
+     "directLow": 0.09
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.3,
+     "high": 999,
+     "market": 0.33,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-6",
+  "name": "Leafeon ex",
+  "number": "6",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/6.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/6_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-6",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2.25,
+     "mid": 4.7,
+     "high": 999,
+     "market": 5.6,
+     "directLow": 11.49
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-7",
+  "name": "Cottonee",
+  "number": "7",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/7.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/7_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-7",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.11,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-8",
+  "name": "Whimsicott",
+  "number": "8",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/8.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/8_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-8",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.11,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-9",
+  "name": "Applin",
+  "number": "9",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/9.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/9_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-9",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.11,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-10",
+  "name": "Dipplin",
+  "number": "10",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/10.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/10_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-10",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.24,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.04
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.11,
+     "directLow": 0.1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-11",
+  "name": "Hydrapple ex",
+  "number": "11",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/11.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/11_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-11",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.5,
+     "mid": 1,
+     "high": 999,
+     "market": 0.97
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-12",
+  "name": "Teal Mask Ogerpon ex",
+  "number": "12",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/12.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/12_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-12",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2.8,
+     "mid": 4.04,
+     "high": 4321,
+     "market": 3.96
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-13",
+  "name": "Flareon",
+  "number": "13",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/13.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/13_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-13",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.31,
+     "high": 4321,
+     "market": 0.32,
+     "directLow": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.35,
+     "high": 999,
+     "market": 0.34
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-14",
+  "name": "Flareon ex",
+  "number": "14",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/14.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/14_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-14",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.5,
+     "mid": 6,
+     "high": 4321,
+     "market": 6.06,
+     "directLow": 12.99
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-15",
+  "name": "Litleo",
+  "number": "15",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/15.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/15_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-15",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.13,
+     "directLow": 0.02
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-16",
+  "name": "Pyroar",
+  "number": "16",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/16.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/16_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-16",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-17",
+  "name": "Hearthflame Mask Ogerpon ex",
+  "number": "17",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/17.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/17_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-17",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.35,
+     "mid": 0.81,
+     "high": 9999,
+     "market": 0.63,
+     "directLow": 0.68
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-18",
+  "name": "Slowpoke",
+  "number": "18",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/18.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/18_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-18",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-19",
+  "name": "Slowking",
+  "number": "19",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/19.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/19_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-19",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.05,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-20",
+  "name": "Goldeen",
+  "number": "20",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/20.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/20_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-20",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-21",
+  "name": "Seaking",
+  "number": "21",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/21.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/21_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-21",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.27
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.08
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-22",
+  "name": "Vaporeon",
+  "number": "22",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/22.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/22_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-22",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.29,
+     "high": 999,
+     "market": 0.3,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.36,
+     "high": 999,
+     "market": 0.32
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-23",
+  "name": "Vaporeon ex",
+  "number": "23",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/23.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/23_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-23",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2,
+     "mid": 3.29,
+     "high": 4321,
+     "market": 3.34,
+     "directLow": 3.64
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-24",
+  "name": "Suicune",
+  "number": "24",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/24.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/24_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-24",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-25",
+  "name": "Glaceon",
+  "number": "25",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/25.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/25_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-25",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.31,
+     "high": 4321,
+     "market": 0.35,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.36,
+     "high": 999,
+     "market": 0.37
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-26",
+  "name": "Glaceon ex",
+  "number": "26",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/26.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/26_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-26",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1,
+     "mid": 2.7,
+     "high": 9999,
+     "market": 2.65,
+     "directLow": 2.88
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-27",
+  "name": "Wellspring Mask Ogerpon ex",
+  "number": "27",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/27.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/27_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-27",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.45,
+     "mid": 0.95,
+     "high": 999.99,
+     "market": 0.8,
+     "directLow": 0.88
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-28",
+  "name": "Pikachu ex",
+  "number": "28",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/28.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/28_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-28",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.4,
+     "mid": 2.64,
+     "high": 4321,
+     "market": 2.06,
+     "directLow": 2.13
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-29",
+  "name": "Jolteon",
+  "number": "29",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/29.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/29_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-29",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.31,
+     "high": 4321,
+     "market": 0.31,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.37,
+     "high": 4321,
+     "market": 0.35,
+     "directLow": 0.14
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-30",
+  "name": "Jolteon ex",
+  "number": "30",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/30.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/30_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-30",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2.75,
+     "mid": 4.44,
+     "high": 999,
+     "market": 4.39,
+     "directLow": 6.3
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-31",
+  "name": "Iron Hands ex",
+  "number": "31",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/31.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/31_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-31",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.25,
+     "mid": 0.77,
+     "high": 999,
+     "market": 0.61,
+     "directLow": 0.85
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-32",
+  "name": "Iron Thorns ex",
+  "number": "32",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/32.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/32_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-32",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.25,
+     "mid": 0.89,
+     "high": 999.99,
+     "market": 0.74,
+     "directLow": 0.8
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-33",
+  "name": "Espeon",
+  "number": "33",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/33.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/33_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-33",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.15,
+     "mid": 0.47,
+     "high": 4321,
+     "market": 0.55,
+     "directLow": 0.49
+    },
+    "holofoil": {
+     "low": 0.05,
+     "mid": 0.37,
+     "high": 4321,
+     "market": 0.39,
+     "directLow": 0.39
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-34",
+  "name": "Espeon ex",
+  "number": "34",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/34.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/34_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-34",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2,
+     "mid": 4.03,
+     "high": 999,
+     "market": 3.95,
+     "directLow": 4
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-35",
+  "name": "Duskull",
+  "number": "35",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/35.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/35_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-35",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.14,
+     "directLow": 0.13
+    },
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.02
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-36",
+  "name": "Dusclops",
+  "number": "36",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/36.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/36_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-36",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.21
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.16
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-37",
+  "name": "Dusknoir",
+  "number": "37",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/37.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/37_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-37",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.28,
+     "high": 999,
+     "market": 0.28
+    },
+    "holofoil": {
+     "low": 0.03,
+     "mid": 0.28,
+     "high": 999,
+     "market": 0.27,
+     "directLow": 0.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-38",
+  "name": "Spritzee",
+  "number": "38",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/38.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/38_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-38",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-39",
+  "name": "Aromatisse",
+  "number": "39",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/39.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/39_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-39",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.04
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-40",
+  "name": "Sylveon",
+  "number": "40",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/40.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/40_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-40",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.04,
+     "mid": 0.35,
+     "high": 4321,
+     "market": 0.33,
+     "directLow": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.4,
+     "high": 4321,
+     "market": 0.41,
+     "directLow": 0.13
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-41",
+  "name": "Sylveon ex",
+  "number": "41",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/41.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/41_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-41",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.75,
+     "mid": 3,
+     "high": 9999,
+     "market": 2.79,
+     "directLow": 3.76
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-42",
+  "name": "Scream Tail",
+  "number": "42",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/42.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/42_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-42",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-43",
+  "name": "Flutter Mane",
+  "number": "43",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/43.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/43_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-43",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-44",
+  "name": "Munkidori",
+  "number": "44",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/44.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/44_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-44",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.37,
+     "high": 999,
+     "market": 0.33
+    },
+    "holofoil": {
+     "low": 0.03,
+     "mid": 0.3,
+     "high": 999,
+     "market": 0.22
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-45",
+  "name": "Fezandipiti",
+  "number": "45",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/45.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/45_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-45",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 4321,
+     "market": 0.14,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-46",
+  "name": "Iron Boulder",
+  "number": "46",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/46.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/46_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-46",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.24,
+     "directLow": 0.01
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-47",
+  "name": "Larvitar",
+  "number": "47",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/47.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/47_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-47",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-48",
+  "name": "Pupitar",
+  "number": "48",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/48.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/48_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-48",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-49",
+  "name": "Groudon",
+  "number": "49",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/49.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/49_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-49",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.24,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.01
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.13,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-50",
+  "name": "Riolu",
+  "number": "50",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/50.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/50_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-50",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.24,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.12,
+     "directLow": 0.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-51",
+  "name": "Lucario ex",
+  "number": "51",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/51.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/51_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-51",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.4,
+     "mid": 0.96,
+     "high": 999.99,
+     "market": 0.84,
+     "directLow": 0.81
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-52",
+  "name": "Hippopotas",
+  "number": "52",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/52.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/52_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-52",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.04,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 999,
+     "market": 0.13,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-53",
+  "name": "Hippowdon",
+  "number": "53",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/53.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/53_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-53",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.03,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-54",
+  "name": "Bloodmoon Ursaluna",
+  "number": "54",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/54.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/54_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-54",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 4321,
+     "market": 0.22,
+     "directLow": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.02
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-55",
+  "name": "Great Tusk",
+  "number": "55",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/55.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/55_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-55",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-56",
+  "name": "Sandy Shocks ex",
+  "number": "56",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/56.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/56_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-56",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.34,
+     "mid": 0.85,
+     "high": 999.99,
+     "market": 0.55,
+     "directLow": 0.6
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-57",
+  "name": "Okidogi",
+  "number": "57",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/57.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/57_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-57",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.11,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-58",
+  "name": "Cornerstone Mask Ogerpon ex",
+  "number": "58",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/58.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/58_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-58",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.4,
+     "mid": 1.03,
+     "high": 999.99,
+     "market": 0.91,
+     "directLow": 1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-59",
+  "name": "Umbreon",
+  "number": "59",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/59.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/59_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-59",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.05,
+     "mid": 0.42,
+     "high": 4321,
+     "market": 0.43,
+     "directLow": 0.27
+    },
+    "reverseHolofoil": {
+     "low": 0.14,
+     "mid": 0.55,
+     "high": 4321,
+     "market": 0.62
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-60",
+  "name": "Umbreon ex",
+  "number": "60",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/60.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/60_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-60",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 5.8,
+     "mid": 8.52,
+     "high": 5000,
+     "market": 7.42,
+     "directLow": 10.23
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-61",
+  "name": "Sneasel",
+  "number": "61",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/61.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/61_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-61",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.03,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.03
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-62",
+  "name": "Houndour",
+  "number": "62",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/62.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/62_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-62",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.05,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-63",
+  "name": "Houndoom",
+  "number": "63",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/63.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/63_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-63",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.27,
+     "directLow": 0.09
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-64",
+  "name": "Tyranitar ex",
+  "number": "64",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/64.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/64_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-64",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.23,
+     "mid": 0.84,
+     "high": 4321,
+     "market": 0.66,
+     "directLow": 0.99
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-65",
+  "name": "Roaring Moon",
+  "number": "65",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/65.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/65_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-65",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.02
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 4321,
+     "market": 0.18,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-66",
+  "name": "Bronzor",
+  "number": "66",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/66.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/66_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-66",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.15,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.11,
+     "high": 999,
+     "market": 0.04,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-67",
+  "name": "Bronzong",
+  "number": "67",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/67.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/67_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-67",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.04,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-68",
+  "name": "Heatran",
+  "number": "68",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/68.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/68_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-68",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.07
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.06,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-69",
+  "name": "Duraludon",
+  "number": "69",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/69.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/69_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-69",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.04
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.02
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-70",
+  "name": "Archaludon",
+  "number": "70",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/70.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/70_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-70",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-71",
+  "name": "Dreepy",
+  "number": "71",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/71.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/71_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-71",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.22
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.15
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-72",
+  "name": "Drakloak",
+  "number": "72",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/72.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/72_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-72",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.26,
+     "high": 999,
+     "market": 0.26
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.11
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-73",
+  "name": "Dragapult ex",
+  "number": "73",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/73.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/73_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-73",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.7,
+     "mid": 1.41,
+     "high": 9999,
+     "market": 1.13,
+     "directLow": 0.99
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-74",
+  "name": "Eevee",
+  "number": "74",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/74.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/74_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-74",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.31,
+     "high": 999,
+     "market": 0.3,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.17
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-75",
+  "name": "Eevee ex",
+  "number": "75",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/75.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/75_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-75",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.5,
+     "mid": 6.59,
+     "high": 4321,
+     "market": 6.85,
+     "directLow": 9.3
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-76",
+  "name": "Snorlax ex",
+  "number": "76",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/76.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/76_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-76",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.95,
+     "mid": 1.82,
+     "high": 999,
+     "market": 1.64,
+     "directLow": 1.8
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-77",
+  "name": "Hoothoot",
+  "number": "77",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/77.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/77_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-77",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.15,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-78",
+  "name": "Noctowl",
+  "number": "78",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/78.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/78_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-78",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.26,
+     "directLow": 0.04
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 4321,
+     "market": 0.21,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-79",
+  "name": "Dunsparce",
+  "number": "79",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/79.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/79_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-79",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.18
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.21
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-80",
+  "name": "Dudunsparce",
+  "number": "80",
+  "rarity": "Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/80.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/80_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": true,
+   "holo": true,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-80",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.34,
+     "high": 999,
+     "market": 0.34
+    },
+    "holofoil": {
+     "low": 0.02,
+     "mid": 0.34,
+     "high": 999,
+     "market": 0.29,
+     "directLow": 0.02
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-81",
+  "name": "Miltank",
+  "number": "81",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/81.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/81_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-81",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-82",
+  "name": "Lugia ex",
+  "number": "82",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/82.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/82_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-82",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.87,
+     "mid": 1.49,
+     "high": 4321,
+     "market": 1.5,
+     "directLow": 1.87
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-83",
+  "name": "Buneary",
+  "number": "83",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/83.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/83_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-83",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-84",
+  "name": "Lopunny",
+  "number": "84",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/84.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/84_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-84",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.06,
+     "directLow": 0.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-85",
+  "name": "Fan Rotom",
+  "number": "85",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/85.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/85_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-85",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.24,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-86",
+  "name": "Regigigas",
+  "number": "86",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/86.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/86_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-86",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.25,
+     "high": 4321,
+     "market": 0.27,
+     "directLow": 0.03
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.11,
+     "directLow": 0.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-87",
+  "name": "Shaymin",
+  "number": "87",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/87.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/87_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-87",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-88",
+  "name": "Furfrou",
+  "number": "88",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/88.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/88_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-88",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.23,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.05,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-89",
+  "name": "Hawlucha",
+  "number": "89",
+  "rarity": "Uncommon",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/89.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/89_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-89",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.05,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-90",
+  "name": "Noibat",
+  "number": "90",
+  "rarity": "Common",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/90.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/90_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-90",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.09,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-91",
+  "name": "Noivern ex",
+  "number": "91",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/91.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/91_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-91",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.25,
+     "mid": 0.84,
+     "high": 999.99,
+     "market": 0.63,
+     "directLow": 1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-92",
+  "name": "Terapagos ex",
+  "number": "92",
+  "rarity": "Double Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/92.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/92_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-92",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.44,
+     "mid": 0.89,
+     "high": 999,
+     "market": 0.71,
+     "directLow": 0.75
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-93",
+  "name": "Amarys",
+  "number": "93",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/93.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/93_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-93",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.14,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-94",
+  "name": "Area Zero Underdepths",
+  "number": "94",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/94.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/94_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-94",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.14,
+     "directLow": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.26,
+     "high": 999,
+     "market": 0.26,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-95",
+  "name": "Binding Mochi",
+  "number": "95",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/95.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/95_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-95",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.24,
+     "high": 999,
+     "market": 0.24,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-96",
+  "name": "Black Belt's Training",
+  "number": "96",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/96.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/96_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-96",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-97",
+  "name": "Black Belt's Training",
+  "number": "97",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/97.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/97_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-97",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.02
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-98",
+  "name": "Black Belt's Training",
+  "number": "98",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/98.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/98_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-98",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.07,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-99",
+  "name": "Black Belt's Training",
+  "number": "99",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/99.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/99_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-99",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.05,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-100",
+  "name": "Briar",
+  "number": "100",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/100.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/100_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-100",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.13,
+     "directLow": 0.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-101",
+  "name": "Buddy-Buddy Poffin",
+  "number": "101",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/101.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/101_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-101",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.13
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.26,
+     "high": 999,
+     "market": 0.29,
+     "directLow": 0.24
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-102",
+  "name": "Bug Catching Set",
+  "number": "102",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/102.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/102_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-102",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.15
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.25,
+     "directLow": 0.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-103",
+  "name": "Carmine",
+  "number": "103",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/103.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/103_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-103",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.1
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-104",
+  "name": "Ciphermaniac's Codebreaking",
+  "number": "104",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/104.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/104_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-104",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.24,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-105",
+  "name": "Crispin",
+  "number": "105",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/105.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/105_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-105",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.27,
+     "high": 999,
+     "market": 0.27
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.25
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-106",
+  "name": "Earthen Vessel",
+  "number": "106",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/106.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/106_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-106",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.3,
+     "high": 999,
+     "market": 0.31,
+     "directLow": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.24,
+     "directLow": 0.06
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-107",
+  "name": "Explorer's Guidance",
+  "number": "107",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/107.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/107_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-107",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.13,
+     "directLow": 0.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-108",
+  "name": "Festival Grounds",
+  "number": "108",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/108.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/108_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-108",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 999,
+     "market": 0.12,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.24,
+     "directLow": 0.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-109",
+  "name": "Friends in Paldea",
+  "number": "109",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/109.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/109_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-109",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-110",
+  "name": "Glass Trumpet",
+  "number": "110",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/110.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/110_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-110",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.08,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-111",
+  "name": "Haban Berry",
+  "number": "111",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/111.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/111_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-111",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.13,
+     "high": 999,
+     "market": 0.06,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-112",
+  "name": "Janine's Secret Art",
+  "number": "112",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/112.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/112_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-112",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-113",
+  "name": "Kieran",
+  "number": "113",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/113.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/113_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-113",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 999,
+     "market": 0.15,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-114",
+  "name": "Lacey",
+  "number": "114",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/114.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/114_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-114",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.17,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.14,
+     "high": 999,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-115",
+  "name": "Larry's Skill",
+  "number": "115",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/115.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/115_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-115",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.22,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.15
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-116",
+  "name": "Max Rod",
+  "number": "116",
+  "rarity": "ACE SPEC Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/116.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/116_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-116",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.35,
+     "mid": 0.89,
+     "high": 4321,
+     "market": 0.83,
+     "directLow": 0.99
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-117",
+  "name": "Maximum Belt",
+  "number": "117",
+  "rarity": "ACE SPEC Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/117.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/117_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-117",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.1,
+     "mid": 0.65,
+     "high": 4321,
+     "market": 0.44
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-118",
+  "name": "Ogre's Mask",
+  "number": "118",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/118.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/118_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-118",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-119",
+  "name": "Prime Catcher",
+  "number": "119",
+  "rarity": "ACE SPEC Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/119.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/119_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-119",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.09,
+     "mid": 0.75,
+     "high": 4321,
+     "market": 0.69,
+     "directLow": 0.6
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-120",
+  "name": "Professor Sada's Vitality",
+  "number": "120",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/120.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/120_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-120",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-121",
+  "name": "Professor Turo's Scenario",
+  "number": "121",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/121.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/121_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-121",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.14,
+     "directLow": 0.06
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-122",
+  "name": "Professor's Research",
+  "number": "122",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/122.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/122_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-122",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.21,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-123",
+  "name": "Professor's Research",
+  "number": "123",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/123.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/123_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-123",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-124",
+  "name": "Professor's Research",
+  "number": "124",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/124.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/124_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-124",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 999,
+     "market": 0.24,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.06,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-125",
+  "name": "Professor's Research",
+  "number": "125",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/125.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/125_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-125",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.14,
+     "directLow": 0.03
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.18,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-126",
+  "name": "Rescue Board",
+  "number": "126",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/126.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/126_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-126",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 999,
+     "market": 0.1,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.2,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-127",
+  "name": "Roto-Stick",
+  "number": "127",
+  "rarity": "Common",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/127.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/127_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-127",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.25,
+     "high": 999,
+     "market": 0.25
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.19,
+     "directLow": 0.15
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-128",
+  "name": "Scoop Up Cyclone",
+  "number": "128",
+  "rarity": "ACE SPEC Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/128.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/128_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-128",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.1,
+     "mid": 0.48,
+     "high": 999,
+     "market": 0.37,
+     "directLow": 0.44
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-129",
+  "name": "Sparkling Crystal",
+  "number": "129",
+  "rarity": "ACE SPEC Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/129.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/129_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-129",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.1,
+     "mid": 0.46,
+     "high": 999,
+     "market": 0.38
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-130",
+  "name": "Techno Radar",
+  "number": "130",
+  "rarity": "Uncommon",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/130.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/130_hires.png",
+  "variants": {
+   "normal": true,
+   "reverse": true,
+   "holo": false,
+   "pokeball": true,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-130",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 999,
+     "market": 0.16,
+     "directLow": 0.01
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.12,
+     "high": 999,
+     "market": 0.03,
+     "directLow": 0.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-131",
+  "name": "Treasure Tracker",
+  "number": "131",
+  "rarity": "ACE SPEC Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/131.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/131_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-131",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.42,
+     "high": 999,
+     "market": 0.37,
+     "directLow": 0.31
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-132",
+  "name": "Amarys",
+  "number": "132",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/132.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/132_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-132",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.15,
+     "mid": 0.78,
+     "high": 4321,
+     "market": 0.48,
+     "directLow": 0.5
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-133",
+  "name": "Atticus",
+  "number": "133",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/133.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/133_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-133",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.35,
+     "mid": 0.95,
+     "high": 999.99,
+     "market": 0.77,
+     "directLow": 0.35
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-134",
+  "name": "Atticus",
+  "number": "134",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/134.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/134_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-134",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.3,
+     "mid": 0.85,
+     "high": 999,
+     "market": 0.68,
+     "directLow": 0.76
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-135",
+  "name": "Brassius",
+  "number": "135",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/135.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/135_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-135",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.13,
+     "mid": 0.75,
+     "high": 999,
+     "market": 0.45
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-136",
+  "name": "Eri",
+  "number": "136",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/136.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/136_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-136",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.4,
+     "mid": 1.18,
+     "high": 9999,
+     "market": 1.02,
+     "directLow": 1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-137",
+  "name": "Friends in Paldea",
+  "number": "137",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/137.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/137_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-137",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.5,
+     "mid": 1.2,
+     "high": 4321,
+     "market": 1.14,
+     "directLow": 1.2
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-138",
+  "name": "Giacomo",
+  "number": "138",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/138.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/138_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-138",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.19,
+     "mid": 0.75,
+     "high": 999.99,
+     "market": 0.54
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-139",
+  "name": "Larry's Skill",
+  "number": "139",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/139.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/139_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-139",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.3,
+     "mid": 1,
+     "high": 999,
+     "market": 0.86,
+     "directLow": 0.32
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-140",
+  "name": "Mela",
+  "number": "140",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/140.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/140_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-140",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.23,
+     "mid": 1,
+     "high": 999,
+     "market": 0.75,
+     "directLow": 1
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-141",
+  "name": "Ortega",
+  "number": "141",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/141.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/141_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-141",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.2,
+     "mid": 0.75,
+     "high": 4321,
+     "market": 0.52
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-142",
+  "name": "Raifort",
+  "number": "142",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/142.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/142_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-142",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.24,
+     "mid": 0.93,
+     "high": 4321,
+     "market": 0.74,
+     "directLow": 0.99
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-143",
+  "name": "Tyme",
+  "number": "143",
+  "rarity": "Ultra Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/143.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/143_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-143",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.15,
+     "mid": 0.68,
+     "high": 4321,
+     "market": 0.55
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-144",
+  "name": "Leafeon ex",
+  "number": "144",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/144.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/144_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-144",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 329.99,
+     "mid": 367.89,
+     "high": 999,
+     "market": 331.9,
+     "directLow": 414.67
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-145",
+  "name": "Teal Mask Ogerpon ex",
+  "number": "145",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/145.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/145_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-145",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 22.34,
+     "mid": 26.98,
+     "high": 9999,
+     "market": 24.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-146",
+  "name": "Flareon ex",
+  "number": "146",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/146.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/146_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-146",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 180,
+     "mid": 230,
+     "high": 1595.1,
+     "market": 204.56,
+     "directLow": 203.96
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-147",
+  "name": "Ceruledge ex",
+  "number": "147",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/147.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/147_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-147",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 94.01,
+     "mid": 116.24,
+     "high": 4321,
+     "market": 101.08
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-148",
+  "name": "Hearthflame Mask Ogerpon ex",
+  "number": "148",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/148.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/148_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-148",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 18,
+     "mid": 23,
+     "high": 999,
+     "market": 20.42
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-149",
+  "name": "Vaporeon ex",
+  "number": "149",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/149.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/149_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-149",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 246.99,
+     "mid": 349.08,
+     "high": 2000,
+     "market": 291.39
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-150",
+  "name": "Glaceon ex",
+  "number": "150",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/150.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/150_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-150",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 290,
+     "mid": 443.43,
+     "high": 1967.86,
+     "market": 299.04,
+     "directLow": 431.48
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-151",
+  "name": "Palafin ex",
+  "number": "151",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/151.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/151_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-151",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 42,
+     "mid": 52.65,
+     "high": 9999,
+     "market": 47.8
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-152",
+  "name": "Wellspring Mask Ogerpon ex",
+  "number": "152",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/152.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/152_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-152",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 15.74,
+     "mid": 20,
+     "high": 999,
+     "market": 18.07
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-153",
+  "name": "Jolteon ex",
+  "number": "153",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/153.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/153_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-153",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 190,
+     "mid": 219.99,
+     "high": 1463.1,
+     "market": 196.04
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-154",
+  "name": "Iron Hands ex",
+  "number": "154",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/154.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/154_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-154",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 32,
+     "mid": 40,
+     "high": 999,
+     "market": 37.07
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-155",
+  "name": "Espeon ex",
+  "number": "155",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/155.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/155_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-155",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 294.49,
+     "mid": 349.99,
+     "high": 999,
+     "market": 334.73
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-156",
+  "name": "Sylveon ex",
+  "number": "156",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/156.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/156_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-156",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 510,
+     "mid": 794.94,
+     "high": 4321,
+     "market": 502.98,
+     "directLow": 794.94
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-157",
+  "name": "Iron Valiant ex",
+  "number": "157",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/157.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/157_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-157",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 80.99,
+     "mid": 99.5,
+     "high": 999,
+     "market": 75.84
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-158",
+  "name": "Iron Crown ex",
+  "number": "158",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/158.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/158_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-158",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 35,
+     "mid": 41.99,
+     "high": 999,
+     "market": 37.05
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-159",
+  "name": "Sandy Shocks ex",
+  "number": "159",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/159.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/159_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-159",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 23.25,
+     "mid": 30,
+     "high": 999,
+     "market": 27.77
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-160",
+  "name": "Cornerstone Mask Ogerpon ex",
+  "number": "160",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/160.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/160_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-160",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 13,
+     "mid": 19.08,
+     "high": 4321,
+     "market": 16.75
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-161",
+  "name": "Umbreon ex",
+  "number": "161",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/161.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/161_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-161",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1229.81,
+     "mid": 1979.97,
+     "high": 5000,
+     "market": 1553.74,
+     "directLow": 1773.89
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-162",
+  "name": "Roaring Moon ex",
+  "number": "162",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/162.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/162_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-162",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 151.98,
+     "mid": 218.51,
+     "high": 1499.62,
+     "market": 178.69,
+     "directLow": 189.69
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-163",
+  "name": "Pecharunt ex",
+  "number": "163",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/163.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/163_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-163",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 29.99,
+     "mid": 37.12,
+     "high": 999,
+     "market": 34.03,
+     "directLow": 49.5
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-164",
+  "name": "Gholdengo ex",
+  "number": "164",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/164.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/164_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-164",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 46.95,
+     "mid": 65.26,
+     "high": 999,
+     "market": 52.99
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-165",
+  "name": "Dragapult ex",
+  "number": "165",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/165.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/165_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-165",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 130,
+     "mid": 142.4,
+     "high": 1609.9,
+     "market": 141.3
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-166",
+  "name": "Raging Bolt ex",
+  "number": "166",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/166.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/166_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-166",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 68.99,
+     "mid": 82.22,
+     "high": 999,
+     "market": 72.83,
+     "directLow": 76.24
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-167",
+  "name": "Eevee ex",
+  "number": "167",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/167.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/167_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-167",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 179.99,
+     "mid": 215,
+     "high": 3009.8,
+     "market": 189.03,
+     "directLow": 224.89
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-168",
+  "name": "Bloodmoon Ursaluna ex",
+  "number": "168",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/168.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/168_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-168",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 80,
+     "mid": 97.2,
+     "high": 999,
+     "market": 80.44
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-169",
+  "name": "Terapagos ex",
+  "number": "169",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/169.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/169_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-169",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 36,
+     "mid": 47.74,
+     "high": 4321,
+     "market": 39.15
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-170",
+  "name": "Amarys",
+  "number": "170",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/170.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/170_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-170",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 13.25,
+     "mid": 17.2,
+     "high": 999,
+     "market": 15.91,
+     "directLow": 17
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-171",
+  "name": "Crispin",
+  "number": "171",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/171.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/171_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-171",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 39.99,
+     "mid": 49,
+     "high": 999,
+     "market": 42.53,
+     "directLow": 96.95
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-172",
+  "name": "Drayton",
+  "number": "172",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/172.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/172_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-172",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 15.6,
+     "mid": 18.74,
+     "high": 999,
+     "market": 17.33
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-173",
+  "name": "Janine's Secret Art",
+  "number": "173",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/173.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/173_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-173",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 24.62,
+     "mid": 30.81,
+     "high": 9999,
+     "market": 27.01
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-174",
+  "name": "Kieran",
+  "number": "174",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/174.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/174_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-174",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 19,
+     "mid": 22.99,
+     "high": 999,
+     "market": 20.51
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-175",
+  "name": "Lacey",
+  "number": "175",
+  "rarity": "Special Illustration Rare",
+  "supertype": "Trainer",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/175.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/175_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-175",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 28,
+     "mid": 31.19,
+     "high": 999,
+     "market": 28.64
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-176",
+  "name": "Iron Leaves ex",
+  "number": "176",
+  "rarity": "Hyper Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/176.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/176_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-176",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.69,
+     "mid": 6.29,
+     "high": 999,
+     "market": 6.05,
+     "directLow": 6.5
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-177",
+  "name": "Teal Mask Ogerpon ex",
+  "number": "177",
+  "rarity": "Hyper Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/177.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/177_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-177",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 10.79,
+     "mid": 13.36,
+     "high": 4321,
+     "market": 12.72,
+     "directLow": 19.69
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-178",
+  "name": "Walking Wake ex",
+  "number": "178",
+  "rarity": "Hyper Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/178.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/178_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-178",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 6,
+     "mid": 8,
+     "high": 999,
+     "market": 7,
+     "directLow": 6.6
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-179",
+  "name": "Pikachu ex",
+  "number": "179",
+  "rarity": "Hyper Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/179.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/179_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-179",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 71.79,
+     "mid": 82.99,
+     "high": 999,
+     "market": 72.19
+    }
+   }
+  }
+ },
+ {
+  "id": "sv8pt5-180",
+  "name": "Terapagos ex",
+  "number": "180",
+  "rarity": "Hyper Rare",
+  "supertype": "Pokémon",
+  "imageSmall": "https://images.pokemontcg.io/sv8pt5/180.png",
+  "imageLarge": "https://images.pokemontcg.io/sv8pt5/180_hires.png",
+  "variants": {
+   "normal": false,
+   "reverse": false,
+   "holo": true,
+   "pokeball": false,
+   "masterball": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv8pt5-180",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 9.37,
+     "mid": 13.37,
+     "high": 999,
+     "market": 11.71,
+     "directLow": 11.83
+    }
+   }
+  }
+ }
+]

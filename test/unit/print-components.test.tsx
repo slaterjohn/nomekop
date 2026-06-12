@@ -5,7 +5,7 @@ import path from "node:path";
 import { PrintBinder } from "@/components/print/print-binder";
 import { PrintChecklist } from "@/components/print/print-checklist";
 import { PrintPlaceholders } from "@/components/print/print-placeholders";
-import { buildBinderLayout, expandSlots } from "@/lib/layout";
+import { buildBinderLayout, expandOptionsFrom, expandSlots } from "@/lib/layout";
 import { DEFAULT_CONFIG, type BinderConfig } from "@/lib/config";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -33,9 +33,9 @@ describe("PrintBinder", () => {
   it("renders one sheet per binder page with headers and footers", () => {
     const layout = buildBinderLayout(base1Cards, base1Set, config);
     const { container } = render(<PrintBinder set={base1Set} layout={layout} config={config} />);
-    expect(container.querySelectorAll(".print-sheet")).toHaveLength(12);
-    expect(screen.getByText("Page 1/12 · 3×3")).toBeInTheDocument();
-    expect(screen.getByText("Page 12/12 · 3×3")).toBeInTheDocument();
+    expect(container.querySelectorAll(".print-sheet")).toHaveLength(9);
+    expect(screen.getByText("Page 1/9 · 3×4")).toBeInTheDocument();
+    expect(screen.getByText("Page 9/9 · 3×4")).toBeInTheDocument();
   });
 
   it("labels every card and proxies images", () => {
@@ -49,7 +49,7 @@ describe("PrintBinder", () => {
   it("pads the last sheet with dashed empty pockets", () => {
     const layout = buildBinderLayout(base1Cards.slice(0, 7), base1Set, config);
     const { container } = render(<PrintBinder set={base1Set} layout={layout} config={config} />);
-    expect(container.querySelectorAll(".print-slot-empty")).toHaveLength(2);
+    expect(container.querySelectorAll(".print-slot-empty")).toHaveLength(5);
   });
 
   it("retro style flips the typography class", () => {
@@ -63,7 +63,7 @@ describe("PrintBinder", () => {
 
 describe("PrintChecklist", () => {
   it("renders one row per pocket in 28-row sheets", () => {
-    const slots = expandSlots(base1Cards, "standard", true, 102);
+    const slots = expandSlots(base1Cards, expandOptionsFrom(config, base1Set));
     const { container } = render(<PrintChecklist set={base1Set} slots={slots} config={config} />);
     expect(container.querySelectorAll("tbody tr")).toHaveLength(102);
     expect(container.querySelectorAll(".print-sheet")).toHaveLength(Math.ceil(102 / 28));
@@ -73,9 +73,7 @@ describe("PrintChecklist", () => {
   it("master mode adds reverse rows with variant labels", () => {
     const sv1Slots = expandSlots(
       base1Cards.map((c) => ({ ...c, variants: { ...c.variants, reverse: true } })),
-      "master",
-      true,
-      102,
+      expandOptionsFrom({ ...config, mode: "master" }, base1Set),
     );
     const { container } = render(
       <PrintChecklist set={base1Set} slots={sv1Slots} config={{ ...config, mode: "master" }} />,
@@ -87,7 +85,7 @@ describe("PrintChecklist", () => {
 
 describe("PrintPlaceholders", () => {
   it("renders six true-size placeholders per sheet with crop marks", () => {
-    const slots = expandSlots(base1Cards, "standard", true, 102);
+    const slots = expandSlots(base1Cards, expandOptionsFrom(config, base1Set));
     const { container } = render(<PrintPlaceholders set={base1Set} slots={slots} config={config} />);
     expect(container.querySelectorAll(".print-placeholder")).toHaveLength(102);
     expect(container.querySelectorAll(".print-sheet")).toHaveLength(Math.ceil(102 / 6));
