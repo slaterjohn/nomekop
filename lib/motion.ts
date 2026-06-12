@@ -1,13 +1,16 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
+import { MOTION_STORAGE_KEY } from "@/lib/themes";
 
 // In-app "reduce animation" override. Independent of the OS
 // prefers-reduced-motion: this lets a user kill all motion even when their
 // system allows it. Applied as data-reduce-motion="1" on <html>, which a global
 // CSS reset (app/globals.css) keys off to strip every animation/transition.
+// The storage key lives in lib/themes (server-safe) so the pre-paint script can
+// read it; re-exported here for callers already importing from lib/motion.
 
-export const MOTION_STORAGE_KEY = "bindermon:v1:motion";
+export { MOTION_STORAGE_KEY };
 
 const listeners = new Set<() => void>();
 let memoryReduced: boolean | null = null;

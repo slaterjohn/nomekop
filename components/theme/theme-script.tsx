@@ -1,5 +1,4 @@
-import { DEFAULT_THEME, THEME_STORAGE_KEY, THEMES } from "@/lib/themes";
-import { MOTION_STORAGE_KEY } from "@/lib/motion";
+import { DEFAULT_THEME, MOTION_STORAGE_KEY, THEME_STORAGE_KEY, THEMES } from "@/lib/themes";
 
 /**
  * Inline, render-blocking script that applies the persisted theme — and the

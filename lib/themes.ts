@@ -39,6 +39,11 @@ export const DEFAULT_THEME: ThemeId = "dmg";
 
 export const THEME_STORAGE_KEY = "bindermon:v1:theme";
 
+/** "Reduce animation" preference key. Lives here (a server-safe module, not the
+ *  "use client" lib/motion) so the pre-paint ThemeScript can read it — a server
+ *  component only gets `undefined` for values imported from a client module. */
+export const MOTION_STORAGE_KEY = "bindermon:v1:motion";
+
 export function isThemeId(value: unknown): value is ThemeId {
   return typeof value === "string" && THEMES.some((t) => t.id === value);
 }
