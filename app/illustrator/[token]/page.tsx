@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cache } from "react";
+import { Suspense } from "react";
 import { IllustratorBinderView } from "@/components/illustrator/illustrator-binder-view";
+import { BinderSkeleton } from "@/components/binder-skeleton";
 import { BackButton } from "@/components/back-button";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
-import { decodeIllustratorToken, displayNameFromSlug } from "@/lib/illustrator-binder";
+import {
+  decodeIllustratorToken,
+  displayNameFromSlug,
+  type IllustratorBinderOptions,
+} from "@/lib/illustrator-binder";
 import { searchIllustratorCards } from "@/lib/tcg";
 
 export const dynamic = "force-dynamic";
@@ -13,13 +18,6 @@ export const dynamic = "force-dynamic";
 type Props = {
   params: Promise<{ token: string }>;
 };
-
-const loadIllustrator = cache(async (token: string) => {
-  const decoded = decodeIllustratorToken(decodeURIComponent(token));
-  if (!decoded) notFound();
-  const cards = await searchIllustratorCards(decoded.name);
-  return { ...decoded, cards };
-});
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
@@ -33,11 +31,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** The slow part — searches every set for this artist. Isolated so the page
+ *  shell + skeleton stream instantly while it runs. */
+async function IllustratorBinderData({
+  slug,
+  displayName,
+  options,
+}: {
+  slug: string;
+  displayName: string;
+  options: IllustratorBinderOptions;
+}) {
+  const cards = await searchIllustratorCards(slug);
+
+  if (cards.length === 0) {
+    return (
+      <GbDialogBox>
+        WILD MISSINGNO. APPEARED! No cards found for that illustrator. Check the spelling or try
+        another artist.
+      </GbDialogBox>
+    );
+  }
+
+  return (
+    <>
+      <p className="font-body text-xl leading-tight">
+        Every card by {displayName} across {new Set(cards.map((c) => c.setId)).size} sets —{" "}
+        {cards.length} cards found.
+      </p>
+      <IllustratorBinderView
+        slug={slug}
+        displayName={displayName}
+        cards={cards}
+        initialOptions={options}
+      />
+    </>
+  );
+}
+
 /** A binder for every card one illustrator has ever drawn, across all sets. */
 export default async function IllustratorBinderPage({ params }: Props) {
   const { token } = await params;
-  const { name, options, cards } = await loadIllustrator(token);
-  const displayName = displayNameFromSlug(name);
+  const decoded = decodeIllustratorToken(decodeURIComponent(token));
+  if (!decoded) notFound();
+  const displayName = displayNameFromSlug(decoded.name);
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
@@ -57,19 +94,18 @@ export default async function IllustratorBinderPage({ params }: Props) {
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">
         {displayName.toUpperCase()} BINDER
       </h1>
-      <p className="font-body text-xl leading-tight">
-        Every card by {displayName} across {new Set(cards.map((c) => c.setId)).size} sets —{" "}
-        {cards.length} cards found.
-      </p>
 
-      {cards.length === 0 ? (
-        <GbDialogBox>
-          WILD MISSINGNO. APPEARED! No cards found for that illustrator. Check the spelling or try
-          another artist.
-        </GbDialogBox>
-      ) : (
-        <IllustratorBinderView slug={name} displayName={displayName} cards={cards} initialOptions={options} />
-      )}
+      <Suspense
+        fallback={
+          <BinderSkeleton
+            what={`every card by ${displayName}`}
+            rows={decoded.options.rows}
+            cols={decoded.options.cols}
+          />
+        }
+      >
+        <IllustratorBinderData slug={decoded.name} displayName={displayName} options={decoded.options} />
+      </Suspense>
     </main>
   );
 }

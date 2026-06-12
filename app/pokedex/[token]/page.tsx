@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { PokedexView } from "@/components/pokedex/pokedex-view";
+import { BinderSkeleton } from "@/components/binder-skeleton";
 import { BackButton } from "@/components/back-button";
-import { decodePokedexToken, generationById } from "@/lib/pokedex";
+import { decodePokedexToken, generationById, type PokedexConfig } from "@/lib/pokedex";
 import { getPokedexCards } from "@/lib/tcg";
 
 export const dynamic = "force-dynamic";
@@ -26,13 +28,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** The slow part — fetches every card for the generation's dex range. Isolated
+ *  so the page shell + skeleton stream instantly while it runs. */
+async function PokedexData({ config }: { config: PokedexConfig }) {
+  const cards = await getPokedexCards(config.gen);
+  return <PokedexView initialConfig={config} cards={cards} />;
+}
+
 /** The Pokédex binder for one generation, with the user's swaps applied. */
 export default async function PokedexPage({ params }: Props) {
   const { token } = await params;
   const config = decodePokedexToken(decodeURIComponent(token));
   if (!config) notFound();
   const gen = generationById(config.gen)!;
-  const cards = await getPokedexCards(config.gen);
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
@@ -53,7 +61,13 @@ export default async function PokedexPage({ params }: Props) {
         {gen.region.toUpperCase()} POKÉDEX · #{gen.min}–{gen.max}
       </h1>
 
-      <PokedexView initialConfig={config} cards={cards} />
+      <Suspense
+        fallback={
+          <BinderSkeleton what={`the ${gen.region} Pokédex`} rows={config.rows} cols={config.cols} />
+        }
+      >
+        <PokedexData config={config} />
+      </Suspense>
     </main>
   );
 }
