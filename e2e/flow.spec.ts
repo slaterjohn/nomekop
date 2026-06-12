@@ -11,7 +11,7 @@ test("full happy path: choose, configure, master mode, tick, persist", async ({ 
   await expect(page.getByRole("heading", { name: "CHOOSE SET" })).toBeVisible();
 
   await chooseScarletViolet(page);
-  await expect(page).toHaveURL(/set=sv1/);
+  await expect(page).toHaveURL(/\/b\/sv1~34s111ic/);
 
   // default is the 12-pocket binder; CUSTOM reveals the steppers
   await expect(page.getByRole("button", { name: "12 PKT" })).toHaveAttribute("aria-pressed", "true");
@@ -24,7 +24,7 @@ test("full happy path: choose, configure, master mode, tick, persist", async ({ 
   // master mode interleaves reverses: 258 + 186 = 444 pockets over 37 pages
   await page.getByRole("option", { name: /MASTER/ }).click();
   await expect(page.getByText("258 CARDS → 444 POCKETS → 37 PAGES")).toBeVisible();
-  await expect(page).toHaveURL(/mode=master/);
+  await expect(page).toHaveURL(/\/b\/sv1~34m111ic/);
   await expect(page.getByText("REV").first()).toBeVisible();
 
   // flip pages
@@ -102,13 +102,14 @@ test("cards have their own pages with prices; back returns to the builder", asyn
   await expect(page.getByRole("link", { name: /TCGPLAYER/i })).toBeVisible();
 
   await page.getByRole("button", { name: /BACK/ }).click();
-  await expect(page).toHaveURL(/set=sv1/);
+  await expect(page).toHaveURL(/\/b\/sv1~34s111ic/);
   await expect(page.getByRole("heading", { name: "PREVIEW" })).toBeVisible();
 });
 
 test("share links encode the layout into a tidy URL", async ({ page }) => {
   await page.goto("/b/sv8pt5~34m111ic");
-  await expect(page).toHaveURL(/\?set=sv8pt5&mode=master/);
+  // token pages render the builder directly — the tidy URL stays put
+  await expect(page).toHaveURL(/\/b\/sv8pt5~34m111ic/);
   await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
   await expect(page.getByText(/447 POCKETS/)).toBeVisible();
 
@@ -160,11 +161,11 @@ test("Prismatic Evolutions master set offers ball-pattern options", async ({ pag
   // Turning master ball off shrinks the binder
   await page.getByRole("switch", { name: "MASTER BALL" }).click();
   await expect(page.getByText("180 CARDS → 380 POCKETS → 32 PAGES")).toBeVisible();
-  await expect(page).toHaveURL(/mb=0/);
+  await expect(page).toHaveURL(/\/b\/sv8pt5~34m110ic/);
 
   // Placement at end keeps the pocket count, groups ball runs after the set
   await page.getByRole("option", { name: /AT END/ }).click();
-  await expect(page).toHaveURL(/place=end/);
+  await expect(page).toHaveURL(/\/b\/sv8pt5~34m110ec/);
   await expect(page.getByText("180 CARDS → 380 POCKETS → 32 PAGES")).toBeVisible();
 
   // The binder shelf recommends matching 12-pocket Vault X binders

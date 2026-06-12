@@ -10,24 +10,33 @@ import { __resetChecklistStoreForTests } from "@/lib/checklist-store";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 // --- next/navigation mock: a reactive fake router so URL state re-renders ----
+// The hook drives the address bar via history.replaceState (as Next does in
+// production); this mock mirrors that by reading window.location and
+// re-notifying subscribers whenever replaceState runs.
 const nav = vi.hoisted(() => {
-  let search = new URLSearchParams();
   const listeners = new Set<() => void>();
+  let searchCache: { key: string; params: URLSearchParams } | null = null;
   return {
-    get: () => search,
+    listeners,
+    notify: () => listeners.forEach((l) => l()),
     subscribe: (fn: () => void) => {
       listeners.add(fn);
       return () => {
         listeners.delete(fn);
       };
     },
-    replace: vi.fn((url: string) => {
-      search = new URLSearchParams(url.split("?")[1] ?? "");
-      listeners.forEach((l) => l());
-    }),
+    getPathname: () => window.location.pathname,
+    getSearch: () => {
+      const key = window.location.search;
+      if (!searchCache || searchCache.key !== key) {
+        searchCache = { key, params: new URLSearchParams(key) };
+      }
+      return searchCache.params;
+    },
     push: vi.fn(),
     reset: () => {
-      search = new URLSearchParams();
+      window.history.replaceState(null, "", "/");
+      searchCache = null;
     },
   };
 });
@@ -35,11 +44,20 @@ const nav = vi.hoisted(() => {
 vi.mock("next/navigation", async () => {
   const { useSyncExternalStore } = await import("react");
   return {
-    useRouter: () => ({ replace: nav.replace, push: nav.push }),
-    usePathname: () => "/",
-    useSearchParams: () => useSyncExternalStore(nav.subscribe, nav.get, nav.get),
+    useRouter: () => ({ replace: vi.fn(), push: nav.push }),
+    usePathname: () =>
+      useSyncExternalStore(nav.subscribe, nav.getPathname, nav.getPathname),
+    useSearchParams: () =>
+      useSyncExternalStore(nav.subscribe, nav.getSearch, nav.getSearch),
   };
 });
+
+// Mirror Next's history-API sync: replaceState updates the hooks.
+const origReplaceState = window.history.replaceState.bind(window.history);
+window.history.replaceState = ((...args: Parameters<History["replaceState"]>) => {
+  origReplaceState(...args);
+  nav.notify();
+}) as History["replaceState"];
 
 // ------------------------------------------------------------------------------
 
@@ -85,7 +103,6 @@ async function pickScarletViolet(user: ReturnType<typeof userEvent.setup>) {
 
 beforeEach(() => {
   nav.reset();
-  nav.replace.mockClear();
   nav.push.mockClear();
   vi.unstubAllGlobals();
   localStorage.clear();
@@ -106,7 +123,7 @@ describe("Builder", () => {
     renderBuilder();
     await pickScarletViolet(user);
 
-    expect(nav.replace).toHaveBeenCalledWith("/?set=sv1", { scroll: false });
+    expect(window.location.pathname).toBe("/b/sv1~34s111ic");
     expect(await screen.findByRole("heading", { name: "CONFIGURE BINDER" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "PRINT & DOWNLOAD" })).toBeInTheDocument();
