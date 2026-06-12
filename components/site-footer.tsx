@@ -35,6 +35,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/facts" className="no-underline">
+                FUN FACTS
+              </Link>
+            </li>
+            <li>
               <Link href="/legal" className="no-underline">
                 LEGAL &amp; CREDITS
               </Link>

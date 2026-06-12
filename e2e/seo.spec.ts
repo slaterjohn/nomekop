@@ -71,6 +71,40 @@ test("robots.txt and sitemap shards serve correctly", async ({ page }) => {
   expect(await shard.text()).toContain("/card/base1-4");
 });
 
+test("fun-facts: article page, Markdown companion, llms.txt and BlogPosting JSON-LD", async ({
+  page,
+}) => {
+  // Index lists articles and links into them.
+  await page.goto("/facts");
+  await expect(page.getByRole("heading", { level: 1, name: "FUN FACTS" })).toBeVisible();
+  await page.getByRole("link", { name: /first Pikachu card/i }).first().click();
+  await expect(page).toHaveURL(/\/facts\/first-pikachu-card$/);
+  await expect(page.getByRole("heading", { level: 1, name: /first Pikachu card/i })).toBeVisible();
+
+  // BlogPosting structured data is present.
+  const jsonLd = await page.locator('script[type="application/ld+json"]').first().textContent();
+  expect(jsonLd).toContain("BlogPosting");
+
+  // The Markdown companion serves real markdown with attribution.
+  const md = await page.request.get("/facts/first-pikachu-card/markdown");
+  expect(md.status()).toBe(200);
+  expect(md.headers()["content-type"]).toContain("text/markdown");
+  const mdText = await md.text();
+  expect(mdText).toContain("# Which was the first Pikachu card?");
+  expect(mdText).toContain("Source:");
+
+  // llms.txt advertises the content for AI/LLMs.
+  const llms = await page.request.get("/llms.txt");
+  expect(llms.status()).toBe(200);
+  const llmsText = await llms.text();
+  expect(llmsText).toContain("# NOMEKOP");
+  expect(llmsText).toContain("/facts/first-pikachu-card/markdown");
+
+  // The articles are in the sitemap.
+  const core = await page.request.get("/sitemap/core.xml");
+  expect(await core.text()).toContain("/facts/first-pikachu-card");
+});
+
 test("canonicals and noindex flags are in the rendered HTML", async ({ page }) => {
   await page.goto("/card/base1-4");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/card\/base1-4$/);

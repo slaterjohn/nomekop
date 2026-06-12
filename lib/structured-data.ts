@@ -192,3 +192,67 @@ export function setsIndexJsonLd(sets: TcgSet[]): JsonLdObject {
     },
   };
 }
+
+type ArticleMeta = {
+  slug: string;
+  question: string;
+  title: string;
+  description: string;
+  date: string;
+};
+
+/**
+ * For a fun-fact article: a BlogPosting plus a single-question FAQPage. The
+ * headline question is answered visibly on the page (h1 + opening paragraph),
+ * so the FAQ markup mirrors real content — strong for both rich results and
+ * generative-engine (LLM) citation.
+ */
+export function articleJsonLd(article: ArticleMeta): JsonLdObject[] {
+  const url = absolute(`/facts/${article.slug}`);
+  const publisher = { "@type": "Organization", name: SITE_NAME, url: absolute("/") };
+  return [
+    {
+      "@context": CONTEXT,
+      "@type": "BlogPosting",
+      headline: article.title,
+      description: article.description,
+      datePublished: article.date,
+      dateModified: article.date,
+      inLanguage: "en",
+      url,
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      author: publisher,
+      publisher,
+    },
+    {
+      "@context": CONTEXT,
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: article.question,
+          acceptedAnswer: { "@type": "Answer", text: article.description },
+        },
+      ],
+    },
+  ];
+}
+
+/** Blog entity for the /facts index. */
+export function factsCollectionJsonLd(articles: ArticleMeta[]): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "Blog",
+    name: `${SITE_NAME} — Fun Facts`,
+    url: absolute("/facts"),
+    description: "Data-driven Pokémon TCG trivia and fun facts from NOMEKOP.",
+    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    blogPost: articles.map((a) => ({
+      "@type": "BlogPosting",
+      headline: a.title,
+      description: a.description,
+      datePublished: a.date,
+      url: absolute(`/facts/${a.slug}`),
+    })),
+  };
+}

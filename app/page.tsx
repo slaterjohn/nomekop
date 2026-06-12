@@ -1,12 +1,13 @@
 import { HomeTiles } from "@/components/home/home-tiles";
 import { FaqSection } from "@/components/faq-section";
+import { DidYouKnow } from "@/components/did-you-know";
 import { JsonLd } from "@/components/json-ld";
 import { APP_INTRO, FAQ_ENTRIES } from "@/lib/faq";
 import { faqJsonLd, webApplicationJsonLd, webSiteJsonLd } from "@/lib/structured-data";
 
 export const dynamic = "force-dynamic";
 
-/** The hub homepage: hero, binder-type tiles, intro and FAQ (SEO content). */
+/** The hub homepage: hero, binder-type tiles, a rotating fact, intro and FAQ. */
 export default function Home() {
   return (
     <>
@@ -19,6 +20,7 @@ export default function Home() {
           <p className="max-w-3xl font-body text-xl leading-tight sm:text-2xl">{APP_INTRO}</p>
         </section>
         <HomeTiles />
+        <DidYouKnow />
         <FaqSection />
       </main>
     </>

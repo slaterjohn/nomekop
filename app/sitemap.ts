@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
 import { getCards, getSets } from "@/lib/tcg";
 import { GENERATIONS } from "@/lib/pokedex";
+import { ARTICLES } from "@/lib/content/articles";
 
 /** The overview sitemap (home, /sets, every /set/<id>); the other sitemap ids
  *  are set ids, each listing that set's /card/<cardId> pages. Next serves each
@@ -41,6 +42,12 @@ export default async function sitemap(props: {
       { url: `${base}/pokemon`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/illustrator`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/legal`, changeFrequency: "yearly", priority: 0.3 },
+      { url: `${base}/facts`, changeFrequency: "monthly", priority: 0.6 },
+      ...ARTICLES.map((article) => ({
+        url: `${base}/facts/${article.slug}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.5,
+      })),
       // One canonical (default-token) Pokédex per generation.
       ...GENERATIONS.map((gen) => ({
         url: `${base}/pokedex/${gen.id}~34`,
