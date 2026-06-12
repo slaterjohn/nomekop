@@ -9,6 +9,7 @@ import {
 } from "@/lib/tcg/types";
 import { deriveVariants } from "@/lib/tcg/variants";
 import { applyBallPatterns } from "@/lib/tcg/ball-patterns";
+import { isSecretNumber } from "@/lib/tcg/secret";
 
 const BASE = "https://api.pokemontcg.io/v2";
 const PAGE_SIZE = 250;
@@ -208,13 +209,6 @@ function mapCard(c: ApiCard): TcgCard {
     artist: c.artist,
     tcgplayer: mapTcgPlayer(c.tcgplayer),
   };
-}
-
-function isSecretNumber(number: string, printedTotal: number): boolean {
-  const m = /^([A-Za-z]*)(\d+)([a-z]*)$/.exec(number);
-  if (!m) return true; // unparseable → subset/promo numbering
-  if (m[1] !== "") return true; // lettered subset (TG/GG/SV…)
-  return Number.parseInt(m[2]!, 10) > printedTotal;
 }
 
 function mapCardWithSet(c: ApiCard): CardWithSet {

@@ -57,7 +57,15 @@ export class SqliteStore implements CacheStore {
     return this.refresh(key, ttlMs, compute);
   }
 
-  /** Force-write (the daily refresher bypasses freshness checks). */
+  /** Read a stored value ignoring TTL. The cache manager and derived card
+   *  index treat the store as durable state (manifest, per-set cards), not a
+   *  freshness-gated cache, so they bypass expiry. */
+  peek<T>(key: string): T | undefined {
+    const row = this.read(key);
+    return row ? (JSON.parse(row.value) as T) : undefined;
+  }
+
+  /** Force-write (the cache manager bypasses freshness checks). */
   set(key: string, value: unknown, ttlMs: number): void {
     const now = Date.now();
     this.db
