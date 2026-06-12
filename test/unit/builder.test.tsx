@@ -186,6 +186,23 @@ describe("Builder", () => {
     );
   });
 
+  it("clicking a card opens the detail dialog with TCGplayer prices", async () => {
+    mockCardsFetch(sv1Cards);
+    const user = userEvent.setup();
+    renderBuilder();
+    await pickScarletViolet(user);
+    await screen.findByRole("heading", { name: "PREVIEW" });
+
+    await user.click(screen.getByRole("button", { name: /View details: Pineco/ }));
+    const dialog = await screen.findByRole("dialog", { name: "Pineco" });
+    expect(dialog).toBeInTheDocument();
+    expect(screen.getByRole("table", { name: /TCGplayer prices/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /TCGPLAYER/i })).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /close/i }));
+    expect(screen.queryByRole("dialog", { name: "Pineco" })).not.toBeInTheDocument();
+  });
+
   it("full page is axe clean once configured", async () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();

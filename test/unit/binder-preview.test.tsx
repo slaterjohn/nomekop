@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect, beforeAll, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "vitest-axe";
@@ -127,5 +127,45 @@ describe("BinderPreview", () => {
   it("axe clean", async () => {
     const { container } = renderPreview();
     expect(await axe(container)).toHaveNoViolations();
+  });
+
+  describe("card inspection", () => {
+    it("slots become labelled buttons when onInspect is provided", async () => {
+      const user = userEvent.setup();
+      const onInspect = vi.fn();
+      const layout = buildBinderLayout(sv1Cards, sv1Set, { ...DEFAULT_CONFIG, mode: "master" });
+      render(<BinderPreview set={sv1Set} layout={layout} onInspect={onInspect} />);
+      const btn = screen.getByRole("button", { name: "View details: Pineco · 1/198 · Common" });
+      expect(btn.className).toMatch(/w-full/);
+      await user.click(btn);
+      expect(onInspect).toHaveBeenCalledWith(expect.objectContaining({ id: "sv1-1" }), "card");
+    });
+
+    it("reverse pockets report their kind", async () => {
+      const user = userEvent.setup();
+      const onInspect = vi.fn();
+      const layout = buildBinderLayout(sv1Cards, sv1Set, { ...DEFAULT_CONFIG, mode: "master" });
+      render(<BinderPreview set={sv1Set} layout={layout} onInspect={onInspect} />);
+      await user.click(
+        screen.getByRole("button", {
+          name: "View details: Pineco · 1/198 · Common (reverse holo)",
+        }),
+      );
+      expect(onInspect).toHaveBeenCalledWith(expect.objectContaining({ id: "sv1-1" }), "reverse");
+    });
+
+    it("tick mode wins over inspection", () => {
+      const layout = buildBinderLayout(sv1Cards.slice(0, 9), sv1Set, DEFAULT_CONFIG);
+      render(
+        <BinderPreview
+          set={sv1Set}
+          layout={layout}
+          onInspect={vi.fn()}
+          tick={{ isChecked: () => false, toggle: vi.fn() }}
+        />,
+      );
+      expect(screen.getAllByRole("checkbox").length).toBeGreaterThan(0);
+      expect(screen.queryByRole("button", { name: /View details/ })).not.toBeInTheDocument();
+    });
   });
 });

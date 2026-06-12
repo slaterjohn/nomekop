@@ -16,10 +16,12 @@ type CardSlotProps = {
     checked: boolean;
     onToggle: () => void;
   };
+  /** Normal-mode click-through to the card detail view (tick wins). */
+  onInspect?: () => void;
 };
 
 /** One binder pocket: card image (or fallback), number, REV badge, tick mark. */
-export function CardSlot({ slot, set, tick }: CardSlotProps) {
+export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
   const [imageFailed, setImageFailed] = useState(false);
 
   if (slot.kind === "empty") {
@@ -98,6 +100,19 @@ export function CardSlot({ slot, set, tick }: CardSlotProps) {
         // block w-full: a shrink-to-fit button collapses the aspect-ratio
         // face to ~4px (regression: invisible, unclickable tick targets).
         className="block w-full cursor-pointer text-left"
+      >
+        {face}
+      </button>
+    );
+  }
+
+  if (onInspect) {
+    return (
+      <button
+        type="button"
+        aria-label={`View details: ${cardAlt(card.name, card.number, set.printedTotal, card.rarity)}${isReverse ? " (reverse holo)" : ""}`}
+        onClick={onInspect}
+        className="block w-full cursor-pointer text-left motion-safe:transition-transform motion-safe:hover:-translate-y-0.5"
       >
         {face}
       </button>

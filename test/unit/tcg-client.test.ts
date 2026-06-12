@@ -21,7 +21,14 @@ const CARD_JSON = {
   supertype: "Pokémon",
   images: { small: "https://images.pokemontcg.io/sv1/1.png", large: "https://images.pokemontcg.io/sv1/1_hires.png" },
   set: SET_JSON,
-  tcgplayer: { prices: { normal: {}, reverseHolofoil: {} } },
+  tcgplayer: {
+    url: "https://prices.pokemontcg.io/tcgplayer/sv1-1",
+    updatedAt: "2026/06/10",
+    prices: {
+      normal: { low: 0.02, mid: 0.08, high: 1.5, market: 0.05, directLow: 0.03 },
+      reverseHolofoil: { low: 0.05, mid: 0.18, high: 2, market: 0.12, directLow: null },
+    },
+  },
 };
 
 function jsonResponse(body: unknown, status = 200): Response {
@@ -157,6 +164,31 @@ describe("PokemonTcgIoSource.getCards", () => {
     });
     // page-2 secret rare fell back to the heuristic: no reverse
     expect(cards[257]).toMatchObject({ variants: { normal: true, reverse: false } });
+  });
+
+  it("passes through trimmed TCGplayer pricing for the card detail view", async () => {
+    const fetchMock = vi.fn(async (_url: unknown, _init?: RequestInit) =>
+      jsonResponse({ data: [CARD_JSON], totalCount: 1 }),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    const [card] = await new PokemonTcgIoSource({ retries: 0 }).getCards("sv1");
+    expect(card!.tcgplayer).toEqual({
+      url: "https://prices.pokemontcg.io/tcgplayer/sv1-1",
+      updatedAt: "2026/06/10",
+      prices: {
+        normal: { low: 0.02, mid: 0.08, high: 1.5, market: 0.05, directLow: 0.03 },
+        reverseHolofoil: { low: 0.05, mid: 0.18, high: 2, market: 0.12 },
+      },
+    });
+  });
+
+  it("omits tcgplayer when the API has none (2026+ sets)", async () => {
+    const fetchMock = vi.fn(async (_url: unknown, _init?: RequestInit) =>
+      jsonResponse({ data: [{ ...CARD_JSON, tcgplayer: undefined }], totalCount: 1 }),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    const [card] = await new PokemonTcgIoSource({ retries: 0 }).getCards("sv1");
+    expect(card!.tcgplayer).toBeUndefined();
   });
 });
 

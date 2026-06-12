@@ -1,4 +1,11 @@
-import { TcgError, type CardDataSource, type TcgCard, type TcgSet } from "@/lib/tcg/types";
+import {
+  TcgError,
+  type CardDataSource,
+  type PriceRange,
+  type TcgCard,
+  type TcgPlayerInfo,
+  type TcgSet,
+} from "@/lib/tcg/types";
 import { deriveVariants } from "@/lib/tcg/variants";
 
 const BASE = "https://api.pokemontcg.io/v2";
@@ -22,7 +29,11 @@ type ApiCard = {
   supertype?: string;
   images?: { small?: string; large?: string };
   set: ApiSet;
-  tcgplayer?: { prices?: Record<string, unknown> };
+  tcgplayer?: {
+    url?: string;
+    updatedAt?: string;
+    prices?: Record<string, Record<string, unknown>>;
+  };
 };
 
 type Options = {
@@ -154,6 +165,28 @@ function mapCard(c: ApiCard): TcgCard {
       number: c.number,
       rarity: c.rarity,
     }),
+    tcgplayer: mapTcgPlayer(c.tcgplayer),
+  };
+}
+
+const PRICE_FIELDS = ["low", "mid", "high", "market", "directLow"] as const;
+
+/** Trims TCGplayer data to the numbers the detail view shows. */
+function mapTcgPlayer(raw: ApiCard["tcgplayer"]): TcgPlayerInfo | undefined {
+  if (!raw) return undefined;
+  const prices: Record<string, PriceRange> = {};
+  for (const [variant, fields] of Object.entries(raw.prices ?? {})) {
+    const range: PriceRange = {};
+    for (const field of PRICE_FIELDS) {
+      const value = fields?.[field];
+      if (typeof value === "number") range[field] = value;
+    }
+    prices[variant] = range;
+  }
+  return {
+    url: raw.url,
+    updatedAt: raw.updatedAt,
+    prices: Object.keys(prices).length > 0 ? prices : undefined,
   };
 }
 

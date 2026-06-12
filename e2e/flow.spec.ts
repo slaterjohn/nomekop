@@ -74,6 +74,21 @@ test("all three PDFs download with the page counts the engine predicts", async (
   }
 });
 
+test("card detail view shows TCGplayer prices and closes with Escape", async ({ page }) => {
+  await page.goto("/");
+  await chooseScarletViolet(page);
+
+  await page.getByRole("button", { name: /View details: Pineco/ }).click();
+  const dialog = page.getByRole("dialog", { name: "Pineco" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole("table", { name: /TCGplayer prices/i })).toBeVisible();
+  await expect(dialog.getByRole("row", { name: /NORMAL.*\$/ }).first()).toBeVisible();
+  await expect(dialog.getByRole("link", { name: /TCGPLAYER/i })).toBeVisible();
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).not.toBeVisible();
+});
+
 test("invalid PDF requests are rejected", async ({ page }) => {
   const badType = await page.request.post("/api/pdf", {
     data: { type: "novel", config: { set: "base1" } },

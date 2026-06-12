@@ -60,6 +60,24 @@ function deriveVariants(prices, ctx) {
   };
 }
 
+// Mirrors mapTcgPlayer in lib/tcg/pokemontcgio.ts.
+function trimTcgPlayer(raw) {
+  if (!raw) return undefined;
+  const prices = {};
+  for (const [variant, fields] of Object.entries(raw.prices ?? {})) {
+    const range = {};
+    for (const field of ["low", "mid", "high", "market", "directLow"]) {
+      if (typeof fields?.[field] === "number") range[field] = fields[field];
+    }
+    prices[variant] = range;
+  }
+  return {
+    url: raw.url,
+    updatedAt: raw.updatedAt,
+    prices: Object.keys(prices).length > 0 ? prices : undefined,
+  };
+}
+
 function trimCard(c) {
   return {
     id: c.id,
@@ -75,6 +93,7 @@ function trimCard(c) {
       number: c.number,
       rarity: c.rarity,
     }),
+    tcgplayer: trimTcgPlayer(c.tcgplayer),
   };
 }
 

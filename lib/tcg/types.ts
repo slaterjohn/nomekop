@@ -18,6 +18,21 @@ export type Variants = {
   holo: boolean;
 };
 
+export type PriceRange = {
+  low?: number;
+  mid?: number;
+  high?: number;
+  market?: number;
+  directLow?: number;
+};
+
+export type TcgPlayerInfo = {
+  url?: string;
+  updatedAt?: string;
+  /** Keyed by print variant: normal, holofoil, reverseHolofoil, 1stEdition… */
+  prices?: Record<string, PriceRange>;
+};
+
 export type TcgCard = {
   id: string;
   name: string;
@@ -28,6 +43,8 @@ export type TcgCard = {
   imageSmall: string;
   imageLarge: string;
   variants: Variants;
+  /** Absent when the API has no market data (common for 2026+ sets). */
+  tcgplayer?: TcgPlayerInfo;
 };
 
 export interface CardDataSource {

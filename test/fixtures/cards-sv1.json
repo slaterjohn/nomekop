@@ -11,6 +11,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-1",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.06
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.22,
+     "high": 1000.15,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -25,6 +43,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-2",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.09
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 19.86,
+     "market": 0.23
+    }
+   }
   }
  },
  {
@@ -39,6 +75,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-3",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.15,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -53,6 +107,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-4",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.09
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.25,
+     "high": 40,
+     "market": 0.25
+    }
+   }
   }
  },
  {
@@ -67,6 +139,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-5",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.14,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.24,
+     "high": 19.98,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -81,6 +171,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-6",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 1000.19,
+     "market": 0.21
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -95,6 +203,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-7",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.1,
+     "market": 0.12
+    }
+   }
   }
  },
  {
@@ -109,6 +235,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-8",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.15,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -123,6 +268,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-9",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.12
+    }
+   }
   }
  },
  {
@@ -137,6 +300,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-10",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.23,
+     "high": 1000.2,
+     "market": 0.19
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.1
+    }
+   }
   }
  },
  {
@@ -151,6 +332,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-11",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -165,6 +364,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-12",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.13,
+     "directLow": 0.03
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.15,
+     "market": 0.17,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -179,6 +398,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-13",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 1000.22,
+     "market": 0.26,
+     "directLow": 0.13
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.13,
+     "market": 0.18,
+     "directLow": 0.1
+    }
+   }
   }
  },
  {
@@ -193,6 +432,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-14",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 1000.13,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.25,
+     "high": 40,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -207,6 +464,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-15",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.03,
+     "mid": 0.25,
+     "high": 1000.22,
+     "market": 0.23,
+     "directLow": 0.13
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -221,6 +497,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-16",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.22,
+     "high": 25,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.13
+    }
+   }
   }
  },
  {
@@ -235,6 +529,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-17",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.22,
+     "high": 19.98,
+     "market": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.09
+    }
+   }
   }
  },
  {
@@ -249,6 +561,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-18",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.13,
+     "market": 0.12
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 1000.19,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -263,6 +593,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-19",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.25,
+     "mid": 0.99,
+     "high": 999.99,
+     "market": 0.65,
+     "directLow": 0.6
+    }
+   }
   }
  },
  {
@@ -277,6 +620,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-20",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.23,
+     "high": 19.98,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -291,6 +652,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-21",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.13,
+     "market": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.13
+    }
+   }
   }
  },
  {
@@ -305,6 +684,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-22",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.09
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.09
+    }
+   }
   }
  },
  {
@@ -319,6 +716,24 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-23",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.2
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.19,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -333,6 +748,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-24",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.06
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.2,
+     "high": 1000.13,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -347,6 +780,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-25",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 20,
+     "market": 0.07
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -361,6 +812,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-26",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.06
+    },
+    "reverseHolofoil": {
+     "low": 0.06,
+     "mid": 0.22,
+     "high": 25,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -375,6 +844,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-27",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.11,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 25,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -389,6 +877,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-28",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 1000.14,
+     "market": 0.17
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.25,
+     "high": 1000.19,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -403,6 +909,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-29",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 1000.19,
+     "market": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.14,
+     "directLow": 0.03
+    }
+   }
   }
  },
  {
@@ -417,6 +942,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-30",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.26,
+     "high": 5,
+     "market": 0.28
+    },
+    "normal": {
+     "low": 0.03,
+     "mid": 0.16,
+     "high": 1000.15,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -431,6 +974,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-31",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.2,
+     "mid": 0.4,
+     "high": 19.98,
+     "market": 0.38,
+     "directLow": 0.26
+    },
+    "normal": {
+     "low": 0.05,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -445,6 +1007,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-32",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.49,
+     "mid": 1.18,
+     "high": 29.99,
+     "market": 1.15,
+     "directLow": 1.12
+    }
+   }
   }
  },
  {
@@ -459,6 +1034,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-33",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 40,
+     "market": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.04,
+     "market": 0.07
+    }
+   }
   }
  },
  {
@@ -473,6 +1066,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-34",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.2,
+     "high": 1000.14,
+     "market": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.19,
+     "market": 0.17,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -487,6 +1099,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-35",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 19.92,
+     "market": 0.2
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.1
+    }
+   }
   }
  },
  {
@@ -501,6 +1131,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-36",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.15
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.09
+    }
+   }
   }
  },
  {
@@ -515,6 +1163,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-37",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -529,6 +1195,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-38",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.2,
+     "directLow": 0.03
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.25,
+     "high": 3.5,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -543,6 +1228,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-39",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.02,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 25,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -557,6 +1260,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-40",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.24,
+     "high": 19.98,
+     "market": 0.18,
+     "directLow": 0.09
+    }
+   }
   }
  },
  {
@@ -571,6 +1293,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-41",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 50,
+     "market": 0.2
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 1000.18,
+     "market": 0.22,
+     "directLow": 0.08
+    }
+   }
   }
  },
  {
@@ -585,6 +1326,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-42",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.06,
+     "mid": 0.27,
+     "high": 1.87,
+     "market": 0.29,
+     "directLow": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 19.98,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -599,6 +1359,24 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-43",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.14,
+     "mid": 0.45,
+     "high": 19.98,
+     "market": 0.45
+    },
+    "holofoil": {
+     "low": 0.03,
+     "mid": 0.32,
+     "high": 50,
+     "market": 0.31
+    }
+   }
   }
  },
  {
@@ -613,6 +1391,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-44",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.2,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.29,
+     "high": 1000.25,
+     "market": 0.28
+    }
+   }
   }
  },
  {
@@ -627,6 +1423,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-45",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.85,
+     "mid": 2.04,
+     "high": 12.95,
+     "market": 2.04,
+     "directLow": 1.74
+    }
+   }
   }
  },
  {
@@ -641,6 +1450,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-46",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.15,
+     "directLow": 0.04
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.11,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -655,6 +1484,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-47",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.24,
+     "high": 1000.19,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -669,6 +1516,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-48",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.03,
+     "mid": 0.19,
+     "high": 1000.16,
+     "market": 0.13
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.22,
+     "high": 40,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -683,6 +1548,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-49",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.11,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -697,6 +1580,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-50",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 1000.11,
+     "market": 0.1
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.04,
+     "market": 0.04
+    }
+   }
   }
  },
  {
@@ -711,6 +1612,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-51",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.14,
+     "market": 0.14,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 19.98,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -725,6 +1645,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-52",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.13,
+     "market": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.06,
+     "mid": 0.25,
+     "high": 1000.23,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -739,6 +1677,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-53",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.22,
+     "high": 1000.19,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -753,6 +1709,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-54",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.22
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.18,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -767,6 +1742,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-55",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 1000.23,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -781,6 +1774,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-56",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.02,
+     "mid": 0.19,
+     "high": 19.98,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.28,
+     "high": 1000.26,
+     "market": 0.26
+    }
+   }
   }
  },
  {
@@ -795,6 +1806,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-57",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.11
+    }
+   }
   }
  },
  {
@@ -809,6 +1838,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-58",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 19.98,
+     "market": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.07
+    }
+   }
   }
  },
  {
@@ -823,6 +1870,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-59",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.07
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.22
+    }
+   }
   }
  },
  {
@@ -837,6 +1902,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-60",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.06
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.22,
+     "high": 19.82,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -851,6 +1934,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-61",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.19,
+     "market": 0.2,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -865,6 +1967,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-62",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 1000.11,
+     "market": 0.18,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.28,
+     "high": 19.98,
+     "market": 0.28
+    }
+   }
   }
  },
  {
@@ -879,6 +2000,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-63",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.04,
+     "market": 0.09
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -893,6 +2032,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-64",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.19,
+     "directLow": 0.06
+    }
+   }
   }
  },
  {
@@ -907,6 +2065,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-65",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.35,
+     "mid": 0.99,
+     "high": 45,
+     "market": 0.7,
+     "directLow": 0.99
+    }
+   }
   }
  },
  {
@@ -921,6 +2092,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-66",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 1000.2,
+     "market": 0.21,
+     "directLow": 0.06
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.15,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -935,6 +2125,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-67",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 40,
+     "market": 0.23
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 1000.14,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -949,6 +2157,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-68",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -963,6 +2189,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-69",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.19
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -977,6 +2221,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-70",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 1000.21,
+     "market": 0.19
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -991,6 +2253,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-71",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.14,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 20,
+     "market": 0.1
+    }
+   }
   }
  },
  {
@@ -1005,6 +2285,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-72",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 25,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -1019,6 +2317,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-73",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.02,
+     "mid": 0.15,
+     "high": 1000.17,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.24
+    }
+   }
   }
  },
  {
@@ -1033,6 +2349,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-74",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 25,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 19.82,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -1047,6 +2381,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-75",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 40,
+     "market": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -1061,6 +2413,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-76",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 1000.21,
+     "market": 0.2
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 1000.15,
+     "market": 0.14,
+     "directLow": 0.02
+    }
+   }
   }
  },
  {
@@ -1075,6 +2446,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-77",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.11,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 1000.19,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -1089,6 +2479,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-78",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.07
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.22,
+     "high": 25,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -1103,6 +2511,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-79",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 1000.13,
+     "market": 0.13
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.07,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -1117,6 +2544,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-80",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.18,
+     "market": 0.13,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 25,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -1131,6 +2577,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-81",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.1,
+     "mid": 0.89,
+     "high": 19.84,
+     "market": 0.68,
+     "directLow": 0.7
+    }
+   }
   }
  },
  {
@@ -1145,6 +2604,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-82",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.06
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.17,
+     "market": 0.13
+    }
+   }
   }
  },
  {
@@ -1159,6 +2636,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-83",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.09,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.24,
+     "high": 80,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -1173,6 +2669,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-84",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 20,
+     "market": 0.05,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.21,
+     "high": 1000.17,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -1187,6 +2702,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-85",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 25,
+     "market": 0.15
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 1000.11,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -1201,6 +2734,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-86",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.2,
+     "mid": 0.94,
+     "high": 29.95,
+     "market": 0.83,
+     "directLow": 0.99
+    }
+   }
   }
  },
  {
@@ -1215,6 +2761,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-87",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.07,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.19,
+     "market": 0.17,
+     "directLow": 0.1
+    }
+   }
   }
  },
  {
@@ -1229,6 +2795,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-88",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.25,
+     "mid": 0.99,
+     "high": 80,
+     "market": 0.7,
+     "directLow": 0.99
+    }
+   }
   }
  },
  {
@@ -1243,6 +2822,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-89",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 25,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.2,
+     "high": 1000.18,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -1257,6 +2854,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-90",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 1000.21,
+     "market": 0.21
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 20,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -1271,6 +2886,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-91",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.11,
+     "directLow": 0.05
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -1285,6 +2919,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-92",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.09,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -1299,6 +2951,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-93",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.06,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.24,
+     "high": 19.98,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -1313,6 +2984,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-94",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.15,
+     "market": 0.07
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -1327,6 +3016,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-95",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.02,
+     "mid": 0.19,
+     "high": 1000.14,
+     "market": 0.15
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.27,
+     "high": 19.98,
+     "market": 0.29
+    }
+   }
   }
  },
  {
@@ -1341,6 +3048,26 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-96",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.33,
+     "high": 19.74,
+     "market": 0.31,
+     "directLow": 0.2
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.26,
+     "high": 20,
+     "market": 0.25,
+     "directLow": 0.1
+    }
+   }
   }
  },
  {
@@ -1355,6 +3082,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-97",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.22
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 1000.12,
+     "market": 0.07
+    }
+   }
   }
  },
  {
@@ -1369,6 +3114,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-98",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.27,
+     "high": 19.98,
+     "market": 0.25
+    },
+    "normal": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 1000.18,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -1383,6 +3146,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-99",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.22,
+     "market": 0.21
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 1000.14,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -1397,6 +3178,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-100",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 1000.16,
+     "market": 0.22
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -1411,6 +3210,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-101",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.24,
+     "high": 1000.18,
+     "market": 0.15
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.04,
+     "directLow": 0.04
+    }
+   }
   }
  },
  {
@@ -1425,6 +3243,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-102",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.09
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -1439,6 +3275,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-103",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.05,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.06,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -1453,6 +3308,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-104",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.24,
+     "high": 1000.21,
+     "market": 0.15
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.12
+    }
+   }
   }
  },
  {
@@ -1467,6 +3340,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-105",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.23,
+     "high": 1000.18,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -1481,6 +3372,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-106",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.2
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.1,
+     "market": 0.17,
+     "directLow": 0.04
+    }
+   }
   }
  },
  {
@@ -1495,6 +3405,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-107",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.11,
+     "directLow": 0.03
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.17,
+     "market": 0.12,
+     "directLow": 0.03
+    }
+   }
   }
  },
  {
@@ -1509,6 +3439,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-108",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.09,
+     "market": 0.07
+    }
+   }
   }
  },
  {
@@ -1523,6 +3471,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-109",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.16,
+     "market": 0.14,
+     "directLow": 0.07
+    },
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.25,
+     "high": 1.99,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -1537,6 +3504,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-110",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.08,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.12,
+     "market": 0.13
+    }
+   }
   }
  },
  {
@@ -1551,6 +3537,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-111",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.14,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.21,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -1565,6 +3570,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-112",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.21,
+     "market": 0.23
+    },
+    "normal": {
+     "low": 0.02,
+     "mid": 0.19,
+     "high": 1000.18,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -1579,6 +3602,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-113",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 1000.12,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 25,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -1593,6 +3634,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-114",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.3,
+     "high": 40,
+     "market": 0.3,
+     "directLow": 0.14
+    },
+    "normal": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 1000.14,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -1607,6 +3667,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-115",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.2,
+     "market": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.12,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -1621,6 +3700,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-116",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.12
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.22,
+     "high": 1000.18,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -1635,6 +3732,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-117",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.23,
+     "high": 19.98,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.09
+    }
+   }
   }
  },
  {
@@ -1649,6 +3764,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-118",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.03,
+     "mid": 0.29,
+     "high": 22,
+     "market": 0.3,
+     "directLow": 0.22
+    },
+    "reverseHolofoil": {
+     "low": 0.12,
+     "mid": 0.33,
+     "high": 19.98,
+     "market": 0.3
+    }
+   }
   }
  },
  {
@@ -1663,6 +3797,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-119",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.19,
+     "high": 1000.12,
+     "market": 0.12
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.11,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -1677,6 +3830,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-120",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.06,
+     "market": 0.06
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.22,
+     "high": 1000.16,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -1691,6 +3862,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-121",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 1000.12,
+     "market": 0.15
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.26,
+     "high": 25,
+     "market": 0.28
+    }
+   }
   }
  },
  {
@@ -1705,6 +3894,24 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-122",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 1000.13,
+     "market": 0.12
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.25,
+     "high": 1000.19,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -1719,6 +3926,18 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-123",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.25,
+     "mid": 0.99,
+     "high": 19.98,
+     "market": 0.73
+    }
+   }
   }
  },
  {
@@ -1733,6 +3952,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-124",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.17,
+     "high": 1000.15,
+     "market": 0.13,
+     "directLow": 0.03
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.25,
+     "high": 1000.21,
+     "market": 0.23
+    }
+   }
   }
  },
  {
@@ -1747,6 +3985,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-125",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.29,
+     "mid": 0.99,
+     "high": 4321,
+     "market": 0.72,
+     "directLow": 0.99
+    }
+   }
   }
  },
  {
@@ -1761,6 +4012,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-126",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 1000.12,
+     "market": 0.17
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.13,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -1775,6 +4045,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-127",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.15,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.22,
+     "market": 0.22
+    }
+   }
   }
  },
  {
@@ -1789,6 +4077,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-128",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.09
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 40,
+     "market": 0.15
+    }
+   }
   }
  },
  {
@@ -1803,6 +4109,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-129",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.07,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.23,
+     "high": 1000.19,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -1817,6 +4142,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-130",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.09
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.2,
+     "high": 1000.11,
+     "market": 0.11
+    }
+   }
   }
  },
  {
@@ -1831,6 +4174,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-131",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.28,
+     "mid": 0.99,
+     "high": 4321,
+     "market": 0.64,
+     "directLow": 0.6
+    }
+   }
   }
  },
  {
@@ -1845,6 +4201,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-132",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.12,
+     "market": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -1859,6 +4234,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-133",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.08,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -1873,6 +4267,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-134",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.19
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.14,
+     "market": 0.17,
+     "directLow": 0.02
+    }
+   }
   }
  },
  {
@@ -1887,6 +4300,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-135",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.22,
+     "high": 1000.19,
+     "market": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.1
+    }
+   }
   }
  },
  {
@@ -1901,6 +4332,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-136",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.1
+    }
+   }
   }
  },
  {
@@ -1915,6 +4364,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-137",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.06,
+     "mid": 0.23,
+     "high": 40,
+     "market": 0.19
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.08
+    }
+   }
   }
  },
  {
@@ -1929,6 +4396,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-138",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.13,
+     "market": 0.06,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.22,
+     "high": 1000.2,
+     "market": 0.17
+    }
+   }
   }
  },
  {
@@ -1943,6 +4429,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-139",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.09,
+     "mid": 0.23,
+     "high": 19.98,
+     "market": 0.18
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.07
+    }
+   }
   }
  },
  {
@@ -1957,6 +4461,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-140",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.08
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.22,
+     "high": 19.98,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -1971,6 +4493,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-141",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.23,
+     "high": 19.98,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -1985,6 +4525,26 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-142",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.18,
+     "market": 0.16,
+     "directLow": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 10,
+     "market": 0.23,
+     "directLow": 0.09
+    }
+   }
   }
  },
  {
@@ -1999,6 +4559,18 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-143",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.17,
+     "mid": 0.99,
+     "high": 4321,
+     "market": 0.68
+    }
+   }
   }
  },
  {
@@ -2013,6 +4585,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-144",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.14,
+     "market": 0.14
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.21,
+     "high": 19.98,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -2027,6 +4617,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-145",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 1000.11,
+     "market": 0.17,
+     "directLow": 0.07
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 1000.23,
+     "market": 0.25
+    }
+   }
   }
  },
  {
@@ -2041,6 +4650,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-146",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.08,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 1000.09,
+     "market": 0.09
+    }
+   }
   }
  },
  {
@@ -2055,6 +4683,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-147",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.24,
+     "high": 19.98,
+     "market": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 1000.13,
+     "market": 0.14,
+     "directLow": 0.02
+    }
+   }
   }
  },
  {
@@ -2069,6 +4716,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-148",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 1000.19,
+     "market": 0.23
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.2,
+     "market": 0.17,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -2083,6 +4749,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-149",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.14,
+     "market": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.07
+    }
+   }
   }
  },
  {
@@ -2097,6 +4781,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-150",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 25,
+     "market": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.1
+    }
+   }
   }
  },
  {
@@ -2111,6 +4813,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-151",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.23
+    },
+    "normal": {
+     "low": 0.02,
+     "mid": 0.2,
+     "high": 1000.15,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -2125,6 +4845,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-152",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.14
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.24,
+     "high": 1000.22,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -2139,6 +4877,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-153",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 40,
+     "market": 0.22,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.24,
+     "high": 29.95,
+     "market": 0.2
+    }
+   }
   }
  },
  {
@@ -2153,6 +4910,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-154",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.26,
+     "high": 1000.26,
+     "market": 0.24
+    }
+   }
   }
  },
  {
@@ -2167,6 +4942,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-155",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.13,
+     "market": 0.14,
+     "directLow": 0.04
+    },
+    "reverseHolofoil": {
+     "low": 0.04,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.21,
+     "directLow": 0.12
+    }
+   }
   }
  },
  {
@@ -2181,6 +4976,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-156",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.02,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.07,
+     "mid": 0.25,
+     "high": 1000.23,
+     "market": 0.19
+    }
+   }
   }
  },
  {
@@ -2195,6 +5008,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-157",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 19.98,
+     "market": 0.11
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.23,
+     "high": 19.98,
+     "market": 0.18
+    }
+   }
   }
  },
  {
@@ -2209,6 +5040,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-158",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.24,
+     "mid": 0.99,
+     "high": 22,
+     "market": 0.61,
+     "directLow": 0.95
+    }
+   }
   }
  },
  {
@@ -2223,6 +5067,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-159",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.2,
+     "mid": 0.4,
+     "high": 1000.34,
+     "market": 0.41
+    },
+    "normal": {
+     "low": 0.09,
+     "mid": 0.24,
+     "high": 1000.19,
+     "market": 0.22
+    }
+   }
   }
  },
  {
@@ -2237,6 +5099,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-160",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.15,
+     "mid": 0.31,
+     "high": 19.98,
+     "market": 0.31
+    },
+    "normal": {
+     "low": 0.05,
+     "mid": 0.2,
+     "high": 1000.17,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -2251,6 +5131,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-161",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.12,
+     "mid": 0.29,
+     "high": 1000.28,
+     "market": 0.29
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 1000.13,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -2265,6 +5163,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-162",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.12,
+     "market": 0.11,
+     "directLow": 0.02
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.16,
+     "market": 0.19,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -2279,6 +5197,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-163",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.05,
+     "market": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 25,
+     "market": 0.21
+    }
+   }
   }
  },
  {
@@ -2293,6 +5229,25 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-164",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.18
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 1000.13,
+     "market": 0.1,
+     "directLow": 0.02
+    }
+   }
   }
  },
  {
@@ -2307,6 +5262,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-165",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.21
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.14
+    }
+   }
   }
  },
  {
@@ -2321,6 +5294,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-166",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.2,
+     "mid": 0.92,
+     "high": 96.95,
+     "market": 0.73,
+     "directLow": 0.69
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.35,
+     "high": 29.99,
+     "market": 0.29,
+     "directLow": 0.27
+    }
+   }
   }
  },
  {
@@ -2335,6 +5328,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-167",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.27,
+     "high": 19.98,
+     "market": 0.26,
+     "directLow": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.13,
+     "market": 0.13,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -2349,6 +5362,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-168",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.19,
+     "market": 0.13,
+     "directLow": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.29,
+     "high": 2.99,
+     "market": 0.29,
+     "directLow": 0.13
+    }
+   }
   }
  },
  {
@@ -2363,6 +5396,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-169",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.32,
+     "high": 19.98,
+     "market": 0.28,
+     "directLow": 0.24
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 19.98,
+     "market": 0.22,
+     "directLow": 0.1
+    }
+   }
   }
  },
  {
@@ -2377,6 +5430,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-170",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.25,
+     "high": 3.99,
+     "market": 0.25,
+     "directLow": 0.1
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 19.98,
+     "market": 0.13,
+     "directLow": 0.03
+    }
+   }
   }
  },
  {
@@ -2391,6 +5464,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-171",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.04,
+     "mid": 0.24,
+     "high": 19.66,
+     "market": 0.24,
+     "directLow": 0.13
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.23,
+     "directLow": 0.22
+    }
+   }
   }
  },
  {
@@ -2405,6 +5498,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-172",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.29,
+     "high": 1000.27,
+     "market": 0.31,
+     "directLow": 0.24
+    },
+    "normal": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.22,
+     "directLow": 0.19
+    }
+   }
   }
  },
  {
@@ -2419,6 +5532,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-173",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.03,
+     "mid": 0.24,
+     "high": 18.5,
+     "market": 0.2,
+     "directLow": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.3,
+     "high": 6.99,
+     "market": 0.29,
+     "directLow": 0.18
+    }
+   }
   }
  },
  {
@@ -2433,6 +5566,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-174",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 1000.18,
+     "market": 0.23,
+     "directLow": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.34,
+     "high": 1000.34,
+     "market": 0.33,
+     "directLow": 0.15
+    }
+   }
   }
  },
  {
@@ -2447,6 +5600,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-175",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.19,
+     "directLow": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.31,
+     "high": 1000.3,
+     "market": 0.31,
+     "directLow": 0.14
+    }
+   }
   }
  },
  {
@@ -2461,6 +5634,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-176",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.27,
+     "directLow": 0.18
+    },
+    "reverseHolofoil": {
+     "low": 0.08,
+     "mid": 0.34,
+     "high": 1000.31,
+     "market": 0.3,
+     "directLow": 0.36
+    }
+   }
   }
  },
  {
@@ -2475,6 +5668,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-177",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.12,
+     "market": 0.12,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.06,
+     "mid": 0.21,
+     "high": 1000.18,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -2489,6 +5701,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-178",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.15,
+     "market": 0.14,
+     "directLow": 0.02
+    },
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.28,
+     "high": 2,
+     "market": 0.25,
+     "directLow": 0.21
+    }
+   }
   }
  },
  {
@@ -2503,6 +5735,24 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-179",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.18,
+     "high": 1000.15,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.25,
+     "high": 1000.2,
+     "market": 0.24
+    }
+   }
   }
  },
  {
@@ -2517,6 +5767,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-180",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.11,
+     "market": 0.16,
+     "directLow": 0.03
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.08,
+     "market": 0.08,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -2531,6 +5801,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-181",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.19,
+     "mid": 1.01,
+     "high": 18.96,
+     "market": 0.8,
+     "directLow": 0.94
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.26,
+     "high": 22,
+     "market": 0.26,
+     "directLow": 0.17
+    }
+   }
   }
  },
  {
@@ -2545,6 +5835,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-182",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.1,
+     "mid": 0.42,
+     "high": 50,
+     "market": 0.36,
+     "directLow": 0.41
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.26,
+     "high": 19.98,
+     "market": 0.24,
+     "directLow": 0.19
+    }
+   }
   }
  },
  {
@@ -2559,6 +5869,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-183",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.38,
+     "high": 19.62,
+     "market": 0.34,
+     "directLow": 0.37
+    },
+    "normal": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 19.02,
+     "market": 0.23,
+     "directLow": 0.17
+    }
+   }
   }
  },
  {
@@ -2573,6 +5903,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-184",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 19.98,
+     "market": 0.19
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.16,
+     "high": 19.98,
+     "market": 0.09,
+     "directLow": 0.04
+    }
+   }
   }
  },
  {
@@ -2587,6 +5936,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-185",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.14,
+     "market": 0.14
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.16,
+     "market": 0.12,
+     "directLow": 0.03
+    }
+   }
   }
  },
  {
@@ -2601,6 +5969,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-186",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.4,
+     "mid": 1.11,
+     "high": 19.84,
+     "market": 1.17,
+     "directLow": 1.46
+    },
+    "normal": {
+     "low": 0.1,
+     "mid": 0.38,
+     "high": 99,
+     "market": 0.34
+    }
+   }
   }
  },
  {
@@ -2615,6 +6002,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-187",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 2.39,
+     "market": 0.15,
+     "directLow": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.29,
+     "high": 1000.26,
+     "market": 0.29,
+     "directLow": 0.22
+    }
+   }
   }
  },
  {
@@ -2629,6 +6036,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-188",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.09,
+     "market": 0.11
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.1,
+     "market": 0.11,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -2643,6 +6069,26 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-189",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.25,
+     "high": 1000.31,
+     "market": 0.21,
+     "directLow": 0.2
+    },
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.21,
+     "high": 3.01,
+     "market": 0.18,
+     "directLow": 0.05
+    }
+   }
   }
  },
  {
@@ -2657,6 +6103,26 @@
    "normal": false,
    "reverse": true,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-190",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 1000.15,
+     "market": 0.16,
+     "directLow": 0.05
+    },
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.25,
+     "high": 2,
+     "market": 0.22,
+     "directLow": 0.2
+    }
+   }
   }
  },
  {
@@ -2671,6 +6137,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-191",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.03,
+     "mid": 0.27,
+     "high": 2.99,
+     "market": 0.27,
+     "directLow": 0.2
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 99,
+     "market": 0.18,
+     "directLow": 0.1
+    }
+   }
   }
  },
  {
@@ -2685,6 +6171,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-192",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.07,
+     "market": 0.11,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.24,
+     "high": 19.98,
+     "market": 0.23
+    }
+   }
   }
  },
  {
@@ -2699,6 +6204,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-193",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.15,
+     "market": 0.13,
+     "directLow": 0.01
+    },
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.23,
+     "high": 19.98,
+     "market": 0.16
+    }
+   }
   }
  },
  {
@@ -2713,6 +6237,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-194",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.2,
+     "high": 19.98,
+     "market": 0.2,
+     "directLow": 0.1
+    },
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.25,
+     "high": 1000.22,
+     "market": 0.22
+    }
+   }
   }
  },
  {
@@ -2727,6 +6270,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-195",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.02,
+     "mid": 0.22,
+     "high": 18.86,
+     "market": 0.2,
+     "directLow": 0.16
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.11,
+     "market": 0.13,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -2741,6 +6304,25 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-196",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "normal": {
+     "low": 0.01,
+     "mid": 0.22,
+     "high": 19.98,
+     "market": 0.16
+    },
+    "reverseHolofoil": {
+     "low": 0.2,
+     "mid": 1,
+     "high": 17.49,
+     "market": 1.07,
+     "directLow": 0.88
+    }
+   }
   }
  },
  {
@@ -2755,6 +6337,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-197",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.01,
+     "mid": 0.31,
+     "high": 2,
+     "market": 0.32,
+     "directLow": 0.23
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.19,
+     "high": 1000.15,
+     "market": 0.14,
+     "directLow": 0.08
+    }
+   }
   }
  },
  {
@@ -2769,6 +6371,26 @@
    "normal": true,
    "reverse": true,
    "holo": false
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-198",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "reverseHolofoil": {
+     "low": 0.05,
+     "mid": 0.24,
+     "high": 2,
+     "market": 0.17,
+     "directLow": 0.09
+    },
+    "normal": {
+     "low": 0.01,
+     "mid": 0.15,
+     "high": 1000.09,
+     "market": 0.09,
+     "directLow": 0.01
+    }
+   }
   }
  },
  {
@@ -2783,6 +6405,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-199",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 10.46,
+     "mid": 14.57,
+     "high": 500,
+     "market": 12.83,
+     "directLow": 19.26
+    }
+   }
   }
  },
  {
@@ -2797,6 +6432,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-200",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.75,
+     "mid": 7.17,
+     "high": 75,
+     "market": 6.99,
+     "directLow": 4.49
+    }
+   }
   }
  },
  {
@@ -2811,6 +6459,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-201",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.18,
+     "mid": 6.17,
+     "high": 18,
+     "market": 5.51,
+     "directLow": 4.54
+    }
+   }
   }
  },
  {
@@ -2825,6 +6486,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-202",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.5,
+     "mid": 6.41,
+     "high": 14.99,
+     "market": 6.28,
+     "directLow": 9.97
+    }
+   }
   }
  },
  {
@@ -2839,6 +6513,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-203",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 14.91,
+     "mid": 20,
+     "high": 60,
+     "market": 19.1,
+     "directLow": 26.86
+    }
+   }
   }
  },
  {
@@ -2853,6 +6540,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-204",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 41,
+     "mid": 55,
+     "high": 123.45,
+     "market": 46.64,
+     "directLow": 54.98
+    }
+   }
   }
  },
  {
@@ -2867,6 +6567,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-205",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.99,
+     "mid": 8.62,
+     "high": 72.48,
+     "market": 8.47,
+     "directLow": 11
+    }
+   }
   }
  },
  {
@@ -2881,6 +6594,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-206",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 11.5,
+     "mid": 33.98,
+     "high": 150.45,
+     "market": 30.07,
+     "directLow": 29.54
+    }
+   }
   }
  },
  {
@@ -2895,6 +6621,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-207",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 12.71,
+     "mid": 16.39,
+     "high": 29.99,
+     "market": 15.36,
+     "directLow": 14.99
+    }
+   }
   }
  },
  {
@@ -2909,6 +6648,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-208",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 15.76,
+     "mid": 23,
+     "high": 4321,
+     "market": 22.2,
+     "directLow": 28.57
+    }
+   }
   }
  },
  {
@@ -2923,6 +6675,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-209",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 8.5,
+     "mid": 11.05,
+     "high": 140,
+     "market": 10.13,
+     "directLow": 10.86
+    }
+   }
   }
  },
  {
@@ -2937,6 +6702,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-210",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 55,
+     "mid": 75.99,
+     "high": 446.54,
+     "market": 70.93,
+     "directLow": 53.99
+    }
+   }
   }
  },
  {
@@ -2951,6 +6729,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-211",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 44,
+     "mid": 57.94,
+     "high": 304.35,
+     "market": 53.81,
+     "directLow": 48.47
+    }
+   }
   }
  },
  {
@@ -2965,6 +6756,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-212",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 43,
+     "mid": 58,
+     "high": 5000,
+     "market": 51.81,
+     "directLow": 47.86
+    }
+   }
   }
  },
  {
@@ -2979,6 +6783,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-213",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 20,
+     "mid": 31.23,
+     "high": 4321,
+     "market": 28.15,
+     "directLow": 40.37
+    }
+   }
   }
  },
  {
@@ -2993,6 +6810,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-214",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 21.45,
+     "mid": 28.76,
+     "high": 500,
+     "market": 24.97,
+     "directLow": 26.24
+    }
+   }
   }
  },
  {
@@ -3007,6 +6837,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-215",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 36.42,
+     "mid": 47.6,
+     "high": 216.45,
+     "market": 43.29,
+     "directLow": 43.88
+    }
+   }
   }
  },
  {
@@ -3021,6 +6864,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-216",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.24,
+     "mid": 6.33,
+     "high": 52.04,
+     "market": 5.85,
+     "directLow": 5.58
+    }
+   }
   }
  },
  {
@@ -3035,6 +6891,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-217",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4,
+     "mid": 5.61,
+     "high": 101.71,
+     "market": 5.98,
+     "directLow": 6.55
+    }
+   }
   }
  },
  {
@@ -3049,6 +6918,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-218",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 5.38,
+     "mid": 9,
+     "high": 4321,
+     "market": 8.27,
+     "directLow": 7.7
+    }
+   }
   }
  },
  {
@@ -3063,6 +6945,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-219",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.46,
+     "mid": 6,
+     "high": 96.95,
+     "market": 5.68,
+     "directLow": 7.88
+    }
+   }
   }
  },
  {
@@ -3077,6 +6972,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-220",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 7.99,
+     "mid": 11.69,
+     "high": 69.7,
+     "market": 10.8,
+     "directLow": 12.06
+    }
+   }
   }
  },
  {
@@ -3091,6 +6999,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-221",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 11.09,
+     "mid": 16.6,
+     "high": 86.55,
+     "market": 14.42,
+     "directLow": 17.94
+    }
+   }
   }
  },
  {
@@ -3105,6 +7026,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-222",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 5.97,
+     "mid": 8.8,
+     "high": 54.66,
+     "market": 8.34,
+     "directLow": 7.18
+    }
+   }
   }
  },
  {
@@ -3119,6 +7053,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-223",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.6,
+     "mid": 1.32,
+     "high": 20,
+     "market": 0.97,
+     "directLow": 1.09
+    }
+   }
   }
  },
  {
@@ -3133,6 +7080,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-224",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 13.73,
+     "mid": 17.7,
+     "high": 4321,
+     "market": 16.92,
+     "directLow": 17.19
+    }
+   }
   }
  },
  {
@@ -3147,6 +7107,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-225",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 9.75,
+     "mid": 13.98,
+     "high": 4321,
+     "market": 12.58,
+     "directLow": 11.14
+    }
+   }
   }
  },
  {
@@ -3161,6 +7134,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-226",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.8,
+     "mid": 1.66,
+     "high": 20,
+     "market": 1.39,
+     "directLow": 1.63
+    }
+   }
   }
  },
  {
@@ -3175,6 +7161,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-227",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.99,
+     "mid": 3.23,
+     "high": 200,
+     "market": 2.96,
+     "directLow": 2.93
+    }
+   }
   }
  },
  {
@@ -3189,6 +7188,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-228",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3,
+     "mid": 5.14,
+     "high": 39,
+     "market": 4.74,
+     "directLow": 8.44
+    }
+   }
   }
  },
  {
@@ -3203,6 +7215,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-229",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.3,
+     "mid": 2.04,
+     "high": 20,
+     "market": 1.74,
+     "directLow": 2.47
+    }
+   }
   }
  },
  {
@@ -3217,6 +7242,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-230",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.75,
+     "mid": 1.29,
+     "high": 999.99,
+     "market": 1.15,
+     "directLow": 1.21
+    }
+   }
   }
  },
  {
@@ -3231,6 +7269,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-231",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.25,
+     "mid": 2.25,
+     "high": 25,
+     "market": 1.99,
+     "directLow": 1.68
+    }
+   }
   }
  },
  {
@@ -3245,6 +7296,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-232",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.95,
+     "mid": 2,
+     "high": 9.99,
+     "market": 1.76,
+     "directLow": 1.99
+    }
+   }
   }
  },
  {
@@ -3259,6 +7323,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-233",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.68,
+     "mid": 1.3,
+     "high": 50,
+     "market": 1.18,
+     "directLow": 1.4
+    }
+   }
   }
  },
  {
@@ -3273,6 +7350,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-234",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.84,
+     "mid": 1.7,
+     "high": 999.99,
+     "market": 1.52,
+     "directLow": 1.6
+    }
+   }
   }
  },
  {
@@ -3287,6 +7377,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-235",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2.31,
+     "mid": 3.98,
+     "high": 4321,
+     "market": 3.28,
+     "directLow": 3.43
+    }
+   }
   }
  },
  {
@@ -3301,6 +7404,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-236",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.19,
+     "mid": 2.64,
+     "high": 4321,
+     "market": 2.38,
+     "directLow": 2.61
+    }
+   }
   }
  },
  {
@@ -3315,6 +7431,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-237",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.6,
+     "mid": 3,
+     "high": 20,
+     "market": 2.75,
+     "directLow": 2.91
+    }
+   }
   }
  },
  {
@@ -3329,6 +7458,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-238",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.79,
+     "mid": 6.75,
+     "high": 100,
+     "market": 5.81,
+     "directLow": 6.03
+    }
+   }
   }
  },
  {
@@ -3343,6 +7485,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-239",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.45,
+     "mid": 4.99,
+     "high": 4321,
+     "market": 4.68,
+     "directLow": 5
+    }
+   }
   }
  },
  {
@@ -3357,6 +7512,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-240",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 1.5,
+     "mid": 3.44,
+     "high": 75,
+     "market": 2.92,
+     "directLow": 4.33
+    }
+   }
   }
  },
  {
@@ -3371,6 +7539,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-241",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.8,
+     "mid": 1.85,
+     "high": 21,
+     "market": 1.51,
+     "directLow": 1.66
+    }
+   }
   }
  },
  {
@@ -3385,6 +7566,18 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-242",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 0.99,
+     "mid": 1.98,
+     "high": 20,
+     "market": 1.69
+    }
+   }
   }
  },
  {
@@ -3399,6 +7592,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-243",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 8.97,
+     "mid": 12.24,
+     "high": 4321,
+     "market": 10.84,
+     "directLow": 12.88
+    }
+   }
   }
  },
  {
@@ -3413,6 +7619,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-244",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 22,
+     "mid": 29.6,
+     "high": 210.82,
+     "market": 26.49,
+     "directLow": 25
+    }
+   }
   }
  },
  {
@@ -3427,6 +7646,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-245",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 84.99,
+     "mid": 98.79,
+     "high": 300,
+     "market": 89.05,
+     "directLow": 101.87
+    }
+   }
   }
  },
  {
@@ -3441,6 +7673,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-246",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 9.95,
+     "mid": 14.92,
+     "high": 4321,
+     "market": 13.01,
+     "directLow": 13.62
+    }
+   }
   }
  },
  {
@@ -3455,6 +7700,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-247",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 19.99,
+     "mid": 26.98,
+     "high": 164.7,
+     "market": 23.78,
+     "directLow": 24.75
+    }
+   }
   }
  },
  {
@@ -3469,6 +7727,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-248",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4,
+     "mid": 6.3,
+     "high": 99.99,
+     "market": 5.95,
+     "directLow": 6.6
+    }
+   }
   }
  },
  {
@@ -3483,6 +7754,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-249",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4,
+     "mid": 6.03,
+     "high": 68.99,
+     "market": 5.58,
+     "directLow": 5.49
+    }
+   }
   }
  },
  {
@@ -3497,6 +7781,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-250",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.5,
+     "mid": 5.52,
+     "high": 49.99,
+     "market": 5.11,
+     "directLow": 6.55
+    }
+   }
   }
  },
  {
@@ -3511,6 +7808,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-251",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 24.28,
+     "mid": 33.1,
+     "high": 1500,
+     "market": 30.24,
+     "directLow": 31.99
+    }
+   }
   }
  },
  {
@@ -3525,6 +7835,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-252",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4,
+     "mid": 7.44,
+     "high": 4321,
+     "market": 6.76,
+     "directLow": 7.07
+    }
+   }
   }
  },
  {
@@ -3539,6 +7862,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-253",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 5,
+     "mid": 8.43,
+     "high": 96.95,
+     "market": 7.41,
+     "directLow": 8.49
+    }
+   }
   }
  },
  {
@@ -3553,6 +7889,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-254",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 4.68,
+     "mid": 7.85,
+     "high": 54.6,
+     "market": 7.06,
+     "directLow": 7.57
+    }
+   }
   }
  },
  {
@@ -3567,6 +7916,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-255",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 2.6,
+     "mid": 5,
+     "high": 51.86,
+     "market": 4.02,
+     "directLow": 5.04
+    }
+   }
   }
  },
  {
@@ -3581,6 +7943,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-256",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 5.99,
+     "mid": 7.11,
+     "high": 33.7,
+     "market": 6.7,
+     "directLow": 6.99
+    }
+   }
   }
  },
  {
@@ -3595,6 +7970,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-257",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 3.49,
+     "mid": 4.88,
+     "high": 96.84,
+     "market": 4.54,
+     "directLow": 4.89
+    }
+   }
   }
  },
  {
@@ -3609,6 +7997,19 @@
    "normal": false,
    "reverse": false,
    "holo": true
+  },
+  "tcgplayer": {
+   "url": "https://prices.pokemontcg.io/tcgplayer/sv1-258",
+   "updatedAt": "2026/06/12",
+   "prices": {
+    "holofoil": {
+     "low": 6.27,
+     "mid": 8.9,
+     "high": 103.4,
+     "market": 8.63,
+     "directLow": 7.99
+    }
+   }
   }
  }
 ]

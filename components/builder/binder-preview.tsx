@@ -5,7 +5,7 @@ import { GbButton } from "@/components/gb/gb-button";
 import { CardSlot } from "@/components/builder/card-slot";
 import { play } from "@/lib/sound";
 import type { BinderLayout, Page } from "@/lib/layout";
-import type { TcgSet } from "@/lib/tcg/types";
+import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 type TickApi = {
   isChecked: (slotKey: string) => boolean;
@@ -17,6 +17,8 @@ type BinderPreviewProps = {
   layout: BinderLayout;
   /** Optional checklist tick mode (slot keys = cardId:kind). */
   tick?: TickApi;
+  /** Opens the card detail view for a clicked pocket (tick mode wins). */
+  onInspect?: (card: TcgCard, kind: "card" | "reverse") => void;
 };
 
 export function slotKey(cardId: string, kind: "card" | "reverse"): string {
@@ -28,7 +30,7 @@ export function slotKey(cardId: string, kind: "card" | "reverse"): string {
  * d-pad/buttons to flip, a live announcement of the position, and a deal-in
  * animation that respects reduced motion via global CSS.
  */
-export function BinderPreview({ set, layout, tick }: BinderPreviewProps) {
+export function BinderPreview({ set, layout, tick, onInspect }: BinderPreviewProps) {
   const [spreadIndex, setSpreadIndex] = useState(0);
   const spreads = layout.spreads;
   const clamped = Math.min(spreadIndex, Math.max(0, spreads.length - 1));
@@ -103,12 +105,12 @@ export function BinderPreview({ set, layout, tick }: BinderPreviewProps) {
 
       <div key={clamped} data-gb-spread className="flex flex-col gap-4 motion-safe:animate-gb-flip-in sm:flex-row">
         {spread.left ? (
-          <PageGrid page={spread.left} layout={layout} set={set} tick={tick} />
+          <PageGrid page={spread.left} layout={layout} set={set} tick={tick} onInspect={onInspect} />
         ) : (
           <div aria-hidden="true" className="hidden flex-1 sm:block" />
         )}
         {spread.right ? (
-          <PageGrid page={spread.right} layout={layout} set={set} tick={tick} />
+          <PageGrid page={spread.right} layout={layout} set={set} tick={tick} onInspect={onInspect} />
         ) : (
           <div aria-hidden="true" className="hidden flex-1 sm:block" />
         )}
@@ -122,11 +124,13 @@ function PageGrid({
   layout,
   set,
   tick,
+  onInspect,
 }: {
   page: Page;
   layout: BinderLayout;
   set: TcgSet;
   tick?: TickApi;
+  onInspect?: (card: TcgCard, kind: "card" | "reverse") => void;
 }) {
   return (
     <section aria-label={`Page ${page.number}`} className="flex-1">
@@ -147,9 +151,13 @@ function PageGrid({
                   },
                 }
               : undefined;
+          const inspect =
+            !tick && onInspect && slot.kind !== "empty"
+              ? () => onInspect(slot.card, slot.kind)
+              : undefined;
           return (
             <div key={key} className="motion-safe:animate-gb-deal" style={{ animationDelay: `${i * 22}ms` }}>
-              <CardSlot slot={slot} set={set} tick={tickApi} />
+              <CardSlot slot={slot} set={set} tick={tickApi} onInspect={inspect} />
             </div>
           );
         })}

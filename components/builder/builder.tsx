@@ -12,12 +12,13 @@ import { SetSelector } from "@/components/builder/set-selector";
 import { ConfigPanel } from "@/components/builder/config-panel";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { ActionBar } from "@/components/builder/action-bar";
+import { CardDetailDialog } from "@/components/builder/card-detail-dialog";
 import { useCards, useSets } from "@/lib/hooks";
 import { useBinderConfig } from "@/lib/use-binder-config";
 import { useChecklist, clearChecklist } from "@/lib/checklist-store";
 import { buildBinderLayout } from "@/lib/layout";
 import { play } from "@/lib/sound";
-import type { TcgSet } from "@/lib/tcg/types";
+import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 type BuilderProps = {
   initialSets?: TcgSet[];
@@ -29,6 +30,9 @@ export function Builder({ initialSets }: BuilderProps) {
   const sets = useSets(initialSets);
   const cards = useCards(config.set || undefined);
   const [tickMode, setTickMode] = useState(false);
+  const [inspected, setInspected] = useState<{ card: TcgCard; kind: "card" | "reverse" } | null>(
+    null,
+  );
   const checklist = useChecklist(config.set || undefined, config.mode);
 
   const selectedSet = (sets.data ?? []).find((s) => s.id === config.set);
@@ -126,7 +130,15 @@ export function Builder({ initialSets }: BuilderProps) {
                   ) : null}
                 </div>
               </div>
-              <BinderPreview set={selectedSet} layout={layout} tick={tickMode ? checklist : undefined} />
+              <BinderPreview
+                set={selectedSet}
+                layout={layout}
+                tick={tickMode ? checklist : undefined}
+                onInspect={(card, kind) => {
+                  play("confirm");
+                  setInspected({ card, kind });
+                }}
+              />
             </GbScreen>
           </GbWipe>
 
@@ -136,6 +148,18 @@ export function Builder({ initialSets }: BuilderProps) {
             </GbScreen>
           </GbWipe>
         </>
+      ) : null}
+
+      {selectedSet ? (
+        <CardDetailDialog
+          card={inspected?.card ?? null}
+          kind={inspected?.kind ?? null}
+          set={selectedSet}
+          onClose={() => {
+            play("back");
+            setInspected(null);
+          }}
+        />
       ) : null}
     </div>
   );
