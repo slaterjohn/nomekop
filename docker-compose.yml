@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # Optional: raises pokemontcg.io rate limits considerably.
+      POKEMONTCG_API_KEY: ${POKEMONTCG_API_KEY:-}
+      # live (default) or fixture (offline demo: base1 + sv1 only)
+      TCG_DATA_SOURCE: ${TCG_DATA_SOURCE:-live}
+    volumes:
+      - bindermon-cache:/app/.cache
+    restart: unless-stopped
+
+volumes:
+  bindermon-cache:
