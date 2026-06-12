@@ -323,3 +323,8 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Crisp pixel scaling for sprite icons. */
+.image-render-pixel {
+  image-rendering: pixelated;
+}

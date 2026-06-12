@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { TcgError, type CardDataSource, type TcgCard, type TcgSet } from "@/lib/tcg/types";
+import { TcgError, type CardDataSource, type CardWithSet, type TcgCard, type TcgSet } from "@/lib/tcg/types";
 
 const FIXTURE_DIR = path.join(process.cwd(), "test", "fixtures");
 
@@ -29,6 +29,43 @@ export class FixtureSource implements CardDataSource {
       }
       throw err;
     }
+  }
+
+  async searchCardsByName(name: string): Promise<CardWithSet[]> {
+    const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "");
+    const needle = normalize(name);
+    return (await this.allCardsWithSet()).filter((c) => normalize(c.name).includes(needle));
+  }
+
+  async getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]> {
+    return (await this.allCardsWithSet()).filter((c) =>
+      (c.dex ?? []).some((d) => d >= min && d <= max),
+    );
+  }
+
+  /** Fixture mode covers the three captured sets. */
+  private async allCardsWithSet(): Promise<CardWithSet[]> {
+    const sets = await this.getSets();
+    const result: CardWithSet[] = [];
+    for (const setId of ["base1", "sv1", "sv8pt5"]) {
+      const set = sets.find((s) => s.id === setId);
+      if (!set) continue;
+      const cards = await this.getCards(setId);
+      for (const card of cards) {
+        const m = /^([A-Za-z]*)(\d+)([a-z]*)$/.exec(card.number);
+        const secret =
+          m === null || m[1] !== "" || Number.parseInt(m[2]!, 10) > set.printedTotal;
+        result.push({
+          ...card,
+          setId: set.id,
+          setName: set.name,
+          setReleaseDate: set.releaseDate,
+          setPrintedTotal: set.printedTotal,
+          secret,
+        });
+      }
+    }
+    return result;
   }
 
   private async read<T>(file: string): Promise<T> {

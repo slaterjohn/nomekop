@@ -12,6 +12,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   65
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-1",
    "updatedAt": "2026/06/12",
@@ -39,6 +42,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   9
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-2",
    "updatedAt": "2026/06/12",
@@ -66,6 +72,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   113
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-3",
    "updatedAt": "2026/06/12",
@@ -93,6 +102,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   6
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-4",
    "updatedAt": "2026/06/12",
@@ -120,6 +132,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   35
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-5",
    "updatedAt": "2026/06/12",
@@ -147,6 +162,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   130
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-6",
    "updatedAt": "2026/06/12",
@@ -174,6 +192,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   107
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-7",
    "updatedAt": "2026/06/12",
@@ -201,6 +222,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   68
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-8",
    "updatedAt": "2023/03/27"
@@ -219,6 +243,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   82
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-9",
    "updatedAt": "2026/06/12",
@@ -246,6 +273,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   150
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-10",
    "updatedAt": "2026/06/12",
@@ -273,6 +303,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   34
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-11",
    "updatedAt": "2026/06/12",
@@ -300,6 +333,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   38
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-12",
    "updatedAt": "2026/06/12",
@@ -326,6 +362,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   62
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-13",
    "updatedAt": "2026/06/12",
@@ -353,6 +392,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   26
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-14",
    "updatedAt": "2026/06/12",
@@ -380,6 +422,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   3
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-15",
    "updatedAt": "2026/06/12",
@@ -407,6 +452,9 @@
    "reverse": false,
    "holo": true
   },
+  "dex": [
+   145
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-16",
    "updatedAt": "2026/06/12",
@@ -434,6 +482,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   15
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-17",
    "updatedAt": "2026/06/12",
@@ -461,6 +512,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   148
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-18",
    "updatedAt": "2026/06/12",
@@ -488,6 +542,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   51
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-19",
    "updatedAt": "2026/06/12",
@@ -515,6 +572,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   125
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-20",
    "updatedAt": "2026/06/12",
@@ -542,6 +602,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   101
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-21",
    "updatedAt": "2026/06/12",
@@ -569,6 +632,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   17
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-22",
    "updatedAt": "2026/06/12",
@@ -596,6 +662,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   59
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-23",
    "updatedAt": "2026/06/12",
@@ -622,6 +691,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   5
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-24",
    "updatedAt": "2026/06/12",
@@ -649,6 +721,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   87
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-25",
    "updatedAt": "2026/06/12",
@@ -676,6 +751,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   147
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-26",
    "updatedAt": "2026/06/12",
@@ -703,6 +781,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   83
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-27",
    "updatedAt": "2026/06/12",
@@ -730,6 +811,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   58
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-28",
    "updatedAt": "2026/06/12",
@@ -757,6 +841,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   93
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-29",
    "updatedAt": "2026/06/12",
@@ -783,6 +870,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   2
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-30",
    "updatedAt": "2026/06/12",
@@ -810,6 +900,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   124
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-31",
    "updatedAt": "2026/06/12",
@@ -837,6 +930,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   64
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-32",
    "updatedAt": "2026/06/12",
@@ -864,6 +960,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   14
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-33",
    "updatedAt": "2026/06/12",
@@ -891,6 +990,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   67
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-34",
    "updatedAt": "2026/06/12",
@@ -918,6 +1020,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   129
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-35",
    "updatedAt": "2026/06/12",
@@ -945,6 +1050,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   126
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-36",
    "updatedAt": "2026/06/12",
@@ -972,6 +1080,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   33
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-37",
    "updatedAt": "2026/06/12",
@@ -999,6 +1110,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   61
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-38",
    "updatedAt": "2026/06/12",
@@ -1026,6 +1140,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   137
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-39",
    "updatedAt": "2026/06/12",
@@ -1053,6 +1170,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   20
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-40",
    "updatedAt": "2026/06/12",
@@ -1079,6 +1199,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   86
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-41",
    "updatedAt": "2026/06/12",
@@ -1105,6 +1228,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   8
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-42",
    "updatedAt": "2026/06/12",
@@ -1132,6 +1258,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   63
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-43",
    "updatedAt": "2026/06/12",
@@ -1159,6 +1288,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   1
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-44",
    "updatedAt": "2026/06/12",
@@ -1186,6 +1318,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   10
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-45",
    "updatedAt": "2026/06/12",
@@ -1213,6 +1348,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   4
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-46",
    "updatedAt": "2026/06/12",
@@ -1240,6 +1378,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   50
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-47",
    "updatedAt": "2026/06/12",
@@ -1267,6 +1408,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   84
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-48",
    "updatedAt": "2026/06/12",
@@ -1294,6 +1438,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   96
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-49",
    "updatedAt": "2026/06/12",
@@ -1321,6 +1468,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   92
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-50",
    "updatedAt": "2026/06/12",
@@ -1348,6 +1498,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   109
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-51",
    "updatedAt": "2026/06/12",
@@ -1375,6 +1528,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   66
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-52",
    "updatedAt": "2026/06/12",
@@ -1402,6 +1558,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   81
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-53",
    "updatedAt": "2026/06/12",
@@ -1429,6 +1588,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   11
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-54",
    "updatedAt": "2026/06/12",
@@ -1456,6 +1618,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   32
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-55",
    "updatedAt": "2026/06/12",
@@ -1483,6 +1648,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   95
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-56",
    "updatedAt": "2026/06/12",
@@ -1510,6 +1678,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   16
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-57",
    "updatedAt": "2026/06/12",
@@ -1537,6 +1708,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   25
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-58",
    "updatedAt": "2026/06/12",
@@ -1564,6 +1738,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   60
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-59",
    "updatedAt": "2026/06/12",
@@ -1591,6 +1768,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   77
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-60",
    "updatedAt": "2026/06/12",
@@ -1618,6 +1798,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   19
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-61",
    "updatedAt": "2026/06/12",
@@ -1645,6 +1828,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   27
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-62",
    "updatedAt": "2026/06/12",
@@ -1672,6 +1858,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   7
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-63",
    "updatedAt": "2026/06/12",
@@ -1699,6 +1888,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   121
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-64",
    "updatedAt": "2026/06/12",
@@ -1725,6 +1917,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   120
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-65",
    "updatedAt": "2026/06/12",
@@ -1752,6 +1947,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   114
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-66",
    "updatedAt": "2026/06/12",
@@ -1779,6 +1977,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   100
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-67",
    "updatedAt": "2026/06/12",
@@ -1806,6 +2007,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   37
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-68",
    "updatedAt": "2026/06/12",
@@ -1832,6 +2036,9 @@
    "reverse": false,
    "holo": false
   },
+  "dex": [
+   13
+  ],
   "tcgplayer": {
    "url": "https://prices.pokemontcg.io/tcgplayer/base1-69",
    "updatedAt": "2026/06/12",

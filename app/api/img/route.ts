@@ -4,8 +4,20 @@ import path from "node:path";
 import { NextResponse, type NextRequest } from "next/server";
 
 /** Only the official card image CDNs may be proxied (SSRF guard).
- *  pokemontcg.io hosts sets up to 2025; releases from 2026 live on scrydex. */
+ *  pokemontcg.io hosts sets up to 2025; releases from 2026 live on scrydex.
+ *  raw.githubusercontent.com is restricted to the PokeAPI sprites repo
+ *  (pixel Pokédex icons). */
 const ALLOWED_HOSTS = new Set(["images.pokemontcg.io", "images.scrydex.com"]);
+const ALLOWED_PREFIXES: Array<{ host: string; pathPrefix: string }> = [
+  { host: "raw.githubusercontent.com", pathPrefix: "/PokeAPI/sprites/" },
+];
+
+function isAllowed(url: URL): boolean {
+  if (ALLOWED_HOSTS.has(url.hostname)) return true;
+  return ALLOWED_PREFIXES.some(
+    (rule) => rule.host === url.hostname && url.pathname.startsWith(rule.pathPrefix),
+  );
+}
 
 const CACHE_DIR = path.join(process.env.CACHE_DIR ?? path.join(process.cwd(), ".cache"), "img");
 const STUB_PATH = path.join(process.cwd(), "public", "card-stub.png");
@@ -28,7 +40,7 @@ export async function GET(request: NextRequest): Promise<Response> {
   } catch {
     return NextResponse.json({ error: "Invalid src URL." }, { status: 400 });
   }
-  if (url.protocol !== "https:" || !ALLOWED_HOSTS.has(url.hostname)) {
+  if (url.protocol !== "https:" || !isAllowed(url)) {
     return NextResponse.json({ error: "Host not allowed." }, { status: 400 });
   }
 

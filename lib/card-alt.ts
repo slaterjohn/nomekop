@@ -5,5 +5,6 @@ export function cardAlt(
   printedTotal: number,
   rarity?: string,
 ): string {
-  return `${name} · ${number}/${printedTotal}${rarity ? ` · ${rarity}` : ""}`;
+  const denominator = printedTotal > 0 ? `/${printedTotal}` : "";
+  return `${name} · ${number}${denominator}${rarity ? ` · ${rarity}` : ""}`;
 }

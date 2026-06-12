@@ -1,6 +1,7 @@
 import {
   TcgError,
   type CardDataSource,
+  type CardWithSet,
   type PriceRange,
   type TcgCard,
   type TcgPlayerInfo,
@@ -28,6 +29,7 @@ type ApiCard = {
   number: string;
   rarity?: string;
   supertype?: string;
+  nationalPokedexNumbers?: number[];
   images?: { small?: string; large?: string };
   set: ApiSet;
   tcgplayer?: {
@@ -82,6 +84,33 @@ export class PokemonTcgIoSource implements CardDataSource {
       cards.push(...data.map(mapCard));
       const total = typeof body.totalCount === "number" ? body.totalCount : cards.length;
       if (cards.length >= total || data.length === 0) return applyBallPatterns(setId, cards);
+      page += 1;
+    }
+  }
+
+  async searchCardsByName(name: string): Promise<CardWithSet[]> {
+    // Slug separators become wildcards: "mr.-mime" → *mr.*mime* (matches
+    // "Mr. Mime"), "ho-oh" → *ho*oh* (matches "Ho-Oh"). Also matches variants
+    // like "Charizard ex" and "Dark Charizard" by design.
+    const fuzzy = name.replace(/"/g, "").replace(/[\s-]+/g, "*");
+    return this.pagedCardsWithSet(`name:"*${fuzzy}*"`);
+  }
+
+  async getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]> {
+    return this.pagedCardsWithSet(`nationalPokedexNumbers:[${min} TO ${max}]`);
+  }
+
+  private async pagedCardsWithSet(query: string): Promise<CardWithSet[]> {
+    const cards: CardWithSet[] = [];
+    let page = 1;
+    for (;;) {
+      const body = await this.request(
+        `/cards?q=${encodeURIComponent(query)}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=set.releaseDate,number`,
+      );
+      const data = (body.data ?? []) as ApiCard[];
+      cards.push(...data.map(mapCardWithSet));
+      const total = typeof body.totalCount === "number" ? body.totalCount : cards.length;
+      if (cards.length >= total || data.length === 0) return cards;
       page += 1;
     }
   }
@@ -166,7 +195,26 @@ function mapCard(c: ApiCard): TcgCard {
       number: c.number,
       rarity: c.rarity,
     }),
+    dex: c.nationalPokedexNumbers,
     tcgplayer: mapTcgPlayer(c.tcgplayer),
+  };
+}
+
+function isSecretNumber(number: string, printedTotal: number): boolean {
+  const m = /^([A-Za-z]*)(\d+)([a-z]*)$/.exec(number);
+  if (!m) return true; // unparseable → subset/promo numbering
+  if (m[1] !== "") return true; // lettered subset (TG/GG/SV…)
+  return Number.parseInt(m[2]!, 10) > printedTotal;
+}
+
+function mapCardWithSet(c: ApiCard): CardWithSet {
+  return {
+    ...mapCard(c),
+    setId: c.set.id,
+    setName: c.set.name,
+    setReleaseDate: c.set.releaseDate,
+    setPrintedTotal: c.set.printedTotal,
+    secret: isSecretNumber(c.number, c.set.printedTotal),
   };
 }
 

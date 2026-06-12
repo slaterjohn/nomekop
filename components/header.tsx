@@ -35,6 +35,12 @@ export function Header() {
           <Link href="/sets" className="font-pixel text-xs no-underline sm:text-sm">
             SETS
           </Link>
+          <Link href="/pokedex" className="font-pixel text-xs no-underline sm:text-sm">
+            POKÉDEX
+          </Link>
+          <Link href="/pokemon" className="font-pixel text-xs no-underline sm:text-sm">
+            POKÉMON
+          </Link>
           <ThemeSwitcher />
           <GbToggle
             label="SOUND"

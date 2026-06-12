@@ -89,7 +89,7 @@ describe("sitemap (core shard)", () => {
     expect(urls).toContain(`${BASE}/`);
     expect(urls).toContain(`${BASE}/sets`);
     expect(urls.filter((url) => url.includes("/set/"))).toHaveLength(FIXTURE_SET_COUNT);
-    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 2);
+    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 13); // home, /sets, /pokedex, /pokemon + 9 gen tokens
     for (const url of urls) {
       expect(url.startsWith(`${BASE}/`)).toBe(true);
     }

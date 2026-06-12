@@ -78,6 +78,7 @@ test("all three PDFs download with the page counts the engine predicts", async (
   for (const { type, expectedPages } of cases) {
     const res = await page.request.post("/api/pdf", {
       data: { type, config: { set: "base1" } },
+      timeout: 120_000,
     });
     expect(res.status(), `${type} status`).toBe(200);
     expect(res.headers()["content-type"]).toBe("application/pdf");

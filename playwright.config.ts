@@ -4,7 +4,10 @@ export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  // Several specs each drive Puppeteer (p-limit 3 server-side); too many
+  // parallel workers swamp it and PDF renders queue past their timeouts.
+  workers: process.env.CI ? 2 : 3,
+  retries: process.env.CI ? 2 : 1,
   reporter: process.env.CI ? "github" : "list",
   use: {
     baseURL: "http://127.0.0.1:3170",
@@ -30,6 +33,7 @@ export default defineConfig({
       TCG_DATA_SOURCE: "fixture",
       IMG_STUB: "1",
       PORT: "3170",
+      DISABLE_PDF_RATE_LIMIT: "1",
     },
   },
 });

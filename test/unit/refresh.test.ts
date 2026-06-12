@@ -35,6 +35,12 @@ function sourceWith(sets: string[], failing: string[] = []): CardDataSource {
       if (failing.includes(setId)) throw new Error(`boom ${setId}`);
       return [mkCard(setId, 1), mkCard(setId, 2)];
     },
+    async searchCardsByName() {
+      return [];
+    },
+    async getCardsByDexRange() {
+      return [];
+    },
   };
 }
 
@@ -80,6 +86,8 @@ describe("runRefreshAll", () => {
           release = () => resolve([mkSet("aaa")]);
         }),
       getCards: async () => [],
+      searchCardsByName: async () => [],
+      getCardsByDexRange: async () => [],
     };
     const first = runRefreshAll({ source: slowSource, store, paceMs: 0 });
     expect(isRefreshRunning()).toBe(true);

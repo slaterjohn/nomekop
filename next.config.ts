@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.pokemontcg.io" },
       // Sets released 2026+ host images on scrydex.
       { protocol: "https", hostname: "images.scrydex.com" },
+      // Pixel Pokédex icons (PokeAPI sprites repo only).
+      { protocol: "https", hostname: "raw.githubusercontent.com", pathname: "/PokeAPI/sprites/**" },
     ],
   },
 };

@@ -47,13 +47,30 @@ export type TcgCard = {
   imageSmall: string;
   imageLarge: string;
   variants: Variants;
+  /** National Pokédex numbers (absent for Trainers/Energy). */
+  dex?: number[];
   /** Absent when the API has no market data (common for 2026+ sets). */
   tcgplayer?: TcgPlayerInfo;
+};
+
+/** A card carrying its set context — used by cross-set queries
+ *  (Pokémon binders, the Pokédex) where the set isn't implicit. */
+export type CardWithSet = TcgCard & {
+  setId: string;
+  setName: string;
+  setReleaseDate: string;
+  setPrintedTotal: number;
+  /** Numbered beyond the printed total or in a lettered subset. */
+  secret: boolean;
 };
 
 export interface CardDataSource {
   getSets(): Promise<TcgSet[]>;
   getCards(setId: string): Promise<TcgCard[]>;
+  /** All prints whose name contains `name` (case-insensitive). */
+  searchCardsByName(name: string): Promise<CardWithSet[]>;
+  /** All prints for Pokémon in a National Dex number range (inclusive). */
+  getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]>;
 }
 
 export type TcgErrorKind = "timeout" | "http" | "network" | "parse" | "unknown-set";

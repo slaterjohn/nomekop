@@ -9,6 +9,7 @@ import { GbLinkButton } from "@/components/gb/gb-button";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLd, cardProductJsonLd } from "@/lib/structured-data";
 import { getCards, getSets } from "@/lib/tcg";
+import { DEFAULT_POKEMON_OPTIONS, encodePokemonToken } from "@/lib/pokemon-binder";
 import { TcgError } from "@/lib/tcg/types";
 import type { SlotKind } from "@/lib/layout";
 
@@ -105,10 +106,19 @@ export default async function CardPage({ params, searchParams }: Props) {
       </div>
       <GbScreen title={`${card.name} · ${card.number}/${set.printedTotal}${card.rarity ? ` · ${card.rarity.toUpperCase()}` : ""}`}>
         <CardDetailBody card={card} set={set} kind={kind} />
-        <div className="px-4 pb-4">
+        <div className="flex flex-wrap gap-2 px-4 pb-4">
           <GbLinkButton variant="a" size="sm" href={`/?set=${set.id}`}>
             OPEN {set.name.toUpperCase()} IN THE BUILDER
           </GbLinkButton>
+          {card.supertype === "Pokémon" ? (
+            <GbLinkButton
+              variant="b"
+              size="sm"
+              href={`/pokemon/${encodePokemonToken(card.name, DEFAULT_POKEMON_OPTIONS)}`}
+            >
+              ALL {card.name.toUpperCase()} CARDS ▶
+            </GbLinkButton>
+          ) : null}
         </div>
       </GbScreen>
     </main>
