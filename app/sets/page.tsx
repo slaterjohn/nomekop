@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, setsIndexJsonLd } from "@/lib/structured-data";
 import { getSets } from "@/lib/tcg";
 import type { TcgSet } from "@/lib/tcg/types";
 
@@ -44,11 +46,21 @@ function groupBySeries(sets: TcgSet[]): SeriesGroup[] {
 
 /** Crawlable index of every set — each row links to its /set/[setId] hub. */
 export default async function SetsIndexPage() {
-  const groups = groupBySeries(await getSets());
+  const sets = await getSets();
+  const groups = groupBySeries(sets);
   const totalSets = groups.reduce((n, group) => n + group.sets.length, 0);
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
+      <JsonLd
+        data={[
+          setsIndexJsonLd(sets),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Sets", path: "/sets" },
+          ]),
+        ]}
+      />
       <div className="flex flex-wrap items-center gap-3">
         <Link href="/" className="font-pixel text-sm no-underline">
           BINDERMON

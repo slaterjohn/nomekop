@@ -6,6 +6,8 @@ import { CardDetailBody } from "@/components/builder/card-detail-body";
 import { BackButton } from "@/components/back-button";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, cardProductJsonLd } from "@/lib/structured-data";
 import { getCards, getSets } from "@/lib/tcg";
 import { TcgError } from "@/lib/tcg/types";
 import type { SlotKind } from "@/lib/layout";
@@ -79,6 +81,17 @@ export default async function CardPage({ params, searchParams }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
+      <JsonLd
+        data={[
+          cardProductJsonLd(card, set),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Sets", path: "/sets" },
+            { name: set.name, path: `/set/${set.id}` },
+            { name: `${card.name} ${card.number}`, path: `/card/${card.id}` },
+          ]),
+        ]}
+      />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/" className="font-pixel text-sm no-underline">

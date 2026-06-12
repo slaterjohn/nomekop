@@ -5,9 +5,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { GbScreen } from "@/components/gb/gb-screen";
+import { JsonLd } from "@/components/json-ld";
 import { DEFAULT_CONFIG } from "@/lib/config";
 import { buildBinderLayout, sortCards } from "@/lib/layout";
 import { encodeShareToken } from "@/lib/share";
+import { breadcrumbJsonLd, setCollectionJsonLd } from "@/lib/structured-data";
 import { getCards, getSets } from "@/lib/tcg";
 import { TcgError } from "@/lib/tcg/types";
 
@@ -68,6 +70,16 @@ export default async function SetPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
+      <JsonLd
+        data={[
+          setCollectionJsonLd(set, sorted),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Sets", path: "/sets" },
+            { name: set.name, path: `/set/${set.id}` },
+          ]),
+        ]}
+      />
       <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm">
         <Link href="/" className="no-underline">
           BINDERMON
