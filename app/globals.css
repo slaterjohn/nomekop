@@ -97,6 +97,19 @@
     }
   }
 
+  /* Logo intro: the wordmark lands mirrored — NOMEKOP reversed reads POKEMON —
+     then flips round to settle on NOMEKOP. A subtle nod to the name's origin. */
+  --animate-gb-wordmark-flip: gb-wordmark-flip 0.9s ease-out backwards;
+
+  @keyframes gb-wordmark-flip {
+    from {
+      transform: perspective(900px) rotateY(180deg);
+    }
+    to {
+      transform: perspective(900px) rotateY(0deg);
+    }
+  }
+
   @keyframes gb-deal {
     from {
       transform: translateY(6px);

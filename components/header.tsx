@@ -40,16 +40,13 @@ export function Header() {
             aria-label={`${WORDMARK} home`}
             className="inline-flex flex-col items-start border-[3px] border-gb-ink bg-gb-accent px-3 py-1.5 no-underline shadow-[3px_3px_0_0_var(--gb-ink)]"
           >
-            <span className="font-pixel text-base leading-none text-gb-ink sm:text-2xl" aria-hidden="true">
-              {WORDMARK.split("").map((letter, i) => (
-                <span
-                  key={i}
-                  className="inline-block motion-safe:animate-gb-deal"
-                  style={{ animationDelay: `${i * 55}ms` }}
-                >
-                  {letter}
-                </span>
-              ))}
+            {/* Lands mirrored on first load (NOMEKOP reversed ≈ POKEMON), then
+                flips round to settle on the wordmark. */}
+            <span
+              className="inline-block origin-center font-pixel text-base leading-none text-gb-ink motion-safe:animate-gb-wordmark-flip sm:text-2xl"
+              aria-hidden="true"
+            >
+              {WORDMARK}
             </span>
             <span className="mt-1 font-body text-sm leading-none text-gb-ink sm:text-base">
               Pokémon TCG binder maker
