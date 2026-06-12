@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeSwitcher } from "@/components/theme/theme-switcher";
-import { GbToggle } from "@/components/gb/gb-toggle";
-import { useSoundEnabled, play } from "@/lib/sound";
+import { SettingsPanel } from "@/components/settings/settings-panel";
 import { cn } from "@/lib/utils";
 
 const WORDMARK = "NOMEKOP";
@@ -29,7 +27,6 @@ const NAV: Array<{ href: string; label: string; match: (p: string) => boolean }>
 
 /** Title bar: a bounded logo home-link, a clear nav tab row, palette + sound. */
 export function Header() {
-  const { enabled, setEnabled } = useSoundEnabled();
   const pathname = usePathname() ?? "/";
 
   return (
@@ -58,17 +55,7 @@ export function Header() {
               Pokémon TCG binder maker
             </span>
           </Link>
-          <div className="flex flex-wrap items-center gap-3">
-            <ThemeSwitcher />
-            <GbToggle
-              label="SOUND"
-              checked={enabled}
-              onChange={(on) => {
-                setEnabled(on);
-                if (on) play("success");
-              }}
-            />
-          </div>
+          <SettingsPanel />
         </div>
 
         <nav aria-label="Primary" className="-mx-1 overflow-x-auto">

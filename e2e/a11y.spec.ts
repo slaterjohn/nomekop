@@ -2,7 +2,16 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { stubCardImages } from "./helpers";
 
-const THEMES = ["dmg", "pocket", "kanto-red", "cerulean", "high-contrast"] as const;
+const THEMES = [
+  "dmg",
+  "pocket",
+  "kanto-red",
+  "cerulean",
+  "lavender",
+  "flame",
+  "gold",
+  "high-contrast",
+] as const;
 
 for (const theme of THEMES) {
   test(`axe clean in ${theme} (home + configured builder)`, async ({ page }) => {

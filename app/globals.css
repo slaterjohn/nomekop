@@ -223,11 +223,47 @@
   --gb-bg: #e3edf3;
 }
 
+[data-theme="lavender"] {
+  --gb-ink: #1f0a2d;
+  --gb-muted: #4a1f7a;
+  --gb-accent: #b48cd9;
+  --gb-bg: #ede3f3;
+}
+
+[data-theme="flame"] {
+  --gb-ink: #2d1407;
+  --gb-muted: #7a3d1f;
+  --gb-accent: #d9a88c;
+  --gb-bg: #f3e8e3;
+}
+
+[data-theme="gold"] {
+  --gb-ink: #2d2607;
+  --gb-muted: #6e5a16;
+  --gb-accent: #d9c47a;
+  --gb-bg: #f3efe0;
+}
+
 [data-theme="high-contrast"] {
   --gb-ink: #000000;
   --gb-muted: #333333;
   --gb-accent: #cccccc;
   --gb-bg: #ffffff;
+}
+
+/* In-app "reduce animation" override (Settings panel). Strips every animation
+   and transition regardless of the OS prefers-reduced-motion setting — set via
+   data-reduce-motion="1" on <html> (pre-paint by the theme script, live by the
+   toggle). Motion is decoration; this never changes layout or function. */
+[data-reduce-motion="1"] *,
+[data-reduce-motion="1"] *::before,
+[data-reduce-motion="1"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0ms !important;
+  scroll-behavior: auto !important;
 }
 
 /* Map shadcn semantic tokens onto the active GB palette so its components

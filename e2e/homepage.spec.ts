@@ -31,6 +31,30 @@ test("footer legal link reaches the credits page", async ({ page }) => {
   await expect(page.getByRole("link", { name: /pokemontcg\.io/i }).first()).toBeVisible();
 });
 
+test("settings panel: change palette and reduce animation from the header", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByText("SETTINGS")).toBeVisible();
+
+  // Pick the Cerulean palette → <html data-theme> updates.
+  await dialog.getByRole("radio", { name: /CERULEAN palette/i }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "cerulean");
+
+  // Reduce animation → <html data-reduce-motion> is set.
+  await dialog.getByRole("switch", { name: "REDUCE ANIMATION" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-reduce-motion", "1");
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).not.toBeVisible();
+
+  // The preference survives a reload (persisted to localStorage).
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-reduce-motion", "1");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "cerulean");
+});
+
 test("secret arcade unlocks via the Konami code", async ({ page }) => {
   await page.goto("/");
   // ↑ ↑ ↓ ↓ ← → ← → b a
