@@ -26,6 +26,7 @@ import { GbLinkButton } from "@/components/gb/gb-button";
 import { useCards, useSets } from "@/lib/hooks";
 import { useBinderConfig } from "@/lib/use-binder-config";
 import { useChecklist, useCollectionMode, clearChecklist } from "@/lib/checklist-store";
+import { loadSetConfig, saveSetConfig } from "@/lib/config-store";
 import { buildBinderLayout } from "@/lib/layout";
 import { toCollectionCsv } from "@/lib/csv";
 import { play } from "@/lib/sound";
@@ -73,6 +74,11 @@ export function Builder({ initialSets }: BuilderProps) {
   const layout =
     selectedSet && cards.data ? buildBinderLayout(cards.data, selectedSet, config) : undefined;
 
+  // Remember this set's layout choices for next time.
+  useEffect(() => {
+    if (config.set) saveSetConfig(config);
+  }, [config]);
+
   const downloadCsv = () => {
     if (!layout || !selectedSet) return;
     const slots = layout.pages.flatMap((p) => p.slots);
@@ -115,7 +121,8 @@ export function Builder({ initialSets }: BuilderProps) {
             onRetry={() => void sets.refetch()}
             onSelect={(set) => {
               play("confirm");
-              update({ set: set.id });
+              // Restore the layout you used for this set last time.
+              update({ ...(loadSetConfig(set.id) ?? {}), set: set.id });
             }}
           />
         )}

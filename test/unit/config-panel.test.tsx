@@ -106,16 +106,44 @@ describe("ConfigPanel — modes and variants", () => {
     expect(onChange).toHaveBeenCalledWith({ secrets: false });
   });
 
-  it("ball-pattern options hidden for ordinary sets, even in master mode", () => {
+  it("ordinary sets in master mode: no ball toggles, but placement IS offered (reverse holos)", () => {
+    const onChange = vi.fn();
     render(
       <ConfigPanel
         set={sv1Set}
         cards={sv1Cards}
         config={{ ...DEFAULT_CONFIG, set: "sv1", mode: "master" }}
-        onChange={vi.fn()}
+        onChange={onChange}
       />,
     );
     expect(screen.queryByRole("switch", { name: "POKÉ BALL" })).not.toBeInTheDocument();
+    expect(screen.getByRole("listbox", { name: "Variant placement" })).toBeInTheDocument();
+  });
+
+  it("sets without any parallels hide the mode menu entirely (the set IS complete)", async () => {
+    const base1Cards: TcgCard[] = JSON.parse(
+      await readFile(path.join(process.cwd(), "test", "fixtures", "cards-base1.json"), "utf8"),
+    );
+    const base1Set: TcgSet = {
+      id: "base1",
+      name: "Base",
+      series: "Base",
+      printedTotal: 102,
+      total: 102,
+      releaseDate: "1999/01/09",
+      symbolUrl: "",
+      logoUrl: "",
+    };
+    render(
+      <ConfigPanel
+        set={base1Set}
+        cards={base1Cards}
+        config={{ ...DEFAULT_CONFIG, set: "base1" }}
+        onChange={vi.fn()}
+      />,
+    );
+    expect(screen.queryByRole("listbox", { name: "Collection mode" })).not.toBeInTheDocument();
+    expect(screen.getByText(/COMPLETE SET — NO PARALLEL PRINTS/)).toBeInTheDocument();
     expect(screen.queryByRole("listbox", { name: "Variant placement" })).not.toBeInTheDocument();
   });
 

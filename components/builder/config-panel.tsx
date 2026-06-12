@@ -29,7 +29,13 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
   const showSteppers = customOpen || !matchingPreset;
 
   const ballSet = setHasBallPatterns(set.id);
-  const showVariantOptions = config.mode === "master" && ballSet;
+  // No parallel prints (e.g. Base Set) → the master set IS the complete set:
+  // hide the mode choice entirely instead of offering a meaningless toggle.
+  const hasParallels = cards.some(
+    (c) => c.variants.reverse || c.variants.pokeball || c.variants.masterball,
+  );
+  const showBallOptions = config.mode === "master" && ballSet;
+  const showPlacement = config.mode === "master" && hasParallels;
 
   return (
     <div className="flex flex-col gap-4">
@@ -85,27 +91,33 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
       ) : null}
 
       <div className="flex flex-wrap items-start gap-4">
-        <GbMenu
-          label="Collection mode"
-          value={config.mode}
-          onChange={(mode) => onChange({ mode })}
-          options={[
-            { value: "standard", label: "STANDARD", hint: "one pocket per card" },
-            {
-              value: "master",
-              label: "MASTER",
-              hint: ballSet ? "reverses + ball patterns" : "reverse holos interleaved",
-            },
-          ]}
-          className="min-w-64"
-        />
+        {hasParallels ? (
+          <GbMenu
+            label="Collection mode"
+            value={config.mode}
+            onChange={(mode) => onChange({ mode })}
+            options={[
+              { value: "standard", label: "STANDARD", hint: "one pocket per card" },
+              {
+                value: "master",
+                label: "MASTER",
+                hint: ballSet ? "reverses + ball patterns" : "adds reverse holos",
+              },
+            ]}
+            className="min-w-64"
+          />
+        ) : (
+          <p className="border-[3px] border-gb-ink bg-gb-accent/40 px-3 py-2 font-pixel text-[10px] leading-relaxed">
+            COMPLETE SET — NO PARALLEL PRINTS EXIST. ONE POCKET PER CARD.
+          </p>
+        )}
         <div className="flex flex-col gap-1">
           <GbToggle
             label="SECRET RARES"
             checked={config.secrets}
             onChange={(secrets) => onChange({ secrets })}
           />
-          {showVariantOptions ? (
+          {showBallOptions ? (
             <>
               <GbToggle
                 label="POKÉ BALL"
@@ -120,14 +132,14 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
             </>
           ) : null}
         </div>
-        {showVariantOptions ? (
+        {showPlacement ? (
           <GbMenu
             label="Variant placement"
             value={config.place}
             onChange={(place) => onChange({ place })}
             options={[
               { value: "mix", label: "INTERLEAVED", hint: "variants beside each card" },
-              { value: "end", label: "AT END", hint: "ball runs after the main set" },
+              { value: "end", label: "AT END", hint: "variant runs after the main set" },
             ]}
             className="min-w-64"
           />
@@ -141,9 +153,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
             INCL. {stats.byKind.reverse} REVERSE
             {stats.byKind.pokeball > 0 ? ` · ${stats.byKind.pokeball} POKÉ BALL` : ""}
             {stats.byKind.masterball > 0 ? ` · ${stats.byKind.masterball} MASTER BALL` : ""}
-            {config.place === "end" && (stats.byKind.pokeball > 0 || stats.byKind.masterball > 0)
-              ? " — BALL RUNS SIT ON THE FINAL PAGES"
-              : ""}
+            {config.place === "end" ? " — VARIANT RUNS SIT ON THE FINAL PAGES" : ""}
           </span>
         ) : null}
       </p>

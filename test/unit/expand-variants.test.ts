@@ -48,7 +48,7 @@ describe("expandSlots — ball-pattern master sets", () => {
     ]);
   });
 
-  it("master + end placement groups ball runs after the main set", () => {
+  it("master + end placement groups ALL variant runs after the main set (reverses included)", () => {
     const slots = expandSlots(cards, {
       mode: "master",
       includeSecrets: true,
@@ -59,14 +59,30 @@ describe("expandSlots — ball-pattern master sets", () => {
     });
     expect(sig(slots)).toEqual([
       "card:1",
-      "reverse:1",
       "card:2",
-      "reverse:2",
       "card:3",
+      "reverse:1",
+      "reverse:2",
       "pokeball:1",
       "pokeball:2",
       "masterball:1",
     ]);
+  });
+
+  it("reverse-only master set honours end placement", () => {
+    const reverseOnly = [
+      card("1", { variants: { normal: true, reverse: true, holo: false } }),
+      card("2", { variants: { normal: true, reverse: true, holo: false } }),
+    ];
+    const slots = expandSlots(reverseOnly, {
+      mode: "master",
+      includeSecrets: true,
+      includePokeball: true,
+      includeMasterball: true,
+      placement: "end",
+      printedTotal: 102,
+    });
+    expect(sig(slots)).toEqual(["card:1", "card:2", "reverse:1", "reverse:2"]);
   });
 
   it("ball toggles exclude their runs independently", () => {

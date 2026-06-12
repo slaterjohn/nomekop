@@ -39,13 +39,16 @@ export function expandSlots(cards: ReadonlyArray<TcgCard>, options: ExpandOption
   const sorted = sortCards(kept);
 
   const slots: Slot[] = [];
+  const reverseRun: Slot[] = [];
   const pokeballRun: Slot[] = [];
   const masterballRun: Slot[] = [];
 
   for (const card of sorted) {
     slots.push({ kind: "card", card });
     if (mode !== "master") continue;
-    if (card.variants.reverse) slots.push({ kind: "reverse", card });
+    if (card.variants.reverse) {
+      (placement === "interleave" ? slots : reverseRun).push({ kind: "reverse", card });
+    }
     if (includePokeball && card.variants.pokeball) {
       (placement === "interleave" ? slots : pokeballRun).push({ kind: "pokeball", card });
     }
@@ -54,5 +57,5 @@ export function expandSlots(cards: ReadonlyArray<TcgCard>, options: ExpandOption
     }
   }
 
-  return [...slots, ...pokeballRun, ...masterballRun];
+  return [...slots, ...reverseRun, ...pokeballRun, ...masterballRun];
 }

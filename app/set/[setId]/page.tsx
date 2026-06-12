@@ -8,6 +8,8 @@ import { GbScreen } from "@/components/gb/gb-screen";
 import { JsonLd } from "@/components/json-ld";
 import { DEFAULT_CONFIG } from "@/lib/config";
 import { buildBinderLayout, sortCards } from "@/lib/layout";
+import { evaluatePresets, recommendPreset, ZIP_BINDER_PAGES } from "@/lib/binders";
+import { GbBadge } from "@/components/gb/gb-badge";
 import { encodeShareToken } from "@/lib/share";
 import { breadcrumbJsonLd, setCollectionJsonLd } from "@/lib/structured-data";
 import { getCards, getSets } from "@/lib/tcg";
@@ -64,8 +66,23 @@ export default async function SetPage({ params }: Props) {
 
   const standard = buildBinderLayout(cards, set, DEFAULT_CONFIG);
   const master = buildBinderLayout(cards, set, { ...DEFAULT_CONFIG, mode: "master" });
-  const builderHref = `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`;
-  const masterHref = `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode: "master" })}`;
+  // Recommend the layout that best fills one 40-page Vault X zip binder
+  // with the COMPLETE (master) set.
+  const recommended = recommendPreset(master.stats.slots);
+  const fitTable = evaluatePresets(master.stats.slots);
+  const builderHref = `/b/${encodeShareToken({
+    ...DEFAULT_CONFIG,
+    set: set.id,
+    rows: recommended.rows,
+    cols: recommended.cols,
+  })}`;
+  const masterHref = `/b/${encodeShareToken({
+    ...DEFAULT_CONFIG,
+    set: set.id,
+    mode: "master",
+    rows: recommended.rows,
+    cols: recommended.cols,
+  })}`;
   const sorted = sortCards(cards);
 
   return (
@@ -130,6 +147,42 @@ export default async function SetPage({ params }: Props) {
           <p className="font-body text-lg leading-none">
             Page counts for a 12-pocket binder (3×4) — adjust grid, secrets and variants in the
             builder.
+          </p>
+
+          <table className="w-full border-[3px] border-gb-ink" aria-label="Binder fit by size">
+            <thead>
+              <tr className="bg-gb-accent font-pixel text-[9px] uppercase">
+                <th scope="col" className="px-2 py-1.5 text-left">
+                  Binder
+                </th>
+                <th scope="col" className="px-2 py-1.5 text-right">
+                  Master pages
+                </th>
+                <th scope="col" className="px-2 py-1.5 text-right">
+                  Fits one binder?
+                </th>
+              </tr>
+            </thead>
+            <tbody className="font-body text-lg">
+              {fitTable.map((row) => (
+                <tr key={row.label} className="border-t-2 border-gb-ink/30">
+                  <td className="px-2 py-1.5">
+                    {row.label} ({row.rows}×{row.cols})
+                    {row.label === recommended.label ? (
+                      <GbBadge className="ml-2">RECOMMENDED</GbBadge>
+                    ) : null}
+                  </td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{row.pages}</td>
+                  <td className="px-2 py-1.5 text-right">
+                    {row.fits ? `yes — ${row.pages}/${ZIP_BINDER_PAGES} pages` : `needs ${row.binders} binders`}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="font-body text-base leading-snug">
+            Fit assumes a Vault X Exo-Tec zip binder (20 double-sided sleeves = {ZIP_BINDER_PAGES}{" "}
+            pages); the recommendation best fills a single binder with the complete master set.
           </p>
           <div className="flex flex-wrap gap-2">
             <GbLinkButton variant="a" href={builderHref}>

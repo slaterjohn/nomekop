@@ -6,6 +6,7 @@ import path from "node:path";
 import SetsIndexPage from "@/app/sets/page";
 import SetPage, { generateMetadata } from "@/app/set/[setId]/page";
 import { DEFAULT_CONFIG } from "@/lib/config";
+import { recommendPreset } from "@/lib/binders";
 import { encodeShareToken } from "@/lib/share";
 import type { TcgSet } from "@/lib/tcg/types";
 
@@ -72,20 +73,23 @@ describe("SetPage (/set/[setId])", () => {
     expect(screen.getByText(/Base · 1999 · 102 printed \/ 102 total cards/)).toBeInTheDocument();
   });
 
-  it("links both builder buttons to share-token URLs", async () => {
+  it("links both builder buttons to share-token URLs using the recommended grid", async () => {
     await renderBase1();
     const standard = screen.getByRole("link", { name: "OPEN IN BINDER BUILDER" });
     const master = screen.getByRole("link", { name: "MASTER SET LAYOUT" });
+    // base1's 102-card master set best fills a 40-page zip binder at 4 PKT (2×2).
+    const rec = recommendPreset(102);
+    expect(rec.label).toBe("4 PKT");
     expect(standard).toHaveAttribute(
       "href",
-      `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: "base1" })}`,
+      `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: "base1", rows: rec.rows, cols: rec.cols })}`,
     );
     expect(master).toHaveAttribute(
       "href",
-      `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: "base1", mode: "master" })}`,
+      `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: "base1", mode: "master", rows: rec.rows, cols: rec.cols })}`,
     );
-    expect(standard.getAttribute("href")).toMatch(/^\/b\/base1~/);
-    expect(master.getAttribute("href")).toMatch(/^\/b\/base1~/);
+    expect(screen.getByText("RECOMMENDED")).toBeInTheDocument();
+    expect(screen.getByRole("table", { name: /Binder fit/i })).toBeInTheDocument();
   });
 
   it("404s malformed and unknown set ids", async () => {
