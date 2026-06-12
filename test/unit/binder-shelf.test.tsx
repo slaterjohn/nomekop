@@ -43,7 +43,7 @@ describe("BinderShelf", () => {
     render(<BinderShelf pockets={9} pages={12} />);
     const amazon = screen.getAllByRole("link", { name: /AMAZON/ })[0]!;
     expect(amazon.getAttribute("href")).toContain("tag=bindermon-21");
-    expect(screen.getByText(/may earn Bindermon a small commission/)).toBeInTheDocument();
+    expect(screen.getByText(/may earn Nomekop a small commission/)).toBeInTheDocument();
   });
 
   it("plain links + honest disclosure without affiliate config", () => {

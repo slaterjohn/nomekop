@@ -12,7 +12,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
   const config = decodeShareToken(decodeURIComponent(token));
-  if (!config) return { title: "Bindermon" };
+  if (!config) return { title: "Nomekop" };
   return {
     title: `${config.set} binder layout (${config.rows}×${config.cols}, ${config.mode})`,
     // Token URLs are infinite configuration permutations — keep them out of

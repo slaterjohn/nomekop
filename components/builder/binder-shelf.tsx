@@ -61,8 +61,8 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
       </ul>
       <p className="font-body text-base">
         {hasAffiliateLinks()
-          ? "Links may earn Bindermon a small commission at no cost to you."
-          : "Bindermon is not affiliated with Vault X; links are plain searches."}
+          ? "Links may earn Nomekop a small commission at no cost to you."
+          : "Nomekop is not affiliated with Vault X; links are plain searches."}
       </p>
     </div>
   );

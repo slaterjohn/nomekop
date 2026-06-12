@@ -44,7 +44,7 @@ export async function BuilderShell() {
       </main>
       <GbKbdHint />
       <footer className="border-t-4 border-gb-ink px-4 py-3 text-center font-pixel text-[10px]">
-        BINDERMON · NOT AFFILIATED WITH NINTENDO / THE POKEMON COMPANY
+        NOMEKOP · NOT AFFILIATED WITH NINTENDO / THE POKEMON COMPANY
       </footer>
       <Toaster position="bottom-center" />
     </>

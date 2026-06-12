@@ -35,7 +35,7 @@ describe("siteUrl", () => {
 
 describe("site identity", () => {
   it("has a name and a meta-description-sized description", () => {
-    expect(SITE_NAME).toBe("Bindermon");
+    expect(SITE_NAME).toBe("Nomekop");
     expect(SITE_DESCRIPTION.length).toBeGreaterThan(100);
     expect(SITE_DESCRIPTION.length).toBeLessThanOrEqual(160);
   });

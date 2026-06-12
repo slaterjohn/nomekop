@@ -10,7 +10,7 @@ import { APP_INTRO, FAQ_ENTRIES } from "@/lib/faq";
 export function FaqSection() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 pb-10">
-      <GbScreen title="HOW BINDERMON WORKS">
+      <GbScreen title="HOW NOMEKOP WORKS">
         <p className="font-body text-xl leading-relaxed">{APP_INTRO}</p>
 
         <h3 className="mt-6 border-b-2 border-gb-ink pb-2 font-pixel text-xs">FAQ</h3>

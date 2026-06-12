@@ -61,7 +61,7 @@ export function PrintPokedex({ gen, entries, rows, cols, view }: PrintPokedexPro
               })}
             </div>
             <footer className="print-sheet-footer">
-              <span>Bindermon Pokédex</span>
+              <span>Nomekop Pokédex</span>
               <span>cut along the dashed lines</span>
             </footer>
           </section>
@@ -121,7 +121,7 @@ export function PrintPokedex({ gen, entries, rows, cols, view }: PrintPokedexPro
             ))}
           </div>
           <footer className="print-sheet-footer">
-            <span>Bindermon Pokédex</span>
+            <span>Nomekop Pokédex</span>
             <span>
               {gen.label} · {gen.region}
             </span>

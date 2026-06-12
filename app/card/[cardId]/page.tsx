@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const price = typeof market === "number" ? `$${market.toFixed(2)}` : null;
 
   const baseTitle = `${card.name} ${card.number}/${set.printedTotal} · ${set.name}`;
-  // The layout template appends " — Bindermon"; skip the tagline for long names.
+  // The layout template appends " — Nomekop"; skip the tagline for long names.
   const title = baseTitle.length > 40 ? baseTitle : `${baseTitle} — price & binder placement`;
   const description =
     `${card.name} ${card.number}/${set.printedTotal} from the ${set.name} set` +
@@ -96,7 +96,7 @@ export default async function CardPage({ params, searchParams }: Props) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/" className="font-pixel text-sm no-underline">
-            BINDERMON
+            NOMEKOP
           </Link>
           <Link href={`/set/${set.id}`} className="font-pixel text-sm no-underline">
             {set.name.toUpperCase()} <span aria-hidden="true">▶</span>

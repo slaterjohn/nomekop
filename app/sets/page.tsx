@@ -63,7 +63,7 @@ export default async function SetsIndexPage() {
       />
       <div className="flex flex-wrap items-center gap-3">
         <Link href="/" className="font-pixel text-sm no-underline">
-          BINDERMON
+          NOMEKOP
         </Link>
       </div>
 

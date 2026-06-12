@@ -5,7 +5,7 @@ import { PrintBinder } from "@/components/print/print-binder";
 import { buildBinderLayout } from "@/lib/layout";
 
 export const metadata: Metadata = {
-  title: "Binder pages — Bindermon",
+  title: "Binder pages — Nomekop",
   // Machine-rendered print view (puppeteer/print dialog) — keep out of search.
   robots: { index: false, follow: false },
 };

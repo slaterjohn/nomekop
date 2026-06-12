@@ -223,7 +223,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
             { label: "PLACEHOLDERS PDF", type: "pokedex-placeholders", token },
           ]}
           printHref={`/print/pokedex?t=${encodeURIComponent(token)}`}
-          filenameBase={`bindermon-pokedex-${config.gen}`}
+          filenameBase={`nomekop-pokedex-${config.gen}`}
         />
         <p className="mt-2 font-body text-base leading-snug">
           Placeholder sheets use matching pixel icons (#1–898; later Pokémon get a Poké Ball

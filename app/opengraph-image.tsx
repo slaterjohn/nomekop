@@ -5,7 +5,7 @@ const INK = "#0f380f";
 const ACCENT = "#8bac0f";
 const BG = "#9bbc0f";
 
-export const alt = "Bindermon — Pokemon TCG binder layout maker";
+export const alt = "Nomekop — Pokemon TCG binder layout maker";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -85,7 +85,7 @@ export default async function Image() {
               color: INK,
             }}
           >
-            BINDERMON
+            NOMEKOP
           </div>
           <div style={{ fontSize: 30, letterSpacing: 2, color: INK }}>
             Pokemon TCG binder layouts, checklists &amp; printables

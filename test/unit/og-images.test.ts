@@ -54,7 +54,7 @@ describe("og image config exports", () => {
   }
 
   it("home alt names the site", () => {
-    expect(homeImage.alt).toBe("Bindermon — Pokemon TCG binder layout maker");
+    expect(homeImage.alt).toBe("Nomekop — Pokemon TCG binder layout maker");
   });
 });
 

@@ -99,7 +99,7 @@ export default async function SetPage({ params }: Props) {
       />
       <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm">
         <Link href="/" className="no-underline">
-          BINDERMON
+          NOMEKOP
         </Link>
         <span aria-hidden="true">▶</span>
         <Link href="/sets" className="no-underline">

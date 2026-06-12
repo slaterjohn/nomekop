@@ -44,7 +44,7 @@ export default async function PokemonBinderPage({ params }: Props) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3 font-pixel text-sm">
           <Link href="/" className="no-underline">
-            BINDERMON
+            NOMEKOP
           </Link>
           <span aria-hidden="true">▶</span>
           <Link href="/pokemon" className="no-underline">

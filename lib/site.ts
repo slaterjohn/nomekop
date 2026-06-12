@@ -1,6 +1,6 @@
 /** Site-wide identity constants shared by metadata, robots and sitemaps. */
 
-export const SITE_NAME = "Bindermon";
+export const SITE_NAME = "Nomekop";
 
 /** ~155 chars — used for the meta description, Open Graph and Twitter cards. */
 export const SITE_DESCRIPTION =

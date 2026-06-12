@@ -17,7 +17,7 @@ export default function PokedexLandingPage() {
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
       <nav className="flex flex-wrap items-center gap-3 font-pixel text-sm" aria-label="Breadcrumb">
         <Link href="/" className="no-underline">
-          BINDERMON
+          NOMEKOP
         </Link>
       </nav>
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">POKÉDEX BINDERS</h1>

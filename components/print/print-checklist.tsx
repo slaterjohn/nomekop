@@ -78,7 +78,7 @@ export function PrintChecklist({ set, slots, config }: PrintChecklistProps) {
             </tbody>
           </table>
           <footer className="print-sheet-footer">
-            <span>Bindermon</span>
+            <span>Nomekop</span>
             <span>
               {set.id} · {rows.length} pockets
             </span>

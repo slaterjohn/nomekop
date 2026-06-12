@@ -1,4 +1,4 @@
-# Bindermon
+# Nomekop
 
 Pokemon TCG binder layouts, checklists and printables — wrapped in an original
 Game Boy aesthetic.
@@ -109,5 +109,5 @@ runs offline and deterministically.
 ## Credits
 
 Card data and images from the [Pokemon TCG API](https://pokemontcg.io).
-Bindermon is a fan-made tool, not affiliated with Nintendo, Game Freak or The
+Nomekop is a fan-made tool, not affiliated with Nintendo, Game Freak or The
 Pokemon Company.

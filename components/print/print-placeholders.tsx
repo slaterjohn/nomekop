@@ -54,7 +54,7 @@ export function PrintPlaceholders({ set, slots, config }: PrintPlaceholdersProps
             })}
           </div>
           <footer className="print-sheet-footer">
-            <span>Bindermon</span>
+            <span>Nomekop</span>
             <span>cut along the dashed lines</span>
           </footer>
         </section>

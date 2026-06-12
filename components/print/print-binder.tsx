@@ -75,7 +75,7 @@ export function PrintBinder({ set, layout, config }: PrintBinderProps) {
             })}
           </div>
           <footer className="print-sheet-footer">
-            <span>Bindermon</span>
+            <span>Nomekop</span>
             <span>
               {set.id} · {config.mode} · secrets {config.secrets ? "on" : "off"}
             </span>

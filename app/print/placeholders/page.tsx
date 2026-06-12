@@ -5,7 +5,7 @@ import { PrintPlaceholders } from "@/components/print/print-placeholders";
 import { expandOptionsFrom, expandSlots } from "@/lib/layout";
 
 export const metadata: Metadata = {
-  title: "Placeholders — Bindermon",
+  title: "Placeholders — Nomekop",
   // Machine-rendered print view (puppeteer/print dialog) — keep out of search.
   robots: { index: false, follow: false },
 };

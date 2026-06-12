@@ -6,7 +6,7 @@ import { buildPokedexEntries, decodePokedexToken, generationById } from "@/lib/p
 import { getPokedexCards } from "@/lib/tcg";
 
 export const metadata: Metadata = {
-  title: "Pokédex print — Bindermon",
+  title: "Pokédex print — Nomekop",
   robots: { index: false, follow: false },
 };
 

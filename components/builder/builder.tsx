@@ -86,7 +86,7 @@ export function Builder({ initialSets }: BuilderProps) {
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `bindermon-${selectedSet.id}-${config.mode}-collection.csv`;
+    a.download = `nomekop-${selectedSet.id}-${config.mode}-collection.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();

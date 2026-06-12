@@ -10,12 +10,12 @@ const BG = "#9bbc0f";
 
 // The og:image:alt file-convention export is a static string (per-card text
 // would need generateImageMetadata); keep it descriptive of the route.
-export const alt = "Pokemon TCG card — Bindermon";
+export const alt = "Pokemon TCG card — Nomekop";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /** Shared DMG frame: green screen, chunky ink border, accent inner border and
- *  a small BINDERMON wordmark pinned bottom-right. */
+ *  a small NOMEKOP wordmark pinned bottom-right. */
 function frame(children: ReactNode) {
   return (
     <div
@@ -48,7 +48,7 @@ function frame(children: ReactNode) {
             color: INK,
           }}
         >
-          BINDERMON
+          NOMEKOP
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@ function fallbackLayout(subtitle: string) {
     >
       {pokeball(150)}
       <div style={{ fontSize: 96, fontWeight: 800, letterSpacing: 12, color: INK }}>
-        BINDERMON
+        NOMEKOP
       </div>
       <div style={{ fontSize: 30, letterSpacing: 2, color: INK }}>{subtitle}</div>
     </div>,

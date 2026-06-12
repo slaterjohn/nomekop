@@ -35,7 +35,7 @@ export function webSiteJsonLd(): JsonLdObject {
   };
 }
 
-/** The builder as a free web app (price 0 — Bindermon has no paid tier). */
+/** The builder as a free web app (price 0 — Nomekop has no paid tier). */
 export function webApplicationJsonLd(): JsonLdObject {
   return {
     "@context": CONTEXT,

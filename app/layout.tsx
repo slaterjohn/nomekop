@@ -16,13 +16,13 @@ const vt323 = VT323({
   subsets: ["latin"],
 });
 
-const DEFAULT_TITLE = "Bindermon — Pokemon TCG binder layout maker";
+const DEFAULT_TITLE = "Nomekop — Pokemon TCG binder layout maker";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
     default: DEFAULT_TITLE,
-    template: "%s — Bindermon",
+    template: "%s — Nomekop",
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,

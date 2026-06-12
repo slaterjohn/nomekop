@@ -49,7 +49,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `bindermon-${config.set}-${type}.pdf`;
+      a.download = `nomekop-${config.set}-${type}.pdf`;
       document.body.appendChild(a);
       a.click();
       a.remove();

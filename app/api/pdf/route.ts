@@ -28,7 +28,7 @@ function printPathFor(body: z.infer<typeof bodySchema>): { path: string; filenam
     const view = type === "pokemon-placeholders" ? "&view=placeholders" : "";
     return {
       path: `/print/pokemon?t=${encodeURIComponent(token)}${view}`,
-      filename: `bindermon-${token.split("~")[0]}-${type}.pdf`,
+      filename: `nomekop-${token.split("~")[0]}-${type}.pdf`,
     };
   }
   if (type === "pokedex" || type === "pokedex-placeholders") {
@@ -36,7 +36,7 @@ function printPathFor(body: z.infer<typeof bodySchema>): { path: string; filenam
     const view = type === "pokedex-placeholders" ? "&view=placeholders" : "";
     return {
       path: `/print/pokedex?t=${encodeURIComponent(token)}${view}`,
-      filename: `bindermon-${token.split("~")[0]}-${type}.pdf`,
+      filename: `nomekop-${token.split("~")[0]}-${type}.pdf`,
     };
   }
   return null; // set-binder types are handled with parsed config below
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const qs = serializeConfig(config).toString();
     target = {
       path: `/print/${parsedBody.type}${qs ? `?${qs}` : ""}`,
-      filename: `bindermon-${config.set}-${parsedBody.type}.pdf`,
+      filename: `nomekop-${config.set}-${parsedBody.type}.pdf`,
     };
   }
 

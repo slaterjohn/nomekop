@@ -13,7 +13,7 @@ import { searchPokemonCards } from "@/lib/tcg";
 import type { TcgSet } from "@/lib/tcg/types";
 
 export const metadata: Metadata = {
-  title: "Pokémon binder print — Bindermon",
+  title: "Pokémon binder print — Nomekop",
   robots: { index: false, follow: false },
 };
 

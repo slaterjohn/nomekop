@@ -5,7 +5,7 @@ import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { useSoundEnabled, play } from "@/lib/sound";
 
-const WORDMARK = "BINDERMON";
+const WORDMARK = "NOMEKOP";
 
 /** Title bar: staggered pixel wordmark, palette switcher, sound toggle. */
 export function Header() {

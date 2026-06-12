@@ -22,7 +22,7 @@ test("home ships WebSite/WebApplication/FAQPage JSON-LD and a visible FAQ", asyn
   expect(types(blocks)).toEqual(expect.arrayContaining(["WebSite", "WebApplication", "FAQPage"]));
   // FAQPage content must mirror visible content (Google policy)
   await expect(page.getByText("What is a Pokemon master set?")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "HOW BINDERMON WORKS" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "HOW NOMEKOP WORKS" })).toBeVisible();
 });
 
 test("set hub is crawlable: /sets → /set/base1 → card links", async ({ page }) => {

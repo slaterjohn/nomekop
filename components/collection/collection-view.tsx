@@ -34,7 +34,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `bindermon-${set.id}-${mode}-collection.csv`;
+    a.download = `nomekop-${set.id}-${mode}-collection.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -46,7 +46,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link href="/" className="font-pixel text-sm no-underline">
-          BINDERMON
+          NOMEKOP
         </Link>
         <BackButton fallbackHref={`/?set=${set.id}`} />
       </div>

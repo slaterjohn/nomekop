@@ -22,7 +22,7 @@ describe("FAQ data", () => {
 describe("FaqSection", () => {
   it("renders the section heading, intro and every question", () => {
     render(<FaqSection />);
-    expect(screen.getByRole("heading", { name: "HOW BINDERMON WORKS" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "HOW NOMEKOP WORKS" })).toBeInTheDocument();
     expect(screen.getByText(APP_INTRO)).toBeInTheDocument();
     for (const entry of FAQ_ENTRIES) {
       expect(screen.getByText(entry.question)).toBeInTheDocument();

@@ -149,7 +149,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
             },
           ]}
           printHref={`/print/pokemon?t=${encodeURIComponent(encodePokemonToken(slug, options))}`}
-          filenameBase={`bindermon-${slug}`}
+          filenameBase={`nomekop-${slug}`}
         />
       </GbScreen>
     </div>
