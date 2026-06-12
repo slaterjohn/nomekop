@@ -328,3 +328,13 @@
 .image-render-pixel {
   image-rendering: pixelated;
 }
+
+/* Global site chrome (footer, skip link, easter-egg launcher) must never
+   appear in printed output or generated PDFs — only the print sheets do. */
+@media print {
+  body > footer,
+  body > .skip-link,
+  body > [data-arcade-launcher] {
+    display: none !important;
+  }
+}

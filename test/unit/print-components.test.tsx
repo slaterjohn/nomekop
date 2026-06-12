@@ -88,7 +88,7 @@ describe("PrintPlaceholders", () => {
     const slots = expandSlots(base1Cards, expandOptionsFrom(config, base1Set));
     const { container } = render(<PrintPlaceholders set={base1Set} slots={slots} config={config} />);
     expect(container.querySelectorAll(".print-placeholder")).toHaveLength(102);
-    expect(container.querySelectorAll(".print-sheet")).toHaveLength(Math.ceil(102 / 6));
+    expect(container.querySelectorAll(".print-sheet")).toHaveLength(Math.ceil(102 / 4));
     expect(container.querySelectorAll(".print-crop-tl")).toHaveLength(102);
     expect(screen.getByText("1/102 · Rare Holo")).toBeInTheDocument();
   });

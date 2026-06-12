@@ -38,10 +38,10 @@ export class FixtureSource implements CardDataSource {
   }
 
   async searchCardsByArtist(artist: string): Promise<CardWithSet[]> {
-    const needle = artist.trim().toLowerCase();
-    return (await this.allCardsWithSet()).filter((c) =>
-      (c.artist ?? "").toLowerCase().includes(needle),
-    );
+    // Normalize away slug dashes/spaces so "ken-sugimori" matches "Ken Sugimori".
+    const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "");
+    const needle = normalize(artist);
+    return (await this.allCardsWithSet()).filter((c) => normalize(c.artist ?? "").includes(needle));
   }
 
   async getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]> {

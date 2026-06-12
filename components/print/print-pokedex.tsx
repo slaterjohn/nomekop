@@ -2,7 +2,7 @@
 import { PrintShell, proxiedImage } from "@/components/print/print-shell";
 import { spriteUrl, type PokedexEntry, type Generation } from "@/lib/pokedex";
 
-const PLACEHOLDERS_PER_SHEET = 6;
+const PLACEHOLDERS_PER_SHEET = 4; // 2×2 true-size fits one A4 (6 overflowed)
 
 type PrintPokedexProps = {
   gen: Generation;

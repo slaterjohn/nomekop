@@ -72,7 +72,7 @@ test("all three PDFs download with the page counts the engine predicts", async (
   const cases = [
     { type: "binder", expectedPages: 9 }, // 102 cards / 12 per page (3×4 default)
     { type: "checklist", expectedPages: 4 }, // 102 rows / 28 per sheet
-    { type: "placeholders", expectedPages: 17 }, // 102 cards / 6 per sheet
+    { type: "placeholders", expectedPages: 26 }, // 102 cards / 4 per sheet
   ] as const;
 
   for (const { type, expectedPages } of cases) {
@@ -82,7 +82,7 @@ test("all three PDFs download with the page counts the engine predicts", async (
     });
     expect(res.status(), `${type} status`).toBe(200);
     expect(res.headers()["content-type"]).toBe("application/pdf");
-    expect(res.headers()["content-disposition"]).toContain(`bindermon-base1-${type}.pdf`);
+    expect(res.headers()["content-disposition"]).toContain(`nomekop-base1-${type}.pdf`);
     const body = await res.body();
     expect(body.byteLength, `${type} size`).toBeGreaterThan(10_000);
     const doc = await PDFDocument.load(body);

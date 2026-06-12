@@ -98,10 +98,10 @@ export class PokemonTcgIoSource implements CardDataSource {
   }
 
   async searchCardsByArtist(artist: string): Promise<CardWithSet[]> {
-    // Wildcards on both ends catch partials and trailing credits ("Ken
-    // Sugimori" matches "Ken Sugimori & 5ban Graphics"). Quote-strip guards
-    // the Lucene query; pokemontcg.io supports artist:"*Mitsuhiro Arita*".
-    const fuzzy = artist.replace(/"/g, "");
+    // Slug separators become wildcards so a token slug ("ken-sugimori") matches
+    // "Ken Sugimori", and wildcards on both ends catch trailing collaborator
+    // credits ("Ken Sugimori & 5ban Graphics").
+    const fuzzy = artist.replace(/"/g, "").replace(/[\s-]+/g, "*");
     return this.pagedCardsWithSet(`artist:"*${fuzzy}*"`);
   }
 

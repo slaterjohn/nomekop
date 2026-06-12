@@ -96,6 +96,9 @@ export function Builder({ initialSets }: BuilderProps) {
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-6">
+      <h1 className="sr-only">
+        {selectedSet ? `${selectedSet.name} binder builder` : "Pokémon TCG binder builder"}
+      </h1>
       <GbScreen title={selectedSet ? `SET: ${selectedSet.name.toUpperCase()}` : "CHOOSE SET"}>
         {selectedSet ? (
           <div className="flex flex-wrap items-center justify-between gap-3">

@@ -5,7 +5,7 @@ import type { Slot } from "@/lib/layout";
 import type { BinderConfig } from "@/lib/config";
 import type { TcgSet } from "@/lib/tcg/types";
 
-const PER_SHEET = 6; // 2 × 3 true-size cards per A4
+const PER_SHEET = 4; // 2×2 true-size cards fit one A4 with headroom (6 overflowed) // 2 × 3 true-size cards per A4
 
 type PrintPlaceholdersProps = {
   set: TcgSet;

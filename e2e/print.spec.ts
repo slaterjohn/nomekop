@@ -29,7 +29,7 @@ test("master-mode checklist includes reverse rows", async ({ page }) => {
 test("placeholders render true-size cells with crop marks", async ({ page }) => {
   await page.goto("/print/placeholders?set=base1");
   await expect(page.locator(".print-placeholder")).toHaveCount(102);
-  await expect(page.locator(".print-sheet")).toHaveCount(17);
+  await expect(page.locator(".print-sheet")).toHaveCount(26);
   await expect(page.locator(".print-crop-tl")).toHaveCount(102);
 });
 

@@ -74,7 +74,7 @@ test("pokedex placeholder PDF renders with pixel icons", async ({ page }) => {
   });
   expect(res.status()).toBe(200);
   const doc = await PDFDocument.load(await res.body());
-  expect(doc.getPageCount()).toBe(Math.ceil(151 / 6)); // 26 placeholder sheets
+  expect(doc.getPageCount()).toBe(Math.ceil(151 / 4)); // 38 placeholder sheets
 
   const bad = await page.request.post("/api/pdf", {
     data: { type: "pokedex", token: "not-a-token" },
