@@ -1,11 +1,14 @@
 import { CARDS_TTL_MS, SETS_TTL_MS, serverStore, type SqliteStore } from "@/lib/server-store";
 import { getDataSource } from "@/lib/tcg";
+import { GENERATIONS } from "@/lib/pokedex";
 import type { CardDataSource } from "@/lib/tcg/types";
 
 export type RefreshSummary = {
   sets: number;
   ok: number;
   failed: string[];
+  /** Pokédex generations successfully pre-warmed. */
+  pokedexOk?: number;
   durationMs: number;
 };
 
@@ -56,7 +59,29 @@ export async function runRefreshAll(options: Options = {}): Promise<RefreshSumma
       if (paceMs > 0) await new Promise((r) => setTimeout(r, paceMs));
     }
 
-    const summary: RefreshSummary = { sets: sets.length, ok, failed, durationMs: Date.now() - started };
+    // Pre-warm the Pokédex generation queries — each is a heavy cross-set
+    // fetch (~90s cold), so keeping them warm makes first visits instant.
+    // Force-write the same cache keys lib/tcg.getPokedexCards reads.
+    let pokedexOk = 0;
+    for (const gen of GENERATIONS) {
+      try {
+        const cards = await source.getCardsByDexRange(gen.min, gen.max);
+        store.set(`pokedex:${gen.id}`, cards, CARDS_TTL_MS);
+        pokedexOk += 1;
+      } catch {
+        // a failed generation just stays cold until next run
+      }
+      if (paceMs > 0) await new Promise((r) => setTimeout(r, paceMs));
+    }
+    log(`pokédex generations warmed: ${pokedexOk}/${GENERATIONS.length}`);
+
+    const summary: RefreshSummary = {
+      sets: sets.length,
+      ok,
+      failed,
+      pokedexOk,
+      durationMs: Date.now() - started,
+    };
     log(`done: ${ok}/${sets.length} ok${failed.length ? `, failed: ${failed.join(", ")}` : ""}`);
     return summary;
   } finally {

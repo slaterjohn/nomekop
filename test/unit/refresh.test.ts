@@ -58,7 +58,7 @@ describe("runRefreshAll", () => {
       store,
       paceMs: 0,
     });
-    expect(summary).toMatchObject({ sets: 2, ok: 2, failed: [] });
+    expect(summary).toMatchObject({ sets: 2, ok: 2, failed: [], pokedexOk: 9 });
     // Stored entries are served without recomputing.
     const compute = vi.fn(async () => []);
     expect(await store.getOrCompute("sets", 1000, compute)).toHaveLength(2);
