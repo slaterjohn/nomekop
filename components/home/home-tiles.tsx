@@ -8,54 +8,60 @@ type Tile = {
   art: React.ReactNode;
 };
 
-/* Pixel art drawn with hard-edged SVG rects — same DMG palette, no images. */
-
-function BinderArt() {
+/*
+ * Tile icons from Pixelarticons (MIT © Gerrit Halfmann, https://pixelarticons.com).
+ * Inlined as paths so they inherit the active palette via currentColor and stay
+ * crisp on the pixel grid. Credited on /legal.
+ */
+function PixelIcon({ children }: { children: React.ReactNode }) {
   return (
-    <svg viewBox="0 0 48 48" shapeRendering="crispEdges" aria-hidden="true" className="h-16 w-16">
-      <rect x="6" y="6" width="36" height="36" fill="var(--gb-accent)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <rect x="10" y="10" width="12" height="12" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <rect x="26" y="10" width="12" height="12" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <rect x="10" y="26" width="12" height="12" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <rect x="26" y="26" width="12" height="12" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <rect x="4" y="6" width="4" height="36" fill="var(--gb-ink)" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      shapeRendering="crispEdges"
+      aria-hidden="true"
+      className="size-16 text-gb-ink"
+    >
+      {children}
     </svg>
   );
 }
 
-function PokeballArt() {
+/** Binder pockets. */
+function GridIcon() {
   return (
-    <svg viewBox="0 0 48 48" shapeRendering="crispEdges" aria-hidden="true" className="h-16 w-16">
-      <circle cx="24" cy="24" r="18" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="3" />
-      <path d="M6 24a18 18 0 0136 0z" fill="var(--gb-accent)" />
-      <rect x="6" y="22" width="36" height="4" fill="var(--gb-ink)" />
-      <circle cx="24" cy="24" r="6" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="3" />
-    </svg>
+    <PixelIcon>
+      <path d="M4 2h16v2H4zm0 18h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM4 8h16v2H4zm0 6h16v2H4z" />
+      <path d="M8 4h2v16H8zm6 0h2v16h-2z" />
+    </PixelIcon>
   );
 }
 
-function DexArt() {
+/** A single trading card. */
+function CardIcon() {
   return (
-    <svg viewBox="0 0 48 48" shapeRendering="crispEdges" aria-hidden="true" className="h-16 w-16">
-      <rect x="8" y="6" width="32" height="36" fill="var(--gb-accent)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <circle cx="16" cy="14" r="4" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="2" />
-      <rect x="26" y="11" width="8" height="3" fill="var(--gb-ink)" />
-      <rect x="26" y="16" width="6" height="3" fill="var(--gb-ink)" />
-      <rect x="12" y="24" width="24" height="4" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="1" />
-      <rect x="12" y="31" width="24" height="4" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="1" />
-    </svg>
+    <PixelIcon>
+      <path d="M4 4h16v2H4zm0 14h16v2H4zM2 6h2v12H2zm18 0h2v12h-2z" />
+    </PixelIcon>
   );
 }
 
-function BrushArt() {
+/** A catalogue list — the Pokédex. */
+function ListIcon() {
   return (
-    <svg viewBox="0 0 48 48" shapeRendering="crispEdges" aria-hidden="true" className="h-16 w-16">
-      <rect x="28" y="6" width="6" height="22" fill="var(--gb-bg)" stroke="var(--gb-ink)" strokeWidth="2" transform="rotate(20 31 17)" />
-      <rect x="26" y="26" width="10" height="8" fill="var(--gb-ink)" transform="rotate(20 31 30)" />
-      <rect x="8" y="34" width="10" height="3" fill="var(--gb-ink)" />
-      <rect x="10" y="38" width="14" height="3" fill="var(--gb-accent)" stroke="var(--gb-ink)" strokeWidth="1" />
-      <rect x="6" y="30" width="6" height="3" fill="var(--gb-accent)" stroke="var(--gb-ink)" strokeWidth="1" />
-    </svg>
+    <PixelIcon>
+      <path d="M4 2h16v2H4zm2 5h2v2H6zm4 0h8v2h-8zm-4 4h2v2H6zm4 0h8v2h-8zm-4 4h2v2H6zm4 0h8v2h-8zm-6 5h16v2H4zM2 4h2v16H2zm18 0h2v16h-2z" />
+    </PixelIcon>
+  );
+}
+
+/** A paintbrush — the illustrator. */
+function BrushIcon() {
+  return (
+    <PixelIcon>
+      <path d="M7 2h10v2H7zM5 4h2v10H5zm12-2h2v12h-2z" />
+      <path d="M13 2h2v6h-2zM9 2h2v4H9zm-4 8h14v2H5zm2 4h10v2H7zm2 2h2v4H9zm4 0h2v4h-2zm-4 4h6v2H9z" />
+    </PixelIcon>
   );
 }
 
@@ -65,28 +71,28 @@ const TILES: Tile[] = [
     title: "SET BINDERS",
     blurb: "Lay out any Pokémon TCG set — standard or master, with reverse holos and ball patterns.",
     cta: "BUILD A SET ▶",
-    art: <BinderArt />,
+    art: <GridIcon />,
   },
   {
     href: "/pokemon",
     title: "POKÉMON BINDERS",
     blurb: "Every card of one Pokémon across all sets — filter to secrets or the rarest per set.",
     cta: "PICK A POKÉMON ▶",
-    art: <PokeballArt />,
+    art: <CardIcon />,
   },
   {
     href: "/pokedex",
     title: "POKÉDEX BINDERS",
     blurb: "One pocket per Pokémon in National Dex order, defaulting to each one's best card.",
     cta: "CHOOSE A REGION ▶",
-    art: <DexArt />,
+    art: <ListIcon />,
   },
   {
     href: "/illustrator",
     title: "ILLUSTRATOR BINDERS",
     blurb: "Collect by artist — every card a favourite illustrator has ever drawn.",
     cta: "FIND AN ARTIST ▶",
-    art: <BrushArt />,
+    art: <BrushIcon />,
   },
 ];
 

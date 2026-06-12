@@ -82,6 +82,13 @@ export default function LegalPage() {
             source, and both the reason this place looks like a Game Boy.
           </li>
           <li className="font-body text-xl leading-relaxed">
+            <span className="font-pixel text-xs">Interface icons</span>
+            <br />
+            The pixel icons on our homepage tiles are from{" "}
+            <OutboundLink href="https://pixelarticons.com">Pixelarticons</OutboundLink> by Gerrit
+            Halfmann — a lovely open-source (MIT) pixel icon set.
+          </li>
+          <li className="font-body text-xl leading-relaxed">
             <span className="font-pixel text-xs">Binder product info</span>
             <br />
             Binder details and links come from{" "}

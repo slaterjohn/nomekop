@@ -108,6 +108,9 @@ importers:
       pdf-lib:
         specifier: ^1.17.1
         version: 1.17.1
+      pixelarticons:
+        specifier: ^2.1.2
+        version: 2.1.2(react@19.2.4)
       prettier:
         specifier: ^3.8.4
         version: 3.8.4
@@ -3051,6 +3054,12 @@ packages:
   picomatch@4.0.4:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
+
+  pixelarticons@2.1.2:
+    resolution: {integrity: sha512-RnACjnR5UKm+ovmLKvdsF6DJOYD9JonXDqWOwtFiCStsJofCbShvsYnt4NCL5qPrmVHrB6h64X/qtNUep8GueQ==}
+    hasBin: true
+    peerDependencies:
+      react: '>=16'
 
   pkce-challenge@5.0.1:
     resolution: {integrity: sha512-wQ0b/W4Fr01qtpHlqSqspcj3EhBvimsdh0KlHhH8HRZnMsEa0ea2fTULOXOS9ccQr3om+GcGRk4e+isrZWV8qQ==}
@@ -6776,6 +6785,10 @@ snapshots:
   picomatch@2.3.2: {}
 
   picomatch@4.0.4: {}
+
+  pixelarticons@2.1.2(react@19.2.4):
+    dependencies:
+      react: 19.2.4
 
   pkce-challenge@5.0.1: {}
 
