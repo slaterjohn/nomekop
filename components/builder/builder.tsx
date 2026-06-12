@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { GbButton } from "@/components/gb/gb-button";
@@ -13,15 +14,23 @@ import { ConfigPanel } from "@/components/builder/config-panel";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { ActionBar } from "@/components/builder/action-bar";
 import { BinderShelf } from "@/components/builder/binder-shelf";
-import { CardDetailDialog } from "@/components/builder/card-detail-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { GbLinkButton } from "@/components/gb/gb-button";
 import { useCards, useSets } from "@/lib/hooks";
 import { useBinderConfig } from "@/lib/use-binder-config";
 import { useChecklist, useCollectionMode, clearChecklist } from "@/lib/checklist-store";
-import { buildBinderLayout, type SlotKind } from "@/lib/layout";
+import { buildBinderLayout } from "@/lib/layout";
 import { toCollectionCsv } from "@/lib/csv";
 import { play } from "@/lib/sound";
 import { cn } from "@/lib/utils";
-import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+import type { TcgSet } from "@/lib/tcg/types";
 
 type BuilderProps = {
   initialSets?: TcgSet[];
@@ -57,7 +66,8 @@ export function Builder({ initialSets }: BuilderProps) {
   const cards = useCards(config.set || undefined);
   const collectionMode = useCollectionMode();
   const checklist = useChecklist(config.set || undefined, config.mode);
-  const [inspected, setInspected] = useState<{ card: TcgCard; kind: SlotKind } | null>(null);
+  const [confirmClear, setConfirmClear] = useState(false);
+  const router = useRouter();
 
   const selectedSet = (sets.data ?? []).find((s) => s.id === config.set);
   const layout =
@@ -142,33 +152,34 @@ export function Builder({ initialSets }: BuilderProps) {
 
           <GbWipe>
             <GbScreen title="PREVIEW">
-              <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="mb-4 flex flex-col gap-3">
                 <GbToggle
                   label="COLLECTION MODE"
                   checked={collectionMode.enabled}
-                  onChange={(on) => {
-                    collectionMode.setEnabled(on);
-                    play(on ? "confirm" : "back");
-                  }}
+                  onChange={(on) => collectionMode.setEnabled(on)}
                 />
-                <div className="flex min-w-64 flex-1 items-center gap-3">
-                  <CollectionBar count={checklist.count} max={layout.stats.slots} />
-                  <GbButton variant="b" size="sm" onClick={downloadCsv}>
-                    CSV
-                  </GbButton>
-                  {checklist.count > 0 ? (
-                    <GbButton
-                      variant="plain"
-                      size="sm"
-                      onClick={() => {
-                        play("back");
-                        clearChecklist(config.set, config.mode);
-                      }}
-                    >
-                      CLEAR
-                    </GbButton>
-                  ) : null}
-                </div>
+                {collectionMode.enabled ? (
+                  <div className="flex flex-col gap-2">
+                    <CollectionBar count={checklist.count} max={layout.stats.slots} />
+                    <div className="flex flex-wrap items-center gap-2">
+                      <GbLinkButton
+                        variant="b"
+                        size="sm"
+                        href={`/collection/${config.set}${config.mode === "master" ? "?mode=master" : ""}`}
+                      >
+                        VIEW COLLECTION
+                      </GbLinkButton>
+                      <GbButton variant="b" size="sm" onClick={downloadCsv}>
+                        CSV
+                      </GbButton>
+                      {checklist.count > 0 ? (
+                        <GbButton variant="plain" size="sm" onClick={() => setConfirmClear(true)}>
+                          CLEAR
+                        </GbButton>
+                      ) : null}
+                    </div>
+                  </div>
+                ) : null}
               </div>
               <BinderPreview
                 set={selectedSet}
@@ -176,7 +187,7 @@ export function Builder({ initialSets }: BuilderProps) {
                 tick={collectionMode.enabled ? checklist : undefined}
                 onInspect={(card, kind) => {
                   play("confirm");
-                  setInspected({ card, kind });
+                  router.push(`/card/${card.id}${kind !== "card" ? `?variant=${kind}` : ""}`);
                 }}
               />
             </GbScreen>
@@ -196,17 +207,32 @@ export function Builder({ initialSets }: BuilderProps) {
         </>
       ) : null}
 
-      {selectedSet ? (
-        <CardDetailDialog
-          card={inspected?.card ?? null}
-          kind={inspected?.kind ?? null}
-          set={selectedSet}
-          onClose={() => {
-            play("back");
-            setInspected(null);
-          }}
-        />
-      ) : null}
+      <Dialog open={confirmClear} onOpenChange={(open) => !open && setConfirmClear(false)}>
+        <DialogContent className="rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)]">
+          <DialogHeader className="border-b-4 border-gb-ink bg-gb-ink px-4 py-3 text-left">
+            <DialogTitle className="font-pixel text-sm uppercase text-gb-bg">Clear collection?</DialogTitle>
+            <DialogDescription className="font-body text-lg text-gb-bg">
+              This removes all {checklist.count} collected pockets for {selectedSet?.name} (
+              {config.mode}). It can&apos;t be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="flex-row justify-end gap-2 p-4">
+            <GbButton variant="b" onClick={() => setConfirmClear(false)}>
+              CANCEL
+            </GbButton>
+            <GbButton
+              variant="a"
+              onClick={() => {
+                play("back");
+                clearChecklist(config.set, config.mode);
+                setConfirmClear(false);
+              }}
+            >
+              CLEAR ALL
+            </GbButton>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

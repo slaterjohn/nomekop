@@ -22,7 +22,7 @@ const SV1 = { printedTotal: 198 };
 describe("base1 (vintage, 102 cards, no reverses)", () => {
   it("standard 3×3 → 102 slots over 12 pages", () => {
     const layout = buildBinderLayout(base1, BASE1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: true });
-    expect(layout.stats).toEqual({
+    expect(layout.stats).toMatchObject({
       cards: 102,
       slots: 102,
       pages: 12,
@@ -43,7 +43,7 @@ describe("base1 (vintage, 102 cards, no reverses)", () => {
 describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   it("standard with secrets → 258 slots over 29 pages of 3×3", () => {
     const layout = buildBinderLayout(sv1, SV1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: true });
-    expect(layout.stats).toEqual({
+    expect(layout.stats).toMatchObject({
       cards: 258,
       slots: 258,
       pages: 29,

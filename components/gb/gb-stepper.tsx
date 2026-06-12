@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { GbButton } from "@/components/gb/gb-button";
+import { play } from "@/lib/sound";
 
 type GbStepperProps = {
   label: string;
@@ -20,7 +21,10 @@ export function GbStepper({ label, value, min, max, onChange, className }: GbSte
   const clamp = (n: number) => Math.min(max, Math.max(min, n));
   const set = (n: number) => {
     const next = clamp(n);
-    if (next !== value) onChange(next);
+    if (next !== value) {
+      play("move");
+      onChange(next);
+    }
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {

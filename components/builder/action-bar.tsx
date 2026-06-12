@@ -6,6 +6,7 @@ import { GbButton } from "@/components/gb/gb-button";
 import { GbSpinner } from "@/components/gb/gb-spinner";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { serializeConfig, type BinderConfig } from "@/lib/config";
+import { encodeShareToken } from "@/lib/share";
 import { play } from "@/lib/sound";
 
 export type PdfType = "binder" | "checklist" | "placeholders";
@@ -26,6 +27,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
   const [busy, setBusy] = useState<PdfType | null>(null);
 
   const download = async (type: PdfType) => {
+    play("confirm");
     setBusy(type);
     try {
       const res = await fetch("/api/pdf", {
@@ -83,6 +85,21 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
         }}
       >
         PRINT
+      </GbButton>
+      <GbButton
+        variant="b"
+        onClick={async () => {
+          const link = `${window.location.origin}/b/${encodeShareToken(config)}`;
+          try {
+            await navigator.clipboard.writeText(link);
+            play("success");
+            toast.success("Share link copied!");
+          } catch {
+            toast.error(`Copy failed — your link: ${link}`);
+          }
+        }}
+      >
+        SHARE
       </GbButton>
       <GbToggle
         label="RETRO PRINT"

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { GbBadge } from "@/components/gb/gb-badge";
+import { PixelPokeball } from "@/components/gb/pixel-pokeball";
 import { cardAlt } from "@/lib/card-alt";
 import { slotBadge, slotKindSuffix } from "@/lib/variant-labels";
 import type { Slot } from "@/lib/layout";
@@ -60,7 +61,7 @@ export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
           unoptimized
           className={cn(
             "absolute inset-0 h-full w-full object-cover",
-            collected && "opacity-50 saturate-50",
+            collected && "opacity-40 saturate-[0.35]",
           )}
           onError={() => setImageFailed(true)}
         />
@@ -87,11 +88,9 @@ export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
         <span
           aria-hidden="true"
           data-gb-tick
-          className="absolute left-1 top-1 inline-flex size-7 items-center justify-center rounded-full border-[3px] border-gb-ink bg-gb-bg shadow-[2px_2px_0_0_var(--gb-ink)]"
+          className="absolute left-1 top-1 inline-flex items-center justify-center bg-gb-bg/85 p-0.5 shadow-[2px_2px_0_0_var(--gb-ink)]"
         >
-          <span className="absolute inset-x-0 top-1/2 h-[3px] -translate-y-1/2 bg-gb-ink" />
-          <span className="absolute inset-x-0 top-0 h-1/2 bg-gb-accent" />
-          <span className="relative z-10 block size-2.5 rounded-full border-[3px] border-gb-ink bg-gb-bg" />
+          <PixelPokeball size={22} />
         </span>
       ) : null}
       <span

@@ -1,8 +1,7 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { axe } from "vitest-axe";
-import { CardDetailDialog } from "@/components/builder/card-detail-dialog";
+import { CardDetailBody } from "@/components/builder/card-detail-body";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 const set: TcgSet = {
@@ -29,67 +28,52 @@ const card: TcgCard = {
     url: "https://prices.pokemontcg.io/tcgplayer/sv1-1",
     updatedAt: "2026/06/12",
     prices: {
-      normal: { low: 0.02, mid: 0.08, high: 1.5, market: 0.05 },
-      reverseHolofoil: { low: 0.05, mid: 0.18, high: 2, market: 0.12 },
+      normal: { low: 0.02, mid: 0.08, high: 999.99, market: 0.05 },
+      reverseHolofoil: { low: 0.05, mid: 0.18, high: 1000, market: 0.12 },
     },
   },
 };
 
-describe("CardDetailDialog", () => {
-  it("shows the card identity and set context", () => {
-    render(<CardDetailDialog card={card} kind="card" set={set} onClose={vi.fn()} />);
-    expect(screen.getByRole("dialog", { name: "Pineco" })).toBeInTheDocument();
-    expect(screen.getByText(/1\/198/)).toBeInTheDocument();
-    expect(screen.getByText(/Common/)).toBeInTheDocument();
-    expect(screen.getByText(/Scarlet & Violet/)).toBeInTheDocument();
-  });
-
-  it("renders a TCGplayer price row per variant with market value", () => {
-    render(<CardDetailDialog card={card} kind="card" set={set} onClose={vi.fn()} />);
+describe("CardDetailBody", () => {
+  it("renders prices per variant with market value — no junk High column", () => {
+    render(<CardDetailBody card={card} set={set} kind="card" />);
     const table = screen.getByRole("table", { name: /TCGplayer prices/i });
     expect(table).toBeInTheDocument();
     expect(screen.getByRole("row", { name: /NORMAL.*\$0\.05/ })).toBeInTheDocument();
     expect(screen.getByRole("row", { name: /REVERSE HOLO.*\$0\.12/ })).toBeInTheDocument();
-    expect(screen.getByText(/2026\/06\/12/)).toBeInTheDocument();
+    // 999/1000 'high' listings are seller noise — the column is gone.
+    expect(screen.queryByRole("columnheader", { name: /High/i })).not.toBeInTheDocument();
+    expect(screen.queryByText("$999.99")).not.toBeInTheDocument();
   });
 
-  it("marks the clicked pocket's variant row", () => {
-    render(<CardDetailDialog card={card} kind="reverse" set={set} onClose={vi.fn()} />);
-    const row = screen.getByRole("row", { name: /REVERSE HOLO/ });
-    expect(row.textContent).toContain("THIS POCKET");
+  it("marks the pocket variant the visitor came from", () => {
+    render(<CardDetailBody card={card} set={set} kind="reverse" />);
+    expect(screen.getByRole("row", { name: /REVERSE HOLO/ }).textContent).toContain("THIS POCKET");
+  });
+
+  it("ball pockets mark no price row (no key exists) but show their badge", () => {
+    const ballCard: TcgCard = {
+      ...card,
+      variants: { ...card.variants, pokeball: true, masterball: true },
+    };
+    render(<CardDetailBody card={ballCard} set={set} kind="pokeball" />);
+    expect(screen.getByText("POKÉ BALL")).toBeInTheDocument();
+    expect(screen.queryByText("THIS POCKET")).not.toBeInTheDocument();
   });
 
   it("links out to TCGplayer", () => {
-    render(<CardDetailDialog card={card} kind="card" set={set} onClose={vi.fn()} />);
+    render(<CardDetailBody card={card} set={set} kind="card" />);
     const link = screen.getByRole("link", { name: /TCGPLAYER/i });
     expect(link).toHaveAttribute("href", "https://prices.pokemontcg.io/tcgplayer/sv1-1");
-    expect(link).toHaveAttribute("target", "_blank");
   });
 
-  it("falls back gracefully without price data (2026+ sets)", () => {
-    const bare: TcgCard = { ...card, tcgplayer: undefined };
-    render(<CardDetailDialog card={bare} kind="card" set={set} onClose={vi.fn()} />);
+  it("falls back gracefully without price data", () => {
+    render(<CardDetailBody card={{ ...card, tcgplayer: undefined }} set={set} kind="card" />);
     expect(screen.getByText(/NO PRICE DATA/i)).toBeInTheDocument();
-    expect(screen.queryByRole("table")).not.toBeInTheDocument();
-  });
-
-  it("renders nothing when card is null", () => {
-    render(<CardDetailDialog card={null} kind={null} set={set} onClose={vi.fn()} />);
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
-  });
-
-  it("close button calls onClose", async () => {
-    const user = userEvent.setup();
-    const onClose = vi.fn();
-    render(<CardDetailDialog card={card} kind="card" set={set} onClose={onClose} />);
-    await user.click(screen.getByRole("button", { name: /close/i }));
-    expect(onClose).toHaveBeenCalled();
   });
 
   it("axe clean", async () => {
-    render(<CardDetailDialog card={card} kind="card" set={set} onClose={vi.fn()} />);
-    // Scan the dialog element (portal) — Base UI's inert focus-guard spans
-    // outside it are library internals that axe misreads in jsdom.
-    expect(await axe(screen.getByRole("dialog"))).toHaveNoViolations();
+    const { container } = render(<CardDetailBody card={card} set={set} kind="card" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

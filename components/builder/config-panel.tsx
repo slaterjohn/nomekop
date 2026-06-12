@@ -72,20 +72,14 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
             value={config.rows}
             min={1}
             max={5}
-            onChange={(rows) => {
-              play("move");
-              onChange({ rows });
-            }}
+            onChange={(rows) => onChange({ rows })}
           />
           <GbStepper
             label="COLS"
             value={config.cols}
             min={1}
             max={5}
-            onChange={(cols) => {
-              play("move");
-              onChange({ cols });
-            }}
+            onChange={(cols) => onChange({ cols })}
           />
         </div>
       ) : null}
@@ -94,10 +88,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
         <GbMenu
           label="Collection mode"
           value={config.mode}
-          onChange={(mode) => {
-            play("confirm");
-            onChange({ mode });
-          }}
+          onChange={(mode) => onChange({ mode })}
           options={[
             { value: "standard", label: "STANDARD", hint: "one pocket per card" },
             {
@@ -112,28 +103,19 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           <GbToggle
             label="SECRET RARES"
             checked={config.secrets}
-            onChange={(secrets) => {
-              play("move");
-              onChange({ secrets });
-            }}
+            onChange={(secrets) => onChange({ secrets })}
           />
           {showVariantOptions ? (
             <>
               <GbToggle
                 label="POKÉ BALL"
                 checked={config.pb}
-                onChange={(pb) => {
-                  play("move");
-                  onChange({ pb });
-                }}
+                onChange={(pb) => onChange({ pb })}
               />
               <GbToggle
                 label="MASTER BALL"
                 checked={config.mb}
-                onChange={(mb) => {
-                  play("move");
-                  onChange({ mb });
-                }}
+                onChange={(mb) => onChange({ mb })}
               />
             </>
           ) : null}
@@ -142,10 +124,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           <GbMenu
             label="Variant placement"
             value={config.place}
-            onChange={(place) => {
-              play("confirm");
-              onChange({ place });
-            }}
+            onChange={(place) => onChange({ place })}
             options={[
               { value: "mix", label: "INTERLEAVED", hint: "variants beside each card" },
               { value: "end", label: "AT END", hint: "ball runs after the main set" },
@@ -157,6 +136,16 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
 
       <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
         {stats.cards} CARDS → {stats.slots} POCKETS → {stats.pages} PAGES
+        {config.mode === "master" && stats.slots > stats.byKind.card ? (
+          <span className="mt-1 block text-[9px]">
+            INCL. {stats.byKind.reverse} REVERSE
+            {stats.byKind.pokeball > 0 ? ` · ${stats.byKind.pokeball} POKÉ BALL` : ""}
+            {stats.byKind.masterball > 0 ? ` · ${stats.byKind.masterball} MASTER BALL` : ""}
+            {config.place === "end" && (stats.byKind.pokeball > 0 || stats.byKind.masterball > 0)
+              ? " — BALL RUNS SIT ON THE FINAL PAGES"
+              : ""}
+          </span>
+        ) : null}
       </p>
     </div>
   );

@@ -89,19 +89,58 @@ test("all three PDFs download with the page counts the engine predicts", async (
   }
 });
 
-test("card detail view shows TCGplayer prices and closes with Escape", async ({ page }) => {
+test("cards have their own pages with prices; back returns to the builder", async ({ page }) => {
   await page.goto("/");
   await chooseScarletViolet(page);
 
   await page.getByRole("button", { name: /View details: Pineco/ }).click();
-  const dialog = page.getByRole("dialog", { name: "Pineco" });
-  await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole("table", { name: /TCGplayer prices/i })).toBeVisible();
-  await expect(dialog.getByRole("row", { name: /NORMAL.*\$/ }).first()).toBeVisible();
-  await expect(dialog.getByRole("link", { name: /TCGPLAYER/i })).toBeVisible();
+  await expect(page).toHaveURL(/\/card\/sv1-1$/);
+  await expect(page.getByRole("table", { name: /TCGplayer prices/i })).toBeVisible();
+  await expect(page.getByRole("row", { name: /NORMAL.*\$/ }).first()).toBeVisible();
+  // the junk High column is gone
+  await expect(page.getByRole("columnheader", { name: /High/i })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /TCGPLAYER/i })).toBeVisible();
 
-  await page.keyboard.press("Escape");
-  await expect(dialog).not.toBeVisible();
+  await page.getByRole("button", { name: /BACK/ }).click();
+  await expect(page).toHaveURL(/set=sv1/);
+  await expect(page.getByRole("heading", { name: "PREVIEW" })).toBeVisible();
+});
+
+test("share links encode the layout into a tidy URL", async ({ page }) => {
+  await page.goto("/b/sv8pt5~34m111ic");
+  await expect(page).toHaveURL(/\?set=sv8pt5&mode=master/);
+  await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
+  await expect(page.getByText(/447 POCKETS/)).toBeVisible();
+
+  // and the SHARE button produces that link
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.getByRole("button", { name: "SHARE" }).click();
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain("/b/sv8pt5~34m111ic");
+
+  // invalid tokens 404
+  const res = await page.goto("/b/garbage-token");
+  expect(res!.status()).toBe(404);
+});
+
+test("collection page lists collected pockets per mode", async ({ page }) => {
+  await page.goto("/");
+  await chooseScarletViolet(page);
+  await page.getByRole("switch", { name: "COLLECTION MODE" }).click();
+  const boxes = page.getByRole("checkbox");
+  await boxes.nth(0).click();
+  await boxes.nth(1).click();
+
+  await page.getByRole("link", { name: "VIEW COLLECTION" }).click();
+  await expect(page).toHaveURL(/\/collection\/sv1$/);
+  await expect(page.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
+    "aria-valuenow",
+    "2",
+  );
+  await expect(page.getByText(/NORMAL 2\/258/)).toBeVisible();
+  // collected cards link to their pages
+  await page.getByRole("link", { name: /Pineco 1/ }).click();
+  await expect(page).toHaveURL(/\/card\/sv1-1/);
 });
 
 test("Prismatic Evolutions master set offers ball-pattern options", async ({ page }) => {

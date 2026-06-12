@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { play } from "@/lib/sound";
 
 type GbToggleProps = {
   label: string;
@@ -20,7 +21,10 @@ export function GbToggle({ label, checked, onChange, className }: GbToggleProps)
       role="switch"
       aria-checked={checked}
       aria-label={label}
-      onClick={() => onChange(!checked)}
+      onClick={() => {
+        play("move");
+        onChange(!checked);
+      }}
       className={cn(
         "group inline-flex min-h-11 cursor-pointer items-center gap-2 border-[3px] border-transparent px-1 py-1",
         className,

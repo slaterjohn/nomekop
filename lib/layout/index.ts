@@ -19,12 +19,14 @@ export type BinderLayout = {
   stats: {
     /** Distinct cards included after filtering. */
     cards: number;
-    /** Card + reverse slots (excludes empty padding). */
+    /** Card + variant slots (excludes empty padding). */
     slots: number;
     pages: number;
     slotsPerPage: number;
     rows: number;
     cols: number;
+    /** Pocket counts per print kind (normal cards under 'card'). */
+    byKind: Record<SlotKind, number>;
   };
 };
 
@@ -52,8 +54,12 @@ export function buildBinderLayout(
   const slots = expandSlots(cards, expandOptionsFrom(config, set));
   const pages = paginate(slots, config.rows, config.cols);
   const cardIds = new Set<string>();
+  const byKind: Record<SlotKind, number> = { card: 0, reverse: 0, pokeball: 0, masterball: 0 };
   for (const s of slots) {
-    if (s.kind !== "empty") cardIds.add(s.card.id);
+    if (s.kind !== "empty") {
+      cardIds.add(s.card.id);
+      byKind[s.kind] += 1;
+    }
   }
   return {
     pages,
@@ -65,6 +71,7 @@ export function buildBinderLayout(
       slotsPerPage: config.rows * config.cols,
       rows: config.rows,
       cols: config.cols,
+      byKind,
     },
   };
 }

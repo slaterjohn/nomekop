@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { play } from "@/lib/sound";
 
 export type GbMenuOption<T extends string> = {
   value: T;
@@ -40,6 +41,7 @@ export function GbMenu<T extends string>({
 
   const focusIndex = (i: number) => {
     const next = (i + options.length) % options.length;
+    play("move");
     setActiveIndex(next);
     refs.current[next]?.focus();
   };
@@ -66,7 +68,10 @@ export function GbMenu<T extends string>({
       case " ": {
         e.preventDefault();
         const opt = options[activeIndex];
-        if (opt) onChange(opt.value);
+        if (opt) {
+          play("confirm");
+          onChange(opt.value);
+        }
         break;
       }
     }
@@ -92,6 +97,7 @@ export function GbMenu<T extends string>({
             aria-describedby={opt.hint ? `${id}-hint-${i}` : undefined}
             tabIndex={active ? 0 : -1}
             onClick={() => {
+              play("confirm");
               setActiveIndex(i);
               onChange(opt.value);
             }}

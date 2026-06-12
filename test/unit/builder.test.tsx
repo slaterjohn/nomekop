@@ -25,6 +25,7 @@ const nav = vi.hoisted(() => {
       search = new URLSearchParams(url.split("?")[1] ?? "");
       listeners.forEach((l) => l());
     }),
+    push: vi.fn(),
     reset: () => {
       search = new URLSearchParams();
     },
@@ -34,7 +35,7 @@ const nav = vi.hoisted(() => {
 vi.mock("next/navigation", async () => {
   const { useSyncExternalStore } = await import("react");
   return {
-    useRouter: () => ({ replace: nav.replace, push: vi.fn() }),
+    useRouter: () => ({ replace: nav.replace, push: nav.push }),
     usePathname: () => "/",
     useSearchParams: () => useSyncExternalStore(nav.subscribe, nav.get, nav.get),
   };
@@ -85,6 +86,7 @@ async function pickScarletViolet(user: ReturnType<typeof userEvent.setup>) {
 beforeEach(() => {
   nav.reset();
   nav.replace.mockClear();
+  nav.push.mockClear();
   vi.unstubAllGlobals();
   localStorage.clear();
   __resetChecklistStoreForTests();
@@ -188,7 +190,7 @@ describe("Builder", () => {
     );
   });
 
-  it("clicking a card opens the detail dialog with TCGplayer prices", async () => {
+  it("clicking a card navigates to its dedicated page", async () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
@@ -196,13 +198,52 @@ describe("Builder", () => {
     await screen.findByRole("heading", { name: "PREVIEW" });
 
     await user.click(screen.getByRole("button", { name: /View details: Pineco/ }));
-    const dialog = await screen.findByRole("dialog", { name: "Pineco" });
-    expect(dialog).toBeInTheDocument();
-    expect(screen.getByRole("table", { name: /TCGplayer prices/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /TCGPLAYER/i })).toBeInTheDocument();
+    expect(nav.push).toHaveBeenCalledWith("/card/sv1-1");
+  });
 
-    await user.click(screen.getByRole("button", { name: /close/i }));
-    expect(screen.queryByRole("dialog", { name: "Pineco" })).not.toBeInTheDocument();
+  it("collection bar and CSV are hidden until collection mode is on", async () => {
+    mockCardsFetch(sv1Cards);
+    const user = userEvent.setup();
+    renderBuilder();
+    await pickScarletViolet(user);
+    await screen.findByRole("heading", { name: "PREVIEW" });
+
+    expect(screen.queryByRole("progressbar", { name: "COLLECTED" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "CSV" })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
+    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "CSV" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "VIEW COLLECTION" })).toHaveAttribute(
+      "href",
+      "/collection/sv1",
+    );
+  });
+
+  it("CLEAR asks for confirmation before wiping the collection", async () => {
+    mockCardsFetch(sv1Cards);
+    const user = userEvent.setup();
+    renderBuilder();
+    await pickScarletViolet(user);
+    await screen.findByRole("heading", { name: "PREVIEW" });
+
+    await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
+    await user.click(screen.getAllByRole("checkbox")[0]!);
+
+    // Cancel path: nothing is wiped
+    await user.click(screen.getByRole("button", { name: "CLEAR" }));
+    await user.click(await screen.findByRole("button", { name: "CANCEL" }));
+    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
+      "aria-valuenow",
+      "1",
+    );
+
+    // Confirm path: collection cleared
+    await user.click(screen.getByRole("button", { name: "CLEAR" }));
+    await user.click(await screen.findByRole("button", { name: "CLEAR ALL" }));
+    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
+      "aria-valuenow",
+      "0",
+    );
   });
 
   it("full page is axe clean once configured", async () => {
