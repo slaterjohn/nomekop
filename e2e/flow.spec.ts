@@ -30,6 +30,10 @@ test("full happy path: choose, configure, master mode, tick, persist", async ({ 
   // tick three cards
   await page.getByRole("switch", { name: "TICK MODE" }).click();
   const boxes = page.getByRole("checkbox");
+  // regression: tick buttons once collapsed to 4×6px (shrink-to-fit button)
+  const tickBox = await boxes.first().boundingBox();
+  expect(tickBox!.width).toBeGreaterThan(60);
+  expect(tickBox!.height).toBeGreaterThan(80);
   for (let i = 0; i < 3; i++) {
     await boxes.nth(i).click();
   }

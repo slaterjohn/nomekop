@@ -7,6 +7,7 @@ import { GbMenu } from "@/components/gb/gb-menu";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { buildBinderLayout } from "@/lib/layout";
 import { LAYOUT_PRESETS, type BinderConfig } from "@/lib/config";
+import { play } from "@/lib/sound";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 type ConfigPanelProps = {
@@ -31,14 +32,20 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           value={config.rows}
           min={1}
           max={5}
-          onChange={(rows) => onChange({ rows })}
+          onChange={(rows) => {
+            play("move");
+            onChange({ rows });
+          }}
         />
         <GbStepper
           label="COLS"
           value={config.cols}
           min={1}
           max={5}
-          onChange={(cols) => onChange({ cols })}
+          onChange={(cols) => {
+            play("move");
+            onChange({ cols });
+          }}
         />
         <div role="group" aria-label="Layout presets" className="flex flex-wrap gap-2">
           {LAYOUT_PRESETS.map((preset) => {
@@ -49,7 +56,10 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
                 variant={active ? "a" : "b"}
                 size="sm"
                 aria-pressed={active}
-                onClick={() => onChange({ rows: preset.rows, cols: preset.cols })}
+                onClick={() => {
+                  play("confirm");
+                  onChange({ rows: preset.rows, cols: preset.cols });
+                }}
               >
                 {preset.label}
               </GbButton>
@@ -62,7 +72,10 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
         <GbMenu
           label="Collection mode"
           value={config.mode}
-          onChange={(mode) => onChange({ mode })}
+          onChange={(mode) => {
+            play("confirm");
+            onChange({ mode });
+          }}
           options={[
             { value: "standard", label: "STANDARD", hint: "one pocket per card" },
             { value: "master", label: "MASTER", hint: "reverse holos interleaved" },
@@ -72,7 +85,10 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
         <GbToggle
           label="SECRET RARES"
           checked={config.secrets}
-          onChange={(secrets) => onChange({ secrets })}
+          onChange={(secrets) => {
+            play("move");
+            onChange({ secrets });
+          }}
         />
       </div>
 

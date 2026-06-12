@@ -37,7 +37,8 @@ export function Header() {
             checked={enabled}
             onChange={(on) => {
               setEnabled(on);
-              if (on) play("confirm");
+              // Audible proof the toggle worked — a full jingle, not a blip.
+              if (on) play("success");
             }}
           />
         </div>

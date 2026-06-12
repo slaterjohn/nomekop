@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Command,
   CommandEmpty,
@@ -13,7 +13,34 @@ import {
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { GbButton } from "@/components/gb/gb-button";
 import { GbSpinner } from "@/components/gb/gb-spinner";
+import { play } from "@/lib/sound";
 import type { TcgSet } from "@/lib/tcg/types";
+
+type SortMode = "newest" | "oldest" | "az";
+
+const SORT_OPTIONS: Array<{ mode: SortMode; label: string; ariaLabel: string }> = [
+  { mode: "newest", label: "NEWEST", ariaLabel: "Sort newest first" },
+  { mode: "oldest", label: "OLDEST", ariaLabel: "Sort oldest first" },
+  { mode: "az", label: "A–Z", ariaLabel: "Sort alphabetically" },
+];
+
+/** Groups sets by series, ordered per the sort mode (groups follow their sets). */
+function groupSets(sets: ReadonlyArray<TcgSet>, sort: SortMode): Array<[string, TcgSet[]]> {
+  const sorted = [...sets].sort((a, b) => {
+    if (sort === "az") return a.name.localeCompare(b.name);
+    const byDate = a.releaseDate.localeCompare(b.releaseDate);
+    return sort === "newest" ? -byDate : byDate;
+  });
+  const groups = new Map<string, TcgSet[]>();
+  for (const set of sorted) {
+    const list = groups.get(set.series) ?? [];
+    list.push(set);
+    groups.set(set.series, list);
+  }
+  const entries = [...groups.entries()];
+  if (sort === "az") entries.sort((a, b) => a[0].localeCompare(b[0]));
+  return entries;
+}
 
 type SetSelectorProps = {
   sets: TcgSet[] | undefined;
@@ -28,15 +55,8 @@ type SetSelectorProps = {
  * menu skin. cmdk provides combobox/listbox semantics and typeahead.
  */
 export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSelectorProps) {
-  const bySeries = useMemo(() => {
-    const groups = new Map<string, TcgSet[]>();
-    for (const set of sets ?? []) {
-      const list = groups.get(set.series) ?? [];
-      list.push(set);
-      groups.set(set.series, list);
-    }
-    return [...groups.entries()];
-  }, [sets]);
+  const [sort, setSort] = useState<SortMode>("newest");
+  const bySeries = useMemo(() => groupSets(sets ?? [], sort), [sets, sort]);
 
   if (isLoading) {
     return (
@@ -61,6 +81,24 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
 
   return (
     <Command label="Search sets" className="border-[3px] border-gb-ink bg-gb-bg p-0">
+      <div className="flex flex-wrap items-center gap-2 border-b-[3px] border-gb-ink p-2">
+        <span className="font-pixel text-[10px]">SORT</span>
+        {SORT_OPTIONS.map(({ mode, label, ariaLabel }) => (
+          <GbButton
+            key={mode}
+            variant={sort === mode ? "a" : "b"}
+            size="sm"
+            aria-pressed={sort === mode}
+            aria-label={ariaLabel}
+            onClick={() => {
+              play("move");
+              setSort(mode);
+            }}
+          >
+            {label}
+          </GbButton>
+        ))}
+      </div>
       <CommandInput
         placeholder="SEARCH SETS…"
         className="font-body text-xl placeholder:text-gb-ink/60"

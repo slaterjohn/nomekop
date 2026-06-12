@@ -47,15 +47,21 @@ export function useSoundEnabled(): { enabled: boolean; setEnabled: (on: boolean)
 export type SoundCue = "move" | "confirm" | "back" | "success";
 
 const CUES: Record<SoundCue, Array<{ freq: number; at: number; dur: number }>> = {
-  move: [{ freq: 440, at: 0, dur: 0.035 }],
-  confirm: [{ freq: 660, at: 0, dur: 0.06 }],
-  back: [{ freq: 330, at: 0, dur: 0.05 }],
+  move: [{ freq: 440, at: 0, dur: 0.05 }],
+  confirm: [{ freq: 660, at: 0, dur: 0.07 }],
+  back: [{ freq: 330, at: 0, dur: 0.06 }],
   success: [
     { freq: 523, at: 0, dur: 0.09 },
     { freq: 659, at: 0.09, dur: 0.09 },
-    { freq: 784, at: 0.18, dur: 0.14 },
+    { freq: 784, at: 0.18, dur: 0.16 },
   ],
 };
+
+const VOLUME = 0.08;
+/** Safety lead so events never land behind the audio clock (a fresh context's
+ *  clock advances past `currentTime` before the graph is processed, clamping
+ *  the envelope to silence — the classic swallowed-first-blip bug). */
+const SCHEDULE_LEAD_S = 0.04;
 
 let ctx: AudioContext | null = null;
 
@@ -67,17 +73,17 @@ export function play(cue: SoundCue): void {
     if (!Ctor) return;
     ctx = ctx ?? new Ctor();
     if (ctx.state === "suspended") void ctx.resume();
-    const now = ctx.currentTime;
+    const t0 = ctx.currentTime + SCHEDULE_LEAD_S;
     for (const note of CUES[cue]) {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = "square";
       osc.frequency.value = note.freq;
-      gain.gain.setValueAtTime(0.03, now + note.at);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + note.at + note.dur);
+      gain.gain.setValueAtTime(VOLUME, t0 + note.at);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + note.at + note.dur);
       osc.connect(gain).connect(ctx.destination);
-      osc.start(now + note.at);
-      osc.stop(now + note.at + note.dur + 0.01);
+      osc.start(t0 + note.at);
+      osc.stop(t0 + note.at + note.dur + 0.01);
     }
   } catch {
     // Audio is decoration; never let it break the app.

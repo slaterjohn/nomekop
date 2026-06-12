@@ -21,7 +21,13 @@ export function PrintBinder({ set, layout, config }: PrintBinderProps) {
           <header className="print-sheet-header">
             <span style={{ display: "inline-flex", alignItems: "center", gap: "2mm" }}>
               {set.symbolUrl ? (
-                <img src={proxiedImage(set.symbolUrl)} alt="" style={{ width: "6mm", height: "6mm" }} />
+                <img
+                  src={proxiedImage(set.symbolUrl)}
+                  alt=""
+                  width={24}
+                  height={24}
+                  style={{ width: "6mm", height: "6mm" }}
+                />
               ) : null}
               <strong>{set.name}</strong>
             </span>
@@ -49,6 +55,8 @@ export function PrintBinder({ set, layout, config }: PrintBinderProps) {
                       <img
                         src={proxiedImage(card.imageSmall)}
                         alt={cardAlt(card.name, card.number, set.printedTotal, card.rarity)}
+                        width={245}
+                        height={342}
                       />
                     ) : null}
                     {slot.kind === "reverse" ? <span className="print-rev-badge">REV</span> : null}

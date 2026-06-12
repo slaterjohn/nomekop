@@ -65,6 +65,18 @@ describe("GET /api/img", () => {
     expect(res.status).toBe(400);
   });
 
+  it("allows both card-image CDNs (pokemontcg.io and scrydex)", async () => {
+    // Sets released 2026+ moved to images.scrydex.com — regression guard.
+    vi.stubEnv("IMG_STUB", "1");
+    for (const src of [
+      "https://images.pokemontcg.io/base1/4.png",
+      "https://images.scrydex.com/pokemon/me4-1/small",
+    ]) {
+      const res = await getImg(new NextRequest("http://test/api/img?src=" + encodeURIComponent(src)));
+      expect(res.status, src).toBe(200);
+    }
+  });
+
   it("rejects non-https and invalid URLs", async () => {
     const bad = await getImg(
       new NextRequest("http://test/api/img?src=" + encodeURIComponent("http://images.pokemontcg.io/x.png")),

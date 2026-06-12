@@ -3,8 +3,9 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse, type NextRequest } from "next/server";
 
-/** Only the official card image CDN may be proxied (SSRF guard). */
-const ALLOWED_HOSTS = new Set(["images.pokemontcg.io"]);
+/** Only the official card image CDNs may be proxied (SSRF guard).
+ *  pokemontcg.io hosts sets up to 2025; releases from 2026 live on scrydex. */
+const ALLOWED_HOSTS = new Set(["images.pokemontcg.io", "images.scrydex.com"]);
 
 const CACHE_DIR = path.join(process.env.CACHE_DIR ?? path.join(process.cwd(), ".cache"), "img");
 const STUB_PATH = path.join(process.cwd(), "public", "card-stub.png");

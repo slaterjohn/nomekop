@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { GbButton } from "@/components/gb/gb-button";
 import { CardSlot } from "@/components/builder/card-slot";
+import { play } from "@/lib/sound";
 import type { BinderLayout, Page } from "@/lib/layout";
 import type { TcgSet } from "@/lib/tcg/types";
 
@@ -40,7 +41,9 @@ export function BinderPreview({ set, layout, tick }: BinderPreviewProps) {
   }
 
   const go = (next: number) => {
-    setSpreadIndex(Math.max(0, Math.min(spreads.length - 1, next)));
+    const clampedNext = Math.max(0, Math.min(spreads.length - 1, next));
+    if (clampedNext !== clamped) play("move");
+    setSpreadIndex(clampedNext);
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -138,7 +141,10 @@ function PageGrid({
             tick && slot.kind !== "empty"
               ? {
                   checked: tick.isChecked(slotKey(slot.card.id, slot.kind)),
-                  onToggle: () => tick.toggle(slotKey(slot.card.id, slot.kind)),
+                  onToggle: () => {
+                    play("move");
+                    tick.toggle(slotKey(slot.card.id, slot.kind));
+                  },
                 }
               : undefined;
           return (

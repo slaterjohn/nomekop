@@ -46,11 +46,13 @@ export function CardSlot({ slot, set, tick }: CardSlotProps) {
         <Image
           src={card.imageSmall}
           alt={cardAlt(card.name, card.number, set.printedTotal, card.rarity)}
-          fill
-          sizes="160px"
+          // Explicit intrinsic size (small scans are 245×342) so the image
+          // can never collapse to 0×0 when a parent fails to size it.
+          width={245}
+          height={342}
           loading="lazy"
           unoptimized
-          className="object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           onError={() => setImageFailed(true)}
         />
       ) : (
@@ -93,7 +95,9 @@ export function CardSlot({ slot, set, tick }: CardSlotProps) {
         aria-checked={tick.checked}
         aria-label={`Collected: ${cardAlt(card.name, card.number, set.printedTotal, card.rarity)}${isReverse ? " (reverse holo)" : ""}`}
         onClick={tick.onToggle}
-        className="cursor-pointer text-left"
+        // block w-full: a shrink-to-fit button collapses the aspect-ratio
+        // face to ~4px (regression: invisible, unclickable tick targets).
+        className="block w-full cursor-pointer text-left"
       >
         {face}
       </button>

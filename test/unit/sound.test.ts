@@ -10,18 +10,19 @@ class FakeGain {
 class FakeOsc {
   type = "";
   frequency = { value: 0 };
-  connect = vi.fn(() => new FakeGain());
+  connect = vi.fn((node: FakeGain) => node);
   start = vi.fn();
   stop = vi.fn();
 }
 
-function stubAudioContext() {
+function stubAudioContext(currentTime = 0) {
   const instances: FakeAudioContext[] = [];
   class FakeAudioContext {
     state = "running";
-    currentTime = 0;
+    currentTime = currentTime;
     destination = {};
     oscillators: FakeOsc[] = [];
+    gains: FakeGain[] = [];
     constructor() {
       instances.push(this);
     }
@@ -31,7 +32,9 @@ function stubAudioContext() {
       return osc;
     }
     createGain() {
-      return new FakeGain();
+      const gain = new FakeGain();
+      this.gains.push(gain);
+      return gain;
     }
     resume = vi.fn();
   }
@@ -83,5 +86,18 @@ describe("sound", () => {
     vi.stubGlobal("AudioContext", undefined);
     localStorage.setItem("bindermon:v1:sound", "1");
     expect(() => play("confirm")).not.toThrow();
+  });
+
+  it("schedules notes safely ahead of the audio clock (regression: swallowed first blip)", () => {
+    // Events scheduled at exactly currentTime land in the past once the audio
+    // thread catches up, clamping the gain envelope to silence.
+    const instances = stubAudioContext(5);
+    localStorage.setItem("bindermon:v1:sound", "1");
+    play("confirm");
+    const gainCalls = instances[0]!.gains[0]!.gain.setValueAtTime.mock.calls;
+    expect(gainCalls.length).toBeGreaterThan(0);
+    const [volume, when] = gainCalls[0]! as [number, number];
+    expect(when).toBeGreaterThanOrEqual(5.02);
+    expect(volume).toBeGreaterThanOrEqual(0.05); // audible on laptop speakers
   });
 });

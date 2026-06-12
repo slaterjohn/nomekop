@@ -131,4 +131,18 @@ describe("BinderPreview tick mode", () => {
     expect(tickMark).not.toBeNull();
     expect(tickMark!).toHaveAttribute("aria-hidden", "true");
   });
+
+  it("checkbox buttons fill their grid cell (regression: collapsed to 4px)", () => {
+    render(<Harness />);
+    const box = screen.getByRole("checkbox", { name: /Collected: Pineco/ });
+    expect(box.className).toMatch(/w-full/);
+    expect(box.className).toMatch(/block/);
+  });
+
+  it("card images carry explicit width/height fallbacks", () => {
+    render(<Harness />);
+    const img = screen.getByRole("checkbox", { name: /Collected: Pineco/ }).querySelector("img")!;
+    expect(img).toHaveAttribute("width");
+    expect(img).toHaveAttribute("height");
+  });
 });

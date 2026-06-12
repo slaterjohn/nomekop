@@ -107,4 +107,46 @@ describe("SetSelector", () => {
     const { container } = render(<SetSelector sets={SETS} onSelect={vi.fn()} />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  describe("sorting", () => {
+    it("defaults to newest-first (groups and sets)", () => {
+      render(<SetSelector sets={SETS} onSelect={vi.fn()} />);
+      const names = screen.getAllByRole("option").map((o) => o.textContent);
+      // sv2 (2023/06) → sv1 (2023/03) → base1 (1999)
+      expect(names[0]).toContain("Paldea Evolved");
+      expect(names[1]).toContain("Scarlet & Violet");
+      expect(names[2]).toContain("Base");
+    });
+
+    it("OLDEST flips the order", async () => {
+      const user = userEvent.setup();
+      render(<SetSelector sets={SETS} onSelect={vi.fn()} />);
+      await user.click(screen.getByRole("button", { name: "Sort oldest first" }));
+      const names = screen.getAllByRole("option").map((o) => o.textContent);
+      expect(names[0]).toContain("Base");
+      expect(names[2]).toContain("Paldea Evolved");
+    });
+
+    it("A–Z sorts groups and sets alphabetically", async () => {
+      const user = userEvent.setup();
+      render(<SetSelector sets={SETS} onSelect={vi.fn()} />);
+      await user.click(screen.getByRole("button", { name: "Sort alphabetically" }));
+      const names = screen.getAllByRole("option").map((o) => o.textContent);
+      expect(names[0]).toContain("Base");
+      expect(names[1]).toContain("Paldea Evolved");
+      expect(names[2]).toContain("Scarlet & Violet");
+    });
+
+    it("sort buttons expose pressed state", () => {
+      render(<SetSelector sets={SETS} onSelect={vi.fn()} />);
+      expect(screen.getByRole("button", { name: "Sort newest first" })).toHaveAttribute(
+        "aria-pressed",
+        "true",
+      );
+      expect(screen.getByRole("button", { name: "Sort alphabetically" })).toHaveAttribute(
+        "aria-pressed",
+        "false",
+      );
+    });
+  });
 });

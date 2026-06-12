@@ -39,7 +39,9 @@ export function PrintPlaceholders({ set, slots, config }: PrintPlaceholdersProps
                   <span className="print-crop print-crop-tr" />
                   <span className="print-crop print-crop-bl" />
                   <span className="print-crop print-crop-br" />
-                  {set.symbolUrl ? <img src={proxiedImage(set.symbolUrl)} alt="" /> : null}
+                  {set.symbolUrl ? (
+                    <img src={proxiedImage(set.symbolUrl)} alt="" width={24} height={24} />
+                  ) : null}
                   <span className="print-placeholder-name">{card.name}</span>
                   <span className="print-placeholder-number">
                     {card.number}/{set.printedTotal}
