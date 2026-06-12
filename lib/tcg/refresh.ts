@@ -1,0 +1,86 @@
+import { CARDS_TTL_MS, SETS_TTL_MS, serverStore, type SqliteStore } from "@/lib/server-store";
+import { getDataSource } from "@/lib/tcg";
+import type { CardDataSource } from "@/lib/tcg/types";
+
+export type RefreshSummary = {
+  sets: number;
+  ok: number;
+  failed: string[];
+  durationMs: number;
+};
+
+let running = false;
+
+export function isRefreshRunning(): boolean {
+  return running;
+}
+
+type Options = {
+  source?: CardDataSource;
+  store?: Pick<SqliteStore, "set">;
+  /** Delay between sets — stays friendly to pokemontcg.io rate limits. */
+  paceMs?: number;
+  log?: (message: string) => void;
+};
+
+/**
+ * The daily cache walk: re-fetches the sets list and every set's cards
+ * (including TCGplayer prices) and force-writes them to the server store, so
+ * users get warm loads and ≤12h-old prices without ever waiting on the API.
+ */
+export async function runRefreshAll(options: Options = {}): Promise<RefreshSummary> {
+  if (running) throw new Error("refresh already running");
+  running = true;
+  const started = Date.now();
+  const source = options.source ?? getDataSource();
+  const store = options.store ?? serverStore;
+  const paceMs = options.paceMs ?? 750;
+  const log = options.log ?? ((m: string) => console.log(`[refresh] ${m}`));
+
+  try {
+    const sets = await source.getSets();
+    store.set("sets", sets, SETS_TTL_MS);
+    log(`sets list refreshed (${sets.length} sets)`);
+
+    let ok = 0;
+    const failed: string[] = [];
+    for (const [index, set] of sets.entries()) {
+      try {
+        const cards = await source.getCards(set.id);
+        store.set(`cards:${set.id}`, cards, CARDS_TTL_MS);
+        ok += 1;
+      } catch {
+        failed.push(set.id);
+      }
+      if ((index + 1) % 25 === 0) log(`${index + 1}/${sets.length} sets refreshed`);
+      if (paceMs > 0) await new Promise((r) => setTimeout(r, paceMs));
+    }
+
+    const summary: RefreshSummary = { sets: sets.length, ok, failed, durationMs: Date.now() - started };
+    log(`done: ${ok}/${sets.length} ok${failed.length ? `, failed: ${failed.join(", ")}` : ""}`);
+    return summary;
+  } finally {
+    running = false;
+  }
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+let scheduled = false;
+
+/**
+ * Schedules the daily walk (first run shortly after boot, then every 24h).
+ * Idempotent across dev hot reloads; skipped in fixture mode and tests.
+ */
+export function scheduleDailyRefresh(): void {
+  if (scheduled) return;
+  if (process.env.TCG_DATA_SOURCE === "fixture") return;
+  if (process.env.DISABLE_BACKGROUND_REFRESH === "1") return;
+  scheduled = true;
+
+  const kick = () => {
+    runRefreshAll().catch((err) => console.error("[refresh] failed:", err));
+  };
+  // Initial run two minutes after boot — lets the server settle first.
+  setTimeout(kick, 2 * 60 * 1000).unref?.();
+  setInterval(kick, DAY_MS).unref?.();
+}
