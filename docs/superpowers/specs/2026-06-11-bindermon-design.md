@@ -355,3 +355,32 @@ the fields in §4.
 6. Print routes + `lib/pdf` + `/api/pdf`; PDF integration tests.
 7. E2E suite; axe sweeps; polish pass (animations, empty states, easter egg).
 8. Docker + CI completion; README; final full-suite verification.
+
+---
+
+## v2 addendum (2026-06-12) — user feedback round 2
+
+1. **Collection mode** (renames tick mode): toggle persisted in localStorage
+   (`bindermon:v1:collection-mode`); collecting a card flies a pokeball ghost into the
+   progress bar (bar pulses; reduced-motion: instant), collected pockets get a prominent
+   mark (large pokeball + dimmed scan + struck number); CSV export (number, name, rarity,
+   variant, collected) generated client-side.
+2. **Holo badges + shimmer**: pockets for holo prints show a HOLO badge (mirrors REV);
+   holographic cards get a subtle pixel shimmer sweep (motion-safe only, screen only).
+3. **Ball-pattern master sets**: curated map (`lib/tcg/ball-patterns.ts`) marks sets with
+   Poké Ball/Master Ball mirrors — sv8pt5 (PRE: poké = reverse pool, master = Pokémon only;
+   481-card master set), zsv10pt5, rsv10pt5. The API exposes no per-card ball data
+   (verified), so rules are per-set functions over (variants, supertype). Master mode gains
+   toggles (SECRETS / POKÉ BALL / MASTER BALL) plus placement: INTERLEAVED (default) or
+   AT END (grouped after the main run).
+4. **Layout presets become pocket counts**: 4/9/12/16 PKT + CUSTOM (reveals row/col
+   steppers). Default is the 12-pocket binder (3 rows × 4 cols).
+5. **Binder finder**: once a set+layout is chosen, a section recommends matching Vault X
+   binders (Zip/Strap lines in 4/9/12/16-pocket — verified lineup) with links to
+   vaultx.com and Amazon search carrying an optional affiliate tag
+   (`NEXT_PUBLIC_AMAZON_TAG`, `NEXT_PUBLIC_VAULTX_REF`); affiliate disclosure shown.
+6. **Server-side store**: TCG data moves from fs-cache to SQLite (`node:sqlite`,
+   `.cache/bindermon.db`) with per-key TTL + SWR — sets 24h, cards (incl. prices) **12h**.
+   A daily in-process refresher (instrumentation.ts, skipped in fixture mode/tests) walks
+   every set and re-caches; `POST /api/refresh` (localhost or `REFRESH_TOKEN`) triggers it
+   manually. Image fs-cache unchanged.
