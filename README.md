@@ -12,12 +12,15 @@ A4 PDFs: binder pages, a checklist, and true-size pocket placeholders.
 ## Features
 
 - **Every set** from the Pokemon TCG API, searchable and grouped by series
-- **Grid configuration** with presets (2×2, 3×3, 4×3, 4×4)
+- **Binder-size presets** (4/9/12/16 pockets, 12-pocket default) plus a custom grid; holo prints get badges and a pixel shimmer; a **binder shelf** suggests matching Vault X binders
 - **Master set mode** — reverse holos interleaved next to their base card,
-  detected from price data with an era/rarity fallback
+  detected from price data with an era/rarity fallback; **ball-pattern sets**
+  (Prismatic Evolutions, Black Bolt, White Flare) gain Poké Ball / Master Ball
+  toggles and interleaved-or-at-end placement
 - **Secret rares toggle** (numbers beyond the printed total and TG/GG subsets)
 - **Binder preview** as facing-page spreads with page-flip navigation
-- **Collection tick-off** persisted locally (no accounts), HP-bar progress
+- **Collection mode** persisted locally (no accounts): pokeball fly-in animation,
+  prominent collected marks, HP-bar progress, **CSV export** with a collected column
 - **Three printables**, identical in browser print and PDF download:
   binder pages · checklist · cut-out placeholders (with crop marks)
 - **Five Game Boy palettes** (DMG, Pocket, Kanto Red, Cerulean, High Contrast)
@@ -81,7 +84,8 @@ components/gb/        the Game Boy design system (listbox menus, dialog boxes,
 lib/layout/           pure layout engine: collector-number sort, variant
                       interleaving, pagination into pages/spreads
 lib/tcg/              CardDataSource: pokemontcg.io client or committed fixtures
-lib/cache.ts          layered memory+disk TTL cache, stale-while-revalidate
+lib/server-store.ts   SQLite (node:sqlite) cache: sets 24h, cards+prices 12h, SWR
+lib/tcg/refresh.ts    daily background walk of every set (instrumentation.ts)
 ```
 
 The same React components render the on-screen preview, the print routes and
