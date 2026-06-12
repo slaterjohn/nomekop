@@ -3,6 +3,7 @@ import { describe, it, expect, beforeAll } from "vitest";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { buildBinderLayout } from "@/lib/layout";
+import { DEFAULT_CONFIG } from "@/lib/config";
 import { parseCardNumber } from "@/lib/layout/number";
 import type { TcgCard } from "@/lib/tcg/types";
 
@@ -20,12 +21,7 @@ const SV1 = { printedTotal: 198 };
 
 describe("base1 (vintage, 102 cards, no reverses)", () => {
   it("standard 3×3 → 102 slots over 12 pages", () => {
-    const layout = buildBinderLayout(base1, BASE1, {
-      rows: 3,
-      cols: 3,
-      mode: "standard",
-      secrets: true,
-    });
+    const layout = buildBinderLayout(base1, BASE1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: true });
     expect(layout.stats).toEqual({
       cards: 102,
       slots: 102,
@@ -38,15 +34,15 @@ describe("base1 (vintage, 102 cards, no reverses)", () => {
   });
 
   it("master mode equals standard (no reverse holos existed in 1999)", () => {
-    const standard = buildBinderLayout(base1, BASE1, { rows: 3, cols: 3, mode: "standard", secrets: true });
-    const master = buildBinderLayout(base1, BASE1, { rows: 3, cols: 3, mode: "master", secrets: true });
+    const standard = buildBinderLayout(base1, BASE1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: true });
+    const master = buildBinderLayout(base1, BASE1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "master", secrets: true });
     expect(master.stats).toEqual(standard.stats);
   });
 });
 
 describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   it("standard with secrets → 258 slots over 29 pages of 3×3", () => {
-    const layout = buildBinderLayout(sv1, SV1, { rows: 3, cols: 3, mode: "standard", secrets: true });
+    const layout = buildBinderLayout(sv1, SV1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: true });
     expect(layout.stats).toEqual({
       cards: 258,
       slots: 258,
@@ -60,7 +56,7 @@ describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   it("master adds one slot per reverse-capable card, adjacent to its base", () => {
     const reverseCount = sv1.filter((c) => c.variants.reverse).length;
     expect(reverseCount).toBeGreaterThan(100); // sanity: fixture has real variance
-    const layout = buildBinderLayout(sv1, SV1, { rows: 3, cols: 3, mode: "master", secrets: true });
+    const layout = buildBinderLayout(sv1, SV1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "master", secrets: true });
     expect(layout.stats.slots).toBe(258 + reverseCount);
 
     const flat = layout.pages.flatMap((p) => p.slots);
@@ -74,7 +70,7 @@ describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   });
 
   it("secrets off keeps only plain numbers ≤ 198", () => {
-    const layout = buildBinderLayout(sv1, SV1, { rows: 3, cols: 3, mode: "standard", secrets: false });
+    const layout = buildBinderLayout(sv1, SV1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: false });
     expect(layout.stats.cards).toBe(198);
     const numbers = layout.pages
       .flatMap((p) => p.slots)
@@ -84,7 +80,7 @@ describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   });
 
   it("slots arrive in collector-number order", () => {
-    const layout = buildBinderLayout(sv1, SV1, { rows: 4, cols: 3, mode: "standard", secrets: true });
+    const layout = buildBinderLayout(sv1, SV1, { ...DEFAULT_CONFIG, rows: 4, cols: 3, mode: "standard", secrets: true });
     const nums = layout.pages
       .flatMap((p) => p.slots)
       .filter((s) => s.kind === "card")
@@ -94,7 +90,7 @@ describe("sv1 (modern, 258 cards incl. secrets, reverses)", () => {
   });
 
   it("spread count follows page count", () => {
-    const layout = buildBinderLayout(sv1, SV1, { rows: 3, cols: 3, mode: "standard", secrets: true });
+    const layout = buildBinderLayout(sv1, SV1, { ...DEFAULT_CONFIG, rows: 3, cols: 3, mode: "standard", secrets: true });
     // 29 pages → 1 + ceil(28/2) = 15 spreads
     expect(layout.spreads).toHaveLength(15);
   });

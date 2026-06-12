@@ -118,6 +118,70 @@
       clip-path: inset(0 0 0 0);
     }
   }
+
+  --animate-gb-pulse: gb-pulse 0.3s steps(3, end);
+
+  @keyframes gb-pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes gb-shimmer {
+    from {
+      background-position: 130% 0;
+    }
+    to {
+      background-position: -30% 0;
+    }
+  }
+}
+
+/* Pixelated foil shimmer for holo/reverse/ball pockets (decoration only). */
+.gb-shimmer {
+  background-image: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.55) 46%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.55) 54%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gb-shimmer {
+    animation: gb-shimmer 4.5s steps(14, end) infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gb-shimmer {
+    background: none;
+  }
+}
+
+/* The pokeball ghost that flies a collected card into the progress bar. */
+.gb-fly-ghost {
+  position: fixed;
+  z-index: 60;
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--gb-ink);
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, var(--gb-accent) 50%, var(--gb-bg) 50%);
+  pointer-events: none;
+  transition:
+    transform 0.45s cubic-bezier(0.3, -0.2, 0.4, 1),
+    opacity 0.45s ease-in;
 }
 
 /*

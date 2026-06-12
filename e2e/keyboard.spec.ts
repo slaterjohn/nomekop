@@ -23,6 +23,9 @@ test("keyboard-only: skip link → choose set → configure → tick a card", as
   await page.keyboard.press("Enter");
   await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
 
+  // CUSTOM reveals the steppers (keyboard activation)
+  await page.getByRole("button", { name: "CUSTOM" }).focus();
+  await page.keyboard.press("Enter");
   // Spinbutton: ArrowUp bumps rows
   await page.getByRole("spinbutton", { name: "ROWS" }).focus();
   await page.keyboard.press("ArrowUp");
@@ -40,7 +43,7 @@ test("keyboard-only: skip link → choose set → configure → tick a card", as
   await expect(page.getByText(/444 POCKETS/)).toBeVisible();
 
   // Toggle tick mode with Space, tick the first pocket with Space
-  await page.getByRole("switch", { name: "TICK MODE" }).focus();
+  await page.getByRole("switch", { name: "COLLECTION MODE" }).focus();
   await page.keyboard.press("Space");
   const firstBox = page.getByRole("checkbox").first();
   await firstBox.focus();

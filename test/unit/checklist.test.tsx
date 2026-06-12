@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import {
   useChecklist,
+  useCollectionMode,
   toggleSlot,
   clearChecklist,
   __resetChecklistStoreForTests,
@@ -18,6 +19,33 @@ import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 beforeEach(() => {
   localStorage.clear();
   __resetChecklistStoreForTests();
+});
+
+describe("collection mode persistence", () => {
+  it("defaults off, persists toggles to localStorage", async () => {
+    const user = userEvent.setup();
+    function Probe() {
+      const { enabled, setEnabled } = useCollectionMode();
+      return (
+        <button onClick={() => setEnabled(!enabled)}>{enabled ? "ON" : "OFF"}</button>
+      );
+    }
+    render(<Probe />);
+    expect(screen.getByRole("button")).toHaveTextContent("OFF");
+    await user.click(screen.getByRole("button"));
+    expect(screen.getByRole("button")).toHaveTextContent("ON");
+    expect(localStorage.getItem("bindermon:v1:collection-mode")).toBe("1");
+  });
+
+  it("hydrates from a stored value", () => {
+    localStorage.setItem("bindermon:v1:collection-mode", "1");
+    function Probe() {
+      const { enabled } = useCollectionMode();
+      return <span>{enabled ? "ON" : "OFF"}</span>;
+    }
+    render(<Probe />);
+    expect(screen.getByText("ON")).toBeInTheDocument();
+  });
 });
 
 describe("checklist store", () => {

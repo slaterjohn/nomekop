@@ -148,7 +148,7 @@ describe("BinderPreview", () => {
       render(<BinderPreview set={sv1Set} layout={layout} onInspect={onInspect} />);
       await user.click(
         screen.getByRole("button", {
-          name: "View details: Pineco · 1/198 · Common (reverse holo)",
+          name: "View details: Pineco · 1/198 · Common (Reverse holo)",
         }),
       );
       expect(onInspect).toHaveBeenCalledWith(expect.objectContaining({ id: "sv1-1" }), "reverse");

@@ -100,4 +100,44 @@ export function useChecklist(setId: string | undefined, mode: string) {
 /** Test-only: drops snapshot caches so isolated tests see a clean slate. */
 export function __resetChecklistStoreForTests(): void {
   snapshots.clear();
+  memoryMode = null;
+}
+
+// --- Collection-mode toggle (persisted) --------------------------------------
+
+const MODE_KEY = "bindermon:v1:collection-mode";
+let memoryMode: boolean | null = null;
+const modeListeners = new Set<() => void>();
+
+function modeSnapshot(): boolean {
+  try {
+    const raw = localStorage.getItem(MODE_KEY);
+    if (raw === "1") return true;
+    if (raw === "0") return false;
+  } catch {
+    // fall through
+  }
+  return memoryMode ?? false;
+}
+
+function modeSubscribe(onChange: () => void): () => void {
+  modeListeners.add(onChange);
+  return () => {
+    modeListeners.delete(onChange);
+  };
+}
+
+/** Whether collection mode is on — persisted across visits. */
+export function useCollectionMode(): { enabled: boolean; setEnabled: (on: boolean) => void } {
+  const enabled = useSyncExternalStore(modeSubscribe, modeSnapshot, () => false);
+  const setEnabled = useCallback((on: boolean) => {
+    memoryMode = on;
+    try {
+      localStorage.setItem(MODE_KEY, on ? "1" : "0");
+    } catch {
+      // best-effort persistence
+    }
+    modeListeners.forEach((l) => l());
+  }, []);
+  return { enabled, setEnabled };
 }

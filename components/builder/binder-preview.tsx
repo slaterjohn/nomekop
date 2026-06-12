@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { GbButton } from "@/components/gb/gb-button";
 import { CardSlot } from "@/components/builder/card-slot";
+import { flyToCollectionBar } from "@/lib/fly-to";
 import { play } from "@/lib/sound";
-import type { BinderLayout, Page } from "@/lib/layout";
+import type { BinderLayout, Page, SlotKind } from "@/lib/layout";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 type TickApi = {
@@ -17,11 +18,11 @@ type BinderPreviewProps = {
   layout: BinderLayout;
   /** Optional checklist tick mode (slot keys = cardId:kind). */
   tick?: TickApi;
-  /** Opens the card detail view for a clicked pocket (tick mode wins). */
-  onInspect?: (card: TcgCard, kind: "card" | "reverse") => void;
+  /** Opens the card detail view for a clicked pocket (collection mode wins). */
+  onInspect?: (card: TcgCard, kind: SlotKind) => void;
 };
 
-export function slotKey(cardId: string, kind: "card" | "reverse"): string {
+export function slotKey(cardId: string, kind: SlotKind): string {
   return `${cardId}:${kind}`;
 }
 
@@ -130,7 +131,7 @@ function PageGrid({
   layout: BinderLayout;
   set: TcgSet;
   tick?: TickApi;
-  onInspect?: (card: TcgCard, kind: "card" | "reverse") => void;
+  onInspect?: (card: TcgCard, kind: SlotKind) => void;
 }) {
   return (
     <section aria-label={`Page ${page.number}`} className="flex-1">
@@ -143,13 +144,18 @@ function PageGrid({
           const key = slot.kind === "empty" ? `empty-${i}` : `${slot.card.id}-${slot.kind}`;
           const tickApi =
             tick && slot.kind !== "empty"
-              ? {
-                  checked: tick.isChecked(slotKey(slot.card.id, slot.kind)),
-                  onToggle: () => {
-                    play("move");
-                    tick.toggle(slotKey(slot.card.id, slot.kind));
-                  },
-                }
+              ? (() => {
+                  const key = slotKey(slot.card.id, slot.kind);
+                  const checked = tick.isChecked(key);
+                  return {
+                    checked,
+                    onToggle: (element: HTMLElement) => {
+                      if (!checked) flyToCollectionBar(element);
+                      play(checked ? "back" : "move");
+                      tick.toggle(key);
+                    },
+                  };
+                })()
               : undefined;
           const inspect =
             !tick && onInspect && slot.kind !== "empty"

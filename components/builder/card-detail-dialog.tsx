@@ -11,9 +11,10 @@ import {
 import { GbBadge } from "@/components/gb/gb-badge";
 import { cardAlt } from "@/lib/card-alt";
 import { cn } from "@/lib/utils";
+import type { SlotKind } from "@/lib/layout";
 import type { PriceRange, TcgCard, TcgSet } from "@/lib/tcg/types";
 
-type PocketKind = "card" | "reverse";
+type PocketKind = SlotKind;
 
 type CardDetailDialogProps = {
   card: TcgCard | null;
@@ -38,7 +39,16 @@ function money(value: number | undefined): string {
 }
 
 function variantForKind(kind: PocketKind | null): string | null {
-  return kind === "reverse" ? "reverseHolofoil" : null;
+  switch (kind) {
+    case "reverse":
+      return "reverseHolofoil";
+    // Ball patterns have no TCGplayer price keys (the API carries none).
+    case "pokeball":
+    case "masterball":
+      return "__no_price_row__";
+    default:
+      return null;
+  }
 }
 
 /** Card close-up: big scan, identity, variants and TCGplayer market prices. */
@@ -88,6 +98,8 @@ export function CardDetailDialog({ card, kind, set, onClose }: CardDetailDialogP
               {card.variants.normal ? <GbBadge>NORMAL</GbBadge> : null}
               {card.variants.holo ? <GbBadge>HOLO</GbBadge> : null}
               {card.variants.reverse ? <GbBadge>REVERSE</GbBadge> : null}
+              {card.variants.pokeball ? <GbBadge>POKÉ BALL</GbBadge> : null}
+              {card.variants.masterball ? <GbBadge>MASTER BALL</GbBadge> : null}
             </div>
 
             {prices ? (

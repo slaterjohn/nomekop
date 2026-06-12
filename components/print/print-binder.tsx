@@ -2,6 +2,7 @@
    for exact mm-based sizing; next/image optimization is pointless on paper. */
 import { PrintShell, proxiedImage } from "@/components/print/print-shell";
 import { cardAlt } from "@/lib/card-alt";
+import { slotBadge } from "@/lib/variant-labels";
 import type { BinderLayout } from "@/lib/layout";
 import type { BinderConfig } from "@/lib/config";
 import type { TcgSet } from "@/lib/tcg/types";
@@ -59,7 +60,11 @@ export function PrintBinder({ set, layout, config }: PrintBinderProps) {
                         height={342}
                       />
                     ) : null}
-                    {slot.kind === "reverse" ? <span className="print-rev-badge">REV</span> : null}
+                    {slotBadge(slot.kind) ? (
+                      <span className="print-rev-badge">{slotBadge(slot.kind)}</span>
+                    ) : slot.kind === "card" && card.variants.holo ? (
+                      <span className="print-rev-badge">HOLO</span>
+                    ) : null}
                   </div>
                   <div className="print-slot-label">
                     {card.name} · {card.number}

@@ -13,9 +13,13 @@ test("full happy path: choose, configure, master mode, tick, persist", async ({ 
   await chooseScarletViolet(page);
   await expect(page).toHaveURL(/set=sv1/);
 
-  // 4×3 grid via stepper
+  // default is the 12-pocket binder; CUSTOM reveals the steppers
+  await expect(page.getByRole("button", { name: "12 PKT" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("spinbutton", { name: "ROWS" })).toHaveCount(0);
+  await page.getByRole("button", { name: "CUSTOM" }).click();
   await page.getByRole("button", { name: "Increase ROWS" }).click();
   await expect(page.getByRole("spinbutton", { name: "ROWS" })).toHaveAttribute("aria-valuenow", "4");
+  await page.getByRole("button", { name: "12 PKT" }).click(); // back to the default grid
 
   // master mode interleaves reverses: 258 + 186 = 444 pockets over 37 pages
   await page.getByRole("option", { name: /MASTER/ }).click();
@@ -28,7 +32,7 @@ test("full happy path: choose, configure, master mode, tick, persist", async ({ 
   await expect(page.getByText(/PAGES 2–3 OF 37/)).toBeVisible();
 
   // tick three cards
-  await page.getByRole("switch", { name: "TICK MODE" }).click();
+  await page.getByRole("switch", { name: "COLLECTION MODE" }).click();
   const boxes = page.getByRole("checkbox");
   // regression: tick buttons once collapsed to 4×6px (shrink-to-fit button)
   const tickBox = await boxes.first().boundingBox();
@@ -42,20 +46,31 @@ test("full happy path: choose, configure, master mode, tick, persist", async ({ 
     "3",
   );
 
-  // ticks survive reload (localStorage)
+  // ticks AND collection mode survive reload (localStorage)
   await page.reload();
   await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
   await expect(page.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
     "aria-valuenow",
     "3",
   );
+  await expect(page.getByRole("switch", { name: "COLLECTION MODE" })).toHaveAttribute(
+    "aria-checked",
+    "true",
+  );
+  await expect(page.getByRole("checkbox").first()).toBeVisible();
+
+  // CSV export carries the collected column
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "CSV", exact: true }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toContain("collection.csv");
 });
 
 test("all three PDFs download with the page counts the engine predicts", async ({ page }) => {
   test.setTimeout(180_000); // three full Puppeteer renders
 
   const cases = [
-    { type: "binder", expectedPages: 12 }, // 102 cards / 9 per page
+    { type: "binder", expectedPages: 9 }, // 102 cards / 12 per page (3×4 default)
     { type: "checklist", expectedPages: 4 }, // 102 rows / 28 per sheet
     { type: "placeholders", expectedPages: 17 }, // 102 cards / 6 per sheet
   ] as const;
@@ -87,6 +102,35 @@ test("card detail view shows TCGplayer prices and closes with Escape", async ({ 
 
   await page.keyboard.press("Escape");
   await expect(dialog).not.toBeVisible();
+});
+
+test("Prismatic Evolutions master set offers ball-pattern options", async ({ page }) => {
+  await page.goto("/?set=sv8pt5");
+  await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
+
+  // Standard mode: no ball options
+  await expect(page.getByRole("switch", { name: "POKÉ BALL" })).toHaveCount(0);
+
+  await page.getByRole("option", { name: /MASTER/ }).click();
+  // 180 cards + 100 reverse + 100 poké + 67 master = 447 pockets, 38 pages of 12
+  await expect(page.getByText("180 CARDS → 447 POCKETS → 38 PAGES")).toBeVisible();
+  await expect(page.getByRole("switch", { name: "POKÉ BALL" })).toBeVisible();
+  await expect(page.getByRole("switch", { name: "MASTER BALL" })).toBeVisible();
+  await expect(page.getByText("POKÉ").first()).toBeVisible();
+
+  // Turning master ball off shrinks the binder
+  await page.getByRole("switch", { name: "MASTER BALL" }).click();
+  await expect(page.getByText("180 CARDS → 380 POCKETS → 32 PAGES")).toBeVisible();
+  await expect(page).toHaveURL(/mb=0/);
+
+  // Placement at end keeps the pocket count, groups ball runs after the set
+  await page.getByRole("option", { name: /AT END/ }).click();
+  await expect(page).toHaveURL(/place=end/);
+  await expect(page.getByText("180 CARDS → 380 POCKETS → 32 PAGES")).toBeVisible();
+
+  // The binder shelf recommends matching 12-pocket Vault X binders
+  await expect(page.getByRole("heading", { name: "FIND THE RIGHT BINDER" })).toBeVisible();
+  await expect(page.getByText("Vault X 12-Pocket Exo-Tec Zip Binder")).toBeVisible();
 });
 
 test("invalid PDF requests are rejected", async ({ page }) => {

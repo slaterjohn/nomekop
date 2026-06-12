@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- see print-binder.tsx */
 import { PrintShell, proxiedImage } from "@/components/print/print-shell";
+import { slotKindLabel } from "@/lib/variant-labels";
 import type { Slot } from "@/lib/layout";
 import type { BinderConfig } from "@/lib/config";
 import type { TcgSet } from "@/lib/tcg/types";
@@ -70,7 +71,7 @@ export function PrintChecklist({ set, slots, config }: PrintChecklistProps) {
                     <td>{card.number}</td>
                     <td>{card.name}</td>
                     <td>{card.rarity ?? ""}</td>
-                    <td>{slot.kind === "reverse" ? "Reverse holo" : "Normal"}</td>
+                    <td>{slotKindLabel(slot.kind)}</td>
                   </tr>
                 );
               })}

@@ -5,11 +5,13 @@ test.beforeEach(async ({ page }) => {
   await stubCardImages(page);
 });
 
-test("binder print route renders 12 sheets for base1 3×3", async ({ page }) => {
+test("binder print route renders 9 sheets for base1 (12-pocket default)", async ({ page }) => {
   await page.goto("/print/binder?set=base1");
-  await expect(page.locator(".print-sheet")).toHaveCount(12);
-  await expect(page.getByText("Page 1/12 · 3×3")).toBeVisible();
+  await expect(page.locator(".print-sheet")).toHaveCount(9);
+  await expect(page.getByText("Page 1/9 · 3×4")).toBeVisible();
   await expect(page.locator(".print-slot-label").first()).toContainText("Alakazam");
+  // base1 rare holos carry the HOLO badge on paper too
+  await expect(page.locator(".print-rev-badge", { hasText: "HOLO" }).first()).toBeVisible();
 });
 
 test("checklist renders one tick row per pocket", async ({ page }) => {

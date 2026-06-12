@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- see print-binder.tsx */
 import { PrintShell, proxiedImage } from "@/components/print/print-shell";
+import { slotKindLabel } from "@/lib/variant-labels";
 import type { Slot } from "@/lib/layout";
 import type { BinderConfig } from "@/lib/config";
 import type { TcgSet } from "@/lib/tcg/types";
@@ -45,7 +46,7 @@ export function PrintPlaceholders({ set, slots, config }: PrintPlaceholdersProps
                   <span className="print-placeholder-name">{card.name}</span>
                   <span className="print-placeholder-number">
                     {card.number}/{set.printedTotal}
-                    {slot.kind === "reverse" ? " · REVERSE HOLO" : ""}
+                    {slot.kind !== "card" ? ` · ${slotKindLabel(slot.kind).toUpperCase()}` : ""}
                     {card.rarity ? ` · ${card.rarity}` : ""}
                   </span>
                 </div>

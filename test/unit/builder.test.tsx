@@ -6,6 +6,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { Providers } from "@/components/providers";
 import { Builder } from "@/components/builder/builder";
+import { __resetChecklistStoreForTests } from "@/lib/checklist-store";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 // --- next/navigation mock: a reactive fake router so URL state re-renders ----
@@ -86,6 +87,7 @@ beforeEach(() => {
   nav.replace.mockClear();
   vi.unstubAllGlobals();
   localStorage.clear();
+  __resetChecklistStoreForTests();
 });
 
 describe("Builder", () => {
@@ -176,7 +178,7 @@ describe("Builder", () => {
     await screen.findByRole("heading", { name: "PREVIEW" });
 
     expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
-    await user.click(screen.getByRole("switch", { name: "TICK MODE" }));
+    await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
     const first = screen.getAllByRole("checkbox")[0]!;
     await user.click(first);
     expect(first).toHaveAttribute("aria-checked", "true");
