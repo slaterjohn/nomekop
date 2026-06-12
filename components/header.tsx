@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { useSoundEnabled, play } from "@/lib/sound";
@@ -30,7 +31,10 @@ export function Header() {
             Pokemon TCG binder layouts, checklists &amp; printables
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
+          <Link href="/sets" className="font-pixel text-xs no-underline sm:text-sm">
+            SETS
+          </Link>
           <ThemeSwitcher />
           <GbToggle
             label="SOUND"

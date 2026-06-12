@@ -1,0 +1,162 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { GbLinkButton } from "@/components/gb/gb-button";
+import { GbScreen } from "@/components/gb/gb-screen";
+import { DEFAULT_CONFIG } from "@/lib/config";
+import { buildBinderLayout, sortCards } from "@/lib/layout";
+import { encodeShareToken } from "@/lib/share";
+import { getCards, getSets } from "@/lib/tcg";
+import { TcgError } from "@/lib/tcg/types";
+
+export const dynamic = "force-dynamic";
+
+type Props = {
+  params: Promise<{ setId: string }>;
+};
+
+const SET_ID_RE = /^[a-z0-9.]+$/i;
+
+async function loadSet(setId: string) {
+  if (!SET_ID_RE.test(setId)) notFound();
+  try {
+    const [sets, cards] = await Promise.all([getSets(), getCards(setId)]);
+    const set = sets.find((s) => s.id === setId);
+    if (!set || cards.length === 0) notFound();
+    return { set, cards };
+  } catch (err) {
+    if (err instanceof TcgError && err.kind === "unknown-set") notFound();
+    throw err;
+  }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { setId } = await params;
+  let name = setId;
+  if (SET_ID_RE.test(setId)) {
+    try {
+      const sets = await getSets();
+      name = sets.find((s) => s.id === setId)?.name ?? setId;
+    } catch {
+      // Metadata must never take the page down — fall back to the raw id.
+    }
+  }
+  return { title: `${name} — card list & binder layouts — Bindermon` };
+}
+
+function pageCount(n: number): string {
+  return `${n} ${n === 1 ? "page" : "pages"}`;
+}
+
+/** Set landing hub: stats, builder shortcuts and a link to every card —
+ *  the server-rendered trail crawlers follow to reach /card/[cardId]. */
+export default async function SetPage({ params }: Props) {
+  const { setId } = await params;
+  const { set, cards } = await loadSet(setId);
+
+  const standard = buildBinderLayout(cards, set, DEFAULT_CONFIG);
+  const master = buildBinderLayout(cards, set, { ...DEFAULT_CONFIG, mode: "master" });
+  const builderHref = `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`;
+  const masterHref = `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode: "master" })}`;
+  const sorted = sortCards(cards);
+
+  return (
+    <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm">
+        <Link href="/" className="no-underline">
+          BINDERMON
+        </Link>
+        <span aria-hidden="true">▶</span>
+        <Link href="/sets" className="no-underline">
+          ALL SETS
+        </Link>
+      </nav>
+
+      <header className="flex flex-wrap items-center gap-3">
+        {set.symbolUrl ? (
+          <Image
+            src={set.symbolUrl}
+            alt=""
+            width={24}
+            height={24}
+            unoptimized
+            loading="lazy"
+            className="h-6 w-6 shrink-0 object-contain"
+          />
+        ) : null}
+        <div className="min-w-0">
+          <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">{set.name.toUpperCase()}</h1>
+          <p className="mt-1 font-body text-lg leading-none">
+            {set.series} · {set.releaseDate.slice(0, 4)} · {set.printedTotal} printed / {set.total}{" "}
+            total cards
+          </p>
+        </div>
+      </header>
+
+      <GbScreen title="BINDER LAYOUTS">
+        <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <div className="border-[3px] border-gb-ink px-3 py-2">
+              <p className="font-pixel text-[10px] leading-relaxed">STANDARD SET</p>
+              <p className="font-body text-xl leading-tight">
+                {pageCount(standard.stats.pages)} · {standard.stats.slots} pockets
+              </p>
+            </div>
+            <div className="border-[3px] border-gb-ink px-3 py-2">
+              <p className="font-pixel text-[10px] leading-relaxed">MASTER SET</p>
+              <p className="font-body text-xl leading-tight">
+                {pageCount(master.stats.pages)} · {master.stats.slots} pockets
+              </p>
+            </div>
+          </div>
+          <p className="font-body text-lg leading-none">
+            Page counts for a 12-pocket binder (3×4) — adjust grid, secrets and variants in the
+            builder.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <GbLinkButton variant="a" href={builderHref}>
+              OPEN IN BINDER BUILDER
+            </GbLinkButton>
+            <GbLinkButton variant="b" href={masterHref}>
+              MASTER SET LAYOUT
+            </GbLinkButton>
+          </div>
+        </div>
+      </GbScreen>
+
+      <GbScreen title={`CARD LIST (${cards.length})`}>
+        <ul className="m-0 grid list-none grid-cols-3 gap-2 p-0 sm:grid-cols-5 md:grid-cols-6">
+          {sorted.map((card) => (
+            <li key={card.id}>
+              <Link href={`/card/${card.id}`} className="flex h-full flex-col gap-1 no-underline">
+                {card.imageSmall ? (
+                  <Image
+                    src={card.imageSmall}
+                    alt={`${card.name} · ${card.number}/${set.printedTotal}`}
+                    width={245}
+                    height={342}
+                    unoptimized
+                    loading="lazy"
+                    className="h-auto w-full border-2 border-gb-ink"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className="flex aspect-[63/88] items-center justify-center border-2 border-dashed border-gb-muted p-1 text-center font-pixel text-[8px] leading-relaxed"
+                  >
+                    NO SCAN
+                  </span>
+                )}
+                <span className="block truncate font-body text-base leading-tight">
+                  {card.name}
+                </span>
+                <span className="block font-pixel text-[8px] leading-none">#{card.number}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </GbScreen>
+    </main>
+  );
+}

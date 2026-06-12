@@ -54,9 +54,14 @@ export default async function CardPage({ params, searchParams }: Props) {
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Link href="/" className="font-pixel text-sm no-underline">
-          BINDERMON
-        </Link>
+        <div className="flex flex-wrap items-center gap-3">
+          <Link href="/" className="font-pixel text-sm no-underline">
+            BINDERMON
+          </Link>
+          <Link href={`/set/${set.id}`} className="font-pixel text-sm no-underline">
+            {set.name.toUpperCase()} <span aria-hidden="true">▶</span>
+          </Link>
+        </div>
         <BackButton fallbackHref={`/?set=${set.id}`} />
       </div>
       <GbScreen title={`${card.name} · ${card.number}/${set.printedTotal}${card.rarity ? ` · ${card.rarity.toUpperCase()}` : ""}`}>

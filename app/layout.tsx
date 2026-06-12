@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
+import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 
 const pressStart = Press_Start_2P({
   variable: "--font-press-start",
@@ -15,10 +16,43 @@ const vt323 = VT323({
   subsets: ["latin"],
 });
 
+const DEFAULT_TITLE = "Bindermon — Pokemon TCG binder layout maker";
+
 export const metadata: Metadata = {
-  title: "Bindermon — Pokemon binder layout maker",
-  description:
-    "Pick a Pokemon TCG set, choose your binder grid, interleave reverse holos, and print beautiful A4 binder pages, checklists and placeholders.",
+  metadataBase: new URL(siteUrl()),
+  title: {
+    default: DEFAULT_TITLE,
+    template: "%s — Bindermon",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: [
+    "pokemon tcg binder",
+    "binder layout",
+    "master set",
+    "reverse holo",
+    "card collection tracker",
+    "pokemon card checklist",
+    "pokemon set list",
+    "binder pages",
+    "card prices",
+    "pokemon tcg",
+  ],
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: SITE_DESCRIPTION,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  // Applies to the root segment (home page); deeper routes set their own.
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
