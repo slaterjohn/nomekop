@@ -4,7 +4,11 @@ import { loadPrintData } from "@/app/print/load";
 import { PrintChecklist } from "@/components/print/print-checklist";
 import { expandOptionsFrom, expandSlots } from "@/lib/layout";
 
-export const metadata: Metadata = { title: "Checklist — Bindermon" };
+export const metadata: Metadata = {
+  title: "Checklist — Bindermon",
+  // Machine-rendered print view (puppeteer/print dialog) — keep out of search.
+  robots: { index: false, follow: false },
+};
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

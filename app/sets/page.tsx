@@ -9,10 +9,15 @@ import type { TcgSet } from "@/lib/tcg/types";
 // so a build without network (or with a cold cache) cannot fail.
 export const dynamic = "force-dynamic";
 
+const TITLE = "All Pokemon TCG sets";
+const DESCRIPTION =
+  "Every Pokemon TCG expansion by series — base sets to the newest releases. Card lists, binder page counts, prices and printable A4 layouts for each set.";
+
 export const metadata: Metadata = {
-  title: "All Pokemon TCG sets — Bindermon",
-  description:
-    "Browse every Pokemon TCG expansion by series — card lists, binder page counts and printable layouts for each set.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/sets" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: "/sets" },
 };
 
 type SeriesGroup = {

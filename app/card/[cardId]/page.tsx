@@ -1,3 +1,4 @@
+import { cache } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -23,7 +24,9 @@ function parseCardId(cardId: string): { setId: string; number: string } | null {
   return { setId: cardId.slice(0, dash), number: cardId.slice(dash + 1) };
 }
 
-async function loadCard(cardId: string) {
+/** Shared by generateMetadata and the page body — cache() dedupes the fetch
+ *  so both run off a single sets+cards lookup per request. */
+const loadCard = cache(async (cardId: string) => {
   const parsed = parseCardId(cardId);
   if (!parsed) notFound();
   try {
@@ -36,12 +39,35 @@ async function loadCard(cardId: string) {
     if (err instanceof TcgError && err.kind === "unknown-set") notFound();
     throw err;
   }
-}
+});
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { cardId } = await params;
-  const parsed = parseCardId(cardId);
-  return { title: parsed ? `${cardId} — Bindermon` : "Card — Bindermon" };
+  const { set, card } = await loadCard(cardId);
+
+  const prices = card.tcgplayer?.prices;
+  const market =
+    prices?.normal?.market ?? prices?.holofoil?.market ?? prices?.reverseHolofoil?.market;
+  const price = typeof market === "number" ? `$${market.toFixed(2)}` : null;
+
+  const baseTitle = `${card.name} ${card.number}/${set.printedTotal} · ${set.name}`;
+  // The layout template appends " — Bindermon"; skip the tagline for long names.
+  const title = baseTitle.length > 40 ? baseTitle : `${baseTitle} — price & binder placement`;
+  const description =
+    `${card.name} ${card.number}/${set.printedTotal} from the ${set.name} set` +
+    (card.rarity ? ` (${card.rarity})` : "") +
+    (price ? ` — ${price} market on TCGplayer` : "") +
+    ". See variants, current prices and this card's pocket in a printable binder layout.";
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/card/${cardId}` },
+    // No images here on purpose: app/card/[cardId]/opengraph-image.tsx (file
+    // convention) supplies og:image and twitter:image for this route.
+    openGraph: { title, description, type: "website", url: `/card/${cardId}` },
+    twitter: { card: "summary_large_image" },
+  };
 }
 
 const KINDS: SlotKind[] = ["card", "reverse", "pokeball", "masterball"];

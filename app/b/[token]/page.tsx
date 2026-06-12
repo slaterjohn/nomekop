@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const config = decodeShareToken(decodeURIComponent(token));
   if (!config) return { title: "Bindermon" };
   return {
-    title: `${config.set} binder layout (${config.rows}×${config.cols}, ${config.mode}) — Bindermon`,
+    title: `${config.set} binder layout (${config.rows}×${config.cols}, ${config.mode})`,
     // Token URLs are infinite configuration permutations — keep them out of
     // the index, but let crawlers follow links through to real pages.
     robots: { index: false, follow: true },

@@ -13,7 +13,12 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { setId } = await params;
-  return { title: `Collection: ${setId} — Bindermon` };
+  return {
+    title: `Collection: ${setId}`,
+    // Collections live in this browser's localStorage — never index them, but
+    // let crawlers follow the links back out to the public set/card pages.
+    robots: { index: false, follow: true },
+  };
 }
 
 /** Your collected cards for one set — local to this browser (no accounts). */

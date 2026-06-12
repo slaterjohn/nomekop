@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/header";
 import { Providers } from "@/components/providers";
 import { Builder } from "@/components/builder/builder";
+import { FaqSection } from "@/components/faq-section";
 import { GbSpinner } from "@/components/gb/gb-spinner";
 import { GbKbdHint } from "@/components/gb/gb-kbd-hint";
 import { Toaster } from "@/components/ui/sonner";
@@ -33,6 +34,7 @@ export async function BuilderShell() {
             <Builder initialSets={initialSets} />
           </Suspense>
         </Providers>
+        <FaqSection />
       </main>
       <GbKbdHint />
       <footer className="border-t-4 border-gb-ink px-4 py-3 text-center font-pixel text-[10px]">

@@ -4,7 +4,11 @@ import { loadPrintData } from "@/app/print/load";
 import { PrintBinder } from "@/components/print/print-binder";
 import { buildBinderLayout } from "@/lib/layout";
 
-export const metadata: Metadata = { title: "Binder pages — Bindermon" };
+export const metadata: Metadata = {
+  title: "Binder pages — Bindermon",
+  // Machine-rendered print view (puppeteer/print dialog) — keep out of search.
+  robots: { index: false, follow: false },
+};
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

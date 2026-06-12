@@ -1,3 +1,4 @@
+import { cache } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +19,9 @@ type Props = {
 
 const SET_ID_RE = /^[a-z0-9.]+$/i;
 
-async function loadSet(setId: string) {
+/** Shared by generateMetadata and the page body — cache() dedupes the fetch
+ *  so both run off a single sets+cards lookup per request. */
+const loadSet = cache(async (setId: string) => {
   if (!SET_ID_RE.test(setId)) notFound();
   try {
     const [sets, cards] = await Promise.all([getSets(), getCards(setId)]);
@@ -29,20 +32,22 @@ async function loadSet(setId: string) {
     if (err instanceof TcgError && err.kind === "unknown-set") notFound();
     throw err;
   }
-}
+});
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { setId } = await params;
-  let name = setId;
-  if (SET_ID_RE.test(setId)) {
-    try {
-      const sets = await getSets();
-      name = sets.find((s) => s.id === setId)?.name ?? setId;
-    } catch {
-      // Metadata must never take the page down — fall back to the raw id.
-    }
-  }
-  return { title: `${name} — card list & binder layouts — Bindermon` };
+  const { set } = await loadSet(setId);
+  const title = `${set.name} card list & binder layout (${set.printedTotal} cards)`;
+  const description =
+    `${set.name} — Pokemon TCG expansion from the ${set.series} series ` +
+    `(${set.releaseDate.slice(0, 4)}) with ${set.printedTotal} cards. ` +
+    "See every card, current prices, and print A4 binder pages and checklists.";
+  return {
+    title,
+    description,
+    alternates: { canonical: `/set/${setId}` },
+    openGraph: { title, description, url: `/set/${setId}` },
+  };
 }
 
 function pageCount(n: number): string {

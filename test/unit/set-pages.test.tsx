@@ -93,11 +93,12 @@ describe("SetPage (/set/[setId])", () => {
     await expect(SetPage({ params: Promise.resolve({ setId: "nope" }) })).rejects.toThrow();
   });
 
-  it("titles metadata with the set name, falling back to the id", async () => {
+  it("titles metadata with the set name and card count; 404s unknown ids", async () => {
     const known = await generateMetadata({ params: Promise.resolve({ setId: "base1" }) });
-    expect(known.title).toBe("Base — card list & binder layouts — Bindermon");
-    const unknown = await generateMetadata({ params: Promise.resolve({ setId: "zzz" }) });
-    expect(unknown.title).toBe("zzz — card list & binder layouts — Bindermon");
+    expect(known.title).toBe("Base card list & binder layout (102 cards)");
+    // generateMetadata shares the page's cached loader, so unknown ids 404
+    // here exactly like the page body does.
+    await expect(generateMetadata({ params: Promise.resolve({ setId: "zzz" }) })).rejects.toThrow();
   });
 
   it("has no axe violations", async () => {

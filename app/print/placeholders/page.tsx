@@ -4,7 +4,11 @@ import { loadPrintData } from "@/app/print/load";
 import { PrintPlaceholders } from "@/components/print/print-placeholders";
 import { expandOptionsFrom, expandSlots } from "@/lib/layout";
 
-export const metadata: Metadata = { title: "Placeholders — Bindermon" };
+export const metadata: Metadata = {
+  title: "Placeholders — Bindermon",
+  // Machine-rendered print view (puppeteer/print dialog) — keep out of search.
+  robots: { index: false, follow: false },
+};
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
