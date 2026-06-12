@@ -37,6 +37,13 @@ export class FixtureSource implements CardDataSource {
     return (await this.allCardsWithSet()).filter((c) => normalize(c.name).includes(needle));
   }
 
+  async searchCardsByArtist(artist: string): Promise<CardWithSet[]> {
+    const needle = artist.trim().toLowerCase();
+    return (await this.allCardsWithSet()).filter((c) =>
+      (c.artist ?? "").toLowerCase().includes(needle),
+    );
+  }
+
   async getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]> {
     return (await this.allCardsWithSet()).filter((c) =>
       (c.dex ?? []).some((d) => d >= min && d <= max),

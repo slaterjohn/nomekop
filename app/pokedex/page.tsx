@@ -44,9 +44,6 @@ export default function PokedexLandingPage() {
             </li>
           ))}
         </ul>
-        <p className="mt-3 font-body text-base leading-snug">
-          Pixel placeholder icons cover #1–898; newer Pokémon get a Poké Ball tile.
-        </p>
       </GbScreen>
     </main>
   );

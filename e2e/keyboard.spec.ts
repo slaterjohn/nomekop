@@ -4,7 +4,7 @@ import { stubCardImages } from "./helpers";
 // The entire core flow, no pointer allowed.
 test("keyboard-only: skip link → choose set → configure → tick a card", async ({ page }) => {
   await stubCardImages(page);
-  await page.goto("/");
+  await page.goto("/build");
 
   // First Tab lands on the skip link
   await page.keyboard.press("Tab");

@@ -1,0 +1,75 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { cache } from "react";
+import { IllustratorBinderView } from "@/components/illustrator/illustrator-binder-view";
+import { BackButton } from "@/components/back-button";
+import { GbDialogBox } from "@/components/gb/gb-dialog-box";
+import { decodeIllustratorToken, displayNameFromSlug } from "@/lib/illustrator-binder";
+import { searchIllustratorCards } from "@/lib/tcg";
+
+export const dynamic = "force-dynamic";
+
+type Props = {
+  params: Promise<{ token: string }>;
+};
+
+const loadIllustrator = cache(async (token: string) => {
+  const decoded = decodeIllustratorToken(decodeURIComponent(token));
+  if (!decoded) notFound();
+  const cards = await searchIllustratorCards(decoded.name);
+  return { ...decoded, cards };
+});
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { token } = await params;
+  const decoded = decodeIllustratorToken(decodeURIComponent(token));
+  if (!decoded) return { title: "Illustrator binder" };
+  const name = displayNameFromSlug(decoded.name);
+  return {
+    title: `${name} binder — every card by this illustrator`,
+    description: `Build a printable binder of every Pokemon TCG card illustrated by ${name}, across all sets, newest or oldest first, with A4 pages and placeholders.`,
+    alternates: { canonical: `/illustrator/${encodeURIComponent(token)}` },
+  };
+}
+
+/** A binder for every card one illustrator has ever drawn, across all sets. */
+export default async function IllustratorBinderPage({ params }: Props) {
+  const { token } = await params;
+  const { name, options, cards } = await loadIllustrator(token);
+  const displayName = displayNameFromSlug(name);
+
+  return (
+    <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-3 font-pixel text-sm">
+          <Link href="/" className="no-underline">
+            NOMEKOP
+          </Link>
+          <span aria-hidden="true">▶</span>
+          <Link href="/illustrator" className="no-underline">
+            ILLUSTRATOR BINDERS
+          </Link>
+        </div>
+        <BackButton fallbackHref="/illustrator" />
+      </div>
+
+      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">
+        {displayName.toUpperCase()} BINDER
+      </h1>
+      <p className="font-body text-xl leading-tight">
+        Every card by {displayName} across {new Set(cards.map((c) => c.setId)).size} sets —{" "}
+        {cards.length} cards found.
+      </p>
+
+      {cards.length === 0 ? (
+        <GbDialogBox>
+          WILD MISSINGNO. APPEARED! No cards found for that illustrator. Check the spelling or try
+          another artist.
+        </GbDialogBox>
+      ) : (
+        <IllustratorBinderView slug={name} displayName={displayName} cards={cards} initialOptions={options} />
+      )}
+    </main>
+  );
+}

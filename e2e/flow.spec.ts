@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("full happy path: choose, configure, master mode, tick, persist", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/build");
   await expect(page.getByRole("heading", { name: "CHOOSE SET" })).toBeVisible();
 
   await chooseScarletViolet(page);
@@ -91,7 +91,7 @@ test("all three PDFs download with the page counts the engine predicts", async (
 });
 
 test("cards have their own pages with prices; back returns to the builder", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/build");
   await chooseScarletViolet(page);
 
   await page.getByRole("button", { name: /View details: Pineco/ }).click();
@@ -126,7 +126,7 @@ test("share links encode the layout into a tidy URL", async ({ page }) => {
 });
 
 test("collection page lists collected pockets per mode", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/build");
   await chooseScarletViolet(page);
   await page.getByRole("switch", { name: "COLLECTION MODE" }).click();
   const boxes = page.getByRole("checkbox");
@@ -146,7 +146,7 @@ test("collection page lists collected pockets per mode", async ({ page }) => {
 });
 
 test("Prismatic Evolutions master set offers ball-pattern options", async ({ page }) => {
-  await page.goto("/?set=sv8pt5");
+  await page.goto("/b/sv8pt5~34s111ic");
   await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
 
   // Standard mode: no ball options
@@ -185,7 +185,7 @@ test("invalid PDF requests are rejected", async ({ page }) => {
 });
 
 test("unknown set shows a friendly error with retry", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/build");
   // Black Star Promos has no fixture card data → the cards fetch 404s.
   await page.getByRole("combobox", { name: /search sets/i }).fill("scarlet & violet black star");
   await page.locator("[cmdk-item]", { hasText: "215/196" }).click();

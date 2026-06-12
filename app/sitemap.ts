@@ -35,9 +35,12 @@ export default async function sitemap(props: {
   if (id === CORE_ID) {
     const staticEntries: MetadataRoute.Sitemap = [
       { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
+      { url: `${base}/build`, changeFrequency: "weekly", priority: 0.9 },
       { url: `${base}/sets`, changeFrequency: "weekly", priority: 0.9 },
       { url: `${base}/pokedex`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/pokemon`, changeFrequency: "monthly", priority: 0.8 },
+      { url: `${base}/illustrator`, changeFrequency: "monthly", priority: 0.8 },
+      { url: `${base}/legal`, changeFrequency: "yearly", priority: 0.3 },
       // One canonical (default-token) Pokédex per generation.
       ...GENERATIONS.map((gen) => ({
         url: `${base}/pokedex/${gen.id}~34`,

@@ -38,6 +38,9 @@ function sourceWith(sets: string[], failing: string[] = []): CardDataSource {
     async searchCardsByName() {
       return [];
     },
+    async searchCardsByArtist() {
+      return [];
+    },
     async getCardsByDexRange() {
       return [];
     },
@@ -58,7 +61,7 @@ describe("runRefreshAll", () => {
       store,
       paceMs: 0,
     });
-    expect(summary).toMatchObject({ sets: 2, ok: 2, failed: [], pokedexOk: 9 });
+    expect(summary).toMatchObject({ sets: 2, ok: 2, failed: [], pokedexOk: 9, pokemonOk: 20, illustratorOk: 6 });
     // Stored entries are served without recomputing.
     const compute = vi.fn(async () => []);
     expect(await store.getOrCompute("sets", 1000, compute)).toHaveLength(2);
@@ -87,6 +90,7 @@ describe("runRefreshAll", () => {
         }),
       getCards: async () => [],
       searchCardsByName: async () => [],
+      searchCardsByArtist: async () => [],
       getCardsByDexRange: async () => [],
     };
     const first = runRefreshAll({ source: slowSource, store, paceMs: 0 });

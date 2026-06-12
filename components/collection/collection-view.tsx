@@ -9,6 +9,7 @@ import { CardSlot } from "@/components/builder/card-slot";
 import { BackButton } from "@/components/back-button";
 import { useChecklist } from "@/lib/checklist-store";
 import { DEFAULT_CONFIG } from "@/lib/config";
+import { encodeShareToken } from "@/lib/share";
 import { expandOptionsFrom, expandSlots, type CollectionMode } from "@/lib/layout";
 import { slotKindLabel } from "@/lib/variant-labels";
 import { toCollectionCsv } from "@/lib/csv";
@@ -48,7 +49,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
         <Link href="/" className="font-pixel text-sm no-underline">
           NOMEKOP
         </Link>
-        <BackButton fallbackHref={`/?set=${set.id}`} />
+        <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode })}`} />
       </div>
 
       <GbScreen title={`COLLECTION: ${set.name.toUpperCase()}`}>
@@ -74,7 +75,11 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
             <GbButton variant="b" size="sm" onClick={downloadCsv}>
               CSV
             </GbButton>
-            <GbLinkButton variant="a" size="sm" href={`/?set=${set.id}${mode === "master" ? "&mode=master" : ""}`}>
+            <GbLinkButton
+              variant="a"
+              size="sm"
+              href={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode })}`}
+            >
               OPEN IN BUILDER
             </GbLinkButton>
           </div>

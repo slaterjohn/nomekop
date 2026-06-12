@@ -10,6 +10,9 @@ import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLd, cardProductJsonLd } from "@/lib/structured-data";
 import { getCards, getSets } from "@/lib/tcg";
 import { DEFAULT_POKEMON_OPTIONS, encodePokemonToken } from "@/lib/pokemon-binder";
+import { DEFAULT_CONFIG } from "@/lib/config";
+import { encodeShareToken } from "@/lib/share";
+import { DEFAULT_ILLUSTRATOR_OPTIONS, encodeIllustratorToken } from "@/lib/illustrator-binder";
 import { TcgError } from "@/lib/tcg/types";
 import type { SlotKind } from "@/lib/layout";
 
@@ -102,12 +105,16 @@ export default async function CardPage({ params, searchParams }: Props) {
             {set.name.toUpperCase()} <span aria-hidden="true">▶</span>
           </Link>
         </div>
-        <BackButton fallbackHref={`/?set=${set.id}`} />
+        <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`} />
       </div>
       <GbScreen title={`${card.name} · ${card.number}/${set.printedTotal}${card.rarity ? ` · ${card.rarity.toUpperCase()}` : ""}`}>
         <CardDetailBody card={card} set={set} kind={kind} />
         <div className="flex flex-wrap gap-2 px-4 pb-4">
-          <GbLinkButton variant="a" size="sm" href={`/?set=${set.id}`}>
+          <GbLinkButton
+            variant="a"
+            size="sm"
+            href={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`}
+          >
             OPEN {set.name.toUpperCase()} IN THE BUILDER
           </GbLinkButton>
           {card.supertype === "Pokémon" ? (
@@ -117,6 +124,15 @@ export default async function CardPage({ params, searchParams }: Props) {
               href={`/pokemon/${encodePokemonToken(card.name, DEFAULT_POKEMON_OPTIONS)}`}
             >
               ALL {card.name.toUpperCase()} CARDS ▶
+            </GbLinkButton>
+          ) : null}
+          {card.artist ? (
+            <GbLinkButton
+              variant="b"
+              size="sm"
+              href={`/illustrator/${encodeIllustratorToken(card.artist, DEFAULT_ILLUSTRATOR_OPTIONS)}`}
+            >
+              MORE BY {card.artist.toUpperCase()} ▶
             </GbLinkButton>
           ) : null}
         </div>

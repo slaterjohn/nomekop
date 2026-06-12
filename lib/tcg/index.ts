@@ -36,6 +36,15 @@ export function searchPokemonCards(name: string): Promise<CardWithSet[]> {
   );
 }
 
+/** Every card illustrated by one artist across all sets (12h TTL). */
+export function searchIllustratorCards(artist: string): Promise<CardWithSet[]> {
+  const slug = artist.trim().toLowerCase();
+  if (isFixtureMode()) return getDataSource().searchCardsByArtist(slug);
+  return serverStore.getOrCompute(`illustrator:${slug}`, CARDS_TTL_MS, () =>
+    getDataSource().searchCardsByArtist(slug),
+  );
+}
+
 /** Every print for a generation's dex range (12h TTL). */
 export function getPokedexCards(gen: GenerationId): Promise<CardWithSet[]> {
   const range = GENERATIONS.find((g) => g.id === gen);

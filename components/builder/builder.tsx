@@ -191,6 +191,7 @@ export function Builder({ initialSets }: BuilderProps) {
               <BinderPreview
                 set={selectedSet}
                 layout={layout}
+                rememberKey={`set:${config.set}`}
                 tick={collectionMode.enabled ? checklist : undefined}
                 onInspect={(card, kind) => {
                   play("confirm");

@@ -1,6 +1,7 @@
 import { CARDS_TTL_MS, SETS_TTL_MS, serverStore, type SqliteStore } from "@/lib/server-store";
 import { getDataSource } from "@/lib/tcg";
 import { GENERATIONS } from "@/lib/pokedex";
+import { POPULAR_ILLUSTRATOR_KEYS, POPULAR_POKEMON_KEYS } from "@/lib/tcg/warm-lists";
 import type { CardDataSource } from "@/lib/tcg/types";
 
 export type RefreshSummary = {
@@ -9,6 +10,10 @@ export type RefreshSummary = {
   failed: string[];
   /** Pokédex generations successfully pre-warmed. */
   pokedexOk?: number;
+  /** Popular Pokémon binders pre-warmed. */
+  pokemonOk?: number;
+  /** Popular illustrator binders pre-warmed. */
+  illustratorOk?: number;
   durationMs: number;
 };
 
@@ -75,11 +80,36 @@ export async function runRefreshAll(options: Options = {}): Promise<RefreshSumma
     }
     log(`pokédex generations warmed: ${pokedexOk}/${GENERATIONS.length}`);
 
+    // Pre-warm popular Pokémon and illustrator binders (paced like the rest).
+    let pokemonOk = 0;
+    for (const { name, key } of POPULAR_POKEMON_KEYS) {
+      try {
+        store.set(key, await source.searchCardsByName(name.toLowerCase()), CARDS_TTL_MS);
+        pokemonOk += 1;
+      } catch {
+        // stays cold until first view
+      }
+      if (paceMs > 0) await new Promise((r) => setTimeout(r, paceMs));
+    }
+    let illustratorOk = 0;
+    for (const { name, key } of POPULAR_ILLUSTRATOR_KEYS) {
+      try {
+        store.set(key, await source.searchCardsByArtist(name), CARDS_TTL_MS);
+        illustratorOk += 1;
+      } catch {
+        // stays cold until first view
+      }
+      if (paceMs > 0) await new Promise((r) => setTimeout(r, paceMs));
+    }
+    log(`popular binders warmed: ${pokemonOk} pokémon, ${illustratorOk} illustrators`);
+
     const summary: RefreshSummary = {
       sets: sets.length,
       ok,
       failed,
       pokedexOk,
+      pokemonOk,
+      illustratorOk,
       durationMs: Date.now() - started,
     };
     log(`done: ${ok}/${sets.length} ok${failed.length ? `, failed: ${failed.join(", ")}` : ""}`);

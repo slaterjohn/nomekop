@@ -17,7 +17,7 @@ for (const theme of THEMES) {
     const homeScan = await new AxeBuilder({ page }).analyze();
     expect(homeScan.violations).toEqual([]);
 
-    await page.goto("/?set=sv1&mode=master");
+    await page.goto("/b/sv1~34m111ic");
     await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
     const builderScan = await new AxeBuilder({ page }).analyze();
     expect(builderScan.violations).toEqual([]);
@@ -27,7 +27,7 @@ for (const theme of THEMES) {
 test("reduced motion collapses animations", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "reduced-motion", "runs in the reduced-motion project");
   await stubCardImages(page);
-  await page.goto("/?set=sv1");
+  await page.goto("/b/sv1~34s111ic");
   await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
 
   const durations = await page.evaluate(() => {

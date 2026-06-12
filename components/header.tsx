@@ -1,57 +1,88 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { useSoundEnabled, play } from "@/lib/sound";
+import { cn } from "@/lib/utils";
 
 const WORDMARK = "NOMEKOP";
 
-/** Title bar: staggered pixel wordmark, palette switcher, sound toggle. */
+const NAV: Array<{ href: string; label: string; match: (p: string) => boolean }> = [
+  { href: "/build", label: "SETS", match: (p) => p === "/build" || p.startsWith("/b/") || p.startsWith("/set") },
+  { href: "/pokemon", label: "POKÉMON", match: (p) => p.startsWith("/pokemon") },
+  { href: "/pokedex", label: "POKÉDEX", match: (p) => p.startsWith("/pokedex") },
+  { href: "/illustrator", label: "ART", match: (p) => p.startsWith("/illustrator") },
+];
+
+/** Title bar: a bounded logo home-link, a clear nav tab row, palette + sound. */
 export function Header() {
   const { enabled, setEnabled } = useSoundEnabled();
+  const pathname = usePathname() ?? "/";
 
   return (
     <header className="border-b-4 border-gb-ink bg-gb-bg">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-        <div>
-          <h1 className="font-pixel text-lg leading-none sm:text-2xl" aria-label={WORDMARK}>
-            {WORDMARK.split("").map((letter, i) => (
-              <span
-                key={i}
-                aria-hidden="true"
-                className="inline-block motion-safe:animate-gb-deal"
-                style={{ animationDelay: `${i * 55}ms` }}
-              >
-                {letter}
-              </span>
-            ))}
-          </h1>
-          <p className="mt-1 font-body text-lg leading-none">
-            Pokemon TCG binder layouts, checklists &amp; printables
-          </p>
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          {/* Logo: a clearly-bounded home button so it reads as a brand mark,
+              not body text — especially on mobile. */}
+          <Link
+            href="/"
+            aria-label={`${WORDMARK} home`}
+            className="inline-flex flex-col items-start border-[3px] border-gb-ink bg-gb-accent px-3 py-1.5 no-underline shadow-[3px_3px_0_0_var(--gb-ink)]"
+          >
+            <span className="font-pixel text-base leading-none text-gb-ink sm:text-2xl" aria-hidden="true">
+              {WORDMARK.split("").map((letter, i) => (
+                <span
+                  key={i}
+                  className="inline-block motion-safe:animate-gb-deal"
+                  style={{ animationDelay: `${i * 55}ms` }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>
+            <span className="mt-1 font-body text-sm leading-none text-gb-ink sm:text-base">
+              Pokémon TCG binder maker
+            </span>
+          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <ThemeSwitcher />
+            <GbToggle
+              label="SOUND"
+              checked={enabled}
+              onChange={(on) => {
+                setEnabled(on);
+                if (on) play("success");
+              }}
+            />
+          </div>
         </div>
-        <div className="flex flex-wrap items-center gap-4">
-          <Link href="/sets" className="font-pixel text-xs no-underline sm:text-sm">
-            SETS
-          </Link>
-          <Link href="/pokedex" className="font-pixel text-xs no-underline sm:text-sm">
-            POKÉDEX
-          </Link>
-          <Link href="/pokemon" className="font-pixel text-xs no-underline sm:text-sm">
-            POKÉMON
-          </Link>
-          <ThemeSwitcher />
-          <GbToggle
-            label="SOUND"
-            checked={enabled}
-            onChange={(on) => {
-              setEnabled(on);
-              // Audible proof the toggle worked — a full jingle, not a blip.
-              if (on) play("success");
-            }}
-          />
-        </div>
+
+        <nav aria-label="Primary" className="-mx-1 overflow-x-auto">
+          <ul className="flex min-w-max list-none items-stretch gap-1.5 p-1">
+            {NAV.map((item) => {
+              const active = item.match(pathname);
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "inline-flex min-h-9 items-center border-[3px] border-gb-ink px-3 py-1 font-pixel text-[10px] no-underline sm:text-xs",
+                      active
+                        ? "bg-gb-ink text-gb-bg"
+                        : "bg-gb-bg text-gb-ink motion-safe:transition-transform motion-safe:hover:-translate-y-0.5",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </div>
     </header>
   );

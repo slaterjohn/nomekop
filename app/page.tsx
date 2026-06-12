@@ -1,19 +1,28 @@
-import type { Metadata } from "next";
-import { BuilderShell } from "@/components/builder-shell";
-import { SITE_NAME } from "@/lib/site";
+import { Header } from "@/components/header";
+import { HomeTiles } from "@/components/home/home-tiles";
+import { FaqSection } from "@/components/faq-section";
+import { JsonLd } from "@/components/json-ld";
+import { APP_INTRO, FAQ_ENTRIES } from "@/lib/faq";
+import { faqJsonLd, webApplicationJsonLd, webSiteJsonLd } from "@/lib/structured-data";
 
-// The sets list comes from a third-party API via our cache — always render
-// dynamically so a build without network (or with a cold cache) cannot fail.
 export const dynamic = "force-dynamic";
 
-// Title and description inherit from the root layout (og falls back to them
-// too). A page-level openGraph replaces the layout's whole object, so restate
-// type/siteName to keep those tags on the home page.
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-  openGraph: { type: "website", siteName: SITE_NAME, url: "/" },
-};
-
+/** The hub homepage: hero, binder-type tiles, intro and FAQ (SEO content). */
 export default function Home() {
-  return <BuilderShell />;
+  return (
+    <>
+      <JsonLd data={[webSiteJsonLd(), webApplicationJsonLd(), faqJsonLd(FAQ_ENTRIES)]} />
+      <Header />
+      <main id="main" className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 py-8">
+        <section className="flex flex-col gap-3">
+          <h1 className="font-pixel text-xl leading-relaxed sm:text-3xl">
+            BUILD THE PERFECT BINDER
+          </h1>
+          <p className="max-w-3xl font-body text-xl leading-tight sm:text-2xl">{APP_INTRO}</p>
+        </section>
+        <HomeTiles />
+        <FaqSection />
+      </main>
+    </>
+  );
 }

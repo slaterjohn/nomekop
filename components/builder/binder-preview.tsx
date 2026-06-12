@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { GbButton } from "@/components/gb/gb-button";
 import { CardSlot } from "@/components/builder/card-slot";
 import { flyToCollectionBar } from "@/lib/fly-to";
+import { useRememberedSpread } from "@/lib/use-remembered-spread";
 import { play } from "@/lib/sound";
 import type { BinderLayout, Page, SlotKind } from "@/lib/layout";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
@@ -20,6 +20,8 @@ type BinderPreviewProps = {
   tick?: TickApi;
   /** Opens the card detail view for a clicked pocket (collection mode wins). */
   onInspect?: (card: TcgCard, kind: SlotKind) => void;
+  /** Persist the current spread under this key so Back restores the page. */
+  rememberKey?: string;
 };
 
 export function slotKey(cardId: string, kind: SlotKind): string {
@@ -31,8 +33,8 @@ export function slotKey(cardId: string, kind: SlotKind): string {
  * d-pad/buttons to flip, a live announcement of the position, and a deal-in
  * animation that respects reduced motion via global CSS.
  */
-export function BinderPreview({ set, layout, tick, onInspect }: BinderPreviewProps) {
-  const [spreadIndex, setSpreadIndex] = useState(0);
+export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: BinderPreviewProps) {
+  const [spreadIndex, setSpreadIndex] = useRememberedSpread(rememberKey);
   const spreads = layout.spreads;
   const clamped = Math.min(spreadIndex, Math.max(0, spreads.length - 1));
   const spread = spreads[clamped];

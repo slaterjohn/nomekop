@@ -4,6 +4,7 @@ import { renderPdf } from "@/lib/pdf";
 import { pdfLimiter } from "@/lib/rate-limit";
 import { parseConfig, serializeConfig } from "@/lib/config";
 import { decodePokemonToken } from "@/lib/pokemon-binder";
+import { decodeIllustratorToken } from "@/lib/illustrator-binder";
 import { decodePokedexToken } from "@/lib/pokedex";
 
 const bodySchema = z.object({
@@ -13,6 +14,8 @@ const bodySchema = z.object({
     "placeholders",
     "pokemon",
     "pokemon-placeholders",
+    "illustrator",
+    "illustrator-placeholders",
     "pokedex",
     "pokedex-placeholders",
   ]),
@@ -28,6 +31,14 @@ function printPathFor(body: z.infer<typeof bodySchema>): { path: string; filenam
     const view = type === "pokemon-placeholders" ? "&view=placeholders" : "";
     return {
       path: `/print/pokemon?t=${encodeURIComponent(token)}${view}`,
+      filename: `nomekop-${token.split("~")[0]}-${type}.pdf`,
+    };
+  }
+  if (type === "illustrator" || type === "illustrator-placeholders") {
+    if (!token || !decodeIllustratorToken(token)) return null;
+    const view = type === "illustrator-placeholders" ? "&view=placeholders" : "";
+    return {
+      path: `/print/illustrator?t=${encodeURIComponent(token)}${view}`,
       filename: `nomekop-${token.split("~")[0]}-${type}.pdf`,
     };
   }
@@ -67,6 +78,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   } else if (
     parsedBody.type === "pokemon" ||
     parsedBody.type === "pokemon-placeholders" ||
+    parsedBody.type === "illustrator" ||
+    parsedBody.type === "illustrator-placeholders" ||
     parsedBody.type === "pokedex" ||
     parsedBody.type === "pokedex-placeholders"
   ) {

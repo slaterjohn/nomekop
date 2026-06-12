@@ -49,6 +49,8 @@ export type TcgCard = {
   variants: Variants;
   /** National Pokédex numbers (absent for Trainers/Energy). */
   dex?: number[];
+  /** Illustrator credited on the card (absent in older cached payloads). */
+  artist?: string;
   /** Absent when the API has no market data (common for 2026+ sets). */
   tcgplayer?: TcgPlayerInfo;
 };
@@ -69,6 +71,8 @@ export interface CardDataSource {
   getCards(setId: string): Promise<TcgCard[]>;
   /** All prints whose name contains `name` (case-insensitive). */
   searchCardsByName(name: string): Promise<CardWithSet[]>;
+  /** All prints illustrated by `artist` (case-insensitive). */
+  searchCardsByArtist(artist: string): Promise<CardWithSet[]>;
   /** All prints for Pokémon in a National Dex number range (inclusive). */
   getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]>;
 }

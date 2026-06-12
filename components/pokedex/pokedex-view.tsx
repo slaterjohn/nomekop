@@ -225,10 +225,6 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
           printHref={`/print/pokedex?t=${encodeURIComponent(token)}`}
           filenameBase={`nomekop-pokedex-${config.gen}`}
         />
-        <p className="mt-2 font-body text-base leading-snug">
-          Placeholder sheets use matching pixel icons (#1–898; later Pokémon get a Poké Ball
-          tile).
-        </p>
       </GbScreen>
 
       <Dialog open={swapDex !== null} onOpenChange={(open) => !open && setSwapDex(null)}>

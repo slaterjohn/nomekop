@@ -108,6 +108,7 @@ function trimCard(c) {
       rarity: c.rarity,
     }),
     dex: c.nationalPokedexNumbers,
+    artist: c.artist,
     tcgplayer: trimTcgPlayer(c.tcgplayer),
   };
 }

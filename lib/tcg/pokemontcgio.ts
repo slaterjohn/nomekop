@@ -30,6 +30,7 @@ type ApiCard = {
   rarity?: string;
   supertype?: string;
   nationalPokedexNumbers?: number[];
+  artist?: string;
   images?: { small?: string; large?: string };
   set: ApiSet;
   tcgplayer?: {
@@ -94,6 +95,14 @@ export class PokemonTcgIoSource implements CardDataSource {
     // like "Charizard ex" and "Dark Charizard" by design.
     const fuzzy = name.replace(/"/g, "").replace(/[\s-]+/g, "*");
     return this.pagedCardsWithSet(`name:"*${fuzzy}*"`);
+  }
+
+  async searchCardsByArtist(artist: string): Promise<CardWithSet[]> {
+    // Wildcards on both ends catch partials and trailing credits ("Ken
+    // Sugimori" matches "Ken Sugimori & 5ban Graphics"). Quote-strip guards
+    // the Lucene query; pokemontcg.io supports artist:"*Mitsuhiro Arita*".
+    const fuzzy = artist.replace(/"/g, "");
+    return this.pagedCardsWithSet(`artist:"*${fuzzy}*"`);
   }
 
   async getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]> {
@@ -196,6 +205,7 @@ function mapCard(c: ApiCard): TcgCard {
       rarity: c.rarity,
     }),
     dex: c.nationalPokedexNumbers,
+    artist: c.artist,
     tcgplayer: mapTcgPlayer(c.tcgplayer),
   };
 }

@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
+import { SiteFooter } from "@/components/site-footer";
+import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 
 const pressStart = Press_Start_2P({
@@ -74,6 +76,8 @@ export default function RootLayout({
           SKIP TO CONTENT
         </a>
         {children}
+        <SiteFooter />
+        <EasterEggs />
       </body>
     </html>
   );
