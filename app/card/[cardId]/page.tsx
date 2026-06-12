@@ -97,14 +97,9 @@ export default async function CardPage({ params, searchParams }: Props) {
         ]}
       />
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-3">
-          <Link href="/" className="font-pixel text-sm no-underline">
-            NOMEKOP
-          </Link>
-          <Link href={`/set/${set.id}`} className="font-pixel text-sm no-underline">
-            {set.name.toUpperCase()} <span aria-hidden="true">▶</span>
-          </Link>
-        </div>
+        <Link href={`/set/${set.id}`} className="font-pixel text-sm no-underline">
+          ◂ {set.name.toUpperCase()}
+        </Link>
         <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`} />
       </div>
       <GbScreen title={`${card.name} · ${card.number}/${set.printedTotal}${card.rarity ? ` · ${card.rarity.toUpperCase()}` : ""}`}>

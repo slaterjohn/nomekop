@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { Header } from "@/components/header";
 import { Providers } from "@/components/providers";
 import { Builder } from "@/components/builder/builder";
 import { GbSpinner } from "@/components/gb/gb-spinner";
@@ -20,7 +19,6 @@ export async function BuilderShell() {
 
   return (
     <>
-      <Header />
       <main id="main" className="flex-1">
         <Providers>
           <Suspense

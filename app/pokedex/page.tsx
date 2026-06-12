@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { GENERATIONS } from "@/lib/pokedex";
@@ -15,11 +14,6 @@ export const metadata: Metadata = {
 export default function PokedexLandingPage() {
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <nav className="flex flex-wrap items-center gap-3 font-pixel text-sm" aria-label="Breadcrumb">
-        <Link href="/" className="no-underline">
-          NOMEKOP
-        </Link>
-      </nav>
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">POKÉDEX BINDERS</h1>
       <p className="font-body text-xl leading-tight">
         One pocket per Pokémon in National Dex order. Each pocket defaults to that Pokémon&apos;s

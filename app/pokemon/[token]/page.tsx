@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PokemonBinderView } from "@/components/pokemon/pokemon-binder-view";
@@ -73,16 +72,7 @@ export default async function PokemonBinderPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-3 font-pixel text-sm">
-          <Link href="/" className="no-underline">
-            NOMEKOP
-          </Link>
-          <span aria-hidden="true">▶</span>
-          <Link href="/pokemon" className="no-underline">
-            POKÉMON BINDERS
-          </Link>
-        </div>
+      <div className="flex flex-wrap items-center justify-end gap-3">
         <BackButton fallbackHref="/pokemon" />
       </div>
 

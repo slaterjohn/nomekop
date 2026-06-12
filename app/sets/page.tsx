@@ -61,12 +61,6 @@ export default async function SetsIndexPage() {
           ]),
         ]}
       />
-      <div className="flex flex-wrap items-center gap-3">
-        <Link href="/" className="font-pixel text-sm no-underline">
-          NOMEKOP
-        </Link>
-      </div>
-
       <div>
         <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">ALL SETS</h1>
         <p className="mt-1 font-body text-lg">

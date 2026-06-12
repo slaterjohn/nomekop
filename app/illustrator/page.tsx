@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { IllustratorSearchForm } from "@/components/illustrator/illustrator-search-form";
@@ -25,11 +24,6 @@ const POPULAR = [
 export default function IllustratorLandingPage() {
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <nav className="flex flex-wrap items-center gap-3 font-pixel text-sm" aria-label="Breadcrumb">
-        <Link href="/" className="no-underline">
-          NOMEKOP
-        </Link>
-      </nav>
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">ILLUSTRATOR BINDERS</h1>
       <p className="font-body text-xl leading-tight">
         One artist, every card they have ever drawn — across every set. Order by release date,

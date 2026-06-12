@@ -10,7 +10,18 @@ import { cn } from "@/lib/utils";
 const WORDMARK = "NOMEKOP";
 
 const NAV: Array<{ href: string; label: string; match: (p: string) => boolean }> = [
-  { href: "/build", label: "SETS", match: (p) => p === "/build" || p.startsWith("/b/") || p.startsWith("/set") },
+  {
+    href: "/build",
+    label: "SETS",
+    // The whole set flow: builder, configured binders, the crawlable set hub,
+    // and the per-set card/collection child pages.
+    match: (p) =>
+      p === "/build" ||
+      p.startsWith("/b/") ||
+      p.startsWith("/set") ||
+      p.startsWith("/card") ||
+      p.startsWith("/collection"),
+  },
   { href: "/pokemon", label: "POKÉMON", match: (p) => p.startsWith("/pokemon") },
   { href: "/pokedex", label: "POKÉDEX", match: (p) => p.startsWith("/pokedex") },
   { href: "/illustrator", label: "ART", match: (p) => p.startsWith("/illustrator") },

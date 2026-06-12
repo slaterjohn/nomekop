@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 
 export const metadata: Metadata = {
@@ -27,11 +26,6 @@ function OutboundLink({ href, children }: { href: string; children: React.ReactN
 export default function LegalPage() {
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <nav className="flex flex-wrap items-center gap-3 font-pixel text-sm" aria-label="Breadcrumb">
-        <Link href="/" className="no-underline">
-          NOMEKOP
-        </Link>
-      </nav>
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">LEGAL &amp; CREDITS</h1>
       <p className="font-body text-xl leading-tight">
         The short, friendly version of who made this, what it leans on, and what happens to your

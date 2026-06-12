@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
+import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/site-footer";
 import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
@@ -75,6 +76,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           SKIP TO CONTENT
         </a>
+        <Header />
         {children}
         <SiteFooter />
         <EasterEggs />

@@ -50,7 +50,6 @@ describe("SetsIndexPage (/sets)", () => {
 
     const firstHref = linksWithHrefPrefix("/set/")[0]?.getAttribute("href");
     expect(firstHref).toBe(`/set/${newest.id}`);
-    expect(screen.getByRole("link", { name: "NOMEKOP" })).toHaveAttribute("href", "/");
   });
 
   it("has no axe violations", async () => {

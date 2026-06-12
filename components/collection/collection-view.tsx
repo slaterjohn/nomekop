@@ -45,10 +45,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <Link href="/" className="font-pixel text-sm no-underline">
-          NOMEKOP
-        </Link>
+      <div className="flex flex-wrap items-center justify-end gap-3">
         <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode })}`} />
       </div>
 

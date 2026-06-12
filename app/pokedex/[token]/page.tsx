@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PokedexView } from "@/components/pokedex/pokedex-view";
@@ -44,16 +43,7 @@ export default async function PokedexPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-3 font-pixel text-sm">
-          <Link href="/" className="no-underline">
-            NOMEKOP
-          </Link>
-          <span aria-hidden="true">▶</span>
-          <Link href="/pokedex" className="no-underline">
-            POKÉDEX
-          </Link>
-        </div>
+      <div className="flex flex-wrap items-center justify-end gap-3">
         <BackButton fallbackHref="/pokedex" />
       </div>
 
