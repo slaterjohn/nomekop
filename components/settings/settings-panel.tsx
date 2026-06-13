@@ -9,8 +9,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { GbButton } from "@/components/gb/gb-button";
 import { GbToggle } from "@/components/gb/gb-toggle";
+import { GbSelect } from "@/components/gb/gb-select";
 import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { useDict, useLocale, useSetLocale } from "@/components/i18n/language-provider";
 import { LANGUAGES, languageLabel } from "@/lib/tcg/languages";
@@ -19,8 +19,9 @@ import { useReducedMotion } from "@/lib/motion";
 
 /**
  * The app's personalisation knobs in one header-launched dialog: UI language,
- * colour palette, sound cues, and a master "reduce animation" switch. Base UI's
- * Dialog gives us the focus trap, Escape-to-close, and focus restoration for free.
+ * colour palette, sound cues, and a master "reduce animation" switch. The dialog
+ * is a fixed-height column — a non-scrolling title bar (with an always-visible
+ * close) over a scrollable body, so it never overflows a small screen.
  */
 export function SettingsPanel() {
   const dict = useDict();
@@ -28,6 +29,11 @@ export function SettingsPanel() {
   const setLocale = useSetLocale();
   const { enabled: soundOn, setEnabled: setSound } = useSoundEnabled();
   const { reduced, setReduced } = useReducedMotion();
+
+  const languageOptions = LANGUAGES.map((language) => ({
+    value: language.code,
+    label: languageLabel(language.code),
+  }));
 
   return (
     <Dialog>
@@ -40,69 +46,68 @@ export function SettingsPanel() {
 
       <DialogContent
         showCloseButton={false}
-        className="grid gap-5 rounded-none border-[3px] border-gb-ink bg-gb-bg text-gb-ink shadow-[4px_4px_0_0_var(--gb-ink)] ring-0"
+        className="flex max-h-[85dvh] w-full max-w-md flex-col gap-0 rounded-none border-[3px] border-gb-ink bg-gb-bg p-0 text-gb-ink shadow-[4px_4px_0_0_var(--gb-ink)] ring-0"
       >
-        <DialogClose
-          aria-label={dict.settings.close}
-          className="absolute top-2 right-2 inline-flex size-7 cursor-pointer items-center justify-center border-[3px] border-gb-ink bg-gb-bg text-gb-ink"
-        >
-          <XIcon aria-hidden="true" className="size-4" />
-        </DialogClose>
+        {/* Title bar: never scrolls, so the close button is always reachable. */}
+        <div className="flex shrink-0 items-center justify-between gap-2 border-b-[3px] border-gb-ink bg-gb-ink px-4 py-3">
+          <DialogTitle className="font-pixel text-base uppercase text-gb-bg">
+            {dict.settings.title}
+          </DialogTitle>
+          <DialogClose
+            aria-label={dict.settings.close}
+            className="inline-flex size-8 shrink-0 cursor-pointer items-center justify-center border-[3px] border-gb-bg bg-gb-ink text-gb-bg motion-safe:transition-transform motion-safe:hover:-translate-y-0.5"
+          >
+            <XIcon aria-hidden="true" className="size-4" />
+          </DialogClose>
+        </div>
 
-        <DialogTitle className="font-pixel text-base uppercase text-gb-ink">
-          {dict.settings.title}
-        </DialogTitle>
-        <DialogDescription className="font-body text-lg leading-tight text-gb-ink">
-          {dict.settings.description}
-        </DialogDescription>
+        {/* Scrollable body. */}
+        <div className="flex flex-col gap-5 overflow-y-auto p-4">
+          <DialogDescription className="font-body text-lg leading-tight text-gb-ink">
+            {dict.settings.description}
+          </DialogDescription>
 
-        <section className="flex flex-col gap-2">
-          <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.language}</h3>
-          <div role="group" aria-label={dict.settings.language} className="flex flex-wrap gap-1.5">
-            {LANGUAGES.map((language) => {
-              const on = language.code === locale;
-              return (
-                <GbButton
-                  key={language.code}
-                  variant={on ? "a" : "b"}
-                  size="sm"
-                  aria-pressed={on}
-                  onClick={() => {
-                    if (language.code === locale) return;
-                    play("confirm");
-                    setLocale(language.code);
-                  }}
-                >
-                  {languageLabel(language.code)}
-                </GbButton>
-              );
-            })}
-          </div>
-        </section>
+          <section className="flex flex-col gap-2">
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.language}</h3>
+            <GbSelect
+              label={dict.settings.language}
+              value={locale}
+              onChange={(code) => {
+                if (code === locale) return;
+                play("confirm");
+                setLocale(code);
+              }}
+              options={languageOptions}
+              className="w-full max-w-xs"
+            />
+          </section>
 
-        <section className="flex flex-col gap-2">
-          <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.palette}</h3>
-          <div className="flex flex-wrap">
-            <ThemeSwitcher />
-          </div>
-        </section>
+          <section className="flex flex-col gap-2">
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.palette}</h3>
+            <div className="flex flex-wrap">
+              <ThemeSwitcher />
+            </div>
+          </section>
 
-        <section className="flex flex-col gap-1">
-          <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.soundMotion}</h3>
-          <GbToggle
-            label={dict.settings.sound}
-            checked={soundOn}
-            onChange={(on) => {
-              setSound(on);
-              if (on) play("success");
-            }}
-          />
-          <GbToggle
-            label={dict.settings.reduceAnimation}
-            checked={reduced}
-            onChange={setReduced}
-          />
-        </section>
+          <section className="flex flex-col gap-1">
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+              {dict.settings.soundMotion}
+            </h3>
+            <GbToggle
+              label={dict.settings.sound}
+              checked={soundOn}
+              onChange={(on) => {
+                setSound(on);
+                if (on) play("success");
+              }}
+            />
+            <GbToggle
+              label={dict.settings.reduceAnimation}
+              checked={reduced}
+              onChange={setReduced}
+            />
+          </section>
+        </div>
       </DialogContent>
     </Dialog>
   );

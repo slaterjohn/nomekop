@@ -18,6 +18,7 @@ import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguageSelect } from "@/components/binder/language-select";
 import { BinderShelf } from "@/components/builder/binder-shelf";
 import { useDict } from "@/components/i18n/language-provider";
+import { format } from "@/lib/i18n/format";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildPokedexEntries,
@@ -121,8 +122,8 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
     <div className="flex flex-col gap-6">
       {offerRestore ? (
         <div className="flex flex-wrap items-center gap-3 border-[3px] border-gb-ink bg-gb-accent/40 p-3">
-          <p className="font-pixel text-[10px] leading-relaxed">
-            FOUND {Object.keys(storedPicks).length} SAVED PICKS FOR THIS POKÉDEX.
+          <p className="font-pixel text-[10px] uppercase leading-relaxed">
+            {format(dict.pokedex.savedPicks, { count: Object.keys(storedPicks).length })}
           </p>
           <GbButton
             variant="a"
@@ -132,7 +133,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
               update({ ...config, picks: storedPicks });
             }}
           >
-            RESTORE
+            {dict.common.restore}
           </GbButton>
           <GbButton
             variant="plain"
@@ -142,7 +143,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
               setRestoreDismissed(true);
             }}
           >
-            DISMISS
+            {dict.common.dismiss}
           </GbButton>
         </div>
       ) : null}
@@ -172,19 +173,20 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
                   update({ ...config, picks: {} });
                 }}
               >
-                RESET PICKS
+                {dict.common.resetPicks}
               </GbButton>
             ) : null}
           </div>
           <LanguageSelect value={config.lang} onChange={changeLanguage} />
-          <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
-            {entries.length} POKÉMON → {pageCount} PAGES · {withCards}/{entries.length} HAVE CARDS
-            {customPicks > 0 ? ` · ${customPicks} CUSTOM PICKS` : ""}
+          <p aria-live="polite" className="font-pixel text-[10px] uppercase leading-relaxed sm:text-xs">
+            {format(dict.pokedex.stats, {
+              count: entries.length,
+              pages: pageCount,
+              withCards,
+            })}
+            {customPicks > 0 ? format(dict.pokedex.customPicks, { count: customPicks }) : ""}
           </p>
-          <p className="font-body text-lg leading-snug">
-            Pockets default to each Pokémon&apos;s secret card, then its rarest print. Click any
-            pocket to swap the card — your picks are saved and live in this page&apos;s URL.
-          </p>
+          <p className="font-body text-lg leading-snug">{dict.pokedex.help}</p>
         </div>
       </GbScreen>
 
@@ -193,19 +195,19 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
           <GbButton
             variant="b"
             size="sm"
-            aria-label="Previous page"
+            aria-label={dict.common.previousPage}
             disabled={page === 0}
             onClick={() => setSpread(page - 1)}
           >
             ◀
           </GbButton>
-          <p aria-live="polite" className="font-pixel text-[10px] sm:text-xs">
-            PAGE {page + 1} OF {pageCount}
+          <p aria-live="polite" className="font-pixel text-[10px] uppercase sm:text-xs">
+            {format(dict.binder.pageOf, { page: page + 1, total: pageCount })}
           </p>
           <GbButton
             variant="b"
             size="sm"
-            aria-label="Next page"
+            aria-label={dict.common.nextPage}
             disabled={page === pageCount - 1}
             onClick={() => setSpread(page + 1)}
           >
@@ -254,10 +256,10 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
         <DialogContent className="max-h-[85vh] gap-0 overflow-y-auto rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)] sm:max-w-2xl">
           <DialogHeader className="border-b-4 border-gb-ink bg-gb-ink px-4 py-3 text-left">
             <DialogTitle className="font-pixel text-sm uppercase text-gb-bg">
-              #{swapDex} — pick a card
+              {format(dict.pokedex.swapTitle, { dex: swapDex ?? 0 })}
             </DialogTitle>
             <DialogDescription className="font-body text-lg text-gb-bg">
-              {swapEntry?.alternatives.length ?? 0} prints available · rarest first
+              {format(dict.pokedex.printsAvailable, { count: swapEntry?.alternatives.length ?? 0 })}
             </DialogDescription>
           </DialogHeader>
           <ul className="grid list-none grid-cols-2 gap-2 p-4 sm:grid-cols-3">
@@ -295,7 +297,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
                     </span>
                     <span className="block font-body text-base leading-tight">
                       {card.rarity ?? card.supertype}
-                      {card.secret ? " · SECRET" : ""}
+                      {card.secret ? ` · ${dict.pokedex.secret}` : ""}
                     </span>
                   </button>
                 </li>

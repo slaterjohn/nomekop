@@ -24,12 +24,8 @@ describe("SettingsPanel", () => {
 
     const dialog = await screen.findByRole("dialog");
     expect(within(dialog).getByText("Settings")).toBeInTheDocument();
-    // The new UI-language selector (defaults to English).
-    expect(within(dialog).getByRole("group", { name: "Language" })).toBeInTheDocument();
-    expect(within(dialog).getByRole("button", { name: /English/ })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
+    // The new UI-language selector is a select, defaulting to English.
+    expect(within(dialog).getByRole("combobox", { name: "Language" })).toHaveValue("en");
     expect(within(dialog).getByRole("radiogroup", { name: "Colour palette" })).toBeInTheDocument();
     expect(within(dialog).getByRole("switch", { name: "Sound" })).toBeInTheDocument();
     expect(within(dialog).getByRole("switch", { name: "Reduce animation" })).toBeInTheDocument();

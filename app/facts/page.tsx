@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ARTICLES } from "@/lib/content/articles";
 import { JsonLd } from "@/components/json-ld";
 import { factsCollectionJsonLd } from "@/lib/structured-data";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 const FACTS_TITLE = "Pokémon TCG fun facts & trivia";
 const FACTS_DESCRIPTION =
@@ -26,14 +27,12 @@ export const metadata: Metadata = {
 };
 
 /** The fun-facts library: one card per DB-driven trivia article. */
-export default function FactsIndexPage() {
+export default async function FactsIndexPage() {
+  const { dict } = await getServerDictionary();
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">FUN FACTS</h1>
-      <p className="font-body text-xl leading-tight">
-        Bite-sized Pokémon TCG trivia, straight from the card database that powers NOMEKOP. Every
-        figure is real — and every answer is also available as Markdown for your favourite AI.
-      </p>
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{dict.facts.title}</h1>
+      <p className="font-body text-xl leading-tight">{dict.facts.intro}</p>
 
       <ul className="flex list-none flex-col gap-3 p-0">
         {ARTICLES.map((article) => (

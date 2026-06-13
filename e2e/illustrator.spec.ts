@@ -11,15 +11,15 @@ test.beforeEach(async ({ page }) => {
 
 test("illustrator binder: search → token URL → heading", async ({ page }) => {
   await page.goto("/illustrator");
-  await page.getByLabel("ILLUSTRATOR NAME").fill("Ken Sugimori");
-  await page.getByRole("button", { name: "BUILD BINDER" }).click();
+  await page.getByLabel(/illustrator name/i).fill("Ken Sugimori");
+  await page.getByRole("button", { name: /build binder/i }).click();
   await expect(page).toHaveURL(/\/illustrator\/ken-sugimori~34n$/);
 
-  await expect(page.getByRole("heading", { name: /KEN SUGIMORI BINDER/ })).toBeVisible();
-  await expect(page.getByText(/POCKETS →/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: /KEN SUGIMORI BINDER/i })).toBeVisible();
+  await expect(page.getByText(/pockets →/i)).toBeVisible();
 
   // oldest-first ordering flips the token
-  await page.getByRole("option", { name: /OLDEST FIRST/ }).click();
+  await page.getByRole("option", { name: /oldest first/i }).click();
   await expect(page).toHaveURL(/\/illustrator\/ken-sugimori~34o$/);
 });
 

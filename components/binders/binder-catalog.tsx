@@ -5,6 +5,8 @@ import { GbBadge } from "@/components/gb/gb-badge";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { affiliateUrl, hasAffiliateLinks, retailerName, type Binder } from "@/lib/binders";
 import { play } from "@/lib/sound";
+import { useDict } from "@/components/i18n/language-provider";
+import { format } from "@/lib/i18n/format";
 
 /** Pocket sizes, low to high, with the binders that come in each. */
 function bySize(binders: Binder[]): { pockets: number; binders: Binder[] }[] {
@@ -14,6 +16,7 @@ function bySize(binders: Binder[]): { pockets: number; binders: Binder[] }[] {
 
 /** The full binder catalogue — a product page grouped by pocket size. */
 export function BinderCatalog({ binders }: { binders: Binder[] }) {
+  const dict = useDict();
   return (
     <div className="flex flex-col gap-6">
       {bySize(binders).map(({ pockets, binders }) => (
@@ -30,7 +33,7 @@ export function BinderCatalog({ binders }: { binders: Binder[] }) {
                 </div>
                 <p className="font-body text-lg leading-tight">{binder.blurb}</p>
                 <p className="font-body text-base text-gb-ink">
-                  {binder.line} · holds {binder.capacityPages} pages · around {binder.priceGuide}
+                  {format(dict.binders.holdsPages, { line: binder.line, pages: binder.capacityPages, price: binder.priceGuide })}
                 </p>
                 <div className="mt-auto flex flex-wrap gap-2 pt-1">
                   {binder.links.map((link, i) => (
@@ -54,8 +57,8 @@ export function BinderCatalog({ binders }: { binders: Binder[] }) {
       ))}
       <p className="font-body text-base">
         {hasAffiliateLinks()
-          ? "Some links may earn Nomekop a small commission at no cost to you."
-          : "Nomekop is not affiliated with these brands; links are plain searches."}
+          ? dict.binders.catalogYes
+          : dict.binders.catalogNo}
       </p>
     </div>
   );

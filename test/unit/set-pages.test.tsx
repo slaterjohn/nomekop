@@ -6,6 +6,12 @@ import path from "node:path";
 import SetsIndexPage from "@/app/sets/page";
 import SetPage, { generateMetadata } from "@/app/set/[setId]/page";
 import { DEFAULT_CONFIG } from "@/lib/config";
+
+// The /sets language-overlay select is a client component that calls useRouter,
+// which has no app-router context under jsdom — stub it so the page renders.
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn(), refresh: vi.fn(), replace: vi.fn() }),
+}));
 import { recommendPreset } from "@/lib/binders";
 import { encodeShareToken } from "@/lib/share";
 import type { TcgSet } from "@/lib/tcg/types";

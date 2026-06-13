@@ -33,16 +33,16 @@ describe("fun-fact articles", () => {
 });
 
 describe("/facts index", () => {
-  it("lists every article as a link with its question", () => {
-    render(<FactsIndexPage />);
-    expect(screen.getByRole("heading", { level: 1, name: "FUN FACTS" })).toBeInTheDocument();
+  it("lists every article as a link with its question", async () => {
+    render(await FactsIndexPage());
+    expect(screen.getByRole("heading", { level: 1, name: /fun facts/i })).toBeInTheDocument();
     for (const a of ARTICLES) {
       expect(screen.getByRole("link", { name: new RegExp(a.question.slice(0, 20), "i") })).toBeInTheDocument();
     }
   });
 
   it("has no axe violations", async () => {
-    const { container } = render(<FactsIndexPage />);
+    const { container } = render(await FactsIndexPage());
     expect(await axe(container)).toHaveNoViolations();
   });
 });

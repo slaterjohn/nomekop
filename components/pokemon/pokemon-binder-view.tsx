@@ -11,6 +11,7 @@ import { BinderShelf } from "@/components/builder/binder-shelf";
 import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguagePicker } from "@/components/binder/language-picker";
 import { useDict } from "@/components/i18n/language-provider";
+import { format } from "@/lib/i18n/format";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildPokemonLayout,
@@ -96,36 +97,36 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
                 setCustomOpen(true);
               }}
             >
-              CUSTOM
+              {dict.binder.custom}
             </GbButton>
           </div>
 
           {customOpen || !matchingPreset ? (
             <div className="flex flex-wrap items-center gap-4">
-              <GbStepper label="ROWS" value={options.rows} min={1} max={5} onChange={(rows) => update({ rows })} />
-              <GbStepper label="COLS" value={options.cols} min={1} max={5} onChange={(cols) => update({ cols })} />
+              <GbStepper label={dict.binder.rows} value={options.rows} min={1} max={5} onChange={(rows) => update({ rows })} />
+              <GbStepper label={dict.binder.cols} value={options.cols} min={1} max={5} onChange={(cols) => update({ cols })} />
             </div>
           ) : null}
 
           <div className="flex flex-wrap items-start gap-4">
             <GbMenu
-              label="Cards to include"
+              label={dict.binder.cardsToInclude}
               value={options.filter}
               onChange={(filter) => update({ filter })}
               options={[
-                { value: "all", label: "ALL PRINTS", hint: `every appearance (${cards.length})` },
-                { value: "secret", label: "SECRETS ONLY", hint: `secret rares only (${secretCount})` },
-                { value: "best", label: "RAREST PER SET", hint: "one chase card per set" },
+                { value: "all", label: dict.binder.allPrints, hint: format(dict.binder.allPrintsHint, { count: cards.length }) },
+                { value: "secret", label: dict.binder.secretsOnly, hint: format(dict.binder.secretsHint, { count: secretCount }) },
+                { value: "best", label: dict.binder.rarestPerSet, hint: dict.binder.rarestHint },
               ]}
               className="min-w-64"
             />
             <GbMenu
-              label="Binder order"
+              label={dict.binder.order}
               value={options.order}
               onChange={(order) => update({ order })}
               options={[
-                { value: "new", label: "NEWEST FIRST", hint: "latest sets up front" },
-                { value: "old", label: "OLDEST FIRST", hint: "vintage leads" },
+                { value: "new", label: dict.binder.newestFirst, hint: dict.binder.newestHint },
+                { value: "old", label: dict.binder.oldestFirst, hint: dict.binder.oldestHint },
               ]}
               className="min-w-64"
             />
@@ -133,8 +134,8 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
 
           <LanguagePicker value={options.langs} onChange={changeLanguages} />
 
-          <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
-            {layout.stats.slots} POCKETS → {layout.stats.pages} PAGES
+          <p aria-live="polite" className="font-pixel text-[10px] uppercase leading-relaxed sm:text-xs">
+            {format(dict.binder.pocketsToPages, { slots: layout.stats.slots, pages: layout.stats.pages })}
           </p>
         </div>
       </GbScreen>
@@ -157,9 +158,9 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
       <GbScreen title={dict.binder.printDownload}>
         <PdfButtons
           buttons={[
-            { label: "BINDER PDF", type: "pokemon", token: encodePokemonToken(slug, options) },
+            { label: dict.binder.binderPdf, type: "pokemon", token: encodePokemonToken(slug, options) },
             {
-              label: "PLACEHOLDERS PDF",
+              label: dict.binder.placeholdersPdf,
               type: "pokemon-placeholders",
               token: encodePokemonToken(slug, options),
             },

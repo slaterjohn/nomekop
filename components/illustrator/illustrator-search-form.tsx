@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 import { GbButton } from "@/components/gb/gb-button";
 import { DEFAULT_ILLUSTRATOR_OPTIONS, encodeIllustratorToken } from "@/lib/illustrator-binder";
 import { play } from "@/lib/sound";
+import { useDict } from "@/components/i18n/language-provider";
 
 /** Artist input → /illustrator/<token>. Validation mirrors the token grammar. */
 export function IllustratorSearchForm() {
+  const dict = useDict();
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const errorId = useId();
@@ -29,19 +31,19 @@ export function IllustratorSearchForm() {
   return (
     <form onSubmit={submit} className="flex flex-wrap items-end gap-2">
       <label className="flex min-w-56 flex-1 flex-col gap-1">
-        <span className="font-pixel text-[10px]">ILLUSTRATOR NAME</span>
+        <span className="font-pixel text-[10px] uppercase">{dict.illustratorLanding.nameLabel}</span>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="e.g. Ken Sugimori"
+          placeholder={dict.illustratorLanding.placeholder}
           aria-invalid={!!error}
           aria-describedby={error ? errorId : undefined}
           className="border-[3px] border-gb-ink bg-gb-bg px-3 py-2 font-body text-xl placeholder:text-gb-ink/60"
         />
       </label>
       <GbButton type="submit" variant="a">
-        BUILD BINDER
+        {dict.illustratorLanding.build}
       </GbButton>
       {error ? (
         <p id={errorId} role="alert" className="w-full font-body text-lg">

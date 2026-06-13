@@ -26,7 +26,7 @@ test("footer legal link reaches the credits page", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("contentinfo").getByRole("link", { name: /LEGAL & CREDITS/i }).first().click();
   await expect(page).toHaveURL(/\/legal$/);
-  await expect(page.getByRole("heading", { level: 1, name: /LEGAL & CREDITS/ })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /LEGAL & CREDITS/i })).toBeVisible();
   await expect(page.getByText(/not affiliated with, endorsed by, or sponsored by/i)).toBeVisible();
   await expect(page.getByRole("link", { name: /pokemontcg\.io/i }).first()).toBeVisible();
 });

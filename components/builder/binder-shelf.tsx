@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { GbBadge } from "@/components/gb/gb-badge";
 import { GbLinkButton } from "@/components/gb/gb-button";
+import { useDict } from "@/components/i18n/language-provider";
+import { format } from "@/lib/i18n/format";
 import { affiliateUrl, bindersFor, hasAffiliateLinks, retailerName } from "@/lib/binders";
 import { play } from "@/lib/sound";
 
@@ -13,14 +15,15 @@ type BinderShelfProps = {
 
 /** Binder suggestions matching the chosen layout (data-driven from data/binders.json). */
 export function BinderShelf({ pockets, pages }: BinderShelfProps) {
+  const dict = useDict();
   const { exact, products } = bindersFor(pockets);
 
   return (
     <div className="flex flex-col gap-3">
       <p className="font-body text-xl">
         {exact
-          ? `Your ${pockets}-pocket layout matches these binders — you’ll need ${pages} pages.`
-          : `No off-the-shelf ${pockets}-pocket binder exists; the closest size is shown below.`}
+          ? format(dict.binder.shelfExact, { pockets, pages })
+          : format(dict.binder.shelfNearest, { pockets })}
       </p>
       <ul className="grid gap-3 sm:grid-cols-2">
         {products.map((product) => (
@@ -54,11 +57,9 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
         ))}
       </ul>
       <p className="font-body text-base">
-        {hasAffiliateLinks()
-          ? "Links may earn Nomekop a small commission at no cost to you. "
-          : "Nomekop is not affiliated with Vault X; links are plain searches. "}
+        {hasAffiliateLinks() ? dict.binder.affiliateYes : dict.binder.affiliateNo}
         <Link href="/binders" className="underline underline-offset-2">
-          Compare all binders ▶
+          {dict.common.compareBinders} ▶
         </Link>
       </p>
     </div>

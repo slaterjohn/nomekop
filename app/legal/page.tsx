@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GbScreen } from "@/components/gb/gb-screen";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Legal & credits",
@@ -23,10 +24,11 @@ function OutboundLink({ href, children }: { href: string; children: React.ReactN
 }
 
 /** Warm, human Legal & Credits page. Static — no external data. */
-export default function LegalPage() {
+export default async function LegalPage() {
+  const { dict } = await getServerDictionary();
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">LEGAL &amp; CREDITS</h1>
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{dict.legal.title}</h1>
       <p className="font-body text-xl leading-tight">
         The short, friendly version of who made this, what it leans on, and what happens to your
         stuff. No fine print, promise.

@@ -81,44 +81,37 @@ test("settings: switching the app language re-renders the whole UI", async ({ pa
 
   await page.getByRole("button", { name: "Settings" }).click();
   const dialog = page.getByRole("dialog");
-  const langGroup = dialog.getByRole("group", { name: "Language" });
-  await expect(langGroup).toBeVisible();
-  await expect(langGroup.getByRole("button", { name: /English/ })).toHaveAttribute(
-    "aria-pressed",
-    "true",
-  );
+  const langSelect = dialog.getByRole("combobox", { name: "Language" });
+  await expect(langSelect).toBeVisible();
+  await expect(langSelect).toHaveValue("en");
 
   // Switch to German — the server tree re-renders via the locale cookie.
-  await langGroup.getByRole("button", { name: /German/i }).click();
+  await langSelect.selectOption("de");
   await expect(page.locator("html")).toHaveAttribute("lang", "de");
   // The dialog itself re-renders in German (its title is now "Einstellungen").
   await expect(dialog.getByRole("heading", { name: "Einstellungen" })).toBeVisible();
 
-  // Close the modal, then the (no-longer-inert) header nav is German too.
+  // Close the modal so the header nav is no longer inert, then confirm it's
+  // German — the English "Binders" tab is gone (translation-agnostic check).
   await page.keyboard.press("Escape");
   await expect(dialog).not.toBeVisible();
-  await expect(
-    page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: /Mappen/i }),
-  ).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Primary" })).not.toContainText("Binders");
 
   // The choice persists across navigation (it's in a cookie).
   await page.goto("/pokedex");
   await expect(page.locator("html")).toHaveAttribute("lang", "de");
 });
 
-test("sets: the language overlay switcher links to each language", async ({ page }) => {
+test("sets: the language overlay select switches the list language", async ({ page }) => {
   await page.goto("/sets");
-  const tabs = page.getByRole("navigation", { name: "Overlay language" });
-  await expect(tabs).toBeVisible();
-  await expect(tabs.getByRole("link", { name: /Japanese/ })).toHaveAttribute(
-    "href",
-    "/sets?lang=ja",
-  );
-  await expect(tabs.getByRole("link", { name: "English" })).toHaveAttribute("href", "/sets");
+  const select = page.getByRole("combobox", { name: "Show sets in" });
+  await expect(select).toBeVisible();
+  await expect(select).toHaveValue("en");
 
-  // Overlaying a language keeps the English list and explains the badges.
-  await page.goto("/sets?lang=ja");
-  await expect(page.getByRole("heading", { level: 1, name: "ALL SETS" })).toBeVisible();
+  // Choosing Japanese overlays the English list and explains the badges.
+  await select.selectOption("ja");
+  await expect(page).toHaveURL(/\/sets\?lang=ja/);
+  await expect(page.getByRole("heading", { level: 1, name: /ALL SETS/i })).toBeVisible();
   await expect(page.getByText(/badge marks an English set that also exists in Japanese/)).toBeVisible();
-  await expect(tabs.getByRole("link", { name: /Japanese/ })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("combobox", { name: "Show sets in" })).toHaveValue("ja");
 });

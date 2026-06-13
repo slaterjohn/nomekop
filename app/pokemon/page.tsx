@@ -4,6 +4,7 @@ import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { PokemonSearchForm } from "@/components/pokemon/pokemon-search-form";
 import { encodePokemonToken, DEFAULT_POKEMON_OPTIONS } from "@/lib/pokemon-binder";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Pokémon binders — every card of one Pokémon",
@@ -24,24 +25,24 @@ const POPULAR = [
 ];
 
 /** Landing page: search any Pokémon, or jump to a popular one. */
-export default function PokemonLandingPage() {
+export default async function PokemonLandingPage() {
+  const { dict } = await getServerDictionary();
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">POKÉMON BINDERS</h1>
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{dict.pokemonLanding.title}</h1>
       <p className="font-body text-xl leading-tight">
-        One Pokémon, every card it has ever appeared on — across every set. Filter to secrets
-        or the rarest print per set, order by release date, then print it.
+        {dict.pokemonLanding.intro}
       </p>
       <p className="font-body text-xl leading-tight">
         <Link href="/facts/most-printed-pokemon" className="underline underline-offset-2">
-          Which Pokémon appears on the most cards? ▶
+          {dict.pokemonLanding.factLink}
         </Link>
       </p>
 
-      <GbScreen title="CHOOSE YOUR POKÉMON">
+      <GbScreen title={dict.pokemonLanding.chooseHeading}>
         <div className="flex flex-col gap-4">
           <PokemonSearchForm />
-          <p className="font-pixel text-[10px]">POPULAR</p>
+          <p className="font-pixel text-[10px] uppercase">{dict.common.popular}</p>
           <div className="flex flex-wrap gap-2">
             {POPULAR.map((name) => (
               <GbLinkButton

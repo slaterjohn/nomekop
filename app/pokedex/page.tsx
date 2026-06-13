@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { GENERATIONS } from "@/lib/pokedex";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Pokédex binders — one pocket per Pokémon",
@@ -11,17 +12,16 @@ export const metadata: Metadata = {
 };
 
 /** Generation chooser — each leads to a default Pokédex binder token. */
-export default function PokedexLandingPage() {
+export default async function PokedexLandingPage() {
+  const { dict } = await getServerDictionary();
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">POKÉDEX BINDERS</h1>
-      <p className="font-body text-xl leading-tight">
-        One pocket per Pokémon in National Dex order. Each pocket defaults to that Pokémon&apos;s
-        secret card — or its rarest print — and you can swap any pick. Your choices are saved
-        and the link stays shareable.
-      </p>
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
+        {dict.pokedexLanding.title}
+      </h1>
+      <p className="font-body text-xl leading-tight">{dict.pokedexLanding.intro}</p>
 
-      <GbScreen title="CHOOSE A GENERATION">
+      <GbScreen title={dict.pokedexLanding.chooseGeneration}>
         <ul className="grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-3">
           {GENERATIONS.map((gen) => (
             <li key={gen.id}>
