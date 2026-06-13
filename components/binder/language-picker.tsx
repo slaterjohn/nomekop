@@ -1,6 +1,7 @@
 "use client";
 
 import { GbButton } from "@/components/gb/gb-button";
+import { useDict } from "@/components/i18n/language-provider";
 import { LANGUAGES, LANGUAGE_CODES, languageLabel } from "@/lib/tcg/languages";
 import { play } from "@/lib/sound";
 
@@ -16,6 +17,7 @@ type LanguagePickerProps = {
  * so the caller navigates rather than just patching local state.
  */
 export function LanguagePicker({ value, onChange }: LanguagePickerProps) {
+  const dict = useDict();
   const toggle = (code: string) => {
     if (code === "en") return; // English is always included
     play("move");
@@ -29,7 +31,7 @@ export function LanguagePicker({ value, onChange }: LanguagePickerProps) {
 
   return (
     <div role="group" aria-label="Card languages" className="flex flex-col gap-1.5">
-      <span className="font-pixel text-[10px]">LANGUAGES</span>
+      <span className="font-pixel text-[10px] uppercase">{dict.binder.language}</span>
       <div className="flex flex-wrap gap-1.5">
         {LANGUAGES.map((lang) => {
           const on = lang.code === "en" || value.includes(lang.code);
@@ -48,7 +50,7 @@ export function LanguagePicker({ value, onChange }: LanguagePickerProps) {
         })}
       </div>
       <span className="font-body text-base leading-tight text-gb-ink">
-        Non-English cards come from TCGdex and have no prices.
+        {dict.binder.languageNote}
       </span>
     </div>
   );

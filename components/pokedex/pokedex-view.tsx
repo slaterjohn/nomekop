@@ -17,6 +17,7 @@ import { PixelPokeball } from "@/components/gb/pixel-pokeball";
 import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguageSelect } from "@/components/binder/language-select";
 import { BinderShelf } from "@/components/builder/binder-shelf";
+import { useDict } from "@/components/i18n/language-provider";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildPokedexEntries,
@@ -51,6 +52,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
   const [swapDex, setSwapDex] = useState<number | null>(null);
   const [spread, setSpread] = useState(0);
   const router = useRouter();
+  const dict = useDict();
 
   // Hydration-safe localStorage read (server snapshot: empty string).
   const storedRaw = useSyncExternalStore(
@@ -144,7 +146,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
           </GbButton>
         </div>
       ) : null}
-      <GbScreen title="BINDER OPTIONS">
+      <GbScreen title={dict.binder.options}>
         <div className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size">
             {POCKET_PRESETS.map((preset) => (
@@ -186,7 +188,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
         </div>
       </GbScreen>
 
-      <GbScreen title="PREVIEW">
+      <GbScreen title={dict.binder.preview}>
         <div className="mb-3 flex items-center justify-between gap-2">
           <GbButton
             variant="b"
@@ -233,7 +235,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
         </ul>
       </GbScreen>
 
-      <GbScreen title="PRINT & DOWNLOAD">
+      <GbScreen title={dict.binder.printDownload}>
         <PdfButtons
           buttons={[
             { label: "POKÉDEX PDF", type: "pokedex", token },
@@ -244,7 +246,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
         />
       </GbScreen>
 
-      <GbScreen title="GET A BINDER">
+      <GbScreen title={dict.binder.getBinder}>
         <BinderShelf pockets={config.rows * config.cols} pages={pageCount} />
       </GbScreen>
 

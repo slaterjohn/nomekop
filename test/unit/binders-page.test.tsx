@@ -28,8 +28,8 @@ describe("affiliateUrl", () => {
 });
 
 describe("BindersPage (/binders)", () => {
-  it("lists every catalogue binder with at least one shop link", () => {
-    render(<BindersPage />);
+  it("lists every catalogue binder with at least one shop link", async () => {
+    render(await BindersPage());
     for (const binder of BINDERS) {
       expect(screen.getByText(binder.name)).toBeInTheDocument();
     }

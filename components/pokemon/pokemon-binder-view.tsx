@@ -10,6 +10,7 @@ import { BinderPreview } from "@/components/builder/binder-preview";
 import { BinderShelf } from "@/components/builder/binder-shelf";
 import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguagePicker } from "@/components/binder/language-picker";
+import { useDict } from "@/components/i18n/language-provider";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildPokemonLayout,
@@ -33,6 +34,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
     !POCKET_PRESETS.some((p) => p.rows === initialOptions.rows && p.cols === initialOptions.cols),
   );
   const router = useRouter();
+  const dict = useDict();
 
   const layout = useMemo(() => buildPokemonLayout(cards, options), [cards, options]);
 
@@ -64,7 +66,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
 
   return (
     <div className="flex flex-col gap-6">
-      <GbScreen title="BINDER OPTIONS">
+      <GbScreen title={dict.binder.options}>
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size">
             {POCKET_PRESETS.map((preset) => {
@@ -137,7 +139,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
         </div>
       </GbScreen>
 
-      <GbScreen title="PREVIEW">
+      <GbScreen title={dict.binder.preview}>
         <BinderPreview
           set={pseudoSet}
           layout={layout}
@@ -152,7 +154,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
         />
       </GbScreen>
 
-      <GbScreen title="PRINT & DOWNLOAD">
+      <GbScreen title={dict.binder.printDownload}>
         <PdfButtons
           buttons={[
             { label: "BINDER PDF", type: "pokemon", token: encodePokemonToken(slug, options) },
@@ -167,7 +169,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
         />
       </GbScreen>
 
-      <GbScreen title="GET A BINDER">
+      <GbScreen title={dict.binder.getBinder}>
         <BinderShelf pockets={options.rows * options.cols} pages={layout.stats.pages} />
       </GbScreen>
     </div>

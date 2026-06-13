@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("homepage hub: tiles navigate to each binder type", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1, name: /BUILD THE PERFECT BINDER/ })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /BUILD THE PERFECT BINDER/i })).toBeVisible();
 
   // Each tile is a real link with a CTA.
   await expect(page.getByRole("link", { name: /BUILD A SET/ })).toHaveAttribute("href", "/build");
@@ -18,13 +18,13 @@ test("homepage hub: tiles navigate to each binder type", async ({ page }) => {
 test("primary nav highlights the active section", async ({ page }) => {
   await page.goto("/build");
   const nav = page.getByRole("navigation", { name: "Primary" });
-  await expect(nav.getByRole("link", { name: "SETS" })).toHaveAttribute("aria-current", "page");
-  await expect(nav.getByRole("link", { name: "POKÉMON" })).not.toHaveAttribute("aria-current", "page");
+  await expect(nav.getByRole("link", { name: "Sets" })).toHaveAttribute("aria-current", "page");
+  await expect(nav.getByRole("link", { name: "Pokémon" })).not.toHaveAttribute("aria-current", "page");
 });
 
 test("footer legal link reaches the credits page", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("contentinfo").getByRole("link", { name: /LEGAL & CREDITS/ }).first().click();
+  await page.getByRole("contentinfo").getByRole("link", { name: /LEGAL & CREDITS/i }).first().click();
   await expect(page).toHaveURL(/\/legal$/);
   await expect(page.getByRole("heading", { level: 1, name: /LEGAL & CREDITS/ })).toBeVisible();
   await expect(page.getByText(/not affiliated with, endorsed by, or sponsored by/i)).toBeVisible();
@@ -36,14 +36,14 @@ test("settings panel: change palette and reduce animation from the header", asyn
   await page.getByRole("button", { name: "Settings" }).click();
 
   const dialog = page.getByRole("dialog");
-  await expect(dialog.getByText("SETTINGS")).toBeVisible();
+  await expect(dialog.getByText("Settings")).toBeVisible();
 
   // Pick the Cerulean palette → <html data-theme> updates.
   await dialog.getByRole("radio", { name: /CERULEAN palette/i }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "cerulean");
 
   // Reduce animation → <html data-reduce-motion> is set.
-  await dialog.getByRole("switch", { name: "REDUCE ANIMATION" }).click();
+  await dialog.getByRole("switch", { name: "Reduce animation" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-reduce-motion", "1");
 
   await page.keyboard.press("Escape");

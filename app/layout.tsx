@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/site-footer";
+import { LanguageProvider } from "@/components/i18n/language-provider";
+import { getServerDictionary } from "@/lib/i18n/server";
 import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 
@@ -62,24 +64,27 @@ export const viewport: Viewport = {
   themeColor: "#9bbc0f",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { locale, dict } = await getServerDictionary();
   return (
-    <html lang="en" className={`${pressStart.variable} ${vt323.variable} h-full antialiased`}>
+    <html lang={locale} className={`${pressStart.variable} ${vt323.variable} h-full antialiased`}>
       <head>
         <ThemeScript />
       </head>
       <body className="flex min-h-full flex-col">
-        <a href="#main" className="skip-link">
-          SKIP TO CONTENT
-        </a>
-        <Header />
-        {children}
-        <SiteFooter />
-        <EasterEggs />
+        <LanguageProvider locale={locale} dict={dict}>
+          <a href="#main" className="skip-link uppercase">
+            {dict.common.skipToContent}
+          </a>
+          <Header />
+          {children}
+          <SiteFooter />
+          <EasterEggs />
+        </LanguageProvider>
       </body>
     </html>
   );

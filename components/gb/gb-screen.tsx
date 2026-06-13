@@ -20,7 +20,7 @@ export function GbScreen({ title, className, children }: GbScreenProps) {
       )}
     >
       {title ? (
-        <h2 className="border-b-4 border-gb-ink bg-gb-ink px-3 py-2 font-pixel text-xs leading-relaxed text-gb-bg sm:text-sm">
+        <h2 className="border-b-4 border-gb-ink bg-gb-ink px-3 py-2 font-pixel text-xs uppercase leading-relaxed text-gb-bg sm:text-sm">
           {title}
         </h2>
       ) : null}

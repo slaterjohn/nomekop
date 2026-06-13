@@ -22,7 +22,7 @@ for (const theme of THEMES) {
     );
 
     await page.goto("/");
-    await page.getByRole("heading", { level: 1, name: /BUILD THE PERFECT BINDER/ }).waitFor();
+    await page.getByRole("heading", { level: 1, name: /BUILD THE PERFECT BINDER/i }).waitFor();
     const homeScan = await new AxeBuilder({ page }).analyze();
     expect(homeScan.violations).toEqual([]);
 

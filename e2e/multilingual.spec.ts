@@ -75,6 +75,37 @@ test("pokedex: an English custom pick rides in the token", async ({ page }) => {
   await expect(page).toHaveURL(/\/pokedex\/g1~55~25\./);
 });
 
+test("settings: switching the app language re-renders the whole UI", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+  await page.getByRole("button", { name: "Settings" }).click();
+  const dialog = page.getByRole("dialog");
+  const langGroup = dialog.getByRole("group", { name: "Language" });
+  await expect(langGroup).toBeVisible();
+  await expect(langGroup.getByRole("button", { name: /English/ })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+
+  // Switch to German — the server tree re-renders via the locale cookie.
+  await langGroup.getByRole("button", { name: /German/i }).click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "de");
+  // The dialog itself re-renders in German (its title is now "Einstellungen").
+  await expect(dialog.getByRole("heading", { name: "Einstellungen" })).toBeVisible();
+
+  // Close the modal, then the (no-longer-inert) header nav is German too.
+  await page.keyboard.press("Escape");
+  await expect(dialog).not.toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: /Mappen/i }),
+  ).toBeVisible();
+
+  // The choice persists across navigation (it's in a cookie).
+  await page.goto("/pokedex");
+  await expect(page.locator("html")).toHaveAttribute("lang", "de");
+});
+
 test("sets: the language overlay switcher links to each language", async ({ page }) => {
   await page.goto("/sets");
   const tabs = page.getByRole("navigation", { name: "Overlay language" });

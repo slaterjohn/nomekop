@@ -18,21 +18,27 @@ afterEach(() => {
 });
 
 describe("SettingsPanel", () => {
-  it("opens from a labelled trigger and shows palette, sound and motion controls", async () => {
+  it("opens from a labelled trigger and shows language, palette, sound and motion controls", async () => {
     render(<SettingsPanel />);
     fireEvent.click(screen.getByRole("button", { name: "Settings" }));
 
     const dialog = await screen.findByRole("dialog");
-    expect(within(dialog).getByText("SETTINGS")).toBeInTheDocument();
+    expect(within(dialog).getByText("Settings")).toBeInTheDocument();
+    // The new UI-language selector (defaults to English).
+    expect(within(dialog).getByRole("group", { name: "Language" })).toBeInTheDocument();
+    expect(within(dialog).getByRole("button", { name: /English/ })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
     expect(within(dialog).getByRole("radiogroup", { name: "Colour palette" })).toBeInTheDocument();
-    expect(within(dialog).getByRole("switch", { name: "SOUND" })).toBeInTheDocument();
-    expect(within(dialog).getByRole("switch", { name: "REDUCE ANIMATION" })).toBeInTheDocument();
+    expect(within(dialog).getByRole("switch", { name: "Sound" })).toBeInTheDocument();
+    expect(within(dialog).getByRole("switch", { name: "Reduce animation" })).toBeInTheDocument();
   });
 
   it("REDUCE ANIMATION toggles the document-level reduce-motion flag", async () => {
     render(<SettingsPanel />);
     fireEvent.click(screen.getByRole("button", { name: "Settings" }));
-    const toggle = await screen.findByRole("switch", { name: "REDUCE ANIMATION" });
+    const toggle = await screen.findByRole("switch", { name: "Reduce animation" });
 
     expect(document.documentElement.dataset.reduceMotion).toBeUndefined();
     fireEvent.click(toggle);

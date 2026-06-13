@@ -29,8 +29,8 @@ describe("HomeTiles", () => {
 describe("SiteFooter", () => {
   it("carries the legal link and the not-affiliated notice", () => {
     render(<SiteFooter />);
-    expect(screen.getByRole("link", { name: /LEGAL & CREDITS/ })).toHaveAttribute("href", "/legal");
-    expect(screen.getByText(/NOT AFFILIATED WITH NINTENDO/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Legal & credits/i })).toHaveAttribute("href", "/legal");
+    expect(screen.getByText(/Not affiliated with Nintendo/i)).toBeInTheDocument();
   });
 
   it("links every section", () => {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BinderCatalog } from "@/components/binders/binder-catalog";
 import { JsonLd } from "@/components/json-ld";
+import { getServerDictionary } from "@/lib/i18n/server";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { BINDERS } from "@/lib/binders";
 
@@ -17,7 +18,8 @@ export const metadata: Metadata = {
 };
 
 /** A buying-guide / product page for the binders NOMEKOP recommends. */
-export default function BindersPage() {
+export default async function BindersPage() {
+  const { dict } = await getServerDictionary();
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -47,12 +49,10 @@ export default function BindersPage() {
         ]}
       />
       <div>
-        <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">BINDERS</h1>
-        <p className="mt-1 font-body text-lg">
-          NOMEKOP lays out your collection; a good binder holds it. Here&apos;s the Vault X lineup
-          by pocket size — more pockets per page means fewer pages and a denser display, fewer
-          pockets means bigger, easier-to-read cards.
-        </p>
+        <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
+          {dict.binders.title}
+        </h1>
+        <p className="mt-1 font-body text-lg">{dict.binders.intro}</p>
         <p className="mt-1 font-body text-lg">
           Building a layout?{" "}
           <Link href="/sets" className="underline underline-offset-2">

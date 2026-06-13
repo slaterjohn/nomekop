@@ -3,14 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SettingsPanel } from "@/components/settings/settings-panel";
+import { useDict } from "@/components/i18n/language-provider";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { cn } from "@/lib/utils";
 
 const WORDMARK = "NOMEKOP";
 
-const NAV: Array<{ href: string; label: string; match: (p: string) => boolean }> = [
+const NAV: Array<{ href: string; key: keyof Dictionary["nav"]; match: (p: string) => boolean }> = [
   {
     href: "/build",
-    label: "SETS",
+    key: "sets",
     // The whole set flow: builder, configured binders, the crawlable set hub,
     // and the per-set card/collection child pages.
     match: (p) =>
@@ -20,15 +22,16 @@ const NAV: Array<{ href: string; label: string; match: (p: string) => boolean }>
       p.startsWith("/card") ||
       p.startsWith("/collection"),
   },
-  { href: "/pokemon", label: "POKÉMON", match: (p) => p.startsWith("/pokemon") },
-  { href: "/pokedex", label: "POKÉDEX", match: (p) => p.startsWith("/pokedex") },
-  { href: "/illustrator", label: "ART", match: (p) => p.startsWith("/illustrator") },
-  { href: "/binders", label: "BINDERS", match: (p) => p.startsWith("/binders") },
+  { href: "/pokemon", key: "pokemon", match: (p) => p.startsWith("/pokemon") },
+  { href: "/pokedex", key: "pokedex", match: (p) => p.startsWith("/pokedex") },
+  { href: "/illustrator", key: "art", match: (p) => p.startsWith("/illustrator") },
+  { href: "/binders", key: "binders", match: (p) => p.startsWith("/binders") },
 ];
 
 /** Title bar: a bounded logo home-link, a clear nav tab row, palette + sound. */
 export function Header() {
   const pathname = usePathname() ?? "/";
+  const dict = useDict();
 
   return (
     <header className="border-b-4 border-gb-ink bg-gb-bg">
@@ -61,7 +64,7 @@ export function Header() {
               ))}
             </span>
             <span className="mt-1 font-body text-sm leading-none text-gb-ink sm:text-base">
-              Pokémon TCG binder maker
+              {dict.home.tagline}
             </span>
           </Link>
           <SettingsPanel />
@@ -77,13 +80,13 @@ export function Header() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "inline-flex min-h-9 items-center border-[3px] border-gb-ink px-3 py-1 font-pixel text-[10px] no-underline sm:text-xs",
+                      "inline-flex min-h-9 items-center border-[3px] border-gb-ink px-3 py-1 font-pixel text-[10px] uppercase no-underline sm:text-xs",
                       active
                         ? "bg-gb-ink text-gb-bg"
                         : "bg-gb-bg text-gb-ink motion-safe:transition-transform motion-safe:hover:-translate-y-0.5",
                     )}
                   >
-                    {item.label}
+                    {dict.nav[item.key]}
                   </Link>
                 </li>
               );
