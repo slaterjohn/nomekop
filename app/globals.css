@@ -98,8 +98,9 @@
   }
 
   /* Logo intro: the wordmark lands mirrored — NOMEKOP reversed reads POKEMON —
-     then flips round to settle on NOMEKOP. A subtle nod to the name's origin. */
-  --animate-gb-wordmark-flip: gb-wordmark-flip 0.9s ease-out backwards;
+     holds for a beat (1s delay, kept mirrored by `backwards` fill), then flips
+     round to settle on NOMEKOP. A subtle nod to the name's origin. */
+  --animate-gb-wordmark-flip: gb-wordmark-flip 0.9s ease-out 1s backwards;
 
   @keyframes gb-wordmark-flip {
     from {
