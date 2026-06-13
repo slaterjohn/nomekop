@@ -1,6 +1,6 @@
 import { paginate, toSpreads, type Slot } from "@/lib/layout";
 import type { BinderLayout } from "@/lib/layout";
-import { compareCardNumbers } from "@/lib/layout/number";
+import { orderForBinder } from "@/lib/binder-order";
 import { displayNameFromSlug } from "@/lib/pokemon-binder";
 import { decodeLanguages, encodeLanguages } from "@/lib/tcg/languages";
 import type { CardWithSet } from "@/lib/tcg/types";
@@ -66,20 +66,12 @@ export function decodeIllustratorToken(
   };
 }
 
-function sortByRelease(cards: CardWithSet[], order: IllustratorOrder): CardWithSet[] {
-  return [...cards].sort((a, b) => {
-    const byDate = a.setReleaseDate.localeCompare(b.setReleaseDate);
-    if (byDate !== 0) return order === "new" ? -byDate : byDate;
-    return compareCardNumbers(a.number, b.number);
-  });
-}
-
 /** Same BinderLayout shape the preview/print/PDF pipeline already speaks. */
 export function buildIllustratorLayout(
   cards: ReadonlyArray<CardWithSet>,
   options: IllustratorBinderOptions,
 ): BinderLayout {
-  const sorted = sortByRelease([...cards], options.order);
+  const sorted = orderForBinder([...cards], options.order, options.langs.length > 1);
   const slots: Slot[] = sorted.map((card) => ({ kind: "card", card }));
   const pages = paginate(slots, options.rows, options.cols);
   return {

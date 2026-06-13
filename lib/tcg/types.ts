@@ -68,6 +68,13 @@ export type CardWithSet = TcgCard & {
   setPrintedTotal: number;
   /** Numbered beyond the printed total or in a lettered subset. */
   secret: boolean;
+  /** Canonical (English) set release date — set only in multi-language binders so
+   *  a localized set sorts with its English equivalent, not its own (earlier)
+   *  release. Absent = use setReleaseDate. */
+  canonDate?: string;
+  /** Canonical (English) set id, so the same set clusters across languages.
+   *  Absent = use setId. */
+  canonSetId?: string;
 };
 
 export interface CardDataSource {

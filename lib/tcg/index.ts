@@ -83,7 +83,7 @@ export async function searchPokemonCards(
       return localized ? tcgdexByName(localized, lang).catch(() => []) : [];
     }),
   );
-  return [...english, ...extra.flat()];
+  return withCanonicalSets([...english, ...extra.flat()]);
 }
 
 function englishIllustratorCards(slug: string): Promise<CardWithSet[]> {
@@ -109,7 +109,51 @@ export async function searchIllustratorCards(
   const extra = await Promise.all(
     others.map((lang) => tcgdexByIllustrator(name, lang).catch(() => [])),
   );
-  return [...english, ...extra.flat()];
+  return withCanonicalSets([...english, ...extra.flat()]);
+}
+
+/**
+ * Bridge TCGdex set ids to their English (pokemontcg.io) set — matched through
+ * TCGdex's own English set names, since the two sources number sets differently.
+ * Used to give localized cards a canonical English set id+date for grouping.
+ */
+async function englishSetBridge(): Promise<Map<string, { id: string; releaseDate: string }>> {
+  const [english, tcgdexEn] = await Promise.all([getSets(), getLocalizedSets("en").catch(() => [])]);
+  const byName = new Map<string, { id: string; releaseDate: string }>();
+  for (const set of english) {
+    byName.set(set.name.trim().toLowerCase(), { id: set.id, releaseDate: set.releaseDate });
+  }
+  const bridge = new Map<string, { id: string; releaseDate: string }>();
+  for (const set of tcgdexEn) {
+    const match = byName.get(set.name.trim().toLowerCase());
+    if (match) bridge.set(set.id, match);
+  }
+  return bridge;
+}
+
+/**
+ * Tag every card with a canonical (English) set id + release date so a binder can
+ * place the same set's prints together across languages. English cards canonicalise
+ * to themselves; localized cards borrow their English twin's id+date when one exists.
+ *
+ * The Western languages (fr/de/es/it) share TCGdex's set ids with English, so they
+ * pair up cleanly. Japanese/Korean/Chinese use entirely different set ids (their
+ * print runs genuinely don't map 1:1 to the English sets), so they find no twin and
+ * fall back to their own release date — interleaving by era rather than pairing.
+ */
+async function withCanonicalSets(cards: CardWithSet[]): Promise<CardWithSet[]> {
+  const bridge = await englishSetBridge();
+  return cards.map((card) => {
+    if ((card.lang ?? "en") === "en") {
+      return { ...card, canonDate: card.setReleaseDate, canonSetId: card.setId };
+    }
+    const match = bridge.get(card.setId);
+    return {
+      ...card,
+      canonDate: match?.releaseDate ?? card.setReleaseDate,
+      canonSetId: match?.id ?? card.setId,
+    };
+  });
 }
 
 /** Every print for a generation's dex range. Derived from cache when complete;

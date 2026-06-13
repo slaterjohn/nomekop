@@ -1,6 +1,6 @@
 import { paginate, toSpreads, type Slot } from "@/lib/layout";
 import type { BinderLayout } from "@/lib/layout";
-import { compareCardNumbers } from "@/lib/layout/number";
+import { orderForBinder } from "@/lib/binder-order";
 import { rarityRank } from "@/lib/tcg/rarity";
 import { decodeLanguages, encodeLanguages } from "@/lib/tcg/languages";
 import type { CardWithSet } from "@/lib/tcg/types";
@@ -95,20 +95,16 @@ function applyFilter(cards: CardWithSet[], filter: PokemonFilter): CardWithSet[]
   }
 }
 
-function sortByRelease(cards: CardWithSet[], order: PokemonOrder): CardWithSet[] {
-  return [...cards].sort((a, b) => {
-    const byDate = a.setReleaseDate.localeCompare(b.setReleaseDate);
-    if (byDate !== 0) return order === "new" ? -byDate : byDate;
-    return compareCardNumbers(a.number, b.number);
-  });
-}
-
 /** Same BinderLayout shape the preview/print/PDF pipeline already speaks. */
 export function buildPokemonLayout(
   cards: ReadonlyArray<CardWithSet>,
   options: PokemonBinderOptions,
 ): BinderLayout {
-  const filtered = sortByRelease(applyFilter([...cards], options.filter), options.order);
+  const filtered = orderForBinder(
+    applyFilter([...cards], options.filter),
+    options.order,
+    options.langs.length > 1,
+  );
   const slots: Slot[] = filtered.map((card) => ({ kind: "card", card }));
   const pages = paginate(slots, options.rows, options.cols);
   return {
