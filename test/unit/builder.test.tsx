@@ -98,7 +98,7 @@ function renderBuilder() {
 // parallel workers. Filter-as-you-type behaviour is covered in set-selector tests.
 async function pickScarletViolet(user: ReturnType<typeof userEvent.setup>) {
   // .* not \s+: jsdom computes accessible names without inter-span spaces.
-  await user.click(await screen.findByRole("option", { name: /Scarlet & Violet.*198\/258/ }));
+  await user.click(await screen.findByRole("option", { name: /Scarlet & Violet.*258 cards/ }));
 }
 
 beforeEach(() => {

@@ -15,7 +15,7 @@ test("keyboard-only: skip link → choose set → configure → tick a card", as
   await page.getByRole("combobox", { name: /search sets/i }).focus();
   await page.keyboard.type("scarlet & violet");
   // first option is highlighted by cmdk; step to the exact base set
-  const option = page.getByRole("option", { name: /Scarlet & Violet\s+198\/258/ });
+  const option = page.getByRole("option", { name: /Scarlet & Violet.*258 cards/ });
   await expect(option).toBeVisible();
   while (!(await option.getAttribute("aria-selected").then((v) => v === "true"))) {
     await page.keyboard.press("ArrowDown");

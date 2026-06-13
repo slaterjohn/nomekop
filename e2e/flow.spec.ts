@@ -188,7 +188,7 @@ test("unknown set shows a friendly error with retry", async ({ page }) => {
   await page.goto("/build");
   // Black Star Promos has no fixture card data → the cards fetch 404s.
   await page.getByRole("combobox", { name: /search sets/i }).fill("scarlet & violet black star");
-  await page.locator("[cmdk-item]", { hasText: "215/196" }).click();
+  await page.locator("[cmdk-item]", { hasText: "215 cards" }).click();
   // Scoped to the GB dialog: Next's route announcer is also role=alert.
   await expect(page.locator('[data-gb-dialog][role="alert"]')).toContainText(/no fixture|library/i);
   await expect(page.getByRole("button", { name: "RETRY" })).toBeVisible();

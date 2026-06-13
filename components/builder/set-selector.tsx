@@ -42,6 +42,15 @@ function groupSets(sets: ReadonlyArray<TcgSet>, sort: SortMode): Array<[string, 
   return entries;
 }
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** "1999/01/09" → "9 Jan 1999"; returns the raw string if it can't parse. */
+function formatReleaseDate(date: string): string {
+  const m = /^(\d{4})\/(\d{2})\/(\d{2})$/.exec(date);
+  if (!m) return date;
+  return `${Number(m[3])} ${MONTHS[Number(m[2]) - 1] ?? m[2]} ${m[1]}`;
+}
+
 type SetSelectorProps = {
   sets: TcgSet[] | undefined;
   isLoading?: boolean;
@@ -140,9 +149,14 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
                 ) : (
                   <span aria-hidden="true" className="inline-block size-5 shrink-0" />
                 )}
-                <span className="flex-1 truncate">{set.name}</span>
+                <span className="min-w-0 flex-1 leading-none">
+                  <span className="block truncate">{set.name}</span>
+                  <span className="mt-0.5 block font-body text-base">
+                    {formatReleaseDate(set.releaseDate)}
+                  </span>
+                </span>
                 <span className="shrink-0 font-pixel text-[10px]">
-                  {set.printedTotal}/{set.total}
+                  {Math.max(set.printedTotal, set.total)} cards
                 </span>
               </CommandItem>
             ))}
