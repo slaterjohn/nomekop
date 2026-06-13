@@ -14,6 +14,8 @@ import { encodeShareToken } from "@/lib/share";
 import { breadcrumbJsonLd, setCollectionJsonLd } from "@/lib/structured-data";
 import { getCards, getSets } from "@/lib/tcg";
 import { TcgError } from "@/lib/tcg/types";
+import { getServerDictionary } from "@/lib/i18n/server";
+import { format } from "@/lib/i18n/format";
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +63,7 @@ function pageCount(n: number): string {
 /** Set landing hub: stats, builder shortcuts and a link to every card —
  *  the server-rendered trail crawlers follow to reach /card/[cardId]. */
 export default async function SetPage({ params }: Props) {
+  const { dict } = await getServerDictionary();
   const { setId } = await params;
   const { set, cards } = await loadSet(setId);
 
@@ -118,23 +121,27 @@ export default async function SetPage({ params }: Props) {
         <div className="min-w-0">
           <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">{set.name.toUpperCase()}</h1>
           <p className="mt-1 font-body text-lg leading-none">
-            {set.series} · {set.releaseDate.slice(0, 4)} · {set.printedTotal} printed / {set.total}{" "}
-            total cards
+            {format(dict.setDetail.cardsLine, {
+              series: set.series,
+              year: set.releaseDate.slice(0, 4),
+              printed: set.printedTotal,
+              total: set.total,
+            })}
           </p>
         </div>
       </header>
 
-      <GbScreen title="BINDER LAYOUTS">
+      <GbScreen title={dict.setDetail.binderLayouts}>
         <div className="flex flex-col gap-3">
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             <div className="border-[3px] border-gb-ink px-3 py-2">
-              <p className="font-pixel text-[10px] leading-relaxed">STANDARD SET</p>
+              <p className="font-pixel text-[10px] uppercase leading-relaxed">{dict.setDetail.standardSet}</p>
               <p className="font-body text-xl leading-tight">
                 {pageCount(standard.stats.pages)} · {standard.stats.slots} pockets
               </p>
             </div>
             <div className="border-[3px] border-gb-ink px-3 py-2">
-              <p className="font-pixel text-[10px] leading-relaxed">MASTER SET</p>
+              <p className="font-pixel text-[10px] uppercase leading-relaxed">{dict.setDetail.masterSet}</p>
               <p className="font-body text-xl leading-tight">
                 {pageCount(master.stats.pages)} · {master.stats.slots} pockets
               </p>
@@ -145,7 +152,7 @@ export default async function SetPage({ params }: Props) {
             builder.
           </p>
 
-          <table className="w-full border-[3px] border-gb-ink" aria-label="Binder fit by size">
+          <table className="w-full border-[3px] border-gb-ink" aria-label={dict.setDetail.binderFit}>
             <thead>
               <tr className="bg-gb-accent font-pixel text-[9px] uppercase">
                 <th scope="col" className="px-2 py-1.5 text-left">
@@ -165,7 +172,7 @@ export default async function SetPage({ params }: Props) {
                   <td className="px-2 py-1.5">
                     {row.label} ({row.rows}×{row.cols})
                     {row.label === recommended.label ? (
-                      <GbBadge className="ml-2">RECOMMENDED</GbBadge>
+                      <GbBadge className="ml-2">{dict.setDetail.recommended}</GbBadge>
                     ) : null}
                   </td>
                   <td className="px-2 py-1.5 text-right tabular-nums">{row.pages}</td>
@@ -182,10 +189,10 @@ export default async function SetPage({ params }: Props) {
           </p>
           <div className="flex flex-wrap gap-2">
             <GbLinkButton variant="a" href={builderHref}>
-              OPEN IN BINDER BUILDER
+              {dict.setDetail.openInBuilder}
             </GbLinkButton>
             <GbLinkButton variant="b" href={masterHref}>
-              MASTER SET LAYOUT
+              {dict.setDetail.masterSetLayout}
             </GbLinkButton>
           </div>
         </div>

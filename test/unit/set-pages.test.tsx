@@ -80,8 +80,8 @@ describe("SetPage (/set/[setId])", () => {
 
   it("links both builder buttons to share-token URLs using the recommended grid", async () => {
     await renderBase1();
-    const standard = screen.getByRole("link", { name: "OPEN IN BINDER BUILDER" });
-    const master = screen.getByRole("link", { name: "MASTER SET LAYOUT" });
+    const standard = screen.getByRole("link", { name: /open in binder builder/i });
+    const master = screen.getByRole("link", { name: /master set layout/i });
     // base1's 102-card master set best fills a 40-page zip binder at 4 PKT (2×2).
     const rec = recommendPreset(102);
     expect(rec.label).toBe("4 PKT");
@@ -93,7 +93,7 @@ describe("SetPage (/set/[setId])", () => {
       "href",
       `/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: "base1", mode: "master", rows: rec.rows, cols: rec.cols })}`,
     );
-    expect(screen.getByText("RECOMMENDED")).toBeInTheDocument();
+    expect(screen.getByText(/recommended/i)).toBeInTheDocument();
     expect(screen.getByRole("table", { name: /Binder fit/i })).toBeInTheDocument();
   });
 

@@ -84,6 +84,25 @@ export const en = {
     shelfNearest: "No off-the-shelf {pockets}-pocket binder exists; the closest size is shown below.",
     affiliateYes: "Links may earn Nomekop a small commission at no cost to you. ",
     affiliateNo: "Nomekop is not affiliated with Vault X; links are plain searches. ",
+    // Binder page headings (one Pokémon / one illustrator)
+    heading: "{name} binder",
+    inLanguages: "in {count} languages",
+    pokemonSubline: "Every {name} print across {sets} sets — {cards} cards found{langs}.",
+    illustratorSubline: "Every card by {name} across {sets} sets — {cards} cards found{langs}.",
+  },
+  setDetail: {
+    cardsLine: "{series} · {year} · {printed} printed / {total} total cards",
+    binderLayouts: "Binder layouts",
+    standardSet: "Standard set",
+    masterSet: "Master set",
+    binderFit: "Binder fit by size",
+    recommended: "Recommended",
+    openInBuilder: "Open in binder builder",
+    masterSetLayout: "Master set layout",
+  },
+  builder: {
+    configure: "Configure binder",
+    findBinder: "Find the right binder",
   },
   binders: {
     title: "Binders",

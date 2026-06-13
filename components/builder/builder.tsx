@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { GbButton } from "@/components/gb/gb-button";
+import { useDict } from "@/components/i18n/language-provider";
 import { GbSpinner } from "@/components/gb/gb-spinner";
 import { GbProgress } from "@/components/gb/gb-progress";
 import { GbToggle } from "@/components/gb/gb-toggle";
@@ -62,6 +63,7 @@ function CollectionBar({ count, max }: { count: number; max: number }) {
 
 /** The whole flow: choose set → configure → preview/collect → print → binder. */
 export function Builder({ initialSets }: BuilderProps) {
+  const dict = useDict();
   const { config, update } = useBinderConfig();
   const sets = useSets(initialSets);
   const cards = useCards(config.set || undefined);
@@ -155,13 +157,13 @@ export function Builder({ initialSets }: BuilderProps) {
       {selectedSet && layout && layout.stats.cards > 0 ? (
         <>
           <GbWipe>
-            <GbScreen title="CONFIGURE BINDER">
+            <GbScreen title={dict.builder.configure}>
               <ConfigPanel set={selectedSet} cards={cards.data!} config={config} onChange={update} />
             </GbScreen>
           </GbWipe>
 
           <GbWipe>
-            <GbScreen title="PREVIEW">
+            <GbScreen title={dict.binder.preview}>
               <div className="mb-4 flex flex-col gap-3">
                 <GbToggle
                   label="COLLECTION MODE"
@@ -205,13 +207,13 @@ export function Builder({ initialSets }: BuilderProps) {
           </GbWipe>
 
           <GbWipe>
-            <GbScreen title="PRINT & DOWNLOAD">
+            <GbScreen title={dict.binder.printDownload}>
               <ActionBar config={config} onStyleChange={(style) => update({ style })} />
             </GbScreen>
           </GbWipe>
 
           <GbWipe>
-            <GbScreen title="FIND THE RIGHT BINDER">
+            <GbScreen title={dict.builder.findBinder}>
               <BinderShelf pockets={layout.stats.slotsPerPage} pages={layout.stats.pages} />
             </GbScreen>
           </GbWipe>

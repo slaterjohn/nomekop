@@ -11,6 +11,8 @@ import {
   type PokemonBinderOptions,
 } from "@/lib/pokemon-binder";
 import { searchPokemonCards } from "@/lib/tcg";
+import { getServerDictionary } from "@/lib/i18n/server";
+import { format } from "@/lib/i18n/format";
 
 export const dynamic = "force-dynamic";
 
@@ -53,11 +55,17 @@ async function PokemonBinderData({
   }
 
   const langCount = new Set(cards.map((c) => c.lang ?? "en")).size;
+  const { dict } = await getServerDictionary();
+  const langs = langCount > 1 ? ` ${format(dict.binder.inLanguages, { count: langCount })}` : "";
   return (
     <>
       <p className="font-body text-xl leading-tight">
-        Every {displayName} print across {new Set(cards.map((c) => c.setId)).size} sets —{" "}
-        {cards.length} cards found{langCount > 1 ? ` in ${langCount} languages` : ""}.
+        {format(dict.binder.pokemonSubline, {
+          name: displayName,
+          sets: new Set(cards.map((c) => c.setId)).size,
+          cards: cards.length,
+          langs,
+        })}
       </p>
       <PokemonBinderView slug={slug} displayName={displayName} cards={cards} initialOptions={options} />
     </>
@@ -70,6 +78,7 @@ export default async function PokemonBinderPage({ params }: Props) {
   const decoded = decodePokemonToken(decodeURIComponent(token));
   if (!decoded) notFound();
   const displayName = displayNameFromSlug(decoded.name);
+  const { dict } = await getServerDictionary();
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
@@ -77,8 +86,8 @@ export default async function PokemonBinderPage({ params }: Props) {
         <BackButton fallbackHref="/pokemon" />
       </div>
 
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">
-        {displayName.toUpperCase()} BINDER
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
+        {format(dict.binder.heading, { name: displayName })}
       </h1>
 
       <Suspense

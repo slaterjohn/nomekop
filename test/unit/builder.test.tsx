@@ -113,8 +113,8 @@ describe("Builder", () => {
   it("starts with only the set chooser visible", () => {
     renderBuilder();
     expect(screen.getByRole("heading", { name: "CHOOSE SET" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "CONFIGURE BINDER" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "PREVIEW" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: /^configure binder$/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: /^preview$/i })).not.toBeInTheDocument();
   });
 
   it("selecting a set updates the URL and reveals config, preview and actions", async () => {
@@ -124,9 +124,9 @@ describe("Builder", () => {
     await pickScarletViolet(user);
 
     expect(window.location.pathname).toBe("/b/sv1~34s111ic");
-    expect(await screen.findByRole("heading", { name: "CONFIGURE BINDER" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "PRINT & DOWNLOAD" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /^configure binder$/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /^print & download$/i })).toBeInTheDocument();
     expect(screen.getByText(/258 CARDS → 258 POCKETS → 22 PAGES/)).toBeInTheDocument();
   });
 
@@ -136,7 +136,7 @@ describe("Builder", () => {
     renderBuilder();
     await pickScarletViolet(user);
     expect(screen.getByRole("status")).toHaveTextContent(/LOADING SCARLET & VIOLET/);
-    expect(await screen.findByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
   });
 
   it("card fetch failure shows an alert with RETRY that recovers", async () => {
@@ -166,7 +166,7 @@ describe("Builder", () => {
     );
     fail = false;
     await user.click(screen.getByRole("button", { name: "RETRY" }));
-    expect(await screen.findByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
   });
 
   it("empty card list summons MISSINGNO", async () => {
@@ -182,11 +182,11 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    await screen.findByRole("heading", { name: "PREVIEW" });
+    await screen.findByRole("heading", { name: /^preview$/i });
 
     await user.click(screen.getByRole("button", { name: /CHANGE SET/ }));
     expect(screen.getByRole("heading", { name: "CHOOSE SET" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "PREVIEW" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: /^preview$/i })).not.toBeInTheDocument();
   });
 
   it("tick mode turns pockets into checkboxes and tracks progress", async () => {
@@ -194,7 +194,7 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    await screen.findByRole("heading", { name: "PREVIEW" });
+    await screen.findByRole("heading", { name: /^preview$/i });
 
     expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
     await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
@@ -212,7 +212,7 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    await screen.findByRole("heading", { name: "PREVIEW" });
+    await screen.findByRole("heading", { name: /^preview$/i });
 
     await user.click(screen.getByRole("button", { name: /View details: Pineco/ }));
     expect(nav.push).toHaveBeenCalledWith("/card/sv1-1");
@@ -223,7 +223,7 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    await screen.findByRole("heading", { name: "PREVIEW" });
+    await screen.findByRole("heading", { name: /^preview$/i });
 
     expect(screen.queryByRole("progressbar", { name: "COLLECTED" })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "CSV" })).not.toBeInTheDocument();
@@ -241,7 +241,7 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    await screen.findByRole("heading", { name: "PREVIEW" });
+    await screen.findByRole("heading", { name: /^preview$/i });
 
     await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
     await user.click(screen.getAllByRole("checkbox")[0]!);
@@ -268,7 +268,7 @@ describe("Builder", () => {
     const user = userEvent.setup();
     const { container } = renderBuilder();
     await pickScarletViolet(user);
-    await screen.findByRole("heading", { name: "PREVIEW" });
+    await screen.findByRole("heading", { name: /^preview$/i });
     expect(await axe(container)).toHaveNoViolations();
   }, 20_000);
 });
