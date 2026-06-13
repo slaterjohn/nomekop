@@ -142,6 +142,9 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
           layout={layout}
           rememberKey={`pokemon:${slug}`}
           onInspect={(card) => {
+            // The card detail page is English (pokemontcg.io) only; TCGdex cards
+            // have no detail page yet, so they're not click-through.
+            if ((card.lang ?? "en") !== "en") return;
             play("confirm");
             router.push(`/card/${card.id}`);
           }}

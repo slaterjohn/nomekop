@@ -131,6 +131,41 @@ export function searchByIllustrator(artist: string, lang: string): Promise<CardW
     .then((brief) => enrich(brief, lang));
 }
 
+/** Every card of one set, in a language (the set detail carries the brief
+ *  card list; we reuse its own metadata to enrich them). */
+export function getSetCards(setId: string, lang: string): Promise<CardWithSet[]> {
+  return serverStore
+    .getOrCompute<SetDetail & { cards?: BriefCard[] }>(
+      `tcgdex:setcards:${lang}:${setId}`,
+      SET_META_TTL_MS,
+      () => request(`/${lang}/sets/${encodeURIComponent(setId)}`),
+    )
+    .then((detail) => {
+      const printedTotal = detail.cardCount?.official ?? detail.cardCount?.total ?? 0;
+      const releaseDate = (detail.releaseDate ?? "").replace(/-/g, "/");
+      return (detail.cards ?? []).map((c) => {
+        const { small, large } = imageUrls(c.image);
+        return {
+          id: c.id,
+          name: c.name,
+          number: c.localId,
+          rarity: undefined,
+          supertype: "Pokémon",
+          imageSmall: small,
+          imageLarge: large,
+          variants: { normal: true, reverse: false, holo: false },
+          artist: undefined,
+          lang,
+          setId,
+          setName: detail.name,
+          setReleaseDate: releaseDate,
+          setPrintedTotal: printedTotal,
+          secret: isSecretNumber(c.localId, printedTotal),
+        } satisfies CardWithSet;
+      });
+    });
+}
+
 type BriefSet = { id: string; name: string; cardCount?: { official?: number; total?: number } };
 
 /** The set list for a language, as TcgSet[] (release dates/symbols enriched

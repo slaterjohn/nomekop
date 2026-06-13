@@ -33,7 +33,7 @@ function linksWithHrefPrefix(prefix: string): HTMLElement[] {
 describe("SetsIndexPage (/sets)", () => {
   it("lists a /set/ link for every fixture set, including base1", async () => {
     const fixtureSets = await readFixtureSets();
-    render(await SetsIndexPage());
+    render(await SetsIndexPage({ searchParams: Promise.resolve({}) }));
 
     const setLinks = linksWithHrefPrefix("/set/");
     expect(setLinks.length).toBeGreaterThan(50);
@@ -46,14 +46,14 @@ describe("SetsIndexPage (/sets)", () => {
   it("orders series newest-first with the newest set leading", async () => {
     const fixtureSets = await readFixtureSets();
     const newest = [...fixtureSets].sort((a, b) => b.releaseDate.localeCompare(a.releaseDate))[0]!;
-    render(await SetsIndexPage());
+    render(await SetsIndexPage({ searchParams: Promise.resolve({}) }));
 
     const firstHref = linksWithHrefPrefix("/set/")[0]?.getAttribute("href");
     expect(firstHref).toBe(`/set/${newest.id}`);
   });
 
   it("has no axe violations", async () => {
-    const { container } = render(await SetsIndexPage());
+    const { container } = render(await SetsIndexPage({ searchParams: Promise.resolve({}) }));
     expect(await axe(container)).toHaveNoViolations();
   }, 30_000);
 });

@@ -133,6 +133,9 @@ export function IllustratorBinderView({
           set={pseudoSet}
           layout={layout}
           onInspect={(card) => {
+            // English (pokemontcg.io) card detail only; TCGdex cards aren't
+            // click-through yet.
+            if ((card.lang ?? "en") !== "en") return;
             play("confirm");
             router.push(`/card/${card.id}`);
           }}
