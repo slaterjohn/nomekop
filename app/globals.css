@@ -99,12 +99,13 @@
 
   /* Logo intro: the wordmark starts spelling POKEMON — mirroring the whole word
      (reverses the letter order) AND each letter (un-mirrors each glyph) cancels
-     to readable, reversed-order text. After a ~1s hold each letter flips one by
-     one, then the whole word flips, settling on NOMEKOP. Both levels animate the
-     same scaleX(-1)→scaleX(1); the word's 1.95s delay starts it after the last
-     letter (`backwards` fill holds each mirrored until its turn). */
+     to readable, reversed-order text. After a ~1s hold the whole word flips
+     first (back to NOMEKOP order, still mirror-glyphs), then each letter flips
+     one by one, settling on NOMEKOP. Both levels animate the same
+     scaleX(-1)→scaleX(1); `backwards` fill holds each mirrored until its turn
+     (word at 1s, letters staggered from 1.5s). */
   --animate-gb-wordmark-letter: gb-flip-x 0.3s ease-out backwards;
-  --animate-gb-wordmark-word: gb-flip-x 0.45s ease-out 1.95s backwards;
+  --animate-gb-wordmark-word: gb-flip-x 0.45s ease-out 1s backwards;
 
   @keyframes gb-flip-x {
     from {

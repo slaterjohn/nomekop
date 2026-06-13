@@ -7,6 +7,7 @@ import { GbBadge } from "@/components/gb/gb-badge";
 import { PixelPokeball } from "@/components/gb/pixel-pokeball";
 import { cardAlt } from "@/lib/card-alt";
 import { slotBadge, slotKindSuffix } from "@/lib/variant-labels";
+import { languageByCode } from "@/lib/tcg/languages";
 import type { Slot } from "@/lib/layout";
 import type { TcgSet } from "@/lib/tcg/types";
 
@@ -41,6 +42,8 @@ export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
   const isHoloPrint = slot.kind === "card" && card.variants.holo;
   const isFoil = isHoloPrint || slot.kind !== "card";
   const collected = tick?.checked ?? false;
+  const langLabel =
+    card.lang && card.lang !== "en" ? ` — ${languageByCode(card.lang)?.label ?? card.lang}` : "";
 
   const face = (
     <div
@@ -102,6 +105,14 @@ export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
       >
         {card.number}
       </span>
+      {card.lang && card.lang !== "en" ? (
+        <span
+          aria-hidden="true"
+          className="absolute right-0.5 bottom-0.5 bg-gb-ink px-1 font-pixel text-[8px] text-gb-bg"
+        >
+          {card.lang.slice(0, 2).toUpperCase()}
+        </span>
+      ) : null}
     </div>
   );
 
@@ -111,7 +122,7 @@ export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
         type="button"
         role="checkbox"
         aria-checked={tick.checked}
-        aria-label={`Collected: ${cardAlt(card.name, card.number, set.printedTotal, card.rarity)}${slotKindSuffix(slot.kind)}`}
+        aria-label={`Collected: ${cardAlt(card.name, card.number, set.printedTotal, card.rarity)}${slotKindSuffix(slot.kind)}${langLabel}`}
         onClick={(e) => tick.onToggle(e.currentTarget)}
         // block w-full: a shrink-to-fit button collapses the aspect-ratio
         // face to ~4px (regression: invisible, unclickable tick targets).
@@ -126,7 +137,7 @@ export function CardSlot({ slot, set, tick, onInspect }: CardSlotProps) {
     return (
       <button
         type="button"
-        aria-label={`View details: ${cardAlt(card.name, card.number, set.printedTotal, card.rarity)}${slotKindSuffix(slot.kind)}`}
+        aria-label={`View details: ${cardAlt(card.name, card.number, set.printedTotal, card.rarity)}${slotKindSuffix(slot.kind)}${langLabel}`}
         onClick={onInspect}
         className="block w-full cursor-pointer text-left motion-safe:transition-transform motion-safe:hover:-translate-y-0.5"
       >

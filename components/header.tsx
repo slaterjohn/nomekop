@@ -41,8 +41,8 @@ export function Header() {
             className="inline-flex flex-col items-start border-[3px] border-gb-ink bg-gb-accent px-3 py-1.5 no-underline shadow-[3px_3px_0_0_var(--gb-ink)]"
           >
             {/* On first load this spells POKEMON (whole word mirrored + each
-                letter mirrored = readable, reversed order). After a beat each
-                letter flips one by one, then the whole word flips to NOMEKOP. */}
+                letter mirrored = readable, reversed order). After a beat the
+                whole word flips first, then each letter flips to NOMEKOP. */}
             <span
               className="inline-block origin-center font-pixel text-base leading-none text-gb-ink motion-safe:animate-gb-wordmark-word sm:text-2xl"
               aria-hidden="true"
@@ -51,9 +51,9 @@ export function Header() {
                 <span
                   key={i}
                   className="inline-block origin-center motion-safe:animate-gb-wordmark-letter"
-                  // Flip the visually-leftmost letter first (it sits at the end
-                  // of NOMEKOP because the word is mirrored), then rightward.
-                  style={{ animationDelay: `${1 + (WORDMARK.length - 1 - i) * 0.1}s` }}
+                  // The word has already flipped back to NOMEKOP order, so flip
+                  // the letters left to right.
+                  style={{ animationDelay: `${1.5 + i * 0.1}s` }}
                 >
                   {letter}
                 </span>
