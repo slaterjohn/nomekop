@@ -122,6 +122,56 @@ export function getPokedexCards(gen: GenerationId): Promise<CardWithSet[]> {
   );
 }
 
+/**
+ * Non-English prints of one Pokémon, by National Dex number, across the given
+ * languages — matched on the Pokémon's localized name via TCGdex. English is
+ * skipped (it comes from getPokedexCards); empty in fixture mode. Powers the
+ * Pokédex swap dialog's per-pocket lazy fetch, where a whole-generation union
+ * would be far too heavy.
+ */
+export async function localizedPrintsByDex(
+  dex: number,
+  langs: readonly string[],
+): Promise<CardWithSet[]> {
+  const others = langs.filter((l) => l !== "en");
+  if (others.length === 0 || isFixtureMode()) return [];
+  const extra = await Promise.all(
+    others.map(async (lang) => {
+      const localized = await localizedPokemonName(dex, lang);
+      return localized ? tcgdexByName(localized, lang).catch(() => []) : [];
+    }),
+  );
+  // TCGdex cards have no National Dex number. But we searched by *this* Pokémon's
+  // localized name, so every match is this Pokémon — stamp the dex so the Pokédex
+  // (which slots cards by dex number) can place them in the right pocket.
+  return extra.flat().map((card) => ({ ...card, dex: [dex] }));
+}
+
+/**
+ * Restore a Pokédex's non-English picks on load: for every picked card id that
+ * isn't one of the English cards, fetch that Pokémon's localized prints so the
+ * pick resolves (and shared links render). Bounded by the number of non-English
+ * picks, so it stays cheap. Returns the extra cards to merge with the English set.
+ */
+export async function resolvePokedexPickCards(
+  config: { langs: string[]; picks: Record<number, string> },
+  english: ReadonlyArray<CardWithSet>,
+): Promise<CardWithSet[]> {
+  const others = config.langs.filter((l) => l !== "en");
+  if (others.length === 0 || isFixtureMode()) return [];
+  const englishIds = new Set(english.map((c) => c.id));
+  const dexes = [
+    ...new Set(
+      Object.entries(config.picks)
+        .filter(([, id]) => !englishIds.has(id))
+        .map(([dex]) => Number(dex)),
+    ),
+  ];
+  if (dexes.length === 0) return [];
+  const fetched = await Promise.all(dexes.map((dex) => localizedPrintsByDex(dex, others)));
+  return fetched.flat();
+}
+
 /** Most common National Dex number among cards — the binder's Pokémon. */
 function dominantDex(cards: CardWithSet[]): number | undefined {
   const counts = new Map<number, number>();

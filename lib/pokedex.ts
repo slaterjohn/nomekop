@@ -1,9 +1,11 @@
+import { decodeLanguages, encodeLanguages } from "@/lib/tcg/languages";
 import { rarityRank } from "@/lib/tcg/rarity";
 import type { CardWithSet } from "@/lib/tcg/types";
 
 // The Pokédex binder: one pocket per Pokémon, in National Dex order.
-// Token URLs: /pokedex/<gen>~<rows><cols>[~<picks>]
-//   picks = "<dex>.<cardId>" pairs joined by "_" — only user overrides are
+// Token URLs: /pokedex/<gen>~<rows><cols>[<langs>][~<picks>]
+//   langs  = compact language chars (omitted when English-only), e.g. "ej".
+//   picks  = "<dex>.<cardId>" pairs joined by "_" — only user overrides are
 //   encoded, so default links stay tiny and custom ones stay shareable.
 
 export type GenerationId = "g1" | "g2" | "g3" | "g4" | "g5" | "g6" | "g7" | "g8" | "g9";
@@ -30,6 +32,8 @@ export type PokedexConfig = {
   gen: GenerationId;
   rows: number;
   cols: number;
+  /** Card languages offered in swaps (canonical order, always includes "en"). */
+  langs: string[];
   /** dex number → chosen card id (only divergences from the default pick). */
   picks: Record<number, string>;
 };
@@ -37,7 +41,8 @@ export type PokedexConfig = {
 const CARD_ID_RE = /^[a-z0-9.]+-[a-z0-9]+$/i;
 
 export function encodePokedexToken(config: PokedexConfig): string {
-  const base = `${config.gen}~${config.rows}${config.cols}`;
+  const langs = config.langs.some((l) => l !== "en") ? encodeLanguages(config.langs) : "";
+  const base = `${config.gen}~${config.rows}${config.cols}${langs}`;
   const pairs = Object.entries(config.picks)
     .map(([dex, id]) => [Number(dex), id] as const)
     .sort((a, b) => a[0] - b[0])
@@ -46,13 +51,14 @@ export function encodePokedexToken(config: PokedexConfig): string {
 }
 
 export function decodePokedexToken(token: string): PokedexConfig | null {
-  const m = /^(g[1-9])~([1-5])([1-5])(?:~(.+))?$/.exec(token);
+  // Grid digits, then optional language chars (letters), then optional picks.
+  const m = /^(g[1-9])~([1-5])([1-5])([a-z]*)(?:~(.+))?$/.exec(token);
   if (!m) return null;
   const gen = generationById(m[1]!);
   if (!gen) return null;
   const picks: Record<number, string> = {};
-  if (m[4]) {
-    for (const pair of m[4].split("_")) {
+  if (m[5]) {
+    for (const pair of m[5].split("_")) {
       const dot = pair.indexOf(".");
       if (dot <= 0) return null;
       const dex = Number.parseInt(pair.slice(0, dot), 10);
@@ -66,6 +72,7 @@ export function decodePokedexToken(token: string): PokedexConfig | null {
     gen: gen.id,
     rows: Number.parseInt(m[2]!, 10),
     cols: Number.parseInt(m[3]!, 10),
+    langs: decodeLanguages(m[4]),
     picks,
   };
 }
@@ -79,10 +86,12 @@ export type PokedexEntry = {
 };
 
 /** Default pick: a secret card when one exists, otherwise the rarest print;
- *  newest set breaks ties. */
+ *  newest set breaks ties. English only — other languages are opt-in swap
+ *  options (they arrive lazily, and must never silently change a pocket). */
 function defaultPick(prints: CardWithSet[]): CardWithSet | null {
-  if (prints.length === 0) return null;
-  return [...prints].sort((a, b) => {
+  const english = prints.filter((p) => (p.lang ?? "en") === "en");
+  if (english.length === 0) return null;
+  return [...english].sort((a, b) => {
     if (a.secret !== b.secret) return a.secret ? -1 : 1;
     const byRarity = rarityRank(b.rarity) - rarityRank(a.rarity);
     if (byRarity !== 0) return byRarity;

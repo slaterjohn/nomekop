@@ -5,7 +5,7 @@ import { PokedexView } from "@/components/pokedex/pokedex-view";
 import { BinderSkeleton } from "@/components/binder-skeleton";
 import { BackButton } from "@/components/back-button";
 import { decodePokedexToken, generationById, type PokedexConfig } from "@/lib/pokedex";
-import { getPokedexCards } from "@/lib/tcg";
+import { getPokedexCards, resolvePokedexPickCards } from "@/lib/tcg";
 
 export const dynamic = "force-dynamic";
 
@@ -30,7 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /** The slow part — fetches every card for the generation's dex range. Isolated
  *  so the page shell + skeleton stream instantly while it runs. */
 async function PokedexData({ config }: { config: PokedexConfig }) {
-  const cards = await getPokedexCards(config.gen);
+  const english = await getPokedexCards(config.gen);
+  // Restore any non-English picks so shared links render them in their pockets.
+  const extra = await resolvePokedexPickCards(config, english);
+  const cards = extra.length > 0 ? [...english, ...extra] : english;
   return <PokedexView initialConfig={config} cards={cards} />;
 }
 
