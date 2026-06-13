@@ -1,0 +1,108 @@
+{
+  "_comment": "Binder catalogue for recommendations + the /binders page. To add a binder (any brand or retailer): append an entry to \"binders\" and, if it's a new shop, add a retailer. Affiliate codes are read from env vars named in each retailer's affiliateEnv — no code changes needed to update links or prices.",
+  "pagesPerZipBinder": 40,
+  "retailers": [
+    { "id": "vaultx", "name": "Vault X", "affiliateParam": "ref", "affiliateEnv": "NEXT_PUBLIC_VAULTX_REF" },
+    { "id": "amazon", "name": "Amazon", "affiliateParam": "tag", "affiliateEnv": "NEXT_PUBLIC_AMAZON_TAG" }
+  ],
+  "binders": [
+    {
+      "id": "vaultx-4-exotec-zip",
+      "brand": "Vault X",
+      "name": "Vault X 4-Pocket Exo-Tec Zip Binder",
+      "pockets": 4,
+      "line": "Exo-Tec Zip",
+      "capacityPages": 40,
+      "priceGuide": "£15.99",
+      "blurb": "Zip-around, water-resistant shell. 20 double-sided pages hold 160 cards in 4-pocket layout — ideal for chunky jumbo or top-loader-free display.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=4+pocket+exo-tec+zip+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+4-Pocket+Exo-Tec+Zip+Binder" }
+      ]
+    },
+    {
+      "id": "vaultx-4-strap",
+      "brand": "Vault X",
+      "name": "Vault X 4-Pocket Strap Binder",
+      "pockets": 4,
+      "line": "Strap",
+      "capacityPages": 40,
+      "priceGuide": "£9.99",
+      "blurb": "Elastic-strap closure, padded cover. The budget-friendly way to hold 160 cards in 4-pocket pages.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=4+pocket+strap+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+4-Pocket+Strap+Binder" }
+      ]
+    },
+    {
+      "id": "vaultx-9-exotec-zip",
+      "brand": "Vault X",
+      "name": "Vault X 9-Pocket Exo-Tec Zip Binder",
+      "pockets": 9,
+      "line": "Exo-Tec Zip",
+      "capacityPages": 40,
+      "priceGuide": "£22.99",
+      "blurb": "The collector default. Zip-around protection, 20 side-loading double-sided pages — 360 cards in the classic 9-pocket grid.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=9+pocket+exo-tec+zip+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+9-Pocket+Exo-Tec+Zip+Binder" }
+      ]
+    },
+    {
+      "id": "vaultx-9-strap",
+      "brand": "Vault X",
+      "name": "Vault X 9-Pocket Strap Binder",
+      "pockets": 9,
+      "line": "Strap",
+      "capacityPages": 40,
+      "priceGuide": "£14.99",
+      "blurb": "The everyday 9-pocket: elastic strap, side-loading pages, 360-card capacity at a friendlier price than the zip line.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=9+pocket+strap+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+9-Pocket+Strap+Binder" }
+      ]
+    },
+    {
+      "id": "vaultx-12-exotec-zip",
+      "brand": "Vault X",
+      "name": "Vault X 12-Pocket Exo-Tec Zip Binder",
+      "pockets": 12,
+      "line": "Exo-Tec Zip",
+      "capacityPages": 40,
+      "priceGuide": "£27.99",
+      "blurb": "Denser display: 12 pockets a page, 480 cards total, behind the same zip-around Exo-Tec shell. Great for fitting a master set in one book.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=12+pocket+exo-tec+zip+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+12-Pocket+Exo-Tec+Zip+Binder" }
+      ]
+    },
+    {
+      "id": "vaultx-12-strap",
+      "brand": "Vault X",
+      "name": "Vault X 12-Pocket Strap Binder",
+      "pockets": 12,
+      "line": "Strap",
+      "capacityPages": 40,
+      "priceGuide": "£16.99",
+      "blurb": "12 pockets per page with a strap closure — 480 cards, the value pick for larger sets.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=12+pocket+strap+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+12-Pocket+Strap+Binder" }
+      ]
+    },
+    {
+      "id": "vaultx-16-exotec-zip",
+      "brand": "Vault X",
+      "name": "Vault X 16-Pocket Exo-Tec Zip Binder",
+      "pockets": 16,
+      "line": "Exo-Tec Zip",
+      "capacityPages": 40,
+      "priceGuide": "£42.99",
+      "blurb": "Maximum density: 16 pockets a page, 640 cards. The big book for whole-generation Pokédex runs in one zip-around binder.",
+      "links": [
+        { "retailer": "vaultx", "url": "https://vaultx.com/search?q=16+pocket+exo-tec+zip+binder" },
+        { "retailer": "amazon", "url": "https://www.amazon.co.uk/s?k=Vault+X+16-Pocket+Exo-Tec+Zip+Binder" }
+      ]
+    }
+  ]
+}

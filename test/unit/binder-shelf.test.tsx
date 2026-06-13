@@ -27,9 +27,12 @@ describe("BinderShelf", () => {
     render(<BinderShelf pockets={12} pages={22} />);
     expect(screen.getByText("Vault X 12-Pocket Exo-Tec Zip Binder")).toBeInTheDocument();
     expect(screen.getByText(/need 22 pages/)).toBeInTheDocument();
-    const links = screen.getAllByRole("link");
-    expect(links.length).toBeGreaterThanOrEqual(4); // 2 products × 2 shops
-    links.forEach((l) => expect(l).toHaveAttribute("rel", expect.stringContaining("sponsored")));
+    // External shop links (not the internal "compare" link) carry rel=sponsored.
+    const shopLinks = screen
+      .getAllByRole("link")
+      .filter((l) => (l.getAttribute("href") ?? "").startsWith("http"));
+    expect(shopLinks.length).toBeGreaterThanOrEqual(4); // 2 products × 2 shops
+    shopLinks.forEach((l) => expect(l).toHaveAttribute("rel", expect.stringContaining("sponsored")));
   });
 
   it("flags non-standard sizes and shows the nearest binder", () => {

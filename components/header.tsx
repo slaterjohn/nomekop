@@ -23,6 +23,7 @@ const NAV: Array<{ href: string; label: string; match: (p: string) => boolean }>
   { href: "/pokemon", label: "POKÉMON", match: (p) => p.startsWith("/pokemon") },
   { href: "/pokedex", label: "POKÉDEX", match: (p) => p.startsWith("/pokedex") },
   { href: "/illustrator", label: "ART", match: (p) => p.startsWith("/illustrator") },
+  { href: "/binders", label: "BINDERS", match: (p) => p.startsWith("/binders") },
 ];
 
 /** Title bar: a bounded logo home-link, a clear nav tab row, palette + sound. */

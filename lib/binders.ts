@@ -1,60 +1,81 @@
 import { POCKET_PRESETS } from "@/lib/config";
+import catalogue from "@/data/binders.json";
 
-// Vault X binder recommendations (lineup verified June 2026: Zip and Strap
-// lines in 4/9/12/16-pocket sizes). Links are search URLs — robust against
-// product-page churn — and carry optional affiliate parameters from env.
+// Binder catalogue + recommendation logic. The data lives in data/binders.json
+// so links, prices and the product list can be updated (or extended to other
+// brands/retailers) without touching code — see that file's _comment.
 
-export type BinderProduct = {
+export type Retailer = {
+  id: string;
   name: string;
-  pockets: number;
-  line: "Exo-Tec Zip" | "Strap";
-  /** Approximate RRP shown as guidance, not a live price. */
-  priceGuide: string;
+  /** Query param the affiliate code is appended as (e.g. "tag" for Amazon). */
+  affiliateParam: string;
+  /** Env var holding the affiliate code; absent/unset → plain links. */
+  affiliateEnv: string;
 };
 
-const PRODUCTS: BinderProduct[] = [
-  { name: "Vault X 4-Pocket Exo-Tec Zip Binder", pockets: 4, line: "Exo-Tec Zip", priceGuide: "£15.99+" },
-  { name: "Vault X 4-Pocket Strap Binder", pockets: 4, line: "Strap", priceGuide: "£9.99" },
-  { name: "Vault X 9-Pocket Exo-Tec Zip Binder", pockets: 9, line: "Exo-Tec Zip", priceGuide: "£22.99+" },
-  { name: "Vault X 9-Pocket Strap Binder", pockets: 9, line: "Strap", priceGuide: "£14.99" },
-  { name: "Vault X 12-Pocket Exo-Tec Zip Binder", pockets: 12, line: "Exo-Tec Zip", priceGuide: "£27.99+" },
-  { name: "Vault X 12-Pocket Strap Binder", pockets: 12, line: "Strap", priceGuide: "£16.99" },
-  { name: "Vault X 16-Pocket Exo-Tec Zip Binder", pockets: 16, line: "Exo-Tec Zip", priceGuide: "£42.99+" },
-];
+export type BinderLink = {
+  /** Retailer id (matches a Retailer). */
+  retailer: string;
+  url: string;
+};
 
-/** Products matching the layout's pocket count; nearest size when custom. */
-export function bindersFor(pockets: number): { exact: boolean; products: BinderProduct[] } {
-  const exact = PRODUCTS.filter((p) => p.pockets === pockets);
+export type Binder = {
+  id: string;
+  brand: string;
+  name: string;
+  pockets: number;
+  line: string;
+  /** Pages the binder physically holds (for "how many binders" maths). */
+  capacityPages: number;
+  /** Approximate RRP shown as guidance, not a live price. */
+  priceGuide: string;
+  blurb: string;
+  links: BinderLink[];
+};
+
+const RETAILERS: Retailer[] = catalogue.retailers;
+export const BINDERS: Binder[] = catalogue.binders;
+/** A zip binder physically holds this many pages (20 double-sided sleeves). */
+export const ZIP_BINDER_PAGES: number = catalogue.pagesPerZipBinder;
+
+export function retailerById(id: string): Retailer | undefined {
+  return RETAILERS.find((r) => r.id === id);
+}
+
+/** A shop link with its affiliate code appended when the env var is set. */
+export function affiliateUrl(link: BinderLink): string {
+  const retailer = retailerById(link.retailer);
+  const code = retailer ? process.env[retailer.affiliateEnv] : undefined;
+  if (!retailer || !code) return link.url;
+  try {
+    const url = new URL(link.url);
+    url.searchParams.set(retailer.affiliateParam, code);
+    return url.toString();
+  } catch {
+    return link.url;
+  }
+}
+
+export function retailerName(id: string): string {
+  return retailerById(id)?.name ?? id;
+}
+
+/** True when any retailer has an affiliate code configured (drives disclosure). */
+export function hasAffiliateLinks(): boolean {
+  return RETAILERS.some((r) => Boolean(process.env[r.affiliateEnv]));
+}
+
+/** Binders matching the layout's pocket count; nearest size when custom. */
+export function bindersFor(pockets: number): { exact: boolean; products: Binder[] } {
+  const exact = BINDERS.filter((b) => b.pockets === pockets);
   if (exact.length > 0) return { exact: true, products: exact };
-  const sizes = [...new Set(PRODUCTS.map((p) => p.pockets))];
+  const sizes = [...new Set(BINDERS.map((b) => b.pockets))];
   const nearest = sizes.reduce((best, size) =>
     Math.abs(size - pockets) < Math.abs(best - pockets) ? size : best,
   );
-  return { exact: false, products: PRODUCTS.filter((p) => p.pockets === nearest) };
+  return { exact: false, products: BINDERS.filter((b) => b.pockets === nearest) };
 }
-
-export function vaultxUrl(product: BinderProduct): string {
-  const ref = process.env.NEXT_PUBLIC_VAULTX_REF;
-  const url = new URL("https://vaultx.com/search");
-  url.searchParams.set("q", `${product.pockets} pocket ${product.line.toLowerCase()} binder`);
-  if (ref) url.searchParams.set("ref", ref);
-  return url.toString();
-}
-
-export function amazonUrl(product: BinderProduct): string {
-  const url = new URL("https://www.amazon.co.uk/s");
-  url.searchParams.set("k", product.name);
-  const tag = process.env.NEXT_PUBLIC_AMAZON_TAG;
-  if (tag) url.searchParams.set("tag", tag);
-  return url.toString();
-}
-
-export function hasAffiliateLinks(): boolean {
-  return Boolean(process.env.NEXT_PUBLIC_AMAZON_TAG || process.env.NEXT_PUBLIC_VAULTX_REF);
-}
-
-/** Vault X Exo-Tec Zip binders hold 20 double-sided sleeves = 40 binder pages. */
-export const ZIP_BINDER_PAGES = 40;
 
 export type BinderRecommendation = {
   label: string;
@@ -63,7 +84,7 @@ export type BinderRecommendation = {
   cols: number;
   /** Pages this layout needs for the given slot count. */
   pages: number;
-  /** Number of 40-page zip binders required. */
+  /** Number of zip binders required. */
   binders: number;
   fits: boolean;
 };
@@ -83,8 +104,8 @@ export function evaluatePresets(slots: number): BinderRecommendation[] {
 
 /**
  * The recommended binder size for a set: the layout that best FILLS a single
- * 40-page zip binder (highest page utilisation while still fitting). When no
- * size fits one binder, fall back to 12-pocket and report the binder count.
+ * zip binder (highest page utilisation while still fitting). When no size fits
+ * one binder, fall back to 12-pocket and report the binder count.
  */
 export function recommendPreset(slots: number): BinderRecommendation {
   const evaluated = evaluatePresets(slots);

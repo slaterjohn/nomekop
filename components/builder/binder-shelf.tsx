@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { GbBadge } from "@/components/gb/gb-badge";
 import { GbLinkButton } from "@/components/gb/gb-button";
-import { amazonUrl, bindersFor, hasAffiliateLinks, vaultxUrl } from "@/lib/binders";
+import { affiliateUrl, bindersFor, hasAffiliateLinks, retailerName } from "@/lib/binders";
 import { play } from "@/lib/sound";
 
 type BinderShelfProps = {
@@ -10,7 +11,7 @@ type BinderShelfProps = {
   pages: number;
 };
 
-/** Vault X binder suggestions matching the chosen layout. */
+/** Binder suggestions matching the chosen layout (data-driven from data/binders.json). */
 export function BinderShelf({ pockets, pages }: BinderShelfProps) {
   const { exact, products } = bindersFor(pockets);
 
@@ -24,7 +25,7 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
       <ul className="grid gap-3 sm:grid-cols-2">
         {products.map((product) => (
           <li
-            key={product.name}
+            key={product.id}
             className="flex flex-col gap-2 border-[3px] border-gb-ink bg-gb-bg p-3"
           >
             <div className="flex items-start justify-between gap-2">
@@ -35,34 +36,30 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
               {product.line} · around {product.priceGuide}
             </p>
             <div className="flex flex-wrap gap-2">
-              <GbLinkButton
-                variant="a"
-                size="sm"
-                href={vaultxUrl(product)}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                onClick={() => play("confirm")}
-              >
-                VAULT X ↗
-              </GbLinkButton>
-              <GbLinkButton
-                variant="b"
-                size="sm"
-                href={amazonUrl(product)}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                onClick={() => play("confirm")}
-              >
-                AMAZON ↗
-              </GbLinkButton>
+              {product.links.map((link, i) => (
+                <GbLinkButton
+                  key={link.retailer}
+                  variant={i === 0 ? "a" : "b"}
+                  size="sm"
+                  href={affiliateUrl(link)}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  onClick={() => play("confirm")}
+                >
+                  {retailerName(link.retailer).toUpperCase()} ↗
+                </GbLinkButton>
+              ))}
             </div>
           </li>
         ))}
       </ul>
       <p className="font-body text-base">
         {hasAffiliateLinks()
-          ? "Links may earn Nomekop a small commission at no cost to you."
-          : "Nomekop is not affiliated with Vault X; links are plain searches."}
+          ? "Links may earn Nomekop a small commission at no cost to you. "
+          : "Nomekop is not affiliated with Vault X; links are plain searches. "}
+        <Link href="/binders" className="underline underline-offset-2">
+          Compare all binders ▶
+        </Link>
       </p>
     </div>
   );

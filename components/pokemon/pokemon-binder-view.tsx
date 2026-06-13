@@ -7,6 +7,7 @@ import { GbButton } from "@/components/gb/gb-button";
 import { GbMenu } from "@/components/gb/gb-menu";
 import { GbStepper } from "@/components/gb/gb-stepper";
 import { BinderPreview } from "@/components/builder/binder-preview";
+import { BinderShelf } from "@/components/builder/binder-shelf";
 import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguagePicker } from "@/components/binder/language-picker";
 import { POCKET_PRESETS } from "@/lib/config";
@@ -164,6 +165,10 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
           printHref={`/print/pokemon?t=${encodeURIComponent(encodePokemonToken(slug, options))}`}
           filenameBase={`nomekop-${slug}`}
         />
+      </GbScreen>
+
+      <GbScreen title="GET A BINDER">
+        <BinderShelf pockets={options.rows * options.cols} pages={layout.stats.pages} />
       </GbScreen>
     </div>
   );
