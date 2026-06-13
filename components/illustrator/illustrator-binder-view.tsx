@@ -8,6 +8,7 @@ import { GbMenu } from "@/components/gb/gb-menu";
 import { GbStepper } from "@/components/gb/gb-stepper";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { PdfButtons } from "@/components/pdf-buttons";
+import { LanguagePicker } from "@/components/binder/language-picker";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildIllustratorLayout,
@@ -43,6 +44,11 @@ export function IllustratorBinderView({
     const next = { ...options, ...patch };
     setOptions(next);
     window.history.replaceState(null, "", `/illustrator/${encodeIllustratorToken(slug, next)}`);
+  };
+
+  // Languages change which cards are fetched, so navigate (server re-renders).
+  const changeLanguages = (langs: string[]) => {
+    router.push(`/illustrator/${encodeIllustratorToken(slug, { ...options, langs })}`);
   };
 
   const pseudoSet: TcgSet = {
@@ -113,6 +119,8 @@ export function IllustratorBinderView({
               className="min-w-64"
             />
           </div>
+
+          <LanguagePicker value={options.langs} onChange={changeLanguages} />
 
           <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
             {layout.stats.slots} POCKETS → {layout.stats.pages} PAGES

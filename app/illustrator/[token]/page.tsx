@@ -41,7 +41,7 @@ async function IllustratorBinderData({
   displayName: string;
   options: IllustratorBinderOptions;
 }) {
-  const cards = await searchIllustratorCards(slug);
+  const cards = await searchIllustratorCards(slug, options.langs);
 
   if (cards.length === 0) {
     return (
@@ -52,11 +52,12 @@ async function IllustratorBinderData({
     );
   }
 
+  const langCount = new Set(cards.map((c) => c.lang ?? "en")).size;
   return (
     <>
       <p className="font-body text-xl leading-tight">
         Every card by {displayName} across {new Set(cards.map((c) => c.setId)).size} sets —{" "}
-        {cards.length} cards found.
+        {cards.length} cards found{langCount > 1 ? ` in ${langCount} languages` : ""}.
       </p>
       <IllustratorBinderView
         slug={slug}

@@ -39,17 +39,29 @@ describe("illustrator binder tokens", () => {
       "ken-sugimori~34n",
     );
     expect(
-      encodeIllustratorToken("5ban Graphics", { rows: 2, cols: 2, order: "old" }),
+      encodeIllustratorToken("5ban Graphics", { rows: 2, cols: 2, order: "old", langs: ["en"] }),
     ).toBe("5ban-graphics~22o");
   });
 
   it("round-trips", () => {
-    const tok = encodeIllustratorToken("Mitsuhiro Arita", { rows: 4, cols: 4, order: "new" });
+    const tok = encodeIllustratorToken("Mitsuhiro Arita", {
+      rows: 4,
+      cols: 4,
+      order: "new",
+      langs: ["en"],
+    });
     const decoded = decodeIllustratorToken(tok);
     expect(decoded).toEqual({
       name: "mitsuhiro-arita",
-      options: { rows: 4, cols: 4, order: "new" },
+      options: { rows: 4, cols: 4, order: "new", langs: ["en"] },
     });
+  });
+
+  it("round-trips languages; English-only stays clean", () => {
+    const tok = encodeIllustratorToken("Ken Sugimori", { ...DEFAULT_ILLUSTRATOR_OPTIONS, langs: ["en", "ja"] });
+    expect(tok).toBe("ken-sugimori~34nej");
+    expect(decodeIllustratorToken(tok)!.options.langs).toEqual(["en", "ja"]);
+    expect(decodeIllustratorToken("ken-sugimori~34n")!.options.langs).toEqual(["en"]);
   });
 
   it("rejects malformed tokens", () => {
@@ -75,7 +87,7 @@ describe("buildIllustratorLayout", () => {
   });
 
   it("paginates into pages of rows×cols pockets", () => {
-    const layout = buildIllustratorLayout(CARDS, { rows: 1, cols: 2, order: "new" });
+    const layout = buildIllustratorLayout(CARDS, { rows: 1, cols: 2, order: "new", langs: ["en"] });
     expect(layout.stats.pages).toBe(2);
     expect(layout.stats.slotsPerPage).toBe(2);
   });
