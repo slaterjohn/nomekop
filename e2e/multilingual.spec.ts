@@ -75,10 +75,19 @@ test("pokedex: an English custom pick rides in the token", async ({ page }) => {
   await expect(page).toHaveURL(/\/pokedex\/g1~55~25\./);
 });
 
-test("sets: the language tabs link to each localized set list", async ({ page }) => {
+test("sets: the language overlay switcher links to each language", async ({ page }) => {
   await page.goto("/sets");
-  const tabs = page.getByRole("navigation", { name: "Set language" });
+  const tabs = page.getByRole("navigation", { name: "Overlay language" });
   await expect(tabs).toBeVisible();
-  await expect(tabs.getByRole("link", { name: "日本語" })).toHaveAttribute("href", "/sets?lang=ja");
+  await expect(tabs.getByRole("link", { name: /Japanese/ })).toHaveAttribute(
+    "href",
+    "/sets?lang=ja",
+  );
   await expect(tabs.getByRole("link", { name: "English" })).toHaveAttribute("href", "/sets");
+
+  // Overlaying a language keeps the English list and explains the badges.
+  await page.goto("/sets?lang=ja");
+  await expect(page.getByRole("heading", { level: 1, name: "ALL SETS" })).toBeVisible();
+  await expect(page.getByText(/badge marks an English set that also exists in Japanese/)).toBeVisible();
+  await expect(tabs.getByRole("link", { name: /Japanese/ })).toHaveAttribute("aria-current", "page");
 });

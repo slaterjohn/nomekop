@@ -9,10 +9,12 @@ import {
   searchNameInIndex,
 } from "@/lib/tcg/card-index";
 import {
+  getLocalizedSets,
   searchByIllustrator as tcgdexByIllustrator,
   searchByName as tcgdexByName,
 } from "@/lib/tcg/tcgdex";
 import { localizedPokemonName } from "@/lib/tcg/pokemon-i18n";
+import { buildSetOverlay, EMPTY_OVERLAY, type SetOverlay } from "@/lib/sets-overlay";
 import { GENERATIONS, type GenerationId } from "@/lib/pokedex";
 import type { CardDataSource, CardWithSet, TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -172,6 +174,22 @@ export function getLocalizedPokedexCards(
     );
     return perDex.flat();
   });
+}
+
+/**
+ * Localized sets overlaid on the English set list: which English sets also exist
+ * in `lang` (badge), which have a translated name (interleave), and which are
+ * language-exclusive (listed apart). Bridged through TCGdex's own English names,
+ * since the two sources' set ids differ. Empty for English / fixture mode.
+ */
+export async function getSetOverlay(lang: string): Promise<SetOverlay> {
+  if (lang === "en" || isFixtureMode()) return EMPTY_OVERLAY;
+  const [english, tcgdexEn, tcgdexLang] = await Promise.all([
+    getSets(),
+    getLocalizedSets("en").catch(() => []),
+    getLocalizedSets(lang).catch(() => []),
+  ]);
+  return buildSetOverlay(english, tcgdexEn, tcgdexLang, lang);
 }
 
 /** Most common National Dex number among cards — the binder's Pokémon. */
