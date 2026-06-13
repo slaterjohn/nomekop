@@ -42,12 +42,17 @@ export const EMPTY_OVERLAY: SetOverlay = {
 /**
  * Match a language's TCGdex sets against the English set list. Pure — the page's
  * server component does the fetching and passes the three lists in.
+ *
+ * `curated` (localized set id → English set name) covers languages whose TCGdex
+ * set ids/names don't bridge automatically (Japanese etc.); it takes precedence
+ * over the TCGdex-English-name bridge.
  */
 export function buildSetOverlay(
   englishSets: ReadonlyArray<TcgSet>,
   tcgdexEnSets: ReadonlyArray<TcgSet>,
   tcgdexLangSets: ReadonlyArray<TcgSet>,
   lang: string,
+  curated: Record<string, string> = {},
 ): SetOverlay {
   // Normalized English name -> pokemontcg.io set id.
   const englishIdByName = new Map<string, string>();
@@ -67,7 +72,8 @@ export function buildSetOverlay(
       name: set.name,
       total: Math.max(set.printedTotal, set.total),
     };
-    const englishName = englishNameByTcgdexId.get(set.id);
+    // Curated link wins (authoritative for ja/ko/zh); else the TCGdex-en bridge.
+    const englishName = curated[set.id] ?? englishNameByTcgdexId.get(set.id);
     const englishId = englishName ? englishIdByName.get(norm(englishName)) : undefined;
     if (englishId && englishName) {
       if (norm(set.name) === norm(englishName)) {

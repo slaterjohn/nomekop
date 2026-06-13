@@ -25,7 +25,7 @@ export default async function PrintPokemonPage({ searchParams }: Props) {
   const { t, view } = await searchParams;
   const decoded = t ? decodePokemonToken(decodeURIComponent(t)) : null;
   if (!decoded) notFound();
-  const cards = await searchPokemonCards(decoded.name);
+  const cards = await searchPokemonCards(decoded.name, decoded.options.langs);
   if (cards.length === 0) notFound();
 
   const layout = buildPokemonLayout(cards, decoded.options);

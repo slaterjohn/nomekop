@@ -15,6 +15,7 @@ import {
 } from "@/lib/tcg/tcgdex";
 import { localizedPokemonName } from "@/lib/tcg/pokemon-i18n";
 import { buildSetOverlay, EMPTY_OVERLAY, type SetOverlay } from "@/lib/sets-overlay";
+import { curatedEnglishSetName, curatedLinksFor } from "@/lib/set-links";
 import { GENERATIONS, type GenerationId } from "@/lib/pokedex";
 import type { CardDataSource, CardWithSet, TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -112,42 +113,54 @@ export async function searchIllustratorCards(
   return withCanonicalSets([...english, ...extra.flat()]);
 }
 
+type EnglishSetRef = { id: string; releaseDate: string };
+
 /**
- * Bridge TCGdex set ids to their English (pokemontcg.io) set — matched through
- * TCGdex's own English set names, since the two sources number sets differently.
- * Used to give localized cards a canonical English set id+date for grouping.
+ * Bridge TCGdex set ids to their English (pokemontcg.io) set. Returns two maps:
+ * `byTcgdexId` matches through TCGdex's own English set names (works for the
+ * Western languages, which share TCGdex's set ids), and `byEnglishName` lets the
+ * curated links (Japanese etc.) resolve a name to the English set.
  */
-async function englishSetBridge(): Promise<Map<string, { id: string; releaseDate: string }>> {
+async function englishSetBridge(): Promise<{
+  byTcgdexId: Map<string, EnglishSetRef>;
+  byEnglishName: Map<string, EnglishSetRef>;
+}> {
   const [english, tcgdexEn] = await Promise.all([getSets(), getLocalizedSets("en").catch(() => [])]);
-  const byName = new Map<string, { id: string; releaseDate: string }>();
+  const byEnglishName = new Map<string, EnglishSetRef>();
   for (const set of english) {
-    byName.set(set.name.trim().toLowerCase(), { id: set.id, releaseDate: set.releaseDate });
+    byEnglishName.set(set.name.trim().toLowerCase(), { id: set.id, releaseDate: set.releaseDate });
   }
-  const bridge = new Map<string, { id: string; releaseDate: string }>();
+  const byTcgdexId = new Map<string, EnglishSetRef>();
   for (const set of tcgdexEn) {
-    const match = byName.get(set.name.trim().toLowerCase());
-    if (match) bridge.set(set.id, match);
+    const match = byEnglishName.get(set.name.trim().toLowerCase());
+    if (match) byTcgdexId.set(set.id, match);
   }
-  return bridge;
+  return { byTcgdexId, byEnglishName };
 }
 
 /**
  * Tag every card with a canonical (English) set id + release date so a binder can
  * place the same set's prints together across languages. English cards canonicalise
- * to themselves; localized cards borrow their English twin's id+date when one exists.
+ * to themselves; localized cards borrow their English twin's id+date.
  *
- * The Western languages (fr/de/es/it) share TCGdex's set ids with English, so they
- * pair up cleanly. Japanese/Korean/Chinese use entirely different set ids (their
- * print runs genuinely don't map 1:1 to the English sets), so they find no twin and
- * fall back to their own release date — interleaving by era rather than pairing.
+ * Western languages (fr/de/es/it) share TCGdex's set ids with English, so the
+ * TCGdex-name bridge pairs them. Japanese/Korean/Chinese use entirely different
+ * set ids and names, so they resolve through the curated links in data/set-links.json
+ * (the clean correspondences — 151 ↔ ポケモンカード151 etc.). Anything still
+ * unmatched keeps its own release date and interleaves by era.
  */
 async function withCanonicalSets(cards: CardWithSet[]): Promise<CardWithSet[]> {
-  const bridge = await englishSetBridge();
+  const { byTcgdexId, byEnglishName } = await englishSetBridge();
   return cards.map((card) => {
-    if ((card.lang ?? "en") === "en") {
+    const lang = card.lang ?? "en";
+    if (lang === "en") {
       return { ...card, canonDate: card.setReleaseDate, canonSetId: card.setId };
     }
-    const match = bridge.get(card.setId);
+    let match = byTcgdexId.get(card.setId);
+    if (!match) {
+      const curatedName = curatedEnglishSetName(lang, card.setId);
+      if (curatedName) match = byEnglishName.get(curatedName.trim().toLowerCase());
+    }
     return {
       ...card,
       canonDate: match?.releaseDate ?? card.setReleaseDate,
@@ -233,7 +246,7 @@ export async function getSetOverlay(lang: string): Promise<SetOverlay> {
     getLocalizedSets("en").catch(() => []),
     getLocalizedSets(lang).catch(() => []),
   ]);
-  return buildSetOverlay(english, tcgdexEn, tcgdexLang, lang);
+  return buildSetOverlay(english, tcgdexEn, tcgdexLang, lang, curatedLinksFor(lang));
 }
 
 /** Most common National Dex number among cards — the binder's Pokémon. */

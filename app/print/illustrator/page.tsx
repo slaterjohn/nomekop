@@ -25,7 +25,7 @@ export default async function PrintIllustratorPage({ searchParams }: Props) {
   const { t, view } = await searchParams;
   const decoded = t ? decodeIllustratorToken(decodeURIComponent(t)) : null;
   if (!decoded) notFound();
-  const cards = await searchIllustratorCards(decoded.name);
+  const cards = await searchIllustratorCards(decoded.name, decoded.options.langs);
   if (cards.length === 0) notFound();
 
   const layout = buildIllustratorLayout(cards, decoded.options);

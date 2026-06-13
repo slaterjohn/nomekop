@@ -1,0 +1,31 @@
+{
+  "_comment": "Curated localized→English set links. TCGdex's Japanese/Korean/Chinese set ids and names do NOT bridge to English automatically (only ~2% share ids; counts/names diverge because English releases bundle or subset the Japanese originals). So the clean correspondences are listed by hand here: a TCGdex localized set id → the English (pokemontcg.io) set NAME. Used to pair localized cards with their English set in mixed-language Pokémon/illustrator binders, and to interleave localized sets beside their English entry on /sets. ONLY clean correspondences are included; unmapped localized sets fall back to era-interleaving. Two Japanese sets can map to one English set (English bundles them). To extend: add `\"<tcgdex-ja-id>\": \"<english set name exactly as pokemontcg.io spells it>\"` as new sets release. Verified against live data 2026-06-13.",
+  "links": {
+    "ja": {
+      "SV1S": "Scarlet & Violet",
+      "SV1V": "Scarlet & Violet",
+      "SV2D": "Paldea Evolved",
+      "SV2P": "Paldea Evolved",
+      "SV2a": "151",
+      "SV3": "Obsidian Flames",
+      "SV4K": "Paradox Rift",
+      "SV4M": "Paradox Rift",
+      "SV4a": "Paldean Fates",
+      "SV5K": "Temporal Forces",
+      "SV5M": "Temporal Forces",
+      "SV6": "Twilight Masquerade",
+      "SV6a": "Shrouded Fable",
+      "SV7": "Stellar Crown",
+      "SV8": "Surging Sparks",
+      "SV8a": "Prismatic Evolutions",
+      "SV9": "Journey Together",
+      "SV10": "Destined Rivals",
+      "SV11B": "Black Bolt",
+      "SV11W": "White Flare",
+      "S4a": "Shining Fates",
+      "S8a": "Celebrations",
+      "S10b": "Pokémon GO",
+      "S12a": "Crown Zenith"
+    }
+  }
+}

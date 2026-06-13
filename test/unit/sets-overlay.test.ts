@@ -65,4 +65,30 @@ describe("buildSetOverlay", () => {
     const { badges } = buildSetOverlay(englishSets, tcgdexEn, tcgdexFr, "fr");
     expect(badges.has("me4")).toBe(true);
   });
+
+  it("resolves a Japanese set via the curated link (its id/name don't bridge)", () => {
+    // JA "ポケモンカード151" (SV2a) shares no id/name with TCGdex-en, so only the
+    // curated link SV2a→151 pairs it — and the JA name differs, so it interleaves.
+    const tcgdexJa: TcgSet[] = [set({ id: "SV2a", name: "ポケモンカード151", total: 210 })];
+    const curated = { SV2a: "151" };
+    const { badges, variants, exclusive } = buildSetOverlay(
+      englishSets,
+      tcgdexEn,
+      tcgdexJa,
+      "ja",
+      curated,
+    );
+    expect(badges.size).toBe(0);
+    expect(variants.get("sv3pt5")).toEqual([
+      { lang: "ja", localizedId: "SV2a", name: "ポケモンカード151", total: 210 },
+    ]);
+    expect(exclusive).toHaveLength(0);
+  });
+
+  it("without a curated link, the same Japanese set is language-exclusive", () => {
+    const tcgdexJa: TcgSet[] = [set({ id: "SV2a", name: "ポケモンカード151" })];
+    const { variants, exclusive } = buildSetOverlay(englishSets, tcgdexEn, tcgdexJa, "ja");
+    expect(variants.size).toBe(0);
+    expect(exclusive.map((e) => e.localizedId)).toEqual(["SV2a"]);
+  });
 });
