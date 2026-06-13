@@ -8,6 +8,7 @@ import { GbMenu } from "@/components/gb/gb-menu";
 import { GbStepper } from "@/components/gb/gb-stepper";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { PdfButtons } from "@/components/pdf-buttons";
+import { LanguagePicker } from "@/components/binder/language-picker";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildPokemonLayout,
@@ -38,6 +39,12 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
     const next = { ...options, ...patch };
     setOptions(next);
     window.history.replaceState(null, "", `/pokemon/${encodePokemonToken(slug, next)}`);
+  };
+
+  // Languages change which cards are fetched, so navigate (the server re-renders
+  // with the new card set) rather than just patching local state.
+  const changeLanguages = (langs: string[]) => {
+    router.push(`/pokemon/${encodePokemonToken(slug, { ...options, langs })}`);
   };
 
   const pseudoSet: TcgSet = {
@@ -120,6 +127,8 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
               className="min-w-64"
             />
           </div>
+
+          <LanguagePicker value={options.langs} onChange={changeLanguages} />
 
           <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
             {layout.stats.slots} POCKETS → {layout.stats.pages} PAGES

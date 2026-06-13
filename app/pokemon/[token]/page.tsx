@@ -41,7 +41,7 @@ async function PokemonBinderData({
   displayName: string;
   options: PokemonBinderOptions;
 }) {
-  const cards = await searchPokemonCards(slug);
+  const cards = await searchPokemonCards(slug, options.langs);
 
   if (cards.length === 0) {
     return (
@@ -52,11 +52,12 @@ async function PokemonBinderData({
     );
   }
 
+  const langCount = new Set(cards.map((c) => c.lang ?? "en")).size;
   return (
     <>
       <p className="font-body text-xl leading-tight">
         Every {displayName} print across {new Set(cards.map((c) => c.setId)).size} sets —{" "}
-        {cards.length} cards found.
+        {cards.length} cards found{langCount > 1 ? ` in ${langCount} languages` : ""}.
       </p>
       <PokemonBinderView slug={slug} displayName={displayName} cards={cards} initialOptions={options} />
     </>

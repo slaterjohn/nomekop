@@ -7,7 +7,12 @@ import { NextResponse, type NextRequest } from "next/server";
  *  pokemontcg.io hosts sets up to 2025; releases from 2026 live on scrydex.
  *  raw.githubusercontent.com is restricted to the PokeAPI sprites repo
  *  (pixel Pokédex icons). */
-const ALLOWED_HOSTS = new Set(["images.pokemontcg.io", "images.scrydex.com"]);
+const ALLOWED_HOSTS = new Set([
+  "images.pokemontcg.io",
+  "images.scrydex.com",
+  // Non-English card images (Japanese, French…) from TCGdex.
+  "assets.tcgdex.net",
+]);
 const ALLOWED_PREFIXES: Array<{ host: string; pathPrefix: string }> = [
   { host: "raw.githubusercontent.com", pathPrefix: "/PokeAPI/sprites/" },
 ];

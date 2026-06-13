@@ -36,17 +36,31 @@ describe("pokemon binder tokens", () => {
   it("encodes name + options compactly", () => {
     expect(encodePokemonToken("Pikachu", DEFAULT_POKEMON_OPTIONS)).toBe("pikachu~34an");
     expect(
-      encodePokemonToken("Mr. Mime", { rows: 2, cols: 2, filter: "secret", order: "old" }),
+      encodePokemonToken("Mr. Mime", { rows: 2, cols: 2, filter: "secret", order: "old", langs: ["en"] }),
     ).toBe("mr.-mime~22so");
   });
 
   it("round-trips", () => {
-    const tok = encodePokemonToken("Farfetch'd", { rows: 4, cols: 4, filter: "best", order: "new" });
+    const tok = encodePokemonToken("Farfetch'd", {
+      rows: 4,
+      cols: 4,
+      filter: "best",
+      order: "new",
+      langs: ["en"],
+    });
     const decoded = decodePokemonToken(tok);
     expect(decoded).toEqual({
       name: "farfetch'd",
-      options: { rows: 4, cols: 4, filter: "best", order: "new" },
+      options: { rows: 4, cols: 4, filter: "best", order: "new", langs: ["en"] },
     });
+  });
+
+  it("round-trips languages; English-only stays clean", () => {
+    const tok = encodePokemonToken("Charizard", { ...DEFAULT_POKEMON_OPTIONS, langs: ["en", "ja"] });
+    expect(tok).toBe("charizard~34anej");
+    expect(decodePokemonToken(tok)!.options.langs).toEqual(["en", "ja"]);
+    expect(encodePokemonToken("Pikachu", DEFAULT_POKEMON_OPTIONS)).toBe("pikachu~34an");
+    expect(decodePokemonToken("pikachu~34an")!.options.langs).toEqual(["en"]);
   });
 
   it("rejects malformed tokens", () => {

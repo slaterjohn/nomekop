@@ -2,12 +2,14 @@ import { paginate, toSpreads, type Slot } from "@/lib/layout";
 import type { BinderLayout } from "@/lib/layout";
 import { compareCardNumbers } from "@/lib/layout/number";
 import { rarityRank } from "@/lib/tcg/rarity";
+import { decodeLanguages, encodeLanguages } from "@/lib/tcg/languages";
 import type { CardWithSet } from "@/lib/tcg/types";
 
 // A binder for one Pokémon across every set it has appeared in.
-// Token URLs: /pokemon/<slug>~<rows><cols><filter><order>
+// Token URLs: /pokemon/<slug>~<rows><cols><filter><order>[<langs>]
 //   filter: a = all prints · s = secret cards only · b = best (rarest) per set
 //   order:  n = newest set first · o = oldest set first
+//   langs:  optional language chars (e=en, j=ja…); absent = English only
 
 export type PokemonFilter = "all" | "secret" | "best";
 export type PokemonOrder = "new" | "old";
@@ -17,6 +19,8 @@ export type PokemonBinderOptions = {
   cols: number;
   filter: PokemonFilter;
   order: PokemonOrder;
+  /** Languages to mix into the binder; always includes "en". */
+  langs: string[];
 };
 
 export const DEFAULT_POKEMON_OPTIONS: PokemonBinderOptions = {
@@ -24,6 +28,7 @@ export const DEFAULT_POKEMON_OPTIONS: PokemonBinderOptions = {
   cols: 4,
   filter: "all",
   order: "new",
+  langs: ["en"],
 };
 
 const FILTER_CH: Record<PokemonFilter, string> = { all: "a", secret: "s", best: "b" };
@@ -34,18 +39,23 @@ export function slugifyPokemonName(name: string): string {
   return name.trim().toLowerCase().replace(/\s+/g, "-");
 }
 
-export function encodePokemonToken(name: string, options: PokemonBinderOptions): string {
-  return `${slugifyPokemonName(name)}~${options.rows}${options.cols}${FILTER_CH[options.filter]}${ORDER_CH[options.order]}`;
+/** Compact language suffix; empty for English-only so default URLs stay clean. */
+function langSuffix(langs: string[]): string {
+  return langs.some((l) => l !== "en") ? encodeLanguages(langs) : "";
 }
 
-const TOKEN_RE = /^([a-z0-9.'\-:♀♂é ]{2,40})~([1-5])([1-5])([asb])([no])$/i;
+export function encodePokemonToken(name: string, options: PokemonBinderOptions): string {
+  return `${slugifyPokemonName(name)}~${options.rows}${options.cols}${FILTER_CH[options.filter]}${ORDER_CH[options.order]}${langSuffix(options.langs)}`;
+}
+
+const TOKEN_RE = /^([a-z0-9.'\-:♀♂é ]{2,40})~([1-5])([1-5])([asb])([no])([a-z]*)$/i;
 
 export function decodePokemonToken(
   token: string,
 ): { name: string; options: PokemonBinderOptions } | null {
   const m = TOKEN_RE.exec(token);
   if (!m) return null;
-  const [, slug, rows, cols, filter, order] = m;
+  const [, slug, rows, cols, filter, order, langs] = m;
   return {
     name: slug!.toLowerCase(),
     options: {
@@ -53,6 +63,7 @@ export function decodePokemonToken(
       cols: Number.parseInt(cols!, 10),
       filter: filter!.toLowerCase() === "s" ? "secret" : filter!.toLowerCase() === "b" ? "best" : "all",
       order: order!.toLowerCase() === "o" ? "old" : "new",
+      langs: decodeLanguages((langs ?? "").toLowerCase()),
     },
   };
 }

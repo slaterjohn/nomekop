@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.scrydex.com" },
       // Pixel Pokédex icons (PokeAPI sprites repo only).
       { protocol: "https", hostname: "raw.githubusercontent.com", pathname: "/PokeAPI/sprites/**" },
+      // Non-English card images (Japanese, French…) from TCGdex.
+      { protocol: "https", hostname: "assets.tcgdex.net" },
     ],
   },
 };
