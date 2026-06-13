@@ -163,4 +163,9 @@ export const zhTw: Dictionary = {
   legal: {
     title: "法律聲明與致謝",
   },
+  audio: {
+    musicPlay: "播放背景音樂",
+    musicStop: "停止背景音樂",
+    splashSkip: "略過",
+  },
 };

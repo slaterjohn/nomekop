@@ -163,4 +163,9 @@ export const ko: Dictionary = {
   legal: {
     title: "법적 고지 및 크레딧",
   },
+  audio: {
+    musicPlay: "배경 음악 재생",
+    musicStop: "배경 음악 정지",
+    splashSkip: "건너뛰기",
+  },
 };

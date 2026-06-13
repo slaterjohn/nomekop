@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SettingsPanel } from "@/components/settings/settings-panel";
+import { MusicToggle } from "@/components/music/music-toggle";
 import { useDict } from "@/components/i18n/language-provider";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { cn } from "@/lib/utils";
@@ -67,7 +68,10 @@ export function Header() {
               {dict.home.tagline}
             </span>
           </Link>
-          <SettingsPanel />
+          <div className="flex items-center gap-2">
+            <MusicToggle />
+            <SettingsPanel />
+          </div>
         </div>
 
         <nav aria-label="Primary" className="-mx-1 overflow-x-auto">

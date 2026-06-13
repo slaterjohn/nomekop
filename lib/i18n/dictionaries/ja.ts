@@ -163,4 +163,9 @@ export const ja: Dictionary = {
   legal: {
     title: "法的情報＆クレジット",
   },
+  audio: {
+    musicPlay: "BGMを再生",
+    musicStop: "BGMを停止",
+    splashSkip: "スキップ",
+  },
 };

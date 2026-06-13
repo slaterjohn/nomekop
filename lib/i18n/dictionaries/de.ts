@@ -163,4 +163,9 @@ export const de: Dictionary = {
   legal: {
     title: "Rechtliches & Credits",
   },
+  audio: {
+    musicPlay: "Hintergrundmusik abspielen",
+    musicStop: "Hintergrundmusik stoppen",
+    splashSkip: "Überspringen",
+  },
 };

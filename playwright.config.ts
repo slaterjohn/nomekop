@@ -34,6 +34,9 @@ export default defineConfig({
       IMG_STUB: "1",
       PORT: "3170",
       DISABLE_PDF_RATE_LIMIT: "1",
+      // The boot splash is a full-screen overlay; skip it so specs aren't blocked
+      // waiting for it to fade on every page load.
+      DISABLE_SPLASH: "1",
     },
   },
 });

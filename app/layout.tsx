@@ -5,6 +5,8 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/site-footer";
 import { LanguageProvider } from "@/components/i18n/language-provider";
+import { MusicController } from "@/components/music/music-controller";
+import { SplashScreen } from "@/components/splash/splash-screen";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
@@ -70,6 +72,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const { locale, dict } = await getServerDictionary();
+  // The boot splash is skipped in e2e (a full-screen overlay would block every
+  // page's first interaction). Runtime env, read here on the server, so it works
+  // against the prebuilt `next start` bundle without a rebuild.
+  const splashDisabled = process.env.DISABLE_SPLASH === "1";
   return (
     <html lang={locale} className={`${pressStart.variable} ${vt323.variable} h-full antialiased`}>
       <head>
@@ -84,6 +90,8 @@ export default async function RootLayout({
           {children}
           <SiteFooter />
           <EasterEggs />
+          <MusicController />
+          <SplashScreen disabled={splashDisabled} />
         </LanguageProvider>
       </body>
     </html>

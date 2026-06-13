@@ -171,6 +171,11 @@ export const en = {
   legal: {
     title: "Legal & credits",
   },
+  audio: {
+    musicPlay: "Play background music",
+    musicStop: "Stop background music",
+    splashSkip: "Skip",
+  },
 };
 
 // English is the source of truth: its shape (keys) is the contract every other

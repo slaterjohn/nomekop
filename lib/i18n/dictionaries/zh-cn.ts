@@ -163,4 +163,9 @@ export const zhCn: Dictionary = {
   legal: {
     title: "法律声明与致谢",
   },
+  audio: {
+    musicPlay: "播放背景音乐",
+    musicStop: "停止背景音乐",
+    splashSkip: "跳过",
+  },
 };
