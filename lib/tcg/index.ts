@@ -7,6 +7,11 @@ import {
   searchArtistInIndex,
   searchNameInIndex,
 } from "@/lib/tcg/card-index";
+import {
+  searchByIllustrator as tcgdexByIllustrator,
+  searchByName as tcgdexByName,
+} from "@/lib/tcg/tcgdex";
+import { localizedPokemonName } from "@/lib/tcg/pokemon-i18n";
 import { GENERATIONS, type GenerationId } from "@/lib/pokedex";
 import type { CardDataSource, CardWithSet, TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -44,10 +49,9 @@ export function getCards(setId: string): Promise<TcgCard[]> {
   );
 }
 
-/** Every print of one Pokémon across all sets. Derived from the cached set
- *  cards once the cache is complete; API-backed (12h TTL) until then. */
-export function searchPokemonCards(name: string): Promise<CardWithSet[]> {
-  const slug = name.trim().toLowerCase();
+/** English cards for one Pokémon — derived from the cached set cards once the
+ *  cache is complete; API-backed (12h TTL) until then. */
+function englishPokemonCards(slug: string): Promise<CardWithSet[]> {
   if (isFixtureMode()) return getDataSource().searchCardsByName(slug);
   if (indexIsComplete()) return Promise.resolve(searchNameInIndex(slug, getCardIndex()));
   return serverStore.getOrCompute(`pokemon:${slug}`, CARDS_TTL_MS, () =>
@@ -55,10 +59,31 @@ export function searchPokemonCards(name: string): Promise<CardWithSet[]> {
   );
 }
 
-/** Every card illustrated by one artist across all sets. Derived from cache
- *  when complete; API-backed (12h TTL) until then. */
-export function searchIllustratorCards(artist: string): Promise<CardWithSet[]> {
-  const slug = artist.trim().toLowerCase();
+/**
+ * Every print of one Pokémon across all sets, in the chosen languages. English
+ * comes from pokemontcg.io (+prices); other languages from TCGdex, matched by
+ * the Pokémon's localized name (looked up from its National Dex number).
+ */
+export async function searchPokemonCards(
+  name: string,
+  langs: readonly string[] = ["en"],
+): Promise<CardWithSet[]> {
+  const slug = name.trim().toLowerCase();
+  const english = await englishPokemonCards(slug);
+  const others = langs.filter((l) => l !== "en");
+  if (others.length === 0 || isFixtureMode()) return english;
+  const dex = dominantDex(english);
+  if (dex === undefined) return english;
+  const extra = await Promise.all(
+    others.map(async (lang) => {
+      const localized = await localizedPokemonName(dex, lang);
+      return localized ? tcgdexByName(localized, lang).catch(() => []) : [];
+    }),
+  );
+  return [...english, ...extra.flat()];
+}
+
+function englishIllustratorCards(slug: string): Promise<CardWithSet[]> {
   if (isFixtureMode()) return getDataSource().searchCardsByArtist(slug);
   if (indexIsComplete()) return Promise.resolve(searchArtistInIndex(slug, getCardIndex()));
   return serverStore.getOrCompute(`illustrator:${slug}`, CARDS_TTL_MS, () =>
@@ -66,8 +91,27 @@ export function searchIllustratorCards(artist: string): Promise<CardWithSet[]> {
   );
 }
 
+/** Every card illustrated by one artist, in the chosen languages. Illustrator
+ *  credits are consistent across languages, so the English name queries TCGdex. */
+export async function searchIllustratorCards(
+  artist: string,
+  langs: readonly string[] = ["en"],
+): Promise<CardWithSet[]> {
+  const slug = artist.trim().toLowerCase();
+  const english = await englishIllustratorCards(slug);
+  const others = langs.filter((l) => l !== "en");
+  if (others.length === 0 || isFixtureMode()) return english;
+  const name = dominantArtist(english);
+  if (!name) return english;
+  const extra = await Promise.all(
+    others.map((lang) => tcgdexByIllustrator(name, lang).catch(() => [])),
+  );
+  return [...english, ...extra.flat()];
+}
+
 /** Every print for a generation's dex range. Derived from cache when complete;
- *  API-backed (12h TTL) until then. */
+ *  API-backed (12h TTL) until then. (Multi-language is handled per-pocket in the
+ *  Pokédex view, not here, since whole-generation fetches would be too heavy.) */
 export function getPokedexCards(gen: GenerationId): Promise<CardWithSet[]> {
   const range = GENERATIONS.find((g) => g.id === gen);
   if (!range) return Promise.resolve([]);
@@ -76,4 +120,34 @@ export function getPokedexCards(gen: GenerationId): Promise<CardWithSet[]> {
   return serverStore.getOrCompute(`pokedex:${gen}`, CARDS_TTL_MS, () =>
     getDataSource().getCardsByDexRange(range.min, range.max),
   );
+}
+
+/** Most common National Dex number among cards — the binder's Pokémon. */
+function dominantDex(cards: CardWithSet[]): number | undefined {
+  const counts = new Map<number, number>();
+  for (const c of cards) for (const d of c.dex ?? []) counts.set(d, (counts.get(d) ?? 0) + 1);
+  let best: number | undefined;
+  let bestN = 0;
+  for (const [d, n] of counts) {
+    if (n > bestN) {
+      best = d;
+      bestN = n;
+    }
+  }
+  return best;
+}
+
+/** Most common illustrator credit among cards. */
+function dominantArtist(cards: CardWithSet[]): string | undefined {
+  const counts = new Map<string, number>();
+  for (const c of cards) if (c.artist) counts.set(c.artist, (counts.get(c.artist) ?? 0) + 1);
+  let best: string | undefined;
+  let bestN = 0;
+  for (const [a, n] of counts) {
+    if (n > bestN) {
+      best = a;
+      bestN = n;
+    }
+  }
+  return best;
 }

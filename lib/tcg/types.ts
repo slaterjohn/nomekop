@@ -10,6 +10,8 @@ export type TcgSet = {
   releaseDate: string;
   symbolUrl: string;
   logoUrl: string;
+  /** Language code (en, ja…). Absent = English (pokemontcg.io). */
+  lang?: string;
 };
 
 export type Variants = {
@@ -53,6 +55,8 @@ export type TcgCard = {
   artist?: string;
   /** Absent when the API has no market data (common for 2026+ sets). */
   tcgplayer?: TcgPlayerInfo;
+  /** Language code (en, ja, fr…). Absent in older cached payloads = English. */
+  lang?: string;
 };
 
 /** A card carrying its set context — used by cross-set queries

@@ -5,7 +5,12 @@ import path from "node:path";
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: { "@": path.resolve(__dirname, ".") },
+    alias: {
+      "@": path.resolve(__dirname, "."),
+      // Runtime context guards — no-ops in tests so server modules import cleanly.
+      "server-only": path.resolve(__dirname, "test/stubs/empty.ts"),
+      "client-only": path.resolve(__dirname, "test/stubs/empty.ts"),
+    },
   },
   test: {
     environment: "jsdom",
