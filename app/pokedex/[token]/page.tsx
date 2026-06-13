@@ -5,7 +5,7 @@ import { PokedexView } from "@/components/pokedex/pokedex-view";
 import { BinderSkeleton } from "@/components/binder-skeleton";
 import { BackButton } from "@/components/back-button";
 import { decodePokedexToken, generationById, type PokedexConfig } from "@/lib/pokedex";
-import { getPokedexCards, resolvePokedexPickCards } from "@/lib/tcg";
+import { getLocalizedPokedexCards, getPokedexCards } from "@/lib/tcg";
 
 export const dynamic = "force-dynamic";
 
@@ -30,10 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /** The slow part — fetches every card for the generation's dex range. Isolated
  *  so the page shell + skeleton stream instantly while it runs. */
 async function PokedexData({ config }: { config: PokedexConfig }) {
-  const english = await getPokedexCards(config.gen);
-  // Restore any non-English picks so shared links render them in their pockets.
-  const extra = await resolvePokedexPickCards(config, english);
-  const cards = extra.length > 0 ? [...english, ...extra] : english;
+  // The whole binder is one language: English from the fast cached index,
+  // everything else assembled per-Pokémon from TCGdex.
+  const cards =
+    config.lang === "en"
+      ? await getPokedexCards(config.gen)
+      : await getLocalizedPokedexCards(config.gen, config.lang);
   return <PokedexView initialConfig={config} cards={cards} />;
 }
 

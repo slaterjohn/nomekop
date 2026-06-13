@@ -1,7 +1,7 @@
 "use client";
 
 import { GbButton } from "@/components/gb/gb-button";
-import { LANGUAGES, LANGUAGE_CODES } from "@/lib/tcg/languages";
+import { LANGUAGES, LANGUAGE_CODES, languageLabel } from "@/lib/tcg/languages";
 import { play } from "@/lib/sound";
 
 type LanguagePickerProps = {
@@ -42,7 +42,7 @@ export function LanguagePicker({ value, onChange }: LanguagePickerProps) {
               aria-label={lang.code === "en" ? `${lang.label} (always included)` : lang.label}
               onClick={() => toggle(lang.code)}
             >
-              {lang.native}
+              {languageLabel(lang.code)}
             </GbButton>
           );
         })}

@@ -1,3 +1,4 @@
+import pLimit from "p-limit";
 import { CARDS_TTL_MS, SETS_TTL_MS, serverStore } from "@/lib/server-store";
 import { FixtureSource } from "@/lib/tcg/fixture-source";
 import { PokemonTcgIoSource } from "@/lib/tcg/pokemontcgio";
@@ -147,29 +148,30 @@ export async function localizedPrintsByDex(
   return extra.flat().map((card) => ({ ...card, dex: [dex] }));
 }
 
+/** Bound the fan-out when assembling a whole generation in another language —
+ *  ~150 Pokémon, each a PokéAPI + TCGdex lookup; politeness over raw speed. */
+const localizedDexLimit = pLimit(8);
+
 /**
- * Restore a Pokédex's non-English picks on load: for every picked card id that
- * isn't one of the English cards, fetch that Pokémon's localized prints so the
- * pick resolves (and shared links render). Bounded by the number of non-English
- * picks, so it stays cheap. Returns the extra cards to merge with the English set.
+ * Every Pokémon of a generation in ONE non-English language — the data behind a
+ * whole-binder language swap on the Pokédex. Fetched per-Pokémon (TCGdex has no
+ * dex query) with bounded concurrency, then cached as a unit so the expensive
+ * fan-out runs at most once per generation/language per TTL. English never comes
+ * here (it derives from the fast cached set index via getPokedexCards).
  */
-export async function resolvePokedexPickCards(
-  config: { langs: string[]; picks: Record<number, string> },
-  english: ReadonlyArray<CardWithSet>,
+export function getLocalizedPokedexCards(
+  gen: GenerationId,
+  lang: string,
 ): Promise<CardWithSet[]> {
-  const others = config.langs.filter((l) => l !== "en");
-  if (others.length === 0 || isFixtureMode()) return [];
-  const englishIds = new Set(english.map((c) => c.id));
-  const dexes = [
-    ...new Set(
-      Object.entries(config.picks)
-        .filter(([, id]) => !englishIds.has(id))
-        .map(([dex]) => Number(dex)),
-    ),
-  ];
-  if (dexes.length === 0) return [];
-  const fetched = await Promise.all(dexes.map((dex) => localizedPrintsByDex(dex, others)));
-  return fetched.flat();
+  const range = GENERATIONS.find((g) => g.id === gen);
+  if (!range || lang === "en" || isFixtureMode()) return Promise.resolve([]);
+  return serverStore.getOrCompute(`pokedex:${gen}:${lang}`, CARDS_TTL_MS, async () => {
+    const dexes = Array.from({ length: range.max - range.min + 1 }, (_, i) => range.min + i);
+    const perDex = await Promise.all(
+      dexes.map((dex) => localizedDexLimit(() => localizedPrintsByDex(dex, [lang]))),
+    );
+    return perDex.flat();
+  });
 }
 
 /** Most common National Dex number among cards — the binder's Pokémon. */

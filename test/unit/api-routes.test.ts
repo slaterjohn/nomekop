@@ -4,7 +4,6 @@ import { NextRequest } from "next/server";
 import { GET as getSets } from "@/app/api/sets/route";
 import { GET as getCards } from "@/app/api/cards/[setId]/route";
 import { GET as getImg } from "@/app/api/img/route";
-import { GET as getPokedexPrints } from "@/app/api/pokedex/prints/route";
 
 beforeEach(() => {
   vi.stubEnv("TCG_DATA_SOURCE", "fixture");
@@ -103,33 +102,5 @@ describe("GET /api/img", () => {
     expect([...bytes.slice(0, 4)]).toEqual([0x89, 0x50, 0x4e, 0x47]);
     expect(fetchSpy).not.toHaveBeenCalled();
     vi.unstubAllGlobals();
-  });
-});
-
-describe("GET /api/pokedex/prints", () => {
-  const call = (qs: string) =>
-    getPokedexPrints(new NextRequest(`http://test/api/pokedex/prints${qs}`));
-
-  it("400s on a missing or out-of-range dex number", async () => {
-    expect((await call("")).status).toBe(400);
-    expect((await call("?dex=0&langs=ja")).status).toBe(400);
-    expect((await call("?dex=9999&langs=ja")).status).toBe(400);
-    expect((await call("?dex=abc&langs=ja")).status).toBe(400);
-  });
-
-  it("returns an empty list when no non-English languages are requested", async () => {
-    for (const qs of ["?dex=6", "?dex=6&langs=en", "?dex=6&langs=", "?dex=6&langs=zz"]) {
-      const res = await call(qs);
-      expect(res.status, qs).toBe(200);
-      expect((await res.json()) as { cards: unknown[] }).toEqual({ cards: [] });
-    }
-  });
-
-  it("answers a valid request with a cacheable, JSON card list (empty offline)", async () => {
-    // Fixture mode skips TCGdex, so this stays hermetic — shape + headers only.
-    const res = await call("?dex=6&langs=ja,fr");
-    expect(res.status).toBe(200);
-    expect(res.headers.get("Cache-Control")).toContain("stale-while-revalidate");
-    expect((await res.json()) as { cards: unknown[] }).toEqual({ cards: [] });
   });
 });

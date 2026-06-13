@@ -41,6 +41,17 @@ export function languageByCode(code: string): Language | undefined {
   return LANGUAGES.find((l) => l.code === code);
 }
 
+/**
+ * Selector label: the native name plus its English exonym for non-English
+ * languages — e.g. "日本語 (Japanese)" — so the script is recognisable AND
+ * nameable. English just reads "English".
+ */
+export function languageLabel(code: string): string {
+  const lang = languageByCode(code);
+  if (!lang) return code;
+  return lang.code === "en" ? lang.label : `${lang.native} (${lang.label})`;
+}
+
 /** Short token char per language for compact binder URLs (e.g. e=en, j=ja). */
 export const LANGUAGE_TOKEN_CHARS: Record<string, string> = {
   en: "e",

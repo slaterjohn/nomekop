@@ -16,8 +16,10 @@ test.beforeEach(async ({ page }) => {
   );
 });
 
-test("every binder offers a language picker with English locked on", async ({ page }) => {
-  for (const url of ["/pokemon/pikachu~34an", "/illustrator/ken-sugimori~34n", "/pokedex/g1~55"]) {
+test("pokemon & illustrator binders offer a multi-language picker, English locked on", async ({
+  page,
+}) => {
+  for (const url of ["/pokemon/pikachu~34an", "/illustrator/ken-sugimori~34n"]) {
     await page.goto(url);
     const picker = page.getByRole("group", { name: "Card languages" });
     await expect(picker).toBeVisible();
@@ -26,7 +28,6 @@ test("every binder offers a language picker with English locked on", async ({ pa
     // English can't be turned off — clicking it leaves it on.
     await english.click();
     await expect(english).toHaveAttribute("aria-pressed", "true");
-    // Japanese starts off.
     await expect(picker.getByRole("button", { name: "Japanese" })).toHaveAttribute(
       "aria-pressed",
       "false",
@@ -42,35 +43,36 @@ test("pokemon binder: enabling Japanese writes the language into the token", asy
   await expect(page.getByRole("button", { name: "Japanese" })).toHaveAttribute("aria-pressed", "true");
 });
 
-test("pokedex: enabling Japanese updates the token in place and survives a reload", async ({
-  page,
-}) => {
+test("pokedex offers a single-language swap that navigates the whole binder", async ({ page }) => {
   await page.goto("/pokedex/g1~55");
-  await page
-    .getByRole("group", { name: "Card languages" })
-    .getByRole("button", { name: "Japanese" })
-    .click();
-  // In-place token update (no full navigation) — the dex grid doesn't re-fetch.
-  await expect(page).toHaveURL(/\/pokedex\/g1~55ej$/);
-  await expect(page.getByText(/Other languages load as you open a pocket/)).toBeVisible();
+  const select = page.getByRole("group", { name: "Binder language" });
+  await expect(select).toBeVisible();
+  await expect(select.getByRole("button", { name: "English" })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
 
-  // The language rides in the URL, so a direct visit reproduces it.
-  await page.goto("/pokedex/g1~55ej");
+  // Swapping the language re-fetches the whole dex (one language at a time).
+  await select.getByRole("button", { name: /Japanese/i }).click();
+  await expect(page).toHaveURL(/\/pokedex\/g1~55j$/);
   await expect(
-    page.getByRole("group", { name: "Card languages" }).getByRole("button", { name: "Japanese" }),
+    page.getByRole("group", { name: "Binder language" }).getByRole("button", { name: /Japanese/i }),
+  ).toHaveAttribute("aria-pressed", "true");
+
+  // A direct visit to the localized token reproduces the selection.
+  await page.goto("/pokedex/g1~55j");
+  await expect(
+    page.getByRole("group", { name: "Binder language" }).getByRole("button", { name: /Japanese/i }),
   ).toHaveAttribute("aria-pressed", "true");
 });
 
-test("pokedex: a custom pick still rides alongside the language in the token", async ({ page }) => {
-  await page.goto("/pokedex/g1~55ej");
-  // #25 Pikachu has English fixture prints; swap to a non-default English print.
+test("pokedex: an English custom pick rides in the token", async ({ page }) => {
+  await page.goto("/pokedex/g1~55");
   await page.getByRole("button", { name: /^#25 .*click to swap/ }).click();
   const dialog = page.getByRole("dialog", { name: /#25 — pick a card/ });
   await expect(dialog).toBeVisible();
-  const options = dialog.locator("ul button");
-  await options.last().click();
-  // Token keeps both the language segment and the pick.
-  await expect(page).toHaveURL(/\/pokedex\/g1~55ej~25\./);
+  await dialog.locator("ul button").last().click();
+  await expect(page).toHaveURL(/\/pokedex\/g1~55~25\./);
 });
 
 test("sets: the language tabs link to each localized set list", async ({ page }) => {

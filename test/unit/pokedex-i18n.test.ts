@@ -15,7 +15,7 @@ vi.mock("@/lib/tcg/pokemon-i18n", () => ({
   localizedPokemonName: (...args: unknown[]) => localizedPokemonName(...args),
 }));
 
-import { localizedPrintsByDex, resolvePokedexPickCards } from "@/lib/tcg";
+import { getLocalizedPokedexCards, localizedPrintsByDex } from "@/lib/tcg";
 
 // A TCGdex card as the source delivers it: localized, no National Dex number.
 function tcgdexCard(id: string, lang = "ja"): CardWithSet {
@@ -83,34 +83,12 @@ describe("localizedPrintsByDex", () => {
   });
 });
 
-describe("resolvePokedexPickCards", () => {
-  const english: CardWithSet[] = [
-    { ...tcgdexCard("base1-4", "en"), lang: undefined, name: "Charizard" },
-  ];
-
-  it("fetches localized prints only for picks not already in the English set", async () => {
-    localizedPokemonName.mockResolvedValue("リザードン");
-    searchByName.mockResolvedValue([tcgdexCard("SV2a-006")]);
-
-    const extra = await resolvePokedexPickCards(
-      { langs: ["en", "ja"], picks: { 4: "base1-4", 6: "SV2a-006" } },
-      english,
-    );
-
-    // dex 4's pick is an English card already present → not fetched. Only dex 6.
-    expect(localizedPokemonName).toHaveBeenCalledTimes(1);
-    expect(localizedPokemonName).toHaveBeenCalledWith(6, "ja");
-    expect(extra).toHaveLength(1);
-    expect(extra[0]!.dex?.[0]).toBe(6);
-  });
-
-  it("does nothing when every pick is English, or no non-English language is on", async () => {
-    expect(
-      await resolvePokedexPickCards({ langs: ["en", "ja"], picks: { 4: "base1-4" } }, english),
-    ).toEqual([]);
-    expect(
-      await resolvePokedexPickCards({ langs: ["en"], picks: { 6: "SV2a-006" } }, english),
-    ).toEqual([]);
+describe("getLocalizedPokedexCards", () => {
+  it("never touches the network for English or in fixture mode", async () => {
+    expect(await getLocalizedPokedexCards("g1", "en")).toEqual([]);
+    vi.stubEnv("TCG_DATA_SOURCE", "fixture");
+    expect(await getLocalizedPokedexCards("g1", "ja")).toEqual([]);
     expect(searchByName).not.toHaveBeenCalled();
+    expect(localizedPokemonName).not.toHaveBeenCalled();
   });
 });

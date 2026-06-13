@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useRouter } from "next/navigation";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import {
   Dialog,
   DialogContent,
@@ -14,7 +15,8 @@ import { GbButton } from "@/components/gb/gb-button";
 import { GbBadge } from "@/components/gb/gb-badge";
 import { PixelPokeball } from "@/components/gb/pixel-pokeball";
 import { PdfButtons } from "@/components/pdf-buttons";
-import { LanguagePicker } from "@/components/binder/language-picker";
+import { LanguageSelect } from "@/components/binder/language-select";
+import { BinderShelf } from "@/components/builder/binder-shelf";
 import { POCKET_PRESETS } from "@/lib/config";
 import {
   buildPokedexEntries,
@@ -24,7 +26,6 @@ import {
   type PokedexConfig,
   type PokedexEntry,
 } from "@/lib/pokedex";
-import { languageByCode } from "@/lib/tcg/languages";
 import { play } from "@/lib/sound";
 import { cn } from "@/lib/utils";
 import type { CardWithSet } from "@/lib/tcg/types";
@@ -34,8 +35,9 @@ type PokedexViewProps = {
   cards: CardWithSet[];
 };
 
-function storageKey(gen: string): string {
-  return `${POKEDEX_STORAGE_PREFIX}:${gen}`;
+/** Picks are per language, so the saved-picks slot is keyed by both. */
+function storageKey(gen: string, lang: string): string {
+  return `${POKEDEX_STORAGE_PREFIX}:${gen}${lang === "en" ? "" : `:${lang}`}`;
 }
 
 const noopSubscribe = () => () => {};
@@ -48,18 +50,14 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
   const [restoreDismissed, setRestoreDismissed] = useState(false);
   const [swapDex, setSwapDex] = useState<number | null>(null);
   const [spread, setSpread] = useState(0);
-  // Non-English prints fetched lazily, one Pokémon at a time, as swap dialogs
-  // open. (A whole-generation × language union would be far too heavy.)
-  const [extraCards, setExtraCards] = useState<CardWithSet[]>([]);
-  const [fetchingDex, setFetchingDex] = useState<number | null>(null);
-  const fetchedRef = useRef<Set<string>>(new Set());
+  const router = useRouter();
 
   // Hydration-safe localStorage read (server snapshot: empty string).
   const storedRaw = useSyncExternalStore(
     noopSubscribe,
     () => {
       try {
-        return localStorage.getItem(storageKey(initialConfig.gen)) ?? "";
+        return localStorage.getItem(storageKey(initialConfig.gen, initialConfig.lang)) ?? "";
       } catch {
         return "";
       }
@@ -84,72 +82,28 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
   const update = (next: PokedexConfig) => {
     setConfig(next);
     try {
-      localStorage.setItem(storageKey(next.gen), JSON.stringify({ picks: next.picks }));
+      localStorage.setItem(
+        storageKey(next.gen, next.lang),
+        JSON.stringify({ picks: next.picks }),
+      );
     } catch {
       // best-effort persistence
     }
     window.history.replaceState(null, "", `/pokedex/${encodePokedexToken(next)}`);
   };
 
-  // English (with restored picks) + lazily-fetched non-English prints, deduped
-  // by id and filtered to the currently-enabled languages.
-  const allCards = useMemo(() => {
-    if (extraCards.length === 0) return cards;
-    const enabled = new Set(config.langs);
-    const byId = new Map<string, CardWithSet>();
-    for (const card of cards) byId.set(card.id, card);
-    for (const card of extraCards) {
-      if (enabled.has(card.lang ?? "en")) byId.set(card.id, card);
-    }
-    return [...byId.values()];
-  }, [cards, extraCards, config.langs]);
+  // The language swaps the entire binder's dataset, so the server must re-fetch:
+  // navigate rather than patch in place. Picks reference language-specific card
+  // ids, so we drop them on a language change (they'd no longer resolve).
+  const changeLanguage = (lang: string) => {
+    if (lang === config.lang) return;
+    router.push(`/pokedex/${encodePokedexToken({ ...config, lang, picks: {} })}`);
+  };
 
   const entries = useMemo(
-    () => buildPokedexEntries(config.gen, allCards, config.picks),
-    [config.gen, allCards, config.picks],
+    () => buildPokedexEntries(config.gen, cards, config.picks),
+    [config.gen, cards, config.picks],
   );
-
-  // Pull one Pokémon's non-English prints into the binder (idempotent per
-  // dex+language set). Runs from event handlers only — never an effect.
-  const loadLanguages = async (dex: number, langs: string[]) => {
-    const others = langs.filter((l) => l !== "en");
-    if (others.length === 0) return;
-    const key = `${dex}:${others.join(",")}`;
-    if (fetchedRef.current.has(key)) return;
-    fetchedRef.current.add(key);
-    setFetchingDex(dex);
-    try {
-      const res = await fetch(`/api/pokedex/prints?dex=${dex}&langs=${others.join(",")}`);
-      if (res.ok) {
-        const data = (await res.json()) as { cards?: CardWithSet[] };
-        const fetched = data.cards ?? [];
-        if (fetched.length > 0) {
-          setExtraCards((prev) => {
-            const seen = new Set(prev.map((c) => c.id));
-            return [...prev, ...fetched.filter((c) => !seen.has(c.id))];
-          });
-        }
-      }
-    } catch {
-      // best-effort; the dialog still shows whatever English prints exist
-    } finally {
-      setFetchingDex((current) => (current === dex ? null : current));
-    }
-  };
-
-  const openSwap = (dex: number) => {
-    play("confirm");
-    setSwapDex(dex);
-    void loadLanguages(dex, config.langs);
-  };
-
-  // Languages just change which swaps are offered — no re-fetch of the grid, so
-  // patch state in place (and refresh the open dialog) rather than navigating.
-  const changeLanguages = (langs: string[]) => {
-    update({ ...config, langs });
-    if (swapDex !== null) void loadLanguages(swapDex, langs);
-  };
-
   const perPage = config.rows * config.cols;
   const pageCount = Math.max(1, Math.ceil(entries.length / perPage));
   const page = Math.min(spread, pageCount - 1);
@@ -157,9 +111,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
 
   const withCards = entries.filter((e) => e.chosen).length;
   const customPicks = Object.keys(config.picks).length;
-  const multiLang = config.langs.some((l) => l !== "en");
   const swapEntry = swapDex !== null ? entries.find((e) => e.dex === swapDex) : undefined;
-  const swapLoading = fetchingDex !== null && fetchingDex === swapDex;
   const matchingPreset = POCKET_PRESETS.find((p) => p.rows === config.rows && p.cols === config.cols);
   const token = encodePokedexToken(config);
 
@@ -222,7 +174,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
               </GbButton>
             ) : null}
           </div>
-          <LanguagePicker value={config.langs} onChange={changeLanguages} />
+          <LanguageSelect value={config.lang} onChange={changeLanguage} />
           <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
             {entries.length} POKÉMON → {pageCount} PAGES · {withCards}/{entries.length} HAVE CARDS
             {customPicks > 0 ? ` · ${customPicks} CUSTOM PICKS` : ""}
@@ -230,7 +182,6 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
           <p className="font-body text-lg leading-snug">
             Pockets default to each Pokémon&apos;s secret card, then its rarest print. Click any
             pocket to swap the card — your picks are saved and live in this page&apos;s URL.
-            {multiLang ? " Other languages load as you open a pocket." : ""}
           </p>
         </div>
       </GbScreen>
@@ -269,10 +220,9 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
                 entry={entry}
                 custom={entry.dex in config.picks}
                 onClick={() => {
-                  // Openable when there's something to choose — English prints,
-                  // or (multi-language on) the chance of non-English ones.
-                  if (entry.alternatives.length > 0 || multiLang) {
-                    openSwap(entry.dex);
+                  if (entry.alternatives.length > 0) {
+                    play("confirm");
+                    setSwapDex(entry.dex);
                   } else {
                     play("back");
                   }
@@ -294,6 +244,10 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
         />
       </GbScreen>
 
+      <GbScreen title="GET A BINDER">
+        <BinderShelf pockets={config.rows * config.cols} pages={pageCount} />
+      </GbScreen>
+
       <Dialog open={swapDex !== null} onOpenChange={(open) => !open && setSwapDex(null)}>
         <DialogContent className="max-h-[85vh] gap-0 overflow-y-auto rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)] sm:max-w-2xl">
           <DialogHeader className="border-b-4 border-gb-ink bg-gb-ink px-4 py-3 text-left">
@@ -302,22 +256,11 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
             </DialogTitle>
             <DialogDescription className="font-body text-lg text-gb-bg">
               {swapEntry?.alternatives.length ?? 0} prints available · rarest first
-              {swapLoading ? " · loading languages…" : ""}
             </DialogDescription>
           </DialogHeader>
-          {swapEntry && swapEntry.alternatives.length === 0 && swapLoading ? (
-            <p className="px-4 py-6 font-body text-xl leading-tight">Searching other languages…</p>
-          ) : null}
-          {swapEntry && swapEntry.alternatives.length === 0 && !swapLoading ? (
-            <p className="px-4 py-6 font-body text-xl leading-tight">
-              No cards found for #{swapDex}
-              {multiLang ? " in these languages." : "."}
-            </p>
-          ) : null}
           <ul className="grid list-none grid-cols-2 gap-2 p-4 sm:grid-cols-3">
             {swapEntry?.alternatives.map((card) => {
               const selected = swapEntry.chosen?.id === card.id;
-              const lang = card.lang && card.lang !== "en" ? languageByCode(card.lang) : undefined;
               return (
                 <li key={card.id}>
                   <button
@@ -351,7 +294,6 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
                     <span className="block font-body text-base leading-tight">
                       {card.rarity ?? card.supertype}
                       {card.secret ? " · SECRET" : ""}
-                      {lang ? ` · ${lang.native}` : ""}
                     </span>
                   </button>
                 </li>
@@ -374,10 +316,8 @@ function PokedexSlot({
   onClick: () => void;
 }) {
   const sprite = spriteUrl(entry.dex);
-  const lang =
-    entry.chosen?.lang && entry.chosen.lang !== "en" ? languageByCode(entry.chosen.lang) : undefined;
   const label = entry.chosen
-    ? `#${entry.dex} ${entry.chosen.name}${lang ? ` (${lang.label})` : ""} — ${entry.alternatives.length} prints, click to swap`
+    ? `#${entry.dex} ${entry.chosen.name} — ${entry.alternatives.length} prints, click to swap`
     : `#${entry.dex} — no card available`;
   return (
     <button
@@ -415,14 +355,6 @@ function PokedexSlot({
       >
         #{entry.dex}
       </span>
-      {lang ? (
-        <span
-          aria-hidden="true"
-          className="absolute bottom-0.5 right-0.5 bg-gb-ink/90 px-0.5 font-pixel text-[8px] text-gb-bg"
-        >
-          {entry.chosen?.lang?.slice(0, 2).toUpperCase()}
-        </span>
-      ) : null}
       {custom ? (
         <GbBadge aria-label="Custom pick" className="absolute right-0.5 top-0.5">
           PICK

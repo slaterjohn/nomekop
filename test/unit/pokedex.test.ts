@@ -38,8 +38,8 @@ describe("generations", () => {
 });
 
 describe("pokedex tokens", () => {
-  it("encodes gen + grid, omitting empty picks and English-only languages", () => {
-    expect(encodePokedexToken({ gen: "g1", rows: 3, cols: 4, langs: ["en"], picks: {} })).toBe(
+  it("encodes gen + grid, omitting empty picks and the English language", () => {
+    expect(encodePokedexToken({ gen: "g1", rows: 3, cols: 4, lang: "en", picks: {} })).toBe(
       "g1~34",
     );
   });
@@ -49,7 +49,7 @@ describe("pokedex tokens", () => {
       gen: "g1",
       rows: 4,
       cols: 4,
-      langs: ["en"],
+      lang: "en",
       picks: { 6: "base1-4", 25: "sv1-25" },
     });
     expect(token).toBe("g1~44~6.base1-4_25.sv1-25");
@@ -57,20 +57,20 @@ describe("pokedex tokens", () => {
       gen: "g1",
       rows: 4,
       cols: 4,
-      langs: ["en"],
+      lang: "en",
       picks: { 6: "base1-4", 25: "sv1-25" },
     });
   });
 
-  it("round-trips languages, and languages + picks together", () => {
-    expect(
-      encodePokedexToken({ gen: "g1", rows: 3, cols: 4, langs: ["en", "ja"], picks: {} }),
-    ).toBe("g1~34ej");
-    expect(decodePokedexToken("g1~34ej")).toEqual({
+  it("round-trips a single language, with and without picks", () => {
+    expect(encodePokedexToken({ gen: "g1", rows: 3, cols: 4, lang: "ja", picks: {} })).toBe(
+      "g1~34j",
+    );
+    expect(decodePokedexToken("g1~34j")).toEqual({
       gen: "g1",
       rows: 3,
       cols: 4,
-      langs: ["en", "ja"],
+      lang: "ja",
       picks: {},
     });
 
@@ -78,27 +78,29 @@ describe("pokedex tokens", () => {
       gen: "g1",
       rows: 3,
       cols: 4,
-      langs: ["en", "ja", "fr"],
+      lang: "fr",
       picks: { 6: "sv2a-25" },
     });
-    expect(token).toBe("g1~34ejf~6.sv2a-25");
+    expect(token).toBe("g1~34f~6.sv2a-25");
     expect(decodePokedexToken(token)).toEqual({
       gen: "g1",
       rows: 3,
       cols: 4,
-      langs: ["en", "ja", "fr"],
+      lang: "fr",
       picks: { 6: "sv2a-25" },
     });
   });
 
-  it("decodes legacy tokens (no language segment) as English-only", () => {
+  it("decodes legacy English tokens, and collapses legacy multi-language ones to their first", () => {
     expect(decodePokedexToken("g1~44~6.base1-4")).toEqual({
       gen: "g1",
       rows: 4,
       cols: 4,
-      langs: ["en"],
+      lang: "en",
       picks: { 6: "base1-4" },
     });
+    // An old en+ja token now means "the binder in Japanese".
+    expect(decodePokedexToken("g1~34ej")!.lang).toBe("ja");
   });
 
   it("rejects malformed tokens and out-of-range picks", () => {
@@ -138,31 +140,15 @@ describe("buildPokedexEntries", () => {
     expect(entries.find((e) => e.dex === 25)!.chosen?.id).toBe("pika-1");
   });
 
-  it("keeps non-English prints out of the default pick but in the swap options", () => {
-    const mixed: CardWithSet[] = [
-      card({ id: "en-1", name: "Charizard", dex: [6], rarity: "Rare Holo" }),
-      // A 'secret' Japanese print must NOT win the default — English leads.
-      card({ id: "ja-1", name: "リザードン", dex: [6], rarity: "Rare Holo", secret: true, lang: "ja" }),
+  it("picks the best card regardless of language (the binder is one language)", () => {
+    // In a Japanese binder every print is Japanese; the default is just the best.
+    const ja: CardWithSet[] = [
+      card({ id: "ja-1", name: "リザードン", dex: [6], rarity: "Rare Holo", lang: "ja" }),
+      card({ id: "ja-2", name: "リザードンex", dex: [6], rarity: "Rare Holo", secret: true, lang: "ja" }),
     ];
-    const charizard = buildPokedexEntries("g1", mixed, {}).find((e) => e.dex === 6)!;
-    expect(charizard.chosen?.id).toBe("en-1");
-    expect(charizard.alternatives.map((c) => c.id)).toContain("ja-1");
-  });
-
-  it("lets an explicit pick choose a non-English print", () => {
-    const mixed: CardWithSet[] = [
-      card({ id: "en-1", name: "Charizard", dex: [6], rarity: "Rare Holo" }),
-      card({ id: "ja-1", name: "リザードン", dex: [6], lang: "ja" }),
-    ];
-    const charizard = buildPokedexEntries("g1", mixed, { 6: "ja-1" }).find((e) => e.dex === 6)!;
-    expect(charizard.chosen?.id).toBe("ja-1");
-  });
-
-  it("leaves a pocket empty when only non-English prints exist (opt-in only)", () => {
-    const onlyJa: CardWithSet[] = [card({ id: "ja-1", name: "リザードン", dex: [6], lang: "ja" })];
-    const charizard = buildPokedexEntries("g1", onlyJa, {}).find((e) => e.dex === 6)!;
-    expect(charizard.chosen).toBeNull();
-    expect(charizard.alternatives.map((c) => c.id)).toContain("ja-1");
+    const charizard = buildPokedexEntries("g1", ja, {}).find((e) => e.dex === 6)!;
+    expect(charizard.chosen?.id).toBe("ja-2"); // secret wins
+    expect(charizard.alternatives).toHaveLength(2);
   });
 });
 

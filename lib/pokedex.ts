@@ -3,10 +3,11 @@ import { rarityRank } from "@/lib/tcg/rarity";
 import type { CardWithSet } from "@/lib/tcg/types";
 
 // The Pokédex binder: one pocket per Pokémon, in National Dex order.
-// Token URLs: /pokedex/<gen>~<rows><cols>[<langs>][~<picks>]
-//   langs  = compact language chars (omitted when English-only), e.g. "ej".
+// Token URLs: /pokedex/<gen>~<rows><cols>[<lang>][~<picks>]
+//   lang   = one language char (omitted for English), e.g. "j" = whole dex in JA.
 //   picks  = "<dex>.<cardId>" pairs joined by "_" — only user overrides are
 //   encoded, so default links stay tiny and custom ones stay shareable.
+// The whole binder is a single language at a time (swap it, don't mix).
 
 export type GenerationId = "g1" | "g2" | "g3" | "g4" | "g5" | "g6" | "g7" | "g8" | "g9";
 
@@ -32,8 +33,8 @@ export type PokedexConfig = {
   gen: GenerationId;
   rows: number;
   cols: number;
-  /** Card languages offered in swaps (canonical order, always includes "en"). */
-  langs: string[];
+  /** The single language the whole binder is shown in (default "en"). */
+  lang: string;
   /** dex number → chosen card id (only divergences from the default pick). */
   picks: Record<number, string>;
 };
@@ -41,8 +42,8 @@ export type PokedexConfig = {
 const CARD_ID_RE = /^[a-z0-9.]+-[a-z0-9]+$/i;
 
 export function encodePokedexToken(config: PokedexConfig): string {
-  const langs = config.langs.some((l) => l !== "en") ? encodeLanguages(config.langs) : "";
-  const base = `${config.gen}~${config.rows}${config.cols}${langs}`;
+  const lang = config.lang !== "en" ? encodeLanguages([config.lang]) : "";
+  const base = `${config.gen}~${config.rows}${config.cols}${lang}`;
   const pairs = Object.entries(config.picks)
     .map(([dex, id]) => [Number(dex), id] as const)
     .sort((a, b) => a[0] - b[0])
@@ -51,7 +52,7 @@ export function encodePokedexToken(config: PokedexConfig): string {
 }
 
 export function decodePokedexToken(token: string): PokedexConfig | null {
-  // Grid digits, then optional language chars (letters), then optional picks.
+  // Grid digits, then an optional language char, then optional picks.
   const m = /^(g[1-9])~([1-5])([1-5])([a-z]*)(?:~(.+))?$/.exec(token);
   if (!m) return null;
   const gen = generationById(m[1]!);
@@ -68,11 +69,13 @@ export function decodePokedexToken(token: string): PokedexConfig | null {
       picks[dex] = cardId;
     }
   }
+  // One language only — legacy multi-language tokens collapse to their first.
+  const lang = decodeLanguages(m[4]).find((l) => l !== "en") ?? "en";
   return {
     gen: gen.id,
     rows: Number.parseInt(m[2]!, 10),
     cols: Number.parseInt(m[3]!, 10),
-    langs: decodeLanguages(m[4]),
+    lang,
     picks,
   };
 }
@@ -86,12 +89,11 @@ export type PokedexEntry = {
 };
 
 /** Default pick: a secret card when one exists, otherwise the rarest print;
- *  newest set breaks ties. English only — other languages are opt-in swap
- *  options (they arrive lazily, and must never silently change a pocket). */
+ *  newest set breaks ties. The binder is a single language, so every print here
+ *  is already in that language — no language preference needed. */
 function defaultPick(prints: CardWithSet[]): CardWithSet | null {
-  const english = prints.filter((p) => (p.lang ?? "en") === "en");
-  if (english.length === 0) return null;
-  return [...english].sort((a, b) => {
+  if (prints.length === 0) return null;
+  return [...prints].sort((a, b) => {
     if (a.secret !== b.secret) return a.secret ? -1 : 1;
     const byRarity = rarityRank(b.rarity) - rarityRank(a.rarity);
     if (byRarity !== 0) return byRarity;
