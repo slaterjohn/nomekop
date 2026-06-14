@@ -39,4 +39,13 @@ describe("TokenBucketLimiter", () => {
     expect(limiter.consume("a")).toBe(false);
     expect(limiter.consume("b")).toBe(true);
   });
+
+  it("stays memory-bounded under a flood of distinct keys (DoS guard)", () => {
+    // The PDF route keys on x-forwarded-for, which a client can rotate freely;
+    // the map must not grow without limit.
+    const maxKeys = 50;
+    const limiter = new TokenBucketLimiter(5, 10_000, maxKeys);
+    for (let i = 0; i < 5_000; i++) limiter.consume(`spoofed-${i}`);
+    expect(limiter.size()).toBeLessThanOrEqual(maxKeys);
+  });
 });

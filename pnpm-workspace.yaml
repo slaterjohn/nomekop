@@ -4,3 +4,8 @@ ignoredBuiltDependencies:
 
 onlyBuiltDependencies:
   - puppeteer
+
+# Force the patched PostCSS (GHSA-qx2v-qp2m-jg93: XSS via unescaped </style> in
+# CSS stringify). Build-time only here, but keep the advisory clean.
+overrides:
+  postcss: ">=8.5.10"

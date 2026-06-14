@@ -1,5 +1,15 @@
+import { createHash, timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { isCacheCheckRunning, runCacheCheck } from "@/lib/tcg/cache-manager";
+
+/** Constant-time string compare. Both sides are hashed to a fixed length first
+ *  so the comparison can't leak the token's length or a character-by-character
+ *  match position through timing. */
+function constantTimeEqual(a: string, b: string): boolean {
+  const ha = createHash("sha256").update(a).digest();
+  const hb = createHash("sha256").update(b).digest();
+  return timingSafeEqual(ha, hb);
+}
 
 /**
  * Manual trigger for the cache check (plan + queue drain). Guarded by
@@ -15,8 +25,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       { status: 403 },
     );
   }
-  const provided = request.headers.get("x-refresh-token");
-  if (provided !== token) {
+  const provided = request.headers.get("x-refresh-token") ?? "";
+  if (!constantTimeEqual(provided, token)) {
     return NextResponse.json({ error: "Invalid refresh token." }, { status: 403 });
   }
   if (isCacheCheckRunning()) {

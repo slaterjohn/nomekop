@@ -103,4 +103,55 @@ describe("GET /api/img", () => {
     expect(fetchSpy).not.toHaveBeenCalled();
     vi.unstubAllGlobals();
   });
+
+  it("rejects internal/metadata SSRF targets", async () => {
+    for (const src of [
+      "https://169.254.169.254/latest/meta-data/",
+      "https://localhost/x.png",
+      "https://127.0.0.1/x.png",
+      "https://[::1]/x.png",
+      "https://metadata.google.internal/x.png",
+    ]) {
+      const res = await getImg(new NextRequest("http://test/api/img?src=" + encodeURIComponent(src)));
+      expect(res.status, src).toBe(400);
+    }
+  });
+
+  it("does NOT follow an upstream redirect to a non-allowlisted host (SSRF)", async () => {
+    // An allowlisted CDN returns a 3xx pointing at an internal address; the
+    // proxy must refuse rather than fetch it.
+    const fetchSpy = vi.fn(
+      async () =>
+        new Response(null, {
+          status: 302,
+          headers: { location: "http://169.254.169.254/latest/meta-data/" },
+        }),
+    );
+    vi.stubGlobal("fetch", fetchSpy);
+    const res = await getImg(
+      new NextRequest(
+        "http://test/api/img?src=" + encodeURIComponent("https://images.pokemontcg.io/__redir__/x.png"),
+      ),
+    );
+    expect(res.status).toBe(502);
+    vi.unstubAllGlobals();
+  });
+
+  it("rejects a non-image upstream body (no cache poisoning)", async () => {
+    const fetchSpy = vi.fn(
+      async () =>
+        new Response("<html>not an image</html>", {
+          status: 200,
+          headers: { "content-type": "text/html" },
+        }),
+    );
+    vi.stubGlobal("fetch", fetchSpy);
+    const res = await getImg(
+      new NextRequest(
+        "http://test/api/img?src=" + encodeURIComponent("https://images.pokemontcg.io/__html__/x.png"),
+      ),
+    );
+    expect(res.status).toBe(502);
+    vi.unstubAllGlobals();
+  });
 });

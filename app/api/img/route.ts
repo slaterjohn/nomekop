@@ -24,6 +24,36 @@ function isAllowed(url: URL): boolean {
   );
 }
 
+/**
+ * Fetch that resolves redirects manually, re-checking every hop against the
+ * allow-list. `fetch`'s default `redirect: "follow"` would let an upstream 3xx
+ * (or an open redirect on a CDN) bounce the request to an internal address —
+ * the initial-URL allow-list check alone does not cover that (SSRF). The known
+ * card CDNs serve images directly (200, no redirects), so this is purely a guard.
+ */
+async function fetchAllowed(start: URL): Promise<Response | null> {
+  let current = start;
+  for (let hop = 0; hop < 4; hop++) {
+    const res = await fetch(current, {
+      redirect: "manual",
+      signal: AbortSignal.timeout(20_000),
+    }).catch(() => null);
+    if (!res) return null;
+    if (res.status < 300 || res.status >= 400) return res;
+    const location = res.headers.get("location");
+    if (!location) return null;
+    let next: URL;
+    try {
+      next = new URL(location, current);
+    } catch {
+      return null;
+    }
+    if (next.protocol !== "https:" || !isAllowed(next)) return null; // re-validate each hop
+    current = next;
+  }
+  return null; // too many redirects
+}
+
 const CACHE_DIR = path.join(process.env.CACHE_DIR ?? path.join(process.cwd(), ".cache"), "img");
 const STUB_PATH = path.join(process.cwd(), "public", "card-stub.png");
 
@@ -61,8 +91,14 @@ export async function GET(request: NextRequest): Promise<Response> {
     // miss — fetch and fill
   }
 
-  const upstream = await fetch(url, { signal: AbortSignal.timeout(20_000) }).catch(() => null);
+  const upstream = await fetchAllowed(url);
   if (!upstream || !upstream.ok) {
+    return NextResponse.json({ error: "Image unavailable." }, { status: 502 });
+  }
+  // Only ever proxy/cache actual images — never let a non-image body (HTML, a
+  // script, an error page) be stored and re-served from this origin.
+  const contentType = upstream.headers.get("content-type") ?? "";
+  if (!contentType.startsWith("image/")) {
     return NextResponse.json({ error: "Image unavailable." }, { status: 502 });
   }
   const bytes = Buffer.from(await upstream.arrayBuffer());
@@ -76,7 +112,7 @@ export async function GET(request: NextRequest): Promise<Response> {
       // cache fill is best-effort
     }
   })();
-  return pngResponse(bytes, upstream.headers.get("content-type") ?? "image/png");
+  return pngResponse(bytes, contentType);
 }
 
 function pngResponse(bytes: Buffer, contentType = "image/png"): Response {
