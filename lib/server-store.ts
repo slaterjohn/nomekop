@@ -22,6 +22,22 @@ export class SqliteStore implements CacheStore {
 
   constructor(dbPath: string) {
     this.db = SqliteStore.openSafely(dbPath);
+    // Concurrency: `next build` collects page data in parallel workers that each
+    // open this same DB, and at runtime request handlers race the daily refresh.
+    // Default journal mode + a zero busy-timeout make any of those collide with
+    // SQLITE_BUSY ("database is locked"). The busy timeout MUST be set first: the
+    // WAL switch and CREATE TABLE both take a write lock, so without it they fail
+    // immediately instead of waiting. WAL then lets readers and a writer coexist.
+    try {
+      this.db.exec("PRAGMA busy_timeout = 10000");
+    } catch {
+      // unsupported — safe to ignore
+    }
+    try {
+      this.db.exec("PRAGMA journal_mode = WAL");
+    } catch {
+      // in-memory fallback / unsupported pragma — safe to ignore
+    }
     this.db.exec(
       `CREATE TABLE IF NOT EXISTS cache (
          key TEXT PRIMARY KEY,
