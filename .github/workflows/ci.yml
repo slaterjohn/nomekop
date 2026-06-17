@@ -42,6 +42,15 @@ jobs:
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
 
+      # The PDF pipeline (lib/pdf.ts) launches Chrome via Puppeteer, not
+      # Playwright. Puppeteer's postinstall downloads Chrome to ~/.cache/puppeteer,
+      # but setup-node's pnpm store cache can restore puppeteer on a cache hit
+      # WITHOUT re-running that postinstall — leaving "Could not find Chrome" and
+      # 504s on every PDF e2e. Install it explicitly (idempotent) so it's always
+      # present regardless of cache state.
+      - name: Install Puppeteer Chrome
+        run: pnpm exec puppeteer browsers install chrome
+
       - name: End-to-end tests
         run: pnpm e2e
 
