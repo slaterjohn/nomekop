@@ -54,6 +54,23 @@ export function getCards(setId: string): Promise<TcgCard[]> {
   );
 }
 
+/**
+ * Cache-only reads for the sitemap. The sitemap renders at request time, so it
+ * must NEVER trigger a live API fetch (that would block the response). In live
+ * mode these return whatever the first-launch cache build (lib/tcg/cache-manager)
+ * has already stored — an empty list for a not-yet-warmed set, never a fetch.
+ * Fixture mode reads the committed snapshots so tests stay deterministic.
+ */
+export async function getSetsForSitemap(): Promise<TcgSet[]> {
+  if (isFixtureMode()) return getDataSource().getSets();
+  return serverStore.peek<TcgSet[]>("sets") ?? [];
+}
+
+export async function getCardsForSitemap(setId: string): Promise<TcgCard[]> {
+  if (isFixtureMode()) return getDataSource().getCards(setId);
+  return serverStore.peek<TcgCard[]>(`cards:${setId}`) ?? [];
+}
+
 /** English cards for one Pokémon — derived from the cached set cards once the
  *  cache is complete; API-backed (12h TTL) until then. */
 function englishPokemonCards(slug: string): Promise<CardWithSet[]> {

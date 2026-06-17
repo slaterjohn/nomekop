@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
-import { getCards, getSets } from "@/lib/tcg";
+import { getCardsForSitemap, getSets, getSetsForSitemap } from "@/lib/tcg";
 import { GENERATIONS } from "@/lib/pokedex";
 import { ARTICLES } from "@/lib/content/articles";
 
@@ -72,7 +72,7 @@ export default async function sitemap(props: {
       })),
     ];
     try {
-      const sets = await getSets();
+      const sets = await getSetsForSitemap();
       return [
         ...staticEntries,
         ...sets.map((set) => ({
@@ -89,14 +89,15 @@ export default async function sitemap(props: {
   }
 
   try {
-    const cards = await getCards(id);
+    const cards = await getCardsForSitemap(id);
     return cards.map((card) => ({
       url: `${base}/card/${card.id}`,
       changeFrequency: "weekly" as const,
       priority: 0.5,
     }));
   } catch {
-    // Unknown set or unreachable API (fixture mode covers only three sets).
+    // Unknown set, or cards not yet warmed in the cache (fixture mode covers
+    // only three sets) — serve an empty shard rather than block on a fetch.
     return [];
   }
 }
