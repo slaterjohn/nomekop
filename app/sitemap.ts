@@ -10,6 +10,15 @@ import { ARTICLES } from "@/lib/content/articles";
  *  lists every shard URL. */
 const CORE_ID = "core";
 
+// Render the shards at request time, not at build. Prerendering them (the
+// default for sitemaps) walks every set's cards through the live API during
+// `next build`, which made production builds slow and flaky. At runtime each
+// shard reads the SQLite cache that the first-launch cache build warms (see
+// lib/tcg/cache-manager.ts, scheduled from instrumentation.ts), so the sitemap
+// is served instantly from cache while the build stays fast and hermetic.
+// Crawler-facing only — end-user pages are unaffected.
+export const dynamic = "force-dynamic";
+
 export async function generateSitemaps(): Promise<Array<{ id: string }>> {
   try {
     const sets = await getSets();
