@@ -9,7 +9,15 @@ RUN pnpm install --frozen-lockfile
 
 # ---- build: standalone Next.js output ----------------------------------------
 FROM deps AS build
-ENV STANDALONE=1 NEXT_TELEMETRY_DISABLED=1
+# NEXT_PUBLIC_* values are inlined into the bundle at build time (not read at
+# runtime), so they must be present HERE. Pass them as --build-arg; when absent
+# they fall back to the app's documented defaults (card languages off, site URL
+# localhost). Affiliate tags follow the same pattern if ever needed.
+ARG NEXT_PUBLIC_SITE_URL=""
+ARG NEXT_PUBLIC_CARD_LANGUAGES=""
+ENV STANDALONE=1 NEXT_TELEMETRY_DISABLED=1 \
+    NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL} \
+    NEXT_PUBLIC_CARD_LANGUAGES=${NEXT_PUBLIC_CARD_LANGUAGES}
 COPY . .
 RUN pnpm build
 
