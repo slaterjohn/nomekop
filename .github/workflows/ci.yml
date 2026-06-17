@@ -31,7 +31,13 @@ jobs:
         run: pnpm test
 
       - name: Build
+        # Hermetic build for the test job: the fixture data source means the SSG
+        # sitemap/OG prerender reads committed snapshots instead of the live (and
+        # in CI, unkeyed/flaky) pokémon API. The e2e server below runs in fixture
+        # mode too, so the prerendered content matches what the specs assert.
         run: pnpm build
+        env:
+          TCG_DATA_SOURCE: fixture
 
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium

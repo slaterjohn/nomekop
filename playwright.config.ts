@@ -37,6 +37,10 @@ export default defineConfig({
       // The boot splash is a full-screen overlay; skip it so specs aren't blocked
       // waiting for it to fade on every page load.
       DISABLE_SPLASH: "1",
+      // The PDF pipeline launches Chromium via Puppeteer; CI Linux runners have
+      // no usable sandbox, so without --no-sandbox the browser fails to launch
+      // and every PDF render 504s. lib/pdf.ts gates the flag on this env var.
+      PUPPETEER_NO_SANDBOX: "1",
     },
   },
 });
