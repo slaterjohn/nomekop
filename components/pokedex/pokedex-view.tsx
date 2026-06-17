@@ -17,6 +17,7 @@ import { PixelPokeball } from "@/components/gb/pixel-pokeball";
 import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguageSelect } from "@/components/binder/language-select";
 import { BinderShelf } from "@/components/builder/binder-shelf";
+import { cardLanguagesEnabled } from "@/lib/features";
 import { useDict } from "@/components/i18n/language-provider";
 import { format } from "@/lib/i18n/format";
 import { POCKET_PRESETS } from "@/lib/config";
@@ -177,7 +178,9 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
               </GbButton>
             ) : null}
           </div>
-          <LanguageSelect value={config.lang} onChange={changeLanguage} />
+          {cardLanguagesEnabled() ? (
+            <LanguageSelect value={config.lang} onChange={changeLanguage} />
+          ) : null}
           <p aria-live="polite" className="font-pixel text-[10px] uppercase leading-relaxed sm:text-xs">
             {format(dict.pokedex.stats, {
               count: entries.length,

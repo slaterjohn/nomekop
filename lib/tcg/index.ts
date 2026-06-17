@@ -16,6 +16,7 @@ import {
 import { localizedPokemonName } from "@/lib/tcg/pokemon-i18n";
 import { buildSetOverlay, EMPTY_OVERLAY, type SetOverlay } from "@/lib/sets-overlay";
 import { curatedEnglishSetName, curatedLinksFor } from "@/lib/set-links";
+import { cardLanguagesEnabled } from "@/lib/features";
 import { GENERATIONS, type GenerationId } from "@/lib/pokedex";
 import type { CardDataSource, CardWithSet, TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -74,7 +75,7 @@ export async function searchPokemonCards(
 ): Promise<CardWithSet[]> {
   const slug = name.trim().toLowerCase();
   const english = await englishPokemonCards(slug);
-  const others = langs.filter((l) => l !== "en");
+  const others = cardLanguagesEnabled() ? langs.filter((l) => l !== "en") : [];
   if (others.length === 0 || isFixtureMode()) return english;
   const dex = dominantDex(english);
   if (dex === undefined) return english;
@@ -103,7 +104,7 @@ export async function searchIllustratorCards(
 ): Promise<CardWithSet[]> {
   const slug = artist.trim().toLowerCase();
   const english = await englishIllustratorCards(slug);
-  const others = langs.filter((l) => l !== "en");
+  const others = cardLanguagesEnabled() ? langs.filter((l) => l !== "en") : [];
   if (others.length === 0 || isFixtureMode()) return english;
   const name = dominantArtist(english);
   if (!name) return english;
@@ -193,7 +194,7 @@ export async function localizedPrintsByDex(
   dex: number,
   langs: readonly string[],
 ): Promise<CardWithSet[]> {
-  const others = langs.filter((l) => l !== "en");
+  const others = cardLanguagesEnabled() ? langs.filter((l) => l !== "en") : [];
   if (others.length === 0 || isFixtureMode()) return [];
   const extra = await Promise.all(
     others.map(async (lang) => {
@@ -223,7 +224,9 @@ export function getLocalizedPokedexCards(
   lang: string,
 ): Promise<CardWithSet[]> {
   const range = GENERATIONS.find((g) => g.id === gen);
-  if (!range || lang === "en" || isFixtureMode()) return Promise.resolve([]);
+  if (!range || lang === "en" || isFixtureMode() || !cardLanguagesEnabled()) {
+    return Promise.resolve([]);
+  }
   return serverStore.getOrCompute(`pokedex:${gen}:${lang}`, CARDS_TTL_MS, async () => {
     const dexes = Array.from({ length: range.max - range.min + 1 }, (_, i) => range.min + i);
     const perDex = await Promise.all(
@@ -240,7 +243,7 @@ export function getLocalizedPokedexCards(
  * since the two sources' set ids differ. Empty for English / fixture mode.
  */
 export async function getSetOverlay(lang: string): Promise<SetOverlay> {
-  if (lang === "en" || isFixtureMode()) return EMPTY_OVERLAY;
+  if (lang === "en" || isFixtureMode() || !cardLanguagesEnabled()) return EMPTY_OVERLAY;
   const [english, tcgdexEn, tcgdexLang] = await Promise.all([
     getSets(),
     getLocalizedSets("en").catch(() => []),

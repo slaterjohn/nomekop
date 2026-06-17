@@ -42,5 +42,9 @@ next-env.d.ts
 
 # runtime caches & test artifacts
 .cache/
+.cache-capture/
 test-results/
 playwright-report/
+
+# promo-video sub-project — its own workspace (~200MB of renders/assets)
+/videos

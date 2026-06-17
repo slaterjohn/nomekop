@@ -6,6 +6,13 @@ import { BinderSkeleton } from "@/components/binder-skeleton";
 import { BackButton } from "@/components/back-button";
 import { decodePokedexToken, generationById, type PokedexConfig } from "@/lib/pokedex";
 import { getLocalizedPokedexCards, getPokedexCards } from "@/lib/tcg";
+import { cardLanguagesEnabled } from "@/lib/features";
+
+/** Force a Pokédex binder back to English when the multi-language feature is off,
+ *  so a stale/hand-typed localized token still renders instead of going empty. */
+function gateLang(config: PokedexConfig): PokedexConfig {
+  return cardLanguagesEnabled() ? config : { ...config, lang: "en" };
+}
 
 export const dynamic = "force-dynamic";
 
@@ -42,8 +49,9 @@ async function PokedexData({ config }: { config: PokedexConfig }) {
 /** The Pokédex binder for one generation, with the user's swaps applied. */
 export default async function PokedexPage({ params }: Props) {
   const { token } = await params;
-  const config = decodePokedexToken(decodeURIComponent(token));
-  if (!config) notFound();
+  const decoded = decodePokedexToken(decodeURIComponent(token));
+  if (!decoded) notFound();
+  const config = gateLang(decoded);
   const gen = generationById(config.gen)!;
 
   return (

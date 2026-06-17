@@ -6,6 +6,7 @@ import { BackButton } from "@/components/back-button";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { LocalizedSetBinderView } from "@/components/sets/localized-set-binder-view";
 import { getSetCards } from "@/lib/tcg/tcgdex";
+import { cardLanguagesEnabled } from "@/lib/features";
 import { isLanguage, languageByCode } from "@/lib/tcg/languages";
 
 export const dynamic = "force-dynamic";
@@ -45,6 +46,8 @@ async function LocalizedSetData({ lang, setId }: { lang: string; setId: string }
 
 /** A binder for one localized (non-English) set. */
 export default async function LocalizedSetPage({ params }: Props) {
+  // The whole localized-set route belongs to the multi-language card feature.
+  if (!cardLanguagesEnabled()) notFound();
   const { lang, setId } = await params;
   if (!isLanguage(lang) || lang === "en") notFound();
   if (!/^[A-Za-z0-9.-]{1,20}$/.test(setId)) notFound();

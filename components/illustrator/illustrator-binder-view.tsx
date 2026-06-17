@@ -10,6 +10,7 @@ import { BinderPreview } from "@/components/builder/binder-preview";
 import { BinderShelf } from "@/components/builder/binder-shelf";
 import { PdfButtons } from "@/components/pdf-buttons";
 import { LanguagePicker } from "@/components/binder/language-picker";
+import { cardLanguagesEnabled } from "@/lib/features";
 import { useDict } from "@/components/i18n/language-provider";
 import { format } from "@/lib/i18n/format";
 import { POCKET_PRESETS } from "@/lib/config";
@@ -124,7 +125,9 @@ export function IllustratorBinderView({
             />
           </div>
 
-          <LanguagePicker value={options.langs} onChange={changeLanguages} />
+          {cardLanguagesEnabled() ? (
+            <LanguagePicker value={options.langs} onChange={changeLanguages} />
+          ) : null}
 
           <p aria-live="polite" className="font-pixel text-[10px] uppercase leading-relaxed sm:text-xs">
             {format(dict.binder.pocketsToPages, { slots: layout.stats.slots, pages: layout.stats.pages })}

@@ -11,8 +11,15 @@ import {
   type IllustratorBinderOptions,
 } from "@/lib/illustrator-binder";
 import { searchIllustratorCards } from "@/lib/tcg";
+import { cardLanguagesEnabled } from "@/lib/features";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
+
+/** Drop any non-English card languages from a token when the feature is off, so
+ *  a hand-typed/stale multi-language URL still renders a clean English binder. */
+function gateLangs(options: IllustratorBinderOptions): IllustratorBinderOptions {
+  return cardLanguagesEnabled() ? options : { ...options, langs: ["en"] };
+}
 
 export const dynamic = "force-dynamic";
 
@@ -104,7 +111,7 @@ export default async function IllustratorBinderPage({ params }: Props) {
           />
         }
       >
-        <IllustratorBinderData slug={decoded.name} displayName={displayName} options={decoded.options} />
+        <IllustratorBinderData slug={decoded.name} displayName={displayName} options={gateLangs(decoded.options)} />
       </Suspense>
     </main>
   );

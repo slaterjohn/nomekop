@@ -1,10 +1,12 @@
 import { test, expect } from "@playwright/test";
 import { stubCardImages } from "./helpers";
 
-// The e2e server runs in fixture mode (no TCGdex), so these cover the
-// multilingual UI wiring — picker presence, the language locked on, and the
-// token/URL plumbing. Actual cross-language card mixing is verified against the
-// live TCGdex source separately.
+// The multi-language CARD feature (binder language pickers, the Pokédex language
+// swap, the /sets language overlay, the /lset route) is gated behind
+// NEXT_PUBLIC_CARD_LANGUAGES and OFF by default — so these specs assert it stays
+// hidden. App INTERFACE localisation (translating the UI itself) is a separate
+// concern and is covered as still-on at the bottom. To exercise the card
+// feature, build with NEXT_PUBLIC_CARD_LANGUAGES=1.
 
 test.beforeEach(async ({ page }) => {
   await stubCardImages(page);
@@ -16,57 +18,35 @@ test.beforeEach(async ({ page }) => {
   );
 });
 
-test("pokemon & illustrator binders offer a multi-language picker, English locked on", async ({
-  page,
-}) => {
+test("pokemon & illustrator binders hide the card-language picker by default", async ({ page }) => {
   for (const url of ["/pokemon/pikachu~34an", "/illustrator/ken-sugimori~34n"]) {
     await page.goto(url);
-    const picker = page.getByRole("group", { name: "Card languages" });
-    await expect(picker).toBeVisible();
-    const english = picker.getByRole("button", { name: /English/ });
-    await expect(english).toHaveAttribute("aria-pressed", "true");
-    // English can't be turned off — clicking it leaves it on.
-    await english.click();
-    await expect(english).toHaveAttribute("aria-pressed", "true");
-    await expect(picker.getByRole("button", { name: "Japanese" })).toHaveAttribute(
-      "aria-pressed",
-      "false",
-    );
+    // The binder still renders…
+    await expect(page.getByRole("group", { name: "Binder size" })).toBeVisible();
+    // …but the card-language picker is gone.
+    await expect(page.getByRole("group", { name: "Card languages" })).toHaveCount(0);
   }
 });
 
-test("pokemon binder: enabling Japanese writes the language into the token", async ({ page }) => {
-  await page.goto("/pokemon/pikachu~34an");
-  await page.getByRole("group", { name: "Card languages" }).getByRole("button", { name: "Japanese" }).click();
-  // Navigates (server re-fetches) to the en+ja token.
-  await expect(page).toHaveURL(/\/pokemon\/pikachu~34anej$/);
-  await expect(page.getByRole("button", { name: "Japanese" })).toHaveAttribute("aria-pressed", "true");
+test("a token carrying a non-English language still renders an English-only binder", async ({
+  page,
+}) => {
+  // `~34anej` = en+ja. With the feature off it must fall back to English and
+  // show no picker, rather than 404 or render a broken multi-language binder.
+  await page.goto("/pokemon/pikachu~34anej");
+  await expect(page.getByRole("group", { name: "Binder size" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Card languages" })).toHaveCount(0);
 });
 
-test("pokedex offers a single-language swap that navigates the whole binder", async ({ page }) => {
+test("pokedex hides the binder-language swap by default", async ({ page }) => {
   await page.goto("/pokedex/g1~55");
-  const select = page.getByRole("group", { name: "Binder language" });
-  await expect(select).toBeVisible();
-  await expect(select.getByRole("button", { name: "English" })).toHaveAttribute(
-    "aria-pressed",
-    "true",
-  );
-
-  // Swapping the language re-fetches the whole dex (one language at a time).
-  await select.getByRole("button", { name: /Japanese/i }).click();
-  await expect(page).toHaveURL(/\/pokedex\/g1~55j$/);
-  await expect(
-    page.getByRole("group", { name: "Binder language" }).getByRole("button", { name: /Japanese/i }),
-  ).toHaveAttribute("aria-pressed", "true");
-
-  // A direct visit to the localized token reproduces the selection.
-  await page.goto("/pokedex/g1~55j");
-  await expect(
-    page.getByRole("group", { name: "Binder language" }).getByRole("button", { name: /Japanese/i }),
-  ).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("group", { name: "Binder size" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Binder language" })).toHaveCount(0);
 });
 
-test("pokedex: an English custom pick rides in the token", async ({ page }) => {
+test("pokedex: an English custom pick still rides in the token (swap is not gated)", async ({
+  page,
+}) => {
   await page.goto("/pokedex/g1~55");
   await page.getByRole("button", { name: /^#25 .*click to swap/ }).click();
   const dialog = page.getByRole("dialog", { name: /#25 — pick a card/ });
@@ -75,7 +55,26 @@ test("pokedex: an English custom pick rides in the token", async ({ page }) => {
   await expect(page).toHaveURL(/\/pokedex\/g1~55~25\./);
 });
 
-test("settings: switching the app language re-renders the whole UI", async ({ page }) => {
+test("the localized-set route 404s when the feature is off", async ({ page }) => {
+  const response = await page.goto("/lset/ja/sv1");
+  expect(response?.status()).toBe(404);
+});
+
+test("sets: the language overlay select is hidden and ?lang is ignored", async ({ page }) => {
+  await page.goto("/sets");
+  await expect(page.getByRole("heading", { level: 1, name: /ALL SETS/i })).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Show sets in" })).toHaveCount(0);
+
+  // A direct ?lang=ja must not overlay anything — the plain English list shows,
+  // with no badge-explainer note.
+  await page.goto("/sets?lang=ja");
+  await expect(page.getByRole("combobox", { name: "Show sets in" })).toHaveCount(0);
+  await expect(page.getByText(/badge marks an English set that also exists/)).toHaveCount(0);
+});
+
+test("settings: switching the app language re-renders the whole UI (localisation stays on)", async ({
+  page,
+}) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
 
@@ -100,18 +99,4 @@ test("settings: switching the app language re-renders the whole UI", async ({ pa
   // The choice persists across navigation (it's in a cookie).
   await page.goto("/pokedex");
   await expect(page.locator("html")).toHaveAttribute("lang", "de");
-});
-
-test("sets: the language overlay select switches the list language", async ({ page }) => {
-  await page.goto("/sets");
-  const select = page.getByRole("combobox", { name: "Show sets in" });
-  await expect(select).toBeVisible();
-  await expect(select).toHaveValue("en");
-
-  // Choosing Japanese overlays the English list and explains the badges.
-  await select.selectOption("ja");
-  await expect(page).toHaveURL(/\/sets\?lang=ja/);
-  await expect(page.getByRole("heading", { level: 1, name: /ALL SETS/i })).toBeVisible();
-  await expect(page.getByText(/badge marks an English set that also exists in Japanese/)).toBeVisible();
-  await expect(page.getByRole("combobox", { name: "Show sets in" })).toHaveValue("ja");
 });

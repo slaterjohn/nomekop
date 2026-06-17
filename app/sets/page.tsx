@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SetOverlaySelect } from "@/components/sets/set-overlay-select";
 import { breadcrumbJsonLd, setsIndexJsonLd } from "@/lib/structured-data";
 import { getSets, getSetOverlay } from "@/lib/tcg";
+import { cardLanguagesEnabled } from "@/lib/features";
 import { isLanguage, languageByCode } from "@/lib/tcg/languages";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
@@ -95,7 +96,10 @@ type Props = { searchParams: Promise<{ lang?: string }> };
  *  own section. */
 export default async function SetsIndexPage({ searchParams }: Props) {
   const { lang: langParam } = await searchParams;
-  const lang = langParam && isLanguage(langParam) && langParam !== "en" ? langParam : "en";
+  const lang =
+    cardLanguagesEnabled() && langParam && isLanguage(langParam) && langParam !== "en"
+      ? langParam
+      : "en";
 
   const [{ dict }, sets, overlay] = await Promise.all([
     getServerDictionary(),
@@ -132,10 +136,12 @@ export default async function SetsIndexPage({ searchParams }: Props) {
         </p>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="font-pixel text-[10px] uppercase">{t.showInLanguage}</span>
-        <SetOverlaySelect value={lang} label={t.showInLanguage} />
-      </div>
+      {cardLanguagesEnabled() ? (
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-pixel text-[10px] uppercase">{t.showInLanguage}</span>
+          <SetOverlaySelect value={lang} label={t.showInLanguage} />
+        </div>
+      ) : null}
 
       {lang !== "en" && language ? (
         <p className="font-body text-lg leading-snug">

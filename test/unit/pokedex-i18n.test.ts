@@ -39,6 +39,10 @@ function tcgdexCard(id: string, lang = "ja"): CardWithSet {
 
 beforeEach(() => {
   vi.stubEnv("TCG_DATA_SOURCE", "live");
+  // These functions exercise the multi-language card feature, which is gated
+  // behind NEXT_PUBLIC_CARD_LANGUAGES — enable it here; the "feature gate" block
+  // below covers the off path.
+  vi.stubEnv("NEXT_PUBLIC_CARD_LANGUAGES", "1");
   searchByName.mockReset();
   localizedPokemonName.mockReset();
 });
@@ -87,6 +91,19 @@ describe("getLocalizedPokedexCards", () => {
   it("never touches the network for English or in fixture mode", async () => {
     expect(await getLocalizedPokedexCards("g1", "en")).toEqual([]);
     vi.stubEnv("TCG_DATA_SOURCE", "fixture");
+    expect(await getLocalizedPokedexCards("g1", "ja")).toEqual([]);
+    expect(searchByName).not.toHaveBeenCalled();
+    expect(localizedPokemonName).not.toHaveBeenCalled();
+  });
+});
+
+describe("feature gate (NEXT_PUBLIC_CARD_LANGUAGES off)", () => {
+  it("returns no localized cards and skips the network when the flag is off", async () => {
+    vi.stubEnv("NEXT_PUBLIC_CARD_LANGUAGES", "0");
+    localizedPokemonName.mockResolvedValue("リザードン");
+    searchByName.mockResolvedValue([tcgdexCard("SV2a-006")]);
+
+    expect(await localizedPrintsByDex(6, ["en", "ja"])).toEqual([]);
     expect(await getLocalizedPokedexCards("g1", "ja")).toEqual([]);
     expect(searchByName).not.toHaveBeenCalled();
     expect(localizedPokemonName).not.toHaveBeenCalled();

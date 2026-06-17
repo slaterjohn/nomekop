@@ -10,6 +10,7 @@ import {
   displayNameFromSlug,
 } from "@/lib/pokemon-binder";
 import { searchPokemonCards } from "@/lib/tcg";
+import { cardLanguagesEnabled } from "@/lib/features";
 import type { TcgSet } from "@/lib/tcg/types";
 
 export const metadata: Metadata = {
@@ -25,10 +26,11 @@ export default async function PrintPokemonPage({ searchParams }: Props) {
   const { t, view } = await searchParams;
   const decoded = t ? decodePokemonToken(decodeURIComponent(t)) : null;
   if (!decoded) notFound();
-  const cards = await searchPokemonCards(decoded.name, decoded.options.langs);
+  const options = cardLanguagesEnabled() ? decoded.options : { ...decoded.options, langs: ["en"] };
+  const cards = await searchPokemonCards(decoded.name, options.langs);
   if (cards.length === 0) notFound();
 
-  const layout = buildPokemonLayout(cards, decoded.options);
+  const layout = buildPokemonLayout(cards, options);
   const pseudoSet: TcgSet = {
     id: decoded.name,
     name: `${displayNameFromSlug(decoded.name)} — all prints`,
