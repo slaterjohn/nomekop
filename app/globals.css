@@ -70,6 +70,29 @@
     }
   }
 
+  /* Boot-splash safety net. The splash overlay's JS dismiss paths (timer, click,
+     key) only attach once the client bundle hydrates — so a blocked chunk (e.g. a
+     corporate firewall 403), offline load, or hydration crash would otherwise
+     strand the full-screen overlay forever, hiding the SSR page underneath. This
+     pure-CSS fade runs with no JS, holding the boot screen briefly then fading to
+     a non-interactive, hidden state (fill-mode: forwards) so the page is always
+     reachable. When JS works it dismisses first and drops this class. Note:
+     reduced-motion collapses this to ~instant (acceptable — the overlay just
+     clears immediately for those users). */
+  --animate-gb-splash-out: gb-splash-out 4s ease-out forwards;
+
+  @keyframes gb-splash-out {
+    0%,
+    65% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
   @keyframes gb-wobble {
     0%,
     100% {

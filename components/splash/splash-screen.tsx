@@ -63,6 +63,14 @@ export function SplashScreen({ disabled = false }: { disabled?: boolean }) {
       onClick={() => setHidden(true)}
       className={cn(
         "fixed inset-0 z-[200] flex cursor-pointer flex-col items-center justify-center gap-6 bg-gb-bg transition-opacity duration-500 print:hidden",
+        // JS-independent safety net: a pure-CSS timed fade-out (see
+        // `gb-splash-out` in globals.css). If the client bundle never loads or
+        // hydrates — a firewall-blocked chunk, offline, an extension, a hydration
+        // crash — none of the JS dismiss paths below attach, and without this the
+        // SSR overlay would block the (perfectly usable) server-rendered page
+        // forever. The JS timer/click/key are the fast path; this is the floor.
+        // Dropped once JS dismisses so the opacity transition above owns the fade.
+        !hidden && "animate-gb-splash-out",
         hidden && "pointer-events-none opacity-0",
       )}
       data-splash={hidden ? "out" : "in"}
