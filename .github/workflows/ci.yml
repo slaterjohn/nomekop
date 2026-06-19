@@ -38,6 +38,12 @@ jobs:
         run: pnpm build
         env:
           TCG_DATA_SOURCE: fixture
+          # Disable analytics in the e2e bundle. With a key, the consent banner
+          # renders as the first focusable element and steals the skip-link's
+          # first-Tab focus (keyboard.spec) — and e2e shouldn't talk to PostHog
+          # anyway. NEXT_PUBLIC_* is inlined at build, so it must be set HERE;
+          # empty string ⇒ analyticsEnabled() is false (no init, no banner).
+          NEXT_PUBLIC_POSTHOG_KEY: ""
 
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
