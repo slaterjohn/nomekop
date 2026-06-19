@@ -30,9 +30,9 @@
         "Special Illustration Rare": 6
       },
       "rarestCard": {
-        "id": "me4-121",
-        "name": "Roxie's Performance",
-        "number": "121",
+        "id": "me4-119",
+        "name": "Cinccino ex",
+        "number": "119",
         "rarity": "Special Illustration Rare"
       },
       "chaseCards": [
@@ -214,9 +214,9 @@
         "Double Rare": 9
       },
       "rarestCard": {
-        "id": "me3-123",
-        "name": "Rosa's Encouragement",
-        "number": "123",
+        "id": "me3-121",
+        "name": "Meowth ex",
+        "number": "121",
         "rarity": "Special Illustration Rare"
       },
       "chaseCards": [
@@ -531,11 +531,11 @@
         "Mega Hyper Rare": 1
       },
       "rarestCard": {
-        "id": "me2-129",
-        "name": "Dawn",
-        "number": "129",
+        "id": "me2-128",
+        "name": "Mega Lopunny ex",
+        "number": "128",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 29.25
+        "marketPrice": 21.13
       },
       "mostValuableCard": {
         "id": "me2-125",
@@ -742,11 +742,11 @@
         "Mega Hyper Rare": 2
       },
       "rarestCard": {
-        "id": "me1-186",
-        "name": "Wally's Compassion",
-        "number": "186",
+        "id": "me1-182",
+        "name": "Mega Kangaskhan ex",
+        "number": "182",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 23.43
+        "marketPrice": 69.98
       },
       "mostValuableCard": {
         "id": "me1-188",
@@ -967,11 +967,11 @@
         "Black White Rare": 1
       },
       "rarestCard": {
-        "id": "rsv10pt5-171",
-        "name": "Hilda",
-        "number": "171",
+        "id": "rsv10pt5-170",
+        "name": "Bouffalant ex",
+        "number": "170",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 65.66
+        "marketPrice": 17.63
       },
       "mostValuableCard": {
         "id": "rsv10pt5-173",
@@ -1164,11 +1164,11 @@
         "Black White Rare": 1
       },
       "rarestCard": {
-        "id": "zsv10pt5-170",
-        "name": "N's Plan",
-        "number": "170",
+        "id": "zsv10pt5-169",
+        "name": "Genesect ex",
+        "number": "169",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 74.13
+        "marketPrice": 47.27
       },
       "mostValuableCard": {
         "id": "zsv10pt5-171",
@@ -1347,11 +1347,11 @@
         "Hyper Rare": 6
       },
       "rarestCard": {
-        "id": "sv10-244",
-        "name": "Levincia",
-        "number": "244",
+        "id": "sv10-242",
+        "name": "Team Rocket's Crobat ex",
+        "number": "242",
         "rarity": "Hyper Rare",
-        "marketPrice": 9.8
+        "marketPrice": 17.7
       },
       "mostValuableCard": {
         "id": "sv10-231",
@@ -1593,11 +1593,11 @@
         "Hyper Rare": 3
       },
       "rarestCard": {
-        "id": "sv9-190",
-        "name": "Spiky Energy",
-        "number": "190",
+        "id": "sv9-189",
+        "name": "N's Zoroark ex",
+        "number": "189",
         "rarity": "Hyper Rare",
-        "marketPrice": 6.07
+        "marketPrice": 17.77
       },
       "mostValuableCard": {
         "id": "sv9-184",
@@ -2023,11 +2023,11 @@
         "Hyper Rare": 6
       },
       "rarestCard": {
-        "id": "sv8-252",
-        "name": "Jet Energy",
-        "number": "252",
+        "id": "sv8-248",
+        "name": "Alolan Exeggutor ex",
+        "number": "248",
         "rarity": "Hyper Rare",
-        "marketPrice": 5.28
+        "marketPrice": 10.86
       },
       "mostValuableCard": {
         "id": "sv8-238",
@@ -2242,11 +2242,11 @@
         "Hyper Rare": 3
       },
       "rarestCard": {
-        "id": "sv7-175",
-        "name": "Bravery Charm",
-        "number": "175",
+        "id": "sv7-173",
+        "name": "Terapagos ex",
+        "number": "173",
         "rarity": "Hyper Rare",
-        "marketPrice": 5.06
+        "marketPrice": 11.29
       },
       "mostValuableCard": {
         "id": "sv7-143",
@@ -2440,11 +2440,11 @@
         "Hyper Rare": 5
       },
       "rarestCard": {
-        "id": "sv6pt5-99",
-        "name": "Basic Metal Energy",
-        "number": "99",
+        "id": "sv6pt5-95",
+        "name": "Pecharunt ex",
+        "number": "95",
         "rarity": "Hyper Rare",
-        "marketPrice": 37.02
+        "marketPrice": 23.2
       },
       "mostValuableCard": {
         "id": "sv6pt5-78",
@@ -2596,11 +2596,11 @@
         "Hyper Rare": 6
       },
       "rarestCard": {
-        "id": "sv6-226",
-        "name": "Luminous Energy",
-        "number": "226",
+        "id": "sv6-222",
+        "name": "Bloodmoon Ursaluna ex",
+        "number": "222",
         "rarity": "Hyper Rare",
-        "marketPrice": 5.38
+        "marketPrice": 9.28
       },
       "mostValuableCard": {
         "id": "sv6-214",
@@ -3190,11 +3190,11 @@
         "Hyper Rare": 7
       },
       "rarestCard": {
-        "id": "sv4-266",
-        "name": "Reversal Energy",
-        "number": "266",
+        "id": "sv4-262",
+        "name": "Roaring Moon ex",
+        "number": "262",
         "rarity": "Hyper Rare",
-        "marketPrice": 3
+        "marketPrice": 7.19
       },
       "mostValuableCard": {
         "id": "sv4-199",
@@ -3359,11 +3359,11 @@
         "Hyper Rare": 3
       },
       "rarestCard": {
-        "id": "sv3pt5-207",
-        "name": "Basic Psychic Energy",
-        "number": "207",
+        "id": "sv3pt5-205",
+        "name": "Mew ex",
+        "number": "205",
         "rarity": "Hyper Rare",
-        "marketPrice": 5.99
+        "marketPrice": 34.47
       },
       "mostValuableCard": {
         "id": "sv3pt5-199",
@@ -3570,11 +3570,11 @@
         "Hyper Rare": 3
       },
       "rarestCard": {
-        "id": "sv3-230",
-        "name": "Basic Fire Energy",
-        "number": "230",
+        "id": "sv3-228",
+        "name": "Charizard ex",
+        "number": "228",
         "rarity": "Hyper Rare",
-        "marketPrice": 4.16
+        "marketPrice": 46.27
       },
       "mostValuableCard": {
         "id": "sv3-223",
@@ -3760,11 +3760,11 @@
         "Hyper Rare": 9
       },
       "rarestCard": {
-        "id": "sv2-279",
-        "name": "Basic Water Energy",
-        "number": "279",
+        "id": "sv2-275",
+        "name": "Ting-Lu ex",
+        "number": "275",
         "rarity": "Hyper Rare",
-        "marketPrice": 14.72
+        "marketPrice": 4.28
       },
       "mostValuableCard": {
         "id": "sv2-203",

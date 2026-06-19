@@ -98,11 +98,15 @@ export function rarityHistogram(cards) {
   return out;
 }
 
-/** Rarest by rank; ties broken by higher collector number, then market price. */
+/** Rarest by rank; ties broken by Pokémon preference (so a chase Pokémon wins
+ *  over a same-rarity gold Basic Energy), then higher collector number, then
+ *  market price. Still strictly rarity-led — the top rarity rank always wins. */
 export function rarestOf(cards) {
   const best = [...cards].sort((a, b) => {
     const r = rarityRank(b.rarity) - rarityRank(a.rarity);
     if (r) return r;
+    const p = (b.supertype === "Pokémon" ? 1 : 0) - (a.supertype === "Pokémon" ? 1 : 0);
+    if (p) return p;
     const n = numberValue(b.number) - numberValue(a.number);
     if (n) return n;
     return (marketPriceOf(b) ?? 0) - (marketPriceOf(a) ?? 0);
