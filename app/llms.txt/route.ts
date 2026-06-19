@@ -1,4 +1,5 @@
 import { ARTICLES } from "@/lib/content/articles";
+import { FAQ_PAGES } from "@/lib/content/faqs/registry";
 import { SITE_DESCRIPTION, siteUrl } from "@/lib/site";
 import { STATS_AS_OF } from "@/lib/content/stats";
 
@@ -29,6 +30,7 @@ export function GET(): Response {
     `- [Illustrator binders](${base}/illustrator): every card drawn by one artist.`,
     `- [All sets](${base}/sets): every expansion with card lists, page counts and printables.`,
     `- [Fun facts](${base}/facts): data-driven Pokémon TCG trivia.`,
+    `- [Set FAQs](${base}/faqs): per-set answers — card counts, master sets, binder sizes, rarest & chase cards.`,
     `- [Legal & credits](${base}/legal): data sources and disclaimers.`,
     "",
     "## Data freshness",
@@ -39,6 +41,11 @@ export function GET(): Response {
     "## Fun-fact articles (each has a Markdown version)",
     ...ARTICLES.map(
       (a) => `- [${a.question}](${base}/facts/${a.slug}): ${a.description} Markdown: ${base}/facts/${a.slug}/markdown`,
+    ),
+    "",
+    "## Per-set FAQ pages (each has a Markdown version)",
+    ...FAQ_PAGES.map(
+      (p) => `- [${p.question}](${base}/faqs/${p.slug}): ${p.description} Markdown: ${base}/faqs/${p.slug}/markdown`,
     ),
     "",
   ];
