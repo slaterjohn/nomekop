@@ -19,6 +19,7 @@ export const en = {
     illustrators: "Illustrators",
     allSets: "All sets",
     funFacts: "Fun facts",
+    faqs: "Set FAQs",
     legal: "Legal & credits",
     disclaimer: "NOMEKOP · A fan-made tool · Not affiliated with Nintendo / The Pokémon Company",
   },

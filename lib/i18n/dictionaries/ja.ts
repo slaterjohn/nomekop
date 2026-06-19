@@ -16,6 +16,7 @@ export const ja: Dictionary = {
     illustrators: "イラストレーター",
     allSets: "全セット",
     funFacts: "豆知識",
+    faqs: "セットFAQ",
     legal: "法的情報＆クレジット",
     disclaimer: "NOMEKOP · ファン制作ツール · Nintendo / The Pokémon Company とは無関係です",
   },

@@ -16,6 +16,7 @@ export const it: Dictionary = {
     illustrators: "Illustratori",
     allSets: "Tutti i set",
     funFacts: "Curiosità",
+    faqs: "FAQ dei set",
     legal: "Note legali e crediti",
     disclaimer: "NOMEKOP · Uno strumento amatoriale · Non affiliato con Nintendo / The Pokémon Company",
   },

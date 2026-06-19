@@ -15,6 +15,7 @@ export function SiteFooter() {
     { href: "/illustrator", label: dict.footer.illustrators },
     { href: "/sets", label: dict.footer.allSets },
     { href: "/facts", label: dict.footer.funFacts },
+    { href: "/faqs", label: dict.footer.faqs },
     { href: "/legal", label: dict.footer.legal },
   ];
   return (

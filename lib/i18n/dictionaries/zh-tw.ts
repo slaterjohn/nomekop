@@ -16,6 +16,7 @@ export const zhTw: Dictionary = {
     illustrators: "插畫家",
     allSets: "所有系列",
     funFacts: "趣味小知識",
+    faqs: "套組常見問題",
     legal: "法律聲明與致謝",
     disclaimer: "NOMEKOP · 粉絲自製工具 · 與 Nintendo / The Pokémon Company 無關",
   },
