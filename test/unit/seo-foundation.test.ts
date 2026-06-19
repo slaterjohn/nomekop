@@ -3,6 +3,11 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import robots from "@/app/robots";
 import sitemap, { generateSitemaps } from "@/app/sitemap";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
+import { FAQ_PAGES } from "@/lib/content/faqs/registry";
+
+// The /faqs index plus each FAQ page's detail + Markdown companion all land in
+// the core shard (see app/sitemap.ts).
+const FAQ_SITEMAP_ENTRIES = 1 + FAQ_PAGES.length * 2;
 
 // Fixture snapshots: 173 sets; card data for base1 (102 cards), sv1 and sv8pt5.
 const FIXTURE_SET_COUNT = 173;
@@ -91,8 +96,9 @@ describe("sitemap (core shard)", () => {
     expect(urls).toContain(`${BASE}/facts`);
     expect(urls.filter((url) => url.includes("/set/"))).toHaveLength(FIXTURE_SET_COUNT);
     // home, build, sets, pokedex, pokemon, illustrator, legal, /facts + 6 fact
-    // articles + 6 article Markdown companions + 9 gen tokens = 29 static entries.
-    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 29);
+    // articles + 6 article Markdown companions + 9 gen tokens = 29 static entries,
+    // plus the /faqs index and every FAQ detail + Markdown companion.
+    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 29 + FAQ_SITEMAP_ENTRIES);
     for (const url of urls) {
       expect(url.startsWith(`${BASE}/`)).toBe(true);
     }
