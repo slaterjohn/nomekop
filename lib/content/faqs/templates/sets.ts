@@ -1,6 +1,6 @@
 import type { FaqPage, FaqSetFacts } from "@/lib/content/faqs/types";
 import { setFaqSlug } from "@/lib/content/faqs/slug";
-import { num, pocketTable, recommendSentence } from "@/lib/content/faqs/format";
+import { num, pocketTable, possessive } from "@/lib/content/faqs/format";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -23,7 +23,7 @@ export function binderSizePage(s: FaqSetFacts): FaqPage {
     `**${description}**`,
     "",
     `Nine-pocket binders are the collector default — they show a full 3×3 spread and sleeve ` +
-      `${s.name}'s ${num(s.printedTotal)} base cards neatly. Here's the page count per size:`,
+      `${possessive(s.name)} ${num(s.printedTotal)} base cards neatly. Here's the page count per size:`,
     "",
     `**Base set (${num(s.printedTotal)} cards):**`,
     pocketTable(s.printedTotal),
@@ -31,7 +31,7 @@ export function binderSizePage(s: FaqSetFacts): FaqPage {
     `**Master set (${num(s.masterSetCount)} cards):**`,
     pocketTable(s.masterSetCount),
     "",
-    recommendSentence(s.printedTotal, `the ${s.name} base set`),
+    `In a 9-pocket binder, the base set fills ${num(Math.ceil(s.printedTotal / 9))} pages, and a full master set needs ${num(Math.ceil(s.masterSetCount / 9))}.`,
     "",
     "Figures from the pokemontcg.io dataset, as of June 2026.",
   ].join("\n");

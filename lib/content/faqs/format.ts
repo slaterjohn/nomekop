@@ -1,8 +1,13 @@
-import { evaluatePresets, recommendPreset } from "@/lib/binders";
+import { evaluatePresets } from "@/lib/binders";
 import type { FaqCardRef } from "@/lib/content/faqs/types";
 
 export function num(n: number): string {
   return n.toLocaleString("en-US");
+}
+
+/** Possessive form of a name, avoiding "…s's" for names ending in "s". */
+export function possessive(name: string): string {
+  return /s$/i.test(name) ? `${name}'` : `${name}'s`;
 }
 
 export function money(n: number): string {
@@ -19,13 +24,4 @@ export function pocketTable(slots: number): string {
     (p) => `| ${p.pockets}-pocket | ${p.pages} |`,
   );
   return ["| Binder | Pages |", "| --- | --- |", ...rows].join("\n");
-}
-
-/** Plain-English recommendation sentence for a slot count. */
-export function recommendSentence(slots: number, label: string): string {
-  const r = recommendPreset(slots);
-  return (
-    `For ${label} you'll want a **${r.pockets}-pocket binder**: that's ${r.pages} ` +
-    `pages${r.binders > 1 ? ` across ${r.binders} binders` : ""}.`
-  );
 }
