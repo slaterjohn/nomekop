@@ -1,6 +1,6 @@
 import type { FaqPage, FaqSetFacts } from "@/lib/content/faqs/types";
 import { setFaqSlug } from "@/lib/content/faqs/slug";
-import { money, cardLabel } from "@/lib/content/faqs/format";
+import { money, cardLabel, possessive } from "@/lib/content/faqs/format";
 
 const NOTE = "Figures are from the pokemontcg.io dataset (TCGplayer pricing), as of June 2026.";
 
@@ -13,11 +13,11 @@ export function rarestCardPage(s: FaqSetFacts): FaqPage {
     s.mostValuableCard && s.mostValuableCard.id !== c.id
       ? `Rarity and price don't always line up — by market value, the priciest card is ` +
         `${cardLabel(s.mostValuableCard)}.`
-      : "It's also the set's headline chase card.";
+      : "It's also one of the set's most sought-after pulls.";
   const body = [
     `**${description}**`,
     "",
-    `${c.name} sits at the top of ${s.name}'s rarity ladder${c.rarity ? ` as a ${c.rarity}` : ""}, ` +
+    `${c.name} sits at the top of ${possessive(s.name)} rarity ladder${c.rarity ? ` as a ${c.rarity}` : ""}, ` +
       `numbered #${c.number}. ${valuableLine}`,
     "",
     NOTE,
@@ -81,8 +81,8 @@ export function chaseCardsPage(s: FaqSetFacts): FaqPage {
     "",
     list,
     "",
-    `${lead.name} is the one most collectors open packs for. ` +
-      (s.mostValuableCard ? `By price, ${cardLabel(s.mostValuableCard)} leads the set.` : ""),
+    `${lead.name} is the one most collectors open packs for.` +
+      (s.mostValuableCard ? ` By price, ${cardLabel(s.mostValuableCard)} leads the set.` : ""),
     "",
     NOTE,
   ].join("\n");

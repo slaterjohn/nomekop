@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { num, money, pocketTable, cardLabel } from "@/lib/content/faqs/format";
+import { num, money, pocketTable, cardLabel, possessive } from "@/lib/content/faqs/format";
 
 describe("faq formatting helpers", () => {
   it("formats integers with thousands separators", () => {
@@ -17,5 +17,9 @@ describe("faq formatting helpers", () => {
   });
   it("labels a card as name + number", () => {
     expect(cardLabel({ id: "x", name: "Umbreon ex", number: "161" })).toBe("Umbreon ex (#161)");
+  });
+  it("forms a possessive that avoids \"…s's\" for names ending in s", () => {
+    expect(possessive("Prismatic Evolutions")).toBe("Prismatic Evolutions'");
+    expect(possessive("151")).toBe("151's");
   });
 });
