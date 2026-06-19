@@ -553,6 +553,20 @@
           "marketPrice": 799.71
         },
         {
+          "id": "me2-130",
+          "name": "Mega Charizard X ex",
+          "number": "130",
+          "rarity": "Mega Hyper Rare",
+          "marketPrice": 367.95
+        },
+        {
+          "id": "me2-109",
+          "name": "Mega Charizard X ex",
+          "number": "109",
+          "rarity": "Ultra Rare",
+          "marketPrice": 36.89
+        },
+        {
           "id": "me2-129",
           "name": "Dawn",
           "number": "129",
@@ -560,32 +574,18 @@
           "marketPrice": 29.25
         },
         {
-          "id": "me2-127",
-          "name": "Mega Sharpedo ex",
-          "number": "127",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 24.28
-        },
-        {
-          "id": "me2-128",
-          "name": "Mega Lopunny ex",
-          "number": "128",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 21.13
-        },
-        {
-          "id": "me2-126",
-          "name": "Rotom ex",
-          "number": "126",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 21.02
-        },
-        {
           "id": "me2-106",
           "name": "Meowth",
           "number": "106",
           "rarity": "Illustration Rare",
           "marketPrice": 24.62
+        },
+        {
+          "id": "me2-127",
+          "name": "Mega Sharpedo ex",
+          "number": "127",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 24.28
         }
       ],
       "marqueePokemon": [
@@ -613,6 +613,19 @@
               "number": "125",
               "rarity": "Special Illustration Rare",
               "marketPrice": 799.71
+            }
+          ]
+        },
+        {
+          "slug": "meowth",
+          "displayName": "Meowth",
+          "cards": [
+            {
+              "id": "me2-106",
+              "name": "Meowth",
+              "number": "106",
+              "rarity": "Illustration Rare",
+              "marketPrice": 24.62
             }
           ]
         },
@@ -696,19 +709,6 @@
               "marketPrice": 21.02
             }
           ]
-        },
-        {
-          "slug": "meowth",
-          "displayName": "Meowth",
-          "cards": [
-            {
-              "id": "me2-106",
-              "name": "Meowth",
-              "number": "106",
-              "rarity": "Illustration Rare",
-              "marketPrice": 24.62
-            }
-          ]
         }
       ],
       "sizeRankAmongRecent": 14
@@ -757,11 +757,25 @@
       },
       "chaseCards": [
         {
+          "id": "me1-188",
+          "name": "Mega Lucario ex",
+          "number": "188",
+          "rarity": "Mega Hyper Rare",
+          "marketPrice": 267.38
+        },
+        {
           "id": "me1-179",
           "name": "Mega Lucario ex",
           "number": "179",
           "rarity": "Special Illustration Rare",
           "marketPrice": 242.26
+        },
+        {
+          "id": "me1-187",
+          "name": "Mega Gardevoir ex",
+          "number": "187",
+          "rarity": "Mega Hyper Rare",
+          "marketPrice": 227.03
         },
         {
           "id": "me1-178",
@@ -783,20 +797,6 @@
           "number": "181",
           "rarity": "Special Illustration Rare",
           "marketPrice": 97.51
-        },
-        {
-          "id": "me1-184",
-          "name": "Lillie's Determination",
-          "number": "184",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 73.8
-        },
-        {
-          "id": "me1-180",
-          "name": "Mega Absol ex",
-          "number": "180",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 71.02
         }
       ],
       "marqueePokemon": [
@@ -982,11 +982,32 @@
       },
       "chaseCards": [
         {
+          "id": "rsv10pt5-173",
+          "name": "Reshiram ex",
+          "number": "173",
+          "rarity": "Black White Rare",
+          "marketPrice": 478.12
+        },
+        {
+          "id": "rsv10pt5-172",
+          "name": "Victini",
+          "number": "172",
+          "rarity": "Rare",
+          "marketPrice": 468.16
+        },
+        {
           "id": "rsv10pt5-166",
           "name": "Reshiram ex",
           "number": "166",
           "rarity": "Special Illustration Rare",
           "marketPrice": 211.81
+        },
+        {
+          "id": "rsv10pt5-105",
+          "name": "Oshawott",
+          "number": "105",
+          "rarity": "Illustration Rare",
+          "marketPrice": 93.39
         },
         {
           "id": "rsv10pt5-169",
@@ -996,32 +1017,11 @@
           "marketPrice": 85.57
         },
         {
-          "id": "rsv10pt5-167",
-          "name": "Keldeo ex",
-          "number": "167",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 77.42
-        },
-        {
-          "id": "rsv10pt5-171",
-          "name": "Hilda",
-          "number": "171",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 65.66
-        },
-        {
-          "id": "rsv10pt5-168",
-          "name": "Jellicent ex",
-          "number": "168",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 30.31
-        },
-        {
-          "id": "rsv10pt5-165",
-          "name": "Whimsicott ex",
-          "number": "165",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 28.91
+          "id": "rsv10pt5-143",
+          "name": "Zoroark",
+          "number": "143",
+          "rarity": "Illustration Rare",
+          "marketPrice": 81.11
         }
       ],
       "marqueePokemon": [
@@ -1053,6 +1053,19 @@
           ]
         },
         {
+          "slug": "oshawott",
+          "displayName": "Oshawott",
+          "cards": [
+            {
+              "id": "rsv10pt5-105",
+              "name": "Oshawott",
+              "number": "105",
+              "rarity": "Illustration Rare",
+              "marketPrice": 93.39
+            }
+          ]
+        },
+        {
           "slug": "hydreigon",
           "displayName": "Hydreigon",
           "cards": [
@@ -1080,6 +1093,19 @@
           ]
         },
         {
+          "slug": "zoroark",
+          "displayName": "Zoroark",
+          "cards": [
+            {
+              "id": "rsv10pt5-143",
+              "name": "Zoroark",
+              "number": "143",
+              "rarity": "Illustration Rare",
+              "marketPrice": 81.11
+            }
+          ]
+        },
+        {
           "slug": "keldeo",
           "displayName": "Keldeo",
           "cards": [
@@ -1103,60 +1129,6 @@
               "number": "167",
               "rarity": "Special Illustration Rare",
               "marketPrice": 77.42
-            }
-          ]
-        },
-        {
-          "slug": "jellicent",
-          "displayName": "Jellicent",
-          "cards": [
-            {
-              "id": "rsv10pt5-45",
-              "name": "Jellicent ex",
-              "number": "45",
-              "rarity": "Double Rare",
-              "marketPrice": 0.53
-            },
-            {
-              "id": "rsv10pt5-160",
-              "name": "Jellicent ex",
-              "number": "160",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.2
-            },
-            {
-              "id": "rsv10pt5-168",
-              "name": "Jellicent ex",
-              "number": "168",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 30.31
-            }
-          ]
-        },
-        {
-          "slug": "whimsicott",
-          "displayName": "Whimsicott",
-          "cards": [
-            {
-              "id": "rsv10pt5-5",
-              "name": "Whimsicott ex",
-              "number": "5",
-              "rarity": "Double Rare",
-              "marketPrice": 0.55
-            },
-            {
-              "id": "rsv10pt5-157",
-              "name": "Whimsicott ex",
-              "number": "157",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.37
-            },
-            {
-              "id": "rsv10pt5-165",
-              "name": "Whimsicott ex",
-              "number": "165",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 28.91
             }
           ]
         }
@@ -1207,11 +1179,32 @@
       },
       "chaseCards": [
         {
+          "id": "zsv10pt5-171",
+          "name": "Victini",
+          "number": "171",
+          "rarity": "Rare",
+          "marketPrice": 576.63
+        },
+        {
+          "id": "zsv10pt5-172",
+          "name": "Zekrom ex",
+          "number": "172",
+          "rarity": "Black White Rare",
+          "marketPrice": 541
+        },
+        {
           "id": "zsv10pt5-166",
           "name": "Zekrom ex",
           "number": "166",
           "rarity": "Special Illustration Rare",
           "marketPrice": 273.53
+        },
+        {
+          "id": "zsv10pt5-105",
+          "name": "Seismitoad",
+          "number": "105",
+          "rarity": "Illustration Rare",
+          "marketPrice": 235.7
         },
         {
           "id": "zsv10pt5-165",
@@ -1221,32 +1214,11 @@
           "marketPrice": 82.12
         },
         {
-          "id": "zsv10pt5-170",
-          "name": "N's Plan",
-          "number": "170",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 74.13
-        },
-        {
-          "id": "zsv10pt5-164",
-          "name": "Serperior ex",
-          "number": "164",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 57.83
-        },
-        {
-          "id": "zsv10pt5-169",
-          "name": "Genesect ex",
-          "number": "169",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 47.27
-        },
-        {
-          "id": "zsv10pt5-167",
-          "name": "Meloetta ex",
-          "number": "167",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 43.39
+          "id": "zsv10pt5-147",
+          "name": "Haxorus",
+          "number": "147",
+          "rarity": "Illustration Rare",
+          "marketPrice": 75.74
         }
       ],
       "marqueePokemon": [
@@ -1278,6 +1250,19 @@
           ]
         },
         {
+          "slug": "seismitoad",
+          "displayName": "Seismitoad",
+          "cards": [
+            {
+              "id": "zsv10pt5-105",
+              "name": "Seismitoad",
+              "number": "105",
+              "rarity": "Illustration Rare",
+              "marketPrice": 235.7
+            }
+          ]
+        },
+        {
           "slug": "kyurem",
           "displayName": "Kyurem",
           "cards": [
@@ -1305,83 +1290,28 @@
           ]
         },
         {
-          "slug": "serperior",
-          "displayName": "Serperior",
+          "slug": "haxorus",
+          "displayName": "Haxorus",
           "cards": [
             {
-              "id": "zsv10pt5-3",
-              "name": "Serperior ex",
-              "number": "3",
-              "rarity": "Double Rare",
-              "marketPrice": 0.62
-            },
-            {
-              "id": "zsv10pt5-156",
-              "name": "Serperior ex",
-              "number": "156",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.19
-            },
-            {
-              "id": "zsv10pt5-164",
-              "name": "Serperior ex",
-              "number": "164",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 57.83
+              "id": "zsv10pt5-147",
+              "name": "Haxorus",
+              "number": "147",
+              "rarity": "Illustration Rare",
+              "marketPrice": 75.74
             }
           ]
         },
         {
-          "slug": "genesect",
-          "displayName": "Genesect",
+          "slug": "volcarona",
+          "displayName": "Volcarona",
           "cards": [
             {
-              "id": "zsv10pt5-67",
-              "name": "Genesect ex",
-              "number": "67",
-              "rarity": "Double Rare",
-              "marketPrice": 0.92
-            },
-            {
-              "id": "zsv10pt5-161",
-              "name": "Genesect ex",
-              "number": "161",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.85
-            },
-            {
-              "id": "zsv10pt5-169",
-              "name": "Genesect ex",
-              "number": "169",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 47.27
-            }
-          ]
-        },
-        {
-          "slug": "meloetta",
-          "displayName": "Meloetta",
-          "cards": [
-            {
-              "id": "zsv10pt5-44",
-              "name": "Meloetta ex",
-              "number": "44",
-              "rarity": "Double Rare",
-              "marketPrice": 0.54
-            },
-            {
-              "id": "zsv10pt5-159",
-              "name": "Meloetta ex",
-              "number": "159",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.6
-            },
-            {
-              "id": "zsv10pt5-167",
-              "name": "Meloetta ex",
-              "number": "167",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 43.39
+              "id": "zsv10pt5-100",
+              "name": "Volcarona",
+              "number": "100",
+              "rarity": "Illustration Rare",
+              "marketPrice": 62.86
             }
           ]
         }
@@ -1432,46 +1362,46 @@
       },
       "chaseCards": [
         {
-          "id": "sv10-240",
+          "id": "sv10-231",
           "name": "Team Rocket's Mewtwo ex",
-          "number": "240",
-          "rarity": "Hyper Rare",
-          "marketPrice": 73.06
+          "number": "231",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 566.14
         },
         {
-          "id": "sv10-241",
+          "id": "sv10-232",
           "name": "Cynthia's Garchomp ex",
-          "number": "241",
-          "rarity": "Hyper Rare",
-          "marketPrice": 34.84
+          "number": "232",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 289.98
         },
         {
-          "id": "sv10-239",
+          "id": "sv10-230",
           "name": "Ethan's Ho-Oh ex",
-          "number": "239",
-          "rarity": "Hyper Rare",
-          "marketPrice": 29.51
+          "number": "230",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 196.98
         },
         {
-          "id": "sv10-242",
+          "id": "sv10-233",
+          "name": "Team Rocket's Nidoking ex",
+          "number": "233",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 127.52
+        },
+        {
+          "id": "sv10-229",
+          "name": "Team Rocket's Moltres ex",
+          "number": "229",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 124.09
+        },
+        {
+          "id": "sv10-234",
           "name": "Team Rocket's Crobat ex",
-          "number": "242",
-          "rarity": "Hyper Rare",
-          "marketPrice": 17.7
-        },
-        {
-          "id": "sv10-243",
-          "name": "Jamming Tower",
-          "number": "243",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.59
-        },
-        {
-          "id": "sv10-244",
-          "name": "Levincia",
-          "number": "244",
-          "rarity": "Hyper Rare",
-          "marketPrice": 9.8
+          "number": "234",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 81.55
         }
       ],
       "marqueePokemon": [
@@ -1578,40 +1508,6 @@
           ]
         },
         {
-          "slug": "team-rockets-crobat",
-          "displayName": "Team Rocket's Crobat",
-          "cards": [
-            {
-              "id": "sv10-122",
-              "name": "Team Rocket's Crobat ex",
-              "number": "122",
-              "rarity": "Double Rare",
-              "marketPrice": 0.53
-            },
-            {
-              "id": "sv10-217",
-              "name": "Team Rocket's Crobat ex",
-              "number": "217",
-              "rarity": "Ultra Rare",
-              "marketPrice": 3.11
-            },
-            {
-              "id": "sv10-234",
-              "name": "Team Rocket's Crobat ex",
-              "number": "234",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 81.55
-            },
-            {
-              "id": "sv10-242",
-              "name": "Team Rocket's Crobat ex",
-              "number": "242",
-              "rarity": "Hyper Rare",
-              "marketPrice": 17.7
-            }
-          ]
-        },
-        {
           "slug": "team-rockets-nidoking",
           "displayName": "Team Rocket's Nidoking",
           "cards": [
@@ -1635,6 +1531,33 @@
               "number": "233",
               "rarity": "Special Illustration Rare",
               "marketPrice": 127.52
+            }
+          ]
+        },
+        {
+          "slug": "team-rockets-moltres",
+          "displayName": "Team Rocket's Moltres",
+          "cards": [
+            {
+              "id": "sv10-31",
+              "name": "Team Rocket's Moltres ex",
+              "number": "31",
+              "rarity": "Double Rare",
+              "marketPrice": 0.76
+            },
+            {
+              "id": "sv10-208",
+              "name": "Team Rocket's Moltres ex",
+              "number": "208",
+              "rarity": "Ultra Rare",
+              "marketPrice": 5.67
+            },
+            {
+              "id": "sv10-229",
+              "name": "Team Rocket's Moltres ex",
+              "number": "229",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 124.09
             }
           ]
         }
@@ -1685,27 +1608,6 @@
       },
       "chaseCards": [
         {
-          "id": "sv9-188",
-          "name": "Iono's Bellibolt ex",
-          "number": "188",
-          "rarity": "Hyper Rare",
-          "marketPrice": 19.4
-        },
-        {
-          "id": "sv9-189",
-          "name": "N's Zoroark ex",
-          "number": "189",
-          "rarity": "Hyper Rare",
-          "marketPrice": 17.77
-        },
-        {
-          "id": "sv9-190",
-          "name": "Spiky Energy",
-          "number": "190",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.07
-        },
-        {
           "id": "sv9-184",
           "name": "Lillie's Clefairy ex",
           "number": "184",
@@ -1725,9 +1627,84 @@
           "number": "185",
           "rarity": "Special Illustration Rare",
           "marketPrice": 52.52
+        },
+        {
+          "id": "sv9-183",
+          "name": "Iono's Bellibolt ex",
+          "number": "183",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 45.12
+        },
+        {
+          "id": "sv9-186",
+          "name": "Hop's Zacian ex",
+          "number": "186",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 38.4
+        },
+        {
+          "id": "sv9-161",
+          "name": "Articuno",
+          "number": "161",
+          "rarity": "Illustration Rare",
+          "marketPrice": 28.55
         }
       ],
       "marqueePokemon": [
+        {
+          "slug": "lillies-clefairy",
+          "displayName": "Lillie's Clefairy",
+          "cards": [
+            {
+              "id": "sv9-56",
+              "name": "Lillie's Clefairy ex",
+              "number": "56",
+              "rarity": "Double Rare",
+              "marketPrice": 2.26
+            },
+            {
+              "id": "sv9-173",
+              "name": "Lillie's Clefairy ex",
+              "number": "173",
+              "rarity": "Ultra Rare",
+              "marketPrice": 9.14
+            },
+            {
+              "id": "sv9-184",
+              "name": "Lillie's Clefairy ex",
+              "number": "184",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 126.71
+            }
+          ]
+        },
+        {
+          "slug": "salamence",
+          "displayName": "Salamence",
+          "cards": [
+            {
+              "id": "sv9-114",
+              "name": "Salamence ex",
+              "number": "114",
+              "rarity": "Double Rare",
+              "marketPrice": 0.73
+            },
+            {
+              "id": "sv9-177",
+              "name": "Salamence ex",
+              "number": "177",
+              "rarity": "Ultra Rare",
+              "marketPrice": 2.35
+            },
+            {
+              "id": "sv9-187",
+              "name": "Salamence ex",
+              "number": "187",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 71.75
+            }
+          ]
+        },
         {
           "slug": "ns-zoroark",
           "displayName": "N's Zoroark",
@@ -1793,60 +1770,6 @@
               "number": "188",
               "rarity": "Hyper Rare",
               "marketPrice": 19.4
-            }
-          ]
-        },
-        {
-          "slug": "lillies-clefairy",
-          "displayName": "Lillie's Clefairy",
-          "cards": [
-            {
-              "id": "sv9-56",
-              "name": "Lillie's Clefairy ex",
-              "number": "56",
-              "rarity": "Double Rare",
-              "marketPrice": 2.26
-            },
-            {
-              "id": "sv9-173",
-              "name": "Lillie's Clefairy ex",
-              "number": "173",
-              "rarity": "Ultra Rare",
-              "marketPrice": 9.14
-            },
-            {
-              "id": "sv9-184",
-              "name": "Lillie's Clefairy ex",
-              "number": "184",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 126.71
-            }
-          ]
-        },
-        {
-          "slug": "salamence",
-          "displayName": "Salamence",
-          "cards": [
-            {
-              "id": "sv9-114",
-              "name": "Salamence ex",
-              "number": "114",
-              "rarity": "Double Rare",
-              "marketPrice": 0.73
-            },
-            {
-              "id": "sv9-177",
-              "name": "Salamence ex",
-              "number": "177",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.35
-            },
-            {
-              "id": "sv9-187",
-              "name": "Salamence ex",
-              "number": "187",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 71.75
             }
           ]
         },
@@ -1924,146 +1847,146 @@
       },
       "chaseCards": [
         {
-          "id": "sv8pt5-179",
-          "name": "Pikachu ex",
-          "number": "179",
-          "rarity": "Hyper Rare",
-          "marketPrice": 70.6
-        },
-        {
-          "id": "sv8pt5-177",
-          "name": "Teal Mask Ogerpon ex",
-          "number": "177",
-          "rarity": "Hyper Rare",
-          "marketPrice": 11.1
-        },
-        {
-          "id": "sv8pt5-180",
-          "name": "Terapagos ex",
-          "number": "180",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.78
-        },
-        {
-          "id": "sv8pt5-178",
-          "name": "Walking Wake ex",
-          "number": "178",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.75
-        },
-        {
-          "id": "sv8pt5-176",
-          "name": "Iron Leaves ex",
-          "number": "176",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.24
-        },
-        {
           "id": "sv8pt5-161",
           "name": "Umbreon ex",
           "number": "161",
           "rarity": "Special Illustration Rare",
           "marketPrice": 1579.6
+        },
+        {
+          "id": "sv8pt5-156",
+          "name": "Sylveon ex",
+          "number": "156",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 514.76
+        },
+        {
+          "id": "sv8pt5-144",
+          "name": "Leafeon ex",
+          "number": "144",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 331.22
+        },
+        {
+          "id": "sv8pt5-155",
+          "name": "Espeon ex",
+          "number": "155",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 321.16
+        },
+        {
+          "id": "sv8pt5-149",
+          "name": "Vaporeon ex",
+          "number": "149",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 300.86
+        },
+        {
+          "id": "sv8pt5-150",
+          "name": "Glaceon ex",
+          "number": "150",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 300.2
         }
       ],
       "marqueePokemon": [
         {
-          "slug": "pikachu",
-          "displayName": "Pikachu",
+          "slug": "umbreon",
+          "displayName": "Umbreon",
           "cards": [
             {
-              "id": "sv8pt5-28",
-              "name": "Pikachu ex",
-              "number": "28",
+              "id": "sv8pt5-60",
+              "name": "Umbreon ex",
+              "number": "60",
+              "rarity": "Double Rare",
+              "marketPrice": 7.82
+            },
+            {
+              "id": "sv8pt5-161",
+              "name": "Umbreon ex",
+              "number": "161",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 1579.6
+            }
+          ]
+        },
+        {
+          "slug": "sylveon",
+          "displayName": "Sylveon",
+          "cards": [
+            {
+              "id": "sv8pt5-41",
+              "name": "Sylveon ex",
+              "number": "41",
               "rarity": "Double Rare",
               "marketPrice": 2.21
             },
             {
-              "id": "sv8pt5-179",
-              "name": "Pikachu ex",
-              "number": "179",
-              "rarity": "Hyper Rare",
-              "marketPrice": 70.6
-            }
-          ]
-        },
-        {
-          "slug": "terapagos",
-          "displayName": "Terapagos",
-          "cards": [
-            {
-              "id": "sv8pt5-92",
-              "name": "Terapagos ex",
-              "number": "92",
-              "rarity": "Double Rare",
-              "marketPrice": 0.89
-            },
-            {
-              "id": "sv8pt5-169",
-              "name": "Terapagos ex",
-              "number": "169",
+              "id": "sv8pt5-156",
+              "name": "Sylveon ex",
+              "number": "156",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 39.55
-            },
-            {
-              "id": "sv8pt5-180",
-              "name": "Terapagos ex",
-              "number": "180",
-              "rarity": "Hyper Rare",
-              "marketPrice": 10.78
+              "marketPrice": 514.76
             }
           ]
         },
         {
-          "slug": "teal-mask-ogerpon",
-          "displayName": "Teal Mask Ogerpon",
+          "slug": "leafeon",
+          "displayName": "Leafeon",
           "cards": [
             {
-              "id": "sv8pt5-12",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "12",
+              "id": "sv8pt5-6",
+              "name": "Leafeon ex",
+              "number": "6",
               "rarity": "Double Rare",
-              "marketPrice": 3.13
+              "marketPrice": 4.16
             },
             {
-              "id": "sv8pt5-145",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "145",
+              "id": "sv8pt5-144",
+              "name": "Leafeon ex",
+              "number": "144",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 24.21
+              "marketPrice": 331.22
+            }
+          ]
+        },
+        {
+          "slug": "espeon",
+          "displayName": "Espeon",
+          "cards": [
+            {
+              "id": "sv8pt5-34",
+              "name": "Espeon ex",
+              "number": "34",
+              "rarity": "Double Rare",
+              "marketPrice": 3.67
             },
             {
-              "id": "sv8pt5-177",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "177",
-              "rarity": "Hyper Rare",
-              "marketPrice": 11.1
+              "id": "sv8pt5-155",
+              "name": "Espeon ex",
+              "number": "155",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 321.16
             }
           ]
         },
         {
-          "slug": "walking-wake",
-          "displayName": "Walking Wake",
+          "slug": "vaporeon",
+          "displayName": "Vaporeon",
           "cards": [
             {
-              "id": "sv8pt5-178",
-              "name": "Walking Wake ex",
-              "number": "178",
-              "rarity": "Hyper Rare",
-              "marketPrice": 6.75
-            }
-          ]
-        },
-        {
-          "slug": "iron-leaves",
-          "displayName": "Iron Leaves",
-          "cards": [
+              "id": "sv8pt5-23",
+              "name": "Vaporeon ex",
+              "number": "23",
+              "rarity": "Double Rare",
+              "marketPrice": 2.9
+            },
             {
-              "id": "sv8pt5-176",
-              "name": "Iron Leaves ex",
-              "number": "176",
-              "rarity": "Hyper Rare",
-              "marketPrice": 6.24
+              "id": "sv8pt5-149",
+              "name": "Vaporeon ex",
+              "number": "149",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 300.86
             }
           ]
         }
@@ -2115,6 +2038,27 @@
       },
       "chaseCards": [
         {
+          "id": "sv8-238",
+          "name": "Pikachu ex",
+          "number": "238",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 358.36
+        },
+        {
+          "id": "sv8-239",
+          "name": "Latias ex",
+          "number": "239",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 194.45
+        },
+        {
+          "id": "sv8-237",
+          "name": "Milotic ex",
+          "number": "237",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 142.91
+        },
+        {
           "id": "sv8-247",
           "name": "Pikachu ex",
           "number": "247",
@@ -2122,39 +2066,18 @@
           "marketPrice": 95.41
         },
         {
-          "id": "sv8-248",
-          "name": "Alolan Exeggutor ex",
-          "number": "248",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.86
+          "id": "sv8-240",
+          "name": "Hydreigon ex",
+          "number": "240",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 43.41
         },
         {
-          "id": "sv8-250",
-          "name": "Gravity Mountain",
-          "number": "250",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.34
-        },
-        {
-          "id": "sv8-251",
-          "name": "Night Stretcher",
-          "number": "251",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.21
-        },
-        {
-          "id": "sv8-252",
-          "name": "Jet Energy",
-          "number": "252",
-          "rarity": "Hyper Rare",
-          "marketPrice": 5.28
-        },
-        {
-          "id": "sv8-249",
-          "name": "Counter Gain",
-          "number": "249",
-          "rarity": "Hyper Rare",
-          "marketPrice": 3.86
+          "id": "sv8-203",
+          "name": "Latios",
+          "number": "203",
+          "rarity": "Illustration Rare",
+          "marketPrice": 38.23
         }
       ],
       "marqueePokemon": [
@@ -2189,40 +2112,6 @@
               "number": "247",
               "rarity": "Hyper Rare",
               "marketPrice": 95.41
-            }
-          ]
-        },
-        {
-          "slug": "alolan-exeggutor",
-          "displayName": "Alolan Exeggutor",
-          "cards": [
-            {
-              "id": "sv8-133",
-              "name": "Alolan Exeggutor ex",
-              "number": "133",
-              "rarity": "Double Rare",
-              "marketPrice": 0.74
-            },
-            {
-              "id": "sv8-225",
-              "name": "Alolan Exeggutor ex",
-              "number": "225",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.28
-            },
-            {
-              "id": "sv8-242",
-              "name": "Alolan Exeggutor ex",
-              "number": "242",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 34.19
-            },
-            {
-              "id": "sv8-248",
-              "name": "Alolan Exeggutor ex",
-              "number": "248",
-              "rarity": "Hyper Rare",
-              "marketPrice": 10.86
             }
           ]
         },
@@ -2306,6 +2195,19 @@
               "marketPrice": 43.41
             }
           ]
+        },
+        {
+          "slug": "latios",
+          "displayName": "Latios",
+          "cards": [
+            {
+              "id": "sv8-203",
+              "name": "Latios",
+              "number": "203",
+              "rarity": "Illustration Rare",
+              "marketPrice": 38.23
+            }
+          ]
         }
       ],
       "sizeRankAmongRecent": 4
@@ -2355,25 +2257,18 @@
       },
       "chaseCards": [
         {
-          "id": "sv7-174",
-          "name": "Area Zero Underdepths",
-          "number": "174",
-          "rarity": "Hyper Rare",
-          "marketPrice": 12.54
+          "id": "sv7-143",
+          "name": "Bulbasaur",
+          "number": "143",
+          "rarity": "Illustration Rare",
+          "marketPrice": 138.94
         },
         {
-          "id": "sv7-173",
-          "name": "Terapagos ex",
-          "number": "173",
-          "rarity": "Hyper Rare",
-          "marketPrice": 11.29
-        },
-        {
-          "id": "sv7-175",
-          "name": "Bravery Charm",
-          "number": "175",
-          "rarity": "Hyper Rare",
-          "marketPrice": 5.06
+          "id": "sv7-148",
+          "name": "Squirtle",
+          "number": "148",
+          "rarity": "Illustration Rare",
+          "marketPrice": 129.65
         },
         {
           "id": "sv7-169",
@@ -2395,33 +2290,39 @@
           "number": "167",
           "rarity": "Special Illustration Rare",
           "marketPrice": 40.62
+        },
+        {
+          "id": "sv7-168",
+          "name": "Galvantula ex",
+          "number": "168",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 23.48
         }
       ],
       "marqueePokemon": [
         {
-          "slug": "terapagos",
-          "displayName": "Terapagos",
+          "slug": "bulbasaur",
+          "displayName": "Bulbasaur",
           "cards": [
             {
-              "id": "sv7-128",
-              "name": "Terapagos ex",
-              "number": "128",
-              "rarity": "Double Rare",
-              "marketPrice": 0.99
-            },
+              "id": "sv7-143",
+              "name": "Bulbasaur",
+              "number": "143",
+              "rarity": "Illustration Rare",
+              "marketPrice": 138.94
+            }
+          ]
+        },
+        {
+          "slug": "squirtle",
+          "displayName": "Squirtle",
+          "cards": [
             {
-              "id": "sv7-170",
-              "name": "Terapagos ex",
-              "number": "170",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 62.62
-            },
-            {
-              "id": "sv7-173",
-              "name": "Terapagos ex",
-              "number": "173",
-              "rarity": "Hyper Rare",
-              "marketPrice": 11.29
+              "id": "sv7-148",
+              "name": "Squirtle",
+              "number": "148",
+              "rarity": "Illustration Rare",
+              "marketPrice": 129.65
             }
           ]
         },
@@ -2453,6 +2354,33 @@
           ]
         },
         {
+          "slug": "terapagos",
+          "displayName": "Terapagos",
+          "cards": [
+            {
+              "id": "sv7-128",
+              "name": "Terapagos ex",
+              "number": "128",
+              "rarity": "Double Rare",
+              "marketPrice": 0.99
+            },
+            {
+              "id": "sv7-170",
+              "name": "Terapagos ex",
+              "number": "170",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 62.62
+            },
+            {
+              "id": "sv7-173",
+              "name": "Terapagos ex",
+              "number": "173",
+              "rarity": "Hyper Rare",
+              "marketPrice": 11.29
+            }
+          ]
+        },
+        {
           "slug": "hydrapple",
           "displayName": "Hydrapple",
           "cards": [
@@ -2476,46 +2404,6 @@
               "number": "167",
               "rarity": "Special Illustration Rare",
               "marketPrice": 40.62
-            }
-          ]
-        },
-        {
-          "slug": "galvantula",
-          "displayName": "Galvantula",
-          "cards": [
-            {
-              "id": "sv7-51",
-              "name": "Galvantula ex",
-              "number": "51",
-              "rarity": "Double Rare",
-              "marketPrice": 0.92
-            },
-            {
-              "id": "sv7-159",
-              "name": "Galvantula ex",
-              "number": "159",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.11
-            },
-            {
-              "id": "sv7-168",
-              "name": "Galvantula ex",
-              "number": "168",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 23.48
-            }
-          ]
-        },
-        {
-          "slug": "bulbasaur",
-          "displayName": "Bulbasaur",
-          "cards": [
-            {
-              "id": "sv7-143",
-              "name": "Bulbasaur",
-              "number": "143",
-              "rarity": "Illustration Rare",
-              "marketPrice": 138.94
             }
           ]
         }
@@ -2567,6 +2455,13 @@
       },
       "chaseCards": [
         {
+          "id": "sv6pt5-78",
+          "name": "Persian",
+          "number": "78",
+          "rarity": "Illustration Rare",
+          "marketPrice": 80.46
+        },
+        {
           "id": "sv6pt5-98",
           "name": "Basic Darkness Energy",
           "number": "98",
@@ -2574,178 +2469,35 @@
           "marketPrice": 67.01
         },
         {
-          "id": "sv6pt5-99",
-          "name": "Basic Metal Energy",
-          "number": "99",
-          "rarity": "Hyper Rare",
-          "marketPrice": 37.02
+          "id": "sv6pt5-68",
+          "name": "Duskull",
+          "number": "68",
+          "rarity": "Illustration Rare",
+          "marketPrice": 60.16
         },
         {
-          "id": "sv6pt5-95",
-          "name": "Pecharunt ex",
-          "number": "95",
-          "rarity": "Hyper Rare",
-          "marketPrice": 23.2
+          "id": "sv6pt5-66",
+          "name": "Houndoom",
+          "number": "66",
+          "rarity": "Illustration Rare",
+          "marketPrice": 55.1
         },
         {
-          "id": "sv6pt5-97",
-          "name": "Powerglass",
-          "number": "97",
-          "rarity": "Hyper Rare",
-          "marketPrice": 21.43
+          "id": "sv6pt5-67",
+          "name": "Horsea",
+          "number": "67",
+          "rarity": "Illustration Rare",
+          "marketPrice": 52.73
         },
         {
-          "id": "sv6pt5-96",
-          "name": "Earthen Vessel",
-          "number": "96",
-          "rarity": "Hyper Rare",
-          "marketPrice": 20.63
-        },
-        {
-          "id": "sv6pt5-92",
-          "name": "Fezandipiti ex",
-          "number": "92",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 45.92
+          "id": "sv6pt5-69",
+          "name": "Dusclops",
+          "number": "69",
+          "rarity": "Illustration Rare",
+          "marketPrice": 51.59
         }
       ],
       "marqueePokemon": [
-        {
-          "slug": "pecharunt",
-          "displayName": "Pecharunt",
-          "cards": [
-            {
-              "id": "sv6pt5-39",
-              "name": "Pecharunt ex",
-              "number": "39",
-              "rarity": "Double Rare",
-              "marketPrice": 4.53
-            },
-            {
-              "id": "sv6pt5-85",
-              "name": "Pecharunt ex",
-              "number": "85",
-              "rarity": "Ultra Rare",
-              "marketPrice": 6.63
-            },
-            {
-              "id": "sv6pt5-93",
-              "name": "Pecharunt ex",
-              "number": "93",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 25.84
-            },
-            {
-              "id": "sv6pt5-95",
-              "name": "Pecharunt ex",
-              "number": "95",
-              "rarity": "Hyper Rare",
-              "marketPrice": 23.2
-            }
-          ]
-        },
-        {
-          "slug": "fezandipiti",
-          "displayName": "Fezandipiti",
-          "cards": [
-            {
-              "id": "sv6pt5-38",
-              "name": "Fezandipiti ex",
-              "number": "38",
-              "rarity": "Double Rare",
-              "marketPrice": 4.78
-            },
-            {
-              "id": "sv6pt5-73",
-              "name": "Fezandipiti",
-              "number": "73",
-              "rarity": "Illustration Rare",
-              "marketPrice": 13.82
-            },
-            {
-              "id": "sv6pt5-84",
-              "name": "Fezandipiti ex",
-              "number": "84",
-              "rarity": "Ultra Rare",
-              "marketPrice": 12.48
-            },
-            {
-              "id": "sv6pt5-92",
-              "name": "Fezandipiti ex",
-              "number": "92",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 45.92
-            }
-          ]
-        },
-        {
-          "slug": "munkidori",
-          "displayName": "Munkidori",
-          "cards": [
-            {
-              "id": "sv6pt5-37",
-              "name": "Munkidori ex",
-              "number": "37",
-              "rarity": "Double Rare",
-              "marketPrice": 0.71
-            },
-            {
-              "id": "sv6pt5-72",
-              "name": "Munkidori",
-              "number": "72",
-              "rarity": "Illustration Rare",
-              "marketPrice": 44.58
-            },
-            {
-              "id": "sv6pt5-83",
-              "name": "Munkidori ex",
-              "number": "83",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.66
-            },
-            {
-              "id": "sv6pt5-91",
-              "name": "Munkidori ex",
-              "number": "91",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 19.25
-            }
-          ]
-        },
-        {
-          "slug": "okidogi",
-          "displayName": "Okidogi",
-          "cards": [
-            {
-              "id": "sv6pt5-36",
-              "name": "Okidogi ex",
-              "number": "36",
-              "rarity": "Double Rare",
-              "marketPrice": 0.71
-            },
-            {
-              "id": "sv6pt5-74",
-              "name": "Okidogi",
-              "number": "74",
-              "rarity": "Illustration Rare",
-              "marketPrice": 16.75
-            },
-            {
-              "id": "sv6pt5-82",
-              "name": "Okidogi ex",
-              "number": "82",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.62
-            },
-            {
-              "id": "sv6pt5-90",
-              "name": "Okidogi ex",
-              "number": "90",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 22.04
-            }
-          ]
-        },
         {
           "slug": "persian",
           "displayName": "Persian",
@@ -2756,6 +2508,58 @@
               "number": "78",
               "rarity": "Illustration Rare",
               "marketPrice": 80.46
+            }
+          ]
+        },
+        {
+          "slug": "duskull",
+          "displayName": "Duskull",
+          "cards": [
+            {
+              "id": "sv6pt5-68",
+              "name": "Duskull",
+              "number": "68",
+              "rarity": "Illustration Rare",
+              "marketPrice": 60.16
+            }
+          ]
+        },
+        {
+          "slug": "houndoom",
+          "displayName": "Houndoom",
+          "cards": [
+            {
+              "id": "sv6pt5-66",
+              "name": "Houndoom",
+              "number": "66",
+              "rarity": "Illustration Rare",
+              "marketPrice": 55.1
+            }
+          ]
+        },
+        {
+          "slug": "horsea",
+          "displayName": "Horsea",
+          "cards": [
+            {
+              "id": "sv6pt5-67",
+              "name": "Horsea",
+              "number": "67",
+              "rarity": "Illustration Rare",
+              "marketPrice": 52.73
+            }
+          ]
+        },
+        {
+          "slug": "dusclops",
+          "displayName": "Dusclops",
+          "cards": [
+            {
+              "id": "sv6pt5-69",
+              "name": "Dusclops",
+              "number": "69",
+              "rarity": "Illustration Rare",
+              "marketPrice": 51.59
             }
           ]
         }
@@ -2807,49 +2611,102 @@
       },
       "chaseCards": [
         {
-          "id": "sv6-223",
-          "name": "Buddy-Buddy Poffin",
-          "number": "223",
-          "rarity": "Hyper Rare",
-          "marketPrice": 14.54
+          "id": "sv6-214",
+          "name": "Greninja ex",
+          "number": "214",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 400.47
         },
         {
-          "id": "sv6-221",
-          "name": "Teal Mask Ogerpon ex",
-          "number": "221",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.4
+          "id": "sv6-220",
+          "name": "Perrin",
+          "number": "220",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 185.48
         },
         {
-          "id": "sv6-222",
+          "id": "sv6-188",
+          "name": "Eevee",
+          "number": "188",
+          "rarity": "Illustration Rare",
+          "marketPrice": 91.74
+        },
+        {
+          "id": "sv6-217",
+          "name": "Carmine",
+          "number": "217",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 72.33
+        },
+        {
+          "id": "sv6-187",
+          "name": "Chansey",
+          "number": "187",
+          "rarity": "Illustration Rare",
+          "marketPrice": 58.81
+        },
+        {
+          "id": "sv6-216",
           "name": "Bloodmoon Ursaluna ex",
-          "number": "222",
-          "rarity": "Hyper Rare",
-          "marketPrice": 9.28
-        },
-        {
-          "id": "sv6-224",
-          "name": "Enhanced Hammer",
-          "number": "224",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.45
-        },
-        {
-          "id": "sv6-226",
-          "name": "Luminous Energy",
-          "number": "226",
-          "rarity": "Hyper Rare",
-          "marketPrice": 5.38
-        },
-        {
-          "id": "sv6-225",
-          "name": "Rescue Board",
-          "number": "225",
-          "rarity": "Hyper Rare",
-          "marketPrice": 2.69
+          "number": "216",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 46.37
         }
       ],
       "marqueePokemon": [
+        {
+          "slug": "greninja",
+          "displayName": "Greninja",
+          "cards": [
+            {
+              "id": "sv6-106",
+              "name": "Greninja ex",
+              "number": "106",
+              "rarity": "Double Rare",
+              "marketPrice": 7.06
+            },
+            {
+              "id": "sv6-198",
+              "name": "Greninja ex",
+              "number": "198",
+              "rarity": "Ultra Rare",
+              "marketPrice": 24.47
+            },
+            {
+              "id": "sv6-214",
+              "name": "Greninja ex",
+              "number": "214",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 400.47
+            }
+          ]
+        },
+        {
+          "slug": "eevee",
+          "displayName": "Eevee",
+          "cards": [
+            {
+              "id": "sv6-188",
+              "name": "Eevee",
+              "number": "188",
+              "rarity": "Illustration Rare",
+              "marketPrice": 91.74
+            }
+          ]
+        },
+        {
+          "slug": "chansey",
+          "displayName": "Chansey",
+          "cards": [
+            {
+              "id": "sv6-187",
+              "name": "Chansey",
+              "number": "187",
+              "rarity": "Illustration Rare",
+              "marketPrice": 58.81
+            }
+          ]
+        },
         {
           "slug": "bloodmoon-ursaluna",
           "displayName": "Bloodmoon Ursaluna",
@@ -2885,67 +2742,6 @@
           ]
         },
         {
-          "slug": "teal-mask-ogerpon",
-          "displayName": "Teal Mask Ogerpon",
-          "cards": [
-            {
-              "id": "sv6-25",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "25",
-              "rarity": "Double Rare",
-              "marketPrice": 4.29
-            },
-            {
-              "id": "sv6-190",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "190",
-              "rarity": "Ultra Rare",
-              "marketPrice": 6.89
-            },
-            {
-              "id": "sv6-211",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "211",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 29.02
-            },
-            {
-              "id": "sv6-221",
-              "name": "Teal Mask Ogerpon ex",
-              "number": "221",
-              "rarity": "Hyper Rare",
-              "marketPrice": 10.4
-            }
-          ]
-        },
-        {
-          "slug": "greninja",
-          "displayName": "Greninja",
-          "cards": [
-            {
-              "id": "sv6-106",
-              "name": "Greninja ex",
-              "number": "106",
-              "rarity": "Double Rare",
-              "marketPrice": 7.06
-            },
-            {
-              "id": "sv6-198",
-              "name": "Greninja ex",
-              "number": "198",
-              "rarity": "Ultra Rare",
-              "marketPrice": 24.47
-            },
-            {
-              "id": "sv6-214",
-              "name": "Greninja ex",
-              "number": "214",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 400.47
-            }
-          ]
-        },
-        {
           "slug": "sinistcha",
           "displayName": "Sinistcha",
           "cards": [
@@ -2969,33 +2765,6 @@
               "number": "210",
               "rarity": "Special Illustration Rare",
               "marketPrice": 33.22
-            }
-          ]
-        },
-        {
-          "slug": "wellspring-mask-ogerpon",
-          "displayName": "Wellspring Mask Ogerpon",
-          "cards": [
-            {
-              "id": "sv6-64",
-              "name": "Wellspring Mask Ogerpon ex",
-              "number": "64",
-              "rarity": "Double Rare",
-              "marketPrice": 0.83
-            },
-            {
-              "id": "sv6-194",
-              "name": "Wellspring Mask Ogerpon ex",
-              "number": "194",
-              "rarity": "Ultra Rare",
-              "marketPrice": 3.51
-            },
-            {
-              "id": "sv6-213",
-              "name": "Wellspring Mask Ogerpon ex",
-              "number": "213",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 17.54
             }
           ]
         }
@@ -3047,49 +2816,62 @@
       },
       "chaseCards": [
         {
-          "id": "sv5-214",
-          "name": "Gouging Fire ex",
-          "number": "214",
-          "rarity": "Hyper Rare",
-          "marketPrice": 15.73
+          "id": "sv5-177",
+          "name": "Gastly",
+          "number": "177",
+          "rarity": "Illustration Rare",
+          "marketPrice": 112.48
         },
         {
-          "id": "sv5-218",
+          "id": "sv5-211",
+          "name": "Morty's Conviction",
+          "number": "211",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 78.34
+        },
+        {
+          "id": "sv5-208",
           "name": "Raging Bolt ex",
-          "number": "218",
-          "rarity": "Hyper Rare",
-          "marketPrice": 13.97
+          "number": "208",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 71.71
         },
         {
-          "id": "sv5-215",
+          "id": "sv5-193",
+          "name": "Gengar ex",
+          "number": "193",
+          "rarity": "Ultra Rare",
+          "marketPrice": 71.32
+        },
+        {
+          "id": "sv5-205",
           "name": "Walking Wake ex",
-          "number": "215",
-          "rarity": "Hyper Rare",
-          "marketPrice": 13.95
+          "number": "205",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 63.62
         },
         {
-          "id": "sv5-217",
-          "name": "Iron Boulder ex",
-          "number": "217",
-          "rarity": "Hyper Rare",
-          "marketPrice": 9.27
-        },
-        {
-          "id": "sv5-216",
-          "name": "Iron Crown ex",
-          "number": "216",
-          "rarity": "Hyper Rare",
-          "marketPrice": 9.24
-        },
-        {
-          "id": "sv5-213",
-          "name": "Iron Leaves ex",
-          "number": "213",
-          "rarity": "Hyper Rare",
-          "marketPrice": 9.16
+          "id": "sv5-166",
+          "name": "Sawsbuck",
+          "number": "166",
+          "rarity": "Illustration Rare",
+          "marketPrice": 60.84
         }
       ],
       "marqueePokemon": [
+        {
+          "slug": "gastly",
+          "displayName": "Gastly",
+          "cards": [
+            {
+              "id": "sv5-177",
+              "name": "Gastly",
+              "number": "177",
+              "rarity": "Illustration Rare",
+              "marketPrice": 112.48
+            }
+          ]
+        },
         {
           "slug": "raging-bolt",
           "displayName": "Raging Bolt",
@@ -3121,6 +2903,26 @@
               "number": "218",
               "rarity": "Hyper Rare",
               "marketPrice": 13.97
+            }
+          ]
+        },
+        {
+          "slug": "gengar",
+          "displayName": "Gengar",
+          "cards": [
+            {
+              "id": "sv5-104",
+              "name": "Gengar ex",
+              "number": "104",
+              "rarity": "Double Rare",
+              "marketPrice": 5.22
+            },
+            {
+              "id": "sv5-193",
+              "name": "Gengar ex",
+              "number": "193",
+              "rarity": "Ultra Rare",
+              "marketPrice": 71.32
             }
           ]
         },
@@ -3159,104 +2961,15 @@
           ]
         },
         {
-          "slug": "gouging-fire",
-          "displayName": "Gouging Fire",
+          "slug": "sawsbuck",
+          "displayName": "Sawsbuck",
           "cards": [
             {
-              "id": "sv5-38",
-              "name": "Gouging Fire ex",
-              "number": "38",
-              "rarity": "Double Rare",
-              "marketPrice": 0.67
-            },
-            {
-              "id": "sv5-188",
-              "name": "Gouging Fire ex",
-              "number": "188",
-              "rarity": "Ultra Rare",
-              "marketPrice": 3.19
-            },
-            {
-              "id": "sv5-204",
-              "name": "Gouging Fire ex",
-              "number": "204",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 60.63
-            },
-            {
-              "id": "sv5-214",
-              "name": "Gouging Fire ex",
-              "number": "214",
-              "rarity": "Hyper Rare",
-              "marketPrice": 15.73
-            }
-          ]
-        },
-        {
-          "slug": "iron-crown",
-          "displayName": "Iron Crown",
-          "cards": [
-            {
-              "id": "sv5-81",
-              "name": "Iron Crown ex",
-              "number": "81",
-              "rarity": "Double Rare",
-              "marketPrice": 0.67
-            },
-            {
-              "id": "sv5-191",
-              "name": "Iron Crown ex",
-              "number": "191",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.97
-            },
-            {
-              "id": "sv5-206",
-              "name": "Iron Crown ex",
-              "number": "206",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 58.96
-            },
-            {
-              "id": "sv5-216",
-              "name": "Iron Crown ex",
-              "number": "216",
-              "rarity": "Hyper Rare",
-              "marketPrice": 9.24
-            }
-          ]
-        },
-        {
-          "slug": "iron-leaves",
-          "displayName": "Iron Leaves",
-          "cards": [
-            {
-              "id": "sv5-25",
-              "name": "Iron Leaves ex",
-              "number": "25",
-              "rarity": "Double Rare",
-              "marketPrice": 0.86
-            },
-            {
-              "id": "sv5-186",
-              "name": "Iron Leaves ex",
-              "number": "186",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.11
-            },
-            {
-              "id": "sv5-203",
-              "name": "Iron Leaves ex",
-              "number": "203",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 43.24
-            },
-            {
-              "id": "sv5-213",
-              "name": "Iron Leaves ex",
-              "number": "213",
-              "rarity": "Hyper Rare",
-              "marketPrice": 9.16
+              "id": "sv5-166",
+              "name": "Sawsbuck",
+              "number": "166",
+              "rarity": "Illustration Rare",
+              "marketPrice": 60.84
             }
           ]
         }
@@ -3309,111 +3022,139 @@
       },
       "chaseCards": [
         {
-          "id": "sv4pt5-243",
-          "name": "Miraidon ex",
-          "number": "243",
-          "rarity": "Hyper Rare",
-          "marketPrice": 14.99
+          "id": "sv4pt5-232",
+          "name": "Mew ex",
+          "number": "232",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 968.49
         },
         {
-          "id": "sv4pt5-245",
-          "name": "Koraidon ex",
-          "number": "245",
-          "rarity": "Hyper Rare",
-          "marketPrice": 12.96
+          "id": "sv4pt5-234",
+          "name": "Charizard ex",
+          "number": "234",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 336.93
         },
         {
-          "id": "sv4pt5-241",
-          "name": "Chi-Yu ex",
-          "number": "241",
-          "rarity": "Hyper Rare",
-          "marketPrice": 12.27
+          "id": "sv4pt5-233",
+          "name": "Gardevoir ex",
+          "number": "233",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 186.13
         },
         {
-          "id": "sv4pt5-242",
-          "name": "Chien-Pao ex",
-          "number": "242",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.66
+          "id": "sv4pt5-131",
+          "name": "Pikachu",
+          "number": "131",
+          "rarity": "Shiny Rare",
+          "marketPrice": 89.19
         },
         {
-          "id": "sv4pt5-240",
-          "name": "Wo-Chien ex",
-          "number": "240",
-          "rarity": "Hyper Rare",
-          "marketPrice": 7.19
+          "id": "sv4pt5-202",
+          "name": "Snorlax",
+          "number": "202",
+          "rarity": "Shiny Rare",
+          "marketPrice": 68.36
         },
         {
-          "id": "sv4pt5-244",
-          "name": "Ting-Lu ex",
-          "number": "244",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.25
+          "id": "sv4pt5-109",
+          "name": "Charmander",
+          "number": "109",
+          "rarity": "Shiny Rare",
+          "marketPrice": 58.57
         }
       ],
       "marqueePokemon": [
         {
-          "slug": "miraidon",
-          "displayName": "Miraidon",
+          "slug": "mew",
+          "displayName": "Mew",
           "cards": [
             {
-              "id": "sv4pt5-243",
-              "name": "Miraidon ex",
-              "number": "243",
-              "rarity": "Hyper Rare",
-              "marketPrice": 14.99
+              "id": "sv4pt5-216",
+              "name": "Mew ex",
+              "number": "216",
+              "rarity": "Shiny Ultra Rare",
+              "marketPrice": 38.66
+            },
+            {
+              "id": "sv4pt5-232",
+              "name": "Mew ex",
+              "number": "232",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 968.49
             }
           ]
         },
         {
-          "slug": "koraidon",
-          "displayName": "Koraidon",
+          "slug": "charizard",
+          "displayName": "Charizard",
           "cards": [
             {
-              "id": "sv4pt5-245",
-              "name": "Koraidon ex",
-              "number": "245",
-              "rarity": "Hyper Rare",
-              "marketPrice": 12.96
+              "id": "sv4pt5-54",
+              "name": "Charizard ex",
+              "number": "54",
+              "rarity": "Double Rare",
+              "marketPrice": 5.35
+            },
+            {
+              "id": "sv4pt5-234",
+              "name": "Charizard ex",
+              "number": "234",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 336.93
             }
           ]
         },
         {
-          "slug": "chi-yu",
-          "displayName": "Chi-Yu",
+          "slug": "gardevoir",
+          "displayName": "Gardevoir",
           "cards": [
             {
-              "id": "sv4pt5-241",
-              "name": "Chi-Yu ex",
-              "number": "241",
-              "rarity": "Hyper Rare",
-              "marketPrice": 12.27
+              "id": "sv4pt5-29",
+              "name": "Gardevoir ex",
+              "number": "29",
+              "rarity": "Double Rare",
+              "marketPrice": 0.74
+            },
+            {
+              "id": "sv4pt5-217",
+              "name": "Gardevoir ex",
+              "number": "217",
+              "rarity": "Shiny Ultra Rare",
+              "marketPrice": 10.57
+            },
+            {
+              "id": "sv4pt5-233",
+              "name": "Gardevoir ex",
+              "number": "233",
+              "rarity": "Special Illustration Rare",
+              "marketPrice": 186.13
             }
           ]
         },
         {
-          "slug": "chien-pao",
-          "displayName": "Chien-Pao",
+          "slug": "pikachu",
+          "displayName": "Pikachu",
           "cards": [
             {
-              "id": "sv4pt5-242",
-              "name": "Chien-Pao ex",
-              "number": "242",
-              "rarity": "Hyper Rare",
-              "marketPrice": 10.66
+              "id": "sv4pt5-131",
+              "name": "Pikachu",
+              "number": "131",
+              "rarity": "Shiny Rare",
+              "marketPrice": 89.19
             }
           ]
         },
         {
-          "slug": "wo-chien",
-          "displayName": "Wo-Chien",
+          "slug": "snorlax",
+          "displayName": "Snorlax",
           "cards": [
             {
-              "id": "sv4pt5-240",
-              "name": "Wo-Chien ex",
-              "number": "240",
-              "rarity": "Hyper Rare",
-              "marketPrice": 7.19
+              "id": "sv4pt5-202",
+              "name": "Snorlax",
+              "number": "202",
+              "rarity": "Shiny Rare",
+              "marketPrice": 68.36
             }
           ]
         }
@@ -3464,148 +3205,59 @@
       },
       "chaseCards": [
         {
-          "id": "sv4-260",
-          "name": "Garchomp ex",
-          "number": "260",
-          "rarity": "Hyper Rare",
-          "marketPrice": 18.98
+          "id": "sv4-199",
+          "name": "Groudon",
+          "number": "199",
+          "rarity": "Illustration Rare",
+          "marketPrice": 115.77
         },
         {
-          "id": "sv4-262",
+          "id": "sv4-253",
+          "name": "Altaria ex",
+          "number": "253",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 60.67
+        },
+        {
+          "id": "sv4-193",
+          "name": "Plusle",
+          "number": "193",
+          "rarity": "Illustration Rare",
+          "marketPrice": 52.02
+        },
+        {
+          "id": "sv4-194",
+          "name": "Minun",
+          "number": "194",
+          "rarity": "Illustration Rare",
+          "marketPrice": 50.66
+        },
+        {
+          "id": "sv4-206",
+          "name": "Morpeko",
+          "number": "206",
+          "rarity": "Illustration Rare",
+          "marketPrice": 43.76
+        },
+        {
+          "id": "sv4-251",
           "name": "Roaring Moon ex",
-          "number": "262",
-          "rarity": "Hyper Rare",
-          "marketPrice": 7.19
-        },
-        {
-          "id": "sv4-261",
-          "name": "Iron Valiant ex",
-          "number": "261",
-          "rarity": "Hyper Rare",
-          "marketPrice": 5.71
-        },
-        {
-          "id": "sv4-264",
-          "name": "Counter Catcher",
-          "number": "264",
-          "rarity": "Hyper Rare",
-          "marketPrice": 3.13
-        },
-        {
-          "id": "sv4-266",
-          "name": "Reversal Energy",
-          "number": "266",
-          "rarity": "Hyper Rare",
-          "marketPrice": 3
-        },
-        {
-          "id": "sv4-265",
-          "name": "Luxurious Cape",
-          "number": "265",
-          "rarity": "Hyper Rare",
-          "marketPrice": 2.98
+          "number": "251",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 43.37
         }
       ],
       "marqueePokemon": [
         {
-          "slug": "roaring-moon",
-          "displayName": "Roaring Moon",
+          "slug": "groudon",
+          "displayName": "Groudon",
           "cards": [
             {
-              "id": "sv4-124",
-              "name": "Roaring Moon ex",
-              "number": "124",
-              "rarity": "Double Rare",
-              "marketPrice": 0.89
-            },
-            {
-              "id": "sv4-229",
-              "name": "Roaring Moon ex",
-              "number": "229",
-              "rarity": "Ultra Rare",
-              "marketPrice": 3.55
-            },
-            {
-              "id": "sv4-251",
-              "name": "Roaring Moon ex",
-              "number": "251",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 43.37
-            },
-            {
-              "id": "sv4-262",
-              "name": "Roaring Moon ex",
-              "number": "262",
-              "rarity": "Hyper Rare",
-              "marketPrice": 7.19
-            }
-          ]
-        },
-        {
-          "slug": "garchomp",
-          "displayName": "Garchomp",
-          "cards": [
-            {
-              "id": "sv4-38",
-              "name": "Garchomp ex",
-              "number": "38",
-              "rarity": "Double Rare",
-              "marketPrice": 0.92
-            },
-            {
-              "id": "sv4-219",
-              "name": "Garchomp ex",
-              "number": "219",
-              "rarity": "Ultra Rare",
-              "marketPrice": 7.64
-            },
-            {
-              "id": "sv4-245",
-              "name": "Garchomp ex",
-              "number": "245",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 38.37
-            },
-            {
-              "id": "sv4-260",
-              "name": "Garchomp ex",
-              "number": "260",
-              "rarity": "Hyper Rare",
-              "marketPrice": 18.98
-            }
-          ]
-        },
-        {
-          "slug": "iron-valiant",
-          "displayName": "Iron Valiant",
-          "cards": [
-            {
-              "id": "sv4-89",
-              "name": "Iron Valiant ex",
-              "number": "89",
-              "rarity": "Double Rare",
-              "marketPrice": 0.73
-            },
-            {
-              "id": "sv4-225",
-              "name": "Iron Valiant ex",
-              "number": "225",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.28
-            },
-            {
-              "id": "sv4-249",
-              "name": "Iron Valiant ex",
-              "number": "249",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 23.76
-            },
-            {
-              "id": "sv4-261",
-              "name": "Iron Valiant ex",
-              "number": "261",
-              "rarity": "Hyper Rare",
-              "marketPrice": 5.71
+              "id": "sv4-199",
+              "name": "Groudon",
+              "number": "199",
+              "rarity": "Illustration Rare",
+              "marketPrice": 115.77
             }
           ]
         },
@@ -3637,29 +3289,41 @@
           ]
         },
         {
-          "slug": "gholdengo",
-          "displayName": "Gholdengo",
+          "slug": "plusle",
+          "displayName": "Plusle",
           "cards": [
             {
-              "id": "sv4-139",
-              "name": "Gholdengo ex",
-              "number": "139",
-              "rarity": "Double Rare",
-              "marketPrice": 0.99
-            },
+              "id": "sv4-193",
+              "name": "Plusle",
+              "number": "193",
+              "rarity": "Illustration Rare",
+              "marketPrice": 52.02
+            }
+          ]
+        },
+        {
+          "slug": "minun",
+          "displayName": "Minun",
+          "cards": [
             {
-              "id": "sv4-231",
-              "name": "Gholdengo ex",
-              "number": "231",
-              "rarity": "Ultra Rare",
-              "marketPrice": 3.42
-            },
+              "id": "sv4-194",
+              "name": "Minun",
+              "number": "194",
+              "rarity": "Illustration Rare",
+              "marketPrice": 50.66
+            }
+          ]
+        },
+        {
+          "slug": "morpeko",
+          "displayName": "Morpeko",
+          "cards": [
             {
-              "id": "sv4-252",
-              "name": "Gholdengo ex",
-              "number": "252",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 39.52
+              "id": "sv4-206",
+              "name": "Morpeko",
+              "number": "206",
+              "rarity": "Illustration Rare",
+              "marketPrice": 43.76
             }
           ]
         }
@@ -3710,27 +3374,6 @@
       },
       "chaseCards": [
         {
-          "id": "sv3pt5-205",
-          "name": "Mew ex",
-          "number": "205",
-          "rarity": "Hyper Rare",
-          "marketPrice": 34.47
-        },
-        {
-          "id": "sv3pt5-207",
-          "name": "Basic Psychic Energy",
-          "number": "207",
-          "rarity": "Hyper Rare",
-          "marketPrice": 5.99
-        },
-        {
-          "id": "sv3pt5-206",
-          "name": "Switch",
-          "number": "206",
-          "rarity": "Hyper Rare",
-          "marketPrice": 3.05
-        },
-        {
           "id": "sv3pt5-199",
           "name": "Charizard ex",
           "number": "199",
@@ -3750,36 +3393,30 @@
           "number": "198",
           "rarity": "Special Illustration Rare",
           "marketPrice": 134.3
+        },
+        {
+          "id": "sv3pt5-168",
+          "name": "Charmander",
+          "number": "168",
+          "rarity": "Illustration Rare",
+          "marketPrice": 130.15
+        },
+        {
+          "id": "sv3pt5-202",
+          "name": "Zapdos ex",
+          "number": "202",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 119.92
+        },
+        {
+          "id": "sv3pt5-170",
+          "name": "Squirtle",
+          "number": "170",
+          "rarity": "Illustration Rare",
+          "marketPrice": 118.75
         }
       ],
       "marqueePokemon": [
-        {
-          "slug": "mew",
-          "displayName": "Mew",
-          "cards": [
-            {
-              "id": "sv3pt5-151",
-              "name": "Mew ex",
-              "number": "151",
-              "rarity": "Double Rare",
-              "marketPrice": 8.58
-            },
-            {
-              "id": "sv3pt5-193",
-              "name": "Mew ex",
-              "number": "193",
-              "rarity": "Ultra Rare",
-              "marketPrice": 45.97
-            },
-            {
-              "id": "sv3pt5-205",
-              "name": "Mew ex",
-              "number": "205",
-              "rarity": "Hyper Rare",
-              "marketPrice": 34.47
-            }
-          ]
-        },
         {
           "slug": "charizard",
           "displayName": "Charizard",
@@ -3862,6 +3499,19 @@
           ]
         },
         {
+          "slug": "charmander",
+          "displayName": "Charmander",
+          "cards": [
+            {
+              "id": "sv3pt5-168",
+              "name": "Charmander",
+              "number": "168",
+              "rarity": "Illustration Rare",
+              "marketPrice": 130.15
+            }
+          ]
+        },
+        {
           "slug": "zapdos",
           "displayName": "Zapdos",
           "cards": [
@@ -3935,27 +3585,6 @@
       },
       "chaseCards": [
         {
-          "id": "sv3-228",
-          "name": "Charizard ex",
-          "number": "228",
-          "rarity": "Hyper Rare",
-          "marketPrice": 46.27
-        },
-        {
-          "id": "sv3-230",
-          "name": "Basic Fire Energy",
-          "number": "230",
-          "rarity": "Hyper Rare",
-          "marketPrice": 4.16
-        },
-        {
-          "id": "sv3-229",
-          "name": "Artazon",
-          "number": "229",
-          "rarity": "Hyper Rare",
-          "marketPrice": 1.83
-        },
-        {
           "id": "sv3-223",
           "name": "Charizard ex",
           "number": "223",
@@ -3963,18 +3592,39 @@
           "marketPrice": 138.94
         },
         {
+          "id": "sv3-199",
+          "name": "Ninetales",
+          "number": "199",
+          "rarity": "Illustration Rare",
+          "marketPrice": 48.07
+        },
+        {
+          "id": "sv3-228",
+          "name": "Charizard ex",
+          "number": "228",
+          "rarity": "Hyper Rare",
+          "marketPrice": 46.27
+        },
+        {
+          "id": "sv3-202",
+          "name": "Cleffa",
+          "number": "202",
+          "rarity": "Illustration Rare",
+          "marketPrice": 45.26
+        },
+        {
+          "id": "sv3-198",
+          "name": "Gloom",
+          "number": "198",
+          "rarity": "Illustration Rare",
+          "marketPrice": 28.36
+        },
+        {
           "id": "sv3-225",
           "name": "Pidgeot ex",
           "number": "225",
           "rarity": "Special Illustration Rare",
           "marketPrice": 24.18
-        },
-        {
-          "id": "sv3-222",
-          "name": "Eiscue ex",
-          "number": "222",
-          "rarity": "Special Illustration Rare",
-          "marketPrice": 6.65
         }
       ],
       "marqueePokemon": [
@@ -4013,6 +3663,45 @@
           ]
         },
         {
+          "slug": "ninetales",
+          "displayName": "Ninetales",
+          "cards": [
+            {
+              "id": "sv3-199",
+              "name": "Ninetales",
+              "number": "199",
+              "rarity": "Illustration Rare",
+              "marketPrice": 48.07
+            }
+          ]
+        },
+        {
+          "slug": "cleffa",
+          "displayName": "Cleffa",
+          "cards": [
+            {
+              "id": "sv3-202",
+              "name": "Cleffa",
+              "number": "202",
+              "rarity": "Illustration Rare",
+              "marketPrice": 45.26
+            }
+          ]
+        },
+        {
+          "slug": "gloom",
+          "displayName": "Gloom",
+          "cards": [
+            {
+              "id": "sv3-198",
+              "name": "Gloom",
+              "number": "198",
+              "rarity": "Illustration Rare",
+              "marketPrice": 28.36
+            }
+          ]
+        },
+        {
           "slug": "pidgeot",
           "displayName": "Pidgeot",
           "cards": [
@@ -4036,73 +3725,6 @@
               "number": "225",
               "rarity": "Special Illustration Rare",
               "marketPrice": 24.18
-            }
-          ]
-        },
-        {
-          "slug": "eiscue",
-          "displayName": "Eiscue",
-          "cards": [
-            {
-              "id": "sv3-42",
-              "name": "Eiscue ex",
-              "number": "42",
-              "rarity": "Double Rare",
-              "marketPrice": 1.13
-            },
-            {
-              "id": "sv3-210",
-              "name": "Eiscue ex",
-              "number": "210",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.8
-            },
-            {
-              "id": "sv3-222",
-              "name": "Eiscue ex",
-              "number": "222",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 6.65
-            }
-          ]
-        },
-        {
-          "slug": "revavroom",
-          "displayName": "Revavroom",
-          "cards": [
-            {
-              "id": "sv3-156",
-              "name": "Revavroom ex",
-              "number": "156",
-              "rarity": "Double Rare",
-              "marketPrice": 0.86
-            },
-            {
-              "id": "sv3-216",
-              "name": "Revavroom ex",
-              "number": "216",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1
-            },
-            {
-              "id": "sv3-224",
-              "name": "Revavroom ex",
-              "number": "224",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 5.99
-            }
-          ]
-        },
-        {
-          "slug": "ninetales",
-          "displayName": "Ninetales",
-          "cards": [
-            {
-              "id": "sv3-199",
-              "name": "Ninetales",
-              "number": "199",
-              "rarity": "Illustration Rare",
-              "marketPrice": 48.07
             }
           ]
         }
@@ -4153,216 +3775,118 @@
       },
       "chaseCards": [
         {
-          "id": "sv2-279",
-          "name": "Basic Water Energy",
-          "number": "279",
-          "rarity": "Hyper Rare",
-          "marketPrice": 14.72
+          "id": "sv2-203",
+          "name": "Magikarp",
+          "number": "203",
+          "rarity": "Illustration Rare",
+          "marketPrice": 406.13
         },
         {
-          "id": "sv2-278",
-          "name": "Basic Grass Energy",
-          "number": "278",
-          "rarity": "Hyper Rare",
-          "marketPrice": 10.06
+          "id": "sv2-211",
+          "name": "Raichu",
+          "number": "211",
+          "rarity": "Illustration Rare",
+          "marketPrice": 118.89
         },
         {
-          "id": "sv2-271",
-          "name": "Meowscarada ex",
-          "number": "271",
-          "rarity": "Hyper Rare",
-          "marketPrice": 8.91
+          "id": "sv2-226",
+          "name": "Maushold",
+          "number": "226",
+          "rarity": "Illustration Rare",
+          "marketPrice": 106.19
         },
         {
-          "id": "sv2-273",
-          "name": "Quaquaval ex",
-          "number": "273",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.9
+          "id": "sv2-222",
+          "name": "Tyranitar",
+          "number": "222",
+          "rarity": "Illustration Rare",
+          "marketPrice": 80.47
         },
         {
-          "id": "sv2-274",
-          "name": "Chien-Pao ex",
-          "number": "274",
-          "rarity": "Hyper Rare",
-          "marketPrice": 6.63
+          "id": "sv2-269",
+          "name": "Iono",
+          "number": "269",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 68.26
         },
         {
-          "id": "sv2-272",
-          "name": "Skeledirge ex",
-          "number": "272",
-          "rarity": "Hyper Rare",
-          "marketPrice": 5.46
+          "id": "sv2-262",
+          "name": "Tinkaton ex",
+          "number": "262",
+          "rarity": "Special Illustration Rare",
+          "marketPrice": 61.56
         }
       ],
       "marqueePokemon": [
         {
-          "slug": "skeledirge",
-          "displayName": "Skeledirge",
+          "slug": "magikarp",
+          "displayName": "Magikarp",
           "cards": [
             {
-              "id": "sv2-37",
-              "name": "Skeledirge ex",
-              "number": "37",
-              "rarity": "Double Rare",
-              "marketPrice": 0.88
-            },
-            {
-              "id": "sv2-233",
-              "name": "Skeledirge ex",
-              "number": "233",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.43
-            },
-            {
-              "id": "sv2-258",
-              "name": "Skeledirge ex",
-              "number": "258",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 38.51
-            },
-            {
-              "id": "sv2-272",
-              "name": "Skeledirge ex",
-              "number": "272",
-              "rarity": "Hyper Rare",
-              "marketPrice": 5.46
+              "id": "sv2-203",
+              "name": "Magikarp",
+              "number": "203",
+              "rarity": "Illustration Rare",
+              "marketPrice": 406.13
             }
           ]
         },
         {
-          "slug": "meowscarada",
-          "displayName": "Meowscarada",
+          "slug": "raichu",
+          "displayName": "Raichu",
           "cards": [
             {
-              "id": "sv2-15",
-              "name": "Meowscarada ex",
-              "number": "15",
-              "rarity": "Double Rare",
-              "marketPrice": 0.92
-            },
-            {
-              "id": "sv2-231",
-              "name": "Meowscarada ex",
-              "number": "231",
-              "rarity": "Ultra Rare",
-              "marketPrice": 4.3
-            },
-            {
-              "id": "sv2-256",
-              "name": "Meowscarada ex",
-              "number": "256",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 35.98
-            },
-            {
-              "id": "sv2-271",
-              "name": "Meowscarada ex",
-              "number": "271",
-              "rarity": "Hyper Rare",
-              "marketPrice": 8.91
+              "id": "sv2-211",
+              "name": "Raichu",
+              "number": "211",
+              "rarity": "Illustration Rare",
+              "marketPrice": 118.89
             }
           ]
         },
         {
-          "slug": "chien-pao",
-          "displayName": "Chien-Pao",
+          "slug": "maushold",
+          "displayName": "Maushold",
           "cards": [
             {
-              "id": "sv2-61",
-              "name": "Chien-Pao ex",
-              "number": "61",
-              "rarity": "Double Rare",
-              "marketPrice": 0.94
-            },
-            {
-              "id": "sv2-236",
-              "name": "Chien-Pao ex",
-              "number": "236",
-              "rarity": "Ultra Rare",
-              "marketPrice": 2.74
-            },
-            {
-              "id": "sv2-261",
-              "name": "Chien-Pao ex",
-              "number": "261",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 30.15
-            },
-            {
-              "id": "sv2-274",
-              "name": "Chien-Pao ex",
-              "number": "274",
-              "rarity": "Hyper Rare",
-              "marketPrice": 6.63
+              "id": "sv2-226",
+              "name": "Maushold",
+              "number": "226",
+              "rarity": "Illustration Rare",
+              "marketPrice": 106.19
             }
           ]
         },
         {
-          "slug": "quaquaval",
-          "displayName": "Quaquaval",
+          "slug": "tyranitar",
+          "displayName": "Tyranitar",
           "cards": [
             {
-              "id": "sv2-52",
-              "name": "Quaquaval ex",
-              "number": "52",
-              "rarity": "Double Rare",
-              "marketPrice": 0.67
-            },
-            {
-              "id": "sv2-235",
-              "name": "Quaquaval ex",
-              "number": "235",
-              "rarity": "Ultra Rare",
-              "marketPrice": 1.75
-            },
-            {
-              "id": "sv2-260",
-              "name": "Quaquaval ex",
-              "number": "260",
-              "rarity": "Special Illustration Rare",
-              "marketPrice": 15.54
-            },
-            {
-              "id": "sv2-273",
-              "name": "Quaquaval ex",
-              "number": "273",
-              "rarity": "Hyper Rare",
-              "marketPrice": 6.9
+              "id": "sv2-222",
+              "name": "Tyranitar",
+              "number": "222",
+              "rarity": "Illustration Rare",
+              "marketPrice": 80.47
             }
           ]
         },
         {
-          "slug": "ting-lu",
-          "displayName": "Ting-Lu",
+          "slug": "tinkaton",
+          "displayName": "Tinkaton",
           "cards": [
             {
-              "id": "sv2-127",
-              "name": "Ting-Lu ex",
-              "number": "127",
-              "rarity": "Double Rare",
-              "marketPrice": 0.81
-            },
-            {
-              "id": "sv2-243",
-              "name": "Ting-Lu ex",
-              "number": "243",
+              "id": "sv2-240",
+              "name": "Tinkaton ex",
+              "number": "240",
               "rarity": "Ultra Rare",
-              "marketPrice": 1.37
+              "marketPrice": 9.66
             },
             {
-              "id": "sv2-263",
-              "name": "Ting-Lu ex",
-              "number": "263",
+              "id": "sv2-262",
+              "name": "Tinkaton ex",
+              "number": "262",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 11.96
-            },
-            {
-              "id": "sv2-275",
-              "name": "Ting-Lu ex",
-              "number": "275",
-              "rarity": "Hyper Rare",
-              "marketPrice": 4.28
+              "marketPrice": 61.56
             }
           ]
         }

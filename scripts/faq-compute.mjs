@@ -120,14 +120,15 @@ export function mostValuableOf(cards) {
   return best ? cardRef(best) : undefined;
 }
 
-/** Top n chase cards by (rarity rank, price); distinct; Pokémon preferred on ties. */
+/** Top n chase cards by desirability: (market price, rarity rank); distinct;
+ *  Pokémon preferred on ties. Price-led so the genuinely sought cards lead. */
 export function chaseOf(cards, n = 6) {
   return [...cards]
     .sort((a, b) => {
-      const r = rarityRank(b.rarity) - rarityRank(a.rarity);
-      if (r) return r;
       const p = (marketPriceOf(b) ?? 0) - (marketPriceOf(a) ?? 0);
       if (p) return p;
+      const r = rarityRank(b.rarity) - rarityRank(a.rarity);
+      if (r) return r;
       return (b.supertype === "Pokémon" ? 1 : 0) - (a.supertype === "Pokémon" ? 1 : 0);
     })
     .slice(0, n)
@@ -142,8 +143,10 @@ export function speciesSlug(name) {
 }
 
 /** Marquee/chase Pokémon for a set: chase-rarity Pokémon grouped by base
- *  species, ranked by their best card (rarity, price) with an evergreen nudge,
- *  capped at `cap`. Each entry lists every print of that species in the set. */
+ *  species, ranked by desirability — max market price first (so the iconic,
+ *  most-valuable chase cards surface), rarity rank as the fallback when a set
+ *  has no price data, and the evergreen flag only as a minor final tiebreaker.
+ *  Capped at `cap`. Each entry lists every print of that species in the set. */
 export function marqueePokemonOf(cards, cap = 5) {
   const groups = new Map();
   for (const c of cards) {
@@ -154,14 +157,17 @@ export function marqueePokemonOf(cards, cap = 5) {
     if (!groups.has(slug)) groups.set(slug, { slug, displayName: species, cards: [] });
     groups.get(slug).cards.push(c);
   }
-  const score = (g) => {
-    const top = Math.max(...g.cards.map((c) => rarityRank(c.rarity)));
-    const price = Math.max(...g.cards.map((c) => marketPriceOf(c) ?? 0));
-    const evergreen = EVERGREEN.has(g.slug.split("-")[0]) ? 1000 : 0;
-    return top * 100000 + evergreen + price;
-  };
+  const rank = (g) => ({
+    price: Math.max(...g.cards.map((c) => marketPriceOf(c) ?? 0)),
+    rarity: Math.max(...g.cards.map((c) => rarityRank(c.rarity))),
+    evergreen: EVERGREEN.has(g.slug.split("-")[0]) ? 1 : 0,
+  });
   return [...groups.values()]
-    .sort((a, b) => score(b) - score(a))
+    .sort((a, b) => {
+      const ra = rank(a), rb = rank(b);
+      // Price-led; rarity fallback (carries unpriced sets); evergreen last.
+      return (rb.price - ra.price) || (rb.rarity - ra.rarity) || (rb.evergreen - ra.evergreen);
+    })
     .slice(0, cap)
     .map((g) => ({
       slug: g.slug,

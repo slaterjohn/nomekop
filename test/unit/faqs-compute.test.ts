@@ -72,4 +72,16 @@ describe("faq-compute matches the app's authoritative logic", () => {
     expect(chase.length).toBe(6);
     expect(new Set(chase.map((c) => c.id)).size).toBe(6);
   });
+
+  it("surfaces the set's real chase cards by desirability (price-led)", () => {
+    // Prismatic Evolutions' iconic, most-valuable card is Umbreon ex (#161,
+    // ~$1,580) — a Special Illustration Rare, not one of the gold Hyper Rares.
+    // Selection must lead with desirability so this card isn't dropped.
+    const marquee = marqueePokemonOf(fixture("sv8pt5"), 5);
+    expect(marquee.some((m) => m.slug === "umbreon")).toBe(true);
+
+    const chase = chaseOf(fixture("sv8pt5"), 6);
+    const top = chase[0]!;
+    expect(top.name).toMatch(/Umbreon/);
+  });
 });
