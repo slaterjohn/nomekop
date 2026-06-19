@@ -290,3 +290,49 @@ export function factsCollectionJsonLd(articles: ArticleMeta[]): JsonLdObject {
     })),
   };
 }
+
+/**
+ * Single-question FAQPage for an individual /faqs page. The question is the
+ * visible <h1> and the answer is the page's visible direct answer, so the
+ * markup mirrors on-page content (Google's FAQ policy). FAQ rich results are
+ * deprecated, but valid FAQ markup still helps AI Overviews / AI citation.
+ */
+export function faqPageJsonLd(question: string, answer: string): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      },
+    ],
+  };
+}
+
+/** CollectionPage + ItemList for the /faqs index. */
+export function faqsIndexJsonLd(
+  pages: Array<{ slug: string; question: string; description: string }>,
+): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "CollectionPage",
+    name: "Pokémon TCG set FAQs",
+    url: absolute("/faqs"),
+    description:
+      "Answers to common questions about the latest Pokémon TCG sets — card counts, " +
+      "master sets, binder sizes, rarest and most valuable cards, and more.",
+    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: pages.length,
+      itemListElement: pages.map((p, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: p.question,
+        url: absolute(`/faqs/${p.slug}`),
+      })),
+    },
+  };
+}
