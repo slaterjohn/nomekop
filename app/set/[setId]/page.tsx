@@ -12,6 +12,7 @@ import { evaluatePresets, recommendPreset, ZIP_BINDER_PAGES } from "@/lib/binder
 import { GbBadge } from "@/components/gb/gb-badge";
 import { encodeShareToken } from "@/lib/share";
 import { breadcrumbJsonLd, setCollectionJsonLd } from "@/lib/structured-data";
+import { faqPagesForSet } from "@/lib/content/faqs/registry";
 import { getCards, getSets } from "@/lib/tcg";
 import { TcgError } from "@/lib/tcg/types";
 import { getServerDictionary } from "@/lib/i18n/server";
@@ -66,6 +67,7 @@ export default async function SetPage({ params }: Props) {
   const { dict } = await getServerDictionary();
   const { setId } = await params;
   const { set, cards } = await loadSet(setId);
+  const faqs = faqPagesForSet(setId);
 
   const standard = buildBinderLayout(cards, set, DEFAULT_CONFIG);
   const master = buildBinderLayout(cards, set, { ...DEFAULT_CONFIG, mode: "master" });
@@ -230,6 +232,21 @@ export default async function SetPage({ params }: Props) {
           ))}
         </ul>
       </GbScreen>
+
+      {faqs.length > 0 && (
+        <section aria-label={`Common questions about ${set.name}`} className="mt-6 flex flex-col gap-2">
+          <h2 className="font-pixel text-sm leading-relaxed">Common questions about {set.name}</h2>
+          <ul className="flex list-none flex-col gap-1 p-0">
+            {faqs.map((page) => (
+              <li key={page.slug}>
+                <Link href={`/faqs/${page.slug}`} className="font-body text-lg underline underline-offset-2">
+                  {page.question}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }
