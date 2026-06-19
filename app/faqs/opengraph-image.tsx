@@ -20,8 +20,18 @@ export default function Image() {
           }}
         >
           <div style={{ fontSize: 40, color: INK, opacity: 0.8 }}>NOMEKOP</div>
-          <div style={{ fontSize: 84, color: INK, fontWeight: 700, lineHeight: 1.1 }}>
-            Pokémon TCG{"\n"}set FAQs
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 84,
+              color: INK,
+              fontWeight: 700,
+              lineHeight: 1.1,
+            }}
+          >
+            <div>Pokémon TCG</div>
+            <div>set FAQs</div>
           </div>
           <div style={{ fontSize: 32, color: INK, marginTop: 16 }}>
             Card counts · binders · rarest cards · chase cards
