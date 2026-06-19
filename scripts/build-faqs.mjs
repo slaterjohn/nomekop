@@ -7,7 +7,7 @@ import { DatabaseSync } from "node:sqlite";
 import { writeFileSync } from "node:fs";
 import path from "node:path";
 import {
-  cardRef, masterSlotCount, reverseHoloCount, ballCounts, supertypeCounts,
+  masterSlotCount, reverseHoloCount, ballCounts, supertypeCounts,
   illustrationRareCount, rarityHistogram, rarestOf, mostValuableOf, chaseOf,
   marqueePokemonOf,
 } from "./faq-compute.mjs";

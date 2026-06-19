@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { rarityRank } from "@/lib/tcg/rarity";
 import { expandSlots } from "@/lib/layout";
+import type { TcgCard } from "@/lib/tcg/types";
 import {
   masterSlotCount,
   rarestOf,
@@ -13,7 +14,7 @@ import {
   RARITY_ORDER,
 } from "../../scripts/faq-compute.mjs";
 
-function fixture(setId: string) {
+function fixture(setId: string): TcgCard[] {
   return JSON.parse(
     readFileSync(path.join(process.cwd(), "test", "fixtures", `cards-${setId}.json`), "utf8"),
   );
@@ -44,7 +45,7 @@ describe("faq-compute matches the app's authoritative logic", () => {
   it("rarest card has the highest rarity rank in the set", () => {
     const cards = fixture("sv8pt5");
     const rarest = rarestOf(cards);
-    const maxRank = Math.max(...cards.map((c: any) => rarityRank(c.rarity)));
+    const maxRank = Math.max(...cards.map((c) => rarityRank(c.rarity)));
     expect(rarityRank(rarest.rarity)).toBe(maxRank);
   });
 
@@ -55,20 +56,20 @@ describe("faq-compute matches the app's authoritative logic", () => {
   });
 
   it("marketPriceOf returns undefined when a card has no prices", () => {
-    expect(marketPriceOf({ tcgplayer: undefined } as any)).toBeUndefined();
+    expect(marketPriceOf({ tcgplayer: undefined })).toBeUndefined();
   });
 
   it("marquee Pokémon are deduped by base species and capped", () => {
     const marquee = marqueePokemonOf(fixture("sv8pt5"), 5);
     expect(marquee.length).toBeLessThanOrEqual(5);
-    const slugs = marquee.map((m: any) => m.slug);
+    const slugs = marquee.map((m) => m.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
-    expect(marquee.every((m: any) => m.cards.length >= 1)).toBe(true);
+    expect(marquee.every((m) => m.cards.length >= 1)).toBe(true);
   });
 
   it("chaseOf returns distinct cards ranked by rarity", () => {
     const chase = chaseOf(fixture("sv8pt5"), 6);
     expect(chase.length).toBe(6);
-    expect(new Set(chase.map((c: any) => c.id)).size).toBe(6);
+    expect(new Set(chase.map((c) => c.id)).size).toBe(6);
   });
 });
