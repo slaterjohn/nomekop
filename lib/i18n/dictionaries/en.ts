@@ -81,7 +81,8 @@ export const en = {
     placeholdersPdf: "Placeholders PDF",
     // Get-a-binder shelf
     shelfExact: "Your {pockets}-pocket layout matches these binders — you’ll need {pages} pages.",
-    shelfNearest: "No off-the-shelf {pockets}-pocket binder exists; the closest size is shown below.",
+    shelfNearest:
+      "No off-the-shelf {pockets}-pocket binder exists; the closest size is shown below.",
     affiliateYes: "Links may earn Nomekop a small commission at no cost to you. ",
     affiliateNo: "Nomekop is not affiliated with Vault X; links are plain searches. ",
     // Binder page headings (one Pokémon / one illustrator)
@@ -108,7 +109,8 @@ export const en = {
     title: "Binders",
     intro:
       "NOMEKOP lays out your collection; a good binder holds it. Here's the Vault X lineup by pocket size — more pockets per page means fewer pages and a denser display, fewer pockets means bigger, easier-to-read cards.",
-    buildingPrompt: "Building a layout? Pick a set or a Pokédex and each result recommends the binder that fits.",
+    buildingPrompt:
+      "Building a layout? Pick a set or a Pokédex and each result recommends the binder that fits.",
     holdsPages: "{line} · holds {pages} pages · around {price}",
     priceFootnote:
       "Prices are RRP guidance, not live — check the retailer. A 9-pocket zip binder is the safe default for most collections; size up to 12 or 16 pockets to fit a master set in one book.",
@@ -175,6 +177,14 @@ export const en = {
     musicPlay: "Play background music",
     musicStop: "Stop background music",
     splashSkip: "Skip",
+  },
+  consent: {
+    message:
+      "Cookies for anonymous analytics — they help us improve Nomekop. No ads, no selling your data.",
+    allow: "Allow",
+    deny: "Deny",
+    close: "Close",
+    label: "Cookie consent",
   },
 };
 

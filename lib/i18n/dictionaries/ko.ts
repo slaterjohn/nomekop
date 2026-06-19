@@ -168,4 +168,11 @@ export const ko: Dictionary = {
     musicStop: "배경 음악 정지",
     splashSkip: "건너뛰기",
   },
+  consent: {
+    message: "익명 분석용 쿠키 — Nomekop 개선에 도움이 됩니다. 광고 없음, 데이터 판매 없음.",
+    allow: "허용",
+    deny: "거부",
+    close: "닫기",
+    label: "쿠키 동의",
+  },
 };

@@ -168,4 +168,11 @@ export const de: Dictionary = {
     musicStop: "Hintergrundmusik stoppen",
     splashSkip: "Überspringen",
   },
+  consent: {
+    message: "Cookies für anonyme Analysen — sie helfen uns, Nomekop zu verbessern. Keine Werbung, kein Verkauf deiner Daten.",
+    allow: "Erlauben",
+    deny: "Ablehnen",
+    close: "Schließen",
+    label: "Cookie-Zustimmung",
+  },
 };

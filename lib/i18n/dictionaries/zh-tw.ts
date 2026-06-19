@@ -168,4 +168,11 @@ export const zhTw: Dictionary = {
     musicStop: "停止背景音樂",
     splashSkip: "略過",
   },
+  consent: {
+    message: "用於匿名分析的 Cookie——它們協助我們改進 Nomekop。沒有廣告，絕不販售你的資料。",
+    allow: "允許",
+    deny: "拒絕",
+    close: "關閉",
+    label: "Cookie 同意",
+  },
 };

@@ -73,6 +73,23 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: SECURITY_HEADERS }];
   },
+  // PostHog reverse proxy: analytics traffic is sent same-origin to `/ingest` and
+  // proxied to PostHog here. This keeps the strict CSP intact (`connect-src 'self'`
+  // — no external host to allow) and means ad-blockers don't drop events. Hosts are
+  // EU to match the project's PostHog org; for a US org use us(-assets).i.posthog.com.
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://eu-assets.i.posthog.com/static/:path*",
+      },
+      { source: "/ingest/:path*", destination: "https://eu.i.posthog.com/:path*" },
+    ];
+  },
+  // Required by the PostHog proxy: without it Next 308-redirects the trailing-slash
+  // ingestion endpoints, interfering with the proxied POSTs. The app's own links and
+  // canonicals are all un-slashed, so this is a no-op for normal pages.
+  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;

@@ -168,4 +168,11 @@ export const zhCn: Dictionary = {
     musicStop: "停止背景音乐",
     splashSkip: "跳过",
   },
+  consent: {
+    message: "用于匿名分析的 Cookie——它们帮助我们改进 Nomekop。无广告，绝不出售你的数据。",
+    allow: "允许",
+    deny: "拒绝",
+    close: "关闭",
+    label: "Cookie 同意",
+  },
 };

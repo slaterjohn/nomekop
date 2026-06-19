@@ -168,4 +168,11 @@ export const ja: Dictionary = {
     musicStop: "BGMを停止",
     splashSkip: "スキップ",
   },
+  consent: {
+    message: "匿名の分析に使うCookie — Nomekop の改善に役立ちます。広告なし、データの販売もありません。",
+    allow: "許可する",
+    deny: "拒否する",
+    close: "閉じる",
+    label: "Cookie の同意",
+  },
 };

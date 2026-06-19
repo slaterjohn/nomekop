@@ -5,6 +5,7 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/site-footer";
 import { LanguageProvider } from "@/components/i18n/language-provider";
+import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { MusicController } from "@/components/music/music-controller";
 import { SplashScreen } from "@/components/splash/splash-screen";
 import { getServerDictionary } from "@/lib/i18n/server";
@@ -83,15 +84,17 @@ export default async function RootLayout({
       </head>
       <body className="flex min-h-full flex-col">
         <LanguageProvider locale={locale} dict={dict}>
-          <a href="#main" className="skip-link uppercase">
-            {dict.common.skipToContent}
-          </a>
-          <Header />
-          {children}
-          <SiteFooter />
-          <EasterEggs />
-          <MusicController />
-          <SplashScreen disabled={splashDisabled} />
+          <AnalyticsProvider>
+            <a href="#main" className="skip-link uppercase">
+              {dict.common.skipToContent}
+            </a>
+            <Header />
+            {children}
+            <SiteFooter />
+            <EasterEggs />
+            <MusicController />
+            <SplashScreen disabled={splashDisabled} />
+          </AnalyticsProvider>
         </LanguageProvider>
       </body>
     </html>
