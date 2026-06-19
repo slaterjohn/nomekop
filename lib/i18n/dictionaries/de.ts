@@ -29,6 +29,8 @@ export const de: Dictionary = {
     soundMotion: "Ton & Bewegung",
     sound: "Ton",
     reduceAnimation: "Animationen reduzieren",
+    privacy: "Datenschutz",
+    cookies: "Analyse-Cookies",
   },
   common: {
     restore: "Wiederherstellen",

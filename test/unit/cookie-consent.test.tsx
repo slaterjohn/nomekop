@@ -4,16 +4,20 @@ import { CookieConsent } from "@/components/analytics/cookie-consent";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { en } from "@/lib/i18n/dictionaries/en";
 
-const { ph } = vi.hoisted(() => ({
+const { ph, nav } = vi.hoisted(() => ({
   ph: {
     get_explicit_consent_status: vi.fn(() => "pending" as string),
     opt_in_capturing: vi.fn(),
     opt_out_capturing: vi.fn(),
     capture: vi.fn(),
   },
+  nav: { path: "/" },
 }));
 vi.mock("posthog-js", () => ({ default: ph }));
-vi.mock("next/navigation", () => ({ useRouter: () => ({ refresh: vi.fn() }) }));
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ refresh: vi.fn() }),
+  usePathname: () => nav.path,
+}));
 
 function renderBanner() {
   return render(
@@ -24,6 +28,7 @@ function renderBanner() {
 }
 
 beforeEach(() => {
+  nav.path = "/";
   ph.get_explicit_consent_status.mockReturnValue("pending");
   ph.opt_in_capturing.mockClear();
   ph.opt_out_capturing.mockClear();
@@ -71,6 +76,12 @@ describe("CookieConsent", () => {
 
   it("renders nothing once a decision has been made", () => {
     ph.get_explicit_consent_status.mockReturnValue("granted");
+    const { container } = renderBanner();
+    expect(container.querySelector("[role='region']")).toBeNull();
+  });
+
+  it("does not render on /print routes (kept out of PDF exports)", () => {
+    nav.path = "/print/pokemon";
     const { container } = renderBanner();
     expect(container.querySelector("[role='region']")).toBeNull();
   });

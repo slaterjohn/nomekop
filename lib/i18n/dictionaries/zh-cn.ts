@@ -29,6 +29,8 @@ export const zhCn: Dictionary = {
     soundMotion: "音效与动画",
     sound: "音效",
     reduceAnimation: "减少动画",
+    privacy: "隐私",
+    cookies: "分析 Cookie",
   },
   common: {
     restore: "恢复",

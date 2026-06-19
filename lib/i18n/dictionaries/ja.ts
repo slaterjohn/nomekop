@@ -29,6 +29,8 @@ export const ja: Dictionary = {
     soundMotion: "サウンド＆モーション",
     sound: "サウンド",
     reduceAnimation: "アニメーションを減らす",
+    privacy: "プライバシー",
+    cookies: "分析用Cookie",
   },
   common: {
     restore: "元に戻す",

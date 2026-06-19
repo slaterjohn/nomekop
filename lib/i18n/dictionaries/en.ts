@@ -32,6 +32,8 @@ export const en = {
     soundMotion: "Sound & motion",
     sound: "Sound",
     reduceAnimation: "Reduce animation",
+    privacy: "Privacy",
+    cookies: "Analytics cookies",
   },
   common: {
     restore: "Restore",

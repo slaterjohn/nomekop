@@ -12,10 +12,12 @@ import {
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { GbSelect } from "@/components/gb/gb-select";
 import { ThemeSwitcher } from "@/components/theme/theme-switcher";
+import { CookieToggle } from "@/components/analytics/cookie-toggle";
 import { useDict, useLocale, useSetLocale } from "@/components/i18n/language-provider";
 import { LANGUAGES, languageLabel } from "@/lib/tcg/languages";
 import { useSoundEnabled, play } from "@/lib/sound";
 import { useReducedMotion } from "@/lib/motion";
+import { analyticsEnabled } from "@/lib/analytics/posthog";
 
 /**
  * The app's personalisation knobs in one header-launched dialog: UI language,
@@ -68,7 +70,9 @@ export function SettingsPanel() {
           </DialogDescription>
 
           <section className="flex flex-col gap-2">
-            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.language}</h3>
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+              {dict.settings.language}
+            </h3>
             <GbSelect
               label={dict.settings.language}
               value={locale}
@@ -83,7 +87,9 @@ export function SettingsPanel() {
           </section>
 
           <section className="flex flex-col gap-2">
-            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">{dict.settings.palette}</h3>
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+              {dict.settings.palette}
+            </h3>
             <div className="flex flex-wrap">
               <ThemeSwitcher />
             </div>
@@ -107,6 +113,15 @@ export function SettingsPanel() {
               onChange={setReduced}
             />
           </section>
+
+          {analyticsEnabled() && (
+            <section className="flex flex-col gap-1">
+              <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+                {dict.settings.privacy}
+              </h3>
+              <CookieToggle />
+            </section>
+          )}
         </div>
       </DialogContent>
     </Dialog>

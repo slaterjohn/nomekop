@@ -29,6 +29,8 @@ export const ko: Dictionary = {
     soundMotion: "사운드 및 모션",
     sound: "사운드",
     reduceAnimation: "애니메이션 줄이기",
+    privacy: "개인정보",
+    cookies: "분석 쿠키",
   },
   common: {
     restore: "복원",
