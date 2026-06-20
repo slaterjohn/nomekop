@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Press_Start_2P, VT323, Pixelify_Sans } from "next/font/google";
+import { Press_Start_2P, VT323, Pixelify_Sans, JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { SplashScript } from "@/components/splash/splash-script";
@@ -32,6 +32,21 @@ const vt323 = VT323({
 const pixelify = Pixelify_Sans({
   variable: "--font-pixelify",
   weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+
+// Accessibility "Font" setting (Settings → Font). These two faces back the
+// "Monospaced" and "Sans-serif" options; the swap happens in CSS via the
+// --font-ui-* intermediate vars (see globals.css), keyed on html[data-font].
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });
 
@@ -89,7 +104,10 @@ export default async function RootLayout({
   // against the prebuilt `next start` bundle without a rebuild.
   const splashDisabled = process.env.DISABLE_SPLASH === "1";
   return (
-    <html lang={locale} className={`${pressStart.variable} ${vt323.variable} ${pixelify.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${pressStart.variable} ${vt323.variable} ${pixelify.variable} ${jetbrainsMono.variable} ${inter.variable} h-full antialiased`}
+    >
       <head>
         <ThemeScript />
         <SplashScript />

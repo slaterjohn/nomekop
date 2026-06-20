@@ -54,11 +54,16 @@
   --color-gb-accent: var(--gb-accent);
   --color-gb-bg: var(--gb-bg);
 
-  --font-pixel: var(--font-press-start), monospace;
-  --font-body: var(--font-vt323), monospace;
-  /* Legible pixel face for long-form reading (FAQ content). Pixel family, but
-     readable at paragraph sizes where VT323 (--font-body) gets hard to scan. */
-  --font-readable: var(--font-pixelify), var(--font-vt323), monospace;
+  /* The three font tokens now point at intermediate --font-ui-* vars (defaults +
+     per-data-font overrides live in the :root / [data-font] blocks below). This
+     is the SAME swap mechanism as the palette: @theme inline keeps the var()
+     reference, so overriding the source var re-resolves the utility at runtime.
+     --font-logo is fixed to the brand face — the wordmark never swaps. */
+  --font-pixel: var(--font-ui-heading);
+  --font-body: var(--font-ui-body);
+  /* Legible body face for long-form reading (FAQ content). */
+  --font-readable: var(--font-ui-readable);
+  --font-logo: var(--font-press-start), monospace;
 
   --animate-gb-blink: gb-blink 0.9s steps(1, end) infinite;
 
@@ -240,6 +245,39 @@
    navigations. (SplashScreen also syncs its React state and skips the jingle.) */
 [data-splash-seen] [data-splash] {
   display: none !important;
+}
+
+/*
+ * Font-type setting (Settings → Font). Intermediate vars the @theme font tokens
+ * reference; overriding them per html[data-font] re-resolves --font-pixel/-body/
+ * -readable everywhere — the same trick as the palette swap. Defaults below
+ * preserve today's pixel look (data-font absent or "pixel"). The brand wordmark
+ * uses --font-logo (fixed, above) so it never swaps.
+ */
+:root {
+  --font-ui-heading: var(--font-press-start), monospace;
+  --font-ui-body: var(--font-vt323), monospace;
+  --font-ui-readable: var(--font-pixelify), var(--font-vt323), monospace;
+}
+
+[data-font="mono"] {
+  --font-ui-heading: var(--font-jetbrains), monospace;
+  --font-ui-body: var(--font-jetbrains), monospace;
+  --font-ui-readable: var(--font-jetbrains), monospace;
+}
+
+[data-font="sans"] {
+  --font-ui-heading: var(--font-inter), system-ui, sans-serif;
+  --font-ui-body: var(--font-inter), system-ui, sans-serif;
+  --font-ui-readable: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Sans-serif mode also drops ALL-CAPS for a calmer, more legible read. Every
+   capitalised label in the app uses Tailwind's `uppercase` utility (GbButton,
+   GbScreen titles, nav tabs, skip link, badges …), so neutralising that one
+   class removes every all-caps source at once. Pixel + Mono keep their caps. */
+[data-font="sans"] .uppercase {
+  text-transform: none;
 }
 
 /*

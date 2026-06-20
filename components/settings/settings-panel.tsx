@@ -17,6 +17,7 @@ import { useDict, useLocale, useSetLocale } from "@/components/i18n/language-pro
 import { LANGUAGES, languageLabel } from "@/lib/tcg/languages";
 import { useSoundEnabled, play } from "@/lib/sound";
 import { useReducedMotion } from "@/lib/motion";
+import { useFont, type FontType } from "@/lib/font";
 import { analyticsEnabled } from "@/lib/analytics/posthog";
 
 /**
@@ -31,11 +32,18 @@ export function SettingsPanel() {
   const setLocale = useSetLocale();
   const { enabled: soundOn, setEnabled: setSound } = useSoundEnabled();
   const { reduced, setReduced } = useReducedMotion();
+  const { font, setFont } = useFont();
 
   const languageOptions = LANGUAGES.map((language) => ({
     value: language.code,
     label: languageLabel(language.code),
   }));
+
+  const fontOptions: Array<{ value: FontType; label: string }> = [
+    { value: "pixel", label: dict.settings.fontPixel },
+    { value: "mono", label: dict.settings.fontMono },
+    { value: "sans", label: dict.settings.fontSans },
+  ];
 
   return (
     <Dialog>
@@ -93,6 +101,24 @@ export function SettingsPanel() {
             <div className="flex flex-wrap">
               <ThemeSwitcher />
             </div>
+          </section>
+
+          <section className="flex flex-col gap-2">
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+              {dict.settings.font}
+            </h3>
+            <GbSelect
+              label={dict.settings.font}
+              value={font}
+              onChange={(value) => {
+                const next = fontOptions.find((option) => option.value === value)?.value;
+                if (!next || next === font) return;
+                play("confirm");
+                setFont(next);
+              }}
+              options={fontOptions}
+              className="w-full max-w-xs"
+            />
           </section>
 
           <section className="flex flex-col gap-1">

@@ -49,7 +49,7 @@ export function Header() {
                 letter mirrored = readable, reversed order). After a beat the
                 whole word flips first, then each letter flips to NOMEKOP. */}
             <span
-              className="inline-block origin-center font-pixel text-base leading-none text-gb-ink motion-safe:animate-gb-wordmark-word sm:text-2xl"
+              className="inline-block origin-center font-logo text-base leading-none text-gb-ink motion-safe:animate-gb-wordmark-word sm:text-2xl"
               aria-hidden="true"
             >
               {WORDMARK.split("").map((letter, i) => (

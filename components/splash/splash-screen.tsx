@@ -110,7 +110,7 @@ export function SplashScreen({ disabled = false }: { disabled?: boolean }) {
       />
 
       <span className="relative inline-flex flex-col items-center border-[4px] border-gb-ink bg-gb-accent px-6 py-4 shadow-[5px_5px_0_0_var(--gb-ink)]">
-        <span className="inline-block origin-center font-pixel text-3xl leading-none text-gb-ink motion-safe:animate-gb-wordmark-word sm:text-5xl">
+        <span className="inline-block origin-center font-logo text-3xl leading-none text-gb-ink motion-safe:animate-gb-wordmark-word sm:text-5xl">
           {WORDMARK.split("").map((letter, i) => (
             <span
               key={i}

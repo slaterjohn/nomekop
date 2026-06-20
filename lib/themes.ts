@@ -44,6 +44,21 @@ export const THEME_STORAGE_KEY = "bindermon:v1:theme";
  *  component only gets `undefined` for values imported from a client module. */
 export const MOTION_STORAGE_KEY = "bindermon:v1:motion";
 
+/** Font-type preference key. "pixel" (default) | "mono" | "sans". Server-safe
+ *  (lives here, not in "use client" lib/font) so the pre-paint ThemeScript can
+ *  read it and set data-font before first paint. */
+export const FONT_STORAGE_KEY = "bindermon:v1:font";
+
+/** Text-size preset key. "0" (100%, default) | "1" (112%) | "2" (125%) |
+ *  "3" (140%). Applied as data-font-size on <html>; CSS zoom scales the px-based
+ *  UI. Server-safe for the pre-paint script. */
+export const FONT_SIZE_STORAGE_KEY = "bindermon:v1:fontSize";
+
+/** Colour-scheme PREFERENCE key. "system" (default) | "light" | "dark". The
+ *  stored value is the preference; the RESOLVED light|dark is applied as
+ *  data-color-scheme. Server-safe for the pre-paint script. */
+export const COLOR_SCHEME_STORAGE_KEY = "bindermon:v1:colorScheme";
+
 /** Boot-splash "shown this session" flag. sessionStorage (per session, not
  *  forever), read by the pre-paint SplashScript so the splash shows once per
  *  session and never replays on the app's full-page-reload navigations. */
