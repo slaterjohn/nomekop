@@ -280,6 +280,20 @@
   text-transform: none;
 }
 
+/* Text-size setting (Settings → Text size). The UI is built on fixed-px pixel
+   sizes (text-[10px] etc.), so a rem-based root scale wouldn't touch them.
+   CSS `zoom` on the root scales px AND rem and reflows the layout — the one
+   knob that enlarges the whole pixel UI uniformly. "0" / absent = 100%. */
+[data-font-size="1"] {
+  zoom: 1.12;
+}
+[data-font-size="2"] {
+  zoom: 1.25;
+}
+[data-font-size="3"] {
+  zoom: 1.4;
+}
+
 /*
  * Game Boy palettes. Source of truth: lib/themes.ts — test/unit/contrast.test.ts
  * enforces WCAG AA on every shade pairing; keep these hex values in sync.

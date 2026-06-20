@@ -18,6 +18,7 @@ import { LANGUAGES, languageLabel } from "@/lib/tcg/languages";
 import { useSoundEnabled, play } from "@/lib/sound";
 import { useReducedMotion } from "@/lib/motion";
 import { useFont, type FontType } from "@/lib/font";
+import { useFontSize, type FontSize } from "@/lib/font-size";
 import { analyticsEnabled } from "@/lib/analytics/posthog";
 
 /**
@@ -33,6 +34,7 @@ export function SettingsPanel() {
   const { enabled: soundOn, setEnabled: setSound } = useSoundEnabled();
   const { reduced, setReduced } = useReducedMotion();
   const { font, setFont } = useFont();
+  const { size, setSize } = useFontSize();
 
   const languageOptions = LANGUAGES.map((language) => ({
     value: language.code,
@@ -43,6 +45,13 @@ export function SettingsPanel() {
     { value: "pixel", label: dict.settings.fontPixel },
     { value: "mono", label: dict.settings.fontMono },
     { value: "sans", label: dict.settings.fontSans },
+  ];
+
+  const textSizeOptions: Array<{ value: FontSize; label: string }> = [
+    { value: "0", label: dict.settings.textSizeDefault },
+    { value: "1", label: dict.settings.textSizeLarge },
+    { value: "2", label: dict.settings.textSizeLarger },
+    { value: "3", label: dict.settings.textSizeLargest },
   ];
 
   return (
@@ -117,6 +126,24 @@ export function SettingsPanel() {
                 setFont(next);
               }}
               options={fontOptions}
+              className="w-full max-w-xs"
+            />
+          </section>
+
+          <section className="flex flex-col gap-2">
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+              {dict.settings.textSize}
+            </h3>
+            <GbSelect
+              label={dict.settings.textSize}
+              value={size}
+              onChange={(value) => {
+                const next = textSizeOptions.find((option) => option.value === value)?.value;
+                if (!next || next === size) return;
+                play("confirm");
+                setSize(next);
+              }}
+              options={textSizeOptions}
               className="w-full max-w-xs"
             />
           </section>
