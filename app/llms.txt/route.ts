@@ -1,5 +1,5 @@
 import { ARTICLES } from "@/lib/content/articles";
-import { FAQ_PAGES } from "@/lib/content/faqs/registry";
+import { ALL_FAQ_PAGES } from "@/lib/content/faqs/registry";
 import { SITE_DESCRIPTION, siteUrl } from "@/lib/site";
 import { STATS_AS_OF } from "@/lib/content/stats";
 
@@ -44,7 +44,7 @@ export function GET(): Response {
     ),
     "",
     "## Per-set FAQ pages (each has a Markdown version)",
-    ...FAQ_PAGES.map(
+    ...ALL_FAQ_PAGES.map(
       (p) => `- [${p.question}](${base}/faqs/${p.slug}): ${p.description} Markdown: ${base}/faqs/${p.slug}/markdown`,
     ),
     "",

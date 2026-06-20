@@ -13,7 +13,10 @@ export function pokemonInSetSlug(pokemonSlug: string, setSlug: string): string {
 }
 
 /** Slug for a set-level FAQ of a given type. */
-export function setFaqSlug(type: Exclude<FaqType, "pokemon-in-set">, setSlug: string): string {
+export function setFaqSlug(
+  type: Exclude<FaqType, "pokemon-in-set" | "upcoming">,
+  setSlug: string,
+): string {
   switch (type) {
     case "card-count": return `how-many-cards-in-${setSlug}`;
     case "master-set": return `how-many-cards-in-${setSlug}-master-set`;

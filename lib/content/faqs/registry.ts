@@ -6,6 +6,11 @@ import {
 import { rarestCardPage, valuableCardPage, chaseCardsPage } from "@/lib/content/faqs/templates/cards";
 import { binderSizePage, releaseDatePage, ballPatternsPage } from "@/lib/content/faqs/templates/sets";
 import { pokemonInSetPage } from "@/lib/content/faqs/templates/pokemon";
+import {
+  UPCOMING_FAQ_PAGES,
+  upcomingSetById,
+  upcomingSetsWithPages,
+} from "@/lib/content/faqs/upcoming";
 
 const snap = snapshot as unknown as FaqSnapshot;
 
@@ -30,20 +35,38 @@ function pagesForSetFacts(s: FaqSetFacts): FaqPage[] {
   return pages;
 }
 
-export const FAQ_PAGES: FaqPage[] = snap.sets.flatMap(pagesForSetFacts);
+const upcomingSlugs = new Set(UPCOMING_FAQ_PAGES.map((p) => p.slug));
 
-const BY_SLUG = new Map(FAQ_PAGES.map((p) => [p.slug, p]));
-export const faqSlugs: string[] = FAQ_PAGES.map((p) => p.slug);
+/** Released-set pages (data-driven from the snapshot). Any slug a hand-authored
+ *  upcoming page already owns is dropped so the pre-release page wins until it's
+ *  pruned — this keeps slugs unique even after a set releases into the DB. */
+export const FAQ_PAGES: FaqPage[] = snap.sets
+  .flatMap(pagesForSetFacts)
+  .filter((p) => !upcomingSlugs.has(p.slug));
+
+/** Every FAQ page for routing/sitemap — upcoming (hand-authored) first. */
+export const ALL_FAQ_PAGES: FaqPage[] = [...UPCOMING_FAQ_PAGES, ...FAQ_PAGES];
+
+const BY_SLUG = new Map(ALL_FAQ_PAGES.map((p) => [p.slug, p]));
+export const faqSlugs: string[] = ALL_FAQ_PAGES.map((p) => p.slug);
 
 export function getFaqPage(slug: string): FaqPage | undefined {
   return BY_SLUG.get(slug);
 }
 
 export function faqPagesForSet(setId: string): FaqPage[] {
-  return FAQ_PAGES.filter((p) => p.setId === setId);
+  return ALL_FAQ_PAGES.filter((p) => p.setId === setId);
 }
 
-/** Sets in scope, newest first, each with its pages — for the grouped index. */
+/** Display name for a set id — released (snapshot) or upcoming. */
+export function faqSetName(setId: string): string | undefined {
+  const released = snap.sets.find((s) => s.id === setId);
+  return released ? released.name : upcomingSetById(setId)?.shortName;
+}
+
+/** Released sets, newest first, each with its pages — for the grouped index. */
 export function faqSetsWithPages(): { set: FaqSetFacts; pages: FaqPage[] }[] {
   return snap.sets.map((set) => ({ set, pages: faqPagesForSet(set.id) }));
 }
+
+export { upcomingSetsWithPages };

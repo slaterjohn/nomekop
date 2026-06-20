@@ -62,7 +62,9 @@ export type FaqType =
   | "reverse-holos"
   | "release-date"
   | "ball-patterns"
-  | "pokemon-in-set";
+  | "pokemon-in-set"
+  /** Hand-authored pre-release page for an upcoming set (see upcoming.ts). */
+  | "upcoming";
 
 /** A single rendered FAQ page. */
 export type FaqPage = {

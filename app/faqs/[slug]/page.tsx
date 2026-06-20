@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { JsonLd } from "@/components/json-ld";
 import { renderMarkdown } from "@/lib/content/render";
-import { faqSlugs, getFaqPage, faqPagesForSet, FAQ_SETS } from "@/lib/content/faqs/registry";
+import { faqSlugs, getFaqPage, faqPagesForSet, faqSetName } from "@/lib/content/faqs/registry";
 import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -36,7 +36,7 @@ export default async function FaqPage({ params }: Props) {
   const page = getFaqPage(slug);
   if (!page) notFound();
   const html = renderMarkdown(page.body);
-  const set = FAQ_SETS.find((s) => s.id === page.setId);
+  const setName = faqSetName(page.setId);
   const siblings = faqPagesForSet(page.setId).filter((p) => p.slug !== page.slug);
 
   return (
@@ -74,9 +74,9 @@ export default async function FaqPage({ params }: Props) {
         </div>
       )}
 
-      {siblings.length > 0 && set && (
-        <nav aria-label={`More about ${set.name}`} className="mt-2 flex flex-col gap-2 border-t-[3px] border-gb-ink pt-4">
-          <h2 className="font-readable text-base font-bold leading-snug">More about {set.name}</h2>
+      {siblings.length > 0 && setName && (
+        <nav aria-label={`More about ${setName}`} className="mt-2 flex flex-col gap-2 border-t-[3px] border-gb-ink pt-4">
+          <h2 className="font-readable text-base font-bold leading-snug">More about {setName}</h2>
           <ul className="flex list-none flex-col gap-1 p-0">
             {siblings.map((s) => (
               <li key={s.slug}>
