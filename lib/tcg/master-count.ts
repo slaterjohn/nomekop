@@ -61,7 +61,16 @@ export async function getMasterSetCounts(
 
   const entries = await Promise.all(
     sets.map(async (set): Promise<[string, number]> => {
-      const cards = await getCardsForSitemap(set.id);
+      // Cache-only peek — but in fixture mode it delegates to the fixture source,
+      // which THROWS for sets without a committed fixture. Either way (throw or
+      // cold-miss []), fall back to the printed/total estimate; never let one
+      // set's missing cards 500 the whole /sets page.
+      let cards: Awaited<ReturnType<typeof getCardsForSitemap>> = [];
+      try {
+        cards = await getCardsForSitemap(set.id);
+      } catch {
+        cards = [];
+      }
       return [set.id, masterCountFor(set, cards)];
     }),
   );
