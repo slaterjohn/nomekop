@@ -25,6 +25,23 @@ export function cardBullet(card: FaqCardRef): string {
   return `- [${cardLabel(card)}](/card/${card.id})${rarity}${price}`;
 }
 
+/** A linked card thumbnail in Markdown — the image opens the card page. Returns
+ *  "" when the card has no scan, so callers can filter cleanly. */
+export function cardImageLink(
+  card: Pick<FaqCardRef, "id" | "name" | "number" | "imageSmall">,
+): string {
+  if (!card.imageSmall) return "";
+  return `[![${cardLabel(card)}](${card.imageSmall})](/card/${card.id})`;
+}
+
+/** A row of linked card thumbnails (one Markdown paragraph). "" when none of the
+ *  cards have a scan. Images link to /card/[id] so every visual mention is a
+ *  route into the card's own page. */
+export function cardGallery(cards: FaqCardRef[], limit = 6): string {
+  const thumbs = cards.slice(0, limit).map(cardImageLink).filter(Boolean);
+  return thumbs.join(" ");
+}
+
 /** "A, B and C" — an Oxford-free conjunction list. */
 export function joinAnd(items: string[]): string {
   if (items.length <= 1) return items[0] ?? "";

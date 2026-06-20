@@ -237,7 +237,7 @@ export default async function SetPage({ params }: Props) {
         <section aria-label={`Common questions about ${set.name}`} className="mt-6 flex flex-col gap-2">
           <h2 className="font-pixel text-sm leading-relaxed">Common questions about {set.name}</h2>
           <ul className="flex list-none flex-col gap-1 p-0">
-            {faqs.map((page) => (
+            {faqs.slice(0, 6).map((page) => (
               <li key={page.slug}>
                 <Link href={`/faqs/${page.slug}`} className="font-body text-lg underline underline-offset-2">
                   {page.question}
@@ -245,6 +245,9 @@ export default async function SetPage({ params }: Props) {
               </li>
             ))}
           </ul>
+          <GbLinkButton href={`/faqs/set/${set.id}`} variant="b" size="sm" className="mt-1 self-start">
+            All {set.name} FAQs ({faqs.length}) ▸
+          </GbLinkButton>
         </section>
       )}
     </main>

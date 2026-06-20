@@ -337,3 +337,57 @@ export function faqsIndexJsonLd(
     },
   };
 }
+
+/** CollectionPage + ItemList of per-set FAQ hubs for the /faqs index. The index
+ *  is a directory of sets (each a card linking to its hub), so the ItemList
+ *  points at the hub pages rather than individual questions. */
+export function faqsIndexSetsJsonLd(
+  sets: Array<{ id: string; fullName: string }>,
+): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "CollectionPage",
+    name: "Pokémon TCG set FAQs",
+    url: absolute("/faqs"),
+    description:
+      "Pokémon TCG FAQs by set — pick a set for card counts, master-set sizes, the best " +
+      "binder, rarest and most valuable cards, chase cards, release dates and more.",
+    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: sets.length,
+      itemListElement: sets.map((set, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: `${set.fullName} FAQs`,
+        url: absolute(`/faqs/set/${set.id}`),
+      })),
+    },
+  };
+}
+
+/** CollectionPage + ItemList for a per-set FAQ hub (/faqs/set/[setId]). */
+export function faqSetHubJsonLd(
+  setId: string,
+  setName: string,
+  pages: Array<{ slug: string; question: string }>,
+): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "CollectionPage",
+    name: `${setName} — Pokémon TCG FAQs`,
+    url: absolute(`/faqs/set/${setId}`),
+    description: `Common questions and answers about the ${setName} Pokémon TCG set.`,
+    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: pages.length,
+      itemListElement: pages.map((p, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: p.question,
+        url: absolute(`/faqs/${p.slug}`),
+      })),
+    },
+  };
+}

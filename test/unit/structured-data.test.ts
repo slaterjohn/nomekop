@@ -12,12 +12,51 @@ import {
   cardProductJsonLd,
   factsCollectionJsonLd,
   faqJsonLd,
+  faqSetHubJsonLd,
+  faqsIndexSetsJsonLd,
   setCollectionJsonLd,
   setsIndexJsonLd,
   webApplicationJsonLd,
   webSiteJsonLd,
 } from "@/lib/structured-data";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+
+describe("faqsIndexSetsJsonLd", () => {
+  it("is a CollectionPage whose ItemList points at each set's FAQ hub", () => {
+    const json = faqsIndexSetsJsonLd([
+      { id: "me4", fullName: "Chaos Rising" },
+      { id: "upcoming-pitch-black", fullName: "Pokémon TCG: Mega Evolution — Pitch Black" },
+    ]);
+    expect(json["@type"]).toBe("CollectionPage");
+    const list = json.mainEntity as { numberOfItems: number; itemListElement: Array<Record<string, unknown>> };
+    expect(list.numberOfItems).toBe(2);
+    expect(list.itemListElement[0]).toMatchObject({
+      position: 1,
+      name: "Chaos Rising FAQs",
+      url: "http://localhost:3000/faqs/set/me4",
+    });
+    expect(list.itemListElement[1]?.url).toBe(
+      "http://localhost:3000/faqs/set/upcoming-pitch-black",
+    );
+  });
+});
+
+describe("faqSetHubJsonLd", () => {
+  it("is a CollectionPage listing each FAQ page of the set", () => {
+    const json = faqSetHubJsonLd("me4", "Chaos Rising", [
+      { slug: "how-many-cards-in-chaos-rising", question: "How many cards are in Chaos Rising?" },
+      { slug: "rarest-card-in-chaos-rising", question: "What is the rarest card in Chaos Rising?" },
+    ]);
+    expect(json["@type"]).toBe("CollectionPage");
+    expect(json.url).toBe("http://localhost:3000/faqs/set/me4");
+    const list = json.mainEntity as { numberOfItems: number; itemListElement: Array<Record<string, unknown>> };
+    expect(list.numberOfItems).toBe(2);
+    expect(list.itemListElement[0]).toMatchObject({
+      name: "How many cards are in Chaos Rising?",
+      url: "http://localhost:3000/faqs/how-many-cards-in-chaos-rising",
+    });
+  });
+});
 
 // Builders read siteUrl() at call time; unset the env so every test sees the
 // deterministic localhost fallback.

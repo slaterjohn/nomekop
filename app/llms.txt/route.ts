@@ -1,5 +1,5 @@
 import { ARTICLES } from "@/lib/content/articles";
-import { ALL_FAQ_PAGES } from "@/lib/content/faqs/registry";
+import { ALL_FAQ_PAGES, faqSetSummaries } from "@/lib/content/faqs/registry";
 import { SITE_DESCRIPTION, siteUrl } from "@/lib/site";
 import { STATS_AS_OF } from "@/lib/content/stats";
 
@@ -40,6 +40,14 @@ export function GET(): Response {
     "## Fun-fact articles (each has a Markdown version)",
     ...ARTICLES.map(
       (a) => `- [${a.question}](${base}/facts/${a.slug}): ${a.description} Markdown: ${base}/facts/${a.slug}/markdown`,
+    ),
+    "",
+    "## FAQs by set (hub page per set)",
+    ...faqSetSummaries().map(
+      (s) =>
+        `- [${s.fullName} FAQs](${base}/faqs/set/${s.id}): ${s.faqCount} answers` +
+        (s.isUpcoming ? ` (upcoming — ${s.releaseLabel})` : "") +
+        ".",
     ),
     "",
     "## Per-set FAQ pages (each has a Markdown version)",

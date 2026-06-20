@@ -51,6 +51,10 @@ export function cardRef(card) {
   const ref = { id: card.id, name: card.name, number: card.number, rarity: card.rarity };
   const price = marketPriceOf(card);
   if (typeof price === "number") ref.marketPrice = price;
+  // Scan URLs so FAQ pages can render linked card thumbnails. Hosts differ per
+  // set (pokemontcg.io vs scrydex for 2026+), so they're captured, not derived.
+  if (card.imageSmall) ref.imageSmall = card.imageSmall;
+  if (card.imageLarge) ref.imageLarge = card.imageLarge;
   return ref;
 }
 

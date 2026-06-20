@@ -24,6 +24,8 @@ export type UpcomingSet = {
   shortName: string;
   /** URL slug stem. */
   slug: string;
+  /** Era/series the set belongs to — groups it on the FAQ index (see eras.ts). */
+  era: string;
   /** Human release label, e.g. "July 17, 2026". */
   releaseLabel: string;
   /** Canonical sources, surfaced on every page of the set. */
@@ -38,6 +40,7 @@ export const UPCOMING_SETS: UpcomingSet[] = [
     name: "Pokémon TCG: Mega Evolution — Pitch Black",
     shortName: "Pitch Black",
     slug: "pitch-black",
+    era: "Mega Evolution",
     releaseLabel: "July 17, 2026",
     sources: [
       { label: "Pokemon.com — Pitch Black", url: "https://www.pokemon.com/us/pokemon-tcg/mega-evolution-pitch-black" },
@@ -50,6 +53,7 @@ export const UPCOMING_SETS: UpcomingSet[] = [
     name: "Pokémon TCG: 30th Celebration",
     shortName: "30th Celebration",
     slug: "30th-celebration",
+    era: "Mega Evolution",
     releaseLabel: "September 16, 2026",
     sources: [
       { label: "Pokemon.com — 30th Celebration", url: "https://www.pokemon.com/us/pokemon-news/get-ready-for-pokemon-tcg-30th-celebration" },
@@ -61,6 +65,7 @@ export const UPCOMING_SETS: UpcomingSet[] = [
     name: "Pokémon TCG: Mega Evolution — Delta Reign",
     shortName: "Delta Reign",
     slug: "delta-reign",
+    era: "Mega Evolution",
     releaseLabel: "November 6, 2026",
     sources: [
       { label: "PokéGuardian — Delta Reign tease", url: "https://www.pokeguardian.com/3231721_pokemon-tcg-mega-evolution-delta-reign-teased-november-release" },

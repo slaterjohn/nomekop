@@ -6,6 +6,8 @@
       "name": "Chaos Rising",
       "slug": "chaos-rising",
       "series": "Mega Evolution",
+      "logoUrl": "https://images.scrydex.com/pokemon/me4-logo/logo",
+      "symbolUrl": "https://images.scrydex.com/pokemon/me4-symbol/symbol",
       "releaseDate": "2026/05/22",
       "printedTotal": 86,
       "total": 122,
@@ -33,44 +35,58 @@
         "id": "me4-119",
         "name": "Cinccino ex",
         "number": "119",
-        "rarity": "Special Illustration Rare"
+        "rarity": "Special Illustration Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me4-119/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me4-119/large"
       },
       "chaseCards": [
         {
           "id": "me4-116",
           "name": "Mega Greninja ex",
           "number": "116",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-116/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-116/large"
         },
         {
           "id": "me4-118",
           "name": "Mega Dragalge ex",
           "number": "118",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-118/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-118/large"
         },
         {
           "id": "me4-119",
           "name": "Cinccino ex",
           "number": "119",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-119/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-119/large"
         },
         {
           "id": "me4-117",
           "name": "Mega Floette ex",
           "number": "117",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-117/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-117/large"
         },
         {
           "id": "me4-121",
           "name": "Roxie's Performance",
           "number": "121",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-121/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-121/large"
         },
         {
           "id": "me4-120",
           "name": "AZ's Tranquility",
           "number": "120",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-120/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-120/large"
         }
       ],
       "marqueePokemon": [
@@ -82,19 +98,25 @@
               "id": "me4-73",
               "name": "Cinccino ex",
               "number": "73",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-73/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-73/large"
             },
             {
               "id": "me4-105",
               "name": "Cinccino ex",
               "number": "105",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-105/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-105/large"
             },
             {
               "id": "me4-119",
               "name": "Cinccino ex",
               "number": "119",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-119/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-119/large"
             }
           ]
         },
@@ -106,19 +128,25 @@
               "id": "me4-65",
               "name": "Mega Dragalge ex",
               "number": "65",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-65/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-65/large"
             },
             {
               "id": "me4-104",
               "name": "Mega Dragalge ex",
               "number": "104",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-104/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-104/large"
             },
             {
               "id": "me4-118",
               "name": "Mega Dragalge ex",
               "number": "118",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-118/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-118/large"
             }
           ]
         },
@@ -130,19 +158,25 @@
               "id": "me4-22",
               "name": "Mega Greninja ex",
               "number": "22",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-22/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-22/large"
             },
             {
               "id": "me4-100",
               "name": "Mega Greninja ex",
               "number": "100",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-100/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-100/large"
             },
             {
               "id": "me4-116",
               "name": "Mega Greninja ex",
               "number": "116",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-116/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-116/large"
             }
           ]
         },
@@ -154,19 +188,25 @@
               "id": "me4-35",
               "name": "Mega Floette ex",
               "number": "35",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-35/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-35/large"
             },
             {
               "id": "me4-101",
               "name": "Mega Floette ex",
               "number": "101",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-101/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-101/large"
             },
             {
               "id": "me4-117",
               "name": "Mega Floette ex",
               "number": "117",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-117/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-117/large"
             }
           ]
         },
@@ -178,7 +218,9 @@
               "id": "me4-92",
               "name": "Claydol",
               "number": "92",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-92/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-92/large"
             }
           ]
         }
@@ -190,6 +232,8 @@
       "name": "Perfect Order",
       "slug": "perfect-order",
       "series": "Mega Evolution",
+      "logoUrl": "https://images.scrydex.com/pokemon/me3-logo/logo",
+      "symbolUrl": "https://images.scrydex.com/pokemon/me3-symbol/symbol",
       "releaseDate": "2026/03/27",
       "printedTotal": 88,
       "total": 124,
@@ -217,44 +261,58 @@
         "id": "me3-121",
         "name": "Meowth ex",
         "number": "121",
-        "rarity": "Special Illustration Rare"
+        "rarity": "Special Illustration Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me3-121/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me3-121/large"
       },
       "chaseCards": [
         {
           "id": "me3-121",
           "name": "Meowth ex",
           "number": "121",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-121/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-121/large"
         },
         {
           "id": "me3-120",
           "name": "Mega Zygarde ex",
           "number": "120",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-120/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-120/large"
         },
         {
           "id": "me3-119",
           "name": "Mega Clefable ex",
           "number": "119",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-119/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-119/large"
         },
         {
           "id": "me3-118",
           "name": "Mega Starmie ex",
           "number": "118",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-118/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-118/large"
         },
         {
           "id": "me3-123",
           "name": "Rosa's Encouragement",
           "number": "123",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-123/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-123/large"
         },
         {
           "id": "me3-122",
           "name": "Jacinthe",
           "number": "122",
-          "rarity": "Special Illustration Rare"
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-122/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-122/large"
         }
       ],
       "marqueePokemon": [
@@ -266,19 +324,25 @@
               "id": "me3-62",
               "name": "Meowth ex",
               "number": "62",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-62/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-62/large"
             },
             {
               "id": "me3-107",
               "name": "Meowth ex",
               "number": "107",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-107/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-107/large"
             },
             {
               "id": "me3-121",
               "name": "Meowth ex",
               "number": "121",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-121/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-121/large"
             }
           ]
         },
@@ -290,19 +354,25 @@
               "id": "me3-47",
               "name": "Mega Zygarde ex",
               "number": "47",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-47/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-47/large"
             },
             {
               "id": "me3-104",
               "name": "Mega Zygarde ex",
               "number": "104",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-104/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-104/large"
             },
             {
               "id": "me3-120",
               "name": "Mega Zygarde ex",
               "number": "120",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-120/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-120/large"
             }
           ]
         },
@@ -314,19 +384,25 @@
               "id": "me3-31",
               "name": "Mega Clefable ex",
               "number": "31",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-31/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-31/large"
             },
             {
               "id": "me3-103",
               "name": "Mega Clefable ex",
               "number": "103",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-103/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-103/large"
             },
             {
               "id": "me3-119",
               "name": "Mega Clefable ex",
               "number": "119",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-119/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-119/large"
             }
           ]
         },
@@ -338,19 +414,25 @@
               "id": "me3-21",
               "name": "Mega Starmie ex",
               "number": "21",
-              "rarity": "Double Rare"
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-21/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-21/large"
             },
             {
               "id": "me3-102",
               "name": "Mega Starmie ex",
               "number": "102",
-              "rarity": "Ultra Rare"
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-102/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-102/large"
             },
             {
               "id": "me3-118",
               "name": "Mega Starmie ex",
               "number": "118",
-              "rarity": "Special Illustration Rare"
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-118/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-118/large"
             }
           ]
         },
@@ -362,7 +444,9 @@
               "id": "me3-93",
               "name": "Dedenne",
               "number": "93",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-93/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-93/large"
             }
           ]
         }
@@ -374,6 +458,8 @@
       "name": "Ascended Heroes",
       "slug": "ascended-heroes",
       "series": "Mega Evolution",
+      "logoUrl": "https://images.scrydex.com/pokemon/me2pt5-logo/logo",
+      "symbolUrl": "https://images.scrydex.com/pokemon/me2pt5-symbol/symbol",
       "releaseDate": "2026/01/30",
       "printedTotal": 217,
       "total": 295,
@@ -398,44 +484,58 @@
         "id": "me2pt5-250",
         "name": "Fan Rotom",
         "number": "250",
-        "rarity": "Illustration Rare"
+        "rarity": "Illustration Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-250/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-250/large"
       },
       "chaseCards": [
         {
           "id": "me2pt5-223",
           "name": "Numel",
           "number": "223",
-          "rarity": "Illustration Rare"
+          "rarity": "Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-223/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-223/large"
         },
         {
           "id": "me2pt5-239",
           "name": "Team Rocket's Dugtrio",
           "number": "239",
-          "rarity": "Illustration Rare"
+          "rarity": "Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-239/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-239/large"
         },
         {
           "id": "me2pt5-231",
           "name": "Iono's Wattrel",
           "number": "231",
-          "rarity": "Illustration Rare"
+          "rarity": "Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-231/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-231/large"
         },
         {
           "id": "me2pt5-247",
           "name": "Dreepy",
           "number": "247",
-          "rarity": "Illustration Rare"
+          "rarity": "Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-247/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-247/large"
         },
         {
           "id": "me2pt5-219",
           "name": "Beautifly",
           "number": "219",
-          "rarity": "Illustration Rare"
+          "rarity": "Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-219/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-219/large"
         },
         {
           "id": "me2pt5-227",
           "name": "Snorunt",
           "number": "227",
-          "rarity": "Illustration Rare"
+          "rarity": "Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-227/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-227/large"
         }
       ],
       "marqueePokemon": [
@@ -447,7 +547,9 @@
               "id": "me2pt5-223",
               "name": "Numel",
               "number": "223",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-223/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-223/large"
             }
           ]
         },
@@ -459,7 +561,9 @@
               "id": "me2pt5-239",
               "name": "Team Rocket's Dugtrio",
               "number": "239",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-239/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-239/large"
             }
           ]
         },
@@ -471,7 +575,9 @@
               "id": "me2pt5-231",
               "name": "Iono's Wattrel",
               "number": "231",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-231/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-231/large"
             }
           ]
         },
@@ -483,7 +589,9 @@
               "id": "me2pt5-247",
               "name": "Dreepy",
               "number": "247",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-247/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-247/large"
             }
           ]
         },
@@ -495,7 +603,9 @@
               "id": "me2pt5-219",
               "name": "Beautifly",
               "number": "219",
-              "rarity": "Illustration Rare"
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-219/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-219/large"
             }
           ]
         }
@@ -507,6 +617,8 @@
       "name": "Phantasmal Flames",
       "slug": "phantasmal-flames",
       "series": "Mega Evolution",
+      "logoUrl": "https://images.pokemontcg.io/me2/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/me2/symbol.png",
       "releaseDate": "2025/11/14",
       "printedTotal": 94,
       "total": 130,
@@ -535,14 +647,18 @@
         "name": "Mega Lopunny ex",
         "number": "128",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 21.13
+        "marketPrice": 21.13,
+        "imageSmall": "https://images.pokemontcg.io/me2/128.png",
+        "imageLarge": "https://images.pokemontcg.io/me2/128_hires.png"
       },
       "mostValuableCard": {
         "id": "me2-125",
         "name": "Mega Charizard X ex",
         "number": "125",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 799.71
+        "marketPrice": 799.71,
+        "imageSmall": "https://images.pokemontcg.io/me2/125.png",
+        "imageLarge": "https://images.pokemontcg.io/me2/125_hires.png"
       },
       "chaseCards": [
         {
@@ -550,42 +666,54 @@
           "name": "Mega Charizard X ex",
           "number": "125",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 799.71
+          "marketPrice": 799.71,
+          "imageSmall": "https://images.pokemontcg.io/me2/125.png",
+          "imageLarge": "https://images.pokemontcg.io/me2/125_hires.png"
         },
         {
           "id": "me2-130",
           "name": "Mega Charizard X ex",
           "number": "130",
           "rarity": "Mega Hyper Rare",
-          "marketPrice": 367.95
+          "marketPrice": 367.95,
+          "imageSmall": "https://images.pokemontcg.io/me2/130.png",
+          "imageLarge": "https://images.pokemontcg.io/me2/130_hires.png"
         },
         {
           "id": "me2-109",
           "name": "Mega Charizard X ex",
           "number": "109",
           "rarity": "Ultra Rare",
-          "marketPrice": 36.89
+          "marketPrice": 36.89,
+          "imageSmall": "https://images.pokemontcg.io/me2/109.png",
+          "imageLarge": "https://images.pokemontcg.io/me2/109_hires.png"
         },
         {
           "id": "me2-129",
           "name": "Dawn",
           "number": "129",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 29.25
+          "marketPrice": 29.25,
+          "imageSmall": "https://images.pokemontcg.io/me2/129.png",
+          "imageLarge": "https://images.pokemontcg.io/me2/129_hires.png"
         },
         {
           "id": "me2-106",
           "name": "Meowth",
           "number": "106",
           "rarity": "Illustration Rare",
-          "marketPrice": 24.62
+          "marketPrice": 24.62,
+          "imageSmall": "https://images.pokemontcg.io/me2/106.png",
+          "imageLarge": "https://images.pokemontcg.io/me2/106_hires.png"
         },
         {
           "id": "me2-127",
           "name": "Mega Sharpedo ex",
           "number": "127",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 24.28
+          "marketPrice": 24.28,
+          "imageSmall": "https://images.pokemontcg.io/me2/127.png",
+          "imageLarge": "https://images.pokemontcg.io/me2/127_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -598,21 +726,27 @@
               "name": "Mega Charizard X ex",
               "number": "13",
               "rarity": "Double Rare",
-              "marketPrice": 4.53
+              "marketPrice": 4.53,
+              "imageSmall": "https://images.pokemontcg.io/me2/13.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/13_hires.png"
             },
             {
               "id": "me2-109",
               "name": "Mega Charizard X ex",
               "number": "109",
               "rarity": "Ultra Rare",
-              "marketPrice": 36.89
+              "marketPrice": 36.89,
+              "imageSmall": "https://images.pokemontcg.io/me2/109.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/109_hires.png"
             },
             {
               "id": "me2-125",
               "name": "Mega Charizard X ex",
               "number": "125",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 799.71
+              "marketPrice": 799.71,
+              "imageSmall": "https://images.pokemontcg.io/me2/125.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/125_hires.png"
             }
           ]
         },
@@ -625,7 +759,9 @@
               "name": "Meowth",
               "number": "106",
               "rarity": "Illustration Rare",
-              "marketPrice": 24.62
+              "marketPrice": 24.62,
+              "imageSmall": "https://images.pokemontcg.io/me2/106.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/106_hires.png"
             }
           ]
         },
@@ -638,21 +774,27 @@
               "name": "Mega Sharpedo ex",
               "number": "61",
               "rarity": "Double Rare",
-              "marketPrice": 0.56
+              "marketPrice": 0.56,
+              "imageSmall": "https://images.pokemontcg.io/me2/61.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/61_hires.png"
             },
             {
               "id": "me2-113",
               "name": "Mega Sharpedo ex",
               "number": "113",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.33
+              "marketPrice": 2.33,
+              "imageSmall": "https://images.pokemontcg.io/me2/113.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/113_hires.png"
             },
             {
               "id": "me2-127",
               "name": "Mega Sharpedo ex",
               "number": "127",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 24.28
+              "marketPrice": 24.28,
+              "imageSmall": "https://images.pokemontcg.io/me2/127.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/127_hires.png"
             }
           ]
         },
@@ -665,21 +807,27 @@
               "name": "Mega Lopunny ex",
               "number": "84",
               "rarity": "Double Rare",
-              "marketPrice": 0.69
+              "marketPrice": 0.69,
+              "imageSmall": "https://images.pokemontcg.io/me2/84.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/84_hires.png"
             },
             {
               "id": "me2-115",
               "name": "Mega Lopunny ex",
               "number": "115",
               "rarity": "Ultra Rare",
-              "marketPrice": 3.12
+              "marketPrice": 3.12,
+              "imageSmall": "https://images.pokemontcg.io/me2/115.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/115_hires.png"
             },
             {
               "id": "me2-128",
               "name": "Mega Lopunny ex",
               "number": "128",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 21.13
+              "marketPrice": 21.13,
+              "imageSmall": "https://images.pokemontcg.io/me2/128.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/128_hires.png"
             }
           ]
         },
@@ -692,21 +840,27 @@
               "name": "Rotom ex",
               "number": "29",
               "rarity": "Double Rare",
-              "marketPrice": 0.52
+              "marketPrice": 0.52,
+              "imageSmall": "https://images.pokemontcg.io/me2/29.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/29_hires.png"
             },
             {
               "id": "me2-111",
               "name": "Rotom ex",
               "number": "111",
               "rarity": "Ultra Rare",
-              "marketPrice": 1.44
+              "marketPrice": 1.44,
+              "imageSmall": "https://images.pokemontcg.io/me2/111.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/111_hires.png"
             },
             {
               "id": "me2-126",
               "name": "Rotom ex",
               "number": "126",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 21.02
+              "marketPrice": 21.02,
+              "imageSmall": "https://images.pokemontcg.io/me2/126.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/126_hires.png"
             }
           ]
         }
@@ -718,6 +872,8 @@
       "name": "Mega Evolution",
       "slug": "mega-evolution",
       "series": "Mega Evolution",
+      "logoUrl": "https://images.pokemontcg.io/me1/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/me1/symbol.png",
       "releaseDate": "2025/09/26",
       "printedTotal": 132,
       "total": 188,
@@ -746,14 +902,18 @@
         "name": "Mega Kangaskhan ex",
         "number": "182",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 69.98
+        "marketPrice": 69.98,
+        "imageSmall": "https://images.pokemontcg.io/me1/182.png",
+        "imageLarge": "https://images.pokemontcg.io/me1/182_hires.png"
       },
       "mostValuableCard": {
         "id": "me1-188",
         "name": "Mega Lucario ex",
         "number": "188",
         "rarity": "Mega Hyper Rare",
-        "marketPrice": 267.38
+        "marketPrice": 267.38,
+        "imageSmall": "https://images.pokemontcg.io/me1/188.png",
+        "imageLarge": "https://images.pokemontcg.io/me1/188_hires.png"
       },
       "chaseCards": [
         {
@@ -761,42 +921,54 @@
           "name": "Mega Lucario ex",
           "number": "188",
           "rarity": "Mega Hyper Rare",
-          "marketPrice": 267.38
+          "marketPrice": 267.38,
+          "imageSmall": "https://images.pokemontcg.io/me1/188.png",
+          "imageLarge": "https://images.pokemontcg.io/me1/188_hires.png"
         },
         {
           "id": "me1-179",
           "name": "Mega Lucario ex",
           "number": "179",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 242.26
+          "marketPrice": 242.26,
+          "imageSmall": "https://images.pokemontcg.io/me1/179.png",
+          "imageLarge": "https://images.pokemontcg.io/me1/179_hires.png"
         },
         {
           "id": "me1-187",
           "name": "Mega Gardevoir ex",
           "number": "187",
           "rarity": "Mega Hyper Rare",
-          "marketPrice": 227.03
+          "marketPrice": 227.03,
+          "imageSmall": "https://images.pokemontcg.io/me1/187.png",
+          "imageLarge": "https://images.pokemontcg.io/me1/187_hires.png"
         },
         {
           "id": "me1-178",
           "name": "Mega Gardevoir ex",
           "number": "178",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 206.16
+          "marketPrice": 206.16,
+          "imageSmall": "https://images.pokemontcg.io/me1/178.png",
+          "imageLarge": "https://images.pokemontcg.io/me1/178_hires.png"
         },
         {
           "id": "me1-177",
           "name": "Mega Venusaur ex",
           "number": "177",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 185.8
+          "marketPrice": 185.8,
+          "imageSmall": "https://images.pokemontcg.io/me1/177.png",
+          "imageLarge": "https://images.pokemontcg.io/me1/177_hires.png"
         },
         {
           "id": "me1-181",
           "name": "Mega Latias ex",
           "number": "181",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 97.51
+          "marketPrice": 97.51,
+          "imageSmall": "https://images.pokemontcg.io/me1/181.png",
+          "imageLarge": "https://images.pokemontcg.io/me1/181_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -809,21 +981,27 @@
               "name": "Mega Lucario ex",
               "number": "77",
               "rarity": "Double Rare",
-              "marketPrice": 1.03
+              "marketPrice": 1.03,
+              "imageSmall": "https://images.pokemontcg.io/me1/77.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/77_hires.png"
             },
             {
               "id": "me1-160",
               "name": "Mega Lucario ex",
               "number": "160",
               "rarity": "Ultra Rare",
-              "marketPrice": 14.62
+              "marketPrice": 14.62,
+              "imageSmall": "https://images.pokemontcg.io/me1/160.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/160_hires.png"
             },
             {
               "id": "me1-179",
               "name": "Mega Lucario ex",
               "number": "179",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 242.26
+              "marketPrice": 242.26,
+              "imageSmall": "https://images.pokemontcg.io/me1/179.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/179_hires.png"
             }
           ]
         },
@@ -836,21 +1014,27 @@
               "name": "Mega Gardevoir ex",
               "number": "60",
               "rarity": "Double Rare",
-              "marketPrice": 0.58
+              "marketPrice": 0.58,
+              "imageSmall": "https://images.pokemontcg.io/me1/60.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/60_hires.png"
             },
             {
               "id": "me1-159",
               "name": "Mega Gardevoir ex",
               "number": "159",
               "rarity": "Ultra Rare",
-              "marketPrice": 5.17
+              "marketPrice": 5.17,
+              "imageSmall": "https://images.pokemontcg.io/me1/159.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/159_hires.png"
             },
             {
               "id": "me1-178",
               "name": "Mega Gardevoir ex",
               "number": "178",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 206.16
+              "marketPrice": 206.16,
+              "imageSmall": "https://images.pokemontcg.io/me1/178.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/178_hires.png"
             }
           ]
         },
@@ -863,21 +1047,27 @@
               "name": "Mega Venusaur ex",
               "number": "3",
               "rarity": "Double Rare",
-              "marketPrice": 0.82
+              "marketPrice": 0.82,
+              "imageSmall": "https://images.pokemontcg.io/me1/3.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/3_hires.png"
             },
             {
               "id": "me1-155",
               "name": "Mega Venusaur ex",
               "number": "155",
               "rarity": "Ultra Rare",
-              "marketPrice": 13.73
+              "marketPrice": 13.73,
+              "imageSmall": "https://images.pokemontcg.io/me1/155.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/155_hires.png"
             },
             {
               "id": "me1-177",
               "name": "Mega Venusaur ex",
               "number": "177",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 185.8
+              "marketPrice": 185.8,
+              "imageSmall": "https://images.pokemontcg.io/me1/177.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/177_hires.png"
             }
           ]
         },
@@ -890,21 +1080,27 @@
               "name": "Mega Latias ex",
               "number": "100",
               "rarity": "Double Rare",
-              "marketPrice": 0.64
+              "marketPrice": 0.64,
+              "imageSmall": "https://images.pokemontcg.io/me1/100.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/100_hires.png"
             },
             {
               "id": "me1-163",
               "name": "Mega Latias ex",
               "number": "163",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.73
+              "marketPrice": 4.73,
+              "imageSmall": "https://images.pokemontcg.io/me1/163.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/163_hires.png"
             },
             {
               "id": "me1-181",
               "name": "Mega Latias ex",
               "number": "181",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 97.51
+              "marketPrice": 97.51,
+              "imageSmall": "https://images.pokemontcg.io/me1/181.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/181_hires.png"
             }
           ]
         },
@@ -917,21 +1113,27 @@
               "name": "Mega Absol ex",
               "number": "86",
               "rarity": "Double Rare",
-              "marketPrice": 0.75
+              "marketPrice": 0.75,
+              "imageSmall": "https://images.pokemontcg.io/me1/86.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/86_hires.png"
             },
             {
               "id": "me1-161",
               "name": "Mega Absol ex",
               "number": "161",
               "rarity": "Ultra Rare",
-              "marketPrice": 5.35
+              "marketPrice": 5.35,
+              "imageSmall": "https://images.pokemontcg.io/me1/161.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/161_hires.png"
             },
             {
               "id": "me1-180",
               "name": "Mega Absol ex",
               "number": "180",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 71.02
+              "marketPrice": 71.02,
+              "imageSmall": "https://images.pokemontcg.io/me1/180.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/180_hires.png"
             }
           ]
         }
@@ -943,6 +1145,8 @@
       "name": "White Flare",
       "slug": "white-flare",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/rsv10pt5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/rsv10pt5/symbol.png",
       "releaseDate": "2025/07/18",
       "printedTotal": 86,
       "total": 173,
@@ -971,14 +1175,18 @@
         "name": "Bouffalant ex",
         "number": "170",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 17.63
+        "marketPrice": 17.63,
+        "imageSmall": "https://images.pokemontcg.io/rsv10pt5/170.png",
+        "imageLarge": "https://images.pokemontcg.io/rsv10pt5/170_hires.png"
       },
       "mostValuableCard": {
         "id": "rsv10pt5-173",
         "name": "Reshiram ex",
         "number": "173",
         "rarity": "Black White Rare",
-        "marketPrice": 478.12
+        "marketPrice": 478.12,
+        "imageSmall": "https://images.pokemontcg.io/rsv10pt5/173.png",
+        "imageLarge": "https://images.pokemontcg.io/rsv10pt5/173_hires.png"
       },
       "chaseCards": [
         {
@@ -986,42 +1194,54 @@
           "name": "Reshiram ex",
           "number": "173",
           "rarity": "Black White Rare",
-          "marketPrice": 478.12
+          "marketPrice": 478.12,
+          "imageSmall": "https://images.pokemontcg.io/rsv10pt5/173.png",
+          "imageLarge": "https://images.pokemontcg.io/rsv10pt5/173_hires.png"
         },
         {
           "id": "rsv10pt5-172",
           "name": "Victini",
           "number": "172",
           "rarity": "Rare",
-          "marketPrice": 468.16
+          "marketPrice": 468.16,
+          "imageSmall": "https://images.pokemontcg.io/rsv10pt5/172.png",
+          "imageLarge": "https://images.pokemontcg.io/rsv10pt5/172_hires.png"
         },
         {
           "id": "rsv10pt5-166",
           "name": "Reshiram ex",
           "number": "166",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 211.81
+          "marketPrice": 211.81,
+          "imageSmall": "https://images.pokemontcg.io/rsv10pt5/166.png",
+          "imageLarge": "https://images.pokemontcg.io/rsv10pt5/166_hires.png"
         },
         {
           "id": "rsv10pt5-105",
           "name": "Oshawott",
           "number": "105",
           "rarity": "Illustration Rare",
-          "marketPrice": 93.39
+          "marketPrice": 93.39,
+          "imageSmall": "https://images.pokemontcg.io/rsv10pt5/105.png",
+          "imageLarge": "https://images.pokemontcg.io/rsv10pt5/105_hires.png"
         },
         {
           "id": "rsv10pt5-169",
           "name": "Hydreigon ex",
           "number": "169",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 85.57
+          "marketPrice": 85.57,
+          "imageSmall": "https://images.pokemontcg.io/rsv10pt5/169.png",
+          "imageLarge": "https://images.pokemontcg.io/rsv10pt5/169_hires.png"
         },
         {
           "id": "rsv10pt5-143",
           "name": "Zoroark",
           "number": "143",
           "rarity": "Illustration Rare",
-          "marketPrice": 81.11
+          "marketPrice": 81.11,
+          "imageSmall": "https://images.pokemontcg.io/rsv10pt5/143.png",
+          "imageLarge": "https://images.pokemontcg.io/rsv10pt5/143_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -1034,21 +1254,27 @@
               "name": "Reshiram ex",
               "number": "20",
               "rarity": "Double Rare",
-              "marketPrice": 0.63
+              "marketPrice": 0.63,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/20.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/20_hires.png"
             },
             {
               "id": "rsv10pt5-158",
               "name": "Reshiram ex",
               "number": "158",
               "rarity": "Ultra Rare",
-              "marketPrice": 3.29
+              "marketPrice": 3.29,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/158.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/158_hires.png"
             },
             {
               "id": "rsv10pt5-166",
               "name": "Reshiram ex",
               "number": "166",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 211.81
+              "marketPrice": 211.81,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/166.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/166_hires.png"
             }
           ]
         },
@@ -1061,7 +1287,9 @@
               "name": "Oshawott",
               "number": "105",
               "rarity": "Illustration Rare",
-              "marketPrice": 93.39
+              "marketPrice": 93.39,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/105.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/105_hires.png"
             }
           ]
         },
@@ -1074,21 +1302,27 @@
               "name": "Hydreigon ex",
               "number": "67",
               "rarity": "Double Rare",
-              "marketPrice": 0.57
+              "marketPrice": 0.57,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/67.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/67_hires.png"
             },
             {
               "id": "rsv10pt5-161",
               "name": "Hydreigon ex",
               "number": "161",
               "rarity": "Ultra Rare",
-              "marketPrice": 1.33
+              "marketPrice": 1.33,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/161.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/161_hires.png"
             },
             {
               "id": "rsv10pt5-169",
               "name": "Hydreigon ex",
               "number": "169",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 85.57
+              "marketPrice": 85.57,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/169.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/169_hires.png"
             }
           ]
         },
@@ -1101,7 +1335,9 @@
               "name": "Zoroark",
               "number": "143",
               "rarity": "Illustration Rare",
-              "marketPrice": 81.11
+              "marketPrice": 81.11,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/143.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/143_hires.png"
             }
           ]
         },
@@ -1114,21 +1350,27 @@
               "name": "Keldeo ex",
               "number": "30",
               "rarity": "Double Rare",
-              "marketPrice": 0.51
+              "marketPrice": 0.51,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/30.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/30_hires.png"
             },
             {
               "id": "rsv10pt5-159",
               "name": "Keldeo ex",
               "number": "159",
               "rarity": "Ultra Rare",
-              "marketPrice": 1.45
+              "marketPrice": 1.45,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/159.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/159_hires.png"
             },
             {
               "id": "rsv10pt5-167",
               "name": "Keldeo ex",
               "number": "167",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 77.42
+              "marketPrice": 77.42,
+              "imageSmall": "https://images.pokemontcg.io/rsv10pt5/167.png",
+              "imageLarge": "https://images.pokemontcg.io/rsv10pt5/167_hires.png"
             }
           ]
         }
@@ -1140,6 +1382,8 @@
       "name": "Black Bolt",
       "slug": "black-bolt",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/zsv10pt5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/zsv10pt5/symbol.png",
       "releaseDate": "2025/07/18",
       "printedTotal": 86,
       "total": 172,
@@ -1168,14 +1412,18 @@
         "name": "Genesect ex",
         "number": "169",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 47.27
+        "marketPrice": 47.27,
+        "imageSmall": "https://images.pokemontcg.io/zsv10pt5/169.png",
+        "imageLarge": "https://images.pokemontcg.io/zsv10pt5/169_hires.png"
       },
       "mostValuableCard": {
         "id": "zsv10pt5-171",
         "name": "Victini",
         "number": "171",
         "rarity": "Rare",
-        "marketPrice": 576.63
+        "marketPrice": 576.63,
+        "imageSmall": "https://images.pokemontcg.io/zsv10pt5/171.png",
+        "imageLarge": "https://images.pokemontcg.io/zsv10pt5/171_hires.png"
       },
       "chaseCards": [
         {
@@ -1183,42 +1431,54 @@
           "name": "Victini",
           "number": "171",
           "rarity": "Rare",
-          "marketPrice": 576.63
+          "marketPrice": 576.63,
+          "imageSmall": "https://images.pokemontcg.io/zsv10pt5/171.png",
+          "imageLarge": "https://images.pokemontcg.io/zsv10pt5/171_hires.png"
         },
         {
           "id": "zsv10pt5-172",
           "name": "Zekrom ex",
           "number": "172",
           "rarity": "Black White Rare",
-          "marketPrice": 541
+          "marketPrice": 541,
+          "imageSmall": "https://images.pokemontcg.io/zsv10pt5/172.png",
+          "imageLarge": "https://images.pokemontcg.io/zsv10pt5/172_hires.png"
         },
         {
           "id": "zsv10pt5-166",
           "name": "Zekrom ex",
           "number": "166",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 273.53
+          "marketPrice": 273.53,
+          "imageSmall": "https://images.pokemontcg.io/zsv10pt5/166.png",
+          "imageLarge": "https://images.pokemontcg.io/zsv10pt5/166_hires.png"
         },
         {
           "id": "zsv10pt5-105",
           "name": "Seismitoad",
           "number": "105",
           "rarity": "Illustration Rare",
-          "marketPrice": 235.7
+          "marketPrice": 235.7,
+          "imageSmall": "https://images.pokemontcg.io/zsv10pt5/105.png",
+          "imageLarge": "https://images.pokemontcg.io/zsv10pt5/105_hires.png"
         },
         {
           "id": "zsv10pt5-165",
           "name": "Kyurem ex",
           "number": "165",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 82.12
+          "marketPrice": 82.12,
+          "imageSmall": "https://images.pokemontcg.io/zsv10pt5/165.png",
+          "imageLarge": "https://images.pokemontcg.io/zsv10pt5/165_hires.png"
         },
         {
           "id": "zsv10pt5-147",
           "name": "Haxorus",
           "number": "147",
           "rarity": "Illustration Rare",
-          "marketPrice": 75.74
+          "marketPrice": 75.74,
+          "imageSmall": "https://images.pokemontcg.io/zsv10pt5/147.png",
+          "imageLarge": "https://images.pokemontcg.io/zsv10pt5/147_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -1231,21 +1491,27 @@
               "name": "Zekrom ex",
               "number": "34",
               "rarity": "Double Rare",
-              "marketPrice": 0.61
+              "marketPrice": 0.61,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/34.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/34_hires.png"
             },
             {
               "id": "zsv10pt5-158",
               "name": "Zekrom ex",
               "number": "158",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.42
+              "marketPrice": 4.42,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/158.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/158_hires.png"
             },
             {
               "id": "zsv10pt5-166",
               "name": "Zekrom ex",
               "number": "166",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 273.53
+              "marketPrice": 273.53,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/166.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/166_hires.png"
             }
           ]
         },
@@ -1258,7 +1524,9 @@
               "name": "Seismitoad",
               "number": "105",
               "rarity": "Illustration Rare",
-              "marketPrice": 235.7
+              "marketPrice": 235.7,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/105.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/105_hires.png"
             }
           ]
         },
@@ -1271,21 +1539,27 @@
               "name": "Kyurem ex",
               "number": "28",
               "rarity": "Double Rare",
-              "marketPrice": 3.13
+              "marketPrice": 3.13,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/28.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/28_hires.png"
             },
             {
               "id": "zsv10pt5-157",
               "name": "Kyurem ex",
               "number": "157",
               "rarity": "Ultra Rare",
-              "marketPrice": 1.36
+              "marketPrice": 1.36,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/157.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/157_hires.png"
             },
             {
               "id": "zsv10pt5-165",
               "name": "Kyurem ex",
               "number": "165",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 82.12
+              "marketPrice": 82.12,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/165.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/165_hires.png"
             }
           ]
         },
@@ -1298,7 +1572,9 @@
               "name": "Haxorus",
               "number": "147",
               "rarity": "Illustration Rare",
-              "marketPrice": 75.74
+              "marketPrice": 75.74,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/147.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/147_hires.png"
             }
           ]
         },
@@ -1311,7 +1587,9 @@
               "name": "Volcarona",
               "number": "100",
               "rarity": "Illustration Rare",
-              "marketPrice": 62.86
+              "marketPrice": 62.86,
+              "imageSmall": "https://images.pokemontcg.io/zsv10pt5/100.png",
+              "imageLarge": "https://images.pokemontcg.io/zsv10pt5/100_hires.png"
             }
           ]
         }
@@ -1323,6 +1601,8 @@
       "name": "Destined Rivals",
       "slug": "destined-rivals",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv10/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv10/symbol.png",
       "releaseDate": "2025/05/30",
       "printedTotal": 182,
       "total": 244,
@@ -1351,14 +1631,18 @@
         "name": "Team Rocket's Crobat ex",
         "number": "242",
         "rarity": "Hyper Rare",
-        "marketPrice": 17.7
+        "marketPrice": 17.7,
+        "imageSmall": "https://images.pokemontcg.io/sv10/242.png",
+        "imageLarge": "https://images.pokemontcg.io/sv10/242_hires.png"
       },
       "mostValuableCard": {
         "id": "sv10-231",
         "name": "Team Rocket's Mewtwo ex",
         "number": "231",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 566.14
+        "marketPrice": 566.14,
+        "imageSmall": "https://images.pokemontcg.io/sv10/231.png",
+        "imageLarge": "https://images.pokemontcg.io/sv10/231_hires.png"
       },
       "chaseCards": [
         {
@@ -1366,42 +1650,54 @@
           "name": "Team Rocket's Mewtwo ex",
           "number": "231",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 566.14
+          "marketPrice": 566.14,
+          "imageSmall": "https://images.pokemontcg.io/sv10/231.png",
+          "imageLarge": "https://images.pokemontcg.io/sv10/231_hires.png"
         },
         {
           "id": "sv10-232",
           "name": "Cynthia's Garchomp ex",
           "number": "232",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 289.98
+          "marketPrice": 289.98,
+          "imageSmall": "https://images.pokemontcg.io/sv10/232.png",
+          "imageLarge": "https://images.pokemontcg.io/sv10/232_hires.png"
         },
         {
           "id": "sv10-230",
           "name": "Ethan's Ho-Oh ex",
           "number": "230",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 196.98
+          "marketPrice": 196.98,
+          "imageSmall": "https://images.pokemontcg.io/sv10/230.png",
+          "imageLarge": "https://images.pokemontcg.io/sv10/230_hires.png"
         },
         {
           "id": "sv10-233",
           "name": "Team Rocket's Nidoking ex",
           "number": "233",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 127.52
+          "marketPrice": 127.52,
+          "imageSmall": "https://images.pokemontcg.io/sv10/233.png",
+          "imageLarge": "https://images.pokemontcg.io/sv10/233_hires.png"
         },
         {
           "id": "sv10-229",
           "name": "Team Rocket's Moltres ex",
           "number": "229",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 124.09
+          "marketPrice": 124.09,
+          "imageSmall": "https://images.pokemontcg.io/sv10/229.png",
+          "imageLarge": "https://images.pokemontcg.io/sv10/229_hires.png"
         },
         {
           "id": "sv10-234",
           "name": "Team Rocket's Crobat ex",
           "number": "234",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 81.55
+          "marketPrice": 81.55,
+          "imageSmall": "https://images.pokemontcg.io/sv10/234.png",
+          "imageLarge": "https://images.pokemontcg.io/sv10/234_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -1414,28 +1710,36 @@
               "name": "Team Rocket's Mewtwo ex",
               "number": "81",
               "rarity": "Double Rare",
-              "marketPrice": 1.82
+              "marketPrice": 1.82,
+              "imageSmall": "https://images.pokemontcg.io/sv10/81.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/81_hires.png"
             },
             {
               "id": "sv10-213",
               "name": "Team Rocket's Mewtwo ex",
               "number": "213",
               "rarity": "Ultra Rare",
-              "marketPrice": 23.83
+              "marketPrice": 23.83,
+              "imageSmall": "https://images.pokemontcg.io/sv10/213.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/213_hires.png"
             },
             {
               "id": "sv10-231",
               "name": "Team Rocket's Mewtwo ex",
               "number": "231",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 566.14
+              "marketPrice": 566.14,
+              "imageSmall": "https://images.pokemontcg.io/sv10/231.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/231_hires.png"
             },
             {
               "id": "sv10-240",
               "name": "Team Rocket's Mewtwo ex",
               "number": "240",
               "rarity": "Hyper Rare",
-              "marketPrice": 73.06
+              "marketPrice": 73.06,
+              "imageSmall": "https://images.pokemontcg.io/sv10/240.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/240_hires.png"
             }
           ]
         },
@@ -1448,28 +1752,36 @@
               "name": "Cynthia's Garchomp ex",
               "number": "104",
               "rarity": "Double Rare",
-              "marketPrice": 0.98
+              "marketPrice": 0.98,
+              "imageSmall": "https://images.pokemontcg.io/sv10/104.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/104_hires.png"
             },
             {
               "id": "sv10-215",
               "name": "Cynthia's Garchomp ex",
               "number": "215",
               "rarity": "Ultra Rare",
-              "marketPrice": 5.47
+              "marketPrice": 5.47,
+              "imageSmall": "https://images.pokemontcg.io/sv10/215.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/215_hires.png"
             },
             {
               "id": "sv10-232",
               "name": "Cynthia's Garchomp ex",
               "number": "232",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 289.98
+              "marketPrice": 289.98,
+              "imageSmall": "https://images.pokemontcg.io/sv10/232.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/232_hires.png"
             },
             {
               "id": "sv10-241",
               "name": "Cynthia's Garchomp ex",
               "number": "241",
               "rarity": "Hyper Rare",
-              "marketPrice": 34.84
+              "marketPrice": 34.84,
+              "imageSmall": "https://images.pokemontcg.io/sv10/241.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/241_hires.png"
             }
           ]
         },
@@ -1482,28 +1794,36 @@
               "name": "Ethan's Ho-Oh ex",
               "number": "39",
               "rarity": "Double Rare",
-              "marketPrice": 0.7
+              "marketPrice": 0.7,
+              "imageSmall": "https://images.pokemontcg.io/sv10/39.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/39_hires.png"
             },
             {
               "id": "sv10-209",
               "name": "Ethan's Ho-Oh ex",
               "number": "209",
               "rarity": "Ultra Rare",
-              "marketPrice": 5.93
+              "marketPrice": 5.93,
+              "imageSmall": "https://images.pokemontcg.io/sv10/209.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/209_hires.png"
             },
             {
               "id": "sv10-230",
               "name": "Ethan's Ho-Oh ex",
               "number": "230",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 196.98
+              "marketPrice": 196.98,
+              "imageSmall": "https://images.pokemontcg.io/sv10/230.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/230_hires.png"
             },
             {
               "id": "sv10-239",
               "name": "Ethan's Ho-Oh ex",
               "number": "239",
               "rarity": "Hyper Rare",
-              "marketPrice": 29.51
+              "marketPrice": 29.51,
+              "imageSmall": "https://images.pokemontcg.io/sv10/239.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/239_hires.png"
             }
           ]
         },
@@ -1516,21 +1836,27 @@
               "name": "Team Rocket's Nidoking ex",
               "number": "119",
               "rarity": "Double Rare",
-              "marketPrice": 0.63
+              "marketPrice": 0.63,
+              "imageSmall": "https://images.pokemontcg.io/sv10/119.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/119_hires.png"
             },
             {
               "id": "sv10-216",
               "name": "Team Rocket's Nidoking ex",
               "number": "216",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.36
+              "marketPrice": 4.36,
+              "imageSmall": "https://images.pokemontcg.io/sv10/216.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/216_hires.png"
             },
             {
               "id": "sv10-233",
               "name": "Team Rocket's Nidoking ex",
               "number": "233",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 127.52
+              "marketPrice": 127.52,
+              "imageSmall": "https://images.pokemontcg.io/sv10/233.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/233_hires.png"
             }
           ]
         },
@@ -1543,21 +1869,27 @@
               "name": "Team Rocket's Moltres ex",
               "number": "31",
               "rarity": "Double Rare",
-              "marketPrice": 0.76
+              "marketPrice": 0.76,
+              "imageSmall": "https://images.pokemontcg.io/sv10/31.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/31_hires.png"
             },
             {
               "id": "sv10-208",
               "name": "Team Rocket's Moltres ex",
               "number": "208",
               "rarity": "Ultra Rare",
-              "marketPrice": 5.67
+              "marketPrice": 5.67,
+              "imageSmall": "https://images.pokemontcg.io/sv10/208.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/208_hires.png"
             },
             {
               "id": "sv10-229",
               "name": "Team Rocket's Moltres ex",
               "number": "229",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 124.09
+              "marketPrice": 124.09,
+              "imageSmall": "https://images.pokemontcg.io/sv10/229.png",
+              "imageLarge": "https://images.pokemontcg.io/sv10/229_hires.png"
             }
           ]
         }
@@ -1569,6 +1901,8 @@
       "name": "Journey Together",
       "slug": "journey-together",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv9/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv9/symbol.png",
       "releaseDate": "2025/03/28",
       "printedTotal": 159,
       "total": 190,
@@ -1597,14 +1931,18 @@
         "name": "N's Zoroark ex",
         "number": "189",
         "rarity": "Hyper Rare",
-        "marketPrice": 17.77
+        "marketPrice": 17.77,
+        "imageSmall": "https://images.pokemontcg.io/sv9/189.png",
+        "imageLarge": "https://images.pokemontcg.io/sv9/189_hires.png"
       },
       "mostValuableCard": {
         "id": "sv9-184",
         "name": "Lillie's Clefairy ex",
         "number": "184",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 126.71
+        "marketPrice": 126.71,
+        "imageSmall": "https://images.pokemontcg.io/sv9/184.png",
+        "imageLarge": "https://images.pokemontcg.io/sv9/184_hires.png"
       },
       "chaseCards": [
         {
@@ -1612,42 +1950,54 @@
           "name": "Lillie's Clefairy ex",
           "number": "184",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 126.71
+          "marketPrice": 126.71,
+          "imageSmall": "https://images.pokemontcg.io/sv9/184.png",
+          "imageLarge": "https://images.pokemontcg.io/sv9/184_hires.png"
         },
         {
           "id": "sv9-187",
           "name": "Salamence ex",
           "number": "187",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 71.75
+          "marketPrice": 71.75,
+          "imageSmall": "https://images.pokemontcg.io/sv9/187.png",
+          "imageLarge": "https://images.pokemontcg.io/sv9/187_hires.png"
         },
         {
           "id": "sv9-185",
           "name": "N's Zoroark ex",
           "number": "185",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 52.52
+          "marketPrice": 52.52,
+          "imageSmall": "https://images.pokemontcg.io/sv9/185.png",
+          "imageLarge": "https://images.pokemontcg.io/sv9/185_hires.png"
         },
         {
           "id": "sv9-183",
           "name": "Iono's Bellibolt ex",
           "number": "183",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 45.12
+          "marketPrice": 45.12,
+          "imageSmall": "https://images.pokemontcg.io/sv9/183.png",
+          "imageLarge": "https://images.pokemontcg.io/sv9/183_hires.png"
         },
         {
           "id": "sv9-186",
           "name": "Hop's Zacian ex",
           "number": "186",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 38.4
+          "marketPrice": 38.4,
+          "imageSmall": "https://images.pokemontcg.io/sv9/186.png",
+          "imageLarge": "https://images.pokemontcg.io/sv9/186_hires.png"
         },
         {
           "id": "sv9-161",
           "name": "Articuno",
           "number": "161",
           "rarity": "Illustration Rare",
-          "marketPrice": 28.55
+          "marketPrice": 28.55,
+          "imageSmall": "https://images.pokemontcg.io/sv9/161.png",
+          "imageLarge": "https://images.pokemontcg.io/sv9/161_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -1660,21 +2010,27 @@
               "name": "Lillie's Clefairy ex",
               "number": "56",
               "rarity": "Double Rare",
-              "marketPrice": 2.26
+              "marketPrice": 2.26,
+              "imageSmall": "https://images.pokemontcg.io/sv9/56.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/56_hires.png"
             },
             {
               "id": "sv9-173",
               "name": "Lillie's Clefairy ex",
               "number": "173",
               "rarity": "Ultra Rare",
-              "marketPrice": 9.14
+              "marketPrice": 9.14,
+              "imageSmall": "https://images.pokemontcg.io/sv9/173.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/173_hires.png"
             },
             {
               "id": "sv9-184",
               "name": "Lillie's Clefairy ex",
               "number": "184",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 126.71
+              "marketPrice": 126.71,
+              "imageSmall": "https://images.pokemontcg.io/sv9/184.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/184_hires.png"
             }
           ]
         },
@@ -1687,21 +2043,27 @@
               "name": "Salamence ex",
               "number": "114",
               "rarity": "Double Rare",
-              "marketPrice": 0.73
+              "marketPrice": 0.73,
+              "imageSmall": "https://images.pokemontcg.io/sv9/114.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/114_hires.png"
             },
             {
               "id": "sv9-177",
               "name": "Salamence ex",
               "number": "177",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.35
+              "marketPrice": 2.35,
+              "imageSmall": "https://images.pokemontcg.io/sv9/177.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/177_hires.png"
             },
             {
               "id": "sv9-187",
               "name": "Salamence ex",
               "number": "187",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 71.75
+              "marketPrice": 71.75,
+              "imageSmall": "https://images.pokemontcg.io/sv9/187.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/187_hires.png"
             }
           ]
         },
@@ -1714,28 +2076,36 @@
               "name": "N's Zoroark ex",
               "number": "98",
               "rarity": "Double Rare",
-              "marketPrice": 1.08
+              "marketPrice": 1.08,
+              "imageSmall": "https://images.pokemontcg.io/sv9/98.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/98_hires.png"
             },
             {
               "id": "sv9-175",
               "name": "N's Zoroark ex",
               "number": "175",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.9
+              "marketPrice": 4.9,
+              "imageSmall": "https://images.pokemontcg.io/sv9/175.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/175_hires.png"
             },
             {
               "id": "sv9-185",
               "name": "N's Zoroark ex",
               "number": "185",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 52.52
+              "marketPrice": 52.52,
+              "imageSmall": "https://images.pokemontcg.io/sv9/185.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/185_hires.png"
             },
             {
               "id": "sv9-189",
               "name": "N's Zoroark ex",
               "number": "189",
               "rarity": "Hyper Rare",
-              "marketPrice": 17.77
+              "marketPrice": 17.77,
+              "imageSmall": "https://images.pokemontcg.io/sv9/189.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/189_hires.png"
             }
           ]
         },
@@ -1748,28 +2118,36 @@
               "name": "Iono's Bellibolt ex",
               "number": "53",
               "rarity": "Double Rare",
-              "marketPrice": 0.58
+              "marketPrice": 0.58,
+              "imageSmall": "https://images.pokemontcg.io/sv9/53.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/53_hires.png"
             },
             {
               "id": "sv9-172",
               "name": "Iono's Bellibolt ex",
               "number": "172",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.18
+              "marketPrice": 2.18,
+              "imageSmall": "https://images.pokemontcg.io/sv9/172.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/172_hires.png"
             },
             {
               "id": "sv9-183",
               "name": "Iono's Bellibolt ex",
               "number": "183",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 45.12
+              "marketPrice": 45.12,
+              "imageSmall": "https://images.pokemontcg.io/sv9/183.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/183_hires.png"
             },
             {
               "id": "sv9-188",
               "name": "Iono's Bellibolt ex",
               "number": "188",
               "rarity": "Hyper Rare",
-              "marketPrice": 19.4
+              "marketPrice": 19.4,
+              "imageSmall": "https://images.pokemontcg.io/sv9/188.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/188_hires.png"
             }
           ]
         },
@@ -1782,21 +2160,27 @@
               "name": "Hop's Zacian ex",
               "number": "111",
               "rarity": "Double Rare",
-              "marketPrice": 0.7
+              "marketPrice": 0.7,
+              "imageSmall": "https://images.pokemontcg.io/sv9/111.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/111_hires.png"
             },
             {
               "id": "sv9-176",
               "name": "Hop's Zacian ex",
               "number": "176",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.15
+              "marketPrice": 2.15,
+              "imageSmall": "https://images.pokemontcg.io/sv9/176.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/176_hires.png"
             },
             {
               "id": "sv9-186",
               "name": "Hop's Zacian ex",
               "number": "186",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 38.4
+              "marketPrice": 38.4,
+              "imageSmall": "https://images.pokemontcg.io/sv9/186.png",
+              "imageLarge": "https://images.pokemontcg.io/sv9/186_hires.png"
             }
           ]
         }
@@ -1808,6 +2192,8 @@
       "name": "Prismatic Evolutions",
       "slug": "prismatic-evolutions",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv8pt5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv8pt5/symbol.png",
       "releaseDate": "2025/01/17",
       "printedTotal": 131,
       "total": 180,
@@ -1836,14 +2222,18 @@
         "name": "Terapagos ex",
         "number": "180",
         "rarity": "Hyper Rare",
-        "marketPrice": 10.78
+        "marketPrice": 10.78,
+        "imageSmall": "https://images.pokemontcg.io/sv8pt5/180.png",
+        "imageLarge": "https://images.pokemontcg.io/sv8pt5/180_hires.png"
       },
       "mostValuableCard": {
         "id": "sv8pt5-161",
         "name": "Umbreon ex",
         "number": "161",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 1579.6
+        "marketPrice": 1579.6,
+        "imageSmall": "https://images.pokemontcg.io/sv8pt5/161.png",
+        "imageLarge": "https://images.pokemontcg.io/sv8pt5/161_hires.png"
       },
       "chaseCards": [
         {
@@ -1851,42 +2241,54 @@
           "name": "Umbreon ex",
           "number": "161",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 1579.6
+          "marketPrice": 1579.6,
+          "imageSmall": "https://images.pokemontcg.io/sv8pt5/161.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8pt5/161_hires.png"
         },
         {
           "id": "sv8pt5-156",
           "name": "Sylveon ex",
           "number": "156",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 514.76
+          "marketPrice": 514.76,
+          "imageSmall": "https://images.pokemontcg.io/sv8pt5/156.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8pt5/156_hires.png"
         },
         {
           "id": "sv8pt5-144",
           "name": "Leafeon ex",
           "number": "144",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 331.22
+          "marketPrice": 331.22,
+          "imageSmall": "https://images.pokemontcg.io/sv8pt5/144.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8pt5/144_hires.png"
         },
         {
           "id": "sv8pt5-155",
           "name": "Espeon ex",
           "number": "155",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 321.16
+          "marketPrice": 321.16,
+          "imageSmall": "https://images.pokemontcg.io/sv8pt5/155.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8pt5/155_hires.png"
         },
         {
           "id": "sv8pt5-149",
           "name": "Vaporeon ex",
           "number": "149",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 300.86
+          "marketPrice": 300.86,
+          "imageSmall": "https://images.pokemontcg.io/sv8pt5/149.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8pt5/149_hires.png"
         },
         {
           "id": "sv8pt5-150",
           "name": "Glaceon ex",
           "number": "150",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 300.2
+          "marketPrice": 300.2,
+          "imageSmall": "https://images.pokemontcg.io/sv8pt5/150.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8pt5/150_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -1899,14 +2301,18 @@
               "name": "Umbreon ex",
               "number": "60",
               "rarity": "Double Rare",
-              "marketPrice": 7.82
+              "marketPrice": 7.82,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/60.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/60_hires.png"
             },
             {
               "id": "sv8pt5-161",
               "name": "Umbreon ex",
               "number": "161",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 1579.6
+              "marketPrice": 1579.6,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/161.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/161_hires.png"
             }
           ]
         },
@@ -1919,14 +2325,18 @@
               "name": "Sylveon ex",
               "number": "41",
               "rarity": "Double Rare",
-              "marketPrice": 2.21
+              "marketPrice": 2.21,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/41.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/41_hires.png"
             },
             {
               "id": "sv8pt5-156",
               "name": "Sylveon ex",
               "number": "156",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 514.76
+              "marketPrice": 514.76,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/156.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/156_hires.png"
             }
           ]
         },
@@ -1939,14 +2349,18 @@
               "name": "Leafeon ex",
               "number": "6",
               "rarity": "Double Rare",
-              "marketPrice": 4.16
+              "marketPrice": 4.16,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/6.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/6_hires.png"
             },
             {
               "id": "sv8pt5-144",
               "name": "Leafeon ex",
               "number": "144",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 331.22
+              "marketPrice": 331.22,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/144.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/144_hires.png"
             }
           ]
         },
@@ -1959,14 +2373,18 @@
               "name": "Espeon ex",
               "number": "34",
               "rarity": "Double Rare",
-              "marketPrice": 3.67
+              "marketPrice": 3.67,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/34.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/34_hires.png"
             },
             {
               "id": "sv8pt5-155",
               "name": "Espeon ex",
               "number": "155",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 321.16
+              "marketPrice": 321.16,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/155.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/155_hires.png"
             }
           ]
         },
@@ -1979,14 +2397,18 @@
               "name": "Vaporeon ex",
               "number": "23",
               "rarity": "Double Rare",
-              "marketPrice": 2.9
+              "marketPrice": 2.9,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/23.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/23_hires.png"
             },
             {
               "id": "sv8pt5-149",
               "name": "Vaporeon ex",
               "number": "149",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 300.86
+              "marketPrice": 300.86,
+              "imageSmall": "https://images.pokemontcg.io/sv8pt5/149.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8pt5/149_hires.png"
             }
           ]
         }
@@ -1998,6 +2420,8 @@
       "name": "Surging Sparks",
       "slug": "surging-sparks",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv8/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv8/symbol.png",
       "releaseDate": "2024/11/08",
       "printedTotal": 191,
       "total": 252,
@@ -2027,14 +2451,18 @@
         "name": "Alolan Exeggutor ex",
         "number": "248",
         "rarity": "Hyper Rare",
-        "marketPrice": 10.86
+        "marketPrice": 10.86,
+        "imageSmall": "https://images.pokemontcg.io/sv8/248.png",
+        "imageLarge": "https://images.pokemontcg.io/sv8/248_hires.png"
       },
       "mostValuableCard": {
         "id": "sv8-238",
         "name": "Pikachu ex",
         "number": "238",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 358.36
+        "marketPrice": 358.36,
+        "imageSmall": "https://images.pokemontcg.io/sv8/238.png",
+        "imageLarge": "https://images.pokemontcg.io/sv8/238_hires.png"
       },
       "chaseCards": [
         {
@@ -2042,42 +2470,54 @@
           "name": "Pikachu ex",
           "number": "238",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 358.36
+          "marketPrice": 358.36,
+          "imageSmall": "https://images.pokemontcg.io/sv8/238.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8/238_hires.png"
         },
         {
           "id": "sv8-239",
           "name": "Latias ex",
           "number": "239",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 194.45
+          "marketPrice": 194.45,
+          "imageSmall": "https://images.pokemontcg.io/sv8/239.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8/239_hires.png"
         },
         {
           "id": "sv8-237",
           "name": "Milotic ex",
           "number": "237",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 142.91
+          "marketPrice": 142.91,
+          "imageSmall": "https://images.pokemontcg.io/sv8/237.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8/237_hires.png"
         },
         {
           "id": "sv8-247",
           "name": "Pikachu ex",
           "number": "247",
           "rarity": "Hyper Rare",
-          "marketPrice": 95.41
+          "marketPrice": 95.41,
+          "imageSmall": "https://images.pokemontcg.io/sv8/247.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8/247_hires.png"
         },
         {
           "id": "sv8-240",
           "name": "Hydreigon ex",
           "number": "240",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 43.41
+          "marketPrice": 43.41,
+          "imageSmall": "https://images.pokemontcg.io/sv8/240.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8/240_hires.png"
         },
         {
           "id": "sv8-203",
           "name": "Latios",
           "number": "203",
           "rarity": "Illustration Rare",
-          "marketPrice": 38.23
+          "marketPrice": 38.23,
+          "imageSmall": "https://images.pokemontcg.io/sv8/203.png",
+          "imageLarge": "https://images.pokemontcg.io/sv8/203_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -2090,28 +2530,36 @@
               "name": "Pikachu ex",
               "number": "57",
               "rarity": "Double Rare",
-              "marketPrice": 4.51
+              "marketPrice": 4.51,
+              "imageSmall": "https://images.pokemontcg.io/sv8/57.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/57_hires.png"
             },
             {
               "id": "sv8-219",
               "name": "Pikachu ex",
               "number": "219",
               "rarity": "Ultra Rare",
-              "marketPrice": 34.37
+              "marketPrice": 34.37,
+              "imageSmall": "https://images.pokemontcg.io/sv8/219.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/219_hires.png"
             },
             {
               "id": "sv8-238",
               "name": "Pikachu ex",
               "number": "238",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 358.36
+              "marketPrice": 358.36,
+              "imageSmall": "https://images.pokemontcg.io/sv8/238.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/238_hires.png"
             },
             {
               "id": "sv8-247",
               "name": "Pikachu ex",
               "number": "247",
               "rarity": "Hyper Rare",
-              "marketPrice": 95.41
+              "marketPrice": 95.41,
+              "imageSmall": "https://images.pokemontcg.io/sv8/247.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/247_hires.png"
             }
           ]
         },
@@ -2124,21 +2572,27 @@
               "name": "Latias ex",
               "number": "76",
               "rarity": "Double Rare",
-              "marketPrice": 5.5
+              "marketPrice": 5.5,
+              "imageSmall": "https://images.pokemontcg.io/sv8/76.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/76_hires.png"
             },
             {
               "id": "sv8-220",
               "name": "Latias ex",
               "number": "220",
               "rarity": "Ultra Rare",
-              "marketPrice": 7.26
+              "marketPrice": 7.26,
+              "imageSmall": "https://images.pokemontcg.io/sv8/220.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/220_hires.png"
             },
             {
               "id": "sv8-239",
               "name": "Latias ex",
               "number": "239",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 194.45
+              "marketPrice": 194.45,
+              "imageSmall": "https://images.pokemontcg.io/sv8/239.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/239_hires.png"
             }
           ]
         },
@@ -2151,21 +2605,27 @@
               "name": "Milotic ex",
               "number": "42",
               "rarity": "Double Rare",
-              "marketPrice": 0.67
+              "marketPrice": 0.67,
+              "imageSmall": "https://images.pokemontcg.io/sv8/42.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/42_hires.png"
             },
             {
               "id": "sv8-217",
               "name": "Milotic ex",
               "number": "217",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.49
+              "marketPrice": 2.49,
+              "imageSmall": "https://images.pokemontcg.io/sv8/217.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/217_hires.png"
             },
             {
               "id": "sv8-237",
               "name": "Milotic ex",
               "number": "237",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 142.91
+              "marketPrice": 142.91,
+              "imageSmall": "https://images.pokemontcg.io/sv8/237.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/237_hires.png"
             }
           ]
         },
@@ -2178,21 +2638,27 @@
               "name": "Hydreigon ex",
               "number": "119",
               "rarity": "Double Rare",
-              "marketPrice": 0.86
+              "marketPrice": 0.86,
+              "imageSmall": "https://images.pokemontcg.io/sv8/119.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/119_hires.png"
             },
             {
               "id": "sv8-223",
               "name": "Hydreigon ex",
               "number": "223",
               "rarity": "Ultra Rare",
-              "marketPrice": 5.15
+              "marketPrice": 5.15,
+              "imageSmall": "https://images.pokemontcg.io/sv8/223.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/223_hires.png"
             },
             {
               "id": "sv8-240",
               "name": "Hydreigon ex",
               "number": "240",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 43.41
+              "marketPrice": 43.41,
+              "imageSmall": "https://images.pokemontcg.io/sv8/240.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/240_hires.png"
             }
           ]
         },
@@ -2205,7 +2671,9 @@
               "name": "Latios",
               "number": "203",
               "rarity": "Illustration Rare",
-              "marketPrice": 38.23
+              "marketPrice": 38.23,
+              "imageSmall": "https://images.pokemontcg.io/sv8/203.png",
+              "imageLarge": "https://images.pokemontcg.io/sv8/203_hires.png"
             }
           ]
         }
@@ -2217,6 +2685,8 @@
       "name": "Stellar Crown",
       "slug": "stellar-crown",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv7/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv7/symbol.png",
       "releaseDate": "2024/09/13",
       "printedTotal": 142,
       "total": 175,
@@ -2246,14 +2716,18 @@
         "name": "Terapagos ex",
         "number": "173",
         "rarity": "Hyper Rare",
-        "marketPrice": 11.29
+        "marketPrice": 11.29,
+        "imageSmall": "https://images.pokemontcg.io/sv7/173.png",
+        "imageLarge": "https://images.pokemontcg.io/sv7/173_hires.png"
       },
       "mostValuableCard": {
         "id": "sv7-143",
         "name": "Bulbasaur",
         "number": "143",
         "rarity": "Illustration Rare",
-        "marketPrice": 138.94
+        "marketPrice": 138.94,
+        "imageSmall": "https://images.pokemontcg.io/sv7/143.png",
+        "imageLarge": "https://images.pokemontcg.io/sv7/143_hires.png"
       },
       "chaseCards": [
         {
@@ -2261,42 +2735,54 @@
           "name": "Bulbasaur",
           "number": "143",
           "rarity": "Illustration Rare",
-          "marketPrice": 138.94
+          "marketPrice": 138.94,
+          "imageSmall": "https://images.pokemontcg.io/sv7/143.png",
+          "imageLarge": "https://images.pokemontcg.io/sv7/143_hires.png"
         },
         {
           "id": "sv7-148",
           "name": "Squirtle",
           "number": "148",
           "rarity": "Illustration Rare",
-          "marketPrice": 129.65
+          "marketPrice": 129.65,
+          "imageSmall": "https://images.pokemontcg.io/sv7/148.png",
+          "imageLarge": "https://images.pokemontcg.io/sv7/148_hires.png"
         },
         {
           "id": "sv7-169",
           "name": "Dachsbun ex",
           "number": "169",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 78.75
+          "marketPrice": 78.75,
+          "imageSmall": "https://images.pokemontcg.io/sv7/169.png",
+          "imageLarge": "https://images.pokemontcg.io/sv7/169_hires.png"
         },
         {
           "id": "sv7-170",
           "name": "Terapagos ex",
           "number": "170",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 62.62
+          "marketPrice": 62.62,
+          "imageSmall": "https://images.pokemontcg.io/sv7/170.png",
+          "imageLarge": "https://images.pokemontcg.io/sv7/170_hires.png"
         },
         {
           "id": "sv7-167",
           "name": "Hydrapple ex",
           "number": "167",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 40.62
+          "marketPrice": 40.62,
+          "imageSmall": "https://images.pokemontcg.io/sv7/167.png",
+          "imageLarge": "https://images.pokemontcg.io/sv7/167_hires.png"
         },
         {
           "id": "sv7-168",
           "name": "Galvantula ex",
           "number": "168",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 23.48
+          "marketPrice": 23.48,
+          "imageSmall": "https://images.pokemontcg.io/sv7/168.png",
+          "imageLarge": "https://images.pokemontcg.io/sv7/168_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -2309,7 +2795,9 @@
               "name": "Bulbasaur",
               "number": "143",
               "rarity": "Illustration Rare",
-              "marketPrice": 138.94
+              "marketPrice": 138.94,
+              "imageSmall": "https://images.pokemontcg.io/sv7/143.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/143_hires.png"
             }
           ]
         },
@@ -2322,7 +2810,9 @@
               "name": "Squirtle",
               "number": "148",
               "rarity": "Illustration Rare",
-              "marketPrice": 129.65
+              "marketPrice": 129.65,
+              "imageSmall": "https://images.pokemontcg.io/sv7/148.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/148_hires.png"
             }
           ]
         },
@@ -2335,21 +2825,27 @@
               "name": "Dachsbun ex",
               "number": "67",
               "rarity": "Double Rare",
-              "marketPrice": 1.02
+              "marketPrice": 1.02,
+              "imageSmall": "https://images.pokemontcg.io/sv7/67.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/67_hires.png"
             },
             {
               "id": "sv7-160",
               "name": "Dachsbun ex",
               "number": "160",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.32
+              "marketPrice": 4.32,
+              "imageSmall": "https://images.pokemontcg.io/sv7/160.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/160_hires.png"
             },
             {
               "id": "sv7-169",
               "name": "Dachsbun ex",
               "number": "169",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 78.75
+              "marketPrice": 78.75,
+              "imageSmall": "https://images.pokemontcg.io/sv7/169.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/169_hires.png"
             }
           ]
         },
@@ -2362,21 +2858,27 @@
               "name": "Terapagos ex",
               "number": "128",
               "rarity": "Double Rare",
-              "marketPrice": 0.99
+              "marketPrice": 0.99,
+              "imageSmall": "https://images.pokemontcg.io/sv7/128.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/128_hires.png"
             },
             {
               "id": "sv7-170",
               "name": "Terapagos ex",
               "number": "170",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 62.62
+              "marketPrice": 62.62,
+              "imageSmall": "https://images.pokemontcg.io/sv7/170.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/170_hires.png"
             },
             {
               "id": "sv7-173",
               "name": "Terapagos ex",
               "number": "173",
               "rarity": "Hyper Rare",
-              "marketPrice": 11.29
+              "marketPrice": 11.29,
+              "imageSmall": "https://images.pokemontcg.io/sv7/173.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/173_hires.png"
             }
           ]
         },
@@ -2389,21 +2891,27 @@
               "name": "Hydrapple ex",
               "number": "14",
               "rarity": "Double Rare",
-              "marketPrice": 0.97
+              "marketPrice": 0.97,
+              "imageSmall": "https://images.pokemontcg.io/sv7/14.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/14_hires.png"
             },
             {
               "id": "sv7-156",
               "name": "Hydrapple ex",
               "number": "156",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.46
+              "marketPrice": 4.46,
+              "imageSmall": "https://images.pokemontcg.io/sv7/156.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/156_hires.png"
             },
             {
               "id": "sv7-167",
               "name": "Hydrapple ex",
               "number": "167",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 40.62
+              "marketPrice": 40.62,
+              "imageSmall": "https://images.pokemontcg.io/sv7/167.png",
+              "imageLarge": "https://images.pokemontcg.io/sv7/167_hires.png"
             }
           ]
         }
@@ -2415,6 +2923,8 @@
       "name": "Shrouded Fable",
       "slug": "shrouded-fable",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv6pt5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv6pt5/symbol.png",
       "releaseDate": "2024/08/02",
       "printedTotal": 64,
       "total": 99,
@@ -2444,14 +2954,18 @@
         "name": "Pecharunt ex",
         "number": "95",
         "rarity": "Hyper Rare",
-        "marketPrice": 23.2
+        "marketPrice": 23.2,
+        "imageSmall": "https://images.pokemontcg.io/sv6pt5/95.png",
+        "imageLarge": "https://images.pokemontcg.io/sv6pt5/95_hires.png"
       },
       "mostValuableCard": {
         "id": "sv6pt5-78",
         "name": "Persian",
         "number": "78",
         "rarity": "Illustration Rare",
-        "marketPrice": 80.46
+        "marketPrice": 80.46,
+        "imageSmall": "https://images.pokemontcg.io/sv6pt5/78.png",
+        "imageLarge": "https://images.pokemontcg.io/sv6pt5/78_hires.png"
       },
       "chaseCards": [
         {
@@ -2459,42 +2973,54 @@
           "name": "Persian",
           "number": "78",
           "rarity": "Illustration Rare",
-          "marketPrice": 80.46
+          "marketPrice": 80.46,
+          "imageSmall": "https://images.pokemontcg.io/sv6pt5/78.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6pt5/78_hires.png"
         },
         {
           "id": "sv6pt5-98",
           "name": "Basic Darkness Energy",
           "number": "98",
           "rarity": "Hyper Rare",
-          "marketPrice": 67.01
+          "marketPrice": 67.01,
+          "imageSmall": "https://images.pokemontcg.io/sv6pt5/98.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6pt5/98_hires.png"
         },
         {
           "id": "sv6pt5-68",
           "name": "Duskull",
           "number": "68",
           "rarity": "Illustration Rare",
-          "marketPrice": 60.16
+          "marketPrice": 60.16,
+          "imageSmall": "https://images.pokemontcg.io/sv6pt5/68.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6pt5/68_hires.png"
         },
         {
           "id": "sv6pt5-66",
           "name": "Houndoom",
           "number": "66",
           "rarity": "Illustration Rare",
-          "marketPrice": 55.1
+          "marketPrice": 55.1,
+          "imageSmall": "https://images.pokemontcg.io/sv6pt5/66.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6pt5/66_hires.png"
         },
         {
           "id": "sv6pt5-67",
           "name": "Horsea",
           "number": "67",
           "rarity": "Illustration Rare",
-          "marketPrice": 52.73
+          "marketPrice": 52.73,
+          "imageSmall": "https://images.pokemontcg.io/sv6pt5/67.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6pt5/67_hires.png"
         },
         {
           "id": "sv6pt5-69",
           "name": "Dusclops",
           "number": "69",
           "rarity": "Illustration Rare",
-          "marketPrice": 51.59
+          "marketPrice": 51.59,
+          "imageSmall": "https://images.pokemontcg.io/sv6pt5/69.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6pt5/69_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -2507,7 +3033,9 @@
               "name": "Persian",
               "number": "78",
               "rarity": "Illustration Rare",
-              "marketPrice": 80.46
+              "marketPrice": 80.46,
+              "imageSmall": "https://images.pokemontcg.io/sv6pt5/78.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6pt5/78_hires.png"
             }
           ]
         },
@@ -2520,7 +3048,9 @@
               "name": "Duskull",
               "number": "68",
               "rarity": "Illustration Rare",
-              "marketPrice": 60.16
+              "marketPrice": 60.16,
+              "imageSmall": "https://images.pokemontcg.io/sv6pt5/68.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6pt5/68_hires.png"
             }
           ]
         },
@@ -2533,7 +3063,9 @@
               "name": "Houndoom",
               "number": "66",
               "rarity": "Illustration Rare",
-              "marketPrice": 55.1
+              "marketPrice": 55.1,
+              "imageSmall": "https://images.pokemontcg.io/sv6pt5/66.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6pt5/66_hires.png"
             }
           ]
         },
@@ -2546,7 +3078,9 @@
               "name": "Horsea",
               "number": "67",
               "rarity": "Illustration Rare",
-              "marketPrice": 52.73
+              "marketPrice": 52.73,
+              "imageSmall": "https://images.pokemontcg.io/sv6pt5/67.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6pt5/67_hires.png"
             }
           ]
         },
@@ -2559,7 +3093,9 @@
               "name": "Dusclops",
               "number": "69",
               "rarity": "Illustration Rare",
-              "marketPrice": 51.59
+              "marketPrice": 51.59,
+              "imageSmall": "https://images.pokemontcg.io/sv6pt5/69.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6pt5/69_hires.png"
             }
           ]
         }
@@ -2571,6 +3107,8 @@
       "name": "Twilight Masquerade",
       "slug": "twilight-masquerade",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv6/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv6/symbol.png",
       "releaseDate": "2024/05/24",
       "printedTotal": 167,
       "total": 226,
@@ -2600,14 +3138,18 @@
         "name": "Bloodmoon Ursaluna ex",
         "number": "222",
         "rarity": "Hyper Rare",
-        "marketPrice": 9.28
+        "marketPrice": 9.28,
+        "imageSmall": "https://images.pokemontcg.io/sv6/222.png",
+        "imageLarge": "https://images.pokemontcg.io/sv6/222_hires.png"
       },
       "mostValuableCard": {
         "id": "sv6-214",
         "name": "Greninja ex",
         "number": "214",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 400.47
+        "marketPrice": 400.47,
+        "imageSmall": "https://images.pokemontcg.io/sv6/214.png",
+        "imageLarge": "https://images.pokemontcg.io/sv6/214_hires.png"
       },
       "chaseCards": [
         {
@@ -2615,42 +3157,54 @@
           "name": "Greninja ex",
           "number": "214",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 400.47
+          "marketPrice": 400.47,
+          "imageSmall": "https://images.pokemontcg.io/sv6/214.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6/214_hires.png"
         },
         {
           "id": "sv6-220",
           "name": "Perrin",
           "number": "220",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 185.48
+          "marketPrice": 185.48,
+          "imageSmall": "https://images.pokemontcg.io/sv6/220.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6/220_hires.png"
         },
         {
           "id": "sv6-188",
           "name": "Eevee",
           "number": "188",
           "rarity": "Illustration Rare",
-          "marketPrice": 91.74
+          "marketPrice": 91.74,
+          "imageSmall": "https://images.pokemontcg.io/sv6/188.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6/188_hires.png"
         },
         {
           "id": "sv6-217",
           "name": "Carmine",
           "number": "217",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 72.33
+          "marketPrice": 72.33,
+          "imageSmall": "https://images.pokemontcg.io/sv6/217.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6/217_hires.png"
         },
         {
           "id": "sv6-187",
           "name": "Chansey",
           "number": "187",
           "rarity": "Illustration Rare",
-          "marketPrice": 58.81
+          "marketPrice": 58.81,
+          "imageSmall": "https://images.pokemontcg.io/sv6/187.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6/187_hires.png"
         },
         {
           "id": "sv6-216",
           "name": "Bloodmoon Ursaluna ex",
           "number": "216",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 46.37
+          "marketPrice": 46.37,
+          "imageSmall": "https://images.pokemontcg.io/sv6/216.png",
+          "imageLarge": "https://images.pokemontcg.io/sv6/216_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -2663,21 +3217,27 @@
               "name": "Greninja ex",
               "number": "106",
               "rarity": "Double Rare",
-              "marketPrice": 7.06
+              "marketPrice": 7.06,
+              "imageSmall": "https://images.pokemontcg.io/sv6/106.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/106_hires.png"
             },
             {
               "id": "sv6-198",
               "name": "Greninja ex",
               "number": "198",
               "rarity": "Ultra Rare",
-              "marketPrice": 24.47
+              "marketPrice": 24.47,
+              "imageSmall": "https://images.pokemontcg.io/sv6/198.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/198_hires.png"
             },
             {
               "id": "sv6-214",
               "name": "Greninja ex",
               "number": "214",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 400.47
+              "marketPrice": 400.47,
+              "imageSmall": "https://images.pokemontcg.io/sv6/214.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/214_hires.png"
             }
           ]
         },
@@ -2690,7 +3250,9 @@
               "name": "Eevee",
               "number": "188",
               "rarity": "Illustration Rare",
-              "marketPrice": 91.74
+              "marketPrice": 91.74,
+              "imageSmall": "https://images.pokemontcg.io/sv6/188.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/188_hires.png"
             }
           ]
         },
@@ -2703,7 +3265,9 @@
               "name": "Chansey",
               "number": "187",
               "rarity": "Illustration Rare",
-              "marketPrice": 58.81
+              "marketPrice": 58.81,
+              "imageSmall": "https://images.pokemontcg.io/sv6/187.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/187_hires.png"
             }
           ]
         },
@@ -2716,28 +3280,36 @@
               "name": "Bloodmoon Ursaluna ex",
               "number": "141",
               "rarity": "Double Rare",
-              "marketPrice": 1.23
+              "marketPrice": 1.23,
+              "imageSmall": "https://images.pokemontcg.io/sv6/141.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/141_hires.png"
             },
             {
               "id": "sv6-202",
               "name": "Bloodmoon Ursaluna ex",
               "number": "202",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.83
+              "marketPrice": 2.83,
+              "imageSmall": "https://images.pokemontcg.io/sv6/202.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/202_hires.png"
             },
             {
               "id": "sv6-216",
               "name": "Bloodmoon Ursaluna ex",
               "number": "216",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 46.37
+              "marketPrice": 46.37,
+              "imageSmall": "https://images.pokemontcg.io/sv6/216.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/216_hires.png"
             },
             {
               "id": "sv6-222",
               "name": "Bloodmoon Ursaluna ex",
               "number": "222",
               "rarity": "Hyper Rare",
-              "marketPrice": 9.28
+              "marketPrice": 9.28,
+              "imageSmall": "https://images.pokemontcg.io/sv6/222.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/222_hires.png"
             }
           ]
         },
@@ -2750,21 +3322,27 @@
               "name": "Sinistcha ex",
               "number": "23",
               "rarity": "Double Rare",
-              "marketPrice": 0.58
+              "marketPrice": 0.58,
+              "imageSmall": "https://images.pokemontcg.io/sv6/23.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/23_hires.png"
             },
             {
               "id": "sv6-189",
               "name": "Sinistcha ex",
               "number": "189",
               "rarity": "Ultra Rare",
-              "marketPrice": 1.45
+              "marketPrice": 1.45,
+              "imageSmall": "https://images.pokemontcg.io/sv6/189.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/189_hires.png"
             },
             {
               "id": "sv6-210",
               "name": "Sinistcha ex",
               "number": "210",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 33.22
+              "marketPrice": 33.22,
+              "imageSmall": "https://images.pokemontcg.io/sv6/210.png",
+              "imageLarge": "https://images.pokemontcg.io/sv6/210_hires.png"
             }
           ]
         }
@@ -2776,6 +3354,8 @@
       "name": "Temporal Forces",
       "slug": "temporal-forces",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv5/symbol.png",
       "releaseDate": "2024/03/22",
       "printedTotal": 162,
       "total": 218,
@@ -2805,14 +3385,18 @@
         "name": "Raging Bolt ex",
         "number": "218",
         "rarity": "Hyper Rare",
-        "marketPrice": 13.97
+        "marketPrice": 13.97,
+        "imageSmall": "https://images.pokemontcg.io/sv5/218.png",
+        "imageLarge": "https://images.pokemontcg.io/sv5/218_hires.png"
       },
       "mostValuableCard": {
         "id": "sv5-177",
         "name": "Gastly",
         "number": "177",
         "rarity": "Illustration Rare",
-        "marketPrice": 112.48
+        "marketPrice": 112.48,
+        "imageSmall": "https://images.pokemontcg.io/sv5/177.png",
+        "imageLarge": "https://images.pokemontcg.io/sv5/177_hires.png"
       },
       "chaseCards": [
         {
@@ -2820,42 +3404,54 @@
           "name": "Gastly",
           "number": "177",
           "rarity": "Illustration Rare",
-          "marketPrice": 112.48
+          "marketPrice": 112.48,
+          "imageSmall": "https://images.pokemontcg.io/sv5/177.png",
+          "imageLarge": "https://images.pokemontcg.io/sv5/177_hires.png"
         },
         {
           "id": "sv5-211",
           "name": "Morty's Conviction",
           "number": "211",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 78.34
+          "marketPrice": 78.34,
+          "imageSmall": "https://images.pokemontcg.io/sv5/211.png",
+          "imageLarge": "https://images.pokemontcg.io/sv5/211_hires.png"
         },
         {
           "id": "sv5-208",
           "name": "Raging Bolt ex",
           "number": "208",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 71.71
+          "marketPrice": 71.71,
+          "imageSmall": "https://images.pokemontcg.io/sv5/208.png",
+          "imageLarge": "https://images.pokemontcg.io/sv5/208_hires.png"
         },
         {
           "id": "sv5-193",
           "name": "Gengar ex",
           "number": "193",
           "rarity": "Ultra Rare",
-          "marketPrice": 71.32
+          "marketPrice": 71.32,
+          "imageSmall": "https://images.pokemontcg.io/sv5/193.png",
+          "imageLarge": "https://images.pokemontcg.io/sv5/193_hires.png"
         },
         {
           "id": "sv5-205",
           "name": "Walking Wake ex",
           "number": "205",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 63.62
+          "marketPrice": 63.62,
+          "imageSmall": "https://images.pokemontcg.io/sv5/205.png",
+          "imageLarge": "https://images.pokemontcg.io/sv5/205_hires.png"
         },
         {
           "id": "sv5-166",
           "name": "Sawsbuck",
           "number": "166",
           "rarity": "Illustration Rare",
-          "marketPrice": 60.84
+          "marketPrice": 60.84,
+          "imageSmall": "https://images.pokemontcg.io/sv5/166.png",
+          "imageLarge": "https://images.pokemontcg.io/sv5/166_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -2868,7 +3464,9 @@
               "name": "Gastly",
               "number": "177",
               "rarity": "Illustration Rare",
-              "marketPrice": 112.48
+              "marketPrice": 112.48,
+              "imageSmall": "https://images.pokemontcg.io/sv5/177.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/177_hires.png"
             }
           ]
         },
@@ -2881,28 +3479,36 @@
               "name": "Raging Bolt ex",
               "number": "123",
               "rarity": "Double Rare",
-              "marketPrice": 1.69
+              "marketPrice": 1.69,
+              "imageSmall": "https://images.pokemontcg.io/sv5/123.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/123_hires.png"
             },
             {
               "id": "sv5-196",
               "name": "Raging Bolt ex",
               "number": "196",
               "rarity": "Ultra Rare",
-              "marketPrice": 4.1
+              "marketPrice": 4.1,
+              "imageSmall": "https://images.pokemontcg.io/sv5/196.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/196_hires.png"
             },
             {
               "id": "sv5-208",
               "name": "Raging Bolt ex",
               "number": "208",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 71.71
+              "marketPrice": 71.71,
+              "imageSmall": "https://images.pokemontcg.io/sv5/208.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/208_hires.png"
             },
             {
               "id": "sv5-218",
               "name": "Raging Bolt ex",
               "number": "218",
               "rarity": "Hyper Rare",
-              "marketPrice": 13.97
+              "marketPrice": 13.97,
+              "imageSmall": "https://images.pokemontcg.io/sv5/218.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/218_hires.png"
             }
           ]
         },
@@ -2915,14 +3521,18 @@
               "name": "Gengar ex",
               "number": "104",
               "rarity": "Double Rare",
-              "marketPrice": 5.22
+              "marketPrice": 5.22,
+              "imageSmall": "https://images.pokemontcg.io/sv5/104.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/104_hires.png"
             },
             {
               "id": "sv5-193",
               "name": "Gengar ex",
               "number": "193",
               "rarity": "Ultra Rare",
-              "marketPrice": 71.32
+              "marketPrice": 71.32,
+              "imageSmall": "https://images.pokemontcg.io/sv5/193.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/193_hires.png"
             }
           ]
         },
@@ -2935,28 +3545,36 @@
               "name": "Walking Wake ex",
               "number": "50",
               "rarity": "Double Rare",
-              "marketPrice": 0.68
+              "marketPrice": 0.68,
+              "imageSmall": "https://images.pokemontcg.io/sv5/50.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/50_hires.png"
             },
             {
               "id": "sv5-189",
               "name": "Walking Wake ex",
               "number": "189",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.17
+              "marketPrice": 2.17,
+              "imageSmall": "https://images.pokemontcg.io/sv5/189.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/189_hires.png"
             },
             {
               "id": "sv5-205",
               "name": "Walking Wake ex",
               "number": "205",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 63.62
+              "marketPrice": 63.62,
+              "imageSmall": "https://images.pokemontcg.io/sv5/205.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/205_hires.png"
             },
             {
               "id": "sv5-215",
               "name": "Walking Wake ex",
               "number": "215",
               "rarity": "Hyper Rare",
-              "marketPrice": 13.95
+              "marketPrice": 13.95,
+              "imageSmall": "https://images.pokemontcg.io/sv5/215.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/215_hires.png"
             }
           ]
         },
@@ -2969,7 +3587,9 @@
               "name": "Sawsbuck",
               "number": "166",
               "rarity": "Illustration Rare",
-              "marketPrice": 60.84
+              "marketPrice": 60.84,
+              "imageSmall": "https://images.pokemontcg.io/sv5/166.png",
+              "imageLarge": "https://images.pokemontcg.io/sv5/166_hires.png"
             }
           ]
         }
@@ -2981,6 +3601,8 @@
       "name": "Paldean Fates",
       "slug": "paldean-fates",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv4pt5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv4pt5/symbol.png",
       "releaseDate": "2024/01/26",
       "printedTotal": 91,
       "total": 245,
@@ -3011,14 +3633,18 @@
         "name": "Koraidon ex",
         "number": "245",
         "rarity": "Hyper Rare",
-        "marketPrice": 12.96
+        "marketPrice": 12.96,
+        "imageSmall": "https://images.pokemontcg.io/sv4pt5/245.png",
+        "imageLarge": "https://images.pokemontcg.io/sv4pt5/245_hires.png"
       },
       "mostValuableCard": {
         "id": "sv4pt5-232",
         "name": "Mew ex",
         "number": "232",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 968.49
+        "marketPrice": 968.49,
+        "imageSmall": "https://images.pokemontcg.io/sv4pt5/232.png",
+        "imageLarge": "https://images.pokemontcg.io/sv4pt5/232_hires.png"
       },
       "chaseCards": [
         {
@@ -3026,42 +3652,54 @@
           "name": "Mew ex",
           "number": "232",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 968.49
+          "marketPrice": 968.49,
+          "imageSmall": "https://images.pokemontcg.io/sv4pt5/232.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4pt5/232_hires.png"
         },
         {
           "id": "sv4pt5-234",
           "name": "Charizard ex",
           "number": "234",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 336.93
+          "marketPrice": 336.93,
+          "imageSmall": "https://images.pokemontcg.io/sv4pt5/234.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4pt5/234_hires.png"
         },
         {
           "id": "sv4pt5-233",
           "name": "Gardevoir ex",
           "number": "233",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 186.13
+          "marketPrice": 186.13,
+          "imageSmall": "https://images.pokemontcg.io/sv4pt5/233.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4pt5/233_hires.png"
         },
         {
           "id": "sv4pt5-131",
           "name": "Pikachu",
           "number": "131",
           "rarity": "Shiny Rare",
-          "marketPrice": 89.19
+          "marketPrice": 89.19,
+          "imageSmall": "https://images.pokemontcg.io/sv4pt5/131.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4pt5/131_hires.png"
         },
         {
           "id": "sv4pt5-202",
           "name": "Snorlax",
           "number": "202",
           "rarity": "Shiny Rare",
-          "marketPrice": 68.36
+          "marketPrice": 68.36,
+          "imageSmall": "https://images.pokemontcg.io/sv4pt5/202.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4pt5/202_hires.png"
         },
         {
           "id": "sv4pt5-109",
           "name": "Charmander",
           "number": "109",
           "rarity": "Shiny Rare",
-          "marketPrice": 58.57
+          "marketPrice": 58.57,
+          "imageSmall": "https://images.pokemontcg.io/sv4pt5/109.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4pt5/109_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -3074,14 +3712,18 @@
               "name": "Mew ex",
               "number": "216",
               "rarity": "Shiny Ultra Rare",
-              "marketPrice": 38.66
+              "marketPrice": 38.66,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/216.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/216_hires.png"
             },
             {
               "id": "sv4pt5-232",
               "name": "Mew ex",
               "number": "232",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 968.49
+              "marketPrice": 968.49,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/232.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/232_hires.png"
             }
           ]
         },
@@ -3094,14 +3736,18 @@
               "name": "Charizard ex",
               "number": "54",
               "rarity": "Double Rare",
-              "marketPrice": 5.35
+              "marketPrice": 5.35,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/54.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/54_hires.png"
             },
             {
               "id": "sv4pt5-234",
               "name": "Charizard ex",
               "number": "234",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 336.93
+              "marketPrice": 336.93,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/234.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/234_hires.png"
             }
           ]
         },
@@ -3114,21 +3760,27 @@
               "name": "Gardevoir ex",
               "number": "29",
               "rarity": "Double Rare",
-              "marketPrice": 0.74
+              "marketPrice": 0.74,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/29.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/29_hires.png"
             },
             {
               "id": "sv4pt5-217",
               "name": "Gardevoir ex",
               "number": "217",
               "rarity": "Shiny Ultra Rare",
-              "marketPrice": 10.57
+              "marketPrice": 10.57,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/217.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/217_hires.png"
             },
             {
               "id": "sv4pt5-233",
               "name": "Gardevoir ex",
               "number": "233",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 186.13
+              "marketPrice": 186.13,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/233.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/233_hires.png"
             }
           ]
         },
@@ -3141,7 +3793,9 @@
               "name": "Pikachu",
               "number": "131",
               "rarity": "Shiny Rare",
-              "marketPrice": 89.19
+              "marketPrice": 89.19,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/131.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/131_hires.png"
             }
           ]
         },
@@ -3154,7 +3808,9 @@
               "name": "Snorlax",
               "number": "202",
               "rarity": "Shiny Rare",
-              "marketPrice": 68.36
+              "marketPrice": 68.36,
+              "imageSmall": "https://images.pokemontcg.io/sv4pt5/202.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4pt5/202_hires.png"
             }
           ]
         }
@@ -3166,6 +3822,8 @@
       "name": "Paradox Rift",
       "slug": "paradox-rift",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv4/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv4/symbol.png",
       "releaseDate": "2023/11/03",
       "printedTotal": 182,
       "total": 266,
@@ -3194,14 +3852,18 @@
         "name": "Roaring Moon ex",
         "number": "262",
         "rarity": "Hyper Rare",
-        "marketPrice": 7.19
+        "marketPrice": 7.19,
+        "imageSmall": "https://images.pokemontcg.io/sv4/262.png",
+        "imageLarge": "https://images.pokemontcg.io/sv4/262_hires.png"
       },
       "mostValuableCard": {
         "id": "sv4-199",
         "name": "Groudon",
         "number": "199",
         "rarity": "Illustration Rare",
-        "marketPrice": 115.77
+        "marketPrice": 115.77,
+        "imageSmall": "https://images.pokemontcg.io/sv4/199.png",
+        "imageLarge": "https://images.pokemontcg.io/sv4/199_hires.png"
       },
       "chaseCards": [
         {
@@ -3209,42 +3871,54 @@
           "name": "Groudon",
           "number": "199",
           "rarity": "Illustration Rare",
-          "marketPrice": 115.77
+          "marketPrice": 115.77,
+          "imageSmall": "https://images.pokemontcg.io/sv4/199.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4/199_hires.png"
         },
         {
           "id": "sv4-253",
           "name": "Altaria ex",
           "number": "253",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 60.67
+          "marketPrice": 60.67,
+          "imageSmall": "https://images.pokemontcg.io/sv4/253.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4/253_hires.png"
         },
         {
           "id": "sv4-193",
           "name": "Plusle",
           "number": "193",
           "rarity": "Illustration Rare",
-          "marketPrice": 52.02
+          "marketPrice": 52.02,
+          "imageSmall": "https://images.pokemontcg.io/sv4/193.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4/193_hires.png"
         },
         {
           "id": "sv4-194",
           "name": "Minun",
           "number": "194",
           "rarity": "Illustration Rare",
-          "marketPrice": 50.66
+          "marketPrice": 50.66,
+          "imageSmall": "https://images.pokemontcg.io/sv4/194.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4/194_hires.png"
         },
         {
           "id": "sv4-206",
           "name": "Morpeko",
           "number": "206",
           "rarity": "Illustration Rare",
-          "marketPrice": 43.76
+          "marketPrice": 43.76,
+          "imageSmall": "https://images.pokemontcg.io/sv4/206.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4/206_hires.png"
         },
         {
           "id": "sv4-251",
           "name": "Roaring Moon ex",
           "number": "251",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 43.37
+          "marketPrice": 43.37,
+          "imageSmall": "https://images.pokemontcg.io/sv4/251.png",
+          "imageLarge": "https://images.pokemontcg.io/sv4/251_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -3257,7 +3931,9 @@
               "name": "Groudon",
               "number": "199",
               "rarity": "Illustration Rare",
-              "marketPrice": 115.77
+              "marketPrice": 115.77,
+              "imageSmall": "https://images.pokemontcg.io/sv4/199.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/199_hires.png"
             }
           ]
         },
@@ -3270,21 +3946,27 @@
               "name": "Altaria ex",
               "number": "140",
               "rarity": "Double Rare",
-              "marketPrice": 0.83
+              "marketPrice": 0.83,
+              "imageSmall": "https://images.pokemontcg.io/sv4/140.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/140_hires.png"
             },
             {
               "id": "sv4-232",
               "name": "Altaria ex",
               "number": "232",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.84
+              "marketPrice": 2.84,
+              "imageSmall": "https://images.pokemontcg.io/sv4/232.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/232_hires.png"
             },
             {
               "id": "sv4-253",
               "name": "Altaria ex",
               "number": "253",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 60.67
+              "marketPrice": 60.67,
+              "imageSmall": "https://images.pokemontcg.io/sv4/253.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/253_hires.png"
             }
           ]
         },
@@ -3297,7 +3979,9 @@
               "name": "Plusle",
               "number": "193",
               "rarity": "Illustration Rare",
-              "marketPrice": 52.02
+              "marketPrice": 52.02,
+              "imageSmall": "https://images.pokemontcg.io/sv4/193.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/193_hires.png"
             }
           ]
         },
@@ -3310,7 +3994,9 @@
               "name": "Minun",
               "number": "194",
               "rarity": "Illustration Rare",
-              "marketPrice": 50.66
+              "marketPrice": 50.66,
+              "imageSmall": "https://images.pokemontcg.io/sv4/194.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/194_hires.png"
             }
           ]
         },
@@ -3323,7 +4009,9 @@
               "name": "Morpeko",
               "number": "206",
               "rarity": "Illustration Rare",
-              "marketPrice": 43.76
+              "marketPrice": 43.76,
+              "imageSmall": "https://images.pokemontcg.io/sv4/206.png",
+              "imageLarge": "https://images.pokemontcg.io/sv4/206_hires.png"
             }
           ]
         }
@@ -3335,6 +4023,8 @@
       "name": "151",
       "slug": "151",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv3pt5/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv3pt5/symbol.png",
       "releaseDate": "2023/09/22",
       "printedTotal": 165,
       "total": 207,
@@ -3363,14 +4053,18 @@
         "name": "Mew ex",
         "number": "205",
         "rarity": "Hyper Rare",
-        "marketPrice": 34.47
+        "marketPrice": 34.47,
+        "imageSmall": "https://images.pokemontcg.io/sv3pt5/205.png",
+        "imageLarge": "https://images.pokemontcg.io/sv3pt5/205_hires.png"
       },
       "mostValuableCard": {
         "id": "sv3pt5-199",
         "name": "Charizard ex",
         "number": "199",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 492.2
+        "marketPrice": 492.2,
+        "imageSmall": "https://images.pokemontcg.io/sv3pt5/199.png",
+        "imageLarge": "https://images.pokemontcg.io/sv3pt5/199_hires.png"
       },
       "chaseCards": [
         {
@@ -3378,42 +4072,54 @@
           "name": "Charizard ex",
           "number": "199",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 492.2
+          "marketPrice": 492.2,
+          "imageSmall": "https://images.pokemontcg.io/sv3pt5/199.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3pt5/199_hires.png"
         },
         {
           "id": "sv3pt5-200",
           "name": "Blastoise ex",
           "number": "200",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 167.51
+          "marketPrice": 167.51,
+          "imageSmall": "https://images.pokemontcg.io/sv3pt5/200.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3pt5/200_hires.png"
         },
         {
           "id": "sv3pt5-198",
           "name": "Venusaur ex",
           "number": "198",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 134.3
+          "marketPrice": 134.3,
+          "imageSmall": "https://images.pokemontcg.io/sv3pt5/198.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3pt5/198_hires.png"
         },
         {
           "id": "sv3pt5-168",
           "name": "Charmander",
           "number": "168",
           "rarity": "Illustration Rare",
-          "marketPrice": 130.15
+          "marketPrice": 130.15,
+          "imageSmall": "https://images.pokemontcg.io/sv3pt5/168.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3pt5/168_hires.png"
         },
         {
           "id": "sv3pt5-202",
           "name": "Zapdos ex",
           "number": "202",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 119.92
+          "marketPrice": 119.92,
+          "imageSmall": "https://images.pokemontcg.io/sv3pt5/202.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3pt5/202_hires.png"
         },
         {
           "id": "sv3pt5-170",
           "name": "Squirtle",
           "number": "170",
           "rarity": "Illustration Rare",
-          "marketPrice": 118.75
+          "marketPrice": 118.75,
+          "imageSmall": "https://images.pokemontcg.io/sv3pt5/170.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3pt5/170_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -3426,21 +4132,27 @@
               "name": "Charizard ex",
               "number": "6",
               "rarity": "Double Rare",
-              "marketPrice": 10.39
+              "marketPrice": 10.39,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/6.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/6_hires.png"
             },
             {
               "id": "sv3pt5-183",
               "name": "Charizard ex",
               "number": "183",
               "rarity": "Ultra Rare",
-              "marketPrice": 46.73
+              "marketPrice": 46.73,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/183.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/183_hires.png"
             },
             {
               "id": "sv3pt5-199",
               "name": "Charizard ex",
               "number": "199",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 492.2
+              "marketPrice": 492.2,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/199.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/199_hires.png"
             }
           ]
         },
@@ -3453,21 +4165,27 @@
               "name": "Blastoise ex",
               "number": "9",
               "rarity": "Double Rare",
-              "marketPrice": 2.12
+              "marketPrice": 2.12,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/9.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/9_hires.png"
             },
             {
               "id": "sv3pt5-184",
               "name": "Blastoise ex",
               "number": "184",
               "rarity": "Ultra Rare",
-              "marketPrice": 27.69
+              "marketPrice": 27.69,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/184.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/184_hires.png"
             },
             {
               "id": "sv3pt5-200",
               "name": "Blastoise ex",
               "number": "200",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 167.51
+              "marketPrice": 167.51,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/200.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/200_hires.png"
             }
           ]
         },
@@ -3480,21 +4198,27 @@
               "name": "Venusaur ex",
               "number": "3",
               "rarity": "Double Rare",
-              "marketPrice": 1.16
+              "marketPrice": 1.16,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/3.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/3_hires.png"
             },
             {
               "id": "sv3pt5-182",
               "name": "Venusaur ex",
               "number": "182",
               "rarity": "Ultra Rare",
-              "marketPrice": 17.85
+              "marketPrice": 17.85,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/182.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/182_hires.png"
             },
             {
               "id": "sv3pt5-198",
               "name": "Venusaur ex",
               "number": "198",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 134.3
+              "marketPrice": 134.3,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/198.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/198_hires.png"
             }
           ]
         },
@@ -3507,7 +4231,9 @@
               "name": "Charmander",
               "number": "168",
               "rarity": "Illustration Rare",
-              "marketPrice": 130.15
+              "marketPrice": 130.15,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/168.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/168_hires.png"
             }
           ]
         },
@@ -3520,21 +4246,27 @@
               "name": "Zapdos ex",
               "number": "145",
               "rarity": "Double Rare",
-              "marketPrice": 1.8
+              "marketPrice": 1.8,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/145.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/145_hires.png"
             },
             {
               "id": "sv3pt5-192",
               "name": "Zapdos ex",
               "number": "192",
               "rarity": "Ultra Rare",
-              "marketPrice": 14.23
+              "marketPrice": 14.23,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/192.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/192_hires.png"
             },
             {
               "id": "sv3pt5-202",
               "name": "Zapdos ex",
               "number": "202",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 119.92
+              "marketPrice": 119.92,
+              "imageSmall": "https://images.pokemontcg.io/sv3pt5/202.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3pt5/202_hires.png"
             }
           ]
         }
@@ -3546,6 +4278,8 @@
       "name": "Obsidian Flames",
       "slug": "obsidian-flames",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv3/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv3/symbol.png",
       "releaseDate": "2023/08/11",
       "printedTotal": 197,
       "total": 230,
@@ -3574,14 +4308,18 @@
         "name": "Charizard ex",
         "number": "228",
         "rarity": "Hyper Rare",
-        "marketPrice": 46.27
+        "marketPrice": 46.27,
+        "imageSmall": "https://images.pokemontcg.io/sv3/228.png",
+        "imageLarge": "https://images.pokemontcg.io/sv3/228_hires.png"
       },
       "mostValuableCard": {
         "id": "sv3-223",
         "name": "Charizard ex",
         "number": "223",
         "rarity": "Special Illustration Rare",
-        "marketPrice": 138.94
+        "marketPrice": 138.94,
+        "imageSmall": "https://images.pokemontcg.io/sv3/223.png",
+        "imageLarge": "https://images.pokemontcg.io/sv3/223_hires.png"
       },
       "chaseCards": [
         {
@@ -3589,42 +4327,54 @@
           "name": "Charizard ex",
           "number": "223",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 138.94
+          "marketPrice": 138.94,
+          "imageSmall": "https://images.pokemontcg.io/sv3/223.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3/223_hires.png"
         },
         {
           "id": "sv3-199",
           "name": "Ninetales",
           "number": "199",
           "rarity": "Illustration Rare",
-          "marketPrice": 48.07
+          "marketPrice": 48.07,
+          "imageSmall": "https://images.pokemontcg.io/sv3/199.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3/199_hires.png"
         },
         {
           "id": "sv3-228",
           "name": "Charizard ex",
           "number": "228",
           "rarity": "Hyper Rare",
-          "marketPrice": 46.27
+          "marketPrice": 46.27,
+          "imageSmall": "https://images.pokemontcg.io/sv3/228.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3/228_hires.png"
         },
         {
           "id": "sv3-202",
           "name": "Cleffa",
           "number": "202",
           "rarity": "Illustration Rare",
-          "marketPrice": 45.26
+          "marketPrice": 45.26,
+          "imageSmall": "https://images.pokemontcg.io/sv3/202.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3/202_hires.png"
         },
         {
           "id": "sv3-198",
           "name": "Gloom",
           "number": "198",
           "rarity": "Illustration Rare",
-          "marketPrice": 28.36
+          "marketPrice": 28.36,
+          "imageSmall": "https://images.pokemontcg.io/sv3/198.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3/198_hires.png"
         },
         {
           "id": "sv3-225",
           "name": "Pidgeot ex",
           "number": "225",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 24.18
+          "marketPrice": 24.18,
+          "imageSmall": "https://images.pokemontcg.io/sv3/225.png",
+          "imageLarge": "https://images.pokemontcg.io/sv3/225_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -3637,28 +4387,36 @@
               "name": "Charizard ex",
               "number": "125",
               "rarity": "Double Rare",
-              "marketPrice": 5.58
+              "marketPrice": 5.58,
+              "imageSmall": "https://images.pokemontcg.io/sv3/125.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/125_hires.png"
             },
             {
               "id": "sv3-215",
               "name": "Charizard ex",
               "number": "215",
               "rarity": "Ultra Rare",
-              "marketPrice": 22.25
+              "marketPrice": 22.25,
+              "imageSmall": "https://images.pokemontcg.io/sv3/215.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/215_hires.png"
             },
             {
               "id": "sv3-223",
               "name": "Charizard ex",
               "number": "223",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 138.94
+              "marketPrice": 138.94,
+              "imageSmall": "https://images.pokemontcg.io/sv3/223.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/223_hires.png"
             },
             {
               "id": "sv3-228",
               "name": "Charizard ex",
               "number": "228",
               "rarity": "Hyper Rare",
-              "marketPrice": 46.27
+              "marketPrice": 46.27,
+              "imageSmall": "https://images.pokemontcg.io/sv3/228.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/228_hires.png"
             }
           ]
         },
@@ -3671,7 +4429,9 @@
               "name": "Ninetales",
               "number": "199",
               "rarity": "Illustration Rare",
-              "marketPrice": 48.07
+              "marketPrice": 48.07,
+              "imageSmall": "https://images.pokemontcg.io/sv3/199.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/199_hires.png"
             }
           ]
         },
@@ -3684,7 +4444,9 @@
               "name": "Cleffa",
               "number": "202",
               "rarity": "Illustration Rare",
-              "marketPrice": 45.26
+              "marketPrice": 45.26,
+              "imageSmall": "https://images.pokemontcg.io/sv3/202.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/202_hires.png"
             }
           ]
         },
@@ -3697,7 +4459,9 @@
               "name": "Gloom",
               "number": "198",
               "rarity": "Illustration Rare",
-              "marketPrice": 28.36
+              "marketPrice": 28.36,
+              "imageSmall": "https://images.pokemontcg.io/sv3/198.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/198_hires.png"
             }
           ]
         },
@@ -3710,21 +4474,27 @@
               "name": "Pidgeot ex",
               "number": "164",
               "rarity": "Double Rare",
-              "marketPrice": 1.83
+              "marketPrice": 1.83,
+              "imageSmall": "https://images.pokemontcg.io/sv3/164.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/164_hires.png"
             },
             {
               "id": "sv3-217",
               "name": "Pidgeot ex",
               "number": "217",
               "rarity": "Ultra Rare",
-              "marketPrice": 2.02
+              "marketPrice": 2.02,
+              "imageSmall": "https://images.pokemontcg.io/sv3/217.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/217_hires.png"
             },
             {
               "id": "sv3-225",
               "name": "Pidgeot ex",
               "number": "225",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 24.18
+              "marketPrice": 24.18,
+              "imageSmall": "https://images.pokemontcg.io/sv3/225.png",
+              "imageLarge": "https://images.pokemontcg.io/sv3/225_hires.png"
             }
           ]
         }
@@ -3736,6 +4506,8 @@
       "name": "Paldea Evolved",
       "slug": "paldea-evolved",
       "series": "Scarlet & Violet",
+      "logoUrl": "https://images.pokemontcg.io/sv2/logo.png",
+      "symbolUrl": "https://images.pokemontcg.io/sv2/symbol.png",
       "releaseDate": "2023/06/09",
       "printedTotal": 193,
       "total": 279,
@@ -3764,14 +4536,18 @@
         "name": "Ting-Lu ex",
         "number": "275",
         "rarity": "Hyper Rare",
-        "marketPrice": 4.28
+        "marketPrice": 4.28,
+        "imageSmall": "https://images.pokemontcg.io/sv2/275.png",
+        "imageLarge": "https://images.pokemontcg.io/sv2/275_hires.png"
       },
       "mostValuableCard": {
         "id": "sv2-203",
         "name": "Magikarp",
         "number": "203",
         "rarity": "Illustration Rare",
-        "marketPrice": 406.13
+        "marketPrice": 406.13,
+        "imageSmall": "https://images.pokemontcg.io/sv2/203.png",
+        "imageLarge": "https://images.pokemontcg.io/sv2/203_hires.png"
       },
       "chaseCards": [
         {
@@ -3779,42 +4555,54 @@
           "name": "Magikarp",
           "number": "203",
           "rarity": "Illustration Rare",
-          "marketPrice": 406.13
+          "marketPrice": 406.13,
+          "imageSmall": "https://images.pokemontcg.io/sv2/203.png",
+          "imageLarge": "https://images.pokemontcg.io/sv2/203_hires.png"
         },
         {
           "id": "sv2-211",
           "name": "Raichu",
           "number": "211",
           "rarity": "Illustration Rare",
-          "marketPrice": 118.89
+          "marketPrice": 118.89,
+          "imageSmall": "https://images.pokemontcg.io/sv2/211.png",
+          "imageLarge": "https://images.pokemontcg.io/sv2/211_hires.png"
         },
         {
           "id": "sv2-226",
           "name": "Maushold",
           "number": "226",
           "rarity": "Illustration Rare",
-          "marketPrice": 106.19
+          "marketPrice": 106.19,
+          "imageSmall": "https://images.pokemontcg.io/sv2/226.png",
+          "imageLarge": "https://images.pokemontcg.io/sv2/226_hires.png"
         },
         {
           "id": "sv2-222",
           "name": "Tyranitar",
           "number": "222",
           "rarity": "Illustration Rare",
-          "marketPrice": 80.47
+          "marketPrice": 80.47,
+          "imageSmall": "https://images.pokemontcg.io/sv2/222.png",
+          "imageLarge": "https://images.pokemontcg.io/sv2/222_hires.png"
         },
         {
           "id": "sv2-269",
           "name": "Iono",
           "number": "269",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 68.26
+          "marketPrice": 68.26,
+          "imageSmall": "https://images.pokemontcg.io/sv2/269.png",
+          "imageLarge": "https://images.pokemontcg.io/sv2/269_hires.png"
         },
         {
           "id": "sv2-262",
           "name": "Tinkaton ex",
           "number": "262",
           "rarity": "Special Illustration Rare",
-          "marketPrice": 61.56
+          "marketPrice": 61.56,
+          "imageSmall": "https://images.pokemontcg.io/sv2/262.png",
+          "imageLarge": "https://images.pokemontcg.io/sv2/262_hires.png"
         }
       ],
       "marqueePokemon": [
@@ -3827,7 +4615,9 @@
               "name": "Magikarp",
               "number": "203",
               "rarity": "Illustration Rare",
-              "marketPrice": 406.13
+              "marketPrice": 406.13,
+              "imageSmall": "https://images.pokemontcg.io/sv2/203.png",
+              "imageLarge": "https://images.pokemontcg.io/sv2/203_hires.png"
             }
           ]
         },
@@ -3840,7 +4630,9 @@
               "name": "Raichu",
               "number": "211",
               "rarity": "Illustration Rare",
-              "marketPrice": 118.89
+              "marketPrice": 118.89,
+              "imageSmall": "https://images.pokemontcg.io/sv2/211.png",
+              "imageLarge": "https://images.pokemontcg.io/sv2/211_hires.png"
             }
           ]
         },
@@ -3853,7 +4645,9 @@
               "name": "Maushold",
               "number": "226",
               "rarity": "Illustration Rare",
-              "marketPrice": 106.19
+              "marketPrice": 106.19,
+              "imageSmall": "https://images.pokemontcg.io/sv2/226.png",
+              "imageLarge": "https://images.pokemontcg.io/sv2/226_hires.png"
             }
           ]
         },
@@ -3866,7 +4660,9 @@
               "name": "Tyranitar",
               "number": "222",
               "rarity": "Illustration Rare",
-              "marketPrice": 80.47
+              "marketPrice": 80.47,
+              "imageSmall": "https://images.pokemontcg.io/sv2/222.png",
+              "imageLarge": "https://images.pokemontcg.io/sv2/222_hires.png"
             }
           ]
         },
@@ -3879,14 +4675,18 @@
               "name": "Tinkaton ex",
               "number": "240",
               "rarity": "Ultra Rare",
-              "marketPrice": 9.66
+              "marketPrice": 9.66,
+              "imageSmall": "https://images.pokemontcg.io/sv2/240.png",
+              "imageLarge": "https://images.pokemontcg.io/sv2/240_hires.png"
             },
             {
               "id": "sv2-262",
               "name": "Tinkaton ex",
               "number": "262",
               "rarity": "Special Illustration Rare",
-              "marketPrice": 61.56
+              "marketPrice": 61.56,
+              "imageSmall": "https://images.pokemontcg.io/sv2/262.png",
+              "imageLarge": "https://images.pokemontcg.io/sv2/262_hires.png"
             }
           ]
         }

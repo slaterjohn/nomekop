@@ -69,6 +69,7 @@ export function rarestCardPage(s: FaqSetFacts): FaqPage {
     question: `What is the rarest card in ${s.name}?`,
     title: `What is the rarest card in ${s.name}?`,
     description, body,
+    cards: [c, ...otherChase],
     related: [
       { href: `/card/${c.id}`, label: `View ${c.name}` },
       ...(s.mostValuableCard ? [{ href: setFaqSlug("valuable-card", s.slug), label: `Most valuable ${s.name} card` }] : []),
@@ -132,6 +133,7 @@ export function valuableCardPage(s: FaqSetFacts): FaqPage {
     question: `What is the most valuable card in ${s.name}?`,
     title: `What is the most valuable card in ${s.name}?`,
     description, body,
+    cards: [c, ...runnersUp],
     related: [
       { href: `/card/${c.id}`, label: `View ${c.name}` },
       { href: setFaqSlug("rarest-card", s.slug), label: `Rarest card in ${s.name}` },
@@ -195,6 +197,7 @@ export function chaseCardsPage(s: FaqSetFacts): FaqPage {
     question: `What are the chase cards in ${s.name}?`,
     title: `What are the chase cards in ${s.name}?`,
     description, body,
+    cards: top,
     related: [
       { href: setFaqSlug("rarest-card", s.slug), label: `Rarest card in ${s.name}` },
       ...(s.mostValuableCard ? [{ href: setFaqSlug("valuable-card", s.slug), label: `Most valuable ${s.name} card` }] : []),

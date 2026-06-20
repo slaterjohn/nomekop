@@ -3,12 +3,14 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import robots from "@/app/robots";
 import sitemap, { generateSitemaps } from "@/app/sitemap";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
-import { ALL_FAQ_PAGES } from "@/lib/content/faqs/registry";
+import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
 
 // The /faqs index plus each FAQ page's detail + Markdown companion all land in
 // the core shard (see app/sitemap.ts) — including the hand-authored upcoming
 // pages, so this counts ALL_FAQ_PAGES, not just the released set pages.
 const FAQ_SITEMAP_ENTRIES = 1 + ALL_FAQ_PAGES.length * 2;
+// Plus one per-set FAQ hub (/faqs/set/<id>) for every released + upcoming set.
+const FAQ_HUB_ENTRIES = faqSetIds.length;
 
 // Fixture snapshots: 173 sets; card data for base1 (102 cards), sv1 and sv8pt5.
 const FIXTURE_SET_COUNT = 173;
@@ -95,12 +97,19 @@ describe("sitemap (core shard)", () => {
     expect(urls).toContain(`${BASE}/`);
     expect(urls).toContain(`${BASE}/sets`);
     expect(urls).toContain(`${BASE}/facts`);
-    expect(urls.filter((url) => url.includes("/set/"))).toHaveLength(FIXTURE_SET_COUNT);
+    // Genuine set pages only — exclude the /faqs/set/<id> hubs, which also
+    // contain the "/set/" substring.
+    expect(
+      urls.filter((url) => url.includes("/set/") && !url.includes("/faqs/set/")),
+    ).toHaveLength(FIXTURE_SET_COUNT);
     // home, sets, pokedex, pokemon, illustrator, legal, /facts + 6 fact
     // articles + 6 article Markdown companions + 9 gen tokens = 28 static entries
     // (bare /build now 308-redirects to /sets, so it's no longer listed),
-    // plus the /faqs index and every FAQ detail + Markdown companion.
-    expect(entries).toHaveLength(FIXTURE_SET_COUNT + 28 + FAQ_SITEMAP_ENTRIES);
+    // plus the /faqs index and every FAQ detail + Markdown companion, plus one
+    // hub per set.
+    expect(entries).toHaveLength(
+      FIXTURE_SET_COUNT + 28 + FAQ_SITEMAP_ENTRIES + FAQ_HUB_ENTRIES,
+    );
     for (const url of urls) {
       expect(url.startsWith(`${BASE}/`)).toBe(true);
     }
