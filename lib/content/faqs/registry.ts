@@ -23,17 +23,21 @@ export const FAQ_AS_OF = snap.asOf;
 export const FAQ_SETS: FaqSetFacts[] = snap.sets;
 
 function pagesForSetFacts(s: FaqSetFacts): FaqPage[] {
+  // Always-applicable pages.
   const pages: FaqPage[] = [
     cardCountPage(s),
-    masterSetPage(s),
     binderSizePage(s),
     rarestCardPage(s),
     chaseCardsPage(s),
-    secretRaresPage(s),
-    illustrationRaresPage(s),
-    reverseHolosPage(s),
     releaseDatePage(s),
   ];
+  // Feature-gated pages — only emit when the figure is non-zero, so a "flat"
+  // set (e.g. Celebrations: no reverse holos, no secret rares, master = base)
+  // doesn't get pages that would just answer "0".
+  if (s.masterSetCount > s.printedTotal) pages.push(masterSetPage(s));
+  if (s.secretCount > 0) pages.push(secretRaresPage(s));
+  if (s.illustrationRareCount > 0) pages.push(illustrationRaresPage(s));
+  if (s.reverseHoloCount > 0) pages.push(reverseHolosPage(s));
   if (s.mostValuableCard) pages.push(valuableCardPage(s));
   if (s.hasBallPatterns) pages.push(ballPatternsPage(s));
   for (const p of s.marqueePokemon) pages.push(pokemonInSetPage(s, p));
@@ -42,15 +46,31 @@ function pagesForSetFacts(s: FaqSetFacts): FaqPage[] {
 
 const upcomingSlugs = new Set(UPCOMING_FAQ_PAGES.map((p) => p.slug));
 
+const rawReleased = snap.sets
+  .flatMap(pagesForSetFacts)
+  .filter((p) => !upcomingSlugs.has(p.slug));
+const rawAll = [...UPCOMING_FAQ_PAGES, ...rawReleased];
+
+// Every slug that actually renders. Templates cross-link by bare slug, and
+// feature-gated pages (master-set, secret-rares, …) may not exist for a given
+// set — so drop any internal FAQ link whose target wasn't generated. App routes
+// (/set, /card, /build) and external URLs are left untouched.
+const generatedSlugs = new Set(rawAll.map((p) => p.slug));
+const isInternalFaqLink = (href: string) => !/^(https?:|\/)/.test(href);
+function pruneRelated(page: FaqPage): FaqPage {
+  const related = page.related.filter(
+    (r) => !isInternalFaqLink(r.href) || generatedSlugs.has(r.href),
+  );
+  return related.length === page.related.length ? page : { ...page, related };
+}
+
 /** Released-set pages (data-driven from the snapshot). Any slug a hand-authored
  *  upcoming page already owns is dropped so the pre-release page wins until it's
  *  pruned — this keeps slugs unique even after a set releases into the DB. */
-export const FAQ_PAGES: FaqPage[] = snap.sets
-  .flatMap(pagesForSetFacts)
-  .filter((p) => !upcomingSlugs.has(p.slug));
+export const FAQ_PAGES: FaqPage[] = rawReleased.map(pruneRelated);
 
 /** Every FAQ page for routing/sitemap — upcoming (hand-authored) first. */
-export const ALL_FAQ_PAGES: FaqPage[] = [...UPCOMING_FAQ_PAGES, ...FAQ_PAGES];
+export const ALL_FAQ_PAGES: FaqPage[] = rawAll.map(pruneRelated);
 
 const BY_SLUG = new Map(ALL_FAQ_PAGES.map((p) => [p.slug, p]));
 export const faqSlugs: string[] = ALL_FAQ_PAGES.map((p) => p.slug);

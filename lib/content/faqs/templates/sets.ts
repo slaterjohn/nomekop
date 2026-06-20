@@ -30,9 +30,12 @@ export function binderSizePage(s: FaqSetFacts): FaqPage {
   const slug = setFaqSlug("binder-size", s.slug);
   const basePages = Math.ceil(s.printedTotal / 9);
   const masterPages = Math.ceil(s.masterSetCount / 9);
-  const description =
-    `The best binder for ${s.name} is a 9-pocket; the ${num(s.printedTotal)}-card set fills ` +
-    `about ${basePages} pages, or ${masterPages} for a master set.`;
+  const hasExtras = s.masterSetCount > s.printedTotal;
+  const description = hasExtras
+    ? `The best binder for ${s.name} is a 9-pocket; the ${num(s.printedTotal)}-card set fills ` +
+      `about ${basePages} pages, or ${masterPages} for a master set.`
+    : `The best binder for ${s.name} is a 9-pocket; the ${num(s.printedTotal)}-card set fills ` +
+      `about ${basePages} pages.`;
   const chase = s.chaseCards.slice(0, 4);
   const body = [
     `**${description}**`,
@@ -48,9 +51,9 @@ export function binderSizePage(s: FaqSetFacts): FaqPage {
     "",
     `**Base set (${num(s.printedTotal)} cards):**`,
     pocketTable(s.printedTotal),
-    "",
-    `**Master set (${num(s.masterSetCount)} cards):**`,
-    pocketTable(s.masterSetCount),
+    ...(hasExtras
+      ? ["", `**Master set (${num(s.masterSetCount)} cards):**`, pocketTable(s.masterSetCount)]
+      : []),
     "",
     `## Displaying the ${s.name} chase cards`,
     "",
@@ -60,16 +63,25 @@ export function binderSizePage(s: FaqSetFacts): FaqPage {
     "",
     `## What that means for ${s.name}`,
     "",
-    `In a 9-pocket binder the base set fills ${num(basePages)} pages. Going for the full master set — ` +
-      `all ${num(s.masterSetCount)} cards including ${num(s.reverseHoloCount)} reverse holos` +
-      (s.hasBallPatterns ? ` and the Poké Ball / Master Ball patterns` : "") +
-      ` — pushes that to ${num(masterPages)} pages, so budget a binder (or two) and the sleeves to match. ` +
-      `Star Pokémon like ${marqueePhrase(s, 3)} are worth a dedicated spread of their own.`,
+    hasExtras
+      ? `In a 9-pocket binder the base set fills ${num(basePages)} pages. Going for the full master set — ` +
+        `all ${num(s.masterSetCount)} cards including ${num(s.reverseHoloCount)} reverse holos` +
+        (s.hasBallPatterns ? ` and the Poké Ball / Master Ball patterns` : "") +
+        ` — pushes that to ${num(masterPages)} pages, so budget a binder (or two) and the sleeves to match. ` +
+        `Star Pokémon like ${marqueePhrase(s, 3)} are worth a dedicated spread of their own.`
+      : `In a 9-pocket binder the whole ${num(s.printedTotal)}-card set fills ${num(basePages)} pages. ` +
+        `${s.name} has no reverse holos or ball-pattern variants, so there's no separate master-set ` +
+        `layer — one 9-pocket binder holds all of it. Star Pokémon like ${marqueePhrase(s, 3)} are worth ` +
+        `a dedicated spread of their own.`,
     "",
-    `A common setup for ${s.name}: one 9-pocket binder of about ${num(basePages)} pages for the base ` +
-      `${num(s.printedTotal)} cards, kept in number order, and a second binder for the ` +
-      `${num(s.reverseHoloCount)} reverse holos and ${num(s.secretCount)} secret rares. Premium ` +
-      `side-loading sleeves are worth it for the ${num(s.illustrationRareCount)} full-art chase cards.`,
+    hasExtras
+      ? `A common setup for ${s.name}: one 9-pocket binder of about ${num(basePages)} pages for the base ` +
+        `${num(s.printedTotal)} cards, kept in number order, and a second binder for the ` +
+        `${num(s.reverseHoloCount)} reverse holos and ${num(s.secretCount)} secret rares. Premium ` +
+        `side-loading sleeves are worth it for the ${num(s.illustrationRareCount)} full-art chase cards.`
+      : `A common setup for ${s.name}: a single 9-pocket binder of about ${num(basePages)} pages holds the ` +
+        `complete ${num(s.printedTotal)}-card set in number order. Premium side-loading sleeves are worth ` +
+        `it for the headline chase cards.`,
     "",
     "Figures from the pokemontcg.io dataset, as of June 2026.",
   ].join("\n");
@@ -95,10 +107,8 @@ export function releaseDatePage(s: FaqSetFacts): FaqPage {
   const description = `${s.name} was released on ${when}, in the ${s.series} series.`;
   const rankLine =
     s.sizeRankAmongRecent === 1
-      ? `the largest of the 20 most recent sets`
-      : s.sizeRankAmongRecent === 20
-        ? `the smallest of the 20 most recent sets`
-        : `the #${s.sizeRankAmongRecent} largest of the 20 most recent sets`;
+      ? `the largest set Nomekop tracks`
+      : `the #${s.sizeRankAmongRecent} largest set Nomekop tracks`;
   const mvp = s.mostValuableCard;
   const chase = s.chaseCards.slice(0, 5);
   const body = [
@@ -131,10 +141,15 @@ export function releaseDatePage(s: FaqSetFacts): FaqPage {
     "",
     `## Where ${s.name} sits in the lineup`,
     "",
-    `Among the 20 newest sets tracked here, ${s.name} is ${rankLine}. A full master set of it runs to ` +
-      `${num(s.masterSetCount)} cards including ${num(s.reverseHoloCount)} reverse holos, so the ${when} ` +
-      `release still gives collectors plenty to chase well after launch day — whether you're after the ` +
-      `${num(s.printedTotal)}-card base set or every print.`,
+    `Among the sets Nomekop tracks, ${s.name} is ${rankLine}. ` +
+      (s.masterSetCount > s.printedTotal
+        ? `A full master set of it runs to ${num(s.masterSetCount)} cards including ` +
+          `${num(s.reverseHoloCount)} reverse holos, so the ${when} release still gives collectors plenty ` +
+          `to chase well after launch day — whether you're after the ${num(s.printedTotal)}-card base set ` +
+          `or every print.`
+        : `With no reverse holos or ball-pattern variants, a complete ${s.name} is its ` +
+          `${num(s.printedTotal)}-card checklist — the ${when} release still gives collectors a tidy, ` +
+          `self-contained set to finish.`),
     "",
     "Figures from the pokemontcg.io dataset, as of June 2026.",
   ].join("\n");
@@ -186,7 +201,7 @@ export function ballPatternsPage(s: FaqSetFacts): FaqPage {
     "",
     `## Why the patterns inflate ${s.name}`,
     "",
-    `Because both patterns count toward a complete set, they're the main reason a ${s.name} master set ` +
+    `Because both patterns count toward a complete set, they're the main reason ${indefiniteArticle(s.name)} ${s.name} master set ` +
       `balloons to ${num(s.masterSetCount)} cards versus ${num(s.printedTotal)} for the base. Plan binder ` +
       `space for the ${num(totalBall)} ball variants too if you're going for everything — that's roughly ` +
       `${num(Math.ceil(totalBall / 9))} extra 9-pocket pages on top of the base ${s.name} run, and the ` +

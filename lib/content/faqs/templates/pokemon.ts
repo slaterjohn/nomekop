@@ -78,7 +78,7 @@ export function pokemonInSetPage(s: FaqSetFacts, p: FaqPokemon): FaqPage {
     (count === 1
       ? `Because ${s.name} only has the one ${p.displayName}, it's a quick add to any ${p.displayName} ` +
         `collection — grab ${cardLabel(first!)} and you've got the set's ${p.displayName} covered. With ` +
-        `just a single slot to fill, ${p.displayName} won't hold up a ${s.name} run for long, though it ` +
+        `just a single slot to fill, ${p.displayName} won't hold up ${indefiniteArticle(s.name)} ${s.name} run for long, though it ` +
         `may take a few packs (or a single-card order) to land.`
       : `For your ${p.displayName} run, the ${s.name} cards make a tidy mini-set on their own: start with ` +
         `the lowest-numbered ${cardLabel(first!)} and work up to ${cardLabel(last!)}. ` +

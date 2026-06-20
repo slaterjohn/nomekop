@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
-import { PokemonSearchForm } from "@/components/pokemon/pokemon-search-form";
+import { PokemonTypeahead } from "@/components/pokemon/pokemon-typeahead";
 import { encodePokemonToken, DEFAULT_POKEMON_OPTIONS } from "@/lib/pokemon-binder";
 import { getServerDictionary } from "@/lib/i18n/server";
 
@@ -41,7 +41,7 @@ export default async function PokemonLandingPage() {
 
       <GbScreen title={dict.pokemonLanding.chooseHeading}>
         <div className="flex flex-col gap-4">
-          <PokemonSearchForm />
+          <PokemonTypeahead />
           <p className="font-pixel text-[10px] uppercase">{dict.common.popular}</p>
           <div className="flex flex-wrap gap-2">
             {POPULAR.map((name) => (

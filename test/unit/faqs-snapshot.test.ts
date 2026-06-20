@@ -7,8 +7,11 @@ const PRICELESS = new Set(["me4", "me3", "me2pt5"]);
 const BALL_SETS = new Set(["sv8pt5", "zsv10pt5", "rsv10pt5"]);
 
 describe("faq snapshot", () => {
-  it("has exactly 20 sets, newest first", () => {
-    expect(snap.sets).toHaveLength(20);
+  it("covers the 3 newest eras, newest first", () => {
+    expect(snap.sets).toHaveLength(38);
+    // Exactly the three newest series in scope.
+    const series = new Set(snap.sets.map((s) => s.series));
+    expect(series).toEqual(new Set(["Mega Evolution", "Scarlet & Violet", "Sword & Shield"]));
     for (let i = 1; i < snap.sets.length; i++) {
       const prev = snap.sets[i - 1]!;
       const curr = snap.sets[i]!;

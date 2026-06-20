@@ -5,7 +5,11 @@
  * first). Any era not listed sorts after the known ones, by recency — so a new
  * series appears automatically without a code change, just below the known run.
  */
-export const ERA_ORDER: readonly string[] = ["Mega Evolution", "Scarlet & Violet"];
+export const ERA_ORDER: readonly string[] = [
+  "Mega Evolution",
+  "Scarlet & Violet",
+  "Sword & Shield",
+];
 
 /** Position of an era in {@link ERA_ORDER}; unknown eras rank last (but stable). */
 export function eraRank(era: string): number {
