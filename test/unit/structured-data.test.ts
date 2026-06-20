@@ -145,6 +145,7 @@ describe("cardProductJsonLd", () => {
   it("emits a Product with name, image, sku, brand and category", async () => {
     const { card, set } = await charizard();
     const data = cardProductJsonLd(card, set);
+    if (!data) throw new Error("expected a Product for a priced card");
 
     expect(data["@context"]).toBe("https://schema.org");
     expect(data["@type"]).toBe("Product");
@@ -161,7 +162,9 @@ describe("cardProductJsonLd", () => {
 
   it("aggregates TCGplayer variant prices into an AggregateOffer", async () => {
     const { card, set } = await charizard();
-    const offers = obj(cardProductJsonLd(card, set).offers);
+    const data = cardProductJsonLd(card, set);
+    if (!data) throw new Error("expected a Product for a priced card");
+    const offers = obj(data.offers);
 
     expect(offers["@type"]).toBe("AggregateOffer");
     expect(offers.priceCurrency).toBe("USD");
@@ -174,21 +177,19 @@ describe("cardProductJsonLd", () => {
     expect(Number(offers.lowPrice)).toBeLessThanOrEqual(Number(offers.highPrice));
   });
 
-  it("omits offers entirely when the card has no tcgplayer data", async () => {
+  it("returns null when the card has no tcgplayer data (avoids an offerless Product)", async () => {
     const { card, set } = await charizard();
     const { tcgplayer: _stripped, ...priceless } = card;
-    const data = cardProductJsonLd(priceless as TcgCard, set);
-    expect(data).not.toHaveProperty("offers");
-    expect(data["@type"]).toBe("Product");
+    expect(cardProductJsonLd(priceless as TcgCard, set)).toBeNull();
   });
 
-  it("omits offers when no variant has a market or low value", async () => {
+  it("returns null when no variant has a market or low value", async () => {
     const { card, set } = await charizard();
     const unpriced: TcgCard = {
       ...card,
       tcgplayer: { url: card.tcgplayer?.url, prices: { holofoil: { directLow: 1.23 } } },
     };
-    expect(cardProductJsonLd(unpriced, set)).not.toHaveProperty("offers");
+    expect(cardProductJsonLd(unpriced, set)).toBeNull();
   });
 });
 

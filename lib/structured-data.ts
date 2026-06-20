@@ -105,17 +105,34 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]): JsonLdObject {
 /**
  * Product entity for a card page.
  *
- * Offers policy: Google "product snippets" only become rich-result-eligible
- * when a Product carries offers (or review/rating) — but fabricating prices
- * would violate the data-honesty requirement. So we emit an AggregateOffer
- * over the TCGplayer per-variant price ranges when market data exists, and a
- * plain offerless Product otherwise (common for 2026+ sets where TCGplayer
- * has not listed cards yet). An offerless Product is still valid schema.org —
- * it simply is not rich-eligible.
+ * Offers policy: Google's Product structured data requires one of offers /
+ * review / aggregateRating — an offerless Product is a *critical* "Product
+ * snippets" error in Search Console, not merely "not rich-eligible." We have
+ * only TCGplayer offers, and only for cards TCGplayer has actually listed. So
+ * we emit a Product + AggregateOffer for priced cards and **return null** for
+ * unpriced ones (common on brand-new sets) — the card page then omits the
+ * node entirely. Fabricating prices to satisfy the requirement would violate
+ * data honesty, so omission is the correct fix.
  */
-export function cardProductJsonLd(card: TcgCard, set: TcgSet): JsonLdObject {
+export function cardProductJsonLd(card: TcgCard, set: TcgSet): JsonLdObject | null {
+  // A variant (normal/holofoil/reverseHolofoil/…) counts as priced when
+  // TCGplayer reports a market or low value for it.
+  const priced = Object.values(card.tcgplayer?.prices ?? {}).filter(
+    (range) => typeof range.market === "number" || typeof range.low === "number",
+  );
+  // No offers (and we never have review/rating) → no valid Product. Omit it so
+  // Search Console doesn't flag an offerless Product.
+  if (priced.length === 0) return null;
+
+  // Low bound: the cheapest listing (low), falling back to market.
+  const lows = numbers(priced.map((range) => range.low ?? range.market));
+  // High bound: market, falling back to mid; if a variant has neither
+  // (low-only), fall back to the low pool so max() never sees an empty list.
+  const highs = numbers(priced.map((range) => range.market ?? range.mid));
+  const highPool = highs.length > 0 ? highs : lows;
+
   const image = card.imageLarge || card.imageSmall;
-  const product: JsonLdObject = {
+  return {
     "@context": CONTEXT,
     "@type": "Product",
     name: `${card.name} (${set.name} ${card.number}/${set.printedTotal})`,
@@ -126,21 +143,7 @@ export function cardProductJsonLd(card: TcgCard, set: TcgSet): JsonLdObject {
     sku: card.id,
     brand: { "@type": "Brand", name: "Pokémon TCG" },
     category: "Trading Card",
-  };
-
-  // A variant (normal/holofoil/reverseHolofoil/…) counts as priced when
-  // TCGplayer reports a market or low value for it.
-  const priced = Object.values(card.tcgplayer?.prices ?? {}).filter(
-    (range) => typeof range.market === "number" || typeof range.low === "number",
-  );
-  if (priced.length > 0) {
-    // Low bound: the cheapest listing (low), falling back to market.
-    const lows = numbers(priced.map((range) => range.low ?? range.market));
-    // High bound: market, falling back to mid; if a variant has neither
-    // (low-only), fall back to the low pool so max() never sees an empty list.
-    const highs = numbers(priced.map((range) => range.market ?? range.mid));
-    const highPool = highs.length > 0 ? highs : lows;
-    product.offers = {
+    offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
       lowPrice: Math.min(...lows).toFixed(2),
@@ -148,10 +151,8 @@ export function cardProductJsonLd(card: TcgCard, set: TcgSet): JsonLdObject {
       offerCount: priced.length,
       ...(card.tcgplayer?.url ? { url: card.tcgplayer.url } : {}),
       availability: "https://schema.org/InStock",
-    };
-  }
-
-  return product;
+    },
+  };
 }
 
 /** ItemList entries are capped to keep the JSON-LD payload sane on large sets
