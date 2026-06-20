@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useTheme, __resetThemeStoreForTests } from "@/components/theme/theme-provider";
-import { THEME_STORAGE_KEY } from "@/lib/themes";
+import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
 
 function Probe() {
   const { theme, setTheme } = useTheme();
@@ -21,9 +21,9 @@ describe("useTheme", () => {
     __resetThemeStoreForTests();
   });
 
-  it("defaults to dmg", () => {
+  it("defaults to the default theme", () => {
     render(<Probe />);
-    expect(screen.getByTestId("current")).toHaveTextContent("dmg");
+    expect(screen.getByTestId("current")).toHaveTextContent(DEFAULT_THEME);
   });
 
   it("setTheme updates html[data-theme] and persists", async () => {
@@ -44,6 +44,6 @@ describe("useTheme", () => {
   it("ignores garbage in storage", () => {
     localStorage.setItem(THEME_STORAGE_KEY, "neon-zubat");
     render(<Probe />);
-    expect(screen.getByTestId("current")).toHaveTextContent("dmg");
+    expect(screen.getByTestId("current")).toHaveTextContent(DEFAULT_THEME);
   });
 });

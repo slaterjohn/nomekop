@@ -35,7 +35,7 @@ export const THEMES: Theme[] = [
   },
 ];
 
-export const DEFAULT_THEME: ThemeId = "dmg";
+export const DEFAULT_THEME: ThemeId = "gold";
 
 export const THEME_STORAGE_KEY = "bindermon:v1:theme";
 
