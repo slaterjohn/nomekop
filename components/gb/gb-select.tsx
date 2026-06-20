@@ -21,7 +21,7 @@ type GbSelectProps = {
  */
 export function GbSelect({ value, onChange, options, label, className }: GbSelectProps) {
   return (
-    <div className={cn("relative inline-flex", className)}>
+    <div className={cn("relative inline-flex", className)} data-no-click-sound>
       <select
         aria-label={label}
         value={value}

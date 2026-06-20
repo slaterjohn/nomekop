@@ -38,7 +38,7 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
             <p className="font-body text-lg">
               {product.line} · around {product.priceGuide}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" data-no-click-sound>
               {product.links.map((link, i) => (
                 <GbLinkButton
                   key={link.retailer}

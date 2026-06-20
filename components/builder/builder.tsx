@@ -110,6 +110,7 @@ export function Builder({ initialSets }: BuilderProps) {
             <GbButton
               variant="b"
               size="sm"
+              data-no-click-sound
               onClick={() => {
                 play("back");
                 update({ set: "" });
@@ -181,7 +182,7 @@ export function Builder({ initialSets }: BuilderProps) {
                       >
                         VIEW COLLECTION
                       </GbLinkButton>
-                      <GbButton variant="b" size="sm" onClick={downloadCsv}>
+                      <GbButton variant="b" size="sm" data-no-click-sound onClick={downloadCsv}>
                         CSV
                       </GbButton>
                       {checklist.count > 0 ? (
@@ -235,6 +236,7 @@ export function Builder({ initialSets }: BuilderProps) {
             </GbButton>
             <GbButton
               variant="a"
+              data-no-click-sound
               onClick={() => {
                 play("back");
                 clearChecklist(config.set, config.mode);

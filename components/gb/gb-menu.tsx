@@ -82,6 +82,7 @@ export function GbMenu<T extends string>({
       role="listbox"
       aria-label={label}
       className={cn("m-0 list-none border-[3px] border-gb-ink bg-gb-bg p-1", className)}
+      data-no-click-sound
     >
       {options.map((opt, i) => {
         const active = i === activeIndex;

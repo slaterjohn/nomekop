@@ -35,7 +35,7 @@ export function BinderCatalog({ binders }: { binders: Binder[] }) {
                 <p className="font-body text-base text-gb-ink">
                   {format(dict.binders.holdsPages, { line: binder.line, pages: binder.capacityPages, price: binder.priceGuide })}
                 </p>
-                <div className="mt-auto flex flex-wrap gap-2 pt-1">
+                <div className="mt-auto flex flex-wrap gap-2 pt-1" data-no-click-sound>
                   {binder.links.map((link, i) => (
                     <GbLinkButton
                       key={link.retailer}

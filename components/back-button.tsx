@@ -11,6 +11,7 @@ export function BackButton({ fallbackHref }: { fallbackHref: string }) {
     <GbButton
       variant="b"
       size="sm"
+      data-no-click-sound
       onClick={() => {
         play("back");
         if (window.history.length > 1) {

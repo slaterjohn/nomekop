@@ -42,7 +42,12 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <div role="radiogroup" aria-label="Colour palette" className="flex items-center gap-1.5">
+    <div
+      role="radiogroup"
+      aria-label="Colour palette"
+      className="flex items-center gap-1.5"
+      data-no-click-sound
+    >
       {THEMES.map((t, i) => {
         const selected = t.id === theme;
         const [ink, , accent, bg] = t.shades;

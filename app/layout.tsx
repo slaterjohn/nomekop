@@ -8,6 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { MusicController } from "@/components/music/music-controller";
+import { UiClickSound } from "@/components/sound/ui-click-sound";
 import { SplashScreen } from "@/components/splash/splash-screen";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
@@ -104,6 +105,7 @@ export default async function RootLayout({
             <SiteFooter />
             <EasterEggs />
             <MusicController />
+            <UiClickSound />
             <SplashScreen disabled={splashDisabled} />
           </AnalyticsProvider>
         </LanguageProvider>

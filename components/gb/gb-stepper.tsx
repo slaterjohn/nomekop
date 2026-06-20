@@ -44,7 +44,7 @@ export function GbStepper({ label, value, min, max, onChange, className }: GbSte
   };
 
   return (
-    <div className={cn("inline-flex items-center gap-2", className)}>
+    <div className={cn("inline-flex items-center gap-2", className)} data-no-click-sound>
       <span className="font-pixel text-xs" id={`gb-stepper-${label}`}>
         {label}
       </span>

@@ -26,7 +26,7 @@ export function LanguageSelect({ value, onChange, label, note }: LanguageSelectP
   const groupLabel = label ?? "Binder language";
   const footnote = note ?? dict.binder.languageNote;
   return (
-    <div role="group" aria-label={groupLabel} className="flex flex-col gap-1.5">
+    <div role="group" aria-label={groupLabel} className="flex flex-col gap-1.5" data-no-click-sound>
       <span className="font-pixel text-[10px] uppercase">{dict.binder.language}</span>
       <div className="flex flex-wrap gap-1.5">
         {LANGUAGES.map((lang) => {

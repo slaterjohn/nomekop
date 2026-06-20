@@ -34,6 +34,7 @@ export function MusicToggle() {
       type="button"
       aria-pressed={enabled}
       aria-label={enabled ? dict.audio.musicStop : dict.audio.musicPlay}
+      data-no-click-sound
       onClick={toggle}
       className={cn(
         "inline-flex size-9 cursor-pointer items-center justify-center border-[3px] border-gb-ink motion-safe:transition-transform motion-safe:hover:-translate-y-0.5",

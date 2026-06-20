@@ -30,7 +30,7 @@ export function LanguagePicker({ value, onChange }: LanguagePickerProps) {
   };
 
   return (
-    <div role="group" aria-label="Card languages" className="flex flex-col gap-1.5">
+    <div role="group" aria-label="Card languages" className="flex flex-col gap-1.5" data-no-click-sound>
       <span className="font-pixel text-[10px] uppercase">{dict.binder.language}</span>
       <div className="flex flex-wrap gap-1.5">
         {LANGUAGES.map((lang) => {

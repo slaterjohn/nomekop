@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type GbVariantProps = {
@@ -44,19 +45,31 @@ export function GbButton({ variant = "a", size = "md", className, type = "button
 
 type GbLinkButtonProps = React.ComponentProps<"a"> & GbVariantProps;
 
-/** An anchor in GB button clothing (external links, downloads). */
+/** True for app-internal paths ("/foo") — but not protocol-relative ("//cdn")
+ *  or hash/mailto/external URLs — so we can hand those to next/link. */
+function isInternalHref(href: string | undefined): href is string {
+  return typeof href === "string" && href.startsWith("/") && !href.startsWith("//");
+}
+
+/** A GB button-styled link. Internal hrefs (with no `target`) navigate via
+ *  next/link for instant client-side routing; everything else (external URLs,
+ *  `target="_blank"`, hash-only, mailto, downloads) stays a plain anchor. */
 export function GbLinkButton({ variant = "a", size = "md", className, ...props }: GbLinkButtonProps) {
+  const linkClassName = gbButtonClasses(
+    { variant, size },
+    cn(
+      "no-underline hover:-translate-y-px active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_0_var(--gb-ink)]",
+      className,
+    ),
+  );
+
+  if (isInternalHref(props.href) && props.target === undefined) {
+    const { href, ...rest } = props;
+    return <Link href={href} className={linkClassName} {...rest} />;
+  }
+
   return (
     // eslint-disable-next-line jsx-a11y/anchor-has-content -- children pass through
-    <a
-      className={gbButtonClasses(
-        { variant, size },
-        cn(
-          "no-underline hover:-translate-y-px active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_0_var(--gb-ink)]",
-          className,
-        ),
-      )}
-      {...props}
-    />
+    <a className={linkClassName} {...props} />
   );
 }

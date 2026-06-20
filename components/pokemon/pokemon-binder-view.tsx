@@ -67,7 +67,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
   const matchingPreset = POCKET_PRESETS.find((p) => p.rows === options.rows && p.cols === options.cols);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6" data-no-click-sound>
       <GbScreen title={dict.binder.options}>
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size">

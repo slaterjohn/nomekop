@@ -38,7 +38,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
   const showPlacement = config.mode === "master" && hasParallels;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" data-no-click-sound>
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size">
         {POCKET_PRESETS.map((preset) => {
           const active = !customOpen && matchingPreset?.label === preset.label;

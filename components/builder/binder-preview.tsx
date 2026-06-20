@@ -81,7 +81,7 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
     // The group is focusable so binder pages flip with the d-pad (arrow keys);
     // the buttons below offer the same controls to every input method.
     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex, jsx-a11y/no-noninteractive-element-interactions
-    <div role="group" aria-label="Binder pages" tabIndex={0} onKeyDown={onKeyDown} className="outline-offset-4">
+    <div role="group" aria-label="Binder pages" tabIndex={0} onKeyDown={onKeyDown} className="outline-offset-4" data-no-click-sound>
       <div className="mb-3 flex items-center justify-between gap-2">
         <GbButton
           variant="b"

@@ -21,6 +21,7 @@ export function GbToggle({ label, checked, onChange, className }: GbToggleProps)
       role="switch"
       aria-checked={checked}
       aria-label={label}
+      data-no-click-sound
       onClick={() => {
         play("move");
         onChange(!checked);

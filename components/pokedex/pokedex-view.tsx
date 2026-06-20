@@ -120,7 +120,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
   const token = encodePokedexToken(config);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6" data-no-click-sound>
       {offerRestore ? (
         <div className="flex flex-wrap items-center gap-3 border-[3px] border-gb-ink bg-gb-accent/40 p-3">
           <p className="font-pixel text-[10px] uppercase leading-relaxed">
@@ -256,7 +256,10 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
       </GbScreen>
 
       <Dialog open={swapDex !== null} onOpenChange={(open) => !open && setSwapDex(null)}>
-        <DialogContent className="max-h-[85vh] gap-0 overflow-y-auto rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)] sm:max-w-2xl">
+        <DialogContent
+          data-no-click-sound
+          className="max-h-[85vh] gap-0 overflow-y-auto rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)] sm:max-w-2xl"
+        >
           <DialogHeader className="border-b-4 border-gb-ink bg-gb-ink px-4 py-3 text-left">
             <DialogTitle className="font-pixel text-sm uppercase text-gb-bg">
               {format(dict.pokedex.swapTitle, { dex: swapDex ?? 0 })}

@@ -201,6 +201,7 @@ export function EasterEggs({ seed }: EasterEggsProps) {
           type="button"
           aria-label="Open secret arcade"
           data-testid="arcade-reopen"
+          data-no-click-sound
           onClick={unlock}
           className={cn(
             "fixed bottom-4 left-4 z-40 inline-flex h-12 w-12 items-center justify-center",
@@ -235,7 +236,10 @@ export function EasterEggs({ seed }: EasterEggsProps) {
       ) : null}
 
       <Dialog open={open} onOpenChange={closeArcade}>
-        <DialogContent className="max-h-[90vh] gap-0 overflow-y-auto rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)] sm:max-w-md">
+        <DialogContent
+          data-no-click-sound
+          className="max-h-[90vh] gap-0 overflow-y-auto rounded-none border-4 border-gb-ink bg-gb-bg p-0 shadow-[6px_6px_0_0_var(--gb-ink)] sm:max-w-md"
+        >
           <DialogHeader className="border-b-4 border-gb-ink bg-gb-ink px-4 py-3 text-left">
             <DialogTitle className="flex items-center gap-2 font-pixel text-sm uppercase text-gb-bg">
               <PixelPokeball size={18} />

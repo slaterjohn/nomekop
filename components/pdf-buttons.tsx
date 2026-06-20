@@ -64,7 +64,7 @@ export function PdfButtons({ buttons, printHref, filenameBase }: PdfButtonsProps
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex flex-wrap items-center gap-3" data-no-click-sound>
       {buttons.map((spec) => (
         <GbButton key={spec.type} variant="a" disabled={busy !== null} onClick={() => download(spec)}>
           {spec.label}

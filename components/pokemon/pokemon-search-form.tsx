@@ -42,7 +42,7 @@ export function PokemonSearchForm() {
           className="border-[3px] border-gb-ink bg-gb-bg px-3 py-2 font-body text-xl placeholder:text-gb-ink/60"
         />
       </label>
-      <GbButton type="submit" variant="a">
+      <GbButton type="submit" variant="a" data-no-click-sound>
         {dict.pokemonLanding.build}
       </GbButton>
       {error ? (

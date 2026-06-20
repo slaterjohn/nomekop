@@ -66,7 +66,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
   const printHref = `/print/binder?${serializeConfig(config).toString()}`;
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex flex-wrap items-center gap-3" data-no-click-sound>
       {PDF_BUTTONS.map(({ type, label }) => (
         <GbButton
           key={type}

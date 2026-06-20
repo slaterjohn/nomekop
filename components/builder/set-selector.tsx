@@ -90,7 +90,7 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
 
   return (
     <Command label="Search sets" className="border-[3px] border-gb-ink bg-gb-bg p-0">
-      <div className="flex flex-wrap items-center gap-2 border-b-[3px] border-gb-ink p-2">
+      <div className="flex flex-wrap items-center gap-2 border-b-[3px] border-gb-ink p-2" data-no-click-sound>
         <span className="font-pixel text-[10px]">SORT</span>
         {SORT_OPTIONS.map(({ mode, label, ariaLabel }) => (
           <GbButton

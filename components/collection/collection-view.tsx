@@ -69,7 +69,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
               MASTER
             </GbLinkButton>
             <span className="flex-1" />
-            <GbButton variant="b" size="sm" onClick={downloadCsv}>
+            <GbButton variant="b" size="sm" data-no-click-sound onClick={downloadCsv}>
               CSV
             </GbButton>
             <GbLinkButton
