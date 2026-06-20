@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { useDict } from "@/components/i18n/language-provider";
 import { useReducedMotion } from "@/lib/motion";
@@ -11,13 +11,20 @@ import { cn } from "@/lib/utils";
 
 const WORDMARK = "NOMEKOP";
 
+/** No external store to subscribe to — `data-splash-seen` is set once, pre-paint. */
+const noopSubscribe = () => () => {};
+
 /**
- * A Game Boy boot-style splash. It lives in the root layout, so it mounts exactly
- * once per full page load — which means it shows on every fresh visit but NEVER on
- * client-side navigation (clicking the logo home, moving between pages). It is
- * SSR-rendered as an overlay so the real page sits underneath (good for crawlers),
- * then fades out after a couple of seconds. Click / key / auto-timeout dismisses
- * it; honours reduce-motion.
+ * A Game Boy boot-style splash, shown **once per session**. It lives in the root
+ * layout and is SSR-rendered as an overlay so the real page sits underneath (good
+ * for crawlers), then fades out after a couple of seconds (click / key / auto-
+ * timeout dismiss it; honours reduce-motion).
+ *
+ * The app navigates via full page reloads for many links, so a per-load splash
+ * would replay on every navigation. The pre-paint SplashScript marks
+ * `<html data-splash-seen>` on every load after the first this session; CSS then
+ * hides the overlay before paint (no flash), `seen` (read via useSyncExternalStore
+ * so SSR and client agree) drops it from React, and the effect skips the jingle.
  *
  * Deliberately absent in two cases: `disabled` (set from the DISABLE_SPLASH env so
  * e2e runs aren't blocked by a full-screen overlay), and on `/print/*` routes
@@ -30,18 +37,31 @@ export function SplashScreen({ disabled = false }: { disabled?: boolean }) {
   const { enabled: soundOn } = useSoundEnabled();
   const { enabled: musicOn } = useMusicEnabled();
   const pathname = usePathname() ?? "/";
-  const [hidden, setHidden] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  // Already shown this session? Server snapshot is always "no" (the splash SSRs
+  // visible); the client reads the pre-paint flag. useSyncExternalStore keeps
+  // SSR and hydration consistent — no mismatch.
+  const seen = useSyncExternalStore(
+    noopSubscribe,
+    () => document.documentElement.dataset.splashSeen === "1",
+    () => false,
+  );
 
   const off = disabled || pathname.startsWith("/print");
+  const hidden = dismissed || seen;
 
   useEffect(() => {
     if (off) return;
+    // Skip the jingle + timer on later loads this session. Read the DOM flag
+    // directly: during hydration `seen` is still the server snapshot (false),
+    // but the pre-paint script has already set the attribute.
+    if (document.documentElement.dataset.splashSeen === "1") return;
     // Best-effort boot jingle (browser autoplay policy may keep it silent until
     // audio is unlocked — that's fine). Only when the user hasn't muted audio.
     if (soundOn || musicOn) playJingle();
 
     const hold = reduced ? 1200 : 2600;
-    const hide = () => setHidden(true);
+    const hide = () => setDismissed(true);
     const timer = window.setTimeout(hide, hold);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" || e.key === "Enter" || e.key === " ") hide();
@@ -60,7 +80,7 @@ export function SplashScreen({ disabled = false }: { disabled?: boolean }) {
   return (
     <div
       aria-hidden="true"
-      onClick={() => setHidden(true)}
+      onClick={() => setDismissed(true)}
       className={cn(
         "fixed inset-0 z-[200] flex cursor-pointer flex-col items-center justify-center gap-6 bg-gb-bg transition-opacity duration-500 print:hidden",
         // JS-independent safety net: a pure-CSS timed fade-out (see

@@ -234,6 +234,14 @@
     opacity 0.45s steps(10, end);
 }
 
+/* Once-per-session boot splash. The pre-paint SplashScript sets data-splash-seen
+   on <html> for every load after the first this session; the SSR splash overlay
+   is then hidden before paint, so it never flashes on the app's full-reload
+   navigations. (SplashScreen also syncs its React state and skips the jingle.) */
+[data-splash-seen] [data-splash] {
+  display: none !important;
+}
+
 /*
  * Game Boy palettes. Source of truth: lib/themes.ts — test/unit/contrast.test.ts
  * enforces WCAG AA on every shade pairing; keep these hex values in sync.

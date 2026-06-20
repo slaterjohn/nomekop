@@ -19,9 +19,11 @@ afterEach(() => {
   vi.useRealTimers();
   try {
     localStorage.clear();
+    sessionStorage.clear();
   } catch {
     // ignore
   }
+  document.documentElement.removeAttribute("data-splash-seen");
 });
 
 function overlay(): HTMLElement | null {
@@ -38,6 +40,15 @@ describe("SplashScreen", () => {
     expect(el!.textContent).toContain("NOMEKOP");
     expect(el!.textContent).toContain(en.home.tagline);
     expect(el!.textContent).toContain(en.audio.splashSkip);
+  });
+
+  it("starts hidden when the splash was already shown this session", () => {
+    // The pre-paint SplashScript marks the session on <html> after the first
+    // show; on every later full-page load (the app navigates via full reloads
+    // for many links) the splash must NOT reappear.
+    document.documentElement.setAttribute("data-splash-seen", "1");
+    render(<SplashScreen />);
+    expect(overlay()).toHaveAttribute("data-splash", "out");
   });
 
   it("auto-hides after the hold", () => {

@@ -44,6 +44,11 @@ export const THEME_STORAGE_KEY = "bindermon:v1:theme";
  *  component only gets `undefined` for values imported from a client module. */
 export const MOTION_STORAGE_KEY = "bindermon:v1:motion";
 
+/** Boot-splash "shown this session" flag. sessionStorage (per session, not
+ *  forever), read by the pre-paint SplashScript so the splash shows once per
+ *  session and never replays on the app's full-page-reload navigations. */
+export const SPLASH_SESSION_KEY = "bindermon:v1:splashSeen";
+
 export function isThemeId(value: unknown): value is ThemeId {
   return typeof value === "string" && THEMES.some((t) => t.id === value);
 }

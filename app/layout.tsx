@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
+import { SplashScript } from "@/components/splash/splash-script";
 import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/site-footer";
 import { LanguageProvider } from "@/components/i18n/language-provider";
@@ -90,6 +91,7 @@ export default async function RootLayout({
     <html lang={locale} className={`${pressStart.variable} ${vt323.variable} ${pixelify.variable} h-full antialiased`}>
       <head>
         <ThemeScript />
+        <SplashScript />
       </head>
       <body className="flex min-h-full flex-col">
         <LanguageProvider locale={locale} dict={dict}>
