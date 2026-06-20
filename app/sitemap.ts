@@ -46,7 +46,8 @@ export default async function sitemap(props: {
   if (id === CORE_ID) {
     const staticEntries: MetadataRoute.Sitemap = [
       { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
-      { url: `${base}/build`, changeFrequency: "weekly", priority: 0.9 },
+      // /sets is the set-browsing entry. Bare /build now 308-redirects here, so
+      // it's no longer listed (a sitemap shouldn't carry a redirecting URL).
       { url: `${base}/sets`, changeFrequency: "weekly", priority: 0.9 },
       { url: `${base}/pokedex`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/pokemon`, changeFrequency: "monthly", priority: 0.8 },

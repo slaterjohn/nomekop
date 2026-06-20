@@ -14,7 +14,7 @@ export const ja: Dictionary = {
     pokemon: "Pokémon",
     pokedex: "Pokédex",
     illustrators: "イラストレーター",
-    allSets: "全セット",
+    allSets: "セット",
     funFacts: "豆知識",
     faqs: "セットFAQ",
     legal: "法的情報＆クレジット",

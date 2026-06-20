@@ -8,7 +8,10 @@ export const metadata = {
   title: "Build a set binder",
   description:
     "Pick any Pokemon TCG set and build a printable binder layout — choose your grid, master sets with reverse holos and ball patterns, and download A4 pages.",
-  alternates: { canonical: "/build" },
+  // Set-browsing lives at /sets (the indexable entry); /build is builder-only
+  // and bare /build 308-redirects there, so canonicalise to /sets rather than
+  // to a redirecting URL.
+  alternates: { canonical: "/sets" },
 };
 
 export default function BuildPage() {

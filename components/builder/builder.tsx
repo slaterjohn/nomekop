@@ -10,7 +10,6 @@ import { GbSpinner } from "@/components/gb/gb-spinner";
 import { GbProgress } from "@/components/gb/gb-progress";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { GbWipe } from "@/components/gb/gb-wipe";
-import { SetSelector } from "@/components/builder/set-selector";
 import { ConfigPanel } from "@/components/builder/config-panel";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { ActionBar } from "@/components/builder/action-bar";
@@ -27,7 +26,7 @@ import { GbLinkButton } from "@/components/gb/gb-button";
 import { useCards, useSets } from "@/lib/hooks";
 import { useBinderConfig } from "@/lib/use-binder-config";
 import { useChecklist, useCollectionMode, clearChecklist } from "@/lib/checklist-store";
-import { loadSetConfig, saveSetConfig } from "@/lib/config-store";
+import { saveSetConfig } from "@/lib/config-store";
 import { buildBinderLayout } from "@/lib/layout";
 import { toCollectionCsv } from "@/lib/csv";
 import { play } from "@/lib/sound";
@@ -101,36 +100,46 @@ export function Builder({ initialSets }: BuilderProps) {
       <h1 className="sr-only">
         {selectedSet ? `${selectedSet.name} binder builder` : "Pokémon TCG binder builder"}
       </h1>
-      <GbScreen title={selectedSet ? `Set: ${selectedSet.name}` : "Choose set"}>
+      <GbScreen title={selectedSet ? `Set: ${selectedSet.name}` : "Set binder"}>
         {selectedSet ? (
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="font-body text-xl">
               {selectedSet.series} · {selectedSet.printedTotal} printed / {selectedSet.total} total
             </p>
+            {/* Browsing sets lives at /sets — the single set-browsing entry. */}
             <GbButton
               variant="b"
               size="sm"
               data-no-click-sound
               onClick={() => {
                 play("back");
-                update({ set: "" });
+                router.push("/sets");
               }}
             >
               ◀ Change set
             </GbButton>
           </div>
+        ) : sets.isPending ? (
+          <div className="flex justify-center py-8">
+            <GbSpinner label="Loading set…" />
+          </div>
         ) : (
-          <SetSelector
-            sets={sets.data}
-            isLoading={sets.isPending}
-            error={sets.isError ? sets.error.message : undefined}
-            onRetry={() => void sets.refetch()}
-            onSelect={(set) => {
-              play("confirm");
-              // Restore the layout you used for this set last time.
-              update({ ...(loadSetConfig(set.id) ?? {}), set: set.id });
-            }}
-          />
+          // A set id was supplied but isn't in the library (unknown/typo). Bare
+          // /build is redirected to /sets server-side, so this only catches a
+          // bad set id — point the player back to the set browser.
+          <div className="flex flex-col gap-3">
+            <GbDialogBox>Wild MissingNo. appeared! That set isn&apos;t in the library.</GbDialogBox>
+            <GbButton
+              variant="a"
+              data-no-click-sound
+              onClick={() => {
+                play("confirm");
+                router.push("/sets");
+              }}
+            >
+              Browse sets ▶
+            </GbButton>
+          </div>
         )}
       </GbScreen>
 

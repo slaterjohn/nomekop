@@ -17,7 +17,7 @@ export const en = {
     pokemon: "Pokémon",
     pokedex: "Pokédex",
     illustrators: "Illustrators",
-    allSets: "All sets",
+    allSets: "Sets",
     funFacts: "Fun facts",
     faqs: "Set FAQs",
     legal: "Legal & credits",

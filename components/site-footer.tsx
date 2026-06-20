@@ -9,11 +9,12 @@ import { useDict } from "@/components/i18n/language-provider";
 export function SiteFooter() {
   const dict = useDict();
   const links = [
-    { href: "/build", label: dict.footer.setBinders },
+    // /sets is the single set-browsing entry (the old /build "Set binders"
+    // link is gone — /build is builder-only now).
+    { href: "/sets", label: dict.footer.allSets },
     { href: "/pokemon", label: dict.footer.pokemon },
     { href: "/pokedex", label: dict.footer.pokedex },
     { href: "/illustrator", label: dict.footer.illustrators },
-    { href: "/sets", label: dict.footer.allSets },
     { href: "/facts", label: dict.footer.funFacts },
     { href: "/faqs", label: dict.footer.faqs },
     { href: "/legal", label: dict.footer.legal },

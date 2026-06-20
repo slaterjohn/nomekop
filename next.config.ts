@@ -73,6 +73,22 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: SECURITY_HEADERS }];
   },
+  // /sets is the single set-browsing entry; /build is builder-only and needs a
+  // set (/build?set=<id>, which then converts to a /b/<token> URL). A bare
+  // /build with no set has nothing to build, so permanently (308 — Google
+  // treats it as a 301) redirect it to /sets. The `missing` query condition
+  // means /build?set=<id> is left untouched, and /b/<token> is a different
+  // route entirely, so share links are unaffected.
+  async redirects() {
+    return [
+      {
+        source: "/build",
+        missing: [{ type: "query", key: "set" }],
+        destination: "/sets",
+        permanent: true,
+      },
+    ];
+  },
   // PostHog reverse proxy: analytics traffic is sent same-origin to `/ingest` and
   // proxied to PostHog here. This keeps the strict CSP intact (`connect-src 'self'`
   // — no external host to allow) and means ad-blockers don't drop events. Hosts are

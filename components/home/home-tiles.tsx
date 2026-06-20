@@ -67,10 +67,11 @@ function BrushIcon() {
 
 const TILES: Tile[] = [
   {
-    href: "/build",
+    // Browse sets at /sets — the single set-browsing entry — then build from there.
+    href: "/sets",
     title: "Set binders",
     blurb: "Lay out any Pokémon TCG set — standard or master, with reverse holos and ball patterns.",
-    cta: "Build a set ▶",
+    cta: "Browse sets ▶",
     art: <GridIcon />,
   },
   {

@@ -12,14 +12,14 @@ const WORDMARK = "NOMEKOP";
 
 const NAV: Array<{ href: string; key: keyof Dictionary["nav"]; match: (p: string) => boolean }> = [
   {
-    href: "/build",
+    href: "/sets",
     key: "sets",
-    // The whole set flow: builder, configured binders, the crawlable set hub,
-    // and the per-set card/collection child pages.
+    // The whole set flow: the crawlable set hub (/sets, /set/<id>), the builder
+    // (/build, /b/<token>), and the per-set card/collection child pages.
     match: (p) =>
+      p.startsWith("/set") ||
       p === "/build" ||
       p.startsWith("/b/") ||
-      p.startsWith("/set") ||
       p.startsWith("/card") ||
       p.startsWith("/collection"),
   },

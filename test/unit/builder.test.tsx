@@ -85,20 +85,17 @@ function mockCardsFetch(payload: unknown, status = 200, delayMs = 0) {
   );
 }
 
-function renderBuilder() {
+// The builder is builder-only now: it always mounts with a set (via
+// /build?set=<id>, which the address bar then rewrites to a /b/<token> URL).
+// Bare /build with no set is redirected to /sets server-side, so the builder no
+// longer renders an in-page set chooser. Mount with the set already in the URL.
+function renderBuilder(setId = "sv1") {
+  window.history.replaceState(null, "", `/build?set=${setId}`);
   return render(
     <Providers>
       <Builder initialSets={sets} />
     </Providers>,
   );
-}
-
-// Click the option directly instead of typing a 15-char search: each keystroke
-// re-filters all 173 sets in jsdom, which is slow enough to flake under
-// parallel workers. Filter-as-you-type behaviour is covered in set-selector tests.
-async function pickScarletViolet(user: ReturnType<typeof userEvent.setup>) {
-  // .* not \s+: jsdom computes accessible names without inter-span spaces.
-  await user.click(await screen.findByRole("option", { name: /Scarlet & Violet.*258 cards/ }));
 }
 
 beforeEach(() => {
@@ -110,31 +107,22 @@ beforeEach(() => {
 });
 
 describe("Builder", () => {
-  it("starts with only the set chooser visible", () => {
-    renderBuilder();
-    expect(screen.getByRole("heading", { name: "Choose set" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: /^configure binder$/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: /^preview$/i })).not.toBeInTheDocument();
-  });
-
-  it("selecting a set updates the URL and reveals config, preview and actions", async () => {
+  it("renders the chosen set's config, preview and actions", async () => {
     mockCardsFetch(sv1Cards);
-    const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
 
-    expect(window.location.pathname).toBe("/b/sv1~34s111ic");
     expect(await screen.findByRole("heading", { name: /^configure binder$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^print & download$/i })).toBeInTheDocument();
     expect(screen.getByText(/258 cards → 258 pockets → 22 pages/)).toBeInTheDocument();
+    // The in-page set chooser is gone — set browsing lives at /sets.
+    expect(screen.queryByRole("heading", { name: "Choose set" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("combobox", { name: /search sets/i })).not.toBeInTheDocument();
   });
 
   it("shows a loading spinner while cards fetch", async () => {
     mockCardsFetch(sv1Cards, 200, 80);
-    const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     expect(screen.getByRole("status")).toHaveTextContent(/Loading Scarlet & Violet/);
     expect(await screen.findByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
   });
@@ -158,7 +146,6 @@ describe("Builder", () => {
     );
     const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
 
     // React Query retries once with backoff before surfacing the error.
     expect(await screen.findByRole("alert", {}, { timeout: 8000 })).toHaveTextContent(
@@ -171,29 +158,24 @@ describe("Builder", () => {
 
   it("empty card list summons MISSINGNO", async () => {
     mockCardsFetch([]);
-    const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     expect(await screen.findByText(/Wild MissingNo\. appeared/)).toBeInTheDocument();
   });
 
-  it("Change set returns to the chooser", async () => {
+  it("Change set navigates to the set browser at /sets", async () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
     await user.click(screen.getByRole("button", { name: /Change set/ }));
-    expect(screen.getByRole("heading", { name: "Choose set" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: /^preview$/i })).not.toBeInTheDocument();
+    expect(nav.push).toHaveBeenCalledWith("/sets");
   });
 
   it("tick mode turns pockets into checkboxes and tracks progress", async () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
     expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
@@ -211,7 +193,6 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
     await user.click(screen.getByRole("button", { name: /View details: Pineco/ }));
@@ -222,7 +203,6 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
     expect(screen.queryByRole("progressbar", { name: "Collected" })).not.toBeInTheDocument();
@@ -240,7 +220,6 @@ describe("Builder", () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
-    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
     await user.click(screen.getByRole("switch", { name: "Collection mode" }));
@@ -265,9 +244,7 @@ describe("Builder", () => {
 
   it("full page is axe clean once configured", async () => {
     mockCardsFetch(sv1Cards);
-    const user = userEvent.setup();
     const { container } = renderBuilder();
-    await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
     expect(await axe(container)).toHaveNoViolations();
   }, 20_000);

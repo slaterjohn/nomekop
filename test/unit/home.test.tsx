@@ -8,7 +8,7 @@ describe("HomeTiles", () => {
   it("links to all four binder types with a CTA each", () => {
     render(<HomeTiles />);
     const expected: Array<[string, string]> = [
-      ["/build", "Build a set ▶"],
+      ["/sets", "Browse sets ▶"],
       ["/pokemon", "Pick a Pokémon ▶"],
       ["/pokedex", "Choose a region ▶"],
       ["/illustrator", "Find an artist ▶"],
@@ -35,9 +35,11 @@ describe("SiteFooter", () => {
 
   it("links every section", () => {
     render(<SiteFooter />);
-    for (const href of ["/build", "/pokemon", "/pokedex", "/illustrator", "/sets", "/legal"]) {
+    // /sets is the single set-browsing entry; the old /build "Set binders" link is gone.
+    for (const href of ["/sets", "/pokemon", "/pokedex", "/illustrator", "/legal"]) {
       expect(screen.getByRole("navigation", { name: "Footer" }).querySelector(`a[href="${href}"]`)).not.toBeNull();
     }
+    expect(screen.getByRole("navigation", { name: "Footer" }).querySelector(`a[href="/build"]`)).toBeNull();
   });
 
   it("axe clean", async () => {

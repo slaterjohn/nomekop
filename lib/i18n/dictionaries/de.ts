@@ -14,7 +14,7 @@ export const de: Dictionary = {
     pokemon: "Pokémon",
     pokedex: "Pokédex",
     illustrators: "Illustratoren",
-    allSets: "Alle Sets",
+    allSets: "Sets",
     funFacts: "Wissenswertes",
     faqs: "Set-FAQs",
     legal: "Rechtliches & Credits",

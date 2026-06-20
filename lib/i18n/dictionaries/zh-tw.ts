@@ -14,7 +14,7 @@ export const zhTw: Dictionary = {
     pokemon: "Pokémon",
     pokedex: "Pokédex",
     illustrators: "插畫家",
-    allSets: "所有系列",
+    allSets: "系列",
     funFacts: "趣味小知識",
     faqs: "套組常見問題",
     legal: "法律聲明與致謝",
