@@ -83,19 +83,20 @@ export default async function CardPage({ params, searchParams }: Props) {
   const { set, card } = await loadCard(cardId);
   const kind: SlotKind = KINDS.includes(variant as SlotKind) ? (variant as SlotKind) : "card";
 
+  // Only priced cards get a Product node — an offerless Product is a Search
+  // Console "Product snippets" critical error. Unpriced cards keep just the
+  // breadcrumb (cardProductJsonLd returns null when there's no market data).
+  const productLd = cardProductJsonLd(card, set);
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: "NOMEKOP", path: "/" },
+    { name: "SETS", path: "/sets" },
+    { name: set.name, path: `/set/${set.id}` },
+    { name: `${card.name} ${card.number}`, path: `/card/${card.id}` },
+  ]);
+
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
-      <JsonLd
-        data={[
-          cardProductJsonLd(card, set),
-          breadcrumbJsonLd([
-            { name: "NOMEKOP", path: "/" },
-            { name: "SETS", path: "/sets" },
-            { name: set.name, path: `/set/${set.id}` },
-            { name: `${card.name} ${card.number}`, path: `/card/${card.id}` },
-          ]),
-        ]}
-      />
+      <JsonLd data={productLd ? [productLd, breadcrumbLd] : breadcrumbLd} />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link href={`/set/${set.id}`} className="font-pixel text-sm no-underline">
           ◂ {set.name.toUpperCase()}
