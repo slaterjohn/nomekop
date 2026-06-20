@@ -56,6 +56,9 @@
 
   --font-pixel: var(--font-press-start), monospace;
   --font-body: var(--font-vt323), monospace;
+  /* Legible pixel face for long-form reading (FAQ content). Pixel family, but
+     readable at paragraph sizes where VT323 (--font-body) gets hard to scan. */
+  --font-readable: var(--font-pixelify), var(--font-vt323), monospace;
 
   --animate-gb-blink: gb-blink 0.9s steps(1, end) infinite;
 

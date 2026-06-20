@@ -54,13 +54,13 @@ export default async function FaqPage({ params }: Props) {
         >
           READ AS MARKDOWN ▸
         </a>
-        <span className="font-body text-lg leading-tight text-gb-ink">
+        <span className="font-readable text-lg leading-tight text-gb-ink">
           A plain-text version for LLMs &amp; AI search.
         </span>
       </div>
 
       <article
-        className="flex flex-col [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-6 [&_h2]:font-pixel [&_h2]:text-sm [&_table]:my-2 [&_table]:border-collapse [&_td]:border [&_td]:border-gb-ink/40 [&_td]:px-2 [&_td]:py-1 [&_th]:border [&_th]:border-gb-ink/40 [&_th]:px-2 [&_th]:py-1 [&_li]:font-body [&_li]:text-lg [&_p]:mb-3 [&_p]:font-body [&_p]:text-xl [&_p]:leading-relaxed [&_strong]:font-semibold [&_ul]:mb-3 [&_ul]:flex [&_ul]:list-disc [&_ul]:flex-col [&_ul]:gap-1 [&_ul]:pl-6"
+        className="flex flex-col [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-6 [&_h2]:font-readable [&_h2]:text-lg [&_h2]:font-bold [&_h2]:leading-snug [&_table]:my-2 [&_table]:border-collapse [&_td]:border [&_td]:border-gb-ink/40 [&_td]:px-2 [&_td]:py-1 [&_td]:font-readable [&_th]:border [&_th]:border-gb-ink/40 [&_th]:px-2 [&_th]:py-1 [&_th]:font-readable [&_li]:font-readable [&_li]:text-lg [&_p]:mb-3 [&_p]:font-readable [&_p]:text-lg [&_p]:leading-relaxed [&_strong]:font-semibold [&_ul]:mb-3 [&_ul]:flex [&_ul]:list-disc [&_ul]:flex-col [&_ul]:gap-1 [&_ul]:pl-6"
         dangerouslySetInnerHTML={{ __html: html }}
       />
 
@@ -76,11 +76,11 @@ export default async function FaqPage({ params }: Props) {
 
       {siblings.length > 0 && set && (
         <nav aria-label={`More about ${set.name}`} className="mt-2 flex flex-col gap-2 border-t-[3px] border-gb-ink pt-4">
-          <h2 className="font-pixel text-sm leading-relaxed">More about {set.name}</h2>
+          <h2 className="font-readable text-base font-bold leading-snug">More about {set.name}</h2>
           <ul className="flex list-none flex-col gap-1 p-0">
             {siblings.map((s) => (
               <li key={s.slug}>
-                <Link href={`/faqs/${s.slug}`} className="font-body text-lg underline underline-offset-2">
+                <Link href={`/faqs/${s.slug}`} className="font-readable text-lg underline underline-offset-2">
                   {s.question}
                 </Link>
               </li>

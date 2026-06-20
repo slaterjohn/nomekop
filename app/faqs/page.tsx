@@ -24,7 +24,7 @@ export default function FaqsIndexPage() {
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6">
       <header className="flex flex-col gap-2">
         <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{TITLE}</h1>
-        <p className="font-body text-xl leading-tight">{DESCRIPTION}</p>
+        <p className="font-readable text-lg leading-snug">{DESCRIPTION}</p>
       </header>
 
       {groups.map(({ set, pages }) => (
@@ -41,10 +41,10 @@ export default function FaqsIndexPage() {
                   href={`/faqs/${page.slug}`}
                   className="group flex flex-col gap-0.5 border-[3px] border-gb-ink bg-gb-bg p-3 no-underline shadow-[3px_3px_0_0_var(--gb-ink)] motion-safe:transition-transform motion-safe:hover:-translate-y-0.5"
                 >
-                  <span className="font-pixel text-[11px] leading-relaxed group-hover:underline">
+                  <span className="font-readable text-base font-bold leading-snug group-hover:underline">
                     {page.question}
                   </span>
-                  <span className="font-body text-base leading-tight">{page.description}</span>
+                  <span className="font-readable text-base leading-snug">{page.description}</span>
                 </Link>
               </li>
             ))}

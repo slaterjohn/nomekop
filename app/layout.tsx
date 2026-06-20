@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Press_Start_2P, VT323 } from "next/font/google";
+import { Press_Start_2P, VT323, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { Header } from "@/components/header";
@@ -21,6 +21,15 @@ const pressStart = Press_Start_2P({
 const vt323 = VT323({
   variable: "--font-vt323",
   weight: "400",
+  subsets: ["latin"],
+});
+
+// A pixel face that stays in the GB/retro family but reads cleanly at body
+// sizes — used for the long-form FAQ content (VT323 is too thin to read at
+// length). See --font-readable in globals.css.
+const pixelify = Pixelify_Sans({
+  variable: "--font-pixelify",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -78,7 +87,7 @@ export default async function RootLayout({
   // against the prebuilt `next start` bundle without a rebuild.
   const splashDisabled = process.env.DISABLE_SPLASH === "1";
   return (
-    <html lang={locale} className={`${pressStart.variable} ${vt323.variable} h-full antialiased`}>
+    <html lang={locale} className={`${pressStart.variable} ${vt323.variable} ${pixelify.variable} h-full antialiased`}>
       <head>
         <ThemeScript />
       </head>
