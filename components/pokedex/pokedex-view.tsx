@@ -120,9 +120,12 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
   const token = encodePokedexToken(config);
 
   return (
-    <div className="flex flex-col gap-6" data-no-click-sound>
+    <div className="flex flex-col gap-6">
       {offerRestore ? (
-        <div className="flex flex-wrap items-center gap-3 border-[3px] border-gb-ink bg-gb-accent/40 p-3">
+        <div
+          className="flex flex-wrap items-center gap-3 border-[3px] border-gb-ink bg-gb-accent/40 p-3"
+          data-no-click-sound
+        >
           <p className="font-pixel text-[10px] uppercase leading-relaxed">
             {format(dict.pokedex.savedPicks, { count: Object.keys(storedPicks).length })}
           </p>
@@ -150,7 +153,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
       ) : null}
       <GbScreen title={dict.binder.options}>
         <div className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size">
+          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size" data-no-click-sound>
             {POCKET_PRESETS.map((preset) => (
               <GbButton
                 key={preset.label}
@@ -194,7 +197,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
       </GbScreen>
 
       <GbScreen title={dict.binder.preview}>
-        <div className="mb-3 flex items-center justify-between gap-2">
+        <div className="mb-3 flex items-center justify-between gap-2" data-no-click-sound>
           <GbButton
             variant="b"
             size="sm"
@@ -220,6 +223,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
         <ul
           className="grid list-none gap-1.5 border-[3px] border-gb-ink bg-gb-accent/30 p-1.5"
           style={{ gridTemplateColumns: `repeat(${config.cols}, minmax(0, 1fr))` }}
+          data-no-click-sound
         >
           {pageEntries.map((entry) => (
             <li key={entry.dex}>
