@@ -44,14 +44,14 @@ describe("BinderShelf", () => {
   it("appends the Amazon affiliate tag when configured", () => {
     vi.stubEnv("NEXT_PUBLIC_AMAZON_TAG", "bindermon-21");
     render(<BinderShelf pockets={9} pages={12} />);
-    const amazon = screen.getAllByRole("link", { name: /AMAZON/ })[0]!;
+    const amazon = screen.getAllByRole("link", { name: /Amazon/ })[0]!;
     expect(amazon.getAttribute("href")).toContain("tag=bindermon-21");
     expect(screen.getByText(/may earn Nomekop a small commission/)).toBeInTheDocument();
   });
 
   it("plain links + honest disclosure without affiliate config", () => {
     render(<BinderShelf pockets={9} pages={12} />);
-    const amazon = screen.getAllByRole("link", { name: /AMAZON/ })[0]!;
+    const amazon = screen.getAllByRole("link", { name: /Amazon/ })[0]!;
     expect(amazon.getAttribute("href")).not.toContain("tag=");
     expect(screen.getByText(/not affiliated with Vault X/)).toBeInTheDocument();
   });

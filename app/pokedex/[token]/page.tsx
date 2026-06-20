@@ -60,8 +60,8 @@ export default async function PokedexPage({ params }: Props) {
         <BackButton fallbackHref="/pokedex" />
       </div>
 
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">
-        {gen.region.toUpperCase()} POKÉDEX · #{gen.min}–{gen.max}
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
+        {gen.region} Pokédex · #{gen.min}–{gen.max}
       </h1>
 
       <Suspense

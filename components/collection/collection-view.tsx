@@ -49,7 +49,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
         <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode })}`} />
       </div>
 
-      <GbScreen title={`COLLECTION: ${set.name.toUpperCase()}`}>
+      <GbScreen title={`Collection: ${set.name}`}>
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2">
             <GbLinkButton
@@ -58,7 +58,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
               href={`/collection/${set.id}?mode=standard`}
               aria-current={mode === "standard" ? "page" : undefined}
             >
-              STANDARD
+              Standard
             </GbLinkButton>
             <GbLinkButton
               variant={mode === "master" ? "a" : "b"}
@@ -66,7 +66,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
               href={`/collection/${set.id}?mode=master`}
               aria-current={mode === "master" ? "page" : undefined}
             >
-              MASTER
+              Master
             </GbLinkButton>
             <span className="flex-1" />
             <GbButton variant="b" size="sm" data-no-click-sound onClick={downloadCsv}>
@@ -77,13 +77,13 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
               size="sm"
               href={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id, mode })}`}
             >
-              OPEN IN BUILDER
+              Open in builder
             </GbLinkButton>
           </div>
 
-          <GbProgress label="COLLECTED" value={collected.length} max={pockets.length} />
+          <GbProgress label="Collected" value={collected.length} max={pockets.length} />
 
-          <p className="font-pixel text-[10px] leading-relaxed">
+          <p className="font-pixel text-[10px] uppercase leading-relaxed">
             {(["card", "reverse", "pokeball", "masterball"] as const)
               .map((kind) => ({
                 kind,
@@ -91,13 +91,13 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
                 total: pockets.filter((s) => s.kind === kind).length,
               }))
               .filter(({ total }) => total > 0)
-              .map(({ kind, have, total }) => `${slotKindLabel(kind).toUpperCase()} ${have}/${total}`)
+              .map(({ kind, have, total }) => `${slotKindLabel(kind)} ${have}/${total}`)
               .join(" · ")}
           </p>
 
           {collected.length === 0 ? (
-            <p className="border-[3px] border-dashed border-gb-muted p-4 text-center font-pixel text-[10px] leading-relaxed">
-              NOTHING COLLECTED YET — TURN ON COLLECTION MODE IN THE BUILDER AND START TICKING.
+            <p className="border-[3px] border-dashed border-gb-muted p-4 text-center font-pixel text-[10px] uppercase leading-relaxed">
+              Nothing collected yet — turn on collection mode in the builder and start ticking.
             </p>
           ) : (
             <ul className="grid list-none grid-cols-3 gap-2 p-0 sm:grid-cols-5 md:grid-cols-6">
@@ -111,7 +111,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
                       <CardSlot slot={slot} set={set} />
                     </Link>
                     {slot.kind !== "card" ? (
-                      <GbBadge className="absolute -right-1 -top-1">{slotKindLabel(slot.kind).toUpperCase()}</GbBadge>
+                      <GbBadge className="absolute -right-1 -top-1">{slotKindLabel(slot.kind)}</GbBadge>
                     ) : null}
                   </li>
                 ))}

@@ -112,7 +112,7 @@ beforeEach(() => {
 describe("Builder", () => {
   it("starts with only the set chooser visible", () => {
     renderBuilder();
-    expect(screen.getByRole("heading", { name: "CHOOSE SET" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Choose set" })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: /^configure binder$/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: /^preview$/i })).not.toBeInTheDocument();
   });
@@ -127,7 +127,7 @@ describe("Builder", () => {
     expect(await screen.findByRole("heading", { name: /^configure binder$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^print & download$/i })).toBeInTheDocument();
-    expect(screen.getByText(/258 CARDS → 258 POCKETS → 22 PAGES/)).toBeInTheDocument();
+    expect(screen.getByText(/258 cards → 258 pockets → 22 pages/)).toBeInTheDocument();
   });
 
   it("shows a loading spinner while cards fetch", async () => {
@@ -135,11 +135,11 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    expect(screen.getByRole("status")).toHaveTextContent(/LOADING SCARLET & VIOLET/);
+    expect(screen.getByRole("status")).toHaveTextContent(/Loading Scarlet & Violet/);
     expect(await screen.findByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
   });
 
-  it("card fetch failure shows an alert with RETRY that recovers", async () => {
+  it("card fetch failure shows an alert with Retry that recovers", async () => {
     let fail = true;
     vi.stubGlobal(
       "fetch",
@@ -165,7 +165,7 @@ describe("Builder", () => {
       "The library is down.",
     );
     fail = false;
-    await user.click(screen.getByRole("button", { name: "RETRY" }));
+    await user.click(screen.getByRole("button", { name: "Retry" }));
     expect(await screen.findByRole("heading", { name: /^preview$/i })).toBeInTheDocument();
   });
 
@@ -174,18 +174,18 @@ describe("Builder", () => {
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
-    expect(await screen.findByText(/WILD MISSINGNO\. APPEARED/)).toBeInTheDocument();
+    expect(await screen.findByText(/Wild MissingNo\. appeared/)).toBeInTheDocument();
   });
 
-  it("CHANGE SET returns to the chooser", async () => {
+  it("Change set returns to the chooser", async () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
-    await user.click(screen.getByRole("button", { name: /CHANGE SET/ }));
-    expect(screen.getByRole("heading", { name: "CHOOSE SET" })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /Change set/ }));
+    expect(screen.getByRole("heading", { name: "Choose set" })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: /^preview$/i })).not.toBeInTheDocument();
   });
 
@@ -197,11 +197,11 @@ describe("Builder", () => {
     await screen.findByRole("heading", { name: /^preview$/i });
 
     expect(screen.queryAllByRole("checkbox")).toHaveLength(0);
-    await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
+    await user.click(screen.getByRole("switch", { name: "Collection mode" }));
     const first = screen.getAllByRole("checkbox")[0]!;
     await user.click(first);
     expect(first).toHaveAttribute("aria-checked", "true");
-    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
+    expect(screen.getByRole("progressbar", { name: "Collected" })).toHaveAttribute(
       "aria-valuenow",
       "1",
     );
@@ -225,39 +225,39 @@ describe("Builder", () => {
     await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
-    expect(screen.queryByRole("progressbar", { name: "COLLECTED" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("progressbar", { name: "Collected" })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "CSV" })).not.toBeInTheDocument();
-    await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
-    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toBeInTheDocument();
+    await user.click(screen.getByRole("switch", { name: "Collection mode" }));
+    expect(screen.getByRole("progressbar", { name: "Collected" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "CSV" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "VIEW COLLECTION" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "View collection" })).toHaveAttribute(
       "href",
       "/collection/sv1",
     );
   });
 
-  it("CLEAR asks for confirmation before wiping the collection", async () => {
+  it("Clear asks for confirmation before wiping the collection", async () => {
     mockCardsFetch(sv1Cards);
     const user = userEvent.setup();
     renderBuilder();
     await pickScarletViolet(user);
     await screen.findByRole("heading", { name: /^preview$/i });
 
-    await user.click(screen.getByRole("switch", { name: "COLLECTION MODE" }));
+    await user.click(screen.getByRole("switch", { name: "Collection mode" }));
     await user.click(screen.getAllByRole("checkbox")[0]!);
 
     // Cancel path: nothing is wiped
-    await user.click(screen.getByRole("button", { name: "CLEAR" }));
-    await user.click(await screen.findByRole("button", { name: "CANCEL" }));
-    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
+    await user.click(screen.getByRole("button", { name: "Clear" }));
+    await user.click(await screen.findByRole("button", { name: "Cancel" }));
+    expect(screen.getByRole("progressbar", { name: "Collected" })).toHaveAttribute(
       "aria-valuenow",
       "1",
     );
 
     // Confirm path: collection cleared
-    await user.click(screen.getByRole("button", { name: "CLEAR" }));
-    await user.click(await screen.findByRole("button", { name: "CLEAR ALL" }));
-    expect(screen.getByRole("progressbar", { name: "COLLECTED" })).toHaveAttribute(
+    await user.click(screen.getByRole("button", { name: "Clear" }));
+    await user.click(await screen.findByRole("button", { name: "Clear all" }));
+    expect(screen.getByRole("progressbar", { name: "Collected" })).toHaveAttribute(
       "aria-valuenow",
       "0",
     );

@@ -15,9 +15,9 @@ export function BinderSkeleton({ what = "cards", rows = 3, cols = 4 }: BinderSke
   const pockets = Array.from({ length: rows * cols });
   return (
     <div className="flex flex-col gap-6" aria-busy="true">
-      <GbSpinner label={`GATHERING ${what.toUpperCase()}…`} />
+      <GbSpinner label={`Gathering ${what}…`} />
 
-      <GbScreen title="BINDER OPTIONS">
+      <GbScreen title="Binder options">
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap gap-2">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -32,7 +32,7 @@ export function BinderSkeleton({ what = "cards", rows = 3, cols = 4 }: BinderSke
         </div>
       </GbScreen>
 
-      <GbScreen title="PREVIEW">
+      <GbScreen title="Preview">
         <div
           aria-hidden="true"
           className="grid gap-1.5 border-[3px] border-gb-ink bg-gb-accent/30 p-1.5"

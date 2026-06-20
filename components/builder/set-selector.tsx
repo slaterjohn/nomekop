@@ -19,8 +19,8 @@ import type { TcgSet } from "@/lib/tcg/types";
 type SortMode = "newest" | "oldest" | "az";
 
 const SORT_OPTIONS: Array<{ mode: SortMode; label: string; ariaLabel: string }> = [
-  { mode: "newest", label: "NEWEST", ariaLabel: "Sort newest first" },
-  { mode: "oldest", label: "OLDEST", ariaLabel: "Sort oldest first" },
+  { mode: "newest", label: "Newest", ariaLabel: "Sort newest first" },
+  { mode: "oldest", label: "Oldest", ariaLabel: "Sort oldest first" },
   { mode: "az", label: "A–Z", ariaLabel: "Sort alphabetically" },
 ];
 
@@ -70,7 +70,7 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
   if (isLoading) {
     return (
       <div className="flex justify-center py-8">
-        <GbSpinner label="LOADING SETS…" />
+        <GbSpinner label="Loading sets…" />
       </div>
     );
   }
@@ -81,7 +81,7 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
         <GbDialogBox tone="error">{error}</GbDialogBox>
         {onRetry ? (
           <GbButton variant="a" onClick={onRetry}>
-            RETRY
+            Retry
           </GbButton>
         ) : null}
       </div>
@@ -109,14 +109,14 @@ export function SetSelector({ sets, isLoading, error, onRetry, onSelect }: SetSe
         ))}
       </div>
       <CommandInput
-        placeholder="SEARCH SETS…"
+        placeholder="Search sets…"
         aria-label="Search sets"
         className="font-body text-xl placeholder:text-gb-ink/60"
       />
       <CommandList className="max-h-80">
         <CommandEmpty>
-          <span className="font-pixel text-xs leading-relaxed">
-            WILD MISSINGNO. APPEARED!
+          <span className="font-pixel text-xs uppercase leading-relaxed">
+            Wild MissingNo. appeared!
             <br />
             <span className="font-body text-lg">No sets match that search.</span>
           </span>

@@ -93,9 +93,9 @@ describe("GbSpinner", () => {
     expect(status).toHaveTextContent("GENERATING…");
   });
 
-  it("defaults to LOADING…", () => {
+  it("defaults to Loading…", () => {
     render(<GbSpinner />);
-    expect(screen.getByRole("status")).toHaveTextContent("LOADING…");
+    expect(screen.getByRole("status")).toHaveTextContent("Loading…");
   });
 
   it("axe clean", async () => {

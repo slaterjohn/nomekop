@@ -42,17 +42,17 @@ export function LocalizedSetBinderView({ lang, setId, setName, cards }: Localize
 
   return (
     <div className="flex flex-col gap-6">
-      <GbScreen title="BINDER OPTIONS">
+      <GbScreen title="Binder options">
         <div className="flex flex-wrap items-center gap-4">
-          <GbStepper label="ROWS" value={rows} min={1} max={5} onChange={setRows} />
-          <GbStepper label="COLS" value={cols} min={1} max={5} onChange={setCols} />
-          <p aria-live="polite" className="font-pixel text-[10px] leading-relaxed sm:text-xs">
-            {layout.stats.slots} POCKETS → {layout.stats.pages} PAGES
+          <GbStepper label="Rows" value={rows} min={1} max={5} onChange={setRows} />
+          <GbStepper label="Cols" value={cols} min={1} max={5} onChange={setCols} />
+          <p aria-live="polite" className="font-pixel text-[10px] uppercase leading-relaxed sm:text-xs">
+            {layout.stats.slots} pockets → {layout.stats.pages} pages
           </p>
         </div>
       </GbScreen>
 
-      <GbScreen title="PREVIEW">
+      <GbScreen title="Preview">
         <BinderPreview set={pseudoSet} layout={layout} />
       </GbScreen>
     </div>

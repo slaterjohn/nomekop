@@ -56,7 +56,7 @@ function CollectionBar({ count, max }: { count: number; max: number }) {
       data-gb-collection-bar
       className={cn("min-w-0 flex-1", pulsing && "motion-safe:animate-gb-pulse")}
     >
-      <GbProgress label="COLLECTED" value={count} max={max} />
+      <GbProgress label="Collected" value={count} max={max} />
     </div>
   );
 }
@@ -101,7 +101,7 @@ export function Builder({ initialSets }: BuilderProps) {
       <h1 className="sr-only">
         {selectedSet ? `${selectedSet.name} binder builder` : "Pokémon TCG binder builder"}
       </h1>
-      <GbScreen title={selectedSet ? `SET: ${selectedSet.name.toUpperCase()}` : "CHOOSE SET"}>
+      <GbScreen title={selectedSet ? `Set: ${selectedSet.name}` : "Choose set"}>
         {selectedSet ? (
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="font-body text-xl">
@@ -116,7 +116,7 @@ export function Builder({ initialSets }: BuilderProps) {
                 update({ set: "" });
               }}
             >
-              ◀ CHANGE SET
+              ◀ Change set
             </GbButton>
           </div>
         ) : (
@@ -136,7 +136,7 @@ export function Builder({ initialSets }: BuilderProps) {
 
       {selectedSet && cards.isPending ? (
         <div className="flex justify-center py-8">
-          <GbSpinner label={`LOADING ${selectedSet.name.toUpperCase()}…`} />
+          <GbSpinner label={`Loading ${selectedSet.name}…`} />
         </div>
       ) : null}
 
@@ -144,14 +144,14 @@ export function Builder({ initialSets }: BuilderProps) {
         <div className="space-y-3">
           <GbDialogBox tone="error">{cards.error.message}</GbDialogBox>
           <GbButton variant="a" onClick={() => void cards.refetch()}>
-            RETRY
+            Retry
           </GbButton>
         </div>
       ) : null}
 
       {selectedSet && cards.data && cards.data.length === 0 ? (
         <GbDialogBox>
-          WILD MISSINGNO. APPEARED! This set has no cards in the library. Try another set.
+          Wild MissingNo. appeared! This set has no cards in the library. Try another set.
         </GbDialogBox>
       ) : null}
 
@@ -167,7 +167,7 @@ export function Builder({ initialSets }: BuilderProps) {
             <GbScreen title={dict.binder.preview}>
               <div className="mb-4 flex flex-col gap-3">
                 <GbToggle
-                  label="COLLECTION MODE"
+                  label="Collection mode"
                   checked={collectionMode.enabled}
                   onChange={(on) => collectionMode.setEnabled(on)}
                 />
@@ -180,14 +180,14 @@ export function Builder({ initialSets }: BuilderProps) {
                         size="sm"
                         href={`/collection/${config.set}${config.mode === "master" ? "?mode=master" : ""}`}
                       >
-                        VIEW COLLECTION
+                        View collection
                       </GbLinkButton>
                       <GbButton variant="b" size="sm" data-no-click-sound onClick={downloadCsv}>
                         CSV
                       </GbButton>
                       {checklist.count > 0 ? (
                         <GbButton variant="plain" size="sm" onClick={() => setConfirmClear(true)}>
-                          CLEAR
+                          Clear
                         </GbButton>
                       ) : null}
                     </div>
@@ -232,7 +232,7 @@ export function Builder({ initialSets }: BuilderProps) {
           </DialogHeader>
           <DialogFooter className="flex-row justify-end gap-2 p-4">
             <GbButton variant="b" onClick={() => setConfirmClear(false)}>
-              CANCEL
+              Cancel
             </GbButton>
             <GbButton
               variant="a"
@@ -243,7 +243,7 @@ export function Builder({ initialSets }: BuilderProps) {
                 setConfirmClear(false);
               }}
             >
-              CLEAR ALL
+              Clear all
             </GbButton>
           </DialogFooter>
         </DialogContent>

@@ -71,9 +71,9 @@ export function PdfButtons({ buttons, printHref, filenameBase }: PdfButtonsProps
         </GbButton>
       ))}
       <GbLinkButton variant="b" href={printHref} target="_blank" rel="noopener">
-        PRINT
+        Print
       </GbLinkButton>
-      <span className="min-h-6">{busy ? <GbSpinner label="GENERATING…" /> : null}</span>
+      <span className="min-h-6">{busy ? <GbSpinner label="Generating…" /> : null}</span>
     </div>
   );
 }

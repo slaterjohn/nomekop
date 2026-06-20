@@ -20,7 +20,7 @@ export function BinderCatalog({ binders }: { binders: Binder[] }) {
   return (
     <div className="flex flex-col gap-6">
       {bySize(binders).map(({ pockets, binders }) => (
-        <GbScreen key={pockets} title={`${pockets}-POCKET`}>
+        <GbScreen key={pockets} title={`${pockets}-pocket`}>
           <ul className="grid list-none gap-3 p-0 sm:grid-cols-2">
             {binders.map((binder) => (
               <li
@@ -46,7 +46,7 @@ export function BinderCatalog({ binders }: { binders: Binder[] }) {
                       rel="noopener noreferrer sponsored"
                       onClick={() => play("confirm")}
                     >
-                      {retailerName(link.retailer).toUpperCase()} ↗
+                      {retailerName(link.retailer)} ↗
                     </GbLinkButton>
                   ))}
                 </div>

@@ -10,7 +10,7 @@ type GbSpinnerProps = {
  * 8-bit Poké Ball loading state. The wobble snaps between frames
  * (steps timing) like a sprite; the status role + label carry the meaning.
  */
-export function GbSpinner({ label = "LOADING…", className }: GbSpinnerProps) {
+export function GbSpinner({ label = "Loading…", className }: GbSpinnerProps) {
   return (
     <div role="status" className={cn("inline-flex items-center gap-3", className)}>
       <span
@@ -19,7 +19,7 @@ export function GbSpinner({ label = "LOADING…", className }: GbSpinnerProps) {
       >
         <PixelPokeball size={26} />
       </span>
-      <span className="font-pixel text-xs">{label}</span>
+      <span className="font-pixel text-xs uppercase">{label}</span>
     </div>
   );
 }

@@ -6,13 +6,13 @@ import type { SlotKind } from "@/lib/layout";
 import type { PriceRange, TcgCard, TcgSet } from "@/lib/tcg/types";
 
 const VARIANT_LABELS: Record<string, string> = {
-  normal: "NORMAL",
-  holofoil: "HOLO",
-  reverseHolofoil: "REVERSE HOLO",
-  "1stEditionNormal": "1ST EDITION",
-  "1stEditionHolofoil": "1ST ED HOLO",
-  unlimited: "UNLIMITED",
-  unlimitedHolofoil: "UNLIMITED HOLO",
+  normal: "Normal",
+  holofoil: "Holo",
+  reverseHolofoil: "Reverse holo",
+  "1stEditionNormal": "1st edition",
+  "1stEditionHolofoil": "1st ed holo",
+  unlimited: "Unlimited",
+  unlimitedHolofoil: "Unlimited holo",
 };
 
 function money(value: number | undefined): string {
@@ -58,8 +58,8 @@ export function CardDetailBody({ card, set, kind }: CardDetailBodyProps) {
             className="h-auto w-full border-[3px] border-gb-ink"
           />
         ) : (
-          <div className="flex aspect-[63/88] items-center justify-center border-[3px] border-dashed border-gb-muted p-2 text-center font-pixel text-[10px]">
-            NO SCAN AVAILABLE
+          <div className="flex aspect-[63/88] items-center justify-center border-[3px] border-dashed border-gb-muted p-2 text-center font-pixel text-[10px] uppercase">
+            No scan available
           </div>
         )}
       </div>
@@ -105,7 +105,7 @@ export function CardDetailBody({ card, set, kind }: CardDetailBodyProps) {
                     <tr key={variant} className={cn("border-t-2 border-gb-ink/30", mine && "bg-gb-accent/60")}>
                       <td className="px-2 py-1.5">
                         {VARIANT_LABELS[variant] ?? variant.toUpperCase()}
-                        {mine ? <span className="ml-1.5 font-pixel text-[8px]">◀ THIS POCKET</span> : null}
+                        {mine ? <span className="ml-1.5 font-pixel text-[8px] uppercase">◀ This pocket</span> : null}
                       </td>
                       <td className="px-2 py-1.5 text-right font-bold tabular-nums">{money(range.market)}</td>
                       <td className="px-2 py-1.5 text-right tabular-nums">{money(range.low)}</td>
@@ -126,15 +126,15 @@ export function CardDetailBody({ card, set, kind }: CardDetailBodyProps) {
                     rel="noopener noreferrer"
                     className="underline underline-offset-2"
                   >
-                    VIEW ON TCGPLAYER ↗
+                    View on TCGplayer ↗
                   </a>
                 </>
               ) : null}
             </p>
           </div>
         ) : (
-          <div className="border-[3px] border-dashed border-gb-muted p-3 font-pixel text-[10px] leading-relaxed">
-            NO PRICE DATA YET — TCGPLAYER HASN&apos;T LISTED THIS PRINT.
+          <div className="border-[3px] border-dashed border-gb-muted p-3 font-pixel text-[10px] uppercase leading-relaxed">
+            No price data yet — TCGplayer hasn&apos;t listed this print.
           </div>
         )}
       </div>

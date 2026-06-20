@@ -51,7 +51,7 @@ export default async function PokemonLandingPage() {
                 size="sm"
                 href={`/pokemon/${encodePokemonToken(name, DEFAULT_POKEMON_OPTIONS)}`}
               >
-                {name.toUpperCase()}
+                {name}
               </GbLinkButton>
             ))}
           </div>

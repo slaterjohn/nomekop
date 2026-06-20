@@ -59,8 +59,8 @@ export default async function LocalizedSetPage({ params }: Props) {
         <BackButton fallbackHref="/sets" />
       </div>
 
-      <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">
-        {setId.toUpperCase()} · {language.native}
+      <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
+        {setId} · {language.native}
       </h1>
 
       <Suspense fallback={<BinderSkeleton what={`${language.label} cards`} rows={3} cols={4} />}>

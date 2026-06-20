@@ -39,8 +39,8 @@ describe("CardDetailBody", () => {
     render(<CardDetailBody card={card} set={set} kind="card" />);
     const table = screen.getByRole("table", { name: /TCGplayer prices/i });
     expect(table).toBeInTheDocument();
-    expect(screen.getByRole("row", { name: /NORMAL.*\$0\.05/ })).toBeInTheDocument();
-    expect(screen.getByRole("row", { name: /REVERSE HOLO.*\$0\.12/ })).toBeInTheDocument();
+    expect(screen.getByRole("row", { name: /Normal.*\$0\.05/ })).toBeInTheDocument();
+    expect(screen.getByRole("row", { name: /Reverse holo.*\$0\.12/ })).toBeInTheDocument();
     // 999/1000 'high' listings are seller noise — the column is gone.
     expect(screen.queryByRole("columnheader", { name: /High/i })).not.toBeInTheDocument();
     expect(screen.queryByText("$999.99")).not.toBeInTheDocument();
@@ -48,7 +48,7 @@ describe("CardDetailBody", () => {
 
   it("marks the pocket variant the visitor came from", () => {
     render(<CardDetailBody card={card} set={set} kind="reverse" />);
-    expect(screen.getByRole("row", { name: /REVERSE HOLO/ }).textContent).toContain("THIS POCKET");
+    expect(screen.getByRole("row", { name: /Reverse holo/ }).textContent).toContain("This pocket");
   });
 
   it("ball pockets mark no price row (no key exists) but show their badge", () => {
@@ -58,7 +58,7 @@ describe("CardDetailBody", () => {
     };
     render(<CardDetailBody card={ballCard} set={set} kind="pokeball" />);
     expect(screen.getByText("Poké Ball")).toBeInTheDocument();
-    expect(screen.queryByText("THIS POCKET")).not.toBeInTheDocument();
+    expect(screen.queryByText("This pocket")).not.toBeInTheDocument();
   });
 
   it("links out to TCGplayer", () => {

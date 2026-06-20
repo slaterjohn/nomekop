@@ -102,9 +102,9 @@ export default async function SetPage({ params }: Props) {
           ]),
         ]}
       />
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm">
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm uppercase">
         <Link href="/sets" className="no-underline">
-          ◂ ALL SETS
+          ◂ All sets
         </Link>
       </nav>
 
@@ -200,7 +200,7 @@ export default async function SetPage({ params }: Props) {
         </div>
       </GbScreen>
 
-      <GbScreen title={`CARD LIST (${cards.length})`}>
+      <GbScreen title={`Card list (${cards.length})`}>
         <ul className="m-0 grid list-none grid-cols-3 gap-2 p-0 sm:grid-cols-5 md:grid-cols-6">
           {sorted.map((card) => (
             <li key={card.id}>
@@ -218,9 +218,9 @@ export default async function SetPage({ params }: Props) {
                 ) : (
                   <span
                     aria-hidden="true"
-                    className="flex aspect-[63/88] items-center justify-center border-2 border-dashed border-gb-muted p-1 text-center font-pixel text-[8px] leading-relaxed"
+                    className="flex aspect-[63/88] items-center justify-center border-2 border-dashed border-gb-muted p-1 text-center font-pixel text-[8px] uppercase leading-relaxed"
                   >
-                    NO SCAN
+                    No scan
                   </span>
                 )}
                 <span className="block truncate font-body text-base leading-tight">

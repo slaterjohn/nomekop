@@ -93,7 +93,7 @@ function GameMenuItem({
           <span className="font-pixel text-xs uppercase">{game.title}</span>
           <span className="font-body text-base leading-tight">{game.blurb}</span>
         </span>
-        <span className="font-pixel text-[10px] uppercase">BEST {best}</span>
+        <span className="font-pixel text-[10px] uppercase">Best {best}</span>
       </button>
     </li>
   );

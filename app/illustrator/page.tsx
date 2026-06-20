@@ -52,7 +52,7 @@ export default async function IllustratorLandingPage() {
                 size="sm"
                 href={`/illustrator/${encodeIllustratorToken(name, DEFAULT_ILLUSTRATOR_OPTIONS)}`}
               >
-                {name.toUpperCase()}
+                {name}
               </GbLinkButton>
             ))}
           </div>

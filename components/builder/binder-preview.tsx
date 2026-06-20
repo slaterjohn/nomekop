@@ -41,7 +41,7 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
 
   if (!spread) {
     return (
-      <p className="py-6 text-center font-pixel text-xs">NO CARDS TO SHOW — PICK ANOTHER SET</p>
+      <p className="py-6 text-center font-pixel text-xs uppercase">No cards to show — pick another set</p>
     );
   }
 
@@ -74,8 +74,8 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
 
   const label =
     spread.left && spread.right
-      ? `PAGES ${spread.left.number}–${spread.right.number} OF ${layout.stats.pages}`
-      : `PAGE ${(spread.left ?? spread.right)!.number} OF ${layout.stats.pages}`;
+      ? `Pages ${spread.left.number}–${spread.right.number} of ${layout.stats.pages}`
+      : `Page ${(spread.left ?? spread.right)!.number} of ${layout.stats.pages}`;
 
   return (
     // The group is focusable so binder pages flip with the d-pad (arrow keys);
@@ -92,7 +92,7 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
         >
           ◀
         </GbButton>
-        <p aria-live="polite" className="font-pixel text-[10px] sm:text-xs">
+        <p aria-live="polite" className="font-pixel text-[10px] uppercase sm:text-xs">
           {label}
         </p>
         <GbButton
@@ -137,7 +137,7 @@ function PageGrid({
 }) {
   return (
     <section aria-label={`Page ${page.number}`} className="flex-1">
-      <h3 className="mb-1 text-center font-pixel text-[10px]">PAGE {page.number}</h3>
+      <h3 className="mb-1 text-center font-pixel text-[10px] uppercase">Page {page.number}</h3>
       <div
         className="grid gap-1.5 border-[3px] border-gb-ink bg-gb-accent/30 p-1.5"
         style={{ gridTemplateColumns: `repeat(${layout.stats.cols}, minmax(0, 1fr))` }}

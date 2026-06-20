@@ -98,8 +98,8 @@ export default async function CardPage({ params, searchParams }: Props) {
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
       <JsonLd data={productLd ? [productLd, breadcrumbLd] : breadcrumbLd} />
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Link href={`/set/${set.id}`} className="font-pixel text-sm no-underline">
-          ◂ {set.name.toUpperCase()}
+        <Link href={`/set/${set.id}`} className="font-pixel text-sm uppercase no-underline">
+          ◂ {set.name}
         </Link>
         <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`} />
       </div>
@@ -111,7 +111,7 @@ export default async function CardPage({ params, searchParams }: Props) {
             size="sm"
             href={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`}
           >
-            OPEN {set.name.toUpperCase()} IN THE BUILDER
+            Open {set.name} in the builder
           </GbLinkButton>
           {card.supertype === "Pokémon" ? (
             <GbLinkButton
@@ -119,7 +119,7 @@ export default async function CardPage({ params, searchParams }: Props) {
               size="sm"
               href={`/pokemon/${encodePokemonToken(card.name, DEFAULT_POKEMON_OPTIONS)}`}
             >
-              ALL {card.name.toUpperCase()} CARDS ▶
+              All {card.name} cards ▶
             </GbLinkButton>
           ) : null}
           {card.artist ? (
@@ -128,7 +128,7 @@ export default async function CardPage({ params, searchParams }: Props) {
               size="sm"
               href={`/illustrator/${encodeIllustratorToken(card.artist, DEFAULT_ILLUSTRATOR_OPTIONS)}`}
             >
-              MORE BY {card.artist.toUpperCase()} ▶
+              More by {card.artist} ▶
             </GbLinkButton>
           ) : null}
         </div>

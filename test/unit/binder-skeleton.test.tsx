@@ -18,8 +18,8 @@ describe("BinderSkeleton", () => {
 
   it("shows the binder options and preview frames so it reads as the real page", () => {
     render(<BinderSkeleton rows={3} cols={4} />);
-    expect(screen.getByRole("heading", { name: "BINDER OPTIONS" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "PREVIEW" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Binder options" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Preview" })).toBeInTheDocument();
   });
 
   it("axe clean", async () => {

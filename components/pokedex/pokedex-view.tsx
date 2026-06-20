@@ -247,8 +247,8 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
       <GbScreen title={dict.binder.printDownload}>
         <PdfButtons
           buttons={[
-            { label: "POKÉDEX PDF", type: "pokedex", token },
-            { label: "PLACEHOLDERS PDF", type: "pokedex-placeholders", token },
+            { label: "Pokédex PDF", type: "pokedex", token },
+            { label: "Placeholders PDF", type: "pokedex-placeholders", token },
           ]}
           printHref={`/print/pokedex?t=${encodeURIComponent(token)}`}
           filenameBase={`nomekop-pokedex-${config.gen}`}
@@ -302,8 +302,8 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
                         className="h-auto w-full"
                       />
                     ) : null}
-                    <span className="mt-1 block font-pixel text-[8px] leading-relaxed">
-                      {card.setName.toUpperCase()}
+                    <span className="mt-1 block font-pixel text-[8px] uppercase leading-relaxed">
+                      {card.setName}
                     </span>
                     <span className="block font-body text-base leading-tight">
                       {card.rarity ?? card.supertype}

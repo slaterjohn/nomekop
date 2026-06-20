@@ -41,9 +41,9 @@ export default async function FactPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <nav aria-label="Breadcrumb" className="font-pixel text-sm">
+      <nav aria-label="Breadcrumb" className="font-pixel text-sm uppercase">
         <Link href="/facts" className="no-underline">
-          ◂ FUN FACTS
+          ◂ Fun facts
         </Link>
       </nav>
 
@@ -52,9 +52,9 @@ export default async function FactPage({ params }: Props) {
       <div className="flex flex-wrap items-center gap-2 border-[3px] border-gb-ink bg-gb-accent/30 px-3 py-2">
         <a
           href={`/facts/${slug}/markdown`}
-          className="inline-flex items-center border-[3px] border-gb-ink bg-gb-bg px-2 py-1 font-pixel text-[10px] no-underline"
+          className="inline-flex items-center border-[3px] border-gb-ink bg-gb-bg px-2 py-1 font-pixel text-[10px] uppercase no-underline"
         >
-          READ AS MARKDOWN ▸
+          Read as markdown ▸
         </a>
         <span className="font-body text-lg leading-tight text-gb-ink">
           A plain-text version for LLMs &amp; AI search. Figures as of {STATS_AS_OF}.

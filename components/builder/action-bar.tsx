@@ -12,9 +12,9 @@ import { play } from "@/lib/sound";
 export type PdfType = "binder" | "checklist" | "placeholders";
 
 const PDF_BUTTONS: Array<{ type: PdfType; label: string }> = [
-  { type: "binder", label: "BINDER PDF" },
-  { type: "checklist", label: "CHECKLIST PDF" },
-  { type: "placeholders", label: "PLACEHOLDERS PDF" },
+  { type: "binder", label: "Binder PDF" },
+  { type: "checklist", label: "Checklist PDF" },
+  { type: "placeholders", label: "Placeholders PDF" },
 ];
 
 type ActionBarProps = {
@@ -84,7 +84,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
           window.open(printHref, "_blank", "noopener");
         }}
       >
-        PRINT
+        Print
       </GbButton>
       <GbButton
         variant="b"
@@ -99,14 +99,14 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
           }
         }}
       >
-        SHARE
+        Share
       </GbButton>
       <GbToggle
-        label="RETRO PRINT"
+        label="Retro print"
         checked={config.style === "retro"}
         onChange={(retro) => onStyleChange(retro ? "retro" : "clean")}
       />
-      <span className="min-h-6">{busy ? <GbSpinner label="GENERATING…" /> : null}</span>
+      <span className="min-h-6">{busy ? <GbSpinner label="Generating…" /> : null}</span>
     </div>
   );
 }

@@ -68,30 +68,30 @@ function BrushIcon() {
 const TILES: Tile[] = [
   {
     href: "/build",
-    title: "SET BINDERS",
+    title: "Set binders",
     blurb: "Lay out any Pokémon TCG set — standard or master, with reverse holos and ball patterns.",
-    cta: "BUILD A SET ▶",
+    cta: "Build a set ▶",
     art: <GridIcon />,
   },
   {
     href: "/pokemon",
-    title: "POKÉMON BINDERS",
+    title: "Pokémon binders",
     blurb: "Every card of one Pokémon across all sets — filter to secrets or the rarest per set.",
-    cta: "PICK A POKÉMON ▶",
+    cta: "Pick a Pokémon ▶",
     art: <CardIcon />,
   },
   {
     href: "/pokedex",
-    title: "POKÉDEX BINDERS",
+    title: "Pokédex binders",
     blurb: "One pocket per Pokémon in National Dex order, defaulting to each one's best card.",
-    cta: "CHOOSE A REGION ▶",
+    cta: "Choose a region ▶",
     art: <ListIcon />,
   },
   {
     href: "/illustrator",
-    title: "ILLUSTRATOR BINDERS",
+    title: "Illustrator binders",
     blurb: "Collect by artist — every card a favourite illustrator has ever drawn.",
-    cta: "FIND AN ARTIST ▶",
+    cta: "Find an artist ▶",
     art: <BrushIcon />,
   },
 ];
@@ -108,9 +108,11 @@ export function HomeTiles() {
           >
             <span className="shrink-0">{tile.art}</span>
             <span className="flex flex-col gap-2">
-              <span className="font-pixel text-xs leading-relaxed sm:text-sm">{tile.title}</span>
+              <span className="font-pixel text-xs uppercase leading-relaxed sm:text-sm">
+                {tile.title}
+              </span>
               <span className="font-body text-lg leading-tight">{tile.blurb}</span>
-              <span className="mt-1 font-pixel text-[10px] underline-offset-2 group-hover:underline">
+              <span className="mt-1 font-pixel text-[10px] uppercase underline-offset-2 group-hover:underline">
                 {tile.cta}
               </span>
             </span>

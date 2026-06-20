@@ -29,7 +29,7 @@ describe("ActionBar", () => {
     const clickSpy = vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
 
     render(<ActionBar config={config} onStyleChange={vi.fn()} />);
-    await user.click(screen.getByRole("button", { name: "BINDER PDF" }));
+    await user.click(screen.getByRole("button", { name: "Binder PDF" }));
 
     expect(fetchMock).toHaveBeenCalledWith(
       "/api/pdf",
@@ -42,7 +42,7 @@ describe("ActionBar", () => {
     clickSpy.mockRestore();
   });
 
-  it("shows GENERATING status while busy", async () => {
+  it("shows Generating status while busy", async () => {
     const user = userEvent.setup();
     let release!: () => void;
     vi.stubGlobal(
@@ -57,9 +57,9 @@ describe("ActionBar", () => {
     vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
 
     render(<ActionBar config={config} onStyleChange={vi.fn()} />);
-    await user.click(screen.getByRole("button", { name: "CHECKLIST PDF" }));
-    expect(screen.getByRole("status")).toHaveTextContent("GENERATING…");
-    expect(screen.getByRole("button", { name: "BINDER PDF" })).toBeDisabled();
+    await user.click(screen.getByRole("button", { name: "Checklist PDF" }));
+    expect(screen.getByRole("status")).toHaveTextContent("Generating…");
+    expect(screen.getByRole("button", { name: "Binder PDF" })).toBeDisabled();
     release();
     await vi.waitFor(() => expect(screen.queryByRole("status")).not.toBeInTheDocument());
   });
@@ -76,7 +76,7 @@ describe("ActionBar", () => {
       ),
     );
     render(<ActionBar config={config} onStyleChange={vi.fn()} />);
-    await user.click(screen.getByRole("button", { name: "PLACEHOLDERS PDF" }));
+    await user.click(screen.getByRole("button", { name: "Placeholders PDF" }));
     await vi.waitFor(() => expect(toastMock.error).toHaveBeenCalledWith("Easy there, trainer!"));
   });
 
@@ -84,7 +84,7 @@ describe("ActionBar", () => {
     const user = userEvent.setup();
     const onStyleChange = vi.fn();
     render(<ActionBar config={config} onStyleChange={onStyleChange} />);
-    await user.click(screen.getByRole("switch", { name: "RETRO PRINT" }));
+    await user.click(screen.getByRole("switch", { name: "Retro print" }));
     expect(onStyleChange).toHaveBeenCalledWith("retro");
   });
 

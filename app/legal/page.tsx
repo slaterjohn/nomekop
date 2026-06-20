@@ -34,7 +34,7 @@ export default async function LegalPage() {
         stuff. No fine print, promise.
       </p>
 
-      <GbScreen title="NOT AFFILIATED">
+      <GbScreen title="Not affiliated">
         <p className="font-body text-xl leading-relaxed">
           Nomekop is an independent, fan-made tool built by collectors who love sorting cards. It
           is <strong>not</strong> affiliated with, endorsed by, or sponsored by Nintendo, Game
@@ -47,7 +47,7 @@ export default async function LegalPage() {
         </p>
       </GbScreen>
 
-      <GbScreen title="DATA & IMAGES">
+      <GbScreen title="Data & images">
         <p className="font-body text-xl leading-relaxed">
           Nomekop stands on the shoulders of some wonderful projects. We use each of these
           gratefully, and every trademark belongs to its owner:
@@ -99,7 +99,7 @@ export default async function LegalPage() {
         </ul>
       </GbScreen>
 
-      <GbScreen title="AFFILIATE DISCLOSURE">
+      <GbScreen title="Affiliate disclosure">
         <p className="font-body text-xl leading-relaxed">
           Some outbound binder links (to Vault X or Amazon) may be affiliate links. If you buy
           through one, Nomekop earns a small commission at no extra cost to you. These only appear
@@ -108,7 +108,7 @@ export default async function LegalPage() {
         </p>
       </GbScreen>
 
-      <GbScreen title="YOUR DATA">
+      <GbScreen title="Your data">
         <p className="font-body text-xl leading-relaxed">
           Your collection ticks, your card picks, and your preferences live in one place: your own
           browser&apos;s local storage. There are no accounts, no servers holding your data, and
@@ -120,7 +120,7 @@ export default async function LegalPage() {
         </p>
       </GbScreen>
 
-      <GbScreen title="CONTACT / TAKEDOWN">
+      <GbScreen title="Contact / takedown">
         <p className="font-body text-xl leading-relaxed">
           Are you a rights-holder, or just someone with a concern? We&apos;d genuinely like to hear
           from you. Email us at{" "}

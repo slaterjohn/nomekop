@@ -86,12 +86,12 @@ describe("SetSelector", () => {
     const user = userEvent.setup();
     render(<SetSelector sets={SETS} onSelect={vi.fn()} />);
     await user.type(screen.getByRole("combobox", { name: /search sets/i }), "zzzzz");
-    expect(screen.getByText(/MISSINGNO/)).toBeInTheDocument();
+    expect(screen.getByText(/MissingNo/)).toBeInTheDocument();
   });
 
   it("loading state shows the spinner", () => {
     render(<SetSelector sets={undefined} isLoading onSelect={vi.fn()} />);
-    expect(screen.getByRole("status")).toHaveTextContent(/LOADING SETS/);
+    expect(screen.getByRole("status")).toHaveTextContent(/Loading sets/);
   });
 
   it("error state shows an alert with retry", async () => {
@@ -99,7 +99,7 @@ describe("SetSelector", () => {
     const onRetry = vi.fn();
     render(<SetSelector sets={undefined} error="The library is down." onRetry={onRetry} onSelect={vi.fn()} />);
     expect(screen.getByRole("alert")).toHaveTextContent("The library is down.");
-    await user.click(screen.getByRole("button", { name: "RETRY" }));
+    await user.click(screen.getByRole("button", { name: "Retry" }));
     expect(onRetry).toHaveBeenCalled();
   });
 

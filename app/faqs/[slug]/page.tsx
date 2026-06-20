@@ -50,9 +50,9 @@ export default async function FaqPage({ params }: Props) {
       <div className="flex flex-wrap items-center gap-2 border-[3px] border-gb-ink bg-gb-accent/30 px-3 py-2">
         <a
           href={`/faqs/${slug}/markdown`}
-          className="inline-flex items-center border-[3px] border-gb-ink bg-gb-bg px-2 py-1 font-pixel text-[10px] no-underline"
+          className="inline-flex items-center border-[3px] border-gb-ink bg-gb-bg px-2 py-1 font-pixel text-[10px] uppercase no-underline"
         >
-          READ AS MARKDOWN ▸
+          Read as markdown ▸
         </a>
         <span className="font-readable text-lg leading-tight text-gb-ink">
           A plain-text version for LLMs &amp; AI search.

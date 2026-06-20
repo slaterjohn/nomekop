@@ -49,7 +49,7 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
                   rel="noopener noreferrer sponsored"
                   onClick={() => play("confirm")}
                 >
-                  {retailerName(link.retailer).toUpperCase()} ↗
+                  {retailerName(link.retailer)} ↗
                 </GbLinkButton>
               ))}
             </div>

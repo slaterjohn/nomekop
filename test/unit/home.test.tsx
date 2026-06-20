@@ -8,10 +8,10 @@ describe("HomeTiles", () => {
   it("links to all four binder types with a CTA each", () => {
     render(<HomeTiles />);
     const expected: Array<[string, string]> = [
-      ["/build", "BUILD A SET ▶"],
-      ["/pokemon", "PICK A POKÉMON ▶"],
-      ["/pokedex", "CHOOSE A REGION ▶"],
-      ["/illustrator", "FIND AN ARTIST ▶"],
+      ["/build", "Build a set ▶"],
+      ["/pokemon", "Pick a Pokémon ▶"],
+      ["/pokedex", "Choose a region ▶"],
+      ["/illustrator", "Find an artist ▶"],
     ];
     for (const [href, cta] of expected) {
       const link = screen.getByRole("link", { name: new RegExp(cta.replace(/[▶]/g, "")) });

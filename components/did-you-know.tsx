@@ -29,8 +29,8 @@ export function DidYouKnow() {
       </span>
       <p className="font-body text-xl leading-tight text-gb-ink">
         {DID_YOU_KNOW[index]}{" "}
-        <Link href="/facts" className="font-pixel text-[10px] underline underline-offset-2">
-          MORE FACTS ▶
+        <Link href="/facts" className="font-pixel text-[10px] uppercase underline underline-offset-2">
+          More facts ▶
         </Link>
       </p>
     </aside>

@@ -45,7 +45,7 @@ describe("ConfigPanel — binder size", () => {
       <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={vi.fn()} />,
     );
     expect(screen.getByRole("button", { name: "12 PKT" })).toHaveAttribute("aria-pressed", "true");
-    expect(screen.queryByRole("spinbutton", { name: "ROWS" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("spinbutton", { name: "Rows" })).not.toBeInTheDocument();
   });
 
   it("pocket presets patch rows and cols", async () => {
@@ -60,14 +60,14 @@ describe("ConfigPanel — binder size", () => {
     expect(onChange).toHaveBeenCalledWith({ rows: 4, cols: 4 });
   });
 
-  it("CUSTOM reveals the steppers, which patch dimensions", async () => {
+  it("Custom reveals the steppers, which patch dimensions", async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();
     render(
       <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={onChange} />,
     );
-    await user.click(screen.getByRole("button", { name: "CUSTOM" }));
-    await user.click(screen.getByRole("button", { name: "Increase ROWS" }));
+    await user.click(screen.getByRole("button", { name: "Custom" }));
+    await user.click(screen.getByRole("button", { name: "Increase Rows" }));
     expect(onChange).toHaveBeenCalledWith({ rows: 4 });
   });
 
@@ -80,8 +80,8 @@ describe("ConfigPanel — binder size", () => {
         onChange={vi.fn()}
       />,
     );
-    expect(screen.getByRole("spinbutton", { name: "ROWS" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "CUSTOM" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("spinbutton", { name: "Rows" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Custom" })).toHaveAttribute("aria-pressed", "true");
   });
 });
 
@@ -92,7 +92,7 @@ describe("ConfigPanel — modes and variants", () => {
     render(
       <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={onChange} />,
     );
-    await user.click(screen.getByRole("option", { name: /MASTER/ }));
+    await user.click(screen.getByRole("option", { name: /Master/ }));
     expect(onChange).toHaveBeenCalledWith({ mode: "master" });
   });
 
@@ -102,7 +102,7 @@ describe("ConfigPanel — modes and variants", () => {
     render(
       <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={onChange} />,
     );
-    await user.click(screen.getByRole("switch", { name: "SECRET RARES" }));
+    await user.click(screen.getByRole("switch", { name: "Secret rares" }));
     expect(onChange).toHaveBeenCalledWith({ secrets: false });
   });
 
@@ -116,7 +116,7 @@ describe("ConfigPanel — modes and variants", () => {
         onChange={onChange}
       />,
     );
-    expect(screen.queryByRole("switch", { name: "POKÉ BALL" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("switch", { name: "Poké Ball" })).not.toBeInTheDocument();
     expect(screen.getByRole("listbox", { name: "Variant placement" })).toBeInTheDocument();
   });
 
@@ -143,7 +143,7 @@ describe("ConfigPanel — modes and variants", () => {
       />,
     );
     expect(screen.queryByRole("listbox", { name: "Collection mode" })).not.toBeInTheDocument();
-    expect(screen.getByText(/COMPLETE SET — NO PARALLEL PRINTS/)).toBeInTheDocument();
+    expect(screen.getByText(/Complete set — no parallel prints/)).toBeInTheDocument();
     expect(screen.queryByRole("listbox", { name: "Variant placement" })).not.toBeInTheDocument();
   });
 
@@ -158,11 +158,11 @@ describe("ConfigPanel — modes and variants", () => {
         onChange={onChange}
       />,
     );
-    await user.click(screen.getByRole("switch", { name: "POKÉ BALL" }));
+    await user.click(screen.getByRole("switch", { name: "Poké Ball" }));
     expect(onChange).toHaveBeenCalledWith({ pb: false });
-    await user.click(screen.getByRole("switch", { name: "MASTER BALL" }));
+    await user.click(screen.getByRole("switch", { name: "Master Ball" }));
     expect(onChange).toHaveBeenCalledWith({ mb: false });
-    await user.click(screen.getByRole("option", { name: /AT END/ }));
+    await user.click(screen.getByRole("option", { name: /At end/ }));
     expect(onChange).toHaveBeenCalledWith({ place: "end" });
   });
 
@@ -175,7 +175,7 @@ describe("ConfigPanel — modes and variants", () => {
         onChange={vi.fn()}
       />,
     );
-    expect(screen.queryByRole("switch", { name: "POKÉ BALL" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("switch", { name: "Poké Ball" })).not.toBeInTheDocument();
   });
 
   it("stats line reflects the engine (PRE full master set)", () => {
@@ -188,7 +188,7 @@ describe("ConfigPanel — modes and variants", () => {
       />,
     );
     // 180 cards + 100 reverse + 100 poké + 67 master = 447 pockets / 12 per page
-    expect(screen.getByText("180 CARDS → 447 POCKETS → 38 PAGES")).toBeInTheDocument();
+    expect(screen.getByText("180 cards → 447 pockets → 38 pages")).toBeInTheDocument();
   });
 
   it("axe clean (with variant options open)", async () => {
