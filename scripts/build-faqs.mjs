@@ -45,6 +45,8 @@ for (const s of sets) {
     name: s.name,
     slug: setSlug(s.name),
     series: s.series,
+    logoUrl: s.logoUrl ?? "",
+    symbolUrl: s.symbolUrl ?? "",
     releaseDate: s.releaseDate,
     printedTotal: s.printedTotal,
     total: s.total,

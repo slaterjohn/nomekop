@@ -35,6 +35,31 @@ test("set hub is crawlable: /sets → /set/base1 → card links", async ({ page 
   expect(types(blocks)).toEqual(expect.arrayContaining(["CollectionPage", "BreadcrumbList"]));
 });
 
+test("FAQ directory is crawlable: /faqs → set hub → question, with set-scoped JSON-LD", async ({
+  page,
+}) => {
+  // The index groups sets into eras and links each to its hub. (sv8pt5 =
+  // Prismatic Evolutions — in both the FAQ snapshot and the card fixtures.)
+  await page.goto("/faqs");
+  await expect(page.getByRole("heading", { level: 1, name: /SET FAQS/i })).toBeVisible();
+  const hubLink = page.locator('a[href="/faqs/set/sv8pt5"]').first();
+  await expect(hubLink).toBeVisible();
+
+  // The hub lists the set's questions; CollectionPage + BreadcrumbList JSON-LD.
+  await page.goto("/faqs/set/sv8pt5");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/FAQs/i);
+  const hubBlocks = await jsonLdBlocks(page);
+  expect(types(hubBlocks)).toEqual(expect.arrayContaining(["CollectionPage", "BreadcrumbList"]));
+  const question = page.locator('a[href^="/faqs/"]').filter({ hasText: /\?/ }).first();
+  await expect(question).toBeVisible();
+  await question.click();
+  await expect(page).toHaveURL(/\/faqs\/[a-z0-9-]+$/);
+
+  // Per-set hubs are in the sitemap for discovery.
+  const core = await page.request.get("/sitemap/core.xml");
+  expect(await core.text()).toContain("/faqs/set/sv8pt5");
+});
+
 test("card pages emit Product JSON-LD with honest offers", async ({ page }) => {
   await page.goto("/card/base1-4");
   const blocks = await jsonLdBlocks(page);

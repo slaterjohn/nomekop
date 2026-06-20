@@ -86,6 +86,7 @@ export function cardCountPage(s: FaqSetFacts): FaqPage {
     question: `How many cards are in ${s.name}?`,
     title: `How many cards are in ${s.name}? (${s.printedTotal}-card set)`,
     description, body,
+    cards: chase,
     related: [
       { href: `/set/${s.id}`, label: `See every ${s.name} card` },
       { href: setFaqSlug("master-set", s.slug), label: `${s.name} master set size` },
@@ -146,6 +147,7 @@ export function masterSetPage(s: FaqSetFacts): FaqPage {
     question: `How many cards are in a ${s.name} master set?`,
     title: `How many cards are in a ${s.name} master set? (${s.masterSetCount})`,
     description, body,
+    cards: chaseList,
     related: [
       { href: setFaqSlug("binder-size", s.slug), label: `Best binder size for ${s.name}` },
       { href: setFaqSlug("reverse-holos", s.slug), label: `Reverse holos in ${s.name}` },
@@ -204,6 +206,7 @@ export function secretRaresPage(s: FaqSetFacts): FaqPage {
     question: `How many secret rares are in ${s.name}?`,
     title: `How many secret rares are in ${s.name}? (${s.secretCount})`,
     description, body,
+    cards: topChase,
     related: [
       { href: setFaqSlug("rarest-card", s.slug), label: `Rarest card in ${s.name}` },
       { href: setFaqSlug("chase-cards", s.slug), label: `${s.name} chase cards` },
@@ -270,6 +273,7 @@ export function illustrationRaresPage(s: FaqSetFacts): FaqPage {
     question: `How many Illustration Rares are in ${s.name}?`,
     title: `How many Illustration Rares are in ${s.name}?`,
     description, body,
+    cards: irChase.length ? irChase : s.chaseCards.slice(0, 6),
     related: [
       { href: setFaqSlug("chase-cards", s.slug), label: `${s.name} chase cards` },
       { href: setFaqSlug("rarest-card", s.slug), label: `Rarest card in ${s.name}` },
@@ -330,6 +334,7 @@ export function reverseHolosPage(s: FaqSetFacts): FaqPage {
     question: `How many reverse holo cards are in ${s.name}?`,
     title: `How many reverse holo cards are in ${s.name}?`,
     description, body,
+    cards: s.chaseCards.slice(0, 6),
     related: [
       { href: setFaqSlug("master-set", s.slug), label: `${s.name} master set size` },
       { href: setFaqSlug("binder-size", s.slug), label: `Best binder size for ${s.name}` },

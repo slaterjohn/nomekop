@@ -100,6 +100,7 @@ export function pokemonInSetPage(s: FaqSetFacts, p: FaqPokemon): FaqPage {
     question: `Is there ${article} ${p.displayName} card in ${s.name}?`,
     title: `Is there ${article} ${p.displayName} card in ${s.name}?`,
     description, body,
+    cards: p.cards,
     related: [
       ...(first ? [{ href: `/card/${first.id}`, label: `View ${first.name}` }] : []),
       { href: `/pokemon/${p.slug}~34an`, label: `Build a ${p.displayName} binder` },

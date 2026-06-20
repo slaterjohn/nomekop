@@ -78,6 +78,7 @@ export function binderSizePage(s: FaqSetFacts): FaqPage {
     question: `What's the best binder size for ${s.name}?`,
     title: `What's the best binder size for ${s.name}?`,
     description, body,
+    cards: chase,
     related: [
       { href: setFaqSlug("card-count", s.slug), label: `How many cards in ${s.name}` },
       { href: setFaqSlug("master-set", s.slug), label: `${s.name} master set size` },
@@ -142,6 +143,7 @@ export function releaseDatePage(s: FaqSetFacts): FaqPage {
     question: `When did ${s.name} come out?`,
     title: `When did ${s.name} come out? (Release date)`,
     description, body,
+    cards: chase,
     related: [
       { href: setFaqSlug("card-count", s.slug), label: `How many cards in ${s.name}` },
       { href: setFaqSlug("chase-cards", s.slug), label: `${s.name} chase cards` },
@@ -197,6 +199,7 @@ export function ballPatternsPage(s: FaqSetFacts): FaqPage {
     question: `Does ${s.name} have Poké Ball and Master Ball pattern cards?`,
     title: `Does ${s.name} have Poké Ball & Master Ball cards?`,
     description, body,
+    cards: chase,
     related: [
       { href: setFaqSlug("master-set", s.slug), label: `${s.name} master set size` },
       { href: setFaqSlug("reverse-holos", s.slug), label: `Reverse holos in ${s.name}` },

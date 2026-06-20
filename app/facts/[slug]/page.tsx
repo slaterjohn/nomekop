@@ -62,7 +62,7 @@ export default async function FactPage({ params }: Props) {
       </div>
 
       <article
-        className="flex flex-col [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-6 [&_h2]:font-pixel [&_h2]:text-sm [&_h2]:leading-relaxed [&_hr]:my-5 [&_hr]:border-gb-ink/30 [&_p]:mb-3 [&_p]:font-body [&_p]:text-xl [&_p]:leading-relaxed [&_strong]:font-semibold [&_ul]:mb-3 [&_ul]:flex [&_ul]:list-disc [&_ul]:flex-col [&_ul]:gap-1 [&_ul]:pl-6"
+        className="flex flex-col [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-6 [&_h2]:font-pixel [&_h2]:text-sm [&_h2]:leading-relaxed [&_hr]:my-5 [&_hr]:border-gb-ink/30 [&_img]:my-2 [&_img]:block [&_img]:w-28 [&_img]:border-2 [&_img]:border-gb-ink [&_p]:mb-3 [&_p]:font-body [&_p]:text-xl [&_p]:leading-relaxed [&_strong]:font-semibold [&_ul]:mb-3 [&_ul]:flex [&_ul]:list-disc [&_ul]:flex-col [&_ul]:gap-1 [&_ul]:pl-6"
         dangerouslySetInnerHTML={{ __html: html }}
       />
 

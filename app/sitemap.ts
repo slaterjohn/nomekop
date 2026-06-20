@@ -3,7 +3,7 @@ import { siteUrl } from "@/lib/site";
 import { getCardsForSitemap, getSets, getSetsForSitemap } from "@/lib/tcg";
 import { GENERATIONS } from "@/lib/pokedex";
 import { ARTICLES } from "@/lib/content/articles";
-import { ALL_FAQ_PAGES } from "@/lib/content/faqs/registry";
+import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
 
 /** The overview sitemap (home, /sets, every /set/<id>); the other sitemap ids
  *  are set ids, each listing that set's /card/<cardId> pages. Next serves each
@@ -67,6 +67,12 @@ export default async function sitemap(props: {
         priority: 0.4,
       })),
       { url: `${base}/faqs`, changeFrequency: "monthly" as const, priority: 0.6 },
+      // Per-set FAQ hubs (released + upcoming) — the set cards on /faqs link here.
+      ...faqSetIds.map((setId) => ({
+        url: `${base}/faqs/set/${setId}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      })),
       ...ALL_FAQ_PAGES.flatMap((page) => [
         {
           url: `${base}/faqs/${page.slug}`,
