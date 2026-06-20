@@ -57,7 +57,7 @@ describe("CardDetailBody", () => {
       variants: { ...card.variants, pokeball: true, masterball: true },
     };
     render(<CardDetailBody card={ballCard} set={set} kind="pokeball" />);
-    expect(screen.getByText("POKÉ BALL")).toBeInTheDocument();
+    expect(screen.getByText("Poké Ball")).toBeInTheDocument();
     expect(screen.queryByText("THIS POCKET")).not.toBeInTheDocument();
   });
 

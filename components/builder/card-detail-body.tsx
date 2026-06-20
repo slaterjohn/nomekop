@@ -70,11 +70,11 @@ export function CardDetailBody({ card, set, kind }: CardDetailBodyProps) {
         </p>
 
         <div className="flex flex-wrap gap-1.5" aria-label="Available prints">
-          {card.variants.normal ? <GbBadge>NORMAL</GbBadge> : null}
-          {card.variants.holo ? <GbBadge>HOLO</GbBadge> : null}
-          {card.variants.reverse ? <GbBadge>REVERSE</GbBadge> : null}
-          {card.variants.pokeball ? <GbBadge>POKÉ BALL</GbBadge> : null}
-          {card.variants.masterball ? <GbBadge>MASTER BALL</GbBadge> : null}
+          {card.variants.normal ? <GbBadge>Normal</GbBadge> : null}
+          {card.variants.holo ? <GbBadge>Holo</GbBadge> : null}
+          {card.variants.reverse ? <GbBadge>Reverse</GbBadge> : null}
+          {card.variants.pokeball ? <GbBadge>Poké Ball</GbBadge> : null}
+          {card.variants.masterball ? <GbBadge>Master Ball</GbBadge> : null}
         </div>
 
         {prices ? (

@@ -24,9 +24,11 @@ import { analyticsEnabled } from "@/lib/analytics/posthog";
 
 /**
  * The app's personalisation knobs in one header-launched dialog: UI language,
- * colour palette, sound cues, and a master "reduce animation" switch. The dialog
- * is a fixed-height column — a non-scrolling title bar (with an always-visible
- * close) over a scrollable body, so it never overflows a small screen.
+ * colour palette, font type (pixel / mono / sans), text size, appearance
+ * (system / light / dark), sound cues, and a master "reduce animation" switch.
+ * The dialog is a fixed-height column — a non-scrolling title bar (with an
+ * always-visible close) over a scrollable body, so it never overflows a small
+ * screen.
  */
 export function SettingsPanel() {
   const dict = useDict();
