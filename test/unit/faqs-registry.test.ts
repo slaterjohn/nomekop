@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   FAQ_PAGES,
+  FAQ_SETS,
   ALL_FAQ_PAGES,
   getFaqPage,
   faqPagesForSet,
@@ -26,10 +27,26 @@ describe("faq registry", () => {
   });
 
   it("skips valuable-card pages for priceless sets", () => {
+    // The unpriced 2026 Mega Evolution sets have no market data → no MVP page.
     const priceless = new Set(["me4", "me3", "me2pt5"]);
     const valuable = FAQ_PAGES.filter((p) => p.type === "valuable-card");
     expect(valuable.some((p) => priceless.has(p.setId))).toBe(false);
-    expect(valuable.length).toBe(17);
+    // Exactly one per released set that has a most-valuable (priced) card.
+    const pricedSets = FAQ_SETS.filter((s) => s.mostValuableCard);
+    expect(valuable.length).toBe(pricedSets.length);
+    expect(valuable.length).toBeGreaterThan(20);
+  });
+
+  it("skips master-set / secret-rare / reverse-holo pages for a flat set (Celebrations)", () => {
+    // cel25 has no reverse holos, no secret rares and master = base, so those
+    // 'would just answer 0' pages are not generated.
+    const types = new Set(faqPagesForSet("cel25").map((p) => p.type));
+    expect(types.has("master-set")).toBe(false);
+    expect(types.has("secret-rares")).toBe(false);
+    expect(types.has("reverse-holos")).toBe(false);
+    // It still has the core pages.
+    expect(types.has("card-count")).toBe(true);
+    expect(types.has("rarest-card")).toBe(true);
   });
 
   it("only emits ball-pattern pages for ball-pattern sets", () => {
@@ -78,8 +95,10 @@ describe("faq registry", () => {
 describe("faq set summaries + era grouping", () => {
   it("summarises every released + upcoming set with a non-zero FAQ count", () => {
     const summaries = faqSetSummaries();
-    // 20 released + 3 upcoming sets in scope.
-    expect(summaries.length).toBe(23);
+    // One summary per released (snapshot) set plus each upcoming set.
+    expect(summaries.filter((s) => !s.isUpcoming).length).toBe(FAQ_SETS.length);
+    expect(summaries.filter((s) => s.isUpcoming).length).toBeGreaterThanOrEqual(3);
+    expect(summaries.length).toBe(FAQ_SETS.length + summaries.filter((s) => s.isUpcoming).length);
     expect(summaries.every((s) => s.faqCount > 0)).toBe(true);
     // faqCount matches the actual page set for that id.
     for (const s of summaries) {

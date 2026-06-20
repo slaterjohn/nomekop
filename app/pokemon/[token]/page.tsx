@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PokemonBinderView } from "@/components/pokemon/pokemon-binder-view";
+import { PokemonNoResults } from "@/components/pokemon/pokemon-no-results";
 import { BinderSkeleton } from "@/components/binder-skeleton";
 import { BackButton } from "@/components/back-button";
-import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import {
   decodePokemonToken,
   displayNameFromSlug,
@@ -53,12 +53,7 @@ async function PokemonBinderData({
   const cards = await searchPokemonCards(slug, options.langs);
 
   if (cards.length === 0) {
-    return (
-      <GbDialogBox>
-        WILD MISSINGNO. APPEARED! No cards found for that name. Check the spelling or try another
-        Pokémon.
-      </GbDialogBox>
-    );
+    return <PokemonNoResults query={displayName} />;
   }
 
   const langCount = new Set(cards.map((c) => c.lang ?? "en")).size;

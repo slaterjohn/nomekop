@@ -14,7 +14,13 @@ import {
 
 const POKEMON_PER_SET = 5;
 const AS_OF = "June 2026";
-const SET_COUNT = 20;
+// How many eras (series) back to cover, newest first.
+const ERA_COUNT = 3;
+// Non-expansion sets that don't fit the per-set FAQ shape (master sets, reverse
+// holos, binder layouts): basic-energy sets, promo grab-bags, and the bundled
+// sub-sets printed inside a parent set's packs rather than sold standalone.
+const EXCLUDE_NAME =
+  /Promos|Energies|Trainer Gallery|Galarian Gallery|Shiny Vault|Classic Collection/i;
 
 const db = new DatabaseSync(path.join(process.cwd(), ".cache", "bindermon.db"), { readOnly: true });
 const get = (key) => {
@@ -28,9 +34,26 @@ function setSlug(name) {
 
 const allSets = get("sets");
 if (!allSets) throw new Error("no 'sets' in cache DB — warm the cache first");
-const sets = [...allSets].sort((a, b) => (a.releaseDate < b.releaseDate ? 1 : -1)).slice(0, SET_COUNT);
 
-// Size rank (largest printedTotal = 1) across the 20 in scope.
+// The ERA_COUNT newest series (by their newest set's release date).
+const seriesNewest = new Map();
+for (const s of allSets) {
+  const cur = seriesNewest.get(s.series);
+  if (!cur || s.releaseDate > cur) seriesNewest.set(s.series, s.releaseDate);
+}
+const eras = new Set(
+  [...seriesNewest.entries()]
+    .sort((a, b) => b[1].localeCompare(a[1]))
+    .slice(0, ERA_COUNT)
+    .map(([series]) => series),
+);
+
+// All real expansions across those eras, newest first.
+const sets = [...allSets]
+  .filter((s) => eras.has(s.series) && !EXCLUDE_NAME.test(s.name))
+  .sort((a, b) => (a.releaseDate < b.releaseDate ? 1 : -1));
+
+// Size rank (largest printedTotal = 1) across every set in scope.
 const bySize = [...sets].sort((a, b) => b.printedTotal - a.printedTotal);
 const sizeRank = new Map(bySize.map((s, i) => [s.id, i + 1]));
 

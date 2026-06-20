@@ -19,9 +19,8 @@ function tierPhrase(tiers: [string, number][]): string {
 }
 
 function rankPhrase(s: FaqSetFacts): string {
-  if (s.sizeRankAmongRecent === 1) return "the largest of the 20 most recent sets";
-  if (s.sizeRankAmongRecent === 20) return "the smallest of the 20 most recent sets";
-  return `the #${s.sizeRankAmongRecent} largest of the 20 most recent sets`;
+  if (s.sizeRankAmongRecent === 1) return "the largest set Nomekop tracks";
+  return `the #${s.sizeRankAmongRecent} largest set Nomekop tracks`;
 }
 
 /** Marquee species names as a joined phrase, up to `limit`. */
@@ -42,11 +41,15 @@ function marqueeBullets(s: FaqSetFacts, limit = 5): string {
 
 export function cardCountPage(s: FaqSetFacts): FaqPage {
   const slug = setFaqSlug("card-count", s.slug);
-  const description =
-    `${s.name} has ${num(s.printedTotal)} cards in the main set, or ${num(s.total)} ` +
-    `including its ${num(s.secretCount)} secret rares.`;
+  const hasSecrets = s.secretCount > 0;
+  const hasExtras = s.masterSetCount > s.printedTotal;
+  const description = hasSecrets
+    ? `${s.name} has ${num(s.printedTotal)} cards in the main set, or ${num(s.total)} ` +
+      `including its ${num(s.secretCount)} secret rares.`
+    : `${s.name} has ${num(s.printedTotal)} cards, with no secret rares numbered beyond the main set.`;
   const tiers = rareTiers(s).slice(0, 4);
   const chase = s.chaseCards.slice(0, 6);
+  const tierLine = tiers.length ? ["", `By rarity tier the rarer pool is ${tierPhrase(tiers)}.`] : [];
   const body = [
     `**${description}**`,
     "",
@@ -59,25 +62,39 @@ export function cardCountPage(s: FaqSetFacts): FaqPage {
     "",
     marqueeBullets(s),
     "",
-    `## Secret rares: #${s.printedTotal + 1} to #${s.total} in ${s.name}`,
-    "",
-    `Anything numbered past the printed total of ${s.printedTotal} is a secret rare. ${s.name} has ` +
-      `${num(s.secretCount)} of them — #${s.printedTotal + 1} through #${s.total} — which lift the ` +
-      `count from ${num(s.printedTotal)} to ${num(s.total)}. The headline pulls up there:`,
-    "",
-    chase.map(cardBullet).join("\n"),
-    ...(tiers.length
-      ? ["", `By rarity tier the rarer pool is ${tierPhrase(tiers)}.`]
-      : []),
+    ...(hasSecrets
+      ? [
+          `## Secret rares: #${s.printedTotal + 1} to #${s.total} in ${s.name}`,
+          "",
+          `Anything numbered past the printed total of ${s.printedTotal} is a secret rare. ${s.name} has ` +
+            `${num(s.secretCount)} of them — #${s.printedTotal + 1} through #${s.total} — which lift the ` +
+            `count from ${num(s.printedTotal)} to ${num(s.total)}. The headline pulls up there:`,
+          "",
+          chase.map(cardBullet).join("\n"),
+          ...tierLine,
+        ]
+      : [
+          `## The ${s.name} cards to chase`,
+          "",
+          `${s.name} has no secret rares numbered past its ${num(s.printedTotal)}-card checklist — the ` +
+            `headline pulls all sit inside the main set:`,
+          "",
+          chase.map(cardBullet).join("\n"),
+          ...tierLine,
+        ]),
     "",
     `## Collecting all of ${s.name}`,
     "",
-    `Want a master set? Add every reverse holo (${num(s.reverseHoloCount)})` +
-      (s.hasBallPatterns ? ` plus the Poké Ball and Master Ball patterns` : "") +
-      ` and the target reaches ${num(s.masterSetCount)} cards — about ` +
-      `${(s.masterSetCount / s.printedTotal).toFixed(1)}× the base set, or roughly ` +
-      `${num(Math.ceil(s.masterSetCount / 9))} pages in a 9-pocket binder. Decide up front whether ` +
-      `you're after the ${num(s.printedTotal)}-card base ${s.name} or the full run.`,
+    hasExtras
+      ? `Want a master set? Add every reverse holo (${num(s.reverseHoloCount)})` +
+        (s.hasBallPatterns ? ` plus the Poké Ball and Master Ball patterns` : "") +
+        ` and the target reaches ${num(s.masterSetCount)} cards — about ` +
+        `${(s.masterSetCount / s.printedTotal).toFixed(1)}× the base set, or roughly ` +
+        `${num(Math.ceil(s.masterSetCount / 9))} pages in a 9-pocket binder. Decide up front whether ` +
+        `you're after the ${num(s.printedTotal)}-card base ${s.name} or the full run.`
+      : `${s.name} has no reverse holos or ball-pattern variants, so a complete set is simply its ` +
+        `${num(s.printedTotal)} cards — one of each, with no separate master-set layer to chase. ` +
+        `That's roughly ${num(Math.ceil(s.printedTotal / 9))} pages in a 9-pocket binder.`,
     "",
     SITE_FIGURES_NOTE,
   ].join("\n");
@@ -91,22 +108,23 @@ export function cardCountPage(s: FaqSetFacts): FaqPage {
       { href: `/set/${s.id}`, label: `See every ${s.name} card` },
       { href: setFaqSlug("master-set", s.slug), label: `${s.name} master set size` },
       { href: setFaqSlug("secret-rares", s.slug), label: `Secret rares in ${s.name}` },
-      { href: `/build?set=${s.id}`, label: `Plan a ${s.name} binder` },
+      { href: `/build?set=${s.id}`, label: `Plan ${indefiniteArticle(s.name)} ${s.name} binder` },
     ],
   };
 }
 
 export function masterSetPage(s: FaqSetFacts): FaqPage {
   const slug = setFaqSlug("master-set", s.slug);
+  const article = indefiniteArticle(s.name);
   const description =
-    `A ${s.name} master set is ${num(s.masterSetCount)} cards — every card plus its ` +
+    `${article === "an" ? "An" : "A"} ${s.name} master set is ${num(s.masterSetCount)} cards — every card plus its ` +
     `${num(s.reverseHoloCount)} reverse holos${s.hasBallPatterns ? " and Poké Ball / Master Ball patterns" : ""}.`;
   const multiple = (s.masterSetCount / s.printedTotal).toFixed(1);
   const chaseList = s.chaseCards.slice(0, 6);
   const body = [
     `**${description}**`,
     "",
-    `## What a ${s.name} master set includes`,
+    `## What ${article} ${s.name} master set includes`,
     "",
     `One of everything: all ${num(s.total)} numbered cards — the ${num(s.printedTotal)} base plus ` +
       `${num(s.secretCount)} secret rares — then every reverse holo, ${num(s.reverseHoloCount)} of them.` +
@@ -144,8 +162,8 @@ export function masterSetPage(s: FaqSetFacts): FaqPage {
   ].join("\n");
   return {
     slug, type: "master-set", setId: s.id,
-    question: `How many cards are in a ${s.name} master set?`,
-    title: `How many cards are in a ${s.name} master set? (${s.masterSetCount})`,
+    question: `How many cards are in ${article} ${s.name} master set?`,
+    title: `How many cards are in ${article} ${s.name} master set? (${s.masterSetCount})`,
     description, body,
     cards: chaseList,
     related: [
