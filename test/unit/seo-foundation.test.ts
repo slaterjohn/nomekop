@@ -3,11 +3,12 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import robots from "@/app/robots";
 import sitemap, { generateSitemaps } from "@/app/sitemap";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
-import { FAQ_PAGES } from "@/lib/content/faqs/registry";
+import { ALL_FAQ_PAGES } from "@/lib/content/faqs/registry";
 
 // The /faqs index plus each FAQ page's detail + Markdown companion all land in
-// the core shard (see app/sitemap.ts).
-const FAQ_SITEMAP_ENTRIES = 1 + FAQ_PAGES.length * 2;
+// the core shard (see app/sitemap.ts) — including the hand-authored upcoming
+// pages, so this counts ALL_FAQ_PAGES, not just the released set pages.
+const FAQ_SITEMAP_ENTRIES = 1 + ALL_FAQ_PAGES.length * 2;
 
 // Fixture snapshots: 173 sets; card data for base1 (102 cards), sv1 and sv8pt5.
 const FIXTURE_SET_COUNT = 173;
