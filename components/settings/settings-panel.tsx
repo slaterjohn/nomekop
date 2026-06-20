@@ -19,6 +19,7 @@ import { useSoundEnabled, play } from "@/lib/sound";
 import { useReducedMotion } from "@/lib/motion";
 import { useFont, type FontType } from "@/lib/font";
 import { useFontSize, type FontSize } from "@/lib/font-size";
+import { useColorScheme, type ColorSchemePref } from "@/lib/color-scheme";
 import { analyticsEnabled } from "@/lib/analytics/posthog";
 
 /**
@@ -35,6 +36,7 @@ export function SettingsPanel() {
   const { reduced, setReduced } = useReducedMotion();
   const { font, setFont } = useFont();
   const { size, setSize } = useFontSize();
+  const { scheme, setScheme } = useColorScheme();
 
   const languageOptions = LANGUAGES.map((language) => ({
     value: language.code,
@@ -52,6 +54,12 @@ export function SettingsPanel() {
     { value: "1", label: dict.settings.textSizeLarge },
     { value: "2", label: dict.settings.textSizeLarger },
     { value: "3", label: dict.settings.textSizeLargest },
+  ];
+
+  const appearanceOptions: Array<{ value: ColorSchemePref; label: string }> = [
+    { value: "system", label: dict.settings.appearanceSystem },
+    { value: "light", label: dict.settings.appearanceLight },
+    { value: "dark", label: dict.settings.appearanceDark },
   ];
 
   return (
@@ -144,6 +152,24 @@ export function SettingsPanel() {
                 setSize(next);
               }}
               options={textSizeOptions}
+              className="w-full max-w-xs"
+            />
+          </section>
+
+          <section className="flex flex-col gap-2">
+            <h3 className="font-pixel text-[10px] uppercase text-gb-ink">
+              {dict.settings.appearance}
+            </h3>
+            <GbSelect
+              label={dict.settings.appearance}
+              value={scheme}
+              onChange={(value) => {
+                const next = appearanceOptions.find((option) => option.value === value)?.value;
+                if (!next || next === scheme) return;
+                play("confirm");
+                setScheme(next);
+              }}
+              options={appearanceOptions}
               className="w-full max-w-xs"
             />
           </section>

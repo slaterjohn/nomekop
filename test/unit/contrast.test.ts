@@ -29,6 +29,30 @@ describe("theme contrast (WCAG AA)", () => {
   });
 });
 
+// Dark-mode palettes (Settings → Appearance → Dark / System) face the exact
+// same WCAG AA gate as the light shades. Same role order: ink, muted, accent, bg.
+describe("theme dark-mode contrast (WCAG AA)", () => {
+  describe.each(THEMES)("$id (dark)", (theme) => {
+    const [ink, muted, accent, bg] = theme.darkShades;
+
+    it("ink on bg ≥ 4.5:1 (normal text)", () => {
+      expect(contrastRatio(ink, bg)).toBeGreaterThanOrEqual(4.5);
+    });
+
+    it("ink on accent ≥ 4.5:1 (text on filled controls)", () => {
+      expect(contrastRatio(ink, accent)).toBeGreaterThanOrEqual(4.5);
+    });
+
+    it("muted on bg ≥ 3:1 (large text / UI components)", () => {
+      expect(contrastRatio(muted, bg)).toBeGreaterThanOrEqual(3);
+    });
+
+    it("focus indicator (ink) vs bg ≥ 3:1", () => {
+      expect(contrastRatio(ink, bg)).toBeGreaterThanOrEqual(3);
+    });
+  });
+});
+
 describe("contrastRatio", () => {
   it("black on white is 21:1", () => {
     expect(contrastRatio("#000000", "#ffffff")).toBeCloseTo(21, 0);

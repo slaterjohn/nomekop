@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323, Pixelify_Sans, JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeScript } from "@/components/theme/theme-script";
+import { ColorSchemeController } from "@/components/theme/color-scheme-controller";
 import { SplashScript } from "@/components/splash/splash-script";
 import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/site-footer";
@@ -124,6 +125,7 @@ export default async function RootLayout({
             <EasterEggs />
             <MusicController />
             <UiClickSound />
+            <ColorSchemeController />
             <SplashScreen disabled={splashDisabled} />
           </AnalyticsProvider>
         </LanguageProvider>

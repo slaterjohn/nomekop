@@ -356,6 +356,79 @@
   --gb-bg: #ffffff;
 }
 
+/*
+ * Dark-mode palettes (Settings → Appearance → Dark / System). One override per
+ * theme, keyed on BOTH data-color-scheme="dark" AND data-theme so every palette
+ * has a dark variant; color-scheme: dark also re-skins native form controls /
+ * scrollbars. The pre-paint script always sets data-color-scheme, so these win
+ * over the light source vars above when dark is active. These mirror each
+ * theme's `darkShades` in lib/themes.ts (test/unit/contrast.test.ts gates both)
+ * — keep the hex values in sync.
+ */
+[data-color-scheme="dark"][data-theme="dmg"] {
+  --gb-ink: #edefe6;
+  --gb-muted: #8d9a5b;
+  --gb-accent: #30351d;
+  --gb-bg: #14160e;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="pocket"] {
+  --gb-ink: #ebebeb;
+  --gb-muted: #7a7a7a;
+  --gb-accent: #292929;
+  --gb-bg: #121212;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="kanto-red"] {
+  --gb-ink: #efe6e6;
+  --gb-muted: #9a5b5b;
+  --gb-accent: #351d1d;
+  --gb-bg: #160e0e;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="cerulean"] {
+  --gb-ink: #e6ebef;
+  --gb-muted: #5b7c9a;
+  --gb-accent: #1d2935;
+  --gb-bg: #0e1216;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="lavender"] {
+  --gb-ink: #ebe6ef;
+  --gb-muted: #7c5b9a;
+  --gb-accent: #291d35;
+  --gb-bg: #120e16;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="flame"] {
+  --gb-ink: #efe9e6;
+  --gb-muted: #9a725b;
+  --gb-accent: #35251d;
+  --gb-bg: #16110e;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="gold"] {
+  --gb-ink: #efede6;
+  --gb-muted: #9a8c5b;
+  --gb-accent: #35301d;
+  --gb-bg: #16140e;
+  color-scheme: dark;
+}
+
+[data-color-scheme="dark"][data-theme="high-contrast"] {
+  --gb-ink: #ffffff;
+  --gb-muted: #cccccc;
+  --gb-accent: #333333;
+  --gb-bg: #000000;
+  color-scheme: dark;
+}
+
 /* In-app "reduce animation" override (Settings panel). Strips every animation
    and transition regardless of the OS prefers-reduced-motion setting — set via
    data-reduce-motion="1" on <html> (pre-paint by the theme script, live by the
