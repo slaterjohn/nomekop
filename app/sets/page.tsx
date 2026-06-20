@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { GbScreen } from "@/components/gb/gb-screen";
 import { JsonLd } from "@/components/json-ld";
 import { SetOverlaySelect } from "@/components/sets/set-overlay-select";
+import { SetsBrowser, type SetsGroup, type SetsBrowserLabels } from "@/components/sets/sets-browser";
+import { GbScreen } from "@/components/gb/gb-screen";
 import { breadcrumbJsonLd, setsIndexJsonLd } from "@/lib/structured-data";
 import { getSets, getSetOverlay } from "@/lib/tcg";
+import { getMasterSetCounts } from "@/lib/tcg/master-count";
 import { cardLanguagesEnabled } from "@/lib/features";
 import { isLanguage, languageByCode } from "@/lib/tcg/languages";
 import { getServerDictionary } from "@/lib/i18n/server";
@@ -50,22 +51,8 @@ function groupBySeries(sets: TcgSet[]): SeriesGroup[] {
   return groups.sort((a, b) => b.newest.localeCompare(a.newest));
 }
 
-/** A localized set sharing an English entry's name — a small chip link to its
- *  binder, badged with the language code. */
-function LocalizedBadge({ set }: { set: LocalizedSetRef }) {
-  return (
-    <Link
-      href={`/lset/${set.lang}/${set.localizedId}`}
-      aria-label={`${set.name} — ${languageByCode(set.lang)?.label} edition`}
-      className="inline-flex shrink-0 items-center gap-1 self-center border-[3px] border-gb-ink bg-gb-accent px-1.5 py-0.5 font-pixel text-[9px] uppercase no-underline"
-    >
-      {set.lang} ▶
-    </Link>
-  );
-}
-
-/** A localized set with its own (translated) name — interleaved right beside its
- *  English counterpart, or standing alone when language-exclusive. */
+/** A localized set with its own (translated) name — a chip link to its binder,
+ *  shown in the language-overlay section below the browser. */
 function LocalizedSetRow({ set, cards }: { set: LocalizedSetRef; cards: string }) {
   return (
     <li>
@@ -90,10 +77,11 @@ function LocalizedSetRow({ set, cards }: { set: LocalizedSetRef; cards: string }
 
 type Props = { searchParams: Promise<{ lang?: string }> };
 
-/** Crawlable index of every set. ?lang overlays a language (Japanese, French…):
- *  English sets that exist in that language are badged, translated-name sets are
- *  interleaved beside their English entry, and language-exclusive sets get their
- *  own section. */
+/** Crawlable index of every set. The default English view is an interactive
+ *  browser (search + collapsible series + click-to-modal) that still renders a
+ *  real <a href="/set/[id]"> per set for crawlers. ?lang overlays a language
+ *  (Japanese, French…): the localized/translated/exclusive sets are listed in a
+ *  reference section below the browser. */
 export default async function SetsIndexPage({ searchParams }: Props) {
   const { lang: langParam } = await searchParams;
   const lang =
@@ -107,11 +95,64 @@ export default async function SetsIndexPage({ searchParams }: Props) {
     getSetOverlay(lang),
   ]);
   const t = dict.sets;
-  const groups = groupBySeries(sets);
-  const totalSets = groups.reduce((n, group) => n + group.sets.length, 0);
+  const seriesGroups = groupBySeries(sets);
+  const masterCounts = await getMasterSetCounts(sets);
+  const totalSets = seriesGroups.reduce((n, group) => n + group.sets.length, 0);
   const language = languageByCode(lang);
-  const cardsLabel = (set: LocalizedSetRef | { total: number }) =>
-    format(t.cards, { count: set.total });
+
+  // Serializable groups for the client browser (already newest-first).
+  const groups: SetsGroup[] = seriesGroups.map((group) => ({
+    series: group.series,
+    sets: group.sets.map((set) => ({
+      id: set.id,
+      name: set.name,
+      series: set.series,
+      releaseDate: set.releaseDate,
+      printedTotal: set.printedTotal,
+      total: set.total,
+      masterCount: masterCounts.get(set.id) ?? Math.max(set.printedTotal, set.total),
+      symbolUrl: set.symbolUrl,
+      logoUrl: set.logoUrl,
+    })),
+  }));
+
+  const labels: SetsBrowserLabels = {
+    masterCards: t.masterCards,
+    searchPlaceholder: t.searchPlaceholder,
+    searchLabel: t.searchLabel,
+    searchClear: t.searchClear,
+    noResults: t.noResults,
+    resultCount: t.resultCount,
+    expandSection: t.expandSection,
+    collapseSection: t.collapseSection,
+    setCount: t.setCount,
+    viewInfo: t.viewInfo,
+    createLayout: t.createLayout,
+    modalClose: t.modalClose,
+    seriesLabel: t.seriesLabel,
+    releasedLabel: t.releasedLabel,
+    countsLabel: t.countsLabel,
+    printedTotalLine: t.printedTotalLine,
+    masterSetLabel: t.masterSetLabel,
+  };
+
+  // Localized overlay sets (badged English sets, translated-name sets, and
+  // language-exclusive sets), flattened into one reference list for the
+  // ?lang view — newest-first by the order series come in.
+  const localizedRefs: LocalizedSetRef[] =
+    lang !== "en"
+      ? [
+          ...seriesGroups.flatMap((group) =>
+            group.sets.flatMap((set) => {
+              const badge = overlay.badges.get(set.id);
+              const variants = overlay.variants.get(set.id) ?? [];
+              return badge ? [badge, ...variants] : variants;
+            }),
+          ),
+        ]
+      : [];
+
+  const cardsLabel = (set: LocalizedSetRef) => format(t.cards, { count: set.total });
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
@@ -127,7 +168,7 @@ export default async function SetsIndexPage({ searchParams }: Props) {
       <div>
         <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{t.title}</h1>
         <p className="mt-1 font-body text-lg">
-          {format(t.intro, { count: totalSets, series: groups.length })}
+          {format(t.intro, { count: totalSets, series: seriesGroups.length })}
         </p>
         <p className="mt-1 font-body text-lg">
           <Link href="/facts/biggest-pokemon-tcg-sets" className="underline underline-offset-2">
@@ -149,61 +190,19 @@ export default async function SetsIndexPage({ searchParams }: Props) {
         </p>
       ) : null}
 
-      {groups.map(({ series, sets }) => (
-        <GbScreen key={series} title={series.toUpperCase()}>
+      <SetsBrowser groups={groups} labels={labels} />
+
+      {lang !== "en" && language && localizedRefs.length > 0 ? (
+        <GbScreen title={language.label.toUpperCase()}>
           <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2">
-            {sets.map((set) => {
-              const badge = overlay.badges.get(set.id);
-              const variants = overlay.variants.get(set.id) ?? [];
-              return (
-                <FragmentRow key={set.id}>
-                  <li>
-                    <div className="flex items-stretch gap-1.5">
-                      <Link
-                        href={`/set/${set.id}`}
-                        className="flex min-h-11 flex-1 items-center gap-2.5 border-[3px] border-gb-ink bg-gb-bg px-2.5 py-1.5 no-underline shadow-[2px_2px_0_0_var(--gb-ink)] motion-safe:transition-transform motion-safe:hover:-translate-y-px"
-                      >
-                        {set.symbolUrl ? (
-                          <Image
-                            src={set.symbolUrl}
-                            alt=""
-                            width={24}
-                            height={24}
-                            unoptimized
-                            loading="lazy"
-                            className="h-6 w-6 shrink-0 object-contain"
-                          />
-                        ) : null}
-                        <span className="min-w-0 flex-1">
-                          <span className="block truncate font-pixel text-[10px] leading-relaxed">
-                            {set.name.toUpperCase()}
-                          </span>
-                          <span className="block font-body text-lg leading-none">
-                            {format(t.cardsLine, {
-                              year: set.releaseDate.slice(0, 4),
-                              printed: set.printedTotal,
-                              total: set.total,
-                            })}
-                          </span>
-                        </span>
-                        <span aria-hidden="true" className="font-pixel text-[10px]">
-                          ▶
-                        </span>
-                      </Link>
-                      {badge ? <LocalizedBadge set={badge} /> : null}
-                    </div>
-                  </li>
-                  {variants.map((variant) => (
-                    <LocalizedSetRow key={variant.localizedId} set={variant} cards={cardsLabel(variant)} />
-                  ))}
-                </FragmentRow>
-              );
-            })}
+            {localizedRefs.map((ref) => (
+              <LocalizedSetRow key={`${ref.lang}-${ref.localizedId}`} set={ref} cards={cardsLabel(ref)} />
+            ))}
           </ul>
         </GbScreen>
-      ))}
+      ) : null}
 
-      {overlay.exclusive.length > 0 && language ? (
+      {lang !== "en" && overlay.exclusive.length > 0 && language ? (
         <GbScreen title={format(t.exclusiveHeading, { language: language.label }).toUpperCase()}>
           <p className="mb-2 font-body text-lg leading-tight">
             {format(t.exclusiveNote, { count: overlay.exclusive.length, language: language.label })}
@@ -217,10 +216,4 @@ export default async function SetsIndexPage({ searchParams }: Props) {
       ) : null}
     </main>
   );
-}
-
-/** Group an English row with its interleaved localized variants without an extra
- *  DOM wrapper (they share the same <ul> grid). */
-function FragmentRow({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
 }
