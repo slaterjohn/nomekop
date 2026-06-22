@@ -70,4 +70,15 @@ export const FAQ_ENTRIES: FaqEntry[] = [
       "current market value rather than a quote. Very new sets can show cards " +
       "without prices until TCGplayer lists them.",
   },
+  {
+    question: "Can I install Nomekop on my phone or desktop?",
+    answer:
+      "Yes — Nomekop is a progressive web app, so you can add it to your home " +
+      "screen and run it in its own window with no browser bar. On iPhone or iPad, " +
+      "open it in Safari, tap Share, then \"Add to Home Screen\". On Android Chrome " +
+      "or desktop Chrome and Edge, use \"Install app\" from the browser menu or the " +
+      "install icon in the address bar. Installed, it launches like an app and even " +
+      "opens offline. The collections you track are stored on your own device, so " +
+      "they stay put — there's no account and nothing is uploaded.",
+  },
 ];

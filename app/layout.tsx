@@ -13,6 +13,7 @@ import { UiClickSound } from "@/components/sound/ui-click-sound";
 import { SplashScreen } from "@/components/splash/splash-screen";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
+import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 
 const pressStart = Press_Start_2P({
@@ -61,6 +62,17 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
+  // Installed-to-home-screen behaviour on iOS: launch chromeless (standalone),
+  // titled "Nomekop". The web app manifest (app/manifest.ts) covers Android /
+  // desktop and its <link rel="manifest"> is injected automatically.
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
+  },
+  // Next emits the modern `mobile-web-app-capable`; the legacy apple-prefixed
+  // tag is what iOS < 16.4 reads to launch standalone, so include it too.
+  other: { "apple-mobile-web-app-capable": "yes" },
   keywords: [
     "pokemon tcg binder",
     "binder layout",
@@ -127,6 +139,7 @@ export default async function RootLayout({
             <UiClickSound />
             <ColorSchemeController />
             <SplashScreen disabled={splashDisabled} />
+            <ServiceWorkerRegister />
           </AnalyticsProvider>
         </LanguageProvider>
       </body>

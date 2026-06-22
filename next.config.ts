@@ -71,7 +71,15 @@ const nextConfig: NextConfig = {
     ],
   },
   async headers() {
-    return [{ source: "/(.*)", headers: SECURITY_HEADERS }];
+    return [
+      { source: "/(.*)", headers: SECURITY_HEADERS },
+      // The service worker must never be cached by the browser, or a new app
+      // shell can't roll out — clients would keep re-installing the old worker.
+      {
+        source: "/sw.js",
+        headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }],
+      },
+    ];
   },
   // /sets is the single set-browsing entry; /build is builder-only and needs a
   // set (/build?set=<id>, which then converts to a /b/<token> URL). A bare
