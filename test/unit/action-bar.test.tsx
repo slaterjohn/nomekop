@@ -23,7 +23,13 @@ describe("ActionBar", () => {
   it("downloads a PDF: posts config, clicks an anchor, announces success", async () => {
     const user = userEvent.setup();
     const fetchMock = vi.fn(async (_url: unknown, _init?: RequestInit) => {
-      return new Response(new Blob(["%PDF-fake"], { type: "application/pdf" }), { status: 200 });
+      // A string body, not `new Blob(...)`: jsdom's Blob and Node/undici's
+      // Response are different realms, and feeding the former to the latter
+      // throws "object.stream is not a function". The component reads res.blob().
+      return new Response("%PDF-fake", {
+        status: 200,
+        headers: { "content-type": "application/pdf" },
+      });
     });
     vi.stubGlobal("fetch", fetchMock);
     const clickSpy = vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
@@ -50,7 +56,7 @@ describe("ActionBar", () => {
       vi.fn(
         () =>
           new Promise<Response>((resolve) => {
-            release = () => resolve(new Response(new Blob(["x"]), { status: 200 }));
+            release = () => resolve(new Response("x", { status: 200 }));
           }),
       ),
     );

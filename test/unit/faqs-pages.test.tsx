@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import FaqsIndexPage from "@/app/faqs/page";
@@ -93,15 +93,23 @@ describe("home FAQ spotlight + upcoming sections", () => {
   ];
 
   it("spotlight links the question and the set hub", () => {
-    render(<SetFaqSpotlight setName="Chaos Rising" hubHref="/faqs/set/me4" items={items} />);
-    // Server snapshot renders the first item.
-    expect(
-      screen.getByRole("link", { name: /How many cards are in Chaos Rising/i }),
-    ).toHaveAttribute("href", "/faqs/how-many-cards-in-chaos-rising");
-    expect(screen.getByRole("link", { name: /All Chaos Rising FAQs/i })).toHaveAttribute(
-      "href",
-      "/faqs/set/me4",
-    );
+    // The spotlight rotates by day-of-epoch (floor(now / 86.4e6) % items.length).
+    // Under RTL the client snapshot wins, so pin the clock to day 0 — the index
+    // lands on the first item, the same stable pick the server snapshot renders.
+    // Without this the test only passes on even-numbered days.
+    const nowSpy = vi.spyOn(Date, "now").mockReturnValue(0);
+    try {
+      render(<SetFaqSpotlight setName="Chaos Rising" hubHref="/faqs/set/me4" items={items} />);
+      expect(
+        screen.getByRole("link", { name: /How many cards are in Chaos Rising/i }),
+      ).toHaveAttribute("href", "/faqs/how-many-cards-in-chaos-rising");
+      expect(screen.getByRole("link", { name: /All Chaos Rising FAQs/i })).toHaveAttribute(
+        "href",
+        "/faqs/set/me4",
+      );
+    } finally {
+      nowSpy.mockRestore();
+    }
   });
 
   it("upcoming section lists every upcoming set linking to its hub", () => {

@@ -7,6 +7,7 @@ const STATUS_BY_KIND: Record<TcgError["kind"], number> = {
   network: 503,
   parse: 502,
   "unknown-set": 404,
+  incomplete: 502,
 };
 
 /** Maps data-layer failures to friendly JSON error responses. */

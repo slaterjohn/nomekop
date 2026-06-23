@@ -5,7 +5,8 @@
 // expandSlots / rarityRank by the test, so it can't drift silently.
 
 // Mirror of lib/tcg/rarity.ts ORDER (commonest → rarest). The guard test
-// asserts this stays identical to the app's rarityRank.
+// asserts this stays identical to the app's rarityRank. See that file's header
+// for the authoritative modern hierarchy + source (CGC rarity-symbol guide).
 export const RARITY_ORDER = [
   "Common", "Uncommon", "Rare", "Rare Holo", "Promo", "Rare Holo EX",
   "Rare Holo GX", "Rare Holo V", "Rare Holo VMAX", "Rare Holo VSTAR",
@@ -14,7 +15,7 @@ export const RARITY_ORDER = [
   "Rare Shiny GX", "Shiny Ultra Rare", "Radiant Rare", "Amazing Rare",
   "Illustration Rare", "Trainer Gallery Rare Holo", "Rare Secret",
   "Rare Rainbow", "Special Illustration Rare", "Rare Shining", "LEGEND",
-  "Hyper Rare",
+  "Hyper Rare", "Mega Attack Rare", "Mega Hyper Rare",
 ];
 const RANK = new Map(RARITY_ORDER.map((n, i) => [n.toLowerCase(), i + 1]));
 const UNKNOWN_RANK = 5;

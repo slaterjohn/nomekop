@@ -192,6 +192,44 @@ describe("PokemonTcgIoSource.getCards", () => {
   });
 });
 
+describe("PokemonTcgIoSource pagination integrity", () => {
+  const mkCard = (n: number) => ({ ...CARD_JSON, id: `sv1-${n}`, number: String(n) });
+
+  it("discards duplicate cards that overlap a page boundary", async () => {
+    // A snapshot that shifts mid-pagination re-serves page-1 cards on page 2.
+    // The loop must dedupe by id — not stop early on the inflated length — and
+    // still collect the genuine tail cards (5, 6). This is the me2pt5 bug:
+    // duplicates pushed length past totalCount, so the real tail never loaded.
+    const page1 = [mkCard(1), mkCard(2), mkCard(3)];
+    const page2 = [mkCard(2), mkCard(3), mkCard(4), mkCard(5), mkCard(6)];
+    const fetchMock = vi
+      .fn<(url: unknown, init?: RequestInit) => Promise<Response>>()
+      .mockResolvedValueOnce(jsonResponse({ data: page1, totalCount: 6 }))
+      .mockResolvedValueOnce(jsonResponse({ data: page2, totalCount: 6 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const cards = await new PokemonTcgIoSource({ retries: 0 }).getCards("sv1");
+
+    expect(cards).toHaveLength(6);
+    expect(new Set(cards.map((c) => c.id)).size).toBe(6);
+    expect(cards.map((c) => c.id)).toContain("sv1-6");
+  });
+
+  it("throws 'incomplete' rather than returning a short set when pages never reach the reported total", async () => {
+    // Upstream keeps re-serving the same partial page: distinct cards can never
+    // reach totalCount. Erroring (so getOrCompute keeps the prior good cache)
+    // beats caching a set that is silently missing its ultra rares.
+    const partial = [mkCard(1), mkCard(2), mkCard(3)];
+    const fetchMock = vi.fn(async () => jsonResponse({ data: partial, totalCount: 295 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const source = new PokemonTcgIoSource({ retries: 0 });
+    await expect(source.getCards("sv1")).rejects.toMatchObject({ kind: "incomplete" });
+    // Bounded: the no-progress guard stops it looping forever on duplicates.
+    expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(3);
+  });
+});
+
 describe("FixtureSource", () => {
   it("serves the committed sets", async () => {
     const source = new FixtureSource();

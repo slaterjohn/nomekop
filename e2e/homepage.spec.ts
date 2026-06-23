@@ -4,15 +4,15 @@ test("homepage hub: tiles navigate to each binder type", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1, name: /BUILD THE PERFECT BINDER/i })).toBeVisible();
 
-  // Each tile is a real link with a CTA.
-  await expect(page.getByRole("link", { name: /BUILD A SET/ })).toHaveAttribute("href", "/build");
-  await expect(page.getByRole("link", { name: /PICK A POKÉMON/ })).toHaveAttribute("href", "/pokemon");
-  await expect(page.getByRole("link", { name: /CHOOSE A REGION/ })).toHaveAttribute("href", "/pokedex");
-  await expect(page.getByRole("link", { name: /FIND AN ARTIST/ })).toHaveAttribute("href", "/illustrator");
+  // Each tile is a real link with a CTA. (Set browsing now lives at /sets.)
+  await expect(page.getByRole("link", { name: /Set binders/i })).toHaveAttribute("href", "/sets");
+  await expect(page.getByRole("link", { name: /Pokémon binders/i })).toHaveAttribute("href", "/pokemon");
+  await expect(page.getByRole("link", { name: /Pokédex binders/i })).toHaveAttribute("href", "/pokedex");
+  await expect(page.getByRole("link", { name: /Illustrator binders/i })).toHaveAttribute("href", "/illustrator");
 
-  await page.getByRole("link", { name: /BUILD A SET/ }).click();
-  await expect(page).toHaveURL(/\/build$/);
-  await expect(page.getByRole("heading", { name: "CHOOSE SET" })).toBeVisible();
+  await page.getByRole("link", { name: /Set binders/i }).click();
+  await expect(page).toHaveURL(/\/sets$/);
+  await expect(page.getByRole("searchbox", { name: /search sets/i })).toBeVisible();
 });
 
 test("primary nav highlights the active section", async ({ page }) => {

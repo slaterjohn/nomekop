@@ -27,7 +27,9 @@ test("home ships WebSite/WebApplication/FAQPage JSON-LD and a visible FAQ", asyn
 
 test("set hub is crawlable: /sets → /set/base1 → card links", async ({ page }) => {
   await page.goto("/sets");
-  await expect(page.locator('a[href="/set/base1"]')).toBeVisible();
+  // base1 sits in an older, collapsed series — its crawlable anchor is in the DOM
+  // (hidden), so assert presence, not visibility.
+  await expect(page.locator('a[href="/set/base1"]')).toBeAttached();
   await page.goto("/set/base1");
   const cardLinks = page.locator('a[href^="/card/base1-"]');
   await expect(cardLinks).toHaveCount(102);

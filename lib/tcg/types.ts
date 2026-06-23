@@ -88,7 +88,15 @@ export interface CardDataSource {
   getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]>;
 }
 
-export type TcgErrorKind = "timeout" | "http" | "network" | "parse" | "unknown-set";
+export type TcgErrorKind =
+  | "timeout"
+  | "http"
+  | "network"
+  | "parse"
+  | "unknown-set"
+  /** The API's own totalCount could not be satisfied with distinct cards — a
+   *  truncated or mid-revision response. Never cache it; retry instead. */
+  | "incomplete";
 
 export class TcgError extends Error {
   constructor(

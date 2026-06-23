@@ -2,26 +2,17 @@ import { test, expect } from "@playwright/test";
 import { stubCardImages } from "./helpers";
 
 // The entire core flow, no pointer allowed.
-test("keyboard-only: skip link → choose set → configure → tick a card", async ({ page }) => {
+test("keyboard-only: skip link → configure → tick a card", async ({ page }) => {
   await stubCardImages(page);
-  await page.goto("/build");
+  // Set selection lives on /sets now; drive the sv1 builder itself by keyboard.
+  await page.goto("/b/sv1~34s111ic");
 
   // First Tab lands on the skip link
   await page.keyboard.press("Tab");
   await expect(page.locator(".skip-link")).toBeFocused();
   await page.keyboard.press("Enter");
 
-  // Reach the set search (combobox), type, pick via arrows
-  await page.getByRole("combobox", { name: /search sets/i }).focus();
-  await page.keyboard.type("scarlet & violet");
-  // first option is highlighted by cmdk; step to the exact base set
-  const option = page.getByRole("option", { name: /Scarlet & Violet.*258 cards/ });
-  await expect(option).toBeVisible();
-  while (!(await option.getAttribute("aria-selected").then((v) => v === "true"))) {
-    await page.keyboard.press("ArrowDown");
-  }
-  await page.keyboard.press("Enter");
-  await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
+  await page.getByRole("heading", { name: "Preview" }).waitFor();
 
   // CUSTOM reveals the steppers (keyboard activation)
   await page.getByRole("button", { name: "CUSTOM" }).focus();
@@ -35,12 +26,12 @@ test("keyboard-only: skip link → choose set → configure → tick a card", as
   );
 
   // Collection-mode listbox: roving focus with the ▶ cursor, Enter selects
-  const standard = page.getByRole("option", { name: /STANDARD/ });
+  const standard = page.getByRole("option", { name: /standard/i });
   await standard.focus();
   await expect(standard.locator('[data-gb-cursor="visible"]')).toBeVisible();
   await page.keyboard.press("ArrowDown");
   await page.keyboard.press("Enter");
-  await expect(page.getByText(/444 POCKETS/)).toBeVisible();
+  await expect(page.getByText(/444 pockets/i)).toBeVisible();
 
   // Toggle tick mode with Space, tick the first pocket with Space
   await page.getByRole("switch", { name: "COLLECTION MODE" }).focus();
@@ -57,5 +48,5 @@ test("keyboard-only: skip link → choose set → configure → tick a card", as
   // Binder page navigation with arrow keys on the focused group
   await page.getByRole("group", { name: "Binder pages" }).focus();
   await page.keyboard.press("ArrowRight");
-  await expect(page.getByText(/PAGES 2–3 OF/)).toBeVisible();
+  await expect(page.getByText(/pages 2–3 of/i)).toBeVisible();
 });

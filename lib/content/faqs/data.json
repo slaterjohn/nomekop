@@ -32,14 +32,22 @@
         "Special Illustration Rare": 6
       },
       "rarestCard": {
-        "id": "me4-119",
-        "name": "Cinccino ex",
-        "number": "119",
-        "rarity": "Special Illustration Rare",
-        "imageSmall": "https://images.scrydex.com/pokemon/me4-119/small",
-        "imageLarge": "https://images.scrydex.com/pokemon/me4-119/large"
+        "id": "me4-122",
+        "name": "Mega Greninja ex",
+        "number": "122",
+        "rarity": "Mega Hyper Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me4-122/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me4-122/large"
       },
       "chaseCards": [
+        {
+          "id": "me4-122",
+          "name": "Mega Greninja ex",
+          "number": "122",
+          "rarity": "Mega Hyper Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me4-122/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me4-122/large"
+        },
         {
           "id": "me4-116",
           "name": "Mega Greninja ex",
@@ -79,17 +87,47 @@
           "rarity": "Special Illustration Rare",
           "imageSmall": "https://images.scrydex.com/pokemon/me4-121/small",
           "imageLarge": "https://images.scrydex.com/pokemon/me4-121/large"
-        },
-        {
-          "id": "me4-120",
-          "name": "AZ's Tranquility",
-          "number": "120",
-          "rarity": "Special Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me4-120/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me4-120/large"
         }
       ],
       "marqueePokemon": [
+        {
+          "slug": "mega-greninja",
+          "displayName": "Mega Greninja",
+          "cards": [
+            {
+              "id": "me4-22",
+              "name": "Mega Greninja ex",
+              "number": "22",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-22/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-22/large"
+            },
+            {
+              "id": "me4-100",
+              "name": "Mega Greninja ex",
+              "number": "100",
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-100/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-100/large"
+            },
+            {
+              "id": "me4-116",
+              "name": "Mega Greninja ex",
+              "number": "116",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-116/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-116/large"
+            },
+            {
+              "id": "me4-122",
+              "name": "Mega Greninja ex",
+              "number": "122",
+              "rarity": "Mega Hyper Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me4-122/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me4-122/large"
+            }
+          ]
+        },
         {
           "slug": "cinccino",
           "displayName": "Cinccino",
@@ -147,36 +185,6 @@
               "rarity": "Special Illustration Rare",
               "imageSmall": "https://images.scrydex.com/pokemon/me4-118/small",
               "imageLarge": "https://images.scrydex.com/pokemon/me4-118/large"
-            }
-          ]
-        },
-        {
-          "slug": "mega-greninja",
-          "displayName": "Mega Greninja",
-          "cards": [
-            {
-              "id": "me4-22",
-              "name": "Mega Greninja ex",
-              "number": "22",
-              "rarity": "Double Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me4-22/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me4-22/large"
-            },
-            {
-              "id": "me4-100",
-              "name": "Mega Greninja ex",
-              "number": "100",
-              "rarity": "Ultra Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me4-100/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me4-100/large"
-            },
-            {
-              "id": "me4-116",
-              "name": "Mega Greninja ex",
-              "number": "116",
-              "rarity": "Special Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me4-116/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me4-116/large"
             }
           ]
         },
@@ -258,14 +266,22 @@
         "Double Rare": 9
       },
       "rarestCard": {
-        "id": "me3-121",
-        "name": "Meowth ex",
-        "number": "121",
-        "rarity": "Special Illustration Rare",
-        "imageSmall": "https://images.scrydex.com/pokemon/me3-121/small",
-        "imageLarge": "https://images.scrydex.com/pokemon/me3-121/large"
+        "id": "me3-124",
+        "name": "Mega Zygarde ex",
+        "number": "124",
+        "rarity": "Mega Hyper Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me3-124/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me3-124/large"
       },
       "chaseCards": [
+        {
+          "id": "me3-124",
+          "name": "Mega Zygarde ex",
+          "number": "124",
+          "rarity": "Mega Hyper Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me3-124/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me3-124/large"
+        },
         {
           "id": "me3-121",
           "name": "Meowth ex",
@@ -305,47 +321,9 @@
           "rarity": "Special Illustration Rare",
           "imageSmall": "https://images.scrydex.com/pokemon/me3-123/small",
           "imageLarge": "https://images.scrydex.com/pokemon/me3-123/large"
-        },
-        {
-          "id": "me3-122",
-          "name": "Jacinthe",
-          "number": "122",
-          "rarity": "Special Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me3-122/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me3-122/large"
         }
       ],
       "marqueePokemon": [
-        {
-          "slug": "meowth",
-          "displayName": "Meowth",
-          "cards": [
-            {
-              "id": "me3-62",
-              "name": "Meowth ex",
-              "number": "62",
-              "rarity": "Double Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me3-62/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me3-62/large"
-            },
-            {
-              "id": "me3-107",
-              "name": "Meowth ex",
-              "number": "107",
-              "rarity": "Ultra Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me3-107/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me3-107/large"
-            },
-            {
-              "id": "me3-121",
-              "name": "Meowth ex",
-              "number": "121",
-              "rarity": "Special Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me3-121/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me3-121/large"
-            }
-          ]
-        },
         {
           "slug": "mega-zygarde",
           "displayName": "Mega Zygarde",
@@ -373,6 +351,44 @@
               "rarity": "Special Illustration Rare",
               "imageSmall": "https://images.scrydex.com/pokemon/me3-120/small",
               "imageLarge": "https://images.scrydex.com/pokemon/me3-120/large"
+            },
+            {
+              "id": "me3-124",
+              "name": "Mega Zygarde ex",
+              "number": "124",
+              "rarity": "Mega Hyper Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-124/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-124/large"
+            }
+          ]
+        },
+        {
+          "slug": "meowth",
+          "displayName": "Meowth",
+          "cards": [
+            {
+              "id": "me3-62",
+              "name": "Meowth ex",
+              "number": "62",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-62/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-62/large"
+            },
+            {
+              "id": "me3-107",
+              "name": "Meowth ex",
+              "number": "107",
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-107/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-107/large"
+            },
+            {
+              "id": "me3-121",
+              "name": "Meowth ex",
+              "number": "121",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me3-121/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me3-121/large"
             }
           ]
         },
@@ -464,148 +480,232 @@
       "printedTotal": 217,
       "total": 295,
       "secretCount": 78,
-      "pokemonCount": 257,
-      "trainerCount": 36,
+      "pokemonCount": 243,
+      "trainerCount": 50,
       "energyCount": 2,
-      "reverseHoloCount": 215,
-      "masterSetCount": 510,
+      "reverseHoloCount": 178,
+      "masterSetCount": 473,
       "pokeballCount": 0,
       "masterballCount": 0,
       "hasBallPatterns": false,
-      "illustrationRareCount": 33,
+      "illustrationRareCount": 55,
       "rarityHistogram": {
-        "Common": 105,
-        "Uncommon": 77,
-        "Rare": 33,
+        "Common": 84,
+        "Double Rare": 39,
+        "Uncommon": 69,
+        "Rare": 25,
         "Illustration Rare": 33,
-        "Double Rare": 47
+        "Ultra Rare": 14,
+        "Mega Attack Rare": 7,
+        "Special Illustration Rare": 22,
+        "Mega Hyper Rare": 2
       },
       "rarestCard": {
-        "id": "me2pt5-250",
-        "name": "Fan Rotom",
-        "number": "250",
-        "rarity": "Illustration Rare",
-        "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-250/small",
-        "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-250/large"
+        "id": "me2pt5-295",
+        "name": "Mega Dragonite ex",
+        "number": "295",
+        "rarity": "Mega Hyper Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-295/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-295/large"
       },
       "chaseCards": [
         {
-          "id": "me2pt5-223",
-          "name": "Numel",
-          "number": "223",
-          "rarity": "Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-223/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-223/large"
+          "id": "me2pt5-294",
+          "name": "Mega Charizard Y ex",
+          "number": "294",
+          "rarity": "Mega Hyper Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-294/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-294/large"
         },
         {
-          "id": "me2pt5-239",
-          "name": "Team Rocket's Dugtrio",
-          "number": "239",
-          "rarity": "Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-239/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-239/large"
+          "id": "me2pt5-295",
+          "name": "Mega Dragonite ex",
+          "number": "295",
+          "rarity": "Mega Hyper Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-295/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-295/large"
         },
         {
-          "id": "me2pt5-231",
-          "name": "Iono's Wattrel",
-          "number": "231",
-          "rarity": "Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-231/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-231/large"
+          "id": "me2pt5-265",
+          "name": "Mega Froslass ex",
+          "number": "265",
+          "rarity": "Mega Attack Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-265/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-265/large"
         },
         {
-          "id": "me2pt5-247",
-          "name": "Dreepy",
-          "number": "247",
-          "rarity": "Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-247/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-247/large"
+          "id": "me2pt5-266",
+          "name": "Mega Eelektross ex",
+          "number": "266",
+          "rarity": "Mega Attack Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-266/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-266/large"
         },
         {
-          "id": "me2pt5-219",
-          "name": "Beautifly",
-          "number": "219",
-          "rarity": "Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-219/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-219/large"
+          "id": "me2pt5-267",
+          "name": "Mega Diancie ex",
+          "number": "267",
+          "rarity": "Mega Attack Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-267/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-267/large"
         },
         {
-          "id": "me2pt5-227",
-          "name": "Snorunt",
-          "number": "227",
-          "rarity": "Illustration Rare",
-          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-227/small",
-          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-227/large"
+          "id": "me2pt5-268",
+          "name": "Mega Hawlucha ex",
+          "number": "268",
+          "rarity": "Mega Attack Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-268/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-268/large"
         }
       ],
       "marqueePokemon": [
         {
-          "slug": "numel",
-          "displayName": "Numel",
+          "slug": "mega-dragonite",
+          "displayName": "Mega Dragonite",
           "cards": [
             {
-              "id": "me2pt5-223",
-              "name": "Numel",
-              "number": "223",
-              "rarity": "Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-223/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-223/large"
+              "id": "me2pt5-152",
+              "name": "Mega Dragonite ex",
+              "number": "152",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-152/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-152/large"
+            },
+            {
+              "id": "me2pt5-271",
+              "name": "Mega Dragonite ex",
+              "number": "271",
+              "rarity": "Mega Attack Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-271/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-271/large"
+            },
+            {
+              "id": "me2pt5-290",
+              "name": "Mega Dragonite ex",
+              "number": "290",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-290/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-290/large"
+            },
+            {
+              "id": "me2pt5-295",
+              "name": "Mega Dragonite ex",
+              "number": "295",
+              "rarity": "Mega Hyper Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-295/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-295/large"
             }
           ]
         },
         {
-          "slug": "team-rockets-dugtrio",
-          "displayName": "Team Rocket's Dugtrio",
+          "slug": "mega-charizard-y",
+          "displayName": "Mega Charizard Y",
           "cards": [
             {
-              "id": "me2pt5-239",
-              "name": "Team Rocket's Dugtrio",
-              "number": "239",
-              "rarity": "Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-239/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-239/large"
+              "id": "me2pt5-22",
+              "name": "Mega Charizard Y ex",
+              "number": "22",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-22/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-22/large"
+            },
+            {
+              "id": "me2pt5-294",
+              "name": "Mega Charizard Y ex",
+              "number": "294",
+              "rarity": "Mega Hyper Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-294/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-294/large"
             }
           ]
         },
         {
-          "slug": "ionos-wattrel",
-          "displayName": "Iono's Wattrel",
+          "slug": "mega-hawlucha",
+          "displayName": "Mega Hawlucha",
           "cards": [
             {
-              "id": "me2pt5-231",
-              "name": "Iono's Wattrel",
-              "number": "231",
-              "rarity": "Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-231/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-231/large"
+              "id": "me2pt5-116",
+              "name": "Mega Hawlucha ex",
+              "number": "116",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-116/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-116/large"
+            },
+            {
+              "id": "me2pt5-268",
+              "name": "Mega Hawlucha ex",
+              "number": "268",
+              "rarity": "Mega Attack Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-268/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-268/large"
+            },
+            {
+              "id": "me2pt5-283",
+              "name": "Mega Hawlucha ex",
+              "number": "283",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-283/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-283/large"
             }
           ]
         },
         {
-          "slug": "dreepy",
-          "displayName": "Dreepy",
+          "slug": "mega-gengar",
+          "displayName": "Mega Gengar",
           "cards": [
             {
-              "id": "me2pt5-247",
-              "name": "Dreepy",
-              "number": "247",
-              "rarity": "Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-247/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-247/large"
+              "id": "me2pt5-125",
+              "name": "Mega Gengar ex",
+              "number": "125",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-125/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-125/large"
+            },
+            {
+              "id": "me2pt5-269",
+              "name": "Mega Gengar ex",
+              "number": "269",
+              "rarity": "Mega Attack Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-269/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-269/large"
+            },
+            {
+              "id": "me2pt5-284",
+              "name": "Mega Gengar ex",
+              "number": "284",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-284/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-284/large"
             }
           ]
         },
         {
-          "slug": "beautifly",
-          "displayName": "Beautifly",
+          "slug": "mega-scrafty",
+          "displayName": "Mega Scrafty",
           "cards": [
             {
-              "id": "me2pt5-219",
-              "name": "Beautifly",
-              "number": "219",
-              "rarity": "Illustration Rare",
-              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-219/small",
-              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-219/large"
+              "id": "me2pt5-135",
+              "name": "Mega Scrafty ex",
+              "number": "135",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-135/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-135/large"
+            },
+            {
+              "id": "me2pt5-270",
+              "name": "Mega Scrafty ex",
+              "number": "270",
+              "rarity": "Mega Attack Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-270/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-270/large"
+            },
+            {
+              "id": "me2pt5-285",
+              "name": "Mega Scrafty ex",
+              "number": "285",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me2pt5-285/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me2pt5-285/large"
             }
           ]
         }
@@ -643,13 +743,13 @@
         "Mega Hyper Rare": 1
       },
       "rarestCard": {
-        "id": "me2-128",
-        "name": "Mega Lopunny ex",
-        "number": "128",
-        "rarity": "Special Illustration Rare",
-        "marketPrice": 21.13,
-        "imageSmall": "https://images.pokemontcg.io/me2/128.png",
-        "imageLarge": "https://images.pokemontcg.io/me2/128_hires.png"
+        "id": "me2-130",
+        "name": "Mega Charizard X ex",
+        "number": "130",
+        "rarity": "Mega Hyper Rare",
+        "marketPrice": 367.95,
+        "imageSmall": "https://images.pokemontcg.io/me2/130.png",
+        "imageLarge": "https://images.pokemontcg.io/me2/130_hires.png"
       },
       "mostValuableCard": {
         "id": "me2-125",
@@ -747,6 +847,15 @@
               "marketPrice": 799.71,
               "imageSmall": "https://images.pokemontcg.io/me2/125.png",
               "imageLarge": "https://images.pokemontcg.io/me2/125_hires.png"
+            },
+            {
+              "id": "me2-130",
+              "name": "Mega Charizard X ex",
+              "number": "130",
+              "rarity": "Mega Hyper Rare",
+              "marketPrice": 367.95,
+              "imageSmall": "https://images.pokemontcg.io/me2/130.png",
+              "imageLarge": "https://images.pokemontcg.io/me2/130_hires.png"
             }
           ]
         },
@@ -898,13 +1007,13 @@
         "Mega Hyper Rare": 2
       },
       "rarestCard": {
-        "id": "me1-182",
-        "name": "Mega Kangaskhan ex",
-        "number": "182",
-        "rarity": "Special Illustration Rare",
-        "marketPrice": 69.98,
-        "imageSmall": "https://images.pokemontcg.io/me1/182.png",
-        "imageLarge": "https://images.pokemontcg.io/me1/182_hires.png"
+        "id": "me1-188",
+        "name": "Mega Lucario ex",
+        "number": "188",
+        "rarity": "Mega Hyper Rare",
+        "marketPrice": 267.38,
+        "imageSmall": "https://images.pokemontcg.io/me1/188.png",
+        "imageLarge": "https://images.pokemontcg.io/me1/188_hires.png"
       },
       "mostValuableCard": {
         "id": "me1-188",
@@ -1002,6 +1111,15 @@
               "marketPrice": 242.26,
               "imageSmall": "https://images.pokemontcg.io/me1/179.png",
               "imageLarge": "https://images.pokemontcg.io/me1/179_hires.png"
+            },
+            {
+              "id": "me1-188",
+              "name": "Mega Lucario ex",
+              "number": "188",
+              "rarity": "Mega Hyper Rare",
+              "marketPrice": 267.38,
+              "imageSmall": "https://images.pokemontcg.io/me1/188.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/188_hires.png"
             }
           ]
         },
@@ -1035,6 +1153,15 @@
               "marketPrice": 206.16,
               "imageSmall": "https://images.pokemontcg.io/me1/178.png",
               "imageLarge": "https://images.pokemontcg.io/me1/178_hires.png"
+            },
+            {
+              "id": "me1-187",
+              "name": "Mega Gardevoir ex",
+              "number": "187",
+              "rarity": "Mega Hyper Rare",
+              "marketPrice": 227.03,
+              "imageSmall": "https://images.pokemontcg.io/me1/187.png",
+              "imageLarge": "https://images.pokemontcg.io/me1/187_hires.png"
             }
           ]
         },

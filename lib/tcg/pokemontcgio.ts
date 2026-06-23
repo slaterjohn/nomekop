@@ -64,30 +64,26 @@ export class PokemonTcgIoSource implements CardDataSource {
   }
 
   async getSets(): Promise<TcgSet[]> {
-    const sets: TcgSet[] = [];
-    let page = 1;
-    for (;;) {
-      const body = await this.request(`/sets?pageSize=${PAGE_SIZE}&page=${page}&orderBy=releaseDate`);
-      const data = (body.data ?? []) as ApiSet[];
-      sets.push(...data.map(mapSet));
-      const total = typeof body.totalCount === "number" ? body.totalCount : sets.length;
-      if (sets.length >= total || data.length === 0) return sets;
-      page += 1;
-    }
+    return this.collectDistinct<ApiSet, TcgSet>(
+      (page) => `/sets?pageSize=${PAGE_SIZE}&page=${page}&orderBy=releaseDate`,
+      mapSet,
+      "sets",
+    );
   }
 
   async getCards(setId: string): Promise<TcgCard[]> {
-    const cards: TcgCard[] = [];
-    let page = 1;
-    for (;;) {
-      const q = encodeURIComponent(`set.id:${setId}`);
-      const body = await this.request(`/cards?q=${q}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=number`);
-      const data = (body.data ?? []) as ApiCard[];
-      cards.push(...data.map(mapCard));
-      const total = typeof body.totalCount === "number" ? body.totalCount : cards.length;
-      if (cards.length >= total || data.length === 0) return applyBallPatterns(setId, cards);
-      page += 1;
-    }
+    const q = encodeURIComponent(`set.id:${setId}`);
+    // orderBy=id, not =number: pokemontcg.io string-sorts the `number` field, so
+    // paging a set whose collector numbers don't sort lexicographically (e.g.
+    // Ascended Heroes) returns overlapping pages — duplicates plus dropped tail
+    // cards. A unique, stable key (id) paginates cleanly. The app re-sorts cards
+    // for display anyway, so API order is immaterial.
+    const cards = await this.collectDistinct<ApiCard, TcgCard>(
+      (page) => `/cards?q=${q}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=id`,
+      mapCard,
+      `cards for set ${setId}`,
+    );
+    return applyBallPatterns(setId, cards);
   }
 
   async searchCardsByName(name: string): Promise<CardWithSet[]> {
@@ -111,18 +107,60 @@ export class PokemonTcgIoSource implements CardDataSource {
   }
 
   private async pagedCardsWithSet(query: string): Promise<CardWithSet[]> {
-    const cards: CardWithSet[] = [];
+    // orderBy=id for stable pagination (see getCards) — `number` string-sorts and
+    // can desync multi-page results. Cross-set results are sorted for display
+    // downstream, so the API ordering here doesn't matter.
+    return this.collectDistinct<ApiCard, CardWithSet>(
+      (page) =>
+        `/cards?q=${encodeURIComponent(query)}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=id`,
+      mapCardWithSet,
+      `cards for query ${query}`,
+    );
+  }
+
+  /**
+   * Pages through a list endpoint, deduping by id and assembling DISTINCT items.
+   *
+   * Two safeguards against the silent data loss that bit Ascended Heroes (a set
+   * whose snapshot shifted mid-pagination, so page 2 re-served page-1 cards):
+   *
+   *  1. Termination is by distinct count, not array length — duplicate rows can
+   *     no longer push `length` past `totalCount` and trick the loop into
+   *     stopping before the real tail loads. A page that adds zero new ids ends
+   *     the loop (so an endlessly-duplicating endpoint can't spin forever).
+   *  2. Completeness check — if the API reported a `totalCount` we never reached
+   *     with distinct items, we THROW rather than return a short list. Callers
+   *     cache via getOrCompute, which only persists on success, so a truncated
+   *     fetch is dropped (and the prior good cache kept) instead of poisoning it.
+   */
+  private async collectDistinct<A extends { id: string }, T>(
+    pathFor: (page: number) => string,
+    map: (item: A) => T,
+    label: string,
+  ): Promise<T[]> {
+    const byId = new Map<string, T>();
+    let knownTotal: number | undefined;
     let page = 1;
     for (;;) {
-      const body = await this.request(
-        `/cards?q=${encodeURIComponent(query)}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=set.releaseDate,number`,
-      );
-      const data = (body.data ?? []) as ApiCard[];
-      cards.push(...data.map(mapCardWithSet));
-      const total = typeof body.totalCount === "number" ? body.totalCount : cards.length;
-      if (cards.length >= total || data.length === 0) return cards;
+      const body = await this.request(pathFor(page));
+      const data = (body.data ?? []) as A[];
+      if (typeof body.totalCount === "number") knownTotal = body.totalCount;
+      const before = byId.size;
+      for (const item of data) byId.set(item.id, map(item));
+      const target = knownTotal ?? byId.size;
+      if (byId.size >= target) break;
+      // Out of rows, or a page that contributed nothing new — stop and let the
+      // completeness check below decide whether what we have is acceptable.
+      if (data.length === 0 || byId.size === before) break;
       page += 1;
     }
+    if (knownTotal !== undefined && byId.size < knownTotal) {
+      throw new TcgError(
+        "incomplete",
+        `pokemontcg.io returned an incomplete list for ${label}: ${byId.size} distinct of ${knownTotal} reported`,
+      );
+    }
+    return [...byId.values()];
   }
 
   private async request(path: string): Promise<{ data?: unknown; totalCount?: number }> {
@@ -190,12 +228,23 @@ function mapSet(s: ApiSet): TcgSet {
   };
 }
 
+/**
+ * pokemontcg.io returns the Mega Evolution attack-rare rarity as a raw enum
+ * (`MEGA_ATTACK_RARE`) while every other rarity is Title Case. Normalize it so it
+ * reads cleanly everywhere (binder, card detail, FAQs) and matches the rarity
+ * rank table. Currently the only known offender.
+ */
+function normalizeRarity(rarity: string | undefined): string | undefined {
+  return rarity === "MEGA_ATTACK_RARE" ? "Mega Attack Rare" : rarity;
+}
+
 function mapCard(c: ApiCard): TcgCard {
+  const rarity = normalizeRarity(c.rarity);
   return {
     id: c.id,
     name: c.name,
     number: c.number,
-    rarity: c.rarity,
+    rarity,
     supertype: c.supertype ?? "Unknown",
     imageSmall: c.images?.small ?? "",
     imageLarge: c.images?.large ?? "",
@@ -203,7 +252,7 @@ function mapCard(c: ApiCard): TcgCard {
       releaseDate: c.set.releaseDate,
       printedTotal: c.set.printedTotal,
       number: c.number,
-      rarity: c.rarity,
+      rarity,
     }),
     dex: c.nationalPokedexNumbers,
     artist: c.artist,
