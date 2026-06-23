@@ -7,11 +7,11 @@ export async function stubCardImages(page: Page): Promise<void> {
   );
 }
 
-/** Selects sv1 via the set search UI. */
+/** Opens the Scarlet & Violet (sv1) builder in its default config. Set browsing
+ *  now lives on /sets; the builder is entered by share token, so we jump straight
+ *  to sv1's default token (standard mode, 12-pocket grid). */
 export async function chooseScarletViolet(page: Page): Promise<void> {
-  await page.getByRole("combobox", { name: /search sets/i }).fill("scarlet & violet");
-  await page.locator("[cmdk-item]", { hasText: "258 cards" }).click();
-  await page.getByRole("heading", { name: "PREVIEW" }).waitFor();
-  // the address bar now carries the share token
+  await page.goto("/b/sv1~34s111ic");
+  await page.getByRole("heading", { name: "Preview" }).waitFor();
   await page.waitForURL(/\/b\/sv1~/);
 }
