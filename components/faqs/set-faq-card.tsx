@@ -56,7 +56,7 @@ export function SetFaqCard({ set }: { set: FaqSetSummary }) {
           <span className="font-pixel text-xs leading-relaxed group-hover:underline">
             {set.name}
           </span>
-          <span className="font-readable text-base leading-snug text-gb-muted">{meta}</span>
+          <span className="font-readable text-base leading-snug text-gb-ink">{meta}</span>
         </span>
 
         <span className="mt-auto font-pixel text-[10px] uppercase underline-offset-2 group-hover:underline">
