@@ -73,8 +73,13 @@ export class PokemonTcgIoSource implements CardDataSource {
 
   async getCards(setId: string): Promise<TcgCard[]> {
     const q = encodeURIComponent(`set.id:${setId}`);
+    // orderBy=id, not =number: pokemontcg.io string-sorts the `number` field, so
+    // paging a set whose collector numbers don't sort lexicographically (e.g.
+    // Ascended Heroes) returns overlapping pages — duplicates plus dropped tail
+    // cards. A unique, stable key (id) paginates cleanly. The app re-sorts cards
+    // for display anyway, so API order is immaterial.
     const cards = await this.collectDistinct<ApiCard, TcgCard>(
-      (page) => `/cards?q=${q}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=number`,
+      (page) => `/cards?q=${q}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=id`,
       mapCard,
       `cards for set ${setId}`,
     );
@@ -102,9 +107,12 @@ export class PokemonTcgIoSource implements CardDataSource {
   }
 
   private async pagedCardsWithSet(query: string): Promise<CardWithSet[]> {
+    // orderBy=id for stable pagination (see getCards) — `number` string-sorts and
+    // can desync multi-page results. Cross-set results are sorted for display
+    // downstream, so the API ordering here doesn't matter.
     return this.collectDistinct<ApiCard, CardWithSet>(
       (page) =>
-        `/cards?q=${encodeURIComponent(query)}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=set.releaseDate,number`,
+        `/cards?q=${encodeURIComponent(query)}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=id`,
       mapCardWithSet,
       `cards for query ${query}`,
     );
@@ -220,12 +228,23 @@ function mapSet(s: ApiSet): TcgSet {
   };
 }
 
+/**
+ * pokemontcg.io returns the Mega Evolution attack-rare rarity as a raw enum
+ * (`MEGA_ATTACK_RARE`) while every other rarity is Title Case. Normalize it so it
+ * reads cleanly everywhere (binder, card detail, FAQs) and matches the rarity
+ * rank table. Currently the only known offender.
+ */
+function normalizeRarity(rarity: string | undefined): string | undefined {
+  return rarity === "MEGA_ATTACK_RARE" ? "Mega Attack Rare" : rarity;
+}
+
 function mapCard(c: ApiCard): TcgCard {
+  const rarity = normalizeRarity(c.rarity);
   return {
     id: c.id,
     name: c.name,
     number: c.number,
-    rarity: c.rarity,
+    rarity,
     supertype: c.supertype ?? "Unknown",
     imageSmall: c.images?.small ?? "",
     imageLarge: c.images?.large ?? "",
@@ -233,7 +252,7 @@ function mapCard(c: ApiCard): TcgCard {
       releaseDate: c.set.releaseDate,
       printedTotal: c.set.printedTotal,
       number: c.number,
-      rarity: c.rarity,
+      rarity,
     }),
     dex: c.nationalPokedexNumbers,
     artist: c.artist,

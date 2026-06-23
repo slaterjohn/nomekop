@@ -1,6 +1,18 @@
 // Rarity ranking, commonest → rarest. Used to pick "the rarest print" for
 // Pokédex defaults and per-set best cards. Unknown rarities land mid-table
 // rather than at either extreme.
+//
+// AUTHORITATIVE SOURCE — keep the modern tail in THIS order; do not reshuffle
+// from memory. Scarlet & Violet → Mega Evolution hierarchy, per CGC's rarity-
+// symbol guide (https://www.cgccards.uk/news/article/12438/pokemon-rarity-symbols/):
+//   Double Rare (2 black ★) < Ultra Rare (2 silver ★) < Illustration Rare (1
+//   gold ★) < Special Illustration Rare (2 gold ★) < Hyper Rare (3 gold ★) <
+//   Mega Attack Rare (pink+green ★ — Ascended Heroes / Jan 2026 only so far) <
+//   Mega Hyper Rare (embossed gold, ~1 in 1,260 packs — the rarest in the game).
+// pokemontcg.io returns the attack-rare as the raw enum MEGA_ATTACK_RARE, which
+// mapCard (lib/tcg/pokemontcgio.ts) normalizes to "Mega Attack Rare".
+// scripts/faq-compute.mjs MUST mirror this list verbatim (faqs-compute.test.ts
+// fails otherwise).
 
 const ORDER: string[] = [
   "Common",
@@ -35,6 +47,11 @@ const ORDER: string[] = [
   "Rare Shining",
   "LEGEND",
   "Hyper Rare",
+  // Mega Evolution era (2025+): the gold/textured Mega Hyper Rare is the top
+  // chase in every Mega set; the Mega Attack Rare (Ascended Heroes only so far)
+  // sits just below it.
+  "Mega Attack Rare",
+  "Mega Hyper Rare",
 ];
 
 const RANK = new Map(ORDER.map((name, i) => [name.toLowerCase(), i + 1]));
