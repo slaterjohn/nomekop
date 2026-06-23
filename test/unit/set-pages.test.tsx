@@ -12,6 +12,20 @@ import { DEFAULT_CONFIG } from "@/lib/config";
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: vi.fn(), refresh: vi.fn(), replace: vi.fn() }),
 }));
+
+// server-store imports node:sqlite — a Node builtin Vite can't bundle for the
+// jsdom environment. These tests run in fixture mode (below) and never touch the
+// DB, so stub the store: data comes from the fixtures, master counts recompute.
+vi.mock("@/lib/server-store", () => ({
+  serverStore: {
+    getOrCompute: (_key: string, _ttl: number, compute: () => unknown) => compute(),
+    peek: () => undefined,
+    set: () => {},
+  },
+  SqliteStore: class {},
+  SETS_TTL_MS: 0,
+  CARDS_TTL_MS: 0,
+}));
 import { recommendPreset } from "@/lib/binders";
 import { encodeShareToken } from "@/lib/share";
 import type { TcgSet } from "@/lib/tcg/types";
@@ -39,9 +53,13 @@ function linksWithHrefPrefix(prefix: string): HTMLElement[] {
 describe("SetsIndexPage (/sets)", () => {
   it("lists a /set/ link for every fixture set, including base1", async () => {
     const fixtureSets = await readFixtureSets();
-    render(await SetsIndexPage({ searchParams: Promise.resolve({}) }));
+    const { container } = render(await SetsIndexPage({ searchParams: Promise.resolve({}) }));
 
-    const setLinks = linksWithHrefPrefix("/set/");
+    // Crawlability invariant: every set keeps a real <a href="/set/[id]"> in the
+    // DOM even when its series is collapsed (only the latest two series are open
+    // by default). Collapsed series sit in `hidden` containers, so they're absent
+    // from the a11y tree — query the raw DOM, not getAllByRole, which skips them.
+    const setLinks = [...container.querySelectorAll<HTMLAnchorElement>('a[href^="/set/"]')];
     expect(setLinks.length).toBeGreaterThan(50);
     expect(setLinks).toHaveLength(fixtureSets.length);
 
