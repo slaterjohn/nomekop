@@ -73,18 +73,8 @@ export const metadata: Metadata = {
   // Next emits the modern `mobile-web-app-capable`; the legacy apple-prefixed
   // tag is what iOS < 16.4 reads to launch standalone, so include it too.
   other: { "apple-mobile-web-app-capable": "yes" },
-  keywords: [
-    "pokemon tcg binder",
-    "binder layout",
-    "master set",
-    "reverse holo",
-    "card collection tracker",
-    "pokemon card checklist",
-    "pokemon set list",
-    "binder pages",
-    "card prices",
-    "pokemon tcg",
-  ],
+  // No `keywords` meta: Google ignores it, and a single sitewide list across
+  // every page is a redundant-metadata signal. Pages rank on their real content.
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

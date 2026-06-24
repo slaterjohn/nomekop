@@ -84,7 +84,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
           window.open(printHref, "_blank", "noopener");
         }}
       >
-        Print
+        Print<span className="sr-only"> (opens in a new tab)</span>
       </GbButton>
       <GbButton
         variant="b"

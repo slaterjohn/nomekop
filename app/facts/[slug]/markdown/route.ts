@@ -37,8 +37,10 @@ export async function GET(
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=86400",
       // Point search engines at the HTML article as the canonical of this
-      // non-HTML variant (the HTML page already carries its own canonical).
+      // non-HTML variant (the HTML page already carries its own canonical), and
+      // keep the near-duplicate Markdown out of the index — it exists for LLMs.
       Link: `<${siteUrl()}/facts/${slug}>; rel="canonical"`,
+      "X-Robots-Tag": "noindex",
     },
   });
 }

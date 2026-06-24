@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTICLES } from "@/lib/content/articles";
 import { JsonLd } from "@/components/json-ld";
-import { factsCollectionJsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, factsCollectionJsonLd } from "@/lib/structured-data";
 import { getServerDictionary } from "@/lib/i18n/server";
 
 const FACTS_TITLE = "Pokémon TCG fun facts & trivia";
@@ -50,7 +50,15 @@ export default async function FactsIndexPage() {
         ))}
       </ul>
 
-      <JsonLd data={factsCollectionJsonLd(ARTICLES)} />
+      <JsonLd
+        data={[
+          factsCollectionJsonLd(ARTICLES),
+          breadcrumbJsonLd([
+            { name: "NOMEKOP", path: "/" },
+            { name: "Fun facts", path: "/facts" },
+          ]),
+        ]}
+      />
     </main>
   );
 }

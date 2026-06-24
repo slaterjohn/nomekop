@@ -14,12 +14,16 @@ import {
   faqJsonLd,
   faqSetHubJsonLd,
   faqsIndexSetsJsonLd,
+  organizationJsonLd,
   setCollectionJsonLd,
   setsIndexJsonLd,
   webApplicationJsonLd,
   webSiteJsonLd,
 } from "@/lib/structured-data";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+
+const ORG_ID = "http://localhost:3000/#organization";
+const WEBSITE_ID = "http://localhost:3000/#website";
 
 describe("faqsIndexSetsJsonLd", () => {
   it("is a CollectionPage whose ItemList points at each set's FAQ hub", () => {
@@ -87,14 +91,40 @@ async function fixtureSet(id: string): Promise<TcgSet> {
   return set;
 }
 
+describe("organizationJsonLd", () => {
+  it("emits an Organization with a stable @id and a 512px logo", () => {
+    const data = organizationJsonLd();
+    expect(data["@type"]).toBe("Organization");
+    expect(data["@id"]).toBe(ORG_ID);
+    expect(data.name).toBe(SITE_NAME);
+    expect(obj(data.logo)).toEqual({
+      "@type": "ImageObject",
+      url: `${BASE}/icon-512.png`,
+      width: 512,
+      height: 512,
+    });
+    // The old self-referencing `creator` is gone.
+    expect(data.creator).toBeUndefined();
+  });
+});
+
 describe("webSiteJsonLd", () => {
   it("emits a WebSite with name, absolute url and description", () => {
     const data = webSiteJsonLd();
     expect(data["@context"]).toBe("https://schema.org");
     expect(data["@type"]).toBe("WebSite");
+    expect(data["@id"]).toBe(WEBSITE_ID);
     expect(data.name).toBe(SITE_NAME);
     expect(data.url).toBe(`${BASE}/`);
     expect(String(data.description).length).toBeGreaterThan(50);
+    expect(obj(data.publisher)).toEqual({ "@id": ORG_ID });
+  });
+
+  it("carries a Sitelinks SearchAction targeting the /sets search", () => {
+    const action = obj(webSiteJsonLd().potentialAction);
+    expect(action["@type"]).toBe("SearchAction");
+    expect(obj(action.target).urlTemplate).toBe(`${BASE}/sets?q={search_term_string}`);
+    expect(action["query-input"]).toBe("required name=search_term_string");
   });
 
   it("derives the url from NEXT_PUBLIC_SITE_URL", () => {
@@ -118,7 +148,7 @@ describe("webApplicationJsonLd", () => {
   it("declares the app free via a zero-price Offer", () => {
     expect(obj(webApplicationJsonLd().offers)).toEqual({
       "@type": "Offer",
-      price: "0",
+      price: 0,
       priceCurrency: "USD",
     });
   });
@@ -246,7 +276,7 @@ describe("setCollectionJsonLd", () => {
     expect(data.name).toContain("Scarlet & Violet");
     expect(data.url).toBe(`${BASE}/set/sv1`);
     expect(data.description).toContain("Scarlet & Violet");
-    expect(obj(data.isPartOf)).toEqual({ "@type": "WebSite", url: `${BASE}/` });
+    expect(obj(data.isPartOf)).toEqual({ "@id": WEBSITE_ID });
   });
 
   it("caps the ItemList at 50 entries while reporting the full count", async () => {
@@ -284,7 +314,7 @@ describe("setsIndexJsonLd", () => {
     expect(data["@context"]).toBe("https://schema.org");
     expect(data["@type"]).toBe("CollectionPage");
     expect(data.url).toBe(`${BASE}/sets`);
-    expect(obj(data.isPartOf)).toEqual({ "@type": "WebSite", url: `${BASE}/` });
+    expect(obj(data.isPartOf)).toEqual({ "@id": WEBSITE_ID });
 
     const list = obj(data.mainEntity);
     expect(list["@type"]).toBe("ItemList");
@@ -327,17 +357,14 @@ describe("articleJsonLd", () => {
     expect(post.dateModified).toBe(article.date);
     expect(post.inLanguage).toBe("en");
     expect(post.url).toBe(`${BASE}/facts/${article.slug}`);
-    expect(obj(post.mainEntityOfPage)).toEqual({
-      "@type": "WebPage",
-      "@id": `${BASE}/facts/${article.slug}`,
-    });
+    // A bare URL string (not a dangling WebPage @id node).
+    expect(post.mainEntityOfPage).toBe(`${BASE}/facts/${article.slug}`);
   });
 
-  it("attributes the BlogPosting to the site as author and publisher", () => {
+  it("attributes the BlogPosting to the site Organization by @id", () => {
     const post = arr(articleJsonLd(article))[0]!;
-    const org = { "@type": "Organization", name: SITE_NAME, url: `${BASE}/` };
-    expect(obj(post.author)).toEqual(org);
-    expect(obj(post.publisher)).toEqual(org);
+    expect(obj(post.author)).toEqual({ "@id": ORG_ID });
+    expect(obj(post.publisher)).toEqual({ "@id": ORG_ID });
   });
 
   it("carries an ImageObject pointing at the per-article OG image", () => {
@@ -386,13 +413,13 @@ describe("factsCollectionJsonLd", () => {
     expect(data["@context"]).toBe("https://schema.org");
     expect(data["@type"]).toBe("Blog");
     expect(data.url).toBe(`${BASE}/facts`);
-    expect(obj(data.isPartOf)).toEqual({ "@type": "WebSite", url: `${BASE}/` });
+    expect(obj(data.isPartOf)).toEqual({ "@id": WEBSITE_ID });
     expect(arr(data.blogPost)).toHaveLength(articles.length);
   });
 
   it("describes each nested BlogPosting with headline, date, image, author and absolute url", () => {
     const posts = arr(factsCollectionJsonLd(articles).blogPost);
-    const org = { "@type": "Organization", name: SITE_NAME, url: `${BASE}/` };
+    const org = { "@id": ORG_ID };
     posts.forEach((post, index) => {
       expect(post["@type"]).toBe("BlogPosting");
       expect(post.headline).toBe(articles[index]!.title);

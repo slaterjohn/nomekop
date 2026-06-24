@@ -92,7 +92,7 @@ describe("SetPage (/set/[setId])", () => {
     expect(cardLinks).toHaveLength(102);
     expect(cardLinks.map((a) => a.getAttribute("href"))).toContain("/card/base1-1");
     // Heading + subline identify the set.
-    expect(screen.getByRole("heading", { level: 1, name: "BASE" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "BASE SET" })).toBeInTheDocument();
     expect(screen.getByText(/Base · 1999 · 102 printed \/ 102 total cards/)).toBeInTheDocument();
   });
 
@@ -122,7 +122,8 @@ describe("SetPage (/set/[setId])", () => {
 
   it("titles metadata with the set name and card count; 404s unknown ids", async () => {
     const known = await generateMetadata({ params: Promise.resolve({ setId: "base1" }) });
-    expect(known.title).toBe("Base card list & binder layout (102 cards)");
+    // "Base" → "Base Set" (the searched form) for SEO; other names are unchanged.
+    expect(known.title).toBe("Base Set card list & binder layout (102 cards)");
     // generateMetadata shares the page's cached loader, so unknown ids 404
     // here exactly like the page body does.
     await expect(generateMetadata({ params: Promise.resolve({ setId: "zzz" }) })).rejects.toThrow();

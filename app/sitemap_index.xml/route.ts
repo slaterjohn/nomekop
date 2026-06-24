@@ -1,16 +1,17 @@
-import { generateSitemaps } from "@/app/sitemap";
+import { getSets } from "@/lib/tcg";
 import { siteUrl } from "@/lib/site";
 
-// The sitemap INDEX at /sitemap_index.xml: one document listing every shard
-// generateSitemaps emits (/sitemap/<id>.xml — the core overview plus one per
-// set). Next 16's generateSitemaps produces the shards but no index, and it
-// reserves /sitemap.xml for the metadata convention, so the index lives at the
-// conventional /sitemap_index.xml and robots.txt points crawlers there.
-// Rendered at request time (like the shards) so a cold cache can't fail it.
+// The sitemap INDEX at /sitemap_index.xml: one document listing every shard the
+// sitemap generates (/sitemap/<id>.xml — the core overview plus one per set),
+// each with a <lastmod> so Googlebot can skip re-fetching unchanged shards.
+// Next 16's generateSitemaps produces the shards but no index, and it reserves
+// /sitemap.xml for the metadata convention, so the index lives here and
+// robots.txt points crawlers at it. Rendered at request time so a cold cache
+// can't fail it.
 export const dynamic = "force-dynamic";
 
-/** Escape the five XML entities — set ids are `[a-z0-9.]` and the origin is a
- *  plain URL, so this is belt-and-braces, but a <loc> must be valid XML. */
+/** Escape the five XML entities — values are URLs / dates, but a <loc> must be
+ *  valid XML. */
 function xml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -20,12 +21,38 @@ function xml(value: string): string {
     .replace(/'/g, "&apos;");
 }
 
+/** "2025/01/17" → "2025-01-17" (W3C date for <lastmod>); undefined if unparsable. */
+function lastmod(releaseDate: string | undefined): string | undefined {
+  if (!releaseDate) return undefined;
+  const iso = releaseDate.replace(/\//g, "-");
+  return /^\d{4}-\d{2}-\d{2}$/.test(iso) ? iso : undefined;
+}
+
+function entry(loc: string, mod?: string): string {
+  return (
+    `  <sitemap>\n    <loc>${xml(loc)}</loc>\n` +
+    (mod ? `    <lastmod>${mod}</lastmod>\n` : "") +
+    `  </sitemap>`
+  );
+}
+
 export async function GET(): Promise<Response> {
   const base = siteUrl();
-  const shards = await generateSitemaps();
-  const entries = shards
-    .map(({ id }) => `  <sitemap>\n    <loc>${xml(`${base}/sitemap/${id}.xml`)}</loc>\n  </sitemap>`)
-    .join("\n");
+  let sets: Array<{ id: string; releaseDate: string }> = [];
+  try {
+    sets = await getSets();
+  } catch {
+    // Offline/cold cache: still publish the core shard.
+  }
+  // Core shard's lastmod tracks the newest set (it lists every /set/ page).
+  const newest = sets.reduce<string | undefined>(
+    (acc, s) => (!acc || s.releaseDate > acc ? s.releaseDate : acc),
+    undefined,
+  );
+  const entries = [
+    entry(`${base}/sitemap/core.xml`, lastmod(newest)),
+    ...sets.map((s) => entry(`${base}/sitemap/${s.id}.xml`, lastmod(s.releaseDate))),
+  ].join("\n");
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
     `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
@@ -35,8 +62,6 @@ export async function GET(): Promise<Response> {
   return new Response(body, {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      // Crawler-facing; let the CDN hold it briefly so a crawl burst doesn't
-      // re-walk the set list every hit.
       "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
     },
   });

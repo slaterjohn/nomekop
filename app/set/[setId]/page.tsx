@@ -43,12 +43,20 @@ const loadSet = cache(async (setId: string) => {
   }
 });
 
+/** The name people actually search. The pokemontcg.io name for the 1999 base set
+ *  is the bare word "Base"; everyone calls it "Base Set", so align titles + H1 to
+ *  that for keyword match. Other set names are already the searched form. */
+function seoSetName(name: string): string {
+  return name === "Base" ? "Base Set" : name;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { setId } = await params;
   const { set } = await loadSet(setId);
-  const title = `${set.name} card list & binder layout (${set.printedTotal} cards)`;
+  const name = seoSetName(set.name);
+  const title = `${name} card list & binder layout (${set.printedTotal} cards)`;
   const description =
-    `${set.name} — Pokemon TCG expansion from the ${set.series} series ` +
+    `${name} — Pokemon TCG expansion from the ${set.series} series ` +
     `(${set.releaseDate.slice(0, 4)}) with ${set.printedTotal} cards. ` +
     "See every card, current prices, and print A4 binder pages and checklists.";
   return {
@@ -123,7 +131,7 @@ export default async function SetPage({ params }: Props) {
           />
         ) : null}
         <div className="min-w-0">
-          <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">{set.name.toUpperCase()}</h1>
+          <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">{seoSetName(set.name).toUpperCase()}</h1>
           <p className="mt-1 font-body text-lg leading-none">
             {format(dict.setDetail.cardsLine, {
               series: set.series,
@@ -135,7 +143,11 @@ export default async function SetPage({ params }: Props) {
         </div>
       </header>
 
-      {!isSeriesVerified(set.series) ? (
+      {/* Only when the count is genuinely uncertain: an unverified era AND the set
+          actually has reverse holos (whose counts the API doesn't expose). Sets
+          with no reverses — Base, Jungle, Fossil — have a trivially correct count,
+          so the "may be inaccurate" banner would just be noise there. */}
+      {!isSeriesVerified(set.series) && master.stats.byKind.reverse > 0 ? (
         <AccuracyDisclaimer
           body={dict.accuracy.disclaimer}
           reportCta={dict.accuracy.reportCta}

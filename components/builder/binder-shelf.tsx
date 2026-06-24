@@ -49,7 +49,8 @@ export function BinderShelf({ pockets, pages }: BinderShelfProps) {
                   rel="noopener noreferrer sponsored"
                   onClick={() => play("confirm")}
                 >
-                  {retailerName(link.retailer)} ↗
+                  {retailerName(link.retailer)} <span aria-hidden="true">↗</span>
+                  <span className="sr-only">(opens in a new tab)</span>
                 </GbLinkButton>
               ))}
             </div>

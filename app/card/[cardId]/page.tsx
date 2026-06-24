@@ -97,6 +97,11 @@ export default async function CardPage({ params, searchParams }: Props) {
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
       <JsonLd data={productLd ? [productLd, breadcrumbLd] : breadcrumbLd} />
+      {/* The visible card identity is GbScreen's <h2>; this sr-only <h1> gives the
+          page its primary topical heading (card pages had none). */}
+      <h1 className="sr-only">
+        {card.name} {card.number}/{set.printedTotal} · {set.name}
+      </h1>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link href={`/set/${set.id}`} className="font-pixel text-sm uppercase no-underline">
           ◂ {set.name}

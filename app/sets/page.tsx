@@ -76,7 +76,7 @@ function LocalizedSetRow({ set, cards }: { set: LocalizedSetRef; cards: string }
   );
 }
 
-type Props = { searchParams: Promise<{ lang?: string }> };
+type Props = { searchParams: Promise<{ lang?: string; q?: string }> };
 
 /** Crawlable index of every set. The default English view is an interactive
  *  browser (search + collapsible series + click-to-modal) that still renders a
@@ -84,7 +84,7 @@ type Props = { searchParams: Promise<{ lang?: string }> };
  *  (Japanese, French…): the localized/translated/exclusive sets are listed in a
  *  reference section below the browser. */
 export default async function SetsIndexPage({ searchParams }: Props) {
-  const { lang: langParam } = await searchParams;
+  const { lang: langParam, q: queryParam } = await searchParams;
   const lang =
     cardLanguagesEnabled() && langParam && isLanguage(langParam) && langParam !== "en"
       ? langParam
@@ -194,7 +194,7 @@ export default async function SetsIndexPage({ searchParams }: Props) {
         </p>
       ) : null}
 
-      <SetsBrowser groups={groups} labels={labels} />
+      <SetsBrowser groups={groups} labels={labels} initialQuery={queryParam ?? ""} />
 
       {lang !== "en" && language && localizedRefs.length > 0 ? (
         <GbScreen title={language.label.toUpperCase()}>

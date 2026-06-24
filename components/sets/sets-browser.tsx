@@ -64,6 +64,9 @@ type Props = {
   /** Already sorted newest-series-first, sets newest-first within each. */
   groups: SetsGroup[];
   labels: SetsBrowserLabels;
+  /** Initial search query — set from ?q so the WebSite SearchAction (Sitelinks
+   *  Searchbox) lands here pre-filtered. */
+  initialQuery?: string;
 };
 
 /** A left-click with no modifier keys — the only case we hijack for the modal.
@@ -80,8 +83,8 @@ function isPlainLeftClick(e: React.MouseEvent): boolean {
  * props so the anchors render in SSR HTML (SEO) with the modal as progressive
  * enhancement on top.
  */
-export function SetsBrowser({ groups, labels }: Props) {
-  const [query, setQuery] = useState("");
+export function SetsBrowser({ groups, labels, initialQuery = "" }: Props) {
+  const [query, setQuery] = useState(initialQuery);
   const [active, setActive] = useState<SetItem | null>(null);
   // Latest + latest-1 series open by default; everything older collapsed.
   const [open, setOpen] = useState<Record<string, boolean>>(() =>
@@ -113,7 +116,7 @@ export function SetsBrowser({ groups, labels }: Props) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder={labels.searchPlaceholder}
             autoComplete="off"
-            className="min-h-11 w-full min-w-0 border-[3px] border-gb-ink bg-gb-bg px-3 py-2 font-body text-lg text-gb-ink shadow-[2px_2px_0_0_var(--gb-ink)] outline-none placeholder:text-gb-ink/50 focus-visible:-translate-y-px"
+            className="min-h-11 w-full min-w-0 border-[3px] border-gb-ink bg-gb-bg px-3 py-2 font-body text-lg text-gb-ink shadow-[2px_2px_0_0_var(--gb-ink)] outline-none placeholder:text-gb-ink/70 focus-visible:-translate-y-px"
           />
           {searching ? (
             <button

@@ -19,6 +19,20 @@ function absolute(path: string): string {
   return `${siteUrl()}${path}`;
 }
 
+/** Stable @id anchors for the site-level entities (declared in full on the home
+ *  page). Every other page references them by @id so all pages resolve to one
+ *  Organization / WebSite in the graph rather than anonymous inline objects. */
+function orgId(): string {
+  return absolute("/#organization");
+}
+function webSiteId(): string {
+  return absolute("/#website");
+}
+/** `isPartOf` the site, as an @id reference to the WebSite entity. */
+function partOfSite(): JsonLdObject {
+  return { "@id": webSiteId() };
+}
+
 /** Keeps only real numbers — narrows `number | undefined` unions from PriceRange. */
 function numbers(values: Array<number | undefined>): number[] {
   return values.filter((value): value is number => typeof value === "number");
@@ -31,22 +45,41 @@ export function organizationJsonLd(): JsonLdObject {
   return {
     "@context": CONTEXT,
     "@type": "Organization",
+    "@id": orgId(),
     name: SITE_NAME,
     url: absolute("/"),
     description: SITE_DESCRIPTION,
-    creator: { "@type": "Organization", name: SITE_NAME },
+    // A 512×512 logo makes the Organization eligible for Knowledge Panel / logo
+    // rich results (Google requires a `logo` on the Organization entity).
+    logo: {
+      "@type": "ImageObject",
+      url: absolute("/icon-512.png"),
+      width: 512,
+      height: 512,
+    },
   };
 }
 
-/** Site-wide WebSite entity for the home page. */
+/** Site-wide WebSite entity for the home page, with a Sitelinks Searchbox
+ *  pointing at the /sets search. */
 export function webSiteJsonLd(): JsonLdObject {
   return {
     "@context": CONTEXT,
     "@type": "WebSite",
+    "@id": webSiteId(),
     name: SITE_NAME,
     url: absolute("/"),
     description: SITE_DESCRIPTION,
-    publisher: { "@type": "Organization", name: SITE_NAME, url: absolute("/") },
+    publisher: { "@id": orgId() },
+    // Sitelinks Searchbox: the /sets index reads ?q to filter sets.
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: absolute("/sets?q={search_term_string}"),
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -61,7 +94,8 @@ export function webApplicationJsonLd(): JsonLdObject {
     applicationCategory: "UtilityApplication",
     operatingSystem: "Web",
     browserRequirements: "Requires JavaScript",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    offers: { "@type": "Offer", price: 0, priceCurrency: "USD" },
+    publisher: { "@id": orgId() },
   };
 }
 
@@ -79,6 +113,19 @@ export function faqJsonLd(entries: readonly FaqEntry[]): JsonLdObject {
       name: entry.question,
       acceptedAnswer: { "@type": "Answer", text: entry.answer },
     })),
+  };
+}
+
+/** A plain WebPage node, tied to the site — for tool/landing pages that have no
+ *  richer type (e.g. /pokedex). */
+export function webPageJsonLd(name: string, path: string, description: string): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "WebPage",
+    name,
+    url: absolute(path),
+    description,
+    isPartOf: partOfSite(),
   };
 }
 
@@ -132,10 +179,13 @@ export function cardProductJsonLd(card: TcgCard, set: TcgSet): JsonLdObject | nu
   const highPool = highs.length > 0 ? highs : lows;
 
   const image = card.imageLarge || card.imageSmall;
+  // printedTotal can be 0/undefined for brand-new sets; fall back to total so the
+  // product name never reads "…/undefined".
+  const setSize = set.printedTotal || set.total;
   return {
     "@context": CONTEXT,
     "@type": "Product",
-    name: `${card.name} (${set.name} ${card.number}/${set.printedTotal})`,
+    name: `${card.name} (${set.name} ${card.number}/${setSize})`,
     ...(image ? { image: [image] } : {}),
     description:
       `${card.name} is a ${card.rarity ?? card.supertype} card from the ` +
@@ -151,6 +201,7 @@ export function cardProductJsonLd(card: TcgCard, set: TcgSet): JsonLdObject | nu
       offerCount: priced.length,
       ...(card.tcgplayer?.url ? { url: card.tcgplayer.url } : {}),
       availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: "TCGplayer", url: "https://www.tcgplayer.com" },
     },
   };
 }
@@ -167,11 +218,14 @@ export function setCollectionJsonLd(set: TcgSet, cards: TcgCard[]): JsonLdObject
     "@type": "CollectionPage",
     name: `${set.name} card list & binder layout`,
     url: absolute(`/set/${set.id}`),
+    // Use the actual catalogued count so it agrees with ItemList.numberOfItems
+    // (printedTotal is the base size; cards.length includes secret rares).
     description:
-      `All cards of ${set.name}, a ${set.printedTotal}-card Pokemon TCG expansion ` +
-      `from the ${set.series} series (${set.releaseDate.slice(0, 4)}), ` +
+      `All ${cards.length} cards of ${set.name}, a Pokemon TCG expansion ` +
+      `from the ${set.series} series (${set.releaseDate.slice(0, 4)}) — ` +
+      `${set.printedTotal} in the base set plus secret rares, ` +
       "with prices and printable binder layouts.",
-    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    isPartOf: partOfSite(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: cards.length,
@@ -195,16 +249,20 @@ export function setsIndexJsonLd(sets: TcgSet[]): JsonLdObject {
     description:
       "Every Pokemon TCG expansion by series with card lists, prices and " +
       "printable A4 binder layouts.",
-    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    isPartOf: partOfSite(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: sets.length,
-      itemListElement: sets.map((set, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: set.name,
-        url: absolute(`/set/${set.id}`),
-      })),
+      // Newest-first, matching the page's display order so position 1 is the
+      // most prominent set (not the oldest).
+      itemListElement: [...sets]
+        .sort((a, b) => b.releaseDate.localeCompare(a.releaseDate))
+        .map((set, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: set.name,
+          url: absolute(`/set/${set.id}`),
+        })),
     },
   };
 }
@@ -215,6 +273,9 @@ type ArticleMeta = {
   title: string;
   description: string;
   date: string;
+  /** Last substantive edit, when different from publication. Absent = unchanged
+   *  since `date` (so dateModified honestly equals datePublished). */
+  lastModified?: string;
 };
 
 /** ImageObject for an article's per-segment dynamic Open Graph image. Next.js
@@ -238,7 +299,7 @@ function articleImage(slug: string): JsonLdObject {
  */
 export function articleJsonLd(article: ArticleMeta): JsonLdObject[] {
   const url = absolute(`/facts/${article.slug}`);
-  const publisher = { "@type": "Organization", name: SITE_NAME, url: absolute("/") };
+  const publisher = { "@id": orgId() };
   return [
     {
       "@context": CONTEXT,
@@ -247,10 +308,11 @@ export function articleJsonLd(article: ArticleMeta): JsonLdObject[] {
       description: article.description,
       image: articleImage(article.slug),
       datePublished: article.date,
-      dateModified: article.date,
+      dateModified: article.lastModified ?? article.date,
       inLanguage: "en",
       url,
-      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      // A bare string avoids a dangling WebPage @id with no matching node.
+      mainEntityOfPage: url,
       author: publisher,
       publisher,
     },
@@ -270,14 +332,15 @@ export function articleJsonLd(article: ArticleMeta): JsonLdObject[] {
 
 /** Blog entity for the /facts index. */
 export function factsCollectionJsonLd(articles: ArticleMeta[]): JsonLdObject {
-  const publisher = { "@type": "Organization", name: SITE_NAME, url: absolute("/") };
+  const publisher = { "@id": orgId() };
   return {
     "@context": CONTEXT,
     "@type": "Blog",
+    "@id": absolute("/facts#blog"),
     name: `${SITE_NAME} — Fun Facts`,
     url: absolute("/facts"),
     description: "Data-driven Pokémon TCG trivia and fun facts from NOMEKOP.",
-    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    isPartOf: partOfSite(),
     publisher,
     blogPost: articles.map((a) => ({
       "@type": "BlogPosting",
@@ -285,6 +348,8 @@ export function factsCollectionJsonLd(articles: ArticleMeta[]): JsonLdObject {
       description: a.description,
       image: articleImage(a.slug),
       datePublished: a.date,
+      dateModified: a.lastModified ?? a.date,
+      inLanguage: "en",
       url: absolute(`/facts/${a.slug}`),
       author: publisher,
       publisher,
@@ -324,7 +389,7 @@ export function faqsIndexJsonLd(
     description:
       "Answers to common questions about the latest Pokémon TCG sets — card counts, " +
       "master sets, binder sizes, rarest and most valuable cards, and more.",
-    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    isPartOf: partOfSite(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: pages.length,
@@ -352,7 +417,7 @@ export function faqsIndexSetsJsonLd(
     description:
       "Pokémon TCG FAQs by set — pick a set for card counts, master-set sizes, the best " +
       "binder, rarest and most valuable cards, chase cards, release dates and more.",
-    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    isPartOf: partOfSite(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: sets.length,
@@ -378,7 +443,7 @@ export function faqSetHubJsonLd(
     name: `${setName} — Pokémon TCG FAQs`,
     url: absolute(`/faqs/set/${setId}`),
     description: `Common questions and answers about the ${setName} Pokémon TCG set.`,
-    isPartOf: { "@type": "WebSite", url: absolute("/") },
+    isPartOf: partOfSite(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: pages.length,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useId, useMemo, useState } from "react";
+import { useActionState, useEffect, useId, useMemo, useRef, useState } from "react";
 import Script from "next/script";
 import { GbButton } from "@/components/gb/gb-button";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
@@ -54,16 +54,38 @@ export function ReportForm({
   const errors = state.status === "invalid" ? state.errors : undefined;
   const fieldError = (f: string) => errors?.[f as keyof typeof errors]?.[0];
 
+  // On a failed submit, move focus to the first field with an error so keyboard
+  // and screen-reader users land on what needs fixing (WCAG 3.3.1 / 2.4.3).
+  const FIELD_ORDER = ["name", "email", "era", "set", "issue", "message"] as const;
+  useEffect(() => {
+    if (state.status !== "invalid") return;
+    const first = FIELD_ORDER.find((f) => state.errors[f]);
+    if (first) document.getElementById(fieldId(first))?.focus();
+    // fieldId is stable for the life of the component (derived from useId).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state]);
+
+  // Move focus to the success message so it's announced (it replaces the form).
+  const sentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (state.status === "sent") sentRef.current?.focus();
+  }, [state]);
+
   if (state.status === "sent") {
     return (
-      <GbDialogBox>
-        Thanks — your report is on its way. We read every one and fix what we can.
-      </GbDialogBox>
+      <div ref={sentRef} role="status" tabIndex={-1} className="outline-none">
+        <GbDialogBox>
+          Thanks — your report is on its way. We read every one and fix what we can.
+        </GbDialogBox>
+      </div>
     );
   }
 
   return (
     <form action={formAction} className="flex flex-col gap-4">
+      <p className="font-body text-base text-gb-ink">
+        All fields are required unless marked optional.
+      </p>
       {state.status === "unconfigured" || state.status === "error" ? (
         <div
           role="alert"
@@ -89,6 +111,7 @@ export function ReportForm({
           maxLength={100}
           autoComplete="name"
           className={INPUT}
+          aria-invalid={fieldError("name") ? true : undefined}
           aria-describedby={fieldError("name") ? errId("name") : undefined}
         />
       </Field>
@@ -102,6 +125,7 @@ export function ReportForm({
           maxLength={200}
           autoComplete="email"
           className={INPUT}
+          aria-invalid={fieldError("email") ? true : undefined}
           aria-describedby={fieldError("email") ? errId("email") : undefined}
         />
       </Field>
@@ -118,6 +142,7 @@ export function ReportForm({
             setSet((cur) => (sets.some((s) => s.id === cur && s.series === e.target.value) ? cur : ""));
           }}
           className={INPUT}
+          aria-invalid={fieldError("era") ? true : undefined}
           aria-describedby={fieldError("era") ? errId("era") : undefined}
         >
           <option value="">— Choose an era —</option>
@@ -136,6 +161,7 @@ export function ReportForm({
           value={set}
           onChange={(e) => setSet(e.target.value)}
           className={INPUT}
+          aria-invalid={fieldError("set") ? true : undefined}
           aria-describedby={fieldError("set") ? errId("set") : undefined}
         >
           <option value="">Not set-specific</option>
@@ -154,6 +180,7 @@ export function ReportForm({
           required
           defaultValue=""
           className={INPUT}
+          aria-invalid={fieldError("issue") ? true : undefined}
           aria-describedby={fieldError("issue") ? errId("issue") : undefined}
         >
           <option value="" disabled>
@@ -175,6 +202,7 @@ export function ReportForm({
           rows={5}
           maxLength={2000}
           className={`${INPUT} min-h-28 resize-y`}
+          aria-invalid={fieldError("message") ? true : undefined}
           aria-describedby={fieldError("message") ? errId("message") : undefined}
         />
       </Field>

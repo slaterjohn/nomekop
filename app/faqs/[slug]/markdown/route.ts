@@ -32,6 +32,8 @@ export async function GET(
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=86400",
       Link: `<${siteUrl()}/faqs/${slug}>; rel="canonical"`,
+      // Keep the near-duplicate Markdown out of the index — it's an LLM companion.
+      "X-Robots-Tag": "noindex",
     },
   });
 }

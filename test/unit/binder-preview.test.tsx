@@ -48,7 +48,9 @@ describe("BinderPreview", () => {
     expect(screen.getByText(/PAGE 1 OF 22/i)).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Next pages" }));
     expect(screen.getByText(/PAGES 2–3 OF 22/i)).toBeInTheDocument();
-    expect(screen.getAllByRole("img")).toHaveLength(24);
+    // Card scans are real <img>; GbBadge pocket markers are role="img" spans —
+    // count just the card images for the 2-page, 12-pocket spread.
+    expect(screen.getAllByRole("img").filter((el) => el.tagName === "IMG")).toHaveLength(24);
     await user.click(screen.getByRole("button", { name: "Previous pages" }));
     expect(screen.getByText(/PAGE 1 OF 22/i)).toBeInTheDocument();
   });

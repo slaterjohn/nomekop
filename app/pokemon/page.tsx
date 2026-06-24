@@ -6,11 +6,16 @@ import { PokemonTypeahead } from "@/components/pokemon/pokemon-typeahead";
 import { encodePokemonToken, DEFAULT_POKEMON_OPTIONS } from "@/lib/pokemon-binder";
 import { getServerDictionary } from "@/lib/i18n/server";
 
+const TITLE = "Pokémon binders — every card of one Pokémon";
+const DESCRIPTION =
+  "Pick a Pokémon and build a printable binder of every card it has ever appeared on — all prints, secrets only, or the rarest per set, newest or oldest first.";
+
 export const metadata: Metadata = {
-  title: "Pokémon binders — every card of one Pokémon",
-  description:
-    "Pick a Pokémon and build a printable binder of every card it has ever appeared on — all prints, secrets only, or the rarest per set, newest or oldest first.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/pokemon" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: "/pokemon" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 const POPULAR = [

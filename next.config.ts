@@ -65,6 +65,8 @@ const SECURITY_HEADERS = [
 const nextConfig: NextConfig = {
   // Standalone tracing is for the Docker image; `next start` (dev/e2e) rejects it.
   output: process.env.STANDALONE === "1" ? "standalone" : undefined,
+  // Don't advertise the stack via X-Powered-By (fingerprinting aids targeted attacks).
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.pokemontcg.io" },

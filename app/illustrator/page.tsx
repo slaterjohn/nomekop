@@ -6,11 +6,16 @@ import { IllustratorSearchForm } from "@/components/illustrator/illustrator-sear
 import { encodeIllustratorToken, DEFAULT_ILLUSTRATOR_OPTIONS } from "@/lib/illustrator-binder";
 import { getServerDictionary } from "@/lib/i18n/server";
 
+const TITLE = "Illustrator binders — every card by an artist";
+const DESCRIPTION =
+  "Pick a Pokemon TCG illustrator and build a printable binder of every card they have ever drawn — across every set, newest or oldest first.";
+
 export const metadata: Metadata = {
-  title: "Illustrator binders — every card by an artist",
-  description:
-    "Pick a Pokemon TCG illustrator and build a printable binder of every card they have ever drawn — across every set, newest or oldest first.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/illustrator" },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: "/illustrator" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 const POPULAR = [

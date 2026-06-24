@@ -302,7 +302,7 @@
 :root,
 [data-theme="dmg"] {
   --gb-ink: #0f380f;
-  --gb-muted: #306230;
+  --gb-muted: #244a24;
   --gb-accent: #8bac0f;
   --gb-bg: #9bbc0f;
 }
@@ -375,7 +375,7 @@
 
 [data-color-scheme="dark"][data-theme="pocket"] {
   --gb-ink: #ebebeb;
-  --gb-muted: #7a7a7a;
+  --gb-muted: #7e7e7e;
   --gb-accent: #292929;
   --gb-bg: #121212;
   color-scheme: dark;
@@ -383,7 +383,7 @@
 
 [data-color-scheme="dark"][data-theme="kanto-red"] {
   --gb-ink: #efe6e6;
-  --gb-muted: #9a5b5b;
+  --gb-muted: #a66f6f;
   --gb-accent: #351d1d;
   --gb-bg: #160e0e;
   color-scheme: dark;
@@ -391,7 +391,7 @@
 
 [data-color-scheme="dark"][data-theme="cerulean"] {
   --gb-ink: #e6ebef;
-  --gb-muted: #5b7c9a;
+  --gb-muted: #62819e;
   --gb-accent: #1d2935;
   --gb-bg: #0e1216;
   color-scheme: dark;
@@ -399,7 +399,7 @@
 
 [data-color-scheme="dark"][data-theme="lavender"] {
   --gb-ink: #ebe6ef;
-  --gb-muted: #7c5b9a;
+  --gb-muted: #8e72a8;
   --gb-accent: #291d35;
   --gb-bg: #120e16;
   color-scheme: dark;
@@ -407,7 +407,7 @@
 
 [data-color-scheme="dark"][data-theme="flame"] {
   --gb-ink: #efe9e6;
-  --gb-muted: #9a725b;
+  --gb-muted: #9d7660;
   --gb-accent: #35251d;
   --gb-bg: #16110e;
   color-scheme: dark;
