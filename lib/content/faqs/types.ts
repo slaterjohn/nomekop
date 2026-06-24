@@ -42,6 +42,8 @@ export type FaqSetFacts = {
   masterSetCount: number;
   pokeballCount: number;
   masterballCount: number;
+  /** Energy-pattern reverse holos (Mega-era sets, e.g. Ascended Heroes). */
+  energyPatternCount: number;
   hasBallPatterns: boolean;
   illustrationRareCount: number;
   rarityHistogram: Record<string, number>;

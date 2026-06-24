@@ -22,13 +22,19 @@ const isDev = process.env.NODE_ENV !== "production";
  * every resource type to known origins. `upgrade-insecure-requests` is omitted
  * on purpose so the http-served dev/e2e server (127.0.0.1:3170) isn't broken.
  */
+// Cloudflare Turnstile (the /report form's optional bot check) loads a script,
+// renders in an iframe and calls home — all from this one origin. Listed
+// unconditionally (it's a single trusted CAPTCHA domain); it's only ever loaded
+// when TURNSTILE_SITE_KEY is configured and the widget is rendered.
+const TURNSTILE = "https://challenges.cloudflare.com";
+
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} ${TURNSTILE}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${IMG_HOSTS.join(" ")}`,
   "font-src 'self' data:",
-  `connect-src 'self'${isDev ? " ws:" : ""}`,
+  `connect-src 'self'${isDev ? " ws:" : ""} ${TURNSTILE}`,
   "media-src 'self'",
   "worker-src 'self' blob:",
   "manifest-src 'self'",
@@ -36,7 +42,7 @@ const csp = [
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "frame-src 'none'",
+  `frame-src ${TURNSTILE}`,
 ].join("; ");
 
 const SECURITY_HEADERS = [

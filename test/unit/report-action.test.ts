@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import type { SendResult } from "@/lib/email/ses";
 
 // vi.hoisted so the spy exists before the (hoisted) vi.mock factory runs.
@@ -10,6 +10,8 @@ vi.mock("@/lib/email/ses", () => ({ sendReportEmail }));
 import { submitReport, type ReportState } from "@/app/report/actions";
 
 const IDLE: ReportState = { status: "idle" };
+
+afterEach(() => vi.unstubAllEnvs());
 
 function form(over: Record<string, string> = {}): FormData {
   const fd = new FormData();
@@ -52,6 +54,15 @@ describe("submitReport", () => {
     sendReportEmail.mockResolvedValueOnce({ sent: false, reason: "send-failed" });
     const state = await submitReport(IDLE, form());
     expect(state.status).toBe("error");
+  });
+
+  it("blocks with 'captcha' when Turnstile is enforced and the token is missing", async () => {
+    vi.stubEnv("TURNSTILE_SECRET_KEY", "secret");
+    // form() carries no cf-turnstile-response, so the (real) verifier fails it
+    // without a network call.
+    const state = await submitReport(IDLE, form());
+    expect(state.status).toBe("captcha");
+    expect(sendReportEmail).not.toHaveBeenCalled();
   });
 
   it("passes the trimmed, validated report to the mailer", async () => {

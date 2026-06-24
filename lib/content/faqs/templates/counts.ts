@@ -1,6 +1,6 @@
 import type { FaqPage, FaqSetFacts } from "@/lib/content/faqs/types";
 import { indefiniteArticle, setFaqSlug } from "@/lib/content/faqs/slug";
-import { num, cardLabel, cardBullet, joinAnd, money, possessive } from "@/lib/content/faqs/format";
+import { num, cardLabel, cardBullet, joinAnd, money, possessive, patternPhrase } from "@/lib/content/faqs/format";
 
 const SITE_FIGURES_NOTE = "Figures are from the pokemontcg.io dataset, as of June 2026.";
 const PRICE_NOTE = "Figures are from the pokemontcg.io dataset (TCGplayer pricing), as of June 2026.";
@@ -138,11 +138,10 @@ export function masterSetPage(s: FaqSetFacts): FaqPage {
     `## The extras unique to ${s.name}`,
     "",
     (s.hasBallPatterns
-      ? `${s.name} also carries ${num(s.pokeballCount)} Poké Ball pattern cards and ` +
-        `${num(s.masterballCount)} rarer Master Ball pattern cards. Both count toward a true master ` +
+      ? `${s.name} also carries ${patternPhrase(s)}. They count toward a true master ` +
         `set, which is why ${possessive(s.name)} total runs so far past its ${num(s.printedTotal)}-card base.`
-      : `${s.name} has no Poké Ball or Master Ball pattern variants, so the master set is the ` +
-        `${num(s.total)}-card checklist plus ${num(s.reverseHoloCount)} reverse holos — no extra ball ` +
+      : `${s.name} has no special pattern variants, so the master set is the ` +
+        `${num(s.total)}-card checklist plus ${num(s.reverseHoloCount)} reverse holos — no extra pattern ` +
         `foils to chase beyond the ${num(s.secretCount)} secret rares.`),
     "",
     `## Star Pokémon in the ${s.name} master set`,
@@ -326,9 +325,8 @@ export function reverseHolosPage(s: FaqSetFacts): FaqPage {
     `None of these ${num(s.reverseHoloCount)} show on the base checklist of ${num(s.printedTotal)}, so ` +
       `they're extra cards to track when finishing ${s.name}.` +
       (s.hasBallPatterns
-        ? ` ${s.name} also adds ${num(s.pokeballCount)} Poké Ball and ${num(s.masterballCount)} Master ` +
-          `Ball pattern cards, which behave like extra reverse variants on the same hunt.`
-        : ` There are no ball-pattern variants in ${s.name}, so reverse holos are the main extra layer.`) +
+        ? ` ${s.name} also adds ${patternPhrase(s)}, which behave like extra reverse variants on the same hunt.`
+        : ` There are no pattern variants in ${s.name}, so reverse holos are the main extra layer.`) +
       ` Counted in, a full ${s.name} master set is ${num(s.masterSetCount)} cards — about ` +
       `${num(Math.ceil(s.masterSetCount / 9))} 9-pocket pages versus ` +
       `${num(Math.ceil(s.printedTotal / 9))} for the base set.`,

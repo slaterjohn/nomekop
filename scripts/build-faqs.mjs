@@ -9,7 +9,7 @@ import path from "node:path";
 import {
   masterSlotCount, reverseHoloCount, ballCounts, supertypeCounts,
   illustrationRareCount, rarityHistogram, rarestOf, mostValuableOf, chaseOf,
-  marqueePokemonOf,
+  marqueePokemonOf, applyBallPatterns,
 } from "./faq-compute.mjs";
 
 // Curated authoritative master-set counts override the heuristic (same table the
@@ -66,8 +66,13 @@ const sizeRank = new Map(bySize.map((s, i) => [s.id, i + 1]));
 
 const out = { asOf: AS_OF, sets: [] };
 for (const s of sets) {
-  const cards = get(`cards:${s.id}`);
-  if (!cards) throw new Error(`no cards cached for ${s.id}`);
+  const raw = get(`cards:${s.id}`);
+  if (!raw) throw new Error(`no cards cached for ${s.id}`);
+  // Apply the curated reverse-holo patterns the app applies at read time, so
+  // pattern variants (Poké Ball / Master Ball / Energy) are counted consistently
+  // regardless of whether the cached payload had them baked in. No-op for sets
+  // without patterns; idempotent for payloads that already carry them.
+  const cards = applyBallPatterns(s.id, raw);
   const st = supertypeCounts(cards);
   const balls = ballCounts(cards);
   out.sets.push({
@@ -88,7 +93,8 @@ for (const s of sets) {
     masterSetCount: CURATED_MASTER_COUNTS[s.id] ?? masterSlotCount(cards),
     pokeballCount: balls.pokeball,
     masterballCount: balls.masterball,
-    hasBallPatterns: balls.pokeball > 0 || balls.masterball > 0,
+    energyPatternCount: balls.energy,
+    hasBallPatterns: balls.pokeball > 0 || balls.masterball > 0 || balls.energy > 0,
     illustrationRareCount: illustrationRareCount(cards),
     rarityHistogram: rarityHistogram(cards),
     rarestCard: rarestOf(cards),

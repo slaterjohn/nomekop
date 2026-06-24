@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useId, useMemo, useState } from "react";
+import Script from "next/script";
 import { GbButton } from "@/components/gb/gb-button";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { submitReport, type ReportState } from "@/app/report/actions";
@@ -18,6 +19,9 @@ type Props = {
   initialSet: string;
   /** Site contact address for the graceful "email us directly" fallback. */
   contactEmail: string;
+  /** Cloudflare Turnstile site key. When set, the bot-check widget renders;
+   *  when absent (undefined/empty), no widget and no enforcement. */
+  turnstileSiteKey?: string;
 };
 
 const INPUT =
@@ -26,7 +30,14 @@ const LABEL = "font-pixel text-[10px] uppercase leading-relaxed";
 
 const INITIAL: ReportState = { status: "idle" };
 
-export function ReportForm({ eras, sets, initialEra, initialSet, contactEmail }: Props) {
+export function ReportForm({
+  eras,
+  sets,
+  initialEra,
+  initialSet,
+  contactEmail,
+  turnstileSiteKey,
+}: Props) {
   const [state, formAction, pending] = useActionState(submitReport, INITIAL);
   const [era, setEra] = useState(initialEra);
   const [set, setSet] = useState(initialSet);
@@ -168,12 +179,36 @@ export function ReportForm({ eras, sets, initialEra, initialSet, contactEmail }:
         />
       </Field>
 
+      {turnstileSiteKey ? (
+        <div className="flex flex-col gap-1">
+          {/* Cloudflare auto-renders this .cf-turnstile div and injects a hidden
+              cf-turnstile-response input into the form, which the Server Action
+              reads. Only loaded when a site key is configured. */}
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="afterInteractive"
+          />
+          <div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="auto" />
+          {state.status === "captcha" ? (
+            <p className="font-pixel text-[10px] uppercase leading-relaxed text-gb-ink">
+              ⚠ Please complete the verification and try again.
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+
       <div className="flex items-center gap-3">
         <GbButton type="submit" variant="a" disabled={pending}>
           {pending ? "Sending…" : "Send report"}
         </GbButton>
         <p aria-live="polite" className="sr-only">
-          {state.status === "invalid" ? "The form has errors." : pending ? "Sending." : ""}
+          {state.status === "invalid"
+            ? "The form has errors."
+            : state.status === "captcha"
+              ? "Verification failed."
+              : pending
+                ? "Sending."
+                : ""}
         </p>
       </div>
     </form>

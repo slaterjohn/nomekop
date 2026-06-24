@@ -1,13 +1,12 @@
 import type { MetadataRoute } from "next";
-import { generateSitemaps } from "@/app/sitemap";
 import { siteUrl } from "@/lib/site";
 
-/** generateSitemaps shards the sitemap into /sitemap/<id>.xml files with no
- *  /sitemap.xml index, so robots.txt lists every shard — that is how crawlers
- *  discover them. generateSitemaps already degrades to just "core" offline. */
-export default async function robots(): Promise<MetadataRoute.Robots> {
+/** generateSitemaps shards the sitemap into /sitemap/<id>.xml files; the
+ *  /sitemap_index.xml index (app/sitemap_index.xml/route.ts) lists every shard,
+ *  so robots.txt points crawlers at that one index URL rather than enumerating
+ *  each shard. (/sitemap.xml is reserved by Next's metadata convention.) */
+export default function robots(): MetadataRoute.Robots {
   const base = siteUrl();
-  const shards = await generateSitemaps();
   return {
     rules: {
       userAgent: "*",
@@ -16,6 +15,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       // shared-binder app-state permutations are not for crawlers.
       disallow: ["/api/", "/print/", "/collection/", "/b/"],
     },
-    sitemap: shards.map(({ id }) => `${base}/sitemap/${id}.xml`),
+    sitemap: `${base}/sitemap_index.xml`,
   };
 }

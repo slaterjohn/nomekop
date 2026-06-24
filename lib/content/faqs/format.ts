@@ -1,8 +1,25 @@
 import { evaluatePresets } from "@/lib/binders";
-import type { FaqCardRef } from "@/lib/content/faqs/types";
+import type { FaqCardRef, FaqSetFacts } from "@/lib/content/faqs/types";
 
 export function num(n: number): string {
   return n.toLocaleString("en-US");
+}
+
+/** The special reverse-holo PATTERNS a set carries (Poké Ball / Master Ball /
+ *  Energy), present ones only, with their counts and the builder toggle key. */
+export function patternList(
+  s: FaqSetFacts,
+): Array<{ key: "pb" | "mb" | "ep"; label: string; n: number }> {
+  return [
+    { key: "pb" as const, label: "Poké Ball", n: s.pokeballCount },
+    { key: "mb" as const, label: "Master Ball", n: s.masterballCount },
+    { key: "ep" as const, label: "Energy", n: s.energyPatternCount },
+  ].filter((p) => p.n > 0);
+}
+
+/** e.g. "100 Poké Ball and 67 Master Ball pattern cards" — present patterns only. */
+export function patternPhrase(s: FaqSetFacts): string {
+  return `${joinAnd(patternList(s).map((p) => `${num(p.n)} ${p.label}`))} pattern cards`;
 }
 
 /** Possessive form of a name, avoiding "…s's" for names ending in "s". */

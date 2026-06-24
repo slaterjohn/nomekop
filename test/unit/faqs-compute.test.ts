@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { rarityRank } from "@/lib/tcg/rarity";
 import { expandSlots } from "@/lib/layout";
+import { applyBallPatterns as tsApplyBallPatterns } from "@/lib/tcg/ball-patterns";
 import type { TcgCard } from "@/lib/tcg/types";
 import {
   masterSlotCount,
@@ -11,6 +12,7 @@ import {
   mostValuableOf,
   chaseOf,
   marqueePokemonOf,
+  applyBallPatterns as jsApplyBallPatterns,
   RARITY_ORDER,
 } from "../../scripts/faq-compute.mjs";
 
@@ -34,6 +36,25 @@ describe("faq-compute matches the app's authoritative logic", () => {
     }).length;
     expect(masterSlotCount(cards)).toBe(real);
     expect(masterSlotCount(cards)).toBe(447);
+  });
+
+  it("applyBallPatterns (JS mirror) matches the app's TS applyBallPatterns", () => {
+    const mk = (number: string, supertype: string, reverse: boolean): TcgCard => ({
+      id: `x-${number}`,
+      name: `Card ${number}`,
+      number,
+      rarity: "Common",
+      supertype,
+      imageSmall: "",
+      imageLarge: "",
+      variants: { normal: true, reverse, holo: false },
+    });
+    // Raw cards (intact reverse pool) so the transform actually runs — a reverse
+    // Pokémon, a reverse Trainer, and an ex with no reverse.
+    const raw = [mk("1", "Pokémon", true), mk("2", "Trainer", true), mk("3", "Pokémon", false)];
+    for (const setId of ["me2pt5", "sv8pt5", "zsv10pt5", "rsv10pt5", "sv1"]) {
+      expect(jsApplyBallPatterns(setId, raw), setId).toEqual(tsApplyBallPatterns(setId, raw));
+    }
   });
 
   it("RARITY_ORDER ranks identically to the app's rarityRank", () => {

@@ -61,7 +61,8 @@ export function cardRef(card) {
 
 export function masterSlotCount(cards) {
   // Mirrors lib/layout/expand.ts master mode: 1 card slot + reverse + pokeball
-  // + masterball per card, secrets included (the app's default master config).
+  // + masterball + energy per card, secrets included (the app's default master
+  // config). Apply applyBallPatterns first so pattern variants are counted.
   let n = 0;
   for (const c of cards) {
     const v = c.variants ?? {};
@@ -69,6 +70,7 @@ export function masterSlotCount(cards) {
     if (v.reverse) n += 1;
     if (v.pokeball) n += 1;
     if (v.masterball) n += 1;
+    if (v.energy) n += 1;
   }
   return n;
 }
@@ -80,7 +82,45 @@ export function ballCounts(cards) {
   return {
     pokeball: cards.filter((c) => c.variants?.pokeball).length,
     masterball: cards.filter((c) => c.variants?.masterball).length,
+    energy: cards.filter((c) => c.variants?.energy).length,
   };
+}
+
+// Mirror of lib/tcg/ball-patterns.ts (PATTERN_SETS + applyBallPatterns). The app
+// applies these reverse-holo PATTERN variants at read time, not in the cache, so
+// the FAQ generator must apply them too to count them. The guard test asserts
+// this stays identical to the app's applyBallPatterns. `pool` = whole reverse
+// pool; `pokemon`/`trainer` = reverse-eligible cards of that supertype.
+const PATTERN_SETS = {
+  sv8pt5: { pokeball: "pool", masterball: "pokemon" },
+  zsv10pt5: { pokeball: "pool", masterball: "pokemon" },
+  rsv10pt5: { pokeball: "pool", masterball: "pokemon" },
+  me2pt5: { pokeball: "pokemon", energy: "pokemon", reverse: "trainer" },
+};
+function patternPred(kind, card) {
+  const rev = card.variants?.reverse;
+  if (kind === "pool") return !!rev;
+  if (kind === "pokemon") return !!rev && card.supertype === "Pokémon";
+  if (kind === "trainer") return !!rev && card.supertype !== "Pokémon";
+  return false;
+}
+export function applyBallPatterns(setId, cards) {
+  const rules = PATTERN_SETS[setId];
+  if (!rules) return cards;
+  const already = cards.some(
+    (c) => c.variants?.pokeball === true || c.variants?.masterball === true || c.variants?.energy === true,
+  );
+  if (already) return cards;
+  return cards.map((c) => ({
+    ...c,
+    variants: {
+      ...c.variants,
+      ...(rules.reverse ? { reverse: patternPred(rules.reverse, c) } : {}),
+      pokeball: rules.pokeball ? patternPred(rules.pokeball, c) : false,
+      masterball: rules.masterball ? patternPred(rules.masterball, c) : false,
+      energy: rules.energy ? patternPred(rules.energy, c) : false,
+    },
+  }));
 }
 export function supertypeCounts(cards) {
   const out = { pokemon: 0, trainer: 0, energy: 0 };

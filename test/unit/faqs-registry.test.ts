@@ -49,9 +49,10 @@ describe("faq registry", () => {
     expect(types.has("rarest-card")).toBe(true);
   });
 
-  it("only emits ball-pattern pages for ball-pattern sets", () => {
+  it("only emits ball-pattern pages for pattern sets (incl. me2pt5's Energy pattern)", () => {
     const ball = FAQ_PAGES.filter((p) => p.type === "ball-patterns");
-    expect(ball.map((p) => p.setId).sort()).toEqual(["rsv10pt5", "sv8pt5", "zsv10pt5"]);
+    // me2pt5 (Ascended Heroes) qualifies via its Poké Ball + Energy patterns.
+    expect(ball.map((p) => p.setId).sort()).toEqual(["me2pt5", "rsv10pt5", "sv8pt5", "zsv10pt5"]);
   });
 
   it("includes hand-authored upcoming-set pages", () => {

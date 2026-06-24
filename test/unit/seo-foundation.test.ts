@@ -2,6 +2,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import robots from "@/app/robots";
 import sitemap, { generateSitemaps } from "@/app/sitemap";
+import { GET as sitemapIndex } from "@/app/sitemap_index.xml/route";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
 
@@ -61,21 +62,24 @@ describe("robots", () => {
     );
   });
 
-  it("lists every sitemap shard, starting with the core sitemap", async () => {
+  it("points crawlers at the single sitemap index", async () => {
     const result = await robots();
-    const sitemaps = Array.isArray(result.sitemap)
-      ? result.sitemap
-      : result.sitemap
-        ? [result.sitemap]
-        : [];
-    // generateSitemaps shards to /sitemap/<id>.xml (no /sitemap.xml index in
-    // Next 16), so robots.txt enumerates each shard for discovery.
-    expect(sitemaps[0]).toBe(`${BASE}/sitemap/core.xml`);
-    expect(sitemaps).toContain(`${BASE}/sitemap/base1.xml`);
-    expect(sitemaps).toHaveLength(FIXTURE_SET_COUNT + 1);
-    for (const url of sitemaps) {
-      expect(url).toMatch(/^http:\/\/localhost:3000\/sitemap\/[a-z0-9.]+\.xml$/i);
-    }
+    // The index lists every shard, so robots.txt references just it.
+    expect(result.sitemap).toBe(`${BASE}/sitemap_index.xml`);
+  });
+});
+
+describe("sitemap index (/sitemap_index.xml)", () => {
+  it("is a sitemapindex listing every shard's /sitemap/<id>.xml URL", async () => {
+    const res = await sitemapIndex();
+    expect(res.headers.get("content-type")).toContain("xml");
+    const body = await res.text();
+    expect(body).toContain("<sitemapindex");
+    expect(body).toContain(`<loc>${BASE}/sitemap/core.xml</loc>`);
+    expect(body).toContain(`<loc>${BASE}/sitemap/base1.xml</loc>`);
+    // One <sitemap> entry per shard: the core overview + one per set.
+    const entries = (body.match(/<sitemap>/g) ?? []).length;
+    expect(entries).toBe(FIXTURE_SET_COUNT + 1);
   });
 });
 

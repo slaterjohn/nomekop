@@ -1,6 +1,6 @@
 import type { FaqPage, FaqSetFacts } from "@/lib/content/faqs/types";
 import { indefiniteArticle, setFaqSlug } from "@/lib/content/faqs/slug";
-import { num, pocketTable, possessive, cardLabel, cardBullet, money, joinAnd } from "@/lib/content/faqs/format";
+import { num, pocketTable, possessive, cardLabel, cardBullet, money, joinAnd, patternList } from "@/lib/content/faqs/format";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -167,31 +167,35 @@ export function releaseDatePage(s: FaqSetFacts): FaqPage {
   };
 }
 
-/** Only call when s.hasBallPatterns is true. */
+/** Only call when s.hasBallPatterns is true. Handles every special reverse-holo
+ *  PATTERN a set may carry — Poké Ball, Master Ball and the Mega-era Energy
+ *  pattern — describing whichever are actually present. */
 export function ballPatternsPage(s: FaqSetFacts): FaqPage {
   const slug = setFaqSlug("ball-patterns", s.slug);
-  const description =
-    `Yes — ${s.name} has ${num(s.pokeballCount)} Poké Ball and ${num(s.masterballCount)} Master Ball pattern cards.`;
-  const totalBall = s.pokeballCount + s.masterballCount;
+  const present = patternList(s);
+  const names = joinAnd(present.map((p) => p.label));
+  const counted = joinAnd(present.map((p) => `${num(p.n)} ${p.label}`));
+  const totalPattern = present.reduce((sum, p) => sum + p.n, 0);
+  const buildHref = `/build?set=${s.id}&mode=master&${present.map((p) => `${p.key}=1`).join("&")}`;
+  const description = `Yes — ${s.name} has ${counted} pattern cards.`;
   const chase = s.chaseCards.slice(0, 4);
   const body = [
     `**${description}**`,
     "",
-    `## ${possessive(s.name)} ball-pattern cards`,
+    `## ${possessive(s.name)} pattern cards`,
     "",
-    `${s.name} is one of the few sets with Poké Ball and Master Ball mirror cards — reverse-style foils ` +
-      `stamped with a repeating ball motif instead of the usual holo sheen. Each is a separate variant ` +
+    `${s.name} is one of the few sets with ${names} mirror cards — reverse-style foils ` +
+      `stamped with a repeating pattern instead of the usual holo sheen. Each is a separate variant ` +
       `on top of the normal print, so every one is its own card to chase.`,
     "",
-    `## How many ball-pattern cards in ${s.name}?`,
+    `## How many pattern cards in ${s.name}?`,
     "",
-    `The Poké Ball pattern covers ${num(s.pokeballCount)} cards — close to the reverse-holo pool — while ` +
-      `the rarer Master Ball pattern hits ${num(s.masterballCount)} Pokémon, ${num(totalBall)} ball cards ` +
-      `in all. The Master Ball versions are among the toughest pulls in the set.`,
+    `Across every pattern there are ${num(totalPattern)} cards to track down: ${counted}. ` +
+      `They sit on top of the base print run, so each one is a distinct card for a master set.`,
     "",
     `## Star Pokémon to find in pattern form`,
     "",
-    `The marquee Pokémon worth hunting Poké Ball and Master Ball copies of in ${s.name}:`,
+    `The marquee Pokémon worth hunting ${names} copies of in ${s.name}:`,
     "",
     marqueeBullets(s),
     ...(chase.length
@@ -201,24 +205,23 @@ export function ballPatternsPage(s: FaqSetFacts): FaqPage {
     "",
     `## Why the patterns inflate ${s.name}`,
     "",
-    `Because both patterns count toward a complete set, they're the main reason ${indefiniteArticle(s.name)} ${s.name} master set ` +
+    `Because these patterns count toward a complete set, they're the main reason ${indefiniteArticle(s.name)} ${s.name} master set ` +
       `balloons to ${num(s.masterSetCount)} cards versus ${num(s.printedTotal)} for the base. Plan binder ` +
-      `space for the ${num(totalBall)} ball variants too if you're going for everything — that's roughly ` +
-      `${num(Math.ceil(totalBall / 9))} extra 9-pocket pages on top of the base ${s.name} run, and the ` +
-      `${num(s.masterballCount)} Master Ball cards are the ones to hunt first.`,
+      `space for the ${num(totalPattern)} pattern variants too if you're going for everything — that's roughly ` +
+      `${num(Math.ceil(totalPattern / 9))} extra 9-pocket pages on top of the base ${s.name} run.`,
     "",
     "Figures from the pokemontcg.io dataset, as of June 2026.",
   ].join("\n");
   return {
     slug, type: "ball-patterns", setId: s.id,
-    question: `Does ${s.name} have Poké Ball and Master Ball pattern cards?`,
-    title: `Does ${s.name} have Poké Ball & Master Ball cards?`,
+    question: `Does ${s.name} have ${names} pattern cards?`,
+    title: `Does ${s.name} have ${names} cards?`,
     description, body,
     cards: chase,
     related: [
       { href: setFaqSlug("master-set", s.slug), label: `${s.name} master set size` },
       { href: setFaqSlug("reverse-holos", s.slug), label: `Reverse holos in ${s.name}` },
-      { href: `/build?set=${s.id}&mode=master&pb=1&mb=1`, label: `Build the ${s.name} master set` },
+      { href: buildHref, label: `Build the ${s.name} master set` },
     ],
   };
 }

@@ -87,6 +87,7 @@ export default async function ReportPage({ searchParams }: Props) {
           initialEra={initialEra}
           initialSet={initialSet}
           contactEmail={CONTACT_EMAIL}
+          turnstileSiteKey={process.env.TURNSTILE_SITE_KEY}
         />
       </GbScreen>
     </main>

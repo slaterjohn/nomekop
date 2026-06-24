@@ -19,6 +19,7 @@
       "masterSetCount": 198,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 17,
       "rarityHistogram": {
@@ -253,6 +254,7 @@
       "masterSetCount": 203,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 17,
       "rarityHistogram": {
@@ -483,11 +485,12 @@
       "pokemonCount": 243,
       "trainerCount": 50,
       "energyCount": 2,
-      "reverseHoloCount": 178,
+      "reverseHoloCount": 38,
       "masterSetCount": 613,
-      "pokeballCount": 0,
+      "pokeballCount": 140,
       "masterballCount": 0,
-      "hasBallPatterns": false,
+      "energyPatternCount": 140,
+      "hasBallPatterns": true,
       "illustrationRareCount": 55,
       "rarityHistogram": {
         "Common": 84,
@@ -730,6 +733,7 @@
       "masterSetCount": 214,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 18,
       "rarityHistogram": {
@@ -994,6 +998,7 @@
       "masterSetCount": 310,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 32,
       "rarityHistogram": {
@@ -1285,6 +1290,7 @@
       "masterSetCount": 405,
       "pokeballCount": 80,
       "masterballCount": 72,
+      "energyPatternCount": 0,
       "hasBallPatterns": true,
       "illustrationRareCount": 76,
       "rarityHistogram": {
@@ -1522,6 +1528,7 @@
       "masterSetCount": 404,
       "pokeballCount": 80,
       "masterballCount": 72,
+      "energyPatternCount": 0,
       "hasBallPatterns": true,
       "illustrationRareCount": 76,
       "rarityHistogram": {
@@ -1741,6 +1748,7 @@
       "masterSetCount": 409,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 34,
       "rarityHistogram": {
@@ -2041,6 +2049,7 @@
       "masterSetCount": 333,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 17,
       "rarityHistogram": {
@@ -2332,6 +2341,7 @@
       "masterSetCount": 447,
       "pokeballCount": 100,
       "masterballCount": 67,
+      "energyPatternCount": 0,
       "hasBallPatterns": true,
       "illustrationRareCount": 32,
       "rarityHistogram": {
@@ -2560,6 +2570,7 @@
       "masterSetCount": 417,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 34,
       "rarityHistogram": {
@@ -2825,6 +2836,7 @@
       "masterSetCount": 300,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 19,
       "rarityHistogram": {
@@ -3063,6 +3075,7 @@
       "masterSetCount": 154,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 20,
       "rarityHistogram": {
@@ -3247,6 +3260,7 @@
       "masterSetCount": 373,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 32,
       "rarityHistogram": {
@@ -3494,6 +3508,7 @@
       "masterSetCount": 358,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 32,
       "rarityHistogram": {
@@ -3741,6 +3756,7 @@
       "masterSetCount": 326,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 11,
       "rarityHistogram": {
@@ -3962,6 +3978,7 @@
       "masterSetCount": 428,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 49,
       "rarityHistogram": {
@@ -4163,6 +4180,7 @@
       "masterSetCount": 360,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 23,
       "rarityHistogram": {
@@ -4418,6 +4436,7 @@
       "masterSetCount": 406,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 18,
       "rarityHistogram": {
@@ -4646,6 +4665,7 @@
       "masterSetCount": 455,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 51,
       "rarityHistogram": {
@@ -4838,6 +4858,7 @@
       "masterSetCount": 444,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 34,
       "rarityHistogram": {
@@ -5039,6 +5060,7 @@
       "masterSetCount": 272,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -5209,6 +5231,7 @@
       "masterSetCount": 357,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -5476,6 +5499,7 @@
       "masterSetCount": 366,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -5734,6 +5758,7 @@
       "masterSetCount": 142,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -5955,6 +5980,7 @@
       "masterSetCount": 344,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -6213,6 +6239,7 @@
       "masterSetCount": 318,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -6443,6 +6470,7 @@
       "masterSetCount": 501,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -6663,6 +6691,7 @@
       "masterSetCount": 25,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -6767,6 +6796,7 @@
       "masterSetCount": 369,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -7068,6 +7098,7 @@
       "masterSetCount": 369,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -7306,6 +7337,7 @@
       "masterSetCount": 306,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -7562,6 +7594,7 @@
       "masterSetCount": 119,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -7740,6 +7773,7 @@
       "masterSetCount": 345,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -7943,6 +7977,7 @@
       "masterSetCount": 141,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -8153,6 +8188,7 @@
       "masterSetCount": 356,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -8364,6 +8400,7 @@
       "masterSetCount": 360,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {
@@ -8575,6 +8612,7 @@
       "masterSetCount": 390,
       "pokeballCount": 0,
       "masterballCount": 0,
+      "energyPatternCount": 0,
       "hasBallPatterns": false,
       "illustrationRareCount": 0,
       "rarityHistogram": {

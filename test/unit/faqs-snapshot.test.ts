@@ -4,7 +4,8 @@ import type { FaqSnapshot } from "@/lib/content/faqs/types";
 
 const snap = snapshot as unknown as FaqSnapshot;
 const PRICELESS = new Set(["me4", "me3", "me2pt5"]);
-const BALL_SETS = new Set(["sv8pt5", "zsv10pt5", "rsv10pt5"]);
+// me2pt5 (Ascended Heroes) qualifies via its Poké Ball + Energy patterns.
+const BALL_SETS = new Set(["sv8pt5", "zsv10pt5", "rsv10pt5", "me2pt5"]);
 
 describe("faq snapshot", () => {
   it("covers the 3 newest eras, newest first", () => {
