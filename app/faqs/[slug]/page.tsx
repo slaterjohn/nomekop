@@ -68,7 +68,7 @@ export default async function FaqPage({ params }: Props) {
           Read as markdown ▸
         </a>
         <span className="font-readable text-lg leading-tight text-gb-ink">
-          A plain-text version for LLMs &amp; AI search.
+          A plain-text version for AI assistants &amp; search to cite.
         </span>
       </div>
 

@@ -19,6 +19,7 @@ export const es: Dictionary = {
     faqs: "FAQ de sets",
     legal: "Legal y créditos",
     accessibility: "Accesibilidad",
+    about: "Acerca de",
     disclaimer: "NOMEKOP · Una herramienta de fans · No afiliada con Nintendo / The Pokémon Company",
   },
   settings: {

@@ -19,6 +19,7 @@ export const ja: Dictionary = {
     faqs: "セットFAQ",
     legal: "法的情報＆クレジット",
     accessibility: "アクセシビリティ",
+    about: "概要",
     disclaimer: "NOMEKOP · ファン制作ツール · Nintendo / The Pokémon Company とは無関係です",
   },
   settings: {

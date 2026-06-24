@@ -120,13 +120,13 @@ describe("sitemap (core shard)", () => {
     expect(
       urls.filter((url) => url.includes("/set/") && !url.includes("/faqs/set/")),
     ).toHaveLength(FIXTURE_SET_COUNT);
-    // home, sets, pokedex, pokemon, illustrator, legal, accessibility, /facts +
-    // 6 fact articles + 6 article Markdown companions + 9 gen tokens = 29 static
-    // entries (bare /build now 308-redirects to /sets, so it's no longer listed),
-    // plus the /faqs index and every FAQ detail + Markdown companion, plus one
-    // hub per set.
+    // home, sets, pokedex, pokemon, illustrator, about, legal, accessibility,
+    // /facts + 6 fact articles + 6 article Markdown companions + 9 gen tokens =
+    // 30 static entries (bare /build now 308-redirects to /sets, so it's no
+    // longer listed), plus the /faqs index and every FAQ detail + Markdown
+    // companion, plus one hub per set.
     expect(entries).toHaveLength(
-      FIXTURE_SET_COUNT + 29 + FAQ_SITEMAP_ENTRIES + FAQ_HUB_ENTRIES,
+      FIXTURE_SET_COUNT + 30 + FAQ_SITEMAP_ENTRIES + FAQ_HUB_ENTRIES,
     );
     for (const url of urls) {
       expect(url.startsWith(`${BASE}/`)).toBe(true);

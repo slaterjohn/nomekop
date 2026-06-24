@@ -52,6 +52,7 @@ export default async function sitemap(props: {
       { url: `${base}/pokedex`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/pokemon`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/illustrator`, changeFrequency: "monthly", priority: 0.8 },
+      { url: `${base}/about`, changeFrequency: "yearly", priority: 0.4 },
       { url: `${base}/legal`, changeFrequency: "yearly", priority: 0.3 },
       { url: `${base}/accessibility`, changeFrequency: "yearly", priority: 0.3 },
       { url: `${base}/facts`, changeFrequency: "monthly", priority: 0.6 },

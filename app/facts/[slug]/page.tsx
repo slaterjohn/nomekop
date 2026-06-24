@@ -63,7 +63,7 @@ export default async function FactPage({ params }: Props) {
           Read as markdown ▸
         </a>
         <span className="font-body text-lg leading-tight text-gb-ink">
-          A plain-text version for LLMs &amp; AI search. Figures as of {STATS_AS_OF}.
+          A plain-text version for AI assistants &amp; search to cite. Figures as of {STATS_AS_OF}.
         </span>
       </div>
 

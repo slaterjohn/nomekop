@@ -116,6 +116,24 @@ export function faqJsonLd(entries: readonly FaqEntry[]): JsonLdObject {
   };
 }
 
+/** AboutPage for /about, naming the person behind the site — a real, identifiable
+ *  author is the strongest E-E-A-T trust signal. */
+export function aboutPageJsonLd(personName: string): JsonLdObject {
+  return {
+    "@context": CONTEXT,
+    "@type": "AboutPage",
+    name: `About ${SITE_NAME}`,
+    url: absolute("/about"),
+    description: `Who makes ${SITE_NAME}, why, and where its Pokémon TCG data comes from.`,
+    isPartOf: partOfSite(),
+    mainEntity: {
+      "@type": "Person",
+      name: personName,
+      description: `Pokémon TCG collector and the maker of ${SITE_NAME}.`,
+    },
+  };
+}
+
 /** A plain WebPage node, tied to the site — for tool/landing pages that have no
  *  richer type (e.g. /pokedex). */
 export function webPageJsonLd(name: string, path: string, description: string): JsonLdObject {

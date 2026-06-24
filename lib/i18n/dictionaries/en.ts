@@ -22,6 +22,7 @@ export const en = {
     faqs: "Set FAQs",
     legal: "Legal & credits",
     accessibility: "Accessibility",
+    about: "About",
     disclaimer: "NOMEKOP · A fan-made tool · Not affiliated with Nintendo / The Pokémon Company",
   },
   settings: {
