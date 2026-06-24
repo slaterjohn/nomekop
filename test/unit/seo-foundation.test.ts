@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import robots from "@/app/robots";
+import { GET as robotsTxt } from "@/app/robots.txt/route";
 import sitemap, { generateSitemaps } from "@/app/sitemap";
 import { GET as sitemapIndex } from "@/app/sitemap_index.xml/route";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
@@ -50,22 +50,36 @@ describe("site identity", () => {
   });
 });
 
-describe("robots", () => {
-  it("disallows app-state and machine routes for all agents", async () => {
-    const result = await robots();
-    const rules = Array.isArray(result.rules) ? result.rules[0] : result.rules;
-    if (!rules) throw new Error("expected robots() to return a rule set");
-    expect(rules.userAgent).toBe("*");
-    expect(rules.allow).toBe("/");
-    expect(rules.disallow).toEqual(
-      expect.arrayContaining(["/api/", "/print/", "/collection/", "/b/"]),
-    );
+describe("robots.txt", () => {
+  async function robotsBody(): Promise<string> {
+    return (await robotsTxt()).text();
+  }
+
+  it("disallows app-state and machine routes under the wildcard agent", async () => {
+    const body = await robotsBody();
+    expect(body).toMatch(/User-agent: \*/);
+    for (const path of ["/api/", "/print/", "/collection/", "/b/"]) {
+      expect(body).toContain(`Disallow: ${path}`);
+    }
+  });
+
+  it("allows AI answer/search bots but blocks model-training scrapers", async () => {
+    const body = await robotsBody();
+    // ai-input=yes (cite our content), ai-train=no (don't train on it).
+    expect(body).toContain("Content-Signal: search=yes,ai-input=yes,ai-train=no");
+    // Training-only scrapers are blocked outright…
+    for (const bot of ["CCBot", "Bytespider", "Applebot-Extended", "meta-externalagent"]) {
+      expect(body).toMatch(new RegExp(`User-agent: ${bot}\\nDisallow: /`));
+    }
+    // …while the answer/citation bots are NOT given a blocking group (they fall
+    // under the permissive wildcard).
+    for (const bot of ["GPTBot", "Google-Extended", "ClaudeBot", "PerplexityBot"]) {
+      expect(body).not.toContain(`User-agent: ${bot}`);
+    }
   });
 
   it("points crawlers at the single sitemap index", async () => {
-    const result = await robots();
-    // The index lists every shard, so robots.txt references just it.
-    expect(result.sitemap).toBe(`${BASE}/sitemap_index.xml`);
+    expect(await robotsBody()).toContain(`Sitemap: ${BASE}/sitemap_index.xml`);
   });
 });
 
