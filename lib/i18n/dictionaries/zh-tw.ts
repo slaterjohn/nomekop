@@ -18,6 +18,7 @@ export const zhTw: Dictionary = {
     funFacts: "趣味小知識",
     faqs: "套組常見問題",
     legal: "法律聲明與致謝",
+    accessibility: "無障礙",
     disclaimer: "NOMEKOP · 粉絲自製工具 · 與 Nintendo / The Pokémon Company 無關",
   },
   settings: {

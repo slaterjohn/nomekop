@@ -18,6 +18,7 @@ export function SiteFooter() {
     { href: "/facts", label: dict.footer.funFacts },
     { href: "/faqs", label: dict.footer.faqs },
     { href: "/legal", label: dict.footer.legal },
+    { href: "/accessibility", label: dict.footer.accessibility },
   ];
   return (
     <footer className="mt-auto border-t-4 border-gb-ink bg-gb-bg">

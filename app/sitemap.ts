@@ -53,6 +53,7 @@ export default async function sitemap(props: {
       { url: `${base}/pokemon`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/illustrator`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/legal`, changeFrequency: "yearly", priority: 0.3 },
+      { url: `${base}/accessibility`, changeFrequency: "yearly", priority: 0.3 },
       { url: `${base}/facts`, changeFrequency: "monthly", priority: 0.6 },
       ...ARTICLES.map((article) => ({
         url: `${base}/facts/${article.slug}`,

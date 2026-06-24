@@ -18,6 +18,7 @@ export const de: Dictionary = {
     funFacts: "Wissenswertes",
     faqs: "Set-FAQs",
     legal: "Rechtliches & Credits",
+    accessibility: "Barrierefreiheit",
     disclaimer: "NOMEKOP · Ein Fan-Tool · Nicht verbunden mit Nintendo / The Pokémon Company",
   },
   settings: {

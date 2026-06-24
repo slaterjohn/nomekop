@@ -18,6 +18,7 @@ export const zhCn: Dictionary = {
     funFacts: "趣闻",
     faqs: "卡包常见问题",
     legal: "法律声明与致谢",
+    accessibility: "无障碍",
     disclaimer: "NOMEKOP · 粉丝自制工具 · 与 Nintendo / The Pokémon Company 无关",
   },
   settings: {

@@ -18,6 +18,7 @@ export const ko: Dictionary = {
     funFacts: "재미있는 사실",
     faqs: "세트 FAQ",
     legal: "법적 고지 및 크레딧",
+    accessibility: "접근성",
     disclaimer: "NOMEKOP · 팬 제작 도구 · Nintendo / The Pokémon Company와 무관",
   },
   settings: {
