@@ -57,8 +57,9 @@ const SECURITY_HEADERS = [
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()",
   },
-  // Ignored by browsers over plain http (dev/e2e), enforced over https (prod).
-  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+  // HSTS is owned by Cloudflare (its header carries `preload`); the app must not
+  // also emit one, or two Strict-Transport-Security headers go out and the HSTS
+  // preload-list checker rejects the duplicate.
   { key: "X-DNS-Prefetch-Control", value: "off" },
 ];
 
