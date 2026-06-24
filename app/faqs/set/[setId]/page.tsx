@@ -99,7 +99,7 @@ export default async function FaqSetHubPage({ params }: Props) {
 
       {set.isUpcoming ? (
         <p className="border-[3px] border-dashed border-gb-ink bg-gb-accent/20 px-3 py-2 font-readable text-lg leading-snug">
-          <strong className="font-bold">{set.name}</strong> isn&apos;t out yet — these answers are from
+          <strong className="font-bold">{set.name}</strong>{" "}isn&apos;t out yet — these answers are from
           official reveals and TCG news and may change before launch. We&apos;ll swap in full card data
           once it releases.
         </p>

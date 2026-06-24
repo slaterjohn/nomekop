@@ -41,7 +41,7 @@ export default function AccessibilityPage() {
             the themed ones are hard on your eyes.
           </li>
           <li>
-            <strong>Swap the pixel font</strong> for a plain mono or sans-serif one that&apos;s
+            <strong>Swap the pixel font</strong>{" "}for a plain mono or sans-serif one that&apos;s
             easier to read.
           </li>
           <li>
@@ -49,7 +49,7 @@ export default function AccessibilityPage() {
             normally in your browser.
           </li>
           <li>
-            <strong>Turn on reduced motion</strong> to calm the animations (we also follow your
+            <strong>Turn on reduced motion</strong>{" "}to calm the animations (we also follow your
             device&apos;s &ldquo;reduce motion&rdquo; setting automatically).
           </li>
           <li>
