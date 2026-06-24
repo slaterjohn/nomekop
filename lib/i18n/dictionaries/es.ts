@@ -108,6 +108,11 @@ export const es: Dictionary = {
     openInBuilder: "Abrir en el creador de álbumes",
     masterSetLayout: "Disposición del set completo",
   },
+  accuracy: {
+    disclaimer:
+      "Los totales del set maestro de esta era aún no están del todo verificados, por lo que algunos pueden ser inexactos.",
+    reportCta: "Informar de un error",
+  },
   builder: {
     configure: "Configurar álbum",
     findBinder: "Encontrar el álbum adecuado",

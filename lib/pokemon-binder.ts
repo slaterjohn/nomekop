@@ -117,7 +117,7 @@ export function buildPokemonLayout(
       slotsPerPage: options.rows * options.cols,
       rows: options.rows,
       cols: options.cols,
-      byKind: { card: slots.length, reverse: 0, pokeball: 0, masterball: 0 },
+      byKind: { card: slots.length, reverse: 0, pokeball: 0, masterball: 0, energy: 0 },
     },
   };
 }

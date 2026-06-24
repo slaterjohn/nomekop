@@ -18,10 +18,13 @@ export type Variants = {
   normal: boolean;
   reverse: boolean;
   holo: boolean;
-  /** Poké Ball / Master Ball foil mirrors (curated per set — the API has no
-   *  per-card data for these). Optional: absent in older cached payloads. */
+  /** Poké Ball / Master Ball / Energy reverse-holo PATTERN variants (curated per
+   *  set — the API has no per-card data for these). Optional: absent in older
+   *  cached payloads. Mega-era sets (e.g. Ascended Heroes) use pokeball + energy
+   *  in place of the Scarlet & Violet pokeball + masterball. */
   pokeball?: boolean;
   masterball?: boolean;
+  energy?: boolean;
 };
 
 export type PriceRange = {

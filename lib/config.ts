@@ -14,9 +14,10 @@ const schema = z.object({
   cols: gridDim.catch(4),
   mode: z.enum(["standard", "master"]).catch("standard"),
   secrets: onOff,
-  /** Poké Ball / Master Ball mirror runs (only meaningful for ball-pattern sets). */
+  /** Poké Ball / Master Ball / Energy pattern mirror runs (only meaningful for pattern sets). */
   pb: onOff,
   mb: onOff,
+  ep: onOff,
   /** Parallel placement: interleaved beside each card, or grouped at the end. */
   place: z.enum(["mix", "end"]).catch("mix"),
   style: z.enum(["clean", "retro"]).catch("clean"),
@@ -32,6 +33,7 @@ export const DEFAULT_CONFIG: BinderConfig = {
   secrets: true,
   pb: true,
   mb: true,
+  ep: true,
   place: "mix",
   style: "clean",
 };
@@ -57,6 +59,7 @@ export function serializeConfig(config: BinderConfig): URLSearchParams {
   if (config.secrets !== DEFAULT_CONFIG.secrets) qs.set("secrets", config.secrets ? "1" : "0");
   if (config.pb !== DEFAULT_CONFIG.pb) qs.set("pb", config.pb ? "1" : "0");
   if (config.mb !== DEFAULT_CONFIG.mb) qs.set("mb", config.mb ? "1" : "0");
+  if (config.ep !== DEFAULT_CONFIG.ep) qs.set("ep", config.ep ? "1" : "0");
   if (config.place !== DEFAULT_CONFIG.place) qs.set("place", config.place);
   if (config.style !== DEFAULT_CONFIG.style) qs.set("style", config.style);
   return qs;

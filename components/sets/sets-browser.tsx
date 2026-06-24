@@ -11,6 +11,7 @@ import {
   DialogDescription,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { AccuracyDisclaimer } from "@/components/accuracy-disclaimer";
 import { format } from "@/lib/i18n/format";
 
 /** One set, with everything the browser + modal need — fully serializable. */
@@ -31,6 +32,9 @@ export type SetItem = {
 export type SetsGroup = {
   series: string;
   sets: SetItem[];
+  /** Era's master-set counts verified against collector guides — when false the
+   *  section shows an accuracy disclaimer. */
+  verified: boolean;
 };
 
 /** Just the strings the client needs — keeps the whole dict off the wire. */
@@ -52,6 +56,8 @@ export type SetsBrowserLabels = {
   countsLabel: string;
   printedTotalLine: string;
   masterSetLabel: string;
+  accuracyDisclaimer: string;
+  accuracyReportCta: string;
 };
 
 type Props = {
@@ -205,7 +211,14 @@ function CollapsibleSeries({
             backgroundSize: "4px 4px",
           }}
         />
-        <div className="relative">
+        <div className="relative flex flex-col gap-3">
+          {!group.verified ? (
+            <AccuracyDisclaimer
+              body={labels.accuracyDisclaimer}
+              reportCta={labels.accuracyReportCta}
+              era={group.series}
+            />
+          ) : null}
           <SetGrid sets={group.sets} labels={labels} onOpen={onOpenSet} />
         </div>
       </div>

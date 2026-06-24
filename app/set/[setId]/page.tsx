@@ -13,7 +13,9 @@ import { GbBadge } from "@/components/gb/gb-badge";
 import { encodeShareToken } from "@/lib/share";
 import { breadcrumbJsonLd, setCollectionJsonLd } from "@/lib/structured-data";
 import { faqPagesForSet } from "@/lib/content/faqs/registry";
+import { AccuracyDisclaimer } from "@/components/accuracy-disclaimer";
 import { getCards, getSets } from "@/lib/tcg";
+import { isSeriesVerified } from "@/lib/tcg/era-coverage";
 import { TcgError } from "@/lib/tcg/types";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
@@ -132,6 +134,15 @@ export default async function SetPage({ params }: Props) {
           </p>
         </div>
       </header>
+
+      {!isSeriesVerified(set.series) ? (
+        <AccuracyDisclaimer
+          body={dict.accuracy.disclaimer}
+          reportCta={dict.accuracy.reportCta}
+          era={set.series}
+          setId={set.id}
+        />
+      ) : null}
 
       <GbScreen title={dict.setDetail.binderLayouts}>
         <div className="flex flex-col gap-3">

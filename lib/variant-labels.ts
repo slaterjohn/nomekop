@@ -9,6 +9,8 @@ export function slotKindLabel(kind: SlotKind): string {
       return "Poké Ball";
     case "masterball":
       return "Master Ball";
+    case "energy":
+      return "Energy";
     default:
       return "Normal";
   }
@@ -23,6 +25,8 @@ export function slotBadge(kind: SlotKind): string | null {
       return "POKÉ";
     case "masterball":
       return "MASTER";
+    case "energy":
+      return "ENERGY";
     default:
       return null;
   }

@@ -108,6 +108,11 @@ export const fr: Dictionary = {
     openInBuilder: "Ouvrir dans le créateur",
     masterSetLayout: "Disposition extension complète",
   },
+  accuracy: {
+    disclaimer:
+      "Les totaux de master set de cette ère ne sont pas encore entièrement vérifiés ; certains peuvent être inexacts.",
+    reportCta: "Signaler une inexactitude",
+  },
   builder: {
     configure: "Configurer le classeur",
     findBinder: "Trouver le bon classeur",

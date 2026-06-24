@@ -108,6 +108,11 @@ export const ko: Dictionary = {
     openInBuilder: "바인더 빌더에서 열기",
     masterSetLayout: "마스터 세트 레이아웃",
   },
+  accuracy: {
+    disclaimer:
+      "이 시대의 마스터 세트 수량은 아직 완전히 검증되지 않아 일부가 부정확할 수 있습니다.",
+    reportCta: "오류 신고하기",
+  },
   builder: {
     configure: "바인더 설정",
     findBinder: "맞는 바인더 찾기",

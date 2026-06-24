@@ -14,6 +14,7 @@ import { ConfigPanel } from "@/components/builder/config-panel";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { ActionBar } from "@/components/builder/action-bar";
 import { BinderShelf } from "@/components/builder/binder-shelf";
+import { AccuracyDisclaimer } from "@/components/accuracy-disclaimer";
 import {
   Dialog,
   DialogContent,
@@ -28,6 +29,7 @@ import { useBinderConfig } from "@/lib/use-binder-config";
 import { useChecklist, useCollectionMode, clearChecklist } from "@/lib/checklist-store";
 import { saveSetConfig } from "@/lib/config-store";
 import { buildBinderLayout } from "@/lib/layout";
+import { isSeriesVerified } from "@/lib/tcg/era-coverage";
 import { toCollectionCsv } from "@/lib/csv";
 import { play } from "@/lib/sound";
 import { cn } from "@/lib/utils";
@@ -142,6 +144,15 @@ export function Builder({ initialSets }: BuilderProps) {
           </div>
         )}
       </GbScreen>
+
+      {selectedSet && !isSeriesVerified(selectedSet.series) ? (
+        <AccuracyDisclaimer
+          body={dict.accuracy.disclaimer}
+          reportCta={dict.accuracy.reportCta}
+          era={selectedSet.series}
+          setId={selectedSet.id}
+        />
+      ) : null}
 
       {selectedSet && cards.isPending ? (
         <div className="flex justify-center py-8">

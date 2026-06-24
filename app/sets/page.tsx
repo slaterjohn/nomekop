@@ -7,6 +7,7 @@ import { GbScreen } from "@/components/gb/gb-screen";
 import { breadcrumbJsonLd, setsIndexJsonLd } from "@/lib/structured-data";
 import { getSets, getSetOverlay } from "@/lib/tcg";
 import { getMasterSetCounts } from "@/lib/tcg/master-count";
+import { isSeriesVerified } from "@/lib/tcg/era-coverage";
 import { cardLanguagesEnabled } from "@/lib/features";
 import { isLanguage, languageByCode } from "@/lib/tcg/languages";
 import { getServerDictionary } from "@/lib/i18n/server";
@@ -103,6 +104,7 @@ export default async function SetsIndexPage({ searchParams }: Props) {
   // Serializable groups for the client browser (already newest-first).
   const groups: SetsGroup[] = seriesGroups.map((group) => ({
     series: group.series,
+    verified: isSeriesVerified(group.series),
     sets: group.sets.map((set) => ({
       id: set.id,
       name: set.name,
@@ -134,6 +136,8 @@ export default async function SetsIndexPage({ searchParams }: Props) {
     countsLabel: t.countsLabel,
     printedTotalLine: t.printedTotalLine,
     masterSetLabel: t.masterSetLabel,
+    accuracyDisclaimer: dict.accuracy.disclaimer,
+    accuracyReportCta: dict.accuracy.reportCta,
   };
 
   // Localized overlay sets (badged English sets, translated-name sets, and

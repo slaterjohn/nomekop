@@ -11,7 +11,7 @@ describe("share tokens", () => {
       cols: 4,
       mode: "master",
     };
-    expect(encodeShareToken(config)).toBe("sv8pt5~34m111ic");
+    expect(encodeShareToken(config)).toBe("sv8pt5~34m1111ic");
   });
 
   it("round-trips every field", () => {
@@ -23,10 +23,15 @@ describe("share tokens", () => {
       secrets: false,
       pb: true,
       mb: false,
+      ep: false,
       place: "end",
       style: "retro",
     };
     expect(decodeShareToken(encodeShareToken(config))).toEqual(config);
+  });
+
+  it("decodes a legacy token (no Energy bit) with Energy patterns on", () => {
+    expect(decodeShareToken("sv8pt5~34m111ic")).toMatchObject({ ep: true, pb: true, mb: true });
   });
 
   it("round-trips the defaults", () => {

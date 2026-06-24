@@ -108,6 +108,11 @@ export const it: Dictionary = {
     openInBuilder: "Apri nel costruttore",
     masterSetLayout: "Layout set master",
   },
+  accuracy: {
+    disclaimer:
+      "I totali del master set di questa era non sono ancora del tutto verificati, quindi alcuni potrebbero essere imprecisi.",
+    reportCta: "Segnala un'inesattezza",
+  },
   builder: {
     configure: "Configura raccoglitore",
     findBinder: "Trova il raccoglitore giusto",

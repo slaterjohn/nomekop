@@ -117,6 +117,11 @@ export const en = {
     openInBuilder: "Open in binder builder",
     masterSetLayout: "Master set layout",
   },
+  accuracy: {
+    disclaimer:
+      "Master-set counts for this era aren't fully verified yet, so some may be inaccurate.",
+    reportCta: "Report an inaccuracy",
+  },
   builder: {
     configure: "Configure binder",
     findBinder: "Find the right binder",

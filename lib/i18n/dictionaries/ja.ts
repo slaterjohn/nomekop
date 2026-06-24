@@ -108,6 +108,11 @@ export const ja: Dictionary = {
     openInBuilder: "バインダービルダーで開く",
     masterSetLayout: "マスターセットレイアウト",
   },
+  accuracy: {
+    disclaimer:
+      "この時代のマスターセットの枚数はまだ完全には検証されておらず、一部に誤りがある場合があります。",
+    reportCta: "誤りを報告する",
+  },
   builder: {
     configure: "バインダーを設定",
     findBinder: "最適なバインダーを探す",

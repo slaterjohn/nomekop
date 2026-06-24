@@ -3,16 +3,17 @@ import type { TcgCard } from "@/lib/tcg/types";
 
 export type CollectionMode = "standard" | "master";
 
-export type SlotKind = "card" | "reverse" | "pokeball" | "masterball";
+export type SlotKind = "card" | "reverse" | "pokeball" | "masterball" | "energy";
 
 export type Slot = { kind: SlotKind; card: TcgCard } | { kind: "empty" };
 
 export type ExpandOptions = {
   mode: CollectionMode;
   includeSecrets: boolean;
-  /** Poké Ball / Master Ball mirror runs (master mode only; no-op for sets without them). */
+  /** Poké Ball / Master Ball / Energy pattern mirror runs (master mode only; no-op for sets without them). */
   includePokeball: boolean;
   includeMasterball: boolean;
+  includeEnergy: boolean;
   /** Where parallel variants live: beside their card or grouped after the set. */
   placement: "interleave" | "end";
   printedTotal: number;
@@ -27,8 +28,15 @@ export type ExpandOptions = {
  * - includeSecrets=false keeps only plain numbers within the printed total.
  */
 export function expandSlots(cards: ReadonlyArray<TcgCard>, options: ExpandOptions): Slot[] {
-  const { mode, includeSecrets, includePokeball, includeMasterball, placement, printedTotal } =
-    options;
+  const {
+    mode,
+    includeSecrets,
+    includePokeball,
+    includeMasterball,
+    includeEnergy,
+    placement,
+    printedTotal,
+  } = options;
 
   const kept = includeSecrets
     ? cards
@@ -42,6 +50,7 @@ export function expandSlots(cards: ReadonlyArray<TcgCard>, options: ExpandOption
   const reverseRun: Slot[] = [];
   const pokeballRun: Slot[] = [];
   const masterballRun: Slot[] = [];
+  const energyRun: Slot[] = [];
 
   for (const card of sorted) {
     slots.push({ kind: "card", card });
@@ -55,7 +64,10 @@ export function expandSlots(cards: ReadonlyArray<TcgCard>, options: ExpandOption
     if (includeMasterball && card.variants.masterball) {
       (placement === "interleave" ? slots : masterballRun).push({ kind: "masterball", card });
     }
+    if (includeEnergy && card.variants.energy) {
+      (placement === "interleave" ? slots : energyRun).push({ kind: "energy", card });
+    }
   }
 
-  return [...slots, ...reverseRun, ...pokeballRun, ...masterballRun];
+  return [...slots, ...reverseRun, ...pokeballRun, ...masterballRun, ...energyRun];
 }

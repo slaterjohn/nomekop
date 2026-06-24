@@ -6,6 +6,7 @@ const opts = (over: Partial<ExpandOptions> = {}): ExpandOptions => ({
   includeSecrets: true,
   includePokeball: true,
   includeMasterball: true,
+  includeEnergy: true,
   placement: "interleave",
   printedTotal: 102,
   ...over,

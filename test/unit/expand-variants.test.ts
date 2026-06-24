@@ -33,6 +33,7 @@ describe("expandSlots — ball-pattern master sets", () => {
       includeSecrets: true,
       includePokeball: true,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "interleave",
       printedTotal: 102,
     });
@@ -54,6 +55,7 @@ describe("expandSlots — ball-pattern master sets", () => {
       includeSecrets: true,
       includePokeball: true,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "end",
       printedTotal: 102,
     });
@@ -79,6 +81,7 @@ describe("expandSlots — ball-pattern master sets", () => {
       includeSecrets: true,
       includePokeball: true,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "end",
       printedTotal: 102,
     });
@@ -91,6 +94,7 @@ describe("expandSlots — ball-pattern master sets", () => {
       includeSecrets: true,
       includePokeball: false,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "interleave",
       printedTotal: 102,
     });
@@ -103,6 +107,7 @@ describe("expandSlots — ball-pattern master sets", () => {
       includeSecrets: true,
       includePokeball: true,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "interleave",
       printedTotal: 102,
     });
@@ -115,9 +120,63 @@ describe("expandSlots — ball-pattern master sets", () => {
       includeSecrets: true,
       includePokeball: true,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "interleave",
       printedTotal: 102,
     });
     expect(sig(slots)).toEqual(["card:9", "reverse:9"]);
+  });
+});
+
+describe("expandSlots — Energy-pattern master sets (Mega era)", () => {
+  // Ascended Heroes shape: non-ex Pokémon carry Poké Ball + Energy patterns and
+  // NO plain reverse; Trainers carry a plain reverse only.
+  const pokemon = card("1", {
+    supertype: "Pokémon",
+    variants: { normal: true, reverse: false, holo: false, pokeball: true, energy: true },
+  });
+  const trainer = card("2", {
+    supertype: "Trainer",
+    variants: { normal: true, reverse: true, holo: false },
+  });
+  const cards = [pokemon, trainer];
+
+  it("interleave: Poké Ball + Energy sit beside each Pokémon; Trainer keeps its reverse", () => {
+    const slots = expandSlots(cards, {
+      mode: "master",
+      includeSecrets: true,
+      includePokeball: true,
+      includeMasterball: true,
+      includeEnergy: true,
+      placement: "interleave",
+      printedTotal: 295,
+    });
+    expect(sig(slots)).toEqual(["card:1", "pokeball:1", "energy:1", "card:2", "reverse:2"]);
+  });
+
+  it("end placement groups the Energy run after Poké Ball and reverse runs", () => {
+    const slots = expandSlots(cards, {
+      mode: "master",
+      includeSecrets: true,
+      includePokeball: true,
+      includeMasterball: true,
+      includeEnergy: true,
+      placement: "end",
+      printedTotal: 295,
+    });
+    expect(sig(slots)).toEqual(["card:1", "card:2", "reverse:2", "pokeball:1", "energy:1"]);
+  });
+
+  it("the Energy toggle excludes only its run", () => {
+    const slots = expandSlots(cards, {
+      mode: "master",
+      includeSecrets: true,
+      includePokeball: true,
+      includeMasterball: true,
+      includeEnergy: false,
+      placement: "interleave",
+      printedTotal: 295,
+    });
+    expect(sig(slots)).toEqual(["card:1", "pokeball:1", "card:2", "reverse:2"]);
   });
 });

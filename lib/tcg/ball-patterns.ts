@@ -1,39 +1,71 @@
 import type { TcgCard } from "@/lib/tcg/types";
 
-type BallRule = (card: TcgCard) => boolean;
-type BallRules = { pokeball: BallRule; masterball: BallRule };
+type PatternRule = (card: TcgCard) => boolean;
 
-// Verified for Prismatic Evolutions (community sources: Poké Ball mirrors the
-// reverse pool — Commons/Uncommons/Rares; Master Ball only on Pokémon, not
-// Trainers; 481-card master set). Black Bolt / White Flare follow the same
-// shape. pokemontcg.io exposes no per-card ball data, so this map is curated —
-// new ball-pattern sets are a one-line addition.
-const mirrorsReversePool: BallRule = (c) => c.variants.reverse;
-const pokemonOnlyMirror: BallRule = (c) => c.variants.reverse && c.supertype === "Pokémon";
+/**
+ * Per-set reverse-holo PATTERN rules. Each present key marks that special-pattern
+ * variant on the cards it matches. An optional `reverse` rule REPLACES the derived
+ * plain-reverse flag — Mega-era sets give each non-ex Pokémon two special patterns
+ * (Poké Ball + Energy) INSTEAD of a plain reverse, so their plain reverse must be
+ * cleared, while Trainers keep theirs.
+ *
+ * pokemontcg.io exposes no per-card pattern data, so this map is curated and
+ * verified against collector master-set guides — new pattern sets are a one-line
+ * addition. (Counts: Prismatic 100 Poké Ball + 67 Master Ball; Ascended Heroes
+ * 140 Poké Ball + 140 Energy + 38 Trainer reverse = 613 master set.)
+ */
+type PatternRules = {
+  pokeball?: PatternRule;
+  masterball?: PatternRule;
+  energy?: PatternRule;
+  reverse?: PatternRule;
+};
 
-const BALL_PATTERN_SETS: Record<string, BallRules> = {
-  // Prismatic Evolutions
-  sv8pt5: { pokeball: mirrorsReversePool, masterball: pokemonOnlyMirror },
-  // Black Bolt
-  zsv10pt5: { pokeball: mirrorsReversePool, masterball: pokemonOnlyMirror },
-  // White Flare
-  rsv10pt5: { pokeball: mirrorsReversePool, masterball: pokemonOnlyMirror },
+// Scarlet & Violet ball sets: Poké Ball mirrors the whole reverse pool
+// (Commons/Uncommons/Rares); Master Ball only on Pokémon. Plain reverse stays.
+const reversePool: PatternRule = (c) => c.variants.reverse;
+const pokemonReverse: PatternRule = (c) => c.variants.reverse && c.supertype === "Pokémon";
+const trainerReverse: PatternRule = (c) => c.variants.reverse && c.supertype !== "Pokémon";
+
+const PATTERN_SETS: Record<string, PatternRules> = {
+  // Prismatic Evolutions / Black Bolt / White Flare — Poké Ball + Master Ball.
+  sv8pt5: { pokeball: reversePool, masterball: pokemonReverse },
+  zsv10pt5: { pokeball: reversePool, masterball: pokemonReverse },
+  rsv10pt5: { pokeball: reversePool, masterball: pokemonReverse },
+  // Ascended Heroes (Mega era) — each non-ex Pokémon has a Poké Ball pattern AND
+  // an Energy pattern instead of a plain reverse; Trainers keep a plain reverse.
+  me2pt5: { pokeball: pokemonReverse, energy: pokemonReverse, reverse: trainerReverse },
 };
 
 export function setHasBallPatterns(setId: string): boolean {
-  return setId in BALL_PATTERN_SETS;
+  return setId in PATTERN_SETS;
 }
 
-/** Marks Poké Ball / Master Ball mirrors on a set's cards (no-op elsewhere). */
+/** Which pattern toggles a set offers — drives the config-panel switches. */
+export function setPatternKinds(setId: string): {
+  pokeball: boolean;
+  masterball: boolean;
+  energy: boolean;
+} {
+  const r = PATTERN_SETS[setId];
+  return { pokeball: !!r?.pokeball, masterball: !!r?.masterball, energy: !!r?.energy };
+}
+
+/** Marks Poké Ball / Master Ball / Energy pattern variants on a set's cards, and
+ *  clears the plain reverse where the set replaces it with patterns. Each rule
+ *  reads the card's ORIGINAL derived `reverse`, so it's order-independent. No-op
+ *  for sets without curated patterns. */
 export function applyBallPatterns(setId: string, cards: TcgCard[]): TcgCard[] {
-  const rules = BALL_PATTERN_SETS[setId];
+  const rules = PATTERN_SETS[setId];
   if (!rules) return cards;
   return cards.map((card) => ({
     ...card,
     variants: {
       ...card.variants,
-      pokeball: rules.pokeball(card),
-      masterball: rules.masterball(card),
+      ...(rules.reverse ? { reverse: rules.reverse(card) } : {}),
+      pokeball: rules.pokeball ? rules.pokeball(card) : false,
+      masterball: rules.masterball ? rules.masterball(card) : false,
+      energy: rules.energy ? rules.energy(card) : false,
     },
   }));
 }

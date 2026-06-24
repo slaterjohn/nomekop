@@ -84,7 +84,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
           <GbProgress label="Collected" value={collected.length} max={pockets.length} />
 
           <p className="font-pixel text-[10px] uppercase leading-relaxed">
-            {(["card", "reverse", "pokeball", "masterball"] as const)
+            {(["card", "reverse", "pokeball", "masterball", "energy"] as const)
               .map((kind) => ({
                 kind,
                 have: collected.filter((s) => s.kind === kind).length,

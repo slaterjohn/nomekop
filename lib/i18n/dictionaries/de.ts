@@ -108,6 +108,11 @@ export const de: Dictionary = {
     openInBuilder: "Im Ordner-Builder öffnen",
     masterSetLayout: "Master-Set-Layout",
   },
+  accuracy: {
+    disclaimer:
+      "Die Master-Set-Zahlen dieser Ära sind noch nicht vollständig geprüft und können daher ungenau sein.",
+    reportCta: "Ungenauigkeit melden",
+  },
   builder: {
     configure: "Ordner konfigurieren",
     findBinder: "Den passenden Ordner finden",

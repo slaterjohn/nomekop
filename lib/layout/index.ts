@@ -32,7 +32,7 @@ export type BinderLayout = {
 
 /** Bridges BinderConfig to the engine's expansion options. */
 export function expandOptionsFrom(
-  config: Pick<BinderConfig, "mode" | "secrets" | "pb" | "mb" | "place">,
+  config: Pick<BinderConfig, "mode" | "secrets" | "pb" | "mb" | "ep" | "place">,
   set: Pick<TcgSet, "printedTotal">,
 ): ExpandOptions {
   return {
@@ -40,6 +40,7 @@ export function expandOptionsFrom(
     includeSecrets: config.secrets,
     includePokeball: config.pb,
     includeMasterball: config.mb,
+    includeEnergy: config.ep,
     placement: config.place === "end" ? "end" : "interleave",
     printedTotal: set.printedTotal,
   };
@@ -49,12 +50,18 @@ export function expandOptionsFrom(
 export function buildBinderLayout(
   cards: ReadonlyArray<TcgCard>,
   set: Pick<TcgSet, "printedTotal">,
-  config: Pick<BinderConfig, "rows" | "cols" | "mode" | "secrets" | "pb" | "mb" | "place">,
+  config: Pick<BinderConfig, "rows" | "cols" | "mode" | "secrets" | "pb" | "mb" | "ep" | "place">,
 ): BinderLayout {
   const slots = expandSlots(cards, expandOptionsFrom(config, set));
   const pages = paginate(slots, config.rows, config.cols);
   const cardIds = new Set<string>();
-  const byKind: Record<SlotKind, number> = { card: 0, reverse: 0, pokeball: 0, masterball: 0 };
+  const byKind: Record<SlotKind, number> = {
+    card: 0,
+    reverse: 0,
+    pokeball: 0,
+    masterball: 0,
+    energy: 0,
+  };
   for (const s of slots) {
     if (s.kind !== "empty") {
       cardIds.add(s.card.id);

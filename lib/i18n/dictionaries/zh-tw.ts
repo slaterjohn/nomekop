@@ -108,6 +108,11 @@ export const zhTw: Dictionary = {
     openInBuilder: "在收藏冊製作工具中開啟",
     masterSetLayout: "完整系列版面",
   },
+  accuracy: {
+    disclaimer:
+      "此世代的完整收藏（master set）卡片數量尚未完全核實，部分可能不準確。",
+    reportCta: "回報錯誤",
+  },
   builder: {
     configure: "設定收藏冊",
     findBinder: "找到適合的收藏冊",

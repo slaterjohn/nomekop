@@ -7,7 +7,7 @@ import { GbMenu } from "@/components/gb/gb-menu";
 import { GbToggle } from "@/components/gb/gb-toggle";
 import { buildBinderLayout } from "@/lib/layout";
 import { POCKET_PRESETS, type BinderConfig } from "@/lib/config";
-import { setHasBallPatterns } from "@/lib/tcg/ball-patterns";
+import { setHasBallPatterns, setPatternKinds } from "@/lib/tcg/ball-patterns";
 import { play } from "@/lib/sound";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -29,10 +29,15 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
   const showSteppers = customOpen || !matchingPreset;
 
   const ballSet = setHasBallPatterns(set.id);
+  const patternKinds = setPatternKinds(set.id);
   // No parallel prints (e.g. Base Set) → the master set IS the complete set:
   // hide the mode choice entirely instead of offering a meaningless toggle.
   const hasParallels = cards.some(
-    (c) => c.variants.reverse || c.variants.pokeball || c.variants.masterball,
+    (c) =>
+      c.variants.reverse ||
+      c.variants.pokeball ||
+      c.variants.masterball ||
+      c.variants.energy,
   );
   const showBallOptions = config.mode === "master" && ballSet;
   const showPlacement = config.mode === "master" && hasParallels;
@@ -119,16 +124,27 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           />
           {showBallOptions ? (
             <>
-              <GbToggle
-                label="Poké Ball"
-                checked={config.pb}
-                onChange={(pb) => onChange({ pb })}
-              />
-              <GbToggle
-                label="Master Ball"
-                checked={config.mb}
-                onChange={(mb) => onChange({ mb })}
-              />
+              {patternKinds.pokeball ? (
+                <GbToggle
+                  label="Poké Ball"
+                  checked={config.pb}
+                  onChange={(pb) => onChange({ pb })}
+                />
+              ) : null}
+              {patternKinds.masterball ? (
+                <GbToggle
+                  label="Master Ball"
+                  checked={config.mb}
+                  onChange={(mb) => onChange({ mb })}
+                />
+              ) : null}
+              {patternKinds.energy ? (
+                <GbToggle
+                  label="Energy"
+                  checked={config.ep}
+                  onChange={(ep) => onChange({ ep })}
+                />
+              ) : null}
             </>
           ) : null}
         </div>
@@ -153,6 +169,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
             Incl. {stats.byKind.reverse} reverse
             {stats.byKind.pokeball > 0 ? ` · ${stats.byKind.pokeball} Poké Ball` : ""}
             {stats.byKind.masterball > 0 ? ` · ${stats.byKind.masterball} Master Ball` : ""}
+            {stats.byKind.energy > 0 ? ` · ${stats.byKind.energy} Energy` : ""}
             {config.place === "end" ? " — variant runs sit on the final pages" : ""}
           </span>
         ) : null}

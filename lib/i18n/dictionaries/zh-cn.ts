@@ -108,6 +108,11 @@ export const zhCn: Dictionary = {
     openInBuilder: "在活页册制作器中打开",
     masterSetLayout: "完整套装布局",
   },
+  accuracy: {
+    disclaimer:
+      "此世代的大师套（master set）卡片数量尚未完全核实，部分可能不准确。",
+    reportCta: "报告错误",
+  },
   builder: {
     configure: "配置活页册",
     findBinder: "找到合适的活页册",

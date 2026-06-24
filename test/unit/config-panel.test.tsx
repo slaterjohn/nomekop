@@ -203,3 +203,67 @@ describe("ConfigPanel — modes and variants", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 });
+
+describe("ConfigPanel — Ascended Heroes (Energy pattern, no Master Ball)", () => {
+  const ahSet: TcgSet = {
+    id: "me2pt5",
+    name: "Ascended Heroes",
+    series: "Mega Evolution",
+    printedTotal: 295,
+    total: 295,
+    releaseDate: "2026/01/16",
+    symbolUrl: "",
+    logoUrl: "",
+  };
+  // Cards as they arrive post-applyBallPatterns: non-ex Pokémon carry Poké Ball
+  // + Energy and no plain reverse; a Trainer carries a plain reverse.
+  const mk = (id: string, over: Partial<TcgCard>): TcgCard => ({
+    id,
+    name: id,
+    number: id,
+    rarity: "Common",
+    supertype: "Pokémon",
+    imageSmall: "",
+    imageLarge: "",
+    variants: { normal: true, reverse: false, holo: false },
+    ...over,
+  });
+  const ahCards: TcgCard[] = [
+    mk("1", {
+      variants: { normal: true, reverse: false, holo: false, pokeball: true, energy: true },
+    }),
+    mk("2", {
+      supertype: "Trainer",
+      variants: { normal: true, reverse: true, holo: false },
+    }),
+  ];
+
+  it("master mode reveals Poké Ball + Energy toggles but NOT Master Ball", () => {
+    render(
+      <ConfigPanel
+        set={ahSet}
+        cards={ahCards}
+        config={{ ...DEFAULT_CONFIG, set: "me2pt5", mode: "master" }}
+        onChange={vi.fn()}
+      />,
+    );
+    expect(screen.getByRole("switch", { name: "Poké Ball" })).toBeInTheDocument();
+    expect(screen.getByRole("switch", { name: "Energy" })).toBeInTheDocument();
+    expect(screen.queryByRole("switch", { name: "Master Ball" })).not.toBeInTheDocument();
+  });
+
+  it("toggling Energy emits the ep patch", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(
+      <ConfigPanel
+        set={ahSet}
+        cards={ahCards}
+        config={{ ...DEFAULT_CONFIG, set: "me2pt5", mode: "master" }}
+        onChange={onChange}
+      />,
+    );
+    await user.click(screen.getByRole("switch", { name: "Energy" }));
+    expect(onChange).toHaveBeenCalledWith({ ep: false });
+  });
+});

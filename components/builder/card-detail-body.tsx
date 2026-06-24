@@ -23,9 +23,10 @@ function variantForKind(kind: SlotKind | null): string | null {
   switch (kind) {
     case "reverse":
       return "reverseHolofoil";
-    // Ball patterns have no TCGplayer price keys (the API carries none).
+    // Pattern variants have no TCGplayer price keys (the API carries none).
     case "pokeball":
     case "masterball":
+    case "energy":
       return "__no_price_row__";
     default:
       return null;
@@ -75,6 +76,7 @@ export function CardDetailBody({ card, set, kind }: CardDetailBodyProps) {
           {card.variants.reverse ? <GbBadge>Reverse</GbBadge> : null}
           {card.variants.pokeball ? <GbBadge>Poké Ball</GbBadge> : null}
           {card.variants.masterball ? <GbBadge>Master Ball</GbBadge> : null}
+          {card.variants.energy ? <GbBadge>Energy</GbBadge> : null}
         </div>
 
         {prices ? (

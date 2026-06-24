@@ -28,6 +28,7 @@ describe("faq-compute matches the app's authoritative logic", () => {
       includeSecrets: true,
       includePokeball: true,
       includeMasterball: true,
+      includeEnergy: true,
       placement: "interleave",
       printedTotal: 131,
     }).length;

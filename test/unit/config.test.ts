@@ -29,6 +29,7 @@ describe("parseConfig", () => {
       secrets: false,
       pb: false,
       mb: true,
+      ep: true,
       place: "end",
       style: "retro",
     });
@@ -61,6 +62,7 @@ describe("serializeConfig", () => {
       secrets: false,
       pb: false,
       mb: true,
+      ep: false,
       place: "end" as const,
       style: "retro" as const,
     };

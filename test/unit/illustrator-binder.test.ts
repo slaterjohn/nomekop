@@ -77,7 +77,7 @@ describe("buildIllustratorLayout", () => {
     const ids = layout.pages.flatMap((p) => p.slots).flatMap((s) => (s.kind === "empty" ? [] : [s.card.id]));
     expect(ids).toEqual(["b-2", "b-7", "a-1", "a-2"]);
     expect(layout.stats.slots).toBe(4);
-    expect(layout.stats.byKind).toEqual({ card: 4, reverse: 0, pokeball: 0, masterball: 0 });
+    expect(layout.stats.byKind).toEqual({ card: 4, reverse: 0, pokeball: 0, masterball: 0, energy: 0 });
   });
 
   it("oldest-first flips set order, keeping number order within a set", () => {
