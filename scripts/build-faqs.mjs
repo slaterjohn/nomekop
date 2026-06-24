@@ -4,13 +4,20 @@
 // builds/tests stay hermetic. Master-set + selection logic is in faq-compute.mjs
 // (guarded against the app's real logic by test/unit/faqs-compute.test.ts).
 import { DatabaseSync } from "node:sqlite";
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import {
   masterSlotCount, reverseHoloCount, ballCounts, supertypeCounts,
   illustrationRareCount, rarityHistogram, rarestOf, mostValuableOf, chaseOf,
   marqueePokemonOf,
 } from "./faq-compute.mjs";
+
+// Curated authoritative master-set counts override the heuristic (same table the
+// app uses for the /sets display) — keeps FAQ "master set" figures correct and
+// consistent with /sets for special-pattern sets the computation can't model.
+const CURATED_MASTER_COUNTS = JSON.parse(
+  readFileSync(path.join(process.cwd(), "data", "master-counts.json"), "utf8"),
+).counts;
 
 const POKEMON_PER_SET = 5;
 const AS_OF = "June 2026";
@@ -78,7 +85,7 @@ for (const s of sets) {
     trainerCount: st.trainer,
     energyCount: st.energy,
     reverseHoloCount: reverseHoloCount(cards),
-    masterSetCount: masterSlotCount(cards),
+    masterSetCount: CURATED_MASTER_COUNTS[s.id] ?? masterSlotCount(cards),
     pokeballCount: balls.pokeball,
     masterballCount: balls.masterball,
     hasBallPatterns: balls.pokeball > 0 || balls.masterball > 0,

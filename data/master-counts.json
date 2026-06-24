@@ -1,0 +1,12 @@
+{
+  "_comment": "Authoritative master-set counts — every distinct card needed for a master set: base numbered + ALL reverse holos + secret rares + special holo-pattern variants (Poké Ball / Master Ball / Energy patterns). NO API exposes these (pokemontcg.io has only printed/total; TCGdex's reverse field is a gappy per-card boolean), so they are curated from collector master-set guides (PokéCottage, cross-checked with Binder Forge). These OVERRIDE the heuristic computation, so the /sets count is always correct and cache-independent. To add a set: take its 'Master Set Total' from https://pokecottage.com/<set>-master-set-guide. Keyed by pokemontcg.io set id.",
+  "counts": {
+    "sv3pt5": 360,
+    "sv6pt5": 154,
+    "sv7": 300,
+    "sv8pt5": 447,
+    "zsv10pt5": 404,
+    "rsv10pt5": 403,
+    "me2pt5": 613
+  }
+}
