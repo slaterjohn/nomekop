@@ -54,10 +54,21 @@ export function setPatternKinds(setId: string): {
 /** Marks Poké Ball / Master Ball / Energy pattern variants on a set's cards, and
  *  clears the plain reverse where the set replaces it with patterns. Each rule
  *  reads the card's ORIGINAL derived `reverse`, so it's order-independent. No-op
- *  for sets without curated patterns. */
+ *  for sets without curated patterns.
+ *
+ *  Applied at READ time (lib/tcg getCards), not baked into the cache, so a set's
+ *  binder shows patterns immediately from whatever's cached — no refetch needed.
+ *  IDEMPOTENT: if the cards already carry a pattern flag (e.g. a payload cached
+ *  by an older build that baked them in), it returns them unchanged. This matters
+ *  because the Mega-era rule CLEARS the Pokémon reverse, so a naive second pass
+ *  would wrongly drop the patterns it set the first time. */
 export function applyBallPatterns(setId: string, cards: TcgCard[]): TcgCard[] {
   const rules = PATTERN_SETS[setId];
   if (!rules) return cards;
+  const alreadyApplied = cards.some(
+    (c) => c.variants.pokeball === true || c.variants.masterball === true || c.variants.energy === true,
+  );
+  if (alreadyApplied) return cards;
   return cards.map((card) => ({
     ...card,
     variants: {

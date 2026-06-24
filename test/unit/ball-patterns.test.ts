@@ -101,4 +101,19 @@ describe("ball patterns (curated — API exposes none)", () => {
     expect(c!.variants.masterball).toBeUndefined();
     expect(c!.variants.energy).toBeUndefined();
   });
+
+  it("is idempotent — re-applying an already-patterned payload is a no-op", () => {
+    // Matters most for me2pt5: its rule CLEARS the Pokémon reverse, so a naive
+    // second pass would drop the patterns the first pass set. Applied at read
+    // time, the same cached payload may pass through twice.
+    const cards = [
+      card({ supertype: "Pokémon" }),
+      card({ id: "t", supertype: "Trainer", name: "Cynthia" }),
+    ];
+    for (const setId of ["me2pt5", "sv8pt5"]) {
+      const once = applyBallPatterns(setId, cards);
+      const twice = applyBallPatterns(setId, once);
+      expect(twice, setId).toEqual(once);
+    }
+  });
 });

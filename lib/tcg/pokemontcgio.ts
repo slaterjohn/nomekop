@@ -8,7 +8,6 @@ import {
   type TcgSet,
 } from "@/lib/tcg/types";
 import { deriveVariants } from "@/lib/tcg/variants";
-import { applyBallPatterns } from "@/lib/tcg/ball-patterns";
 import { isSecretNumber } from "@/lib/tcg/secret";
 
 const BASE = "https://api.pokemontcg.io/v2";
@@ -78,12 +77,13 @@ export class PokemonTcgIoSource implements CardDataSource {
     // Ascended Heroes) returns overlapping pages — duplicates plus dropped tail
     // cards. A unique, stable key (id) paginates cleanly. The app re-sorts cards
     // for display anyway, so API order is immaterial.
-    const cards = await this.collectDistinct<ApiCard, TcgCard>(
+    // Returns RAW cards (intact reverse pool). Ball/Energy patterns are applied
+    // at READ time in lib/tcg getCards, not baked here — see applyBallPatterns.
+    return this.collectDistinct<ApiCard, TcgCard>(
       (page) => `/cards?q=${q}&pageSize=${PAGE_SIZE}&page=${page}&orderBy=id`,
       mapCard,
       `cards for set ${setId}`,
     );
-    return applyBallPatterns(setId, cards);
   }
 
   async searchCardsByName(name: string): Promise<CardWithSet[]> {
