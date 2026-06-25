@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { pokemonFaqEntries } from "@/lib/content/entities/faq";
-import type { PokemonEntity } from "@/lib/content/entities/types";
+import { pokemonFaqEntries, artistFaqEntries } from "@/lib/content/entities/faq";
+import type { ArtistEntity, PokemonEntity } from "@/lib/content/entities/types";
 
 function entity(overrides: Partial<PokemonEntity> = {}): PokemonEntity {
   return {
@@ -65,6 +65,64 @@ describe("pokemonFaqEntries", () => {
 
   it("produces no empty questions or answers", () => {
     for (const e of pokemonFaqEntries(entity())) {
+      expect(e.question.trim().length).toBeGreaterThan(0);
+      expect(e.answer.trim().length).toBeGreaterThan(0);
+    }
+  });
+});
+
+function artist(overrides: Partial<ArtistEntity> = {}): ArtistEntity {
+  return {
+    slug: "mitsuhiro-arita",
+    name: "Mitsuhiro Arita",
+    cardCount: 728,
+    setCount: 130,
+    illustrationCount: 12,
+    earliestSet: { id: "base1", name: "Base", releaseDate: "1999-01-09" },
+    latestSet: { id: "sv7", name: "Stellar Crown", releaseDate: "2024-09-13" },
+    topPokemon: [
+      { slug: "charizard", name: "Charizard", count: 9 },
+      { slug: "gyarados", name: "Gyarados", count: 9 },
+    ],
+    signatureCard: {
+      id: "base1-4",
+      name: "Charizard",
+      number: "4",
+      rarity: "Rare Holo",
+      marketPrice: 420,
+      imageSmall: "https://img/base1-4.png",
+    },
+    ...overrides,
+  };
+}
+
+describe("artistFaqEntries", () => {
+  it("answers how many cards across how many sets", () => {
+    const e = artistFaqEntries(artist()).find((x) => /how many cards has mitsuhiro arita/i.test(x.question))!;
+    expect(e).toBeDefined();
+    expect(e.answer).toContain("728");
+    expect(e.answer).toContain("130");
+  });
+
+  it("names the most-illustrated Pokémon", () => {
+    const e = artistFaqEntries(artist()).find((x) => /which pok.mon/i.test(x.question))!;
+    expect(e.answer).toContain("Charizard");
+    expect(e.answer).toContain("9");
+  });
+
+  it("leads with the value question when the signature card is priced", () => {
+    expect(artistFaqEntries(artist())[0]!.question).toMatch(/valuable|worth/i);
+    expect(artistFaqEntries(artist())[0]!.answer).toContain("420");
+  });
+
+  it("answers when they started", () => {
+    const e = artistFaqEntries(artist()).find((x) => /first/i.test(x.question))!;
+    expect(e.answer).toMatch(/Base Set/);
+    expect(e.answer).toContain("1999");
+  });
+
+  it("produces no empty questions or answers", () => {
+    for (const e of artistFaqEntries(artist())) {
       expect(e.question.trim().length).toBeGreaterThan(0);
       expect(e.answer.trim().length).toBeGreaterThan(0);
     }

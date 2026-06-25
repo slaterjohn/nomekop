@@ -1,4 +1,4 @@
-import type { PokemonEntity } from "@/lib/content/entities/types";
+import type { ArtistEntity, PokemonEntity } from "@/lib/content/entities/types";
 
 // Data-backed Q&A for a Pokémon info page. Every answer is a real figure from
 // the entity snapshot — no boilerplate. Ordered by the search intent the
@@ -66,6 +66,56 @@ export function pokemonFaqEntries(p: PokemonEntity): FaqEntry[] {
     entries.push({
       question: `How many artists have illustrated ${name}?`,
       answer: `${p.artistCount} different artists have illustrated ${name} cards.`,
+    });
+  }
+
+  return entries;
+}
+
+export function artistFaqEntries(a: ArtistEntity): FaqEntry[] {
+  const entries: FaqEntry[] = [];
+  const name = a.name;
+
+  const price = a.signatureCard?.marketPrice;
+  if (a.signatureCard && typeof price === "number") {
+    entries.push({
+      question: `What is ${name}'s most valuable card?`,
+      answer:
+        `One of ${name}'s most valuable cards is ${a.signatureCard.name} ` +
+        `(#${a.signatureCard.number}), with a recent market price around ${money(price)}.`,
+    });
+  }
+
+  entries.push({
+    question: `How many cards has ${name} illustrated?`,
+    answer:
+      `${name} has illustrated ${a.cardCount} Pokemon TCG cards across ` +
+      `${a.setCount} ${a.setCount === 1 ? "set" : "sets"}.`,
+  });
+
+  if (a.topPokemon.length > 0) {
+    const top = a.topPokemon[0]!;
+    entries.push({
+      question: `Which Pokémon has ${name} illustrated most?`,
+      answer: `${name} has drawn ${top.name} the most — ${top.count} ${top.count === 1 ? "card" : "cards"}.`,
+    });
+  }
+
+  if (a.illustrationCount > 0) {
+    entries.push({
+      question: `How many Illustration Rares has ${name} drawn?`,
+      answer:
+        `${name} has illustrated ${a.illustrationCount} Illustration Rare and ` +
+        `Special Illustration Rare ${a.illustrationCount === 1 ? "card" : "cards"}.`,
+    });
+  }
+
+  if (a.earliestSet) {
+    entries.push({
+      question: `When did ${name}'s first card come out?`,
+      answer:
+        `${name}'s earliest card is from ${setName(a.earliestSet.name)} ` +
+        `(${a.earliestSet.releaseDate.slice(0, 4)}); the most recent is from ${setName(a.latestSet.name)}.`,
     });
   }
 

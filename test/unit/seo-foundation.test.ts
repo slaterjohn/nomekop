@@ -5,7 +5,7 @@ import sitemap, { generateSitemaps } from "@/app/sitemap";
 import { GET as sitemapIndex } from "@/app/sitemap_index.xml/route";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
-import { pokemonCatalog } from "@/lib/content/entities/catalog";
+import { pokemonCatalog, gatedArtistSlugs } from "@/lib/content/entities/catalog";
 
 // The /faqs index plus each FAQ page's detail + Markdown companion all land in
 // the core shard (see app/sitemap.ts) — including the hand-authored upcoming
@@ -125,9 +125,15 @@ describe("sitemap (core shard)", () => {
     // /facts + 6 fact articles + 6 article Markdown companions + 9 gen tokens =
     // 30 static entries (bare /build now 308-redirects to /sets, so it's no
     // longer listed), plus the /faqs index and every FAQ detail + Markdown
-    // companion, plus one hub per set, plus one info page per Pokémon with cards.
+    // companion, plus one hub per set, one info page per Pokémon with cards, and
+    // two entries (info + illustrations) per gated illustrator.
     expect(entries).toHaveLength(
-      FIXTURE_SET_COUNT + 30 + FAQ_SITEMAP_ENTRIES + FAQ_HUB_ENTRIES + pokemonCatalog().length,
+      FIXTURE_SET_COUNT +
+        30 +
+        FAQ_SITEMAP_ENTRIES +
+        FAQ_HUB_ENTRIES +
+        pokemonCatalog().length +
+        gatedArtistSlugs().length * 2,
     );
     for (const url of urls) {
       expect(url.startsWith(`${BASE}/`)).toBe(true);

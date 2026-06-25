@@ -14,6 +14,8 @@ import { searchIllustratorCards } from "@/lib/tcg";
 import { cardLanguagesEnabled } from "@/lib/features";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
+import { getArtistEntity } from "@/lib/content/entities/registry";
+import { IllustratorInfo } from "@/components/illustrator/illustrator-info";
 
 /** Drop any non-English card languages from a token when the feature is off, so
  *  a hand-typed/stale multi-language URL still renders a clean English binder. */
@@ -29,14 +31,30 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const decoded = decodeIllustratorToken(decodeURIComponent(token));
-  if (!decoded) return { title: "Illustrator binder" };
-  const name = displayNameFromSlug(decoded.name);
-  return {
-    title: `${name} binder — every card by this illustrator`,
-    description: `Build a printable binder of every Pokemon TCG card illustrated by ${name}, across all sets, newest or oldest first, with A4 pages and placeholders.`,
-    alternates: { canonical: `/illustrator/${encodeURIComponent(token)}` },
-  };
+  const raw = decodeURIComponent(token);
+  const decoded = decodeIllustratorToken(raw);
+  if (decoded) {
+    const name = displayNameFromSlug(decoded.name);
+    return {
+      title: `${name} binder — every card by this illustrator`,
+      description: `Build a printable binder of every Pokemon TCG card illustrated by ${name}, across all sets, newest or oldest first, with A4 pages and placeholders.`,
+      alternates: { canonical: `/illustrator/${encodeURIComponent(token)}` },
+    };
+  }
+  // Bare slug → the illustrator information page.
+  const artist = getArtistEntity(raw);
+  if (artist) {
+    const title = `${artist.name} — Pokémon card illustrator (${artist.cardCount} cards)`;
+    return {
+      title,
+      description:
+        `${artist.name} has illustrated ${artist.cardCount} Pokemon TCG cards across ${artist.setCount} sets. ` +
+        `See their stats, most-drawn Pokemon, illustration cards, FAQs, and a printable binder.`,
+      alternates: { canonical: `/illustrator/${artist.slug}` },
+      openGraph: { title, url: `/illustrator/${artist.slug}` },
+    };
+  }
+  return { title: "Illustrator" };
 }
 
 /** The slow part — searches every set for this artist. Isolated so the page
@@ -84,11 +102,17 @@ async function IllustratorBinderData({
   );
 }
 
-/** A binder for every card one illustrator has ever drawn, across all sets. */
-export default async function IllustratorBinderPage({ params }: Props) {
+/** Dispatches the /illustrator/[token] segment: a decodable token renders the
+ *  binder; a bare artist slug renders the information page; anything else 404s. */
+export default async function IllustratorRoutePage({ params }: Props) {
   const { token } = await params;
-  const decoded = decodeIllustratorToken(decodeURIComponent(token));
-  if (!decoded) notFound();
+  const raw = decodeURIComponent(token);
+  const decoded = decodeIllustratorToken(raw);
+  if (!decoded) {
+    const artist = getArtistEntity(raw);
+    if (artist) return <IllustratorInfo artist={artist} />;
+    notFound();
+  }
   const displayName = displayNameFromSlug(decoded.name);
   const { dict } = await getServerDictionary();
 

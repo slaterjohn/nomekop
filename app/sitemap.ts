@@ -4,7 +4,7 @@ import { getCardsForSitemap, getSets, getSetsForSitemap } from "@/lib/tcg";
 import { GENERATIONS } from "@/lib/pokedex";
 import { ARTICLES } from "@/lib/content/articles";
 import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
-import { pokemonCatalog } from "@/lib/content/entities/catalog";
+import { pokemonCatalog, gatedArtistSlugs } from "@/lib/content/entities/catalog";
 
 /** The overview sitemap (home, /sets, every /set/<id>); the other sitemap ids
  *  are set ids, each listing that set's /card/<cardId> pages. Next serves each
@@ -100,6 +100,21 @@ export default async function sitemap(props: {
         changeFrequency: "monthly" as const,
         priority: 0.6,
       })),
+      // Per-illustrator info pages + their illustration-cards sub-page (gated to
+      // artists with enough cards). The per-set / per-Pokémon artist sub-pages
+      // are reachable via on-page links, so they're left to the crawl, not listed.
+      ...gatedArtistSlugs().flatMap((slug) => [
+        {
+          url: `${base}/illustrator/${encodeURIComponent(slug)}`,
+          changeFrequency: "monthly" as const,
+          priority: 0.6,
+        },
+        {
+          url: `${base}/illustrator/${encodeURIComponent(slug)}/illustrations`,
+          changeFrequency: "monthly" as const,
+          priority: 0.4,
+        },
+      ]),
     ];
     try {
       const sets = await getSetsForSitemap();

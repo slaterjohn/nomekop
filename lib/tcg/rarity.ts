@@ -63,3 +63,11 @@ export function rarityRank(rarity: string | undefined): number {
   if (!rarity) return 0;
   return RANK.get(rarity.toLowerCase()) ?? UNKNOWN_RANK;
 }
+
+const ILLUSTRATION_RARITIES = new Set(["illustration rare", "special illustration rare"]);
+
+/** Illustration Rare or Special Illustration Rare — the "full art" illustration
+ *  cards an artist's /illustrations page collects. */
+export function isIllustrationRare(rarity: string | undefined): boolean {
+  return rarity !== undefined && ILLUSTRATION_RARITIES.has(rarity.toLowerCase());
+}

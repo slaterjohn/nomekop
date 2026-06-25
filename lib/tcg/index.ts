@@ -4,6 +4,7 @@ import { FixtureSource } from "@/lib/tcg/fixture-source";
 import { PokemonTcgIoSource } from "@/lib/tcg/pokemontcgio";
 import { applyBallPatterns } from "@/lib/tcg/ball-patterns";
 import { applyArtistOverrides } from "@/lib/tcg/artist-overrides";
+import { slugifyArtistName } from "@/lib/illustrator-binder";
 import {
   dexRangeInIndex,
   getCardIndex,
@@ -218,6 +219,16 @@ export function getPokemonCardsByDex(dex: number): Promise<CardWithSet[]> {
   return serverStore.getOrCompute(`pokemon-dex:${dex}`, CARDS_TTL_MS, () =>
     getDataSource().getCardsByDexRange(dex, dex),
   );
+}
+
+/** Every card by one illustrator, matched on the EXACT artist slug (not the
+ *  substring search the binder uses), so the count matches the entity snapshot
+ *  — "DOM" never picks up "Domino". Backs the /illustrator/[slug] info page. */
+export async function getArtistCards(slug: string): Promise<CardWithSet[]> {
+  const exact = (cards: ReadonlyArray<CardWithSet>) =>
+    cards.filter((c) => c.artist && slugifyArtistName(c.artist) === slug);
+  if (!isFixtureMode() && indexIsComplete()) return exact(getCardIndex().cards);
+  return exact(await searchIllustratorCards(slug));
 }
 
 /**
