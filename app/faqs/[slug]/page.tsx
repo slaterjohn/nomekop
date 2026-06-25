@@ -39,7 +39,7 @@ export default async function FaqPage({ params }: Props) {
   const { slug } = await params;
   const page = getFaqPage(slug);
   if (!page) notFound();
-  const html = renderMarkdown(page.body);
+  const html = renderMarkdown(page.body, { linkify: true });
   const setName = faqSetName(page.setId);
   const setSummary = getFaqSetSummary(page.setId);
   const siblings = faqPagesForSet(page.setId).filter((p) => p.slug !== page.slug);

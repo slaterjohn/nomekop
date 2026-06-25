@@ -6,6 +6,7 @@ import { GbLinkButton } from "@/components/gb/gb-button";
 import { StatGrid, type Stat } from "@/components/entities/stat-grid";
 import { EntityCardGallery } from "@/components/entities/entity-card-gallery";
 import { EntityFaqSection } from "@/components/entities/entity-faq-section";
+import { SetLink } from "@/components/entities/entity-link";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { artistFaqEntries } from "@/lib/content/entities/faq";
 import { getArtistCards } from "@/lib/tcg";
@@ -20,10 +21,10 @@ const GALLERY_CAP = 120;
 function setLink(set: { id: string; name: string; releaseDate: string }, withYear = false) {
   const label = set.name === "Base" ? "Base Set" : set.name;
   return (
-    <Link href={`/set/${set.id}`} className="underline underline-offset-2">
+    <SetLink id={set.id}>
       {label}
       {withYear ? ` (${set.releaseDate.slice(0, 4)})` : ""}
-    </Link>
+    </SetLink>
   );
 }
 
