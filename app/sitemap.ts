@@ -4,6 +4,7 @@ import { getCardsForSitemap, getSets, getSetsForSitemap } from "@/lib/tcg";
 import { GENERATIONS } from "@/lib/pokedex";
 import { ARTICLES } from "@/lib/content/articles";
 import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
+import { pokemonCatalog } from "@/lib/content/entities/catalog";
 
 /** The overview sitemap (home, /sets, every /set/<id>); the other sitemap ids
  *  are set ids, each listing that set's /card/<cardId> pages. Next serves each
@@ -90,6 +91,12 @@ export default async function sitemap(props: {
       // One canonical (default-token) Pokédex per generation.
       ...GENERATIONS.map((gen) => ({
         url: `${base}/pokedex/${gen.id}~34`,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      })),
+      // Per-Pokémon information pages (every species with cards).
+      ...pokemonCatalog().map((p) => ({
+        url: `${base}/pokemon/${encodeURIComponent(p.slug)}`,
         changeFrequency: "monthly" as const,
         priority: 0.6,
       })),

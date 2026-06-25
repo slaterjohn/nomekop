@@ -208,6 +208,18 @@ export function getPokedexCards(gen: GenerationId): Promise<CardWithSet[]> {
   );
 }
 
+/** Every print of one Pokémon species, by National Dex number — exact species,
+ *  unlike the substring name search (so dex 151 "Mew" never matches "Mewtwo").
+ *  This backs the /pokemon/[slug] info-page gallery; its count matches the
+ *  snapshot stats. Same source strategy as getPokedexCards. */
+export function getPokemonCardsByDex(dex: number): Promise<CardWithSet[]> {
+  if (isFixtureMode()) return getDataSource().getCardsByDexRange(dex, dex);
+  if (indexIsComplete()) return Promise.resolve(dexRangeInIndex(dex, dex, getCardIndex()));
+  return serverStore.getOrCompute(`pokemon-dex:${dex}`, CARDS_TTL_MS, () =>
+    getDataSource().getCardsByDexRange(dex, dex),
+  );
+}
+
 /**
  * Non-English prints of one Pokémon, by National Dex number, across the given
  * languages — matched on the Pokémon's localized name via TCGdex. English is
