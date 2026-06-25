@@ -3,6 +3,7 @@ import { CARDS_TTL_MS, SETS_TTL_MS, serverStore } from "@/lib/server-store";
 import { FixtureSource } from "@/lib/tcg/fixture-source";
 import { PokemonTcgIoSource } from "@/lib/tcg/pokemontcgio";
 import { applyBallPatterns } from "@/lib/tcg/ball-patterns";
+import { applyArtistOverrides } from "@/lib/tcg/artist-overrides";
 import {
   dexRangeInIndex,
   getCardIndex,
@@ -47,19 +48,18 @@ export function getSets(): Promise<TcgSet[]> {
   return serverStore.getOrCompute("sets", SETS_TTL_MS, () => getDataSource().getSets());
 }
 
-/** Cards for one set (12h TTL so TCGplayer prices stay current). Poké Ball /
- *  Master Ball / Energy patterns are applied HERE, at read time, on top of the
- *  cached raw cards — so a set's binder reflects the curated patterns without
- *  waiting for a cache refetch, and a stale payload can never hide them.
- *  applyBallPatterns is idempotent, so re-applying to a payload an older build
- *  baked is safe. */
+/** Cards for one set (12h TTL so TCGplayer prices stay current). Two read-time
+ *  augmentations are layered on the cached raw cards so binders reflect them
+ *  without a refetch: Poké Ball / Master Ball / Energy patterns
+ *  (applyBallPatterns) and missing illustrator credits (applyArtistOverrides).
+ *  Both are idempotent / self-healing, so re-applying is always safe. */
 export async function getCards(setId: string): Promise<TcgCard[]> {
   const cards = isFixtureMode()
     ? await getDataSource().getCards(setId)
     : await serverStore.getOrCompute(`cards:${setId}`, CARDS_TTL_MS, () =>
         getDataSource().getCards(setId),
       );
-  return applyBallPatterns(setId, cards);
+  return applyArtistOverrides(applyBallPatterns(setId, cards));
 }
 
 /**

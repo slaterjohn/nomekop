@@ -1,5 +1,6 @@
 import { serverStore, type SqliteStore } from "@/lib/server-store";
 import { toCardWithSet } from "@/lib/tcg/secret";
+import { applyArtistOverrides } from "@/lib/tcg/artist-overrides";
 import type { CardWithSet, TcgCard, TcgSet } from "@/lib/tcg/types";
 
 /**
@@ -52,7 +53,10 @@ function buildIndex(store: SqliteStore): CardIndex {
     const setCards = store.peek<TcgCard[]>(`cards:${set.id}`);
     if (!setCards) continue;
     setCount += 1;
-    for (const c of setCards) cards.push(toCardWithSet(c, set));
+    // Fill missing illustrator credits (e.g. Prismatic Evolutions) so artist
+    // search/stats over the index match what getCards serves. Ball patterns are
+    // deliberately NOT applied here — cross-set binders don't use them.
+    for (const c of applyArtistOverrides(setCards)) cards.push(toCardWithSet(c, set));
   }
   return { cards, setCount };
 }
