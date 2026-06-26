@@ -5,6 +5,7 @@ import type { PokemonEntity } from "@/lib/content/entities/types";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: vi.fn(), refresh: vi.fn(), replace: vi.fn() }),
+  usePathname: () => "/test",
 }));
 
 // Fixture mode + stubbed store: the gallery's dex lookup reads the committed

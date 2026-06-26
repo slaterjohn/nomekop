@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BinderSkeleton } from "@/components/binder-skeleton";
-import { BackButton } from "@/components/back-button";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { LocalizedSetBinderView } from "@/components/sets/localized-set-binder-view";
 import { getSetCards } from "@/lib/tcg/tcgdex";
@@ -55,9 +55,7 @@ export default async function LocalizedSetPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-end gap-3">
-        <BackButton fallbackHref="/sets" />
-      </div>
+      <Breadcrumbs parents={[{ url: "/sets", label: "All sets" }]} label={`${setId} · ${language.native}`} />
 
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
         {setId} · {language.native}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { notFound } from "next/navigation";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { JsonLd } from "@/components/json-ld";
@@ -47,11 +47,7 @@ export default async function FactPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <nav aria-label="Breadcrumb" className="font-pixel text-sm uppercase">
-        <Link href="/facts" className="no-underline">
-          ◂ Fun facts
-        </Link>
-      </nav>
+      <Breadcrumbs parents={[{ url: "/facts", label: "Fun facts" }]} label={article.title} />
 
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">{article.question}</h1>
 

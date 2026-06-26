@@ -11,6 +11,7 @@ import { DEFAULT_CONFIG } from "@/lib/config";
 // which has no app-router context under jsdom — stub it so the page renders.
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: vi.fn(), refresh: vi.fn(), replace: vi.fn() }),
+  usePathname: () => "/test",
 }));
 
 // server-store imports node:sqlite — a Node builtin Vite can't bundle for the

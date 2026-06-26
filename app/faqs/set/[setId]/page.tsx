@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { notFound } from "next/navigation";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { GbBadge } from "@/components/gb/gb-badge";
@@ -68,11 +68,7 @@ export default async function FaqSetHubPage({ params }: Props) {
         ]}
       />
 
-      <nav aria-label="Breadcrumb" className="font-pixel text-sm">
-        <Link href="/faqs" className="no-underline">
-          ◂ FAQs
-        </Link>
-      </nav>
+      <Breadcrumbs parents={[{ url: "/faqs", label: "FAQs" }]} label={`${set.name} FAQs`} />
 
       <header className="flex flex-col gap-3">
         {set.logoUrl ? (

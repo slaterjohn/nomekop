@@ -7,6 +7,7 @@ import { StatGrid, type Stat } from "@/components/entities/stat-grid";
 import { EntityCardGallery } from "@/components/entities/entity-card-gallery";
 import { EntityFaqSection } from "@/components/entities/entity-faq-section";
 import { SetLink } from "@/components/entities/entity-link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { pokemonFaqEntries } from "@/lib/content/entities/faq";
 import { getPokemonCardsByDex } from "@/lib/tcg";
@@ -56,11 +57,7 @@ export async function PokemonInfo({ entity }: { entity: PokemonEntity }) {
           ]),
         ]}
       />
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm uppercase">
-        <Link href="/pokemon" className="no-underline">
-          ◂ All Pokémon
-        </Link>
-      </nav>
+      <Breadcrumbs parents={[{ url: "/pokemon", label: "All Pokémon" }]} label={entity.name} />
 
       <header className="flex flex-wrap items-center gap-4">
         {entity.signatureCard?.imageSmall ? (

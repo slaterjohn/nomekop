@@ -1,9 +1,8 @@
 import { cache } from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CardDetailBody } from "@/components/builder/card-detail-body";
-import { BackButton } from "@/components/back-button";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { JsonLd } from "@/components/json-ld";
@@ -102,12 +101,13 @@ export default async function CardPage({ params, searchParams }: Props) {
       <h1 className="sr-only">
         {card.name} {card.number}/{set.printedTotal} · {set.name}
       </h1>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <Link href={`/set/${set.id}`} className="font-pixel text-sm uppercase no-underline">
-          ◂ {set.name}
-        </Link>
-        <BackButton fallbackHref={`/b/${encodeShareToken({ ...DEFAULT_CONFIG, set: set.id })}`} />
-      </div>
+      <Breadcrumbs
+        parents={[
+          { url: "/sets", label: "All sets" },
+          { url: `/set/${set.id}`, label: set.name === "Base" ? "Base Set" : set.name },
+        ]}
+        label={`${card.name} ${card.number}/${set.printedTotal}`}
+      />
       <GbScreen title={`${card.name} · ${card.number}/${set.printedTotal}${card.rarity ? ` · ${card.rarity.toUpperCase()}` : ""}`}>
         <CardDetailBody card={card} set={set} kind={kind} />
         <div className="flex flex-wrap gap-2 px-4 pb-4">

@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { EntityCardGallery } from "@/components/entities/entity-card-gallery";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import type { CardWithSet } from "@/lib/tcg/types";
 
@@ -41,11 +41,13 @@ export function ArtistCardsSubpage({
           ]),
         ]}
       />
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm uppercase">
-        <Link href={base} className="no-underline">
-          ◂ {artistName}
-        </Link>
-      </nav>
+      <Breadcrumbs
+        parents={[
+          { url: "/illustrator", label: "All illustrators" },
+          { url: base, label: artistName },
+        ]}
+        label={title}
+      />
 
       <header className="min-w-0">
         <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{title}</h1>

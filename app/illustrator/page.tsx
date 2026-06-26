@@ -5,6 +5,7 @@ import { GbLinkButton } from "@/components/gb/gb-button";
 import { IllustratorSearchForm } from "@/components/illustrator/illustrator-search-form";
 import { ArtistDirectory, parseArtistSort } from "@/components/illustrator/artist-directory";
 import { SortTabs } from "@/components/entities/sort-tabs";
+import { TrailRecorder } from "@/components/breadcrumbs";
 import { artistSlugByName } from "@/lib/content/entities/catalog";
 import { getServerDictionary } from "@/lib/i18n/server";
 
@@ -39,6 +40,7 @@ export default async function IllustratorLandingPage({
   const sort = parseArtistSort((await searchParams).sort);
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
+      <TrailRecorder label="All illustrators" />
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
         {dict.illustratorLanding.title}
       </h1>

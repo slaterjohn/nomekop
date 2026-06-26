@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { IllustratorBinderView } from "@/components/illustrator/illustrator-binder-view";
 import { BinderSkeleton } from "@/components/binder-skeleton";
-import { BackButton } from "@/components/back-button";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import {
   decodeIllustratorToken,
@@ -122,9 +122,10 @@ export default async function IllustratorRoutePage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-end gap-3">
-        <BackButton fallbackHref="/illustrator" />
-      </div>
+      <Breadcrumbs
+        parents={[{ url: "/illustrator", label: "All illustrators" }]}
+        label={`${displayName} binder`}
+      />
 
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
         {format(dict.binder.heading, { name: displayName })}

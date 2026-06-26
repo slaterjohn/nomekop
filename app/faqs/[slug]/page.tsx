@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { JsonLd } from "@/components/json-ld";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CardThumbStrip } from "@/components/faqs/card-thumb-strip";
 import { renderMarkdown } from "@/lib/content/render";
 import {
@@ -46,17 +47,13 @@ export default async function FaqPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-pixel text-sm">
-        <Link href="/faqs" className="no-underline">◂ FAQs</Link>
-        {setSummary ? (
-          <>
-            <span aria-hidden="true" className="text-gb-muted">/</span>
-            <Link href={setSummary.hubHref} className="no-underline">
-              {setSummary.name} FAQs
-            </Link>
-          </>
-        ) : null}
-      </nav>
+      <Breadcrumbs
+        parents={[
+          { url: "/faqs", label: "FAQs" },
+          ...(setSummary ? [{ url: setSummary.hubHref, label: `${setSummary.name} FAQs` }] : []),
+        ]}
+        label={page.question}
+      />
 
       <h1 className="font-pixel text-lg leading-relaxed sm:text-xl">{page.question}</h1>
 

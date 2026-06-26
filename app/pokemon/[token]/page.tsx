@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { PokemonBinderView } from "@/components/pokemon/pokemon-binder-view";
 import { PokemonNoResults } from "@/components/pokemon/pokemon-no-results";
 import { BinderSkeleton } from "@/components/binder-skeleton";
-import { BackButton } from "@/components/back-button";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import {
   decodePokemonToken,
   displayNameFromSlug,
@@ -112,9 +112,10 @@ export default async function PokemonRoutePage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-end gap-3">
-        <BackButton fallbackHref="/pokemon" />
-      </div>
+      <Breadcrumbs
+        parents={[{ url: "/pokemon", label: "All Pokémon" }]}
+        label={`${displayName} binder`}
+      />
 
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
         {format(dict.binder.heading, { name: displayName })}

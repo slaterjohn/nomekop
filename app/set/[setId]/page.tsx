@@ -14,6 +14,7 @@ import { encodeShareToken } from "@/lib/share";
 import { breadcrumbJsonLd, setCollectionJsonLd } from "@/lib/structured-data";
 import { faqPagesForSet } from "@/lib/content/faqs/registry";
 import { AccuracyDisclaimer } from "@/components/accuracy-disclaimer";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getCards, getSets } from "@/lib/tcg";
 import { isSeriesVerified } from "@/lib/tcg/era-coverage";
 import { TcgError } from "@/lib/tcg/types";
@@ -112,11 +113,7 @@ export default async function SetPage({ params }: Props) {
           ]),
         ]}
       />
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-3 font-pixel text-sm uppercase">
-        <Link href="/sets" className="no-underline">
-          ◂ All sets
-        </Link>
-      </nav>
+      <Breadcrumbs parents={[{ url: "/sets", label: "All sets" }]} label={seoSetName(set.name)} />
 
       <header className="flex flex-wrap items-center gap-3">
         {set.symbolUrl ? (

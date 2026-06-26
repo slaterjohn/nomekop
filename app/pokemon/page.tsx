@@ -5,6 +5,7 @@ import { GbLinkButton } from "@/components/gb/gb-button";
 import { PokemonTypeahead } from "@/components/pokemon/pokemon-typeahead";
 import { PokemonDirectory, parsePokemonSort } from "@/components/pokemon/pokemon-directory";
 import { SortTabs } from "@/components/entities/sort-tabs";
+import { TrailRecorder } from "@/components/breadcrumbs";
 import { pokemonSlugByName } from "@/lib/content/entities/catalog";
 import { getServerDictionary } from "@/lib/i18n/server";
 
@@ -41,6 +42,7 @@ export default async function PokemonLandingPage({
   const sort = parsePokemonSort((await searchParams).sort);
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
+      <TrailRecorder label="All Pokémon" />
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{dict.pokemonLanding.title}</h1>
       <p className="font-body text-xl leading-tight">
         {dict.pokemonLanding.intro}

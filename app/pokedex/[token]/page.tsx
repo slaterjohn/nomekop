@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PokedexView } from "@/components/pokedex/pokedex-view";
 import { BinderSkeleton } from "@/components/binder-skeleton";
-import { BackButton } from "@/components/back-button";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { decodePokedexToken, generationById, type PokedexConfig } from "@/lib/pokedex";
 import { getLocalizedPokedexCards, getPokedexCards } from "@/lib/tcg";
 import { cardLanguagesEnabled } from "@/lib/features";
@@ -56,9 +56,7 @@ export default async function PokedexPage({ params }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-end gap-3">
-        <BackButton fallbackHref="/pokedex" />
-      </div>
+      <Breadcrumbs parents={[{ url: "/pokedex", label: "Pokédex" }]} label={`${gen.region} Pokédex`} />
 
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">
         {gen.region} Pokédex · #{gen.min}–{gen.max}

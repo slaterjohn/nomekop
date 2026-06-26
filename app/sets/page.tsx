@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { SetOverlaySelect } from "@/components/sets/set-overlay-select";
 import { SetsBrowser, type SetsGroup, type SetsBrowserLabels } from "@/components/sets/sets-browser";
+import { TrailRecorder } from "@/components/breadcrumbs";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { breadcrumbJsonLd, setsIndexJsonLd } from "@/lib/structured-data";
 import { getSets, getSetOverlay } from "@/lib/tcg";
@@ -160,6 +161,7 @@ export default async function SetsIndexPage({ searchParams }: Props) {
 
   return (
     <main id="main" className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 py-6">
+      <TrailRecorder label="All sets" />
       <JsonLd
         data={[
           setsIndexJsonLd(sets),
