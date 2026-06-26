@@ -3,7 +3,7 @@
 import { useId, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { GbButton } from "@/components/gb/gb-button";
-import { DEFAULT_POKEMON_OPTIONS, encodePokemonToken } from "@/lib/pokemon-binder";
+import { slugifyPokemonName } from "@/lib/pokemon-binder";
 import { fuzzyMatchPokemon } from "@/lib/pokemon-search";
 import { play } from "@/lib/sound";
 import { useDict } from "@/components/i18n/language-provider";
@@ -31,26 +31,29 @@ export function PokemonTypeahead() {
   const matches = useMemo(() => fuzzyMatchPokemon(query, 8), [query]);
   const showList = open && query.trim().length > 0 && matches.length > 0;
 
-  function go(name: string) {
+  // Navigate to the Pokémon's info page (its "Build a binder" button is one
+  // click from there). The route falls back to the binder for any slug without
+  // an info page, so free-text still works.
+  function go(slug: string) {
     setError(null);
     play("confirm");
     setOpen(false);
-    router.push(`/pokemon/${encodePokemonToken(name, DEFAULT_POKEMON_OPTIONS)}`);
+    router.push(`/pokemon/${encodeURIComponent(slug)}`);
   }
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
     // A highlighted suggestion wins; otherwise the best match; otherwise the
     // free-text name (validated, so a brand-new/odd name still works).
-    if (active >= 0 && matches[active]) return go(matches[active].name);
-    if (matches[0]) return go(matches[0].name);
+    if (active >= 0 && matches[active]) return go(matches[active]!.slug);
+    if (matches[0]) return go(matches[0].slug);
     const trimmed = query.trim();
     if (!NAME_RE.test(trimmed)) {
       setError("Enter 2–40 letters, numbers or . ' - : to search.");
       play("back");
       return;
     }
-    go(trimmed);
+    go(slugifyPokemonName(trimmed));
   }
 
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -117,7 +120,7 @@ export function PokemonTypeahead() {
                   // Pick before the input's blur closes the list.
                   e.preventDefault();
                   if (blurTimer.current) clearTimeout(blurTimer.current);
-                  go(p.name);
+                  go(p.slug);
                 }}
                 onMouseEnter={() => setActive(i)}
                 className={cn(

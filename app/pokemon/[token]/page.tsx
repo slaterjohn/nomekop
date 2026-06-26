@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { PokemonBinderView } from "@/components/pokemon/pokemon-binder-view";
 import { PokemonNoResults } from "@/components/pokemon/pokemon-no-results";
@@ -8,6 +8,8 @@ import { BackButton } from "@/components/back-button";
 import {
   decodePokemonToken,
   displayNameFromSlug,
+  encodePokemonToken,
+  DEFAULT_POKEMON_OPTIONS,
   type PokemonBinderOptions,
 } from "@/lib/pokemon-binder";
 import { searchPokemonCards } from "@/lib/tcg";
@@ -101,7 +103,9 @@ export default async function PokemonRoutePage({ params }: Props) {
   if (!decoded) {
     const entity = getPokemonEntity(raw);
     if (entity) return <PokemonInfo entity={entity} />;
-    notFound();
+    // No info page for this slug (cardless species / free-text / typo) — fall
+    // back to the binder, which handles any name (and shows "no results" if none).
+    redirect(`/pokemon/${encodePokemonToken(raw, DEFAULT_POKEMON_OPTIONS)}`);
   }
   const displayName = displayNameFromSlug(decoded.name);
   const { dict } = await getServerDictionary();

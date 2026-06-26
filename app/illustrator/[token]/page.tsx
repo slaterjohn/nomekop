@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { IllustratorBinderView } from "@/components/illustrator/illustrator-binder-view";
 import { BinderSkeleton } from "@/components/binder-skeleton";
@@ -8,6 +8,8 @@ import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import {
   decodeIllustratorToken,
   displayNameFromSlug,
+  encodeIllustratorToken,
+  DEFAULT_ILLUSTRATOR_OPTIONS,
   type IllustratorBinderOptions,
 } from "@/lib/illustrator-binder";
 import { searchIllustratorCards } from "@/lib/tcg";
@@ -111,7 +113,9 @@ export default async function IllustratorRoutePage({ params }: Props) {
   if (!decoded) {
     const artist = getArtistEntity(raw);
     if (artist) return <IllustratorInfo artist={artist} />;
-    notFound();
+    // No info page for this slug (below the card threshold / free-text / typo) —
+    // fall back to the binder, which works for any artist via name search.
+    redirect(`/illustrator/${encodeIllustratorToken(raw, DEFAULT_ILLUSTRATOR_OPTIONS)}`);
   }
   const displayName = displayNameFromSlug(decoded.name);
   const { dict } = await getServerDictionary();

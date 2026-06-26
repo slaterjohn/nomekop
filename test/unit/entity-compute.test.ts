@@ -180,9 +180,10 @@ describe("entity-compute — assemblers", () => {
     expect(arita.cardCount).toBe(5);
     expect(arita.setCount).toBe(2);
     expect(arita.topPokemon[0]).toEqual({ slug: "charizard", name: "Charizard", count: 5 });
-    // everyone (incl. below-threshold) appears in the linking index
+    // everyone (incl. below-threshold) appears in the linking index, with set counts
     expect(artistIndex.find((a: { slug: string }) => a.slug === "tiny-artist")?.cardCount).toBe(1);
     expect(artistIndex.find((a: { slug: string }) => a.slug === "mitsuhiro-arita")?.cardCount).toBe(5);
+    expect(artistIndex.find((a: { slug: string }) => a.slug === "mitsuhiro-arita")?.setCount).toBe(2);
   });
 });
 

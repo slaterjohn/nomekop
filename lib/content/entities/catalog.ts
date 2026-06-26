@@ -42,6 +42,11 @@ export function gatedArtistSlugs(): string[] {
   return catalog.artists.filter((a) => a.cardCount >= ARTIST_MIN).map((a) => a.slug);
 }
 
+/** Full index entries for every artist with a page — for the browse directory. */
+export function gatedArtistEntries(): ArtistIndexEntry[] {
+  return catalog.artists.filter((a) => a.cardCount >= ARTIST_MIN);
+}
+
 /** Resolve a display name to a Pokémon slug (case-insensitive) — for cross-links. */
 export function pokemonSlugByName(name: string): string | undefined {
   return POKEMON_SLUG_BY_NAME.get(name.trim().toLowerCase());

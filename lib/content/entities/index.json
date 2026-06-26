@@ -7,7099 +7,8518 @@
     {
       "dex": 1,
       "slug": "bulbasaur",
-      "name": "Bulbasaur"
+      "name": "Bulbasaur",
+      "cardCount": 28
     },
     {
       "dex": 2,
       "slug": "ivysaur",
-      "name": "Ivysaur"
+      "name": "Ivysaur",
+      "cardCount": 21
     },
     {
       "dex": 3,
       "slug": "venusaur",
-      "name": "Venusaur"
+      "name": "Venusaur",
+      "cardCount": 48
     },
     {
       "dex": 4,
       "slug": "charmander",
-      "name": "Charmander"
+      "name": "Charmander",
+      "cardCount": 46
     },
     {
       "dex": 5,
       "slug": "charmeleon",
-      "name": "Charmeleon"
+      "name": "Charmeleon",
+      "cardCount": 35
     },
     {
       "dex": 6,
       "slug": "charizard",
-      "name": "Charizard"
+      "name": "Charizard",
+      "cardCount": 107
     },
     {
       "dex": 7,
       "slug": "squirtle",
-      "name": "Squirtle"
+      "name": "Squirtle",
+      "cardCount": 28
     },
     {
       "dex": 8,
       "slug": "wartortle",
-      "name": "Wartortle"
+      "name": "Wartortle",
+      "cardCount": 19
     },
     {
       "dex": 9,
       "slug": "blastoise",
-      "name": "Blastoise"
+      "name": "Blastoise",
+      "cardCount": 45
     },
     {
       "dex": 10,
       "slug": "caterpie",
-      "name": "Caterpie"
+      "name": "Caterpie",
+      "cardCount": 21
     },
     {
       "dex": 11,
       "slug": "metapod",
-      "name": "Metapod"
+      "name": "Metapod",
+      "cardCount": 19
     },
     {
       "dex": 12,
       "slug": "butterfree",
-      "name": "Butterfree"
+      "name": "Butterfree",
+      "cardCount": 25
     },
     {
       "dex": 13,
       "slug": "weedle",
-      "name": "Weedle"
+      "name": "Weedle",
+      "cardCount": 26
     },
     {
       "dex": 14,
       "slug": "kakuna",
-      "name": "Kakuna"
+      "name": "Kakuna",
+      "cardCount": 22
     },
     {
       "dex": 15,
       "slug": "beedrill",
-      "name": "Beedrill"
+      "name": "Beedrill",
+      "cardCount": 30
     },
     {
       "dex": 16,
       "slug": "pidgey",
-      "name": "Pidgey"
+      "name": "Pidgey",
+      "cardCount": 19
     },
     {
       "dex": 17,
       "slug": "pidgeotto",
-      "name": "Pidgeotto"
+      "name": "Pidgeotto",
+      "cardCount": 16
     },
     {
       "dex": 18,
       "slug": "pidgeot",
-      "name": "Pidgeot"
+      "name": "Pidgeot",
+      "cardCount": 26
     },
     {
       "dex": 19,
       "slug": "rattata",
-      "name": "Rattata"
+      "name": "Rattata",
+      "cardCount": 27
     },
     {
       "dex": 20,
       "slug": "raticate",
-      "name": "Raticate"
+      "name": "Raticate",
+      "cardCount": 29
     },
     {
       "dex": 21,
       "slug": "spearow",
-      "name": "Spearow"
+      "name": "Spearow",
+      "cardCount": 19
     },
     {
       "dex": 22,
       "slug": "fearow",
-      "name": "Fearow"
+      "name": "Fearow",
+      "cardCount": 19
     },
     {
       "dex": 23,
       "slug": "ekans",
-      "name": "Ekans"
+      "name": "Ekans",
+      "cardCount": 17
     },
     {
       "dex": 24,
       "slug": "arbok",
-      "name": "Arbok"
+      "name": "Arbok",
+      "cardCount": 20
     },
     {
       "dex": 25,
       "slug": "pikachu",
-      "name": "Pikachu"
+      "name": "Pikachu",
+      "cardCount": 177
     },
     {
       "dex": 26,
       "slug": "raichu",
-      "name": "Raichu"
+      "name": "Raichu",
+      "cardCount": 71
     },
     {
       "dex": 27,
       "slug": "sandshrew",
-      "name": "Sandshrew"
+      "name": "Sandshrew",
+      "cardCount": 25
     },
     {
       "dex": 28,
       "slug": "sandslash",
-      "name": "Sandslash"
+      "name": "Sandslash",
+      "cardCount": 24
     },
     {
       "dex": 29,
       "slug": "nidoran♀",
-      "name": "Nidoran♀"
+      "name": "Nidoran♀",
+      "cardCount": 16
     },
     {
       "dex": 30,
       "slug": "nidorina",
-      "name": "Nidorina"
+      "name": "Nidorina",
+      "cardCount": 15
     },
     {
       "dex": 31,
       "slug": "nidoqueen",
-      "name": "Nidoqueen"
+      "name": "Nidoqueen",
+      "cardCount": 19
     },
     {
       "dex": 32,
       "slug": "nidoran♂",
-      "name": "Nidoran♂"
+      "name": "Nidoran♂",
+      "cardCount": 16
     },
     {
       "dex": 33,
       "slug": "nidorino",
-      "name": "Nidorino"
+      "name": "Nidorino",
+      "cardCount": 16
     },
     {
       "dex": 34,
       "slug": "nidoking",
-      "name": "Nidoking"
+      "name": "Nidoking",
+      "cardCount": 22
     },
     {
       "dex": 35,
       "slug": "clefairy",
-      "name": "Clefairy"
+      "name": "Clefairy",
+      "cardCount": 39
     },
     {
       "dex": 36,
       "slug": "clefable",
-      "name": "Clefable"
+      "name": "Clefable",
+      "cardCount": 29
     },
     {
       "dex": 37,
       "slug": "vulpix",
-      "name": "Vulpix"
+      "name": "Vulpix",
+      "cardCount": 51
     },
     {
       "dex": 38,
       "slug": "ninetales",
-      "name": "Ninetales"
+      "name": "Ninetales",
+      "cardCount": 55
     },
     {
       "dex": 39,
       "slug": "jigglypuff",
-      "name": "Jigglypuff"
+      "name": "Jigglypuff",
+      "cardCount": 34
     },
     {
       "dex": 40,
       "slug": "wigglytuff",
-      "name": "Wigglytuff"
+      "name": "Wigglytuff",
+      "cardCount": 28
     },
     {
       "dex": 41,
       "slug": "zubat",
-      "name": "Zubat"
+      "name": "Zubat",
+      "cardCount": 28
     },
     {
       "dex": 42,
       "slug": "golbat",
-      "name": "Golbat"
+      "name": "Golbat",
+      "cardCount": 25
     },
     {
       "dex": 43,
       "slug": "oddish",
-      "name": "Oddish"
+      "name": "Oddish",
+      "cardCount": 28
     },
     {
       "dex": 44,
       "slug": "gloom",
-      "name": "Gloom"
+      "name": "Gloom",
+      "cardCount": 26
     },
     {
       "dex": 45,
       "slug": "vileplume",
-      "name": "Vileplume"
+      "name": "Vileplume",
+      "cardCount": 26
     },
     {
       "dex": 46,
       "slug": "paras",
-      "name": "Paras"
+      "name": "Paras",
+      "cardCount": 19
     },
     {
       "dex": 47,
       "slug": "parasect",
-      "name": "Parasect"
+      "name": "Parasect",
+      "cardCount": 17
     },
     {
       "dex": 48,
       "slug": "venonat",
-      "name": "Venonat"
+      "name": "Venonat",
+      "cardCount": 13
     },
     {
       "dex": 49,
       "slug": "venomoth",
-      "name": "Venomoth"
+      "name": "Venomoth",
+      "cardCount": 16
     },
     {
       "dex": 50,
       "slug": "diglett",
-      "name": "Diglett"
+      "name": "Diglett",
+      "cardCount": 29
     },
     {
       "dex": 51,
       "slug": "dugtrio",
-      "name": "Dugtrio"
+      "name": "Dugtrio",
+      "cardCount": 31
     },
     {
       "dex": 52,
       "slug": "meowth",
-      "name": "Meowth"
+      "name": "Meowth",
+      "cardCount": 60
     },
     {
       "dex": 53,
       "slug": "persian",
-      "name": "Persian"
+      "name": "Persian",
+      "cardCount": 35
     },
     {
       "dex": 54,
       "slug": "psyduck",
-      "name": "Psyduck"
+      "name": "Psyduck",
+      "cardCount": 38
     },
     {
       "dex": 55,
       "slug": "golduck",
-      "name": "Golduck"
+      "name": "Golduck",
+      "cardCount": 24
     },
     {
       "dex": 56,
       "slug": "mankey",
-      "name": "Mankey"
+      "name": "Mankey",
+      "cardCount": 26
     },
     {
       "dex": 57,
       "slug": "primeape",
-      "name": "Primeape"
+      "name": "Primeape",
+      "cardCount": 24
     },
     {
       "dex": 58,
       "slug": "growlithe",
-      "name": "Growlithe"
+      "name": "Growlithe",
+      "cardCount": 39
     },
     {
       "dex": 59,
       "slug": "arcanine",
-      "name": "Arcanine"
+      "name": "Arcanine",
+      "cardCount": 42
     },
     {
       "dex": 60,
       "slug": "poliwag",
-      "name": "Poliwag"
+      "name": "Poliwag",
+      "cardCount": 19
     },
     {
       "dex": 61,
       "slug": "poliwhirl",
-      "name": "Poliwhirl"
+      "name": "Poliwhirl",
+      "cardCount": 18
     },
     {
       "dex": 62,
       "slug": "poliwrath",
-      "name": "Poliwrath"
+      "name": "Poliwrath",
+      "cardCount": 20
     },
     {
       "dex": 63,
       "slug": "abra",
-      "name": "Abra"
+      "name": "Abra",
+      "cardCount": 15
     },
     {
       "dex": 64,
       "slug": "kadabra",
-      "name": "Kadabra"
+      "name": "Kadabra",
+      "cardCount": 11
     },
     {
       "dex": 65,
       "slug": "alakazam",
-      "name": "Alakazam"
+      "name": "Alakazam",
+      "cardCount": 29
     },
     {
       "dex": 66,
       "slug": "machop",
-      "name": "Machop"
+      "name": "Machop",
+      "cardCount": 24
     },
     {
       "dex": 67,
       "slug": "machoke",
-      "name": "Machoke"
+      "name": "Machoke",
+      "cardCount": 23
     },
     {
       "dex": 68,
       "slug": "machamp",
-      "name": "Machamp"
+      "name": "Machamp",
+      "cardCount": 49
     },
     {
       "dex": 69,
       "slug": "bellsprout",
-      "name": "Bellsprout"
+      "name": "Bellsprout",
+      "cardCount": 18
     },
     {
       "dex": 70,
       "slug": "weepinbell",
-      "name": "Weepinbell"
+      "name": "Weepinbell",
+      "cardCount": 16
     },
     {
       "dex": 71,
       "slug": "victreebel",
-      "name": "Victreebel"
+      "name": "Victreebel",
+      "cardCount": 17
     },
     {
       "dex": 72,
       "slug": "tentacool",
-      "name": "Tentacool"
+      "name": "Tentacool",
+      "cardCount": 16
     },
     {
       "dex": 73,
       "slug": "tentacruel",
-      "name": "Tentacruel"
+      "name": "Tentacruel",
+      "cardCount": 16
     },
     {
       "dex": 74,
       "slug": "geodude",
-      "name": "Geodude"
+      "name": "Geodude",
+      "cardCount": 24
     },
     {
       "dex": 75,
       "slug": "graveler",
-      "name": "Graveler"
+      "name": "Graveler",
+      "cardCount": 22
     },
     {
       "dex": 76,
       "slug": "golem",
-      "name": "Golem"
+      "name": "Golem",
+      "cardCount": 26
     },
     {
       "dex": 77,
       "slug": "ponyta",
-      "name": "Ponyta"
+      "name": "Ponyta",
+      "cardCount": 30
     },
     {
       "dex": 78,
       "slug": "rapidash",
-      "name": "Rapidash"
+      "name": "Rapidash",
+      "cardCount": 34
     },
     {
       "dex": 79,
       "slug": "slowpoke",
-      "name": "Slowpoke"
+      "name": "Slowpoke",
+      "cardCount": 38
     },
     {
       "dex": 80,
       "slug": "slowbro",
-      "name": "Slowbro"
+      "name": "Slowbro",
+      "cardCount": 24
     },
     {
       "dex": 81,
       "slug": "magnemite",
-      "name": "Magnemite"
+      "name": "Magnemite",
+      "cardCount": 46
     },
     {
       "dex": 82,
       "slug": "magneton",
-      "name": "Magneton"
+      "name": "Magneton",
+      "cardCount": 45
     },
     {
       "dex": 83,
       "slug": "farfetch'd",
-      "name": "Farfetch'd"
+      "name": "Farfetch'd",
+      "cardCount": 20
     },
     {
       "dex": 84,
       "slug": "doduo",
-      "name": "Doduo"
+      "name": "Doduo",
+      "cardCount": 21
     },
     {
       "dex": 85,
       "slug": "dodrio",
-      "name": "Dodrio"
+      "name": "Dodrio",
+      "cardCount": 19
     },
     {
       "dex": 86,
       "slug": "seel",
-      "name": "Seel"
+      "name": "Seel",
+      "cardCount": 20
     },
     {
       "dex": 87,
       "slug": "dewgong",
-      "name": "Dewgong"
+      "name": "Dewgong",
+      "cardCount": 19
     },
     {
       "dex": 88,
       "slug": "grimer",
-      "name": "Grimer"
+      "name": "Grimer",
+      "cardCount": 25
     },
     {
       "dex": 89,
       "slug": "muk",
-      "name": "Muk"
+      "name": "Muk",
+      "cardCount": 32
     },
     {
       "dex": 90,
       "slug": "shellder",
-      "name": "Shellder"
+      "name": "Shellder",
+      "cardCount": 14
     },
     {
       "dex": 91,
       "slug": "cloyster",
-      "name": "Cloyster"
+      "name": "Cloyster",
+      "cardCount": 14
     },
     {
       "dex": 92,
       "slug": "gastly",
-      "name": "Gastly"
+      "name": "Gastly",
+      "cardCount": 35
     },
     {
       "dex": 93,
       "slug": "haunter",
-      "name": "Haunter"
+      "name": "Haunter",
+      "cardCount": 31
     },
     {
       "dex": 94,
       "slug": "gengar",
-      "name": "Gengar"
+      "name": "Gengar",
+      "cardCount": 50
     },
     {
       "dex": 95,
       "slug": "onix",
-      "name": "Onix"
+      "name": "Onix",
+      "cardCount": 30
     },
     {
       "dex": 96,
       "slug": "drowzee",
-      "name": "Drowzee"
+      "name": "Drowzee",
+      "cardCount": 24
     },
     {
       "dex": 97,
       "slug": "hypno",
-      "name": "Hypno"
+      "name": "Hypno",
+      "cardCount": 24
     },
     {
       "dex": 98,
       "slug": "krabby",
-      "name": "Krabby"
+      "name": "Krabby",
+      "cardCount": 11
     },
     {
       "dex": 99,
       "slug": "kingler",
-      "name": "Kingler"
+      "name": "Kingler",
+      "cardCount": 12
     },
     {
       "dex": 100,
       "slug": "voltorb",
-      "name": "Voltorb"
+      "name": "Voltorb",
+      "cardCount": 40
     },
     {
       "dex": 101,
       "slug": "electrode",
-      "name": "Electrode"
+      "name": "Electrode",
+      "cardCount": 46
     },
     {
       "dex": 102,
       "slug": "exeggcute",
-      "name": "Exeggcute"
+      "name": "Exeggcute",
+      "cardCount": 33
     },
     {
       "dex": 103,
       "slug": "exeggutor",
-      "name": "Exeggutor"
+      "name": "Exeggutor",
+      "cardCount": 48
     },
     {
       "dex": 104,
       "slug": "cubone",
-      "name": "Cubone"
+      "name": "Cubone",
+      "cardCount": 22
     },
     {
       "dex": 105,
       "slug": "marowak",
-      "name": "Marowak"
+      "name": "Marowak",
+      "cardCount": 22
     },
     {
       "dex": 106,
       "slug": "hitmonlee",
-      "name": "Hitmonlee"
+      "name": "Hitmonlee",
+      "cardCount": 15
     },
     {
       "dex": 107,
       "slug": "hitmonchan",
-      "name": "Hitmonchan"
+      "name": "Hitmonchan",
+      "cardCount": 22
     },
     {
       "dex": 108,
       "slug": "lickitung",
-      "name": "Lickitung"
+      "name": "Lickitung",
+      "cardCount": 21
     },
     {
       "dex": 109,
       "slug": "koffing",
-      "name": "Koffing"
+      "name": "Koffing",
+      "cardCount": 29
     },
     {
       "dex": 110,
       "slug": "weezing",
-      "name": "Weezing"
+      "name": "Weezing",
+      "cardCount": 29
     },
     {
       "dex": 111,
       "slug": "rhyhorn",
-      "name": "Rhyhorn"
+      "name": "Rhyhorn",
+      "cardCount": 26
     },
     {
       "dex": 112,
       "slug": "rhydon",
-      "name": "Rhydon"
+      "name": "Rhydon",
+      "cardCount": 20
     },
     {
       "dex": 113,
       "slug": "chansey",
-      "name": "Chansey"
+      "name": "Chansey",
+      "cardCount": 25
     },
     {
       "dex": 114,
       "slug": "tangela",
-      "name": "Tangela"
+      "name": "Tangela",
+      "cardCount": 29
     },
     {
       "dex": 115,
       "slug": "kangaskhan",
-      "name": "Kangaskhan"
+      "name": "Kangaskhan",
+      "cardCount": 34
     },
     {
       "dex": 116,
       "slug": "horsea",
-      "name": "Horsea"
+      "name": "Horsea",
+      "cardCount": 28
     },
     {
       "dex": 117,
       "slug": "seadra",
-      "name": "Seadra"
+      "name": "Seadra",
+      "cardCount": 22
     },
     {
       "dex": 118,
       "slug": "goldeen",
-      "name": "Goldeen"
+      "name": "Goldeen",
+      "cardCount": 18
     },
     {
       "dex": 119,
       "slug": "seaking",
-      "name": "Seaking"
+      "name": "Seaking",
+      "cardCount": 15
     },
     {
       "dex": 120,
       "slug": "staryu",
-      "name": "Staryu"
+      "name": "Staryu",
+      "cardCount": 30
     },
     {
       "dex": 121,
       "slug": "starmie",
-      "name": "Starmie"
+      "name": "Starmie",
+      "cardCount": 35
     },
     {
       "dex": 122,
       "slug": "mr.-mime",
-      "name": "Mr. Mime"
+      "name": "Mr. Mime",
+      "cardCount": 35
     },
     {
       "dex": 123,
       "slug": "scyther",
-      "name": "Scyther"
+      "name": "Scyther",
+      "cardCount": 32
     },
     {
       "dex": 124,
       "slug": "jynx",
-      "name": "Jynx"
+      "name": "Jynx",
+      "cardCount": 26
     },
     {
       "dex": 125,
       "slug": "electabuzz",
-      "name": "Electabuzz"
+      "name": "Electabuzz",
+      "cardCount": 31
     },
     {
       "dex": 126,
       "slug": "magmar",
-      "name": "Magmar"
+      "name": "Magmar",
+      "cardCount": 29
     },
     {
       "dex": 127,
       "slug": "pinsir",
-      "name": "Pinsir"
+      "name": "Pinsir",
+      "cardCount": 24
     },
     {
       "dex": 128,
       "slug": "tauros",
-      "name": "Tauros"
+      "name": "Tauros",
+      "cardCount": 37
     },
     {
       "dex": 129,
       "slug": "magikarp",
-      "name": "Magikarp"
+      "name": "Magikarp",
+      "cardCount": 44
     },
     {
       "dex": 130,
       "slug": "gyarados",
-      "name": "Gyarados"
+      "name": "Gyarados",
+      "cardCount": 57
     },
     {
       "dex": 131,
       "slug": "lapras",
-      "name": "Lapras"
+      "name": "Lapras",
+      "cardCount": 48
     },
     {
       "dex": 132,
       "slug": "ditto",
-      "name": "Ditto"
+      "name": "Ditto",
+      "cardCount": 31
     },
     {
       "dex": 133,
       "slug": "eevee",
-      "name": "Eevee"
+      "name": "Eevee",
+      "cardCount": 85
     },
     {
       "dex": 134,
       "slug": "vaporeon",
-      "name": "Vaporeon"
+      "name": "Vaporeon",
+      "cardCount": 38
     },
     {
       "dex": 135,
       "slug": "jolteon",
-      "name": "Jolteon"
+      "name": "Jolteon",
+      "cardCount": 40
     },
     {
       "dex": 136,
       "slug": "flareon",
-      "name": "Flareon"
+      "name": "Flareon",
+      "cardCount": 40
     },
     {
       "dex": 137,
       "slug": "porygon",
-      "name": "Porygon"
+      "name": "Porygon",
+      "cardCount": 24
     },
     {
       "dex": 138,
       "slug": "omanyte",
-      "name": "Omanyte"
+      "name": "Omanyte",
+      "cardCount": 15
     },
     {
       "dex": 139,
       "slug": "omastar",
-      "name": "Omastar"
+      "name": "Omastar",
+      "cardCount": 17
     },
     {
       "dex": 140,
       "slug": "kabuto",
-      "name": "Kabuto"
+      "name": "Kabuto",
+      "cardCount": 13
     },
     {
       "dex": 141,
       "slug": "kabutops",
-      "name": "Kabutops"
+      "name": "Kabutops",
+      "cardCount": 18
     },
     {
       "dex": 142,
       "slug": "aerodactyl",
-      "name": "Aerodactyl"
+      "name": "Aerodactyl",
+      "cardCount": 24
     },
     {
       "dex": 143,
       "slug": "snorlax",
-      "name": "Snorlax"
+      "name": "Snorlax",
+      "cardCount": 56
     },
     {
       "dex": 144,
       "slug": "articuno",
-      "name": "Articuno"
+      "name": "Articuno",
+      "cardCount": 44
     },
     {
       "dex": 145,
       "slug": "zapdos",
-      "name": "Zapdos"
+      "name": "Zapdos",
+      "cardCount": 49
     },
     {
       "dex": 146,
       "slug": "moltres",
-      "name": "Moltres"
+      "name": "Moltres",
+      "cardCount": 42
     },
     {
       "dex": 147,
       "slug": "dratini",
-      "name": "Dratini"
+      "name": "Dratini",
+      "cardCount": 31
     },
     {
       "dex": 148,
       "slug": "dragonair",
-      "name": "Dragonair"
+      "name": "Dragonair",
+      "cardCount": 29
     },
     {
       "dex": 149,
       "slug": "dragonite",
-      "name": "Dragonite"
+      "name": "Dragonite",
+      "cardCount": 49
     },
     {
       "dex": 150,
       "slug": "mewtwo",
-      "name": "Mewtwo"
+      "name": "Mewtwo",
+      "cardCount": 85
     },
     {
       "dex": 151,
       "slug": "mew",
-      "name": "Mew"
+      "name": "Mew",
+      "cardCount": 53
     },
     {
       "dex": 152,
       "slug": "chikorita",
-      "name": "Chikorita"
+      "name": "Chikorita",
+      "cardCount": 17
     },
     {
       "dex": 153,
       "slug": "bayleef",
-      "name": "Bayleef"
+      "name": "Bayleef",
+      "cardCount": 12
     },
     {
       "dex": 154,
       "slug": "meganium",
-      "name": "Meganium"
+      "name": "Meganium",
+      "cardCount": 18
     },
     {
       "dex": 155,
       "slug": "cyndaquil",
-      "name": "Cyndaquil"
+      "name": "Cyndaquil",
+      "cardCount": 19
     },
     {
       "dex": 156,
       "slug": "quilava",
-      "name": "Quilava"
+      "name": "Quilava",
+      "cardCount": 14
     },
     {
       "dex": 157,
       "slug": "typhlosion",
-      "name": "Typhlosion"
+      "name": "Typhlosion",
+      "cardCount": 27
     },
     {
       "dex": 158,
       "slug": "totodile",
-      "name": "Totodile"
+      "name": "Totodile",
+      "cardCount": 19
     },
     {
       "dex": 159,
       "slug": "croconaw",
-      "name": "Croconaw"
+      "name": "Croconaw",
+      "cardCount": 15
     },
     {
       "dex": 160,
       "slug": "feraligatr",
-      "name": "Feraligatr"
+      "name": "Feraligatr",
+      "cardCount": 22
     },
     {
       "dex": 161,
       "slug": "sentret",
-      "name": "Sentret"
+      "name": "Sentret",
+      "cardCount": 11
     },
     {
       "dex": 162,
       "slug": "furret",
-      "name": "Furret"
+      "name": "Furret",
+      "cardCount": 10
     },
     {
       "dex": 163,
       "slug": "hoothoot",
-      "name": "Hoothoot"
+      "name": "Hoothoot",
+      "cardCount": 16
     },
     {
       "dex": 164,
       "slug": "noctowl",
-      "name": "Noctowl"
+      "name": "Noctowl",
+      "cardCount": 19
     },
     {
       "dex": 165,
       "slug": "ledyba",
-      "name": "Ledyba"
+      "name": "Ledyba",
+      "cardCount": 14
     },
     {
       "dex": 166,
       "slug": "ledian",
-      "name": "Ledian"
+      "name": "Ledian",
+      "cardCount": 14
     },
     {
       "dex": 167,
       "slug": "spinarak",
-      "name": "Spinarak"
+      "name": "Spinarak",
+      "cardCount": 18
     },
     {
       "dex": 168,
       "slug": "ariados",
-      "name": "Ariados"
+      "name": "Ariados",
+      "cardCount": 18
     },
     {
       "dex": 169,
       "slug": "crobat",
-      "name": "Crobat"
+      "name": "Crobat",
+      "cardCount": 37
     },
     {
       "dex": 170,
       "slug": "chinchou",
-      "name": "Chinchou"
+      "name": "Chinchou",
+      "cardCount": 27
     },
     {
       "dex": 171,
       "slug": "lanturn",
-      "name": "Lanturn"
+      "name": "Lanturn",
+      "cardCount": 26
     },
     {
       "dex": 172,
       "slug": "pichu",
-      "name": "Pichu"
+      "name": "Pichu",
+      "cardCount": 15
     },
     {
       "dex": 173,
       "slug": "cleffa",
-      "name": "Cleffa"
+      "name": "Cleffa",
+      "cardCount": 17
     },
     {
       "dex": 174,
       "slug": "igglybuff",
-      "name": "Igglybuff"
+      "name": "Igglybuff",
+      "cardCount": 10
     },
     {
       "dex": 175,
       "slug": "togepi",
-      "name": "Togepi"
+      "name": "Togepi",
+      "cardCount": 21
     },
     {
       "dex": 176,
       "slug": "togetic",
-      "name": "Togetic"
+      "name": "Togetic",
+      "cardCount": 16
     },
     {
       "dex": 177,
       "slug": "natu",
-      "name": "Natu"
+      "name": "Natu",
+      "cardCount": 19
     },
     {
       "dex": 178,
       "slug": "xatu",
-      "name": "Xatu"
+      "name": "Xatu",
+      "cardCount": 20
     },
     {
       "dex": 179,
       "slug": "mareep",
-      "name": "Mareep"
+      "name": "Mareep",
+      "cardCount": 28
     },
     {
       "dex": 180,
       "slug": "flaaffy",
-      "name": "Flaaffy"
+      "name": "Flaaffy",
+      "cardCount": 30
     },
     {
       "dex": 181,
       "slug": "ampharos",
-      "name": "Ampharos"
+      "name": "Ampharos",
+      "cardCount": 38
     },
     {
       "dex": 182,
       "slug": "bellossom",
-      "name": "Bellossom"
+      "name": "Bellossom",
+      "cardCount": 12
     },
     {
       "dex": 183,
       "slug": "marill",
-      "name": "Marill"
+      "name": "Marill",
+      "cardCount": 25
     },
     {
       "dex": 184,
       "slug": "azumarill",
-      "name": "Azumarill"
+      "name": "Azumarill",
+      "cardCount": 21
     },
     {
       "dex": 185,
       "slug": "sudowoodo",
-      "name": "Sudowoodo"
+      "name": "Sudowoodo",
+      "cardCount": 20
     },
     {
       "dex": 186,
       "slug": "politoed",
-      "name": "Politoed"
+      "name": "Politoed",
+      "cardCount": 10
     },
     {
       "dex": 187,
       "slug": "hoppip",
-      "name": "Hoppip"
+      "name": "Hoppip",
+      "cardCount": 14
     },
     {
       "dex": 188,
       "slug": "skiploom",
-      "name": "Skiploom"
+      "name": "Skiploom",
+      "cardCount": 12
     },
     {
       "dex": 189,
       "slug": "jumpluff",
-      "name": "Jumpluff"
+      "name": "Jumpluff",
+      "cardCount": 13
     },
     {
       "dex": 190,
       "slug": "aipom",
-      "name": "Aipom"
+      "name": "Aipom",
+      "cardCount": 19
     },
     {
       "dex": 191,
       "slug": "sunkern",
-      "name": "Sunkern"
+      "name": "Sunkern",
+      "cardCount": 10
     },
     {
       "dex": 192,
       "slug": "sunflora",
-      "name": "Sunflora"
+      "name": "Sunflora",
+      "cardCount": 11
     },
     {
       "dex": 193,
       "slug": "yanma",
-      "name": "Yanma"
+      "name": "Yanma",
+      "cardCount": 21
     },
     {
       "dex": 194,
       "slug": "wooper",
-      "name": "Wooper"
+      "name": "Wooper",
+      "cardCount": 26
     },
     {
       "dex": 195,
       "slug": "quagsire",
-      "name": "Quagsire"
+      "name": "Quagsire",
+      "cardCount": 16
     },
     {
       "dex": 196,
       "slug": "espeon",
-      "name": "Espeon"
+      "name": "Espeon",
+      "cardCount": 38
     },
     {
       "dex": 197,
       "slug": "umbreon",
-      "name": "Umbreon"
+      "name": "Umbreon",
+      "cardCount": 44
     },
     {
       "dex": 198,
       "slug": "murkrow",
-      "name": "Murkrow"
+      "name": "Murkrow",
+      "cardCount": 28
     },
     {
       "dex": 199,
       "slug": "slowking",
-      "name": "Slowking"
+      "name": "Slowking",
+      "cardCount": 26
     },
     {
       "dex": 200,
       "slug": "misdreavus",
-      "name": "Misdreavus"
+      "name": "Misdreavus",
+      "cardCount": 22
     },
     {
       "dex": 201,
       "slug": "unown",
-      "name": "Unown"
+      "name": "Unown",
+      "cardCount": 95
     },
     {
       "dex": 202,
       "slug": "wobbuffet",
-      "name": "Wobbuffet"
+      "name": "Wobbuffet",
+      "cardCount": 24
     },
     {
       "dex": 203,
       "slug": "girafarig",
-      "name": "Girafarig"
+      "name": "Girafarig",
+      "cardCount": 14
     },
     {
       "dex": 204,
       "slug": "pineco",
-      "name": "Pineco"
+      "name": "Pineco",
+      "cardCount": 20
     },
     {
       "dex": 205,
       "slug": "forretress",
-      "name": "Forretress"
+      "name": "Forretress",
+      "cardCount": 24
     },
     {
       "dex": 206,
       "slug": "dunsparce",
-      "name": "Dunsparce"
+      "name": "Dunsparce",
+      "cardCount": 22
     },
     {
       "dex": 207,
       "slug": "gligar",
-      "name": "Gligar"
+      "name": "Gligar",
+      "cardCount": 18
     },
     {
       "dex": 208,
       "slug": "steelix",
-      "name": "Steelix"
+      "name": "Steelix",
+      "cardCount": 34
     },
     {
       "dex": 209,
       "slug": "snubbull",
-      "name": "Snubbull"
+      "name": "Snubbull",
+      "cardCount": 19
     },
     {
       "dex": 210,
       "slug": "granbull",
-      "name": "Granbull"
+      "name": "Granbull",
+      "cardCount": 16
     },
     {
       "dex": 211,
       "slug": "qwilfish",
-      "name": "Qwilfish"
+      "name": "Qwilfish",
+      "cardCount": 13
     },
     {
       "dex": 212,
       "slug": "scizor",
-      "name": "Scizor"
+      "name": "Scizor",
+      "cardCount": 35
     },
     {
       "dex": 213,
       "slug": "shuckle",
-      "name": "Shuckle"
+      "name": "Shuckle",
+      "cardCount": 18
     },
     {
       "dex": 214,
       "slug": "heracross",
-      "name": "Heracross"
+      "name": "Heracross",
+      "cardCount": 27
     },
     {
       "dex": 215,
       "slug": "sneasel",
-      "name": "Sneasel"
+      "name": "Sneasel",
+      "cardCount": 28
     },
     {
       "dex": 216,
       "slug": "teddiursa",
-      "name": "Teddiursa"
+      "name": "Teddiursa",
+      "cardCount": 13
     },
     {
       "dex": 217,
       "slug": "ursaring",
-      "name": "Ursaring"
+      "name": "Ursaring",
+      "cardCount": 16
     },
     {
       "dex": 218,
       "slug": "slugma",
-      "name": "Slugma"
+      "name": "Slugma",
+      "cardCount": 24
     },
     {
       "dex": 219,
       "slug": "magcargo",
-      "name": "Magcargo"
+      "name": "Magcargo",
+      "cardCount": 30
     },
     {
       "dex": 220,
       "slug": "swinub",
-      "name": "Swinub"
+      "name": "Swinub",
+      "cardCount": 16
     },
     {
       "dex": 221,
       "slug": "piloswine",
-      "name": "Piloswine"
+      "name": "Piloswine",
+      "cardCount": 16
     },
     {
       "dex": 222,
       "slug": "corsola",
-      "name": "Corsola"
+      "name": "Corsola",
+      "cardCount": 14
     },
     {
       "dex": 223,
       "slug": "remoraid",
-      "name": "Remoraid"
+      "name": "Remoraid",
+      "cardCount": 16
     },
     {
       "dex": 224,
       "slug": "octillery",
-      "name": "Octillery"
+      "name": "Octillery",
+      "cardCount": 19
     },
     {
       "dex": 225,
       "slug": "delibird",
-      "name": "Delibird"
+      "name": "Delibird",
+      "cardCount": 14
     },
     {
       "dex": 226,
       "slug": "mantine",
-      "name": "Mantine"
+      "name": "Mantine",
+      "cardCount": 15
     },
     {
       "dex": 227,
       "slug": "skarmory",
-      "name": "Skarmory"
+      "name": "Skarmory",
+      "cardCount": 33
     },
     {
       "dex": 228,
       "slug": "houndour",
-      "name": "Houndour"
+      "name": "Houndour",
+      "cardCount": 32
     },
     {
       "dex": 229,
       "slug": "houndoom",
-      "name": "Houndoom"
+      "name": "Houndoom",
+      "cardCount": 45
     },
     {
       "dex": 230,
       "slug": "kingdra",
-      "name": "Kingdra"
+      "name": "Kingdra",
+      "cardCount": 29
     },
     {
       "dex": 231,
       "slug": "phanpy",
-      "name": "Phanpy"
+      "name": "Phanpy",
+      "cardCount": 20
     },
     {
       "dex": 232,
       "slug": "donphan",
-      "name": "Donphan"
+      "name": "Donphan",
+      "cardCount": 21
     },
     {
       "dex": 233,
       "slug": "porygon2",
-      "name": "Porygon2"
+      "name": "Porygon2",
+      "cardCount": 17
     },
     {
       "dex": 234,
       "slug": "stantler",
-      "name": "Stantler"
+      "name": "Stantler",
+      "cardCount": 11
     },
     {
       "dex": 235,
       "slug": "smeargle",
-      "name": "Smeargle"
+      "name": "Smeargle",
+      "cardCount": 17
     },
     {
       "dex": 236,
       "slug": "tyrogue",
-      "name": "Tyrogue"
+      "name": "Tyrogue",
+      "cardCount": 8
     },
     {
       "dex": 237,
       "slug": "hitmontop",
-      "name": "Hitmontop"
+      "name": "Hitmontop",
+      "cardCount": 15
     },
     {
       "dex": 238,
       "slug": "smoochum",
-      "name": "Smoochum"
+      "name": "Smoochum",
+      "cardCount": 8
     },
     {
       "dex": 239,
       "slug": "elekid",
-      "name": "Elekid"
+      "name": "Elekid",
+      "cardCount": 8
     },
     {
       "dex": 240,
       "slug": "magby",
-      "name": "Magby"
+      "name": "Magby",
+      "cardCount": 10
     },
     {
       "dex": 241,
       "slug": "miltank",
-      "name": "Miltank"
+      "name": "Miltank",
+      "cardCount": 16
     },
     {
       "dex": 242,
       "slug": "blissey",
-      "name": "Blissey"
+      "name": "Blissey",
+      "cardCount": 22
     },
     {
       "dex": 243,
       "slug": "raikou",
-      "name": "Raikou"
+      "name": "Raikou",
+      "cardCount": 26
     },
     {
       "dex": 244,
       "slug": "entei",
-      "name": "Entei"
+      "name": "Entei",
+      "cardCount": 35
     },
     {
       "dex": 245,
       "slug": "suicune",
-      "name": "Suicune"
+      "name": "Suicune",
+      "cardCount": 31
     },
     {
       "dex": 246,
       "slug": "larvitar",
-      "name": "Larvitar"
+      "name": "Larvitar",
+      "cardCount": 30
     },
     {
       "dex": 247,
       "slug": "pupitar",
-      "name": "Pupitar"
+      "name": "Pupitar",
+      "cardCount": 27
     },
     {
       "dex": 248,
       "slug": "tyranitar",
-      "name": "Tyranitar"
+      "name": "Tyranitar",
+      "cardCount": 47
     },
     {
       "dex": 249,
       "slug": "lugia",
-      "name": "Lugia"
+      "name": "Lugia",
+      "cardCount": 37
     },
     {
       "dex": 250,
       "slug": "ho-oh",
-      "name": "Ho-Oh"
+      "name": "Ho-Oh",
+      "cardCount": 37
     },
     {
       "dex": 251,
       "slug": "celebi",
-      "name": "Celebi"
+      "name": "Celebi",
+      "cardCount": 36
     },
     {
       "dex": 252,
       "slug": "treecko",
-      "name": "Treecko"
+      "name": "Treecko",
+      "cardCount": 23
     },
     {
       "dex": 253,
       "slug": "grovyle",
-      "name": "Grovyle"
+      "name": "Grovyle",
+      "cardCount": 16
     },
     {
       "dex": 254,
       "slug": "sceptile",
-      "name": "Sceptile"
+      "name": "Sceptile",
+      "cardCount": 24
     },
     {
       "dex": 255,
       "slug": "torchic",
-      "name": "Torchic"
+      "name": "Torchic",
+      "cardCount": 31
     },
     {
       "dex": 256,
       "slug": "combusken",
-      "name": "Combusken"
+      "name": "Combusken",
+      "cardCount": 22
     },
     {
       "dex": 257,
       "slug": "blaziken",
-      "name": "Blaziken"
+      "name": "Blaziken",
+      "cardCount": 32
     },
     {
       "dex": 258,
       "slug": "mudkip",
-      "name": "Mudkip"
+      "name": "Mudkip",
+      "cardCount": 20
     },
     {
       "dex": 259,
       "slug": "marshtomp",
-      "name": "Marshtomp"
+      "name": "Marshtomp",
+      "cardCount": 13
     },
     {
       "dex": 260,
       "slug": "swampert",
-      "name": "Swampert"
+      "name": "Swampert",
+      "cardCount": 15
     },
     {
       "dex": 261,
       "slug": "poochyena",
-      "name": "Poochyena"
+      "name": "Poochyena",
+      "cardCount": 24
     },
     {
       "dex": 262,
       "slug": "mightyena",
-      "name": "Mightyena"
+      "name": "Mightyena",
+      "cardCount": 24
     },
     {
       "dex": 263,
       "slug": "zigzagoon",
-      "name": "Zigzagoon"
+      "name": "Zigzagoon",
+      "cardCount": 14
     },
     {
       "dex": 264,
       "slug": "linoone",
-      "name": "Linoone"
+      "name": "Linoone",
+      "cardCount": 13
     },
     {
       "dex": 265,
       "slug": "wurmple",
-      "name": "Wurmple"
+      "name": "Wurmple",
+      "cardCount": 12
     },
     {
       "dex": 266,
       "slug": "silcoon",
-      "name": "Silcoon"
+      "name": "Silcoon",
+      "cardCount": 9
     },
     {
       "dex": 267,
       "slug": "beautifly",
-      "name": "Beautifly"
+      "name": "Beautifly",
+      "cardCount": 11
     },
     {
       "dex": 268,
       "slug": "cascoon",
-      "name": "Cascoon"
+      "name": "Cascoon",
+      "cardCount": 9
     },
     {
       "dex": 269,
       "slug": "dustox",
-      "name": "Dustox"
+      "name": "Dustox",
+      "cardCount": 11
     },
     {
       "dex": 270,
       "slug": "lotad",
-      "name": "Lotad"
+      "name": "Lotad",
+      "cardCount": 16
     },
     {
       "dex": 271,
       "slug": "lombre",
-      "name": "Lombre"
+      "name": "Lombre",
+      "cardCount": 14
     },
     {
       "dex": 272,
       "slug": "ludicolo",
-      "name": "Ludicolo"
+      "name": "Ludicolo",
+      "cardCount": 17
     },
     {
       "dex": 273,
       "slug": "seedot",
-      "name": "Seedot"
+      "name": "Seedot",
+      "cardCount": 20
     },
     {
       "dex": 274,
       "slug": "nuzleaf",
-      "name": "Nuzleaf"
+      "name": "Nuzleaf",
+      "cardCount": 19
     },
     {
       "dex": 275,
       "slug": "shiftry",
-      "name": "Shiftry"
+      "name": "Shiftry",
+      "cardCount": 23
     },
     {
       "dex": 276,
       "slug": "taillow",
-      "name": "Taillow"
+      "name": "Taillow",
+      "cardCount": 13
     },
     {
       "dex": 277,
       "slug": "swellow",
-      "name": "Swellow"
+      "name": "Swellow",
+      "cardCount": 14
     },
     {
       "dex": 278,
       "slug": "wingull",
-      "name": "Wingull"
+      "name": "Wingull",
+      "cardCount": 14
     },
     {
       "dex": 279,
       "slug": "pelipper",
-      "name": "Pelipper"
+      "name": "Pelipper",
+      "cardCount": 16
     },
     {
       "dex": 280,
       "slug": "ralts",
-      "name": "Ralts"
+      "name": "Ralts",
+      "cardCount": 32
     },
     {
       "dex": 281,
       "slug": "kirlia",
-      "name": "Kirlia"
+      "name": "Kirlia",
+      "cardCount": 32
     },
     {
       "dex": 282,
       "slug": "gardevoir",
-      "name": "Gardevoir"
+      "name": "Gardevoir",
+      "cardCount": 55
     },
     {
       "dex": 283,
       "slug": "surskit",
-      "name": "Surskit"
+      "name": "Surskit",
+      "cardCount": 13
     },
     {
       "dex": 284,
       "slug": "masquerain",
-      "name": "Masquerain"
+      "name": "Masquerain",
+      "cardCount": 13
     },
     {
       "dex": 285,
       "slug": "shroomish",
-      "name": "Shroomish"
+      "name": "Shroomish",
+      "cardCount": 16
     },
     {
       "dex": 286,
       "slug": "breloom",
-      "name": "Breloom"
+      "name": "Breloom",
+      "cardCount": 16
     },
     {
       "dex": 287,
       "slug": "slakoth",
-      "name": "Slakoth"
+      "name": "Slakoth",
+      "cardCount": 15
     },
     {
       "dex": 288,
       "slug": "vigoroth",
-      "name": "Vigoroth"
+      "name": "Vigoroth",
+      "cardCount": 13
     },
     {
       "dex": 289,
       "slug": "slaking",
-      "name": "Slaking"
+      "name": "Slaking",
+      "cardCount": 16
     },
     {
       "dex": 290,
       "slug": "nincada",
-      "name": "Nincada"
+      "name": "Nincada",
+      "cardCount": 11
     },
     {
       "dex": 291,
       "slug": "ninjask",
-      "name": "Ninjask"
+      "name": "Ninjask",
+      "cardCount": 11
     },
     {
       "dex": 292,
       "slug": "shedinja",
-      "name": "Shedinja"
+      "name": "Shedinja",
+      "cardCount": 10
     },
     {
       "dex": 293,
       "slug": "whismur",
-      "name": "Whismur"
+      "name": "Whismur",
+      "cardCount": 13
     },
     {
       "dex": 294,
       "slug": "loudred",
-      "name": "Loudred"
+      "name": "Loudred",
+      "cardCount": 12
     },
     {
       "dex": 295,
       "slug": "exploud",
-      "name": "Exploud"
+      "name": "Exploud",
+      "cardCount": 11
     },
     {
       "dex": 296,
       "slug": "makuhita",
-      "name": "Makuhita"
+      "name": "Makuhita",
+      "cardCount": 17
     },
     {
       "dex": 297,
       "slug": "hariyama",
-      "name": "Hariyama"
+      "name": "Hariyama",
+      "cardCount": 15
     },
     {
       "dex": 298,
       "slug": "azurill",
-      "name": "Azurill"
+      "name": "Azurill",
+      "cardCount": 4
     },
     {
       "dex": 299,
       "slug": "nosepass",
-      "name": "Nosepass"
+      "name": "Nosepass",
+      "cardCount": 18
     },
     {
       "dex": 300,
       "slug": "skitty",
-      "name": "Skitty"
+      "name": "Skitty",
+      "cardCount": 21
     },
     {
       "dex": 301,
       "slug": "delcatty",
-      "name": "Delcatty"
+      "name": "Delcatty",
+      "cardCount": 18
     },
     {
       "dex": 302,
       "slug": "sableye",
-      "name": "Sableye"
+      "name": "Sableye",
+      "cardCount": 32
     },
     {
       "dex": 303,
       "slug": "mawile",
-      "name": "Mawile"
+      "name": "Mawile",
+      "cardCount": 36
     },
     {
       "dex": 304,
       "slug": "aron",
-      "name": "Aron"
+      "name": "Aron",
+      "cardCount": 23
     },
     {
       "dex": 305,
       "slug": "lairon",
-      "name": "Lairon"
+      "name": "Lairon",
+      "cardCount": 23
     },
     {
       "dex": 306,
       "slug": "aggron",
-      "name": "Aggron"
+      "name": "Aggron",
+      "cardCount": 24
     },
     {
       "dex": 307,
       "slug": "meditite",
-      "name": "Meditite"
+      "name": "Meditite",
+      "cardCount": 22
     },
     {
       "dex": 308,
       "slug": "medicham",
-      "name": "Medicham"
+      "name": "Medicham",
+      "cardCount": 25
     },
     {
       "dex": 309,
       "slug": "electrike",
-      "name": "Electrike"
+      "name": "Electrike",
+      "cardCount": 32
     },
     {
       "dex": 310,
       "slug": "manectric",
-      "name": "Manectric"
+      "name": "Manectric",
+      "cardCount": 33
     },
     {
       "dex": 311,
       "slug": "plusle",
-      "name": "Plusle"
+      "name": "Plusle",
+      "cardCount": 20
     },
     {
       "dex": 312,
       "slug": "minun",
-      "name": "Minun"
+      "name": "Minun",
+      "cardCount": 20
     },
     {
       "dex": 313,
       "slug": "volbeat",
-      "name": "Volbeat"
+      "name": "Volbeat",
+      "cardCount": 9
     },
     {
       "dex": 314,
       "slug": "illumise",
-      "name": "Illumise"
+      "name": "Illumise",
+      "cardCount": 9
     },
     {
       "dex": 315,
       "slug": "roselia",
-      "name": "Roselia"
+      "name": "Roselia",
+      "cardCount": 16
     },
     {
       "dex": 316,
       "slug": "gulpin",
-      "name": "Gulpin"
+      "name": "Gulpin",
+      "cardCount": 11
     },
     {
       "dex": 317,
       "slug": "swalot",
-      "name": "Swalot"
+      "name": "Swalot",
+      "cardCount": 8
     },
     {
       "dex": 318,
       "slug": "carvanha",
-      "name": "Carvanha"
+      "name": "Carvanha",
+      "cardCount": 23
     },
     {
       "dex": 319,
       "slug": "sharpedo",
-      "name": "Sharpedo"
+      "name": "Sharpedo",
+      "cardCount": 26
     },
     {
       "dex": 320,
       "slug": "wailmer",
-      "name": "Wailmer"
+      "name": "Wailmer",
+      "cardCount": 14
     },
     {
       "dex": 321,
       "slug": "wailord",
-      "name": "Wailord"
+      "name": "Wailord",
+      "cardCount": 22
     },
     {
       "dex": 322,
       "slug": "numel",
-      "name": "Numel"
+      "name": "Numel",
+      "cardCount": 24
     },
     {
       "dex": 323,
       "slug": "camerupt",
-      "name": "Camerupt"
+      "name": "Camerupt",
+      "cardCount": 26
     },
     {
       "dex": 324,
       "slug": "torkoal",
-      "name": "Torkoal"
+      "name": "Torkoal",
+      "cardCount": 23
     },
     {
       "dex": 325,
       "slug": "spoink",
-      "name": "Spoink"
+      "name": "Spoink",
+      "cardCount": 17
     },
     {
       "dex": 326,
       "slug": "grumpig",
-      "name": "Grumpig"
+      "name": "Grumpig",
+      "cardCount": 16
     },
     {
       "dex": 327,
       "slug": "spinda",
-      "name": "Spinda"
+      "name": "Spinda",
+      "cardCount": 10
     },
     {
       "dex": 328,
       "slug": "trapinch",
-      "name": "Trapinch"
+      "name": "Trapinch",
+      "cardCount": 21
     },
     {
       "dex": 329,
       "slug": "vibrava",
-      "name": "Vibrava"
+      "name": "Vibrava",
+      "cardCount": 20
     },
     {
       "dex": 330,
       "slug": "flygon",
-      "name": "Flygon"
+      "name": "Flygon",
+      "cardCount": 28
     },
     {
       "dex": 331,
       "slug": "cacnea",
-      "name": "Cacnea"
+      "name": "Cacnea",
+      "cardCount": 16
     },
     {
       "dex": 332,
       "slug": "cacturne",
-      "name": "Cacturne"
+      "name": "Cacturne",
+      "cardCount": 13
     },
     {
       "dex": 333,
       "slug": "swablu",
-      "name": "Swablu"
+      "name": "Swablu",
+      "cardCount": 27
     },
     {
       "dex": 334,
       "slug": "altaria",
-      "name": "Altaria"
+      "name": "Altaria",
+      "cardCount": 39
     },
     {
       "dex": 335,
       "slug": "zangoose",
-      "name": "Zangoose"
+      "name": "Zangoose",
+      "cardCount": 17
     },
     {
       "dex": 336,
       "slug": "seviper",
-      "name": "Seviper"
+      "name": "Seviper",
+      "cardCount": 17
     },
     {
       "dex": 337,
       "slug": "lunatone",
-      "name": "Lunatone"
+      "name": "Lunatone",
+      "cardCount": 17
     },
     {
       "dex": 338,
       "slug": "solrock",
-      "name": "Solrock"
+      "name": "Solrock",
+      "cardCount": 18
     },
     {
       "dex": 339,
       "slug": "barboach",
-      "name": "Barboach"
+      "name": "Barboach",
+      "cardCount": 10
     },
     {
       "dex": 340,
       "slug": "whiscash",
-      "name": "Whiscash"
+      "name": "Whiscash",
+      "cardCount": 11
     },
     {
       "dex": 341,
       "slug": "corphish",
-      "name": "Corphish"
+      "name": "Corphish",
+      "cardCount": 18
     },
     {
       "dex": 342,
       "slug": "crawdaunt",
-      "name": "Crawdaunt"
+      "name": "Crawdaunt",
+      "cardCount": 14
     },
     {
       "dex": 343,
       "slug": "baltoy",
-      "name": "Baltoy"
+      "name": "Baltoy",
+      "cardCount": 27
     },
     {
       "dex": 344,
       "slug": "claydol",
-      "name": "Claydol"
+      "name": "Claydol",
+      "cardCount": 24
     },
     {
       "dex": 345,
       "slug": "lileep",
-      "name": "Lileep"
+      "name": "Lileep",
+      "cardCount": 10
     },
     {
       "dex": 346,
       "slug": "cradily",
-      "name": "Cradily"
+      "name": "Cradily",
+      "cardCount": 9
     },
     {
       "dex": 347,
       "slug": "anorith",
-      "name": "Anorith"
+      "name": "Anorith",
+      "cardCount": 9
     },
     {
       "dex": 348,
       "slug": "armaldo",
-      "name": "Armaldo"
+      "name": "Armaldo",
+      "cardCount": 9
     },
     {
       "dex": 349,
       "slug": "feebas",
-      "name": "Feebas"
+      "name": "Feebas",
+      "cardCount": 19
     },
     {
       "dex": 350,
       "slug": "milotic",
-      "name": "Milotic"
+      "name": "Milotic",
+      "cardCount": 25
     },
     {
       "dex": 351,
       "slug": "castform",
-      "name": "Castform"
+      "name": "Castform",
+      "cardCount": 22
     },
     {
       "dex": 352,
       "slug": "kecleon",
-      "name": "Kecleon"
+      "name": "Kecleon",
+      "cardCount": 12
     },
     {
       "dex": 353,
       "slug": "shuppet",
-      "name": "Shuppet"
+      "name": "Shuppet",
+      "cardCount": 18
     },
     {
       "dex": 354,
       "slug": "banette",
-      "name": "Banette"
+      "name": "Banette",
+      "cardCount": 23
     },
     {
       "dex": 355,
       "slug": "duskull",
-      "name": "Duskull"
+      "name": "Duskull",
+      "cardCount": 21
     },
     {
       "dex": 356,
       "slug": "dusclops",
-      "name": "Dusclops"
+      "name": "Dusclops",
+      "cardCount": 18
     },
     {
       "dex": 357,
       "slug": "tropius",
-      "name": "Tropius"
+      "name": "Tropius",
+      "cardCount": 18
     },
     {
       "dex": 358,
       "slug": "chimecho",
-      "name": "Chimecho"
+      "name": "Chimecho",
+      "cardCount": 15
     },
     {
       "dex": 359,
       "slug": "absol",
-      "name": "Absol"
+      "name": "Absol",
+      "cardCount": 30
     },
     {
       "dex": 360,
       "slug": "wynaut",
-      "name": "Wynaut"
+      "name": "Wynaut",
+      "cardCount": 5
     },
     {
       "dex": 361,
       "slug": "snorunt",
-      "name": "Snorunt"
+      "name": "Snorunt",
+      "cardCount": 20
     },
     {
       "dex": 362,
       "slug": "glalie",
-      "name": "Glalie"
+      "name": "Glalie",
+      "cardCount": 14
     },
     {
       "dex": 363,
       "slug": "spheal",
-      "name": "Spheal"
+      "name": "Spheal",
+      "cardCount": 17
     },
     {
       "dex": 364,
       "slug": "sealeo",
-      "name": "Sealeo"
+      "name": "Sealeo",
+      "cardCount": 14
     },
     {
       "dex": 365,
       "slug": "walrein",
-      "name": "Walrein"
+      "name": "Walrein",
+      "cardCount": 13
     },
     {
       "dex": 366,
       "slug": "clamperl",
-      "name": "Clamperl"
+      "name": "Clamperl",
+      "cardCount": 8
     },
     {
       "dex": 367,
       "slug": "huntail",
-      "name": "Huntail"
+      "name": "Huntail",
+      "cardCount": 7
     },
     {
       "dex": 368,
       "slug": "gorebyss",
-      "name": "Gorebyss"
+      "name": "Gorebyss",
+      "cardCount": 8
     },
     {
       "dex": 369,
       "slug": "relicanth",
-      "name": "Relicanth"
+      "name": "Relicanth",
+      "cardCount": 15
     },
     {
       "dex": 370,
       "slug": "luvdisc",
-      "name": "Luvdisc"
+      "name": "Luvdisc",
+      "cardCount": 13
     },
     {
       "dex": 371,
       "slug": "bagon",
-      "name": "Bagon"
+      "name": "Bagon",
+      "cardCount": 22
     },
     {
       "dex": 372,
       "slug": "shelgon",
-      "name": "Shelgon"
+      "name": "Shelgon",
+      "cardCount": 18
     },
     {
       "dex": 373,
       "slug": "salamence",
-      "name": "Salamence"
+      "name": "Salamence",
+      "cardCount": 29
     },
     {
       "dex": 374,
       "slug": "beldum",
-      "name": "Beldum"
+      "name": "Beldum",
+      "cardCount": 26
     },
     {
       "dex": 375,
       "slug": "metang",
-      "name": "Metang"
+      "name": "Metang",
+      "cardCount": 27
     },
     {
       "dex": 376,
       "slug": "metagross",
-      "name": "Metagross"
+      "name": "Metagross",
+      "cardCount": 34
     },
     {
       "dex": 377,
       "slug": "regirock",
-      "name": "Regirock"
+      "name": "Regirock",
+      "cardCount": 19
     },
     {
       "dex": 378,
       "slug": "regice",
-      "name": "Regice"
+      "name": "Regice",
+      "cardCount": 11
     },
     {
       "dex": 379,
       "slug": "registeel",
-      "name": "Registeel"
+      "name": "Registeel",
+      "cardCount": 14
     },
     {
       "dex": 380,
       "slug": "latias",
-      "name": "Latias"
+      "name": "Latias",
+      "cardCount": 34
     },
     {
       "dex": 381,
       "slug": "latios",
-      "name": "Latios"
+      "name": "Latios",
+      "cardCount": 37
     },
     {
       "dex": 382,
       "slug": "kyogre",
-      "name": "Kyogre"
+      "name": "Kyogre",
+      "cardCount": 33
     },
     {
       "dex": 383,
       "slug": "groudon",
-      "name": "Groudon"
+      "name": "Groudon",
+      "cardCount": 33
     },
     {
       "dex": 384,
       "slug": "rayquaza",
-      "name": "Rayquaza"
+      "name": "Rayquaza",
+      "cardCount": 59
     },
     {
       "dex": 385,
       "slug": "jirachi",
-      "name": "Jirachi"
+      "name": "Jirachi",
+      "cardCount": 28
     },
     {
       "dex": 386,
       "slug": "deoxys",
-      "name": "Deoxys"
+      "name": "Deoxys",
+      "cardCount": 45
     },
     {
       "dex": 387,
       "slug": "turtwig",
-      "name": "Turtwig"
+      "name": "Turtwig",
+      "cardCount": 18
     },
     {
       "dex": 388,
       "slug": "grotle",
-      "name": "Grotle"
+      "name": "Grotle",
+      "cardCount": 9
     },
     {
       "dex": 389,
       "slug": "torterra",
-      "name": "Torterra"
+      "name": "Torterra",
+      "cardCount": 13
     },
     {
       "dex": 390,
       "slug": "chimchar",
-      "name": "Chimchar"
+      "name": "Chimchar",
+      "cardCount": 16
     },
     {
       "dex": 391,
       "slug": "monferno",
-      "name": "Monferno"
+      "name": "Monferno",
+      "cardCount": 8
     },
     {
       "dex": 392,
       "slug": "infernape",
-      "name": "Infernape"
+      "name": "Infernape",
+      "cardCount": 17
     },
     {
       "dex": 393,
       "slug": "piplup",
-      "name": "Piplup"
+      "name": "Piplup",
+      "cardCount": 25
     },
     {
       "dex": 394,
       "slug": "prinplup",
-      "name": "Prinplup"
+      "name": "Prinplup",
+      "cardCount": 10
     },
     {
       "dex": 395,
       "slug": "empoleon",
-      "name": "Empoleon"
+      "name": "Empoleon",
+      "cardCount": 23
     },
     {
       "dex": 396,
       "slug": "starly",
-      "name": "Starly"
+      "name": "Starly",
+      "cardCount": 14
     },
     {
       "dex": 397,
       "slug": "staravia",
-      "name": "Staravia"
+      "name": "Staravia",
+      "cardCount": 12
     },
     {
       "dex": 398,
       "slug": "staraptor",
-      "name": "Staraptor"
+      "name": "Staraptor",
+      "cardCount": 12
     },
     {
       "dex": 399,
       "slug": "bidoof",
-      "name": "Bidoof"
+      "name": "Bidoof",
+      "cardCount": 16
     },
     {
       "dex": 400,
       "slug": "bibarel",
-      "name": "Bibarel"
+      "name": "Bibarel",
+      "cardCount": 12
     },
     {
       "dex": 401,
       "slug": "kricketot",
-      "name": "Kricketot"
+      "name": "Kricketot",
+      "cardCount": 9
     },
     {
       "dex": 402,
       "slug": "kricketune",
-      "name": "Kricketune"
+      "name": "Kricketune",
+      "cardCount": 11
     },
     {
       "dex": 403,
       "slug": "shinx",
-      "name": "Shinx"
+      "name": "Shinx",
+      "cardCount": 25
     },
     {
       "dex": 404,
       "slug": "luxio",
-      "name": "Luxio"
+      "name": "Luxio",
+      "cardCount": 21
     },
     {
       "dex": 405,
       "slug": "luxray",
-      "name": "Luxray"
+      "name": "Luxray",
+      "cardCount": 27
     },
     {
       "dex": 406,
       "slug": "budew",
-      "name": "Budew"
+      "name": "Budew",
+      "cardCount": 5
     },
     {
       "dex": 407,
       "slug": "roserade",
-      "name": "Roserade"
+      "name": "Roserade",
+      "cardCount": 17
     },
     {
       "dex": 408,
       "slug": "cranidos",
-      "name": "Cranidos"
+      "name": "Cranidos",
+      "cardCount": 6
     },
     {
       "dex": 409,
       "slug": "rampardos",
-      "name": "Rampardos"
+      "name": "Rampardos",
+      "cardCount": 6
     },
     {
       "dex": 410,
       "slug": "shieldon",
-      "name": "Shieldon"
+      "name": "Shieldon",
+      "cardCount": 6
     },
     {
       "dex": 411,
       "slug": "bastiodon",
-      "name": "Bastiodon"
+      "name": "Bastiodon",
+      "cardCount": 8
     },
     {
       "dex": 412,
       "slug": "burmy",
-      "name": "Burmy"
+      "name": "Burmy",
+      "cardCount": 11
     },
     {
       "dex": 413,
       "slug": "wormadam",
-      "name": "Wormadam"
+      "name": "Wormadam",
+      "cardCount": 13
     },
     {
       "dex": 414,
       "slug": "mothim",
-      "name": "Mothim"
+      "name": "Mothim",
+      "cardCount": 6
     },
     {
       "dex": 415,
       "slug": "combee",
-      "name": "Combee"
+      "name": "Combee",
+      "cardCount": 12
     },
     {
       "dex": 416,
       "slug": "vespiquen",
-      "name": "Vespiquen"
+      "name": "Vespiquen",
+      "cardCount": 12
     },
     {
       "dex": 417,
       "slug": "pachirisu",
-      "name": "Pachirisu"
+      "name": "Pachirisu",
+      "cardCount": 19
     },
     {
       "dex": 418,
       "slug": "buizel",
-      "name": "Buizel"
+      "name": "Buizel",
+      "cardCount": 16
     },
     {
       "dex": 419,
       "slug": "floatzel",
-      "name": "Floatzel"
+      "name": "Floatzel",
+      "cardCount": 15
     },
     {
       "dex": 420,
       "slug": "cherubi",
-      "name": "Cherubi"
+      "name": "Cherubi",
+      "cardCount": 12
     },
     {
       "dex": 421,
       "slug": "cherrim",
-      "name": "Cherrim"
+      "name": "Cherrim",
+      "cardCount": 11
     },
     {
       "dex": 422,
       "slug": "shellos",
-      "name": "Shellos"
+      "name": "Shellos",
+      "cardCount": 9
     },
     {
       "dex": 423,
       "slug": "gastrodon",
-      "name": "Gastrodon"
+      "name": "Gastrodon",
+      "cardCount": 8
     },
     {
       "dex": 424,
       "slug": "ambipom",
-      "name": "Ambipom"
+      "name": "Ambipom",
+      "cardCount": 13
     },
     {
       "dex": 425,
       "slug": "drifloon",
-      "name": "Drifloon"
+      "name": "Drifloon",
+      "cardCount": 18
     },
     {
       "dex": 426,
       "slug": "drifblim",
-      "name": "Drifblim"
+      "name": "Drifblim",
+      "cardCount": 18
     },
     {
       "dex": 427,
       "slug": "buneary",
-      "name": "Buneary"
+      "name": "Buneary",
+      "cardCount": 16
     },
     {
       "dex": 428,
       "slug": "lopunny",
-      "name": "Lopunny"
+      "name": "Lopunny",
+      "cardCount": 19
     },
     {
       "dex": 429,
       "slug": "mismagius",
-      "name": "Mismagius"
+      "name": "Mismagius",
+      "cardCount": 21
     },
     {
       "dex": 430,
       "slug": "honchkrow",
-      "name": "Honchkrow"
+      "name": "Honchkrow",
+      "cardCount": 23
     },
     {
       "dex": 431,
       "slug": "glameow",
-      "name": "Glameow"
+      "name": "Glameow",
+      "cardCount": 10
     },
     {
       "dex": 432,
       "slug": "purugly",
-      "name": "Purugly"
+      "name": "Purugly",
+      "cardCount": 9
     },
     {
       "dex": 433,
       "slug": "chingling",
-      "name": "Chingling"
+      "name": "Chingling",
+      "cardCount": 4
     },
     {
       "dex": 434,
       "slug": "stunky",
-      "name": "Stunky"
+      "name": "Stunky",
+      "cardCount": 10
     },
     {
       "dex": 435,
       "slug": "skuntank",
-      "name": "Skuntank"
+      "name": "Skuntank",
+      "cardCount": 13
     },
     {
       "dex": 436,
       "slug": "bronzor",
-      "name": "Bronzor"
+      "name": "Bronzor",
+      "cardCount": 22
     },
     {
       "dex": 437,
       "slug": "bronzong",
-      "name": "Bronzong"
+      "name": "Bronzong",
+      "cardCount": 28
     },
     {
       "dex": 438,
       "slug": "bonsly",
-      "name": "Bonsly"
+      "name": "Bonsly",
+      "cardCount": 2
     },
     {
       "dex": 439,
       "slug": "mime-jr.",
-      "name": "Mime Jr."
+      "name": "Mime Jr.",
+      "cardCount": 6
     },
     {
       "dex": 440,
       "slug": "happiny",
-      "name": "Happiny"
+      "name": "Happiny",
+      "cardCount": 4
     },
     {
       "dex": 441,
       "slug": "chatot",
-      "name": "Chatot"
+      "name": "Chatot",
+      "cardCount": 15
     },
     {
       "dex": 442,
       "slug": "spiritomb",
-      "name": "Spiritomb"
+      "name": "Spiritomb",
+      "cardCount": 24
     },
     {
       "dex": 443,
       "slug": "gible",
-      "name": "Gible"
+      "name": "Gible",
+      "cardCount": 17
     },
     {
       "dex": 444,
       "slug": "gabite",
-      "name": "Gabite"
+      "name": "Gabite",
+      "cardCount": 15
     },
     {
       "dex": 445,
       "slug": "garchomp",
-      "name": "Garchomp"
+      "name": "Garchomp",
+      "cardCount": 37
     },
     {
       "dex": 446,
       "slug": "munchlax",
-      "name": "Munchlax"
+      "name": "Munchlax",
+      "cardCount": 5
     },
     {
       "dex": 447,
       "slug": "riolu",
-      "name": "Riolu"
+      "name": "Riolu",
+      "cardCount": 32
     },
     {
       "dex": 448,
       "slug": "lucario",
-      "name": "Lucario"
+      "name": "Lucario",
+      "cardCount": 59
     },
     {
       "dex": 449,
       "slug": "hippopotas",
-      "name": "Hippopotas"
+      "name": "Hippopotas",
+      "cardCount": 14
     },
     {
       "dex": 450,
       "slug": "hippowdon",
-      "name": "Hippowdon"
+      "name": "Hippowdon",
+      "cardCount": 14
     },
     {
       "dex": 451,
       "slug": "skorupi",
-      "name": "Skorupi"
+      "name": "Skorupi",
+      "cardCount": 10
     },
     {
       "dex": 452,
       "slug": "drapion",
-      "name": "Drapion"
+      "name": "Drapion",
+      "cardCount": 19
     },
     {
       "dex": 453,
       "slug": "croagunk",
-      "name": "Croagunk"
+      "name": "Croagunk",
+      "cardCount": 21
     },
     {
       "dex": 454,
       "slug": "toxicroak",
-      "name": "Toxicroak"
+      "name": "Toxicroak",
+      "cardCount": 21
     },
     {
       "dex": 455,
       "slug": "carnivine",
-      "name": "Carnivine"
+      "name": "Carnivine",
+      "cardCount": 17
     },
     {
       "dex": 456,
       "slug": "finneon",
-      "name": "Finneon"
+      "name": "Finneon",
+      "cardCount": 7
     },
     {
       "dex": 457,
       "slug": "lumineon",
-      "name": "Lumineon"
+      "name": "Lumineon",
+      "cardCount": 11
     },
     {
       "dex": 458,
       "slug": "mantyke",
-      "name": "Mantyke"
+      "name": "Mantyke",
+      "cardCount": 3
     },
     {
       "dex": 459,
       "slug": "snover",
-      "name": "Snover"
+      "name": "Snover",
+      "cardCount": 15
     },
     {
       "dex": 460,
       "slug": "abomasnow",
-      "name": "Abomasnow"
+      "name": "Abomasnow",
+      "cardCount": 16
     },
     {
       "dex": 461,
       "slug": "weavile",
-      "name": "Weavile"
+      "name": "Weavile",
+      "cardCount": 21
     },
     {
       "dex": 462,
       "slug": "magnezone",
-      "name": "Magnezone"
+      "name": "Magnezone",
+      "cardCount": 28
     },
     {
       "dex": 463,
       "slug": "lickilicky",
-      "name": "Lickilicky"
+      "name": "Lickilicky",
+      "cardCount": 11
     },
     {
       "dex": 464,
       "slug": "rhyperior",
-      "name": "Rhyperior"
+      "name": "Rhyperior",
+      "cardCount": 15
     },
     {
       "dex": 465,
       "slug": "tangrowth",
-      "name": "Tangrowth"
+      "name": "Tangrowth",
+      "cardCount": 16
     },
     {
       "dex": 466,
       "slug": "electivire",
-      "name": "Electivire"
+      "name": "Electivire",
+      "cardCount": 20
     },
     {
       "dex": 467,
       "slug": "magmortar",
-      "name": "Magmortar"
+      "name": "Magmortar",
+      "cardCount": 17
     },
     {
       "dex": 468,
       "slug": "togekiss",
-      "name": "Togekiss"
+      "name": "Togekiss",
+      "cardCount": 18
     },
     {
       "dex": 469,
       "slug": "yanmega",
-      "name": "Yanmega"
+      "name": "Yanmega",
+      "cardCount": 21
     },
     {
       "dex": 470,
       "slug": "leafeon",
-      "name": "Leafeon"
+      "name": "Leafeon",
+      "cardCount": 35
     },
     {
       "dex": 471,
       "slug": "glaceon",
-      "name": "Glaceon"
+      "name": "Glaceon",
+      "cardCount": 33
     },
     {
       "dex": 472,
       "slug": "gliscor",
-      "name": "Gliscor"
+      "name": "Gliscor",
+      "cardCount": 16
     },
     {
       "dex": 473,
       "slug": "mamoswine",
-      "name": "Mamoswine"
+      "name": "Mamoswine",
+      "cardCount": 11
     },
     {
       "dex": 474,
       "slug": "porygon-z",
-      "name": "Porygon-Z"
+      "name": "Porygon-Z",
+      "cardCount": 18
     },
     {
       "dex": 475,
       "slug": "gallade",
-      "name": "Gallade"
+      "name": "Gallade",
+      "cardCount": 20
     },
     {
       "dex": 476,
       "slug": "probopass",
-      "name": "Probopass"
+      "name": "Probopass",
+      "cardCount": 18
     },
     {
       "dex": 477,
       "slug": "dusknoir",
-      "name": "Dusknoir"
+      "name": "Dusknoir",
+      "cardCount": 18
     },
     {
       "dex": 478,
       "slug": "froslass",
-      "name": "Froslass"
+      "name": "Froslass",
+      "cardCount": 17
     },
     {
       "dex": 479,
       "slug": "rotom",
-      "name": "Rotom"
+      "name": "Rotom",
+      "cardCount": 50
     },
     {
       "dex": 480,
       "slug": "uxie",
-      "name": "Uxie"
+      "name": "Uxie",
+      "cardCount": 8
     },
     {
       "dex": 481,
       "slug": "mesprit",
-      "name": "Mesprit"
+      "name": "Mesprit",
+      "cardCount": 9
     },
     {
       "dex": 482,
       "slug": "azelf",
-      "name": "Azelf"
+      "name": "Azelf",
+      "cardCount": 9
     },
     {
       "dex": 483,
       "slug": "dialga",
-      "name": "Dialga"
+      "name": "Dialga",
+      "cardCount": 47
     },
     {
       "dex": 484,
       "slug": "palkia",
-      "name": "Palkia"
+      "name": "Palkia",
+      "cardCount": 39
     },
     {
       "dex": 485,
       "slug": "heatran",
-      "name": "Heatran"
+      "name": "Heatran",
+      "cardCount": 27
     },
     {
       "dex": 486,
       "slug": "regigigas",
-      "name": "Regigigas"
+      "name": "Regigigas",
+      "cardCount": 21
     },
     {
       "dex": 487,
       "slug": "giratina",
-      "name": "Giratina"
+      "name": "Giratina",
+      "cardCount": 30
     },
     {
       "dex": 488,
       "slug": "cresselia",
-      "name": "Cresselia"
+      "name": "Cresselia",
+      "cardCount": 18
     },
     {
       "dex": 489,
       "slug": "phione",
-      "name": "Phione"
+      "name": "Phione",
+      "cardCount": 9
     },
     {
       "dex": 490,
       "slug": "manaphy",
-      "name": "Manaphy"
+      "name": "Manaphy",
+      "cardCount": 17
     },
     {
       "dex": 491,
       "slug": "darkrai",
-      "name": "Darkrai"
+      "name": "Darkrai",
+      "cardCount": 37
     },
     {
       "dex": 492,
       "slug": "shaymin",
-      "name": "Shaymin"
+      "name": "Shaymin",
+      "cardCount": 35
     },
     {
       "dex": 493,
       "slug": "arceus",
-      "name": "Arceus"
+      "name": "Arceus",
+      "cardCount": 34
     },
     {
       "dex": 494,
       "slug": "victini",
-      "name": "Victini"
+      "name": "Victini",
+      "cardCount": 37
     },
     {
       "dex": 495,
       "slug": "snivy",
-      "name": "Snivy"
+      "name": "Snivy",
+      "cardCount": 17
     },
     {
       "dex": 496,
       "slug": "servine",
-      "name": "Servine"
+      "name": "Servine",
+      "cardCount": 10
     },
     {
       "dex": 497,
       "slug": "serperior",
-      "name": "Serperior"
+      "name": "Serperior",
+      "cardCount": 18
     },
     {
       "dex": 498,
       "slug": "tepig",
-      "name": "Tepig"
+      "name": "Tepig",
+      "cardCount": 14
     },
     {
       "dex": 499,
       "slug": "pignite",
-      "name": "Pignite"
+      "name": "Pignite",
+      "cardCount": 10
     },
     {
       "dex": 500,
       "slug": "emboar",
-      "name": "Emboar"
+      "name": "Emboar",
+      "cardCount": 13
     },
     {
       "dex": 501,
       "slug": "oshawott",
-      "name": "Oshawott"
+      "name": "Oshawott",
+      "cardCount": 14
     },
     {
       "dex": 502,
       "slug": "dewott",
-      "name": "Dewott"
+      "name": "Dewott",
+      "cardCount": 10
     },
     {
       "dex": 503,
       "slug": "samurott",
-      "name": "Samurott"
+      "name": "Samurott",
+      "cardCount": 19
     },
     {
       "dex": 504,
       "slug": "patrat",
-      "name": "Patrat"
+      "name": "Patrat",
+      "cardCount": 11
     },
     {
       "dex": 505,
       "slug": "watchog",
-      "name": "Watchog"
+      "name": "Watchog",
+      "cardCount": 11
     },
     {
       "dex": 506,
       "slug": "lillipup",
-      "name": "Lillipup"
+      "name": "Lillipup",
+      "cardCount": 12
     },
     {
       "dex": 507,
       "slug": "herdier",
-      "name": "Herdier"
+      "name": "Herdier",
+      "cardCount": 10
     },
     {
       "dex": 508,
       "slug": "stoutland",
-      "name": "Stoutland"
+      "name": "Stoutland",
+      "cardCount": 14
     },
     {
       "dex": 509,
       "slug": "purrloin",
-      "name": "Purrloin"
+      "name": "Purrloin",
+      "cardCount": 19
     },
     {
       "dex": 510,
       "slug": "liepard",
-      "name": "Liepard"
+      "name": "Liepard",
+      "cardCount": 18
     },
     {
       "dex": 511,
       "slug": "pansage",
-      "name": "Pansage"
+      "name": "Pansage",
+      "cardCount": 15
     },
     {
       "dex": 512,
       "slug": "simisage",
-      "name": "Simisage"
+      "name": "Simisage",
+      "cardCount": 11
     },
     {
       "dex": 513,
       "slug": "pansear",
-      "name": "Pansear"
+      "name": "Pansear",
+      "cardCount": 17
     },
     {
       "dex": 514,
       "slug": "simisear",
-      "name": "Simisear"
+      "name": "Simisear",
+      "cardCount": 18
     },
     {
       "dex": 515,
       "slug": "panpour",
-      "name": "Panpour"
+      "name": "Panpour",
+      "cardCount": 12
     },
     {
       "dex": 516,
       "slug": "simipour",
-      "name": "Simipour"
+      "name": "Simipour",
+      "cardCount": 11
     },
     {
       "dex": 517,
       "slug": "munna",
-      "name": "Munna"
+      "name": "Munna",
+      "cardCount": 11
     },
     {
       "dex": 518,
       "slug": "musharna",
-      "name": "Musharna"
+      "name": "Musharna",
+      "cardCount": 10
     },
     {
       "dex": 519,
       "slug": "pidove",
-      "name": "Pidove"
+      "name": "Pidove",
+      "cardCount": 13
     },
     {
       "dex": 520,
       "slug": "tranquill",
-      "name": "Tranquill"
+      "name": "Tranquill",
+      "cardCount": 10
     },
     {
       "dex": 521,
       "slug": "unfezant",
-      "name": "Unfezant"
+      "name": "Unfezant",
+      "cardCount": 11
     },
     {
       "dex": 522,
       "slug": "blitzle",
-      "name": "Blitzle"
+      "name": "Blitzle",
+      "cardCount": 17
     },
     {
       "dex": 523,
       "slug": "zebstrika",
-      "name": "Zebstrika"
+      "name": "Zebstrika",
+      "cardCount": 15
     },
     {
       "dex": 524,
       "slug": "roggenrola",
-      "name": "Roggenrola"
+      "name": "Roggenrola",
+      "cardCount": 8
     },
     {
       "dex": 525,
       "slug": "boldore",
-      "name": "Boldore"
+      "name": "Boldore",
+      "cardCount": 8
     },
     {
       "dex": 526,
       "slug": "gigalith",
-      "name": "Gigalith"
+      "name": "Gigalith",
+      "cardCount": 8
     },
     {
       "dex": 527,
       "slug": "woobat",
-      "name": "Woobat"
+      "name": "Woobat",
+      "cardCount": 13
     },
     {
       "dex": 528,
       "slug": "swoobat",
-      "name": "Swoobat"
+      "name": "Swoobat",
+      "cardCount": 11
     },
     {
       "dex": 529,
       "slug": "drilbur",
-      "name": "Drilbur"
+      "name": "Drilbur",
+      "cardCount": 14
     },
     {
       "dex": 530,
       "slug": "excadrill",
-      "name": "Excadrill"
+      "name": "Excadrill",
+      "cardCount": 19
     },
     {
       "dex": 531,
       "slug": "audino",
-      "name": "Audino"
+      "name": "Audino",
+      "cardCount": 16
     },
     {
       "dex": 532,
       "slug": "timburr",
-      "name": "Timburr"
+      "name": "Timburr",
+      "cardCount": 11
     },
     {
       "dex": 533,
       "slug": "gurdurr",
-      "name": "Gurdurr"
+      "name": "Gurdurr",
+      "cardCount": 9
     },
     {
       "dex": 534,
       "slug": "conkeldurr",
-      "name": "Conkeldurr"
+      "name": "Conkeldurr",
+      "cardCount": 11
     },
     {
       "dex": 535,
       "slug": "tympole",
-      "name": "Tympole"
+      "name": "Tympole",
+      "cardCount": 12
     },
     {
       "dex": 536,
       "slug": "palpitoad",
-      "name": "Palpitoad"
+      "name": "Palpitoad",
+      "cardCount": 12
     },
     {
       "dex": 537,
       "slug": "seismitoad",
-      "name": "Seismitoad"
+      "name": "Seismitoad",
+      "cardCount": 13
     },
     {
       "dex": 538,
       "slug": "throh",
-      "name": "Throh"
+      "name": "Throh",
+      "cardCount": 8
     },
     {
       "dex": 539,
       "slug": "sawk",
-      "name": "Sawk"
+      "name": "Sawk",
+      "cardCount": 8
     },
     {
       "dex": 540,
       "slug": "sewaddle",
-      "name": "Sewaddle"
+      "name": "Sewaddle",
+      "cardCount": 12
     },
     {
       "dex": 541,
       "slug": "swadloon",
-      "name": "Swadloon"
+      "name": "Swadloon",
+      "cardCount": 10
     },
     {
       "dex": 542,
       "slug": "leavanny",
-      "name": "Leavanny"
+      "name": "Leavanny",
+      "cardCount": 10
     },
     {
       "dex": 543,
       "slug": "venipede",
-      "name": "Venipede"
+      "name": "Venipede",
+      "cardCount": 9
     },
     {
       "dex": 544,
       "slug": "whirlipede",
-      "name": "Whirlipede"
+      "name": "Whirlipede",
+      "cardCount": 9
     },
     {
       "dex": 545,
       "slug": "scolipede",
-      "name": "Scolipede"
+      "name": "Scolipede",
+      "cardCount": 9
     },
     {
       "dex": 546,
       "slug": "cottonee",
-      "name": "Cottonee"
+      "name": "Cottonee",
+      "cardCount": 16
     },
     {
       "dex": 547,
       "slug": "whimsicott",
-      "name": "Whimsicott"
+      "name": "Whimsicott",
+      "cardCount": 23
     },
     {
       "dex": 548,
       "slug": "petilil",
-      "name": "Petilil"
+      "name": "Petilil",
+      "cardCount": 12
     },
     {
       "dex": 549,
       "slug": "lilligant",
-      "name": "Lilligant"
+      "name": "Lilligant",
+      "cardCount": 18
     },
     {
       "dex": 550,
       "slug": "basculin",
-      "name": "Basculin"
+      "name": "Basculin",
+      "cardCount": 11
     },
     {
       "dex": 551,
       "slug": "sandile",
-      "name": "Sandile"
+      "name": "Sandile",
+      "cardCount": 17
     },
     {
       "dex": 552,
       "slug": "krokorok",
-      "name": "Krokorok"
+      "name": "Krokorok",
+      "cardCount": 15
     },
     {
       "dex": 553,
       "slug": "krookodile",
-      "name": "Krookodile"
+      "name": "Krookodile",
+      "cardCount": 16
     },
     {
       "dex": 554,
       "slug": "darumaka",
-      "name": "Darumaka"
+      "name": "Darumaka",
+      "cardCount": 19
     },
     {
       "dex": 555,
       "slug": "darmanitan",
-      "name": "Darmanitan"
+      "name": "Darmanitan",
+      "cardCount": 23
     },
     {
       "dex": 556,
       "slug": "maractus",
-      "name": "Maractus"
+      "name": "Maractus",
+      "cardCount": 13
     },
     {
       "dex": 557,
       "slug": "dwebble",
-      "name": "Dwebble"
+      "name": "Dwebble",
+      "cardCount": 11
     },
     {
       "dex": 558,
       "slug": "crustle",
-      "name": "Crustle"
+      "name": "Crustle",
+      "cardCount": 12
     },
     {
       "dex": 559,
       "slug": "scraggy",
-      "name": "Scraggy"
+      "name": "Scraggy",
+      "cardCount": 19
     },
     {
       "dex": 560,
       "slug": "scrafty",
-      "name": "Scrafty"
+      "name": "Scrafty",
+      "cardCount": 18
     },
     {
       "dex": 561,
       "slug": "sigilyph",
-      "name": "Sigilyph"
+      "name": "Sigilyph",
+      "cardCount": 18
     },
     {
       "dex": 562,
       "slug": "yamask",
-      "name": "Yamask"
+      "name": "Yamask",
+      "cardCount": 14
     },
     {
       "dex": 563,
       "slug": "cofagrigus",
-      "name": "Cofagrigus"
+      "name": "Cofagrigus",
+      "cardCount": 11
     },
     {
       "dex": 564,
       "slug": "tirtouga",
-      "name": "Tirtouga"
+      "name": "Tirtouga",
+      "cardCount": 6
     },
     {
       "dex": 565,
       "slug": "carracosta",
-      "name": "Carracosta"
+      "name": "Carracosta",
+      "cardCount": 7
     },
     {
       "dex": 566,
       "slug": "archen",
-      "name": "Archen"
+      "name": "Archen",
+      "cardCount": 6
     },
     {
       "dex": 567,
       "slug": "archeops",
-      "name": "Archeops"
+      "name": "Archeops",
+      "cardCount": 8
     },
     {
       "dex": 568,
       "slug": "trubbish",
-      "name": "Trubbish"
+      "name": "Trubbish",
+      "cardCount": 16
     },
     {
       "dex": 569,
       "slug": "garbodor",
-      "name": "Garbodor"
+      "name": "Garbodor",
+      "cardCount": 22
     },
     {
       "dex": 570,
       "slug": "zorua",
-      "name": "Zorua"
+      "name": "Zorua",
+      "cardCount": 24
     },
     {
       "dex": 571,
       "slug": "zoroark",
-      "name": "Zoroark"
+      "name": "Zoroark",
+      "cardCount": 39
     },
     {
       "dex": 572,
       "slug": "minccino",
-      "name": "Minccino"
+      "name": "Minccino",
+      "cardCount": 20
     },
     {
       "dex": 573,
       "slug": "cinccino",
-      "name": "Cinccino"
+      "name": "Cinccino",
+      "cardCount": 20
     },
     {
       "dex": 574,
       "slug": "gothita",
-      "name": "Gothita"
+      "name": "Gothita",
+      "cardCount": 13
     },
     {
       "dex": 575,
       "slug": "gothorita",
-      "name": "Gothorita"
+      "name": "Gothorita",
+      "cardCount": 12
     },
     {
       "dex": 576,
       "slug": "gothitelle",
-      "name": "Gothitelle"
+      "name": "Gothitelle",
+      "cardCount": 9
     },
     {
       "dex": 577,
       "slug": "solosis",
-      "name": "Solosis"
+      "name": "Solosis",
+      "cardCount": 10
     },
     {
       "dex": 578,
       "slug": "duosion",
-      "name": "Duosion"
+      "name": "Duosion",
+      "cardCount": 9
     },
     {
       "dex": 579,
       "slug": "reuniclus",
-      "name": "Reuniclus"
+      "name": "Reuniclus",
+      "cardCount": 11
     },
     {
       "dex": 580,
       "slug": "ducklett",
-      "name": "Ducklett"
+      "name": "Ducklett",
+      "cardCount": 14
     },
     {
       "dex": 581,
       "slug": "swanna",
-      "name": "Swanna"
+      "name": "Swanna",
+      "cardCount": 12
     },
     {
       "dex": 582,
       "slug": "vanillite",
-      "name": "Vanillite"
+      "name": "Vanillite",
+      "cardCount": 12
     },
     {
       "dex": 583,
       "slug": "vanillish",
-      "name": "Vanillish"
+      "name": "Vanillish",
+      "cardCount": 13
     },
     {
       "dex": 584,
       "slug": "vanilluxe",
-      "name": "Vanilluxe"
+      "name": "Vanilluxe",
+      "cardCount": 11
     },
     {
       "dex": 585,
       "slug": "deerling",
-      "name": "Deerling"
+      "name": "Deerling",
+      "cardCount": 9
     },
     {
       "dex": 586,
       "slug": "sawsbuck",
-      "name": "Sawsbuck"
+      "name": "Sawsbuck",
+      "cardCount": 8
     },
     {
       "dex": 587,
       "slug": "emolga",
-      "name": "Emolga"
+      "name": "Emolga",
+      "cardCount": 18
     },
     {
       "dex": 588,
       "slug": "karrablast",
-      "name": "Karrablast"
+      "name": "Karrablast",
+      "cardCount": 11
     },
     {
       "dex": 589,
       "slug": "escavalier",
-      "name": "Escavalier"
+      "name": "Escavalier",
+      "cardCount": 11
     },
     {
       "dex": 590,
       "slug": "foongus",
-      "name": "Foongus"
+      "name": "Foongus",
+      "cardCount": 11
     },
     {
       "dex": 591,
       "slug": "amoonguss",
-      "name": "Amoonguss"
+      "name": "Amoonguss",
+      "cardCount": 11
     },
     {
       "dex": 592,
       "slug": "frillish",
-      "name": "Frillish"
+      "name": "Frillish",
+      "cardCount": 8
     },
     {
       "dex": 593,
       "slug": "jellicent",
-      "name": "Jellicent"
+      "name": "Jellicent",
+      "cardCount": 9
     },
     {
       "dex": 594,
       "slug": "alomomola",
-      "name": "Alomomola"
+      "name": "Alomomola",
+      "cardCount": 9
     },
     {
       "dex": 595,
       "slug": "joltik",
-      "name": "Joltik"
+      "name": "Joltik",
+      "cardCount": 20
     },
     {
       "dex": 596,
       "slug": "galvantula",
-      "name": "Galvantula"
+      "name": "Galvantula",
+      "cardCount": 17
     },
     {
       "dex": 597,
       "slug": "ferroseed",
-      "name": "Ferroseed"
+      "name": "Ferroseed",
+      "cardCount": 12
     },
     {
       "dex": 598,
       "slug": "ferrothorn",
-      "name": "Ferrothorn"
+      "name": "Ferrothorn",
+      "cardCount": 12
     },
     {
       "dex": 599,
       "slug": "klink",
-      "name": "Klink"
+      "name": "Klink",
+      "cardCount": 16
     },
     {
       "dex": 600,
       "slug": "klang",
-      "name": "Klang"
+      "name": "Klang",
+      "cardCount": 13
     },
     {
       "dex": 601,
       "slug": "klinklang",
-      "name": "Klinklang"
+      "name": "Klinklang",
+      "cardCount": 10
     },
     {
       "dex": 602,
       "slug": "tynamo",
-      "name": "Tynamo"
+      "name": "Tynamo",
+      "cardCount": 17
     },
     {
       "dex": 603,
       "slug": "eelektrik",
-      "name": "Eelektrik"
+      "name": "Eelektrik",
+      "cardCount": 15
     },
     {
       "dex": 604,
       "slug": "eelektross",
-      "name": "Eelektross"
+      "name": "Eelektross",
+      "cardCount": 15
     },
     {
       "dex": 605,
       "slug": "elgyem",
-      "name": "Elgyem"
+      "name": "Elgyem",
+      "cardCount": 12
     },
     {
       "dex": 606,
       "slug": "beheeyem",
-      "name": "Beheeyem"
+      "name": "Beheeyem",
+      "cardCount": 10
     },
     {
       "dex": 607,
       "slug": "litwick",
-      "name": "Litwick"
+      "name": "Litwick",
+      "cardCount": 18
     },
     {
       "dex": 608,
       "slug": "lampent",
-      "name": "Lampent"
+      "name": "Lampent",
+      "cardCount": 15
     },
     {
       "dex": 609,
       "slug": "chandelure",
-      "name": "Chandelure"
+      "name": "Chandelure",
+      "cardCount": 21
     },
     {
       "dex": 610,
       "slug": "axew",
-      "name": "Axew"
+      "name": "Axew",
+      "cardCount": 15
     },
     {
       "dex": 611,
       "slug": "fraxure",
-      "name": "Fraxure"
+      "name": "Fraxure",
+      "cardCount": 11
     },
     {
       "dex": 612,
       "slug": "haxorus",
-      "name": "Haxorus"
+      "name": "Haxorus",
+      "cardCount": 11
     },
     {
       "dex": 613,
       "slug": "cubchoo",
-      "name": "Cubchoo"
+      "name": "Cubchoo",
+      "cardCount": 11
     },
     {
       "dex": 614,
       "slug": "beartic",
-      "name": "Beartic"
+      "name": "Beartic",
+      "cardCount": 11
     },
     {
       "dex": 615,
       "slug": "cryogonal",
-      "name": "Cryogonal"
+      "name": "Cryogonal",
+      "cardCount": 10
     },
     {
       "dex": 616,
       "slug": "shelmet",
-      "name": "Shelmet"
+      "name": "Shelmet",
+      "cardCount": 10
     },
     {
       "dex": 617,
       "slug": "accelgor",
-      "name": "Accelgor"
+      "name": "Accelgor",
+      "cardCount": 10
     },
     {
       "dex": 618,
       "slug": "stunfisk",
-      "name": "Stunfisk"
+      "name": "Stunfisk",
+      "cardCount": 26
     },
     {
       "dex": 619,
       "slug": "mienfoo",
-      "name": "Mienfoo"
+      "name": "Mienfoo",
+      "cardCount": 11
     },
     {
       "dex": 620,
       "slug": "mienshao",
-      "name": "Mienshao"
+      "name": "Mienshao",
+      "cardCount": 11
     },
     {
       "dex": 621,
       "slug": "druddigon",
-      "name": "Druddigon"
+      "name": "Druddigon",
+      "cardCount": 15
     },
     {
       "dex": 622,
       "slug": "golett",
-      "name": "Golett"
+      "name": "Golett",
+      "cardCount": 13
     },
     {
       "dex": 623,
       "slug": "golurk",
-      "name": "Golurk"
+      "name": "Golurk",
+      "cardCount": 18
     },
     {
       "dex": 624,
       "slug": "pawniard",
-      "name": "Pawniard"
+      "name": "Pawniard",
+      "cardCount": 22
     },
     {
       "dex": 625,
       "slug": "bisharp",
-      "name": "Bisharp"
+      "name": "Bisharp",
+      "cardCount": 22
     },
     {
       "dex": 626,
       "slug": "bouffalant",
-      "name": "Bouffalant"
+      "name": "Bouffalant",
+      "cardCount": 16
     },
     {
       "dex": 627,
       "slug": "rufflet",
-      "name": "Rufflet"
+      "name": "Rufflet",
+      "cardCount": 14
     },
     {
       "dex": 628,
       "slug": "braviary",
-      "name": "Braviary"
+      "name": "Braviary",
+      "cardCount": 14
     },
     {
       "dex": 629,
       "slug": "vullaby",
-      "name": "Vullaby"
+      "name": "Vullaby",
+      "cardCount": 11
     },
     {
       "dex": 630,
       "slug": "mandibuzz",
-      "name": "Mandibuzz"
+      "name": "Mandibuzz",
+      "cardCount": 11
     },
     {
       "dex": 631,
       "slug": "heatmor",
-      "name": "Heatmor"
+      "name": "Heatmor",
+      "cardCount": 14
     },
     {
       "dex": 632,
       "slug": "durant",
-      "name": "Durant"
+      "name": "Durant",
+      "cardCount": 19
     },
     {
       "dex": 633,
       "slug": "deino",
-      "name": "Deino"
+      "name": "Deino",
+      "cardCount": 15
     },
     {
       "dex": 634,
       "slug": "zweilous",
-      "name": "Zweilous"
+      "name": "Zweilous",
+      "cardCount": 14
     },
     {
       "dex": 635,
       "slug": "hydreigon",
-      "name": "Hydreigon"
+      "name": "Hydreigon",
+      "cardCount": 24
     },
     {
       "dex": 636,
       "slug": "larvesta",
-      "name": "Larvesta"
+      "name": "Larvesta",
+      "cardCount": 18
     },
     {
       "dex": 637,
       "slug": "volcarona",
-      "name": "Volcarona"
+      "name": "Volcarona",
+      "cardCount": 21
     },
     {
       "dex": 638,
       "slug": "cobalion",
-      "name": "Cobalion"
+      "name": "Cobalion",
+      "cardCount": 18
     },
     {
       "dex": 639,
       "slug": "terrakion",
-      "name": "Terrakion"
+      "name": "Terrakion",
+      "cardCount": 15
     },
     {
       "dex": 640,
       "slug": "virizion",
-      "name": "Virizion"
+      "name": "Virizion",
+      "cardCount": 20
     },
     {
       "dex": 641,
       "slug": "tornadus",
-      "name": "Tornadus"
+      "name": "Tornadus",
+      "cardCount": 21
     },
     {
       "dex": 642,
       "slug": "thundurus",
-      "name": "Thundurus"
+      "name": "Thundurus",
+      "cardCount": 16
     },
     {
       "dex": 643,
       "slug": "reshiram",
-      "name": "Reshiram"
+      "name": "Reshiram",
+      "cardCount": 44
     },
     {
       "dex": 644,
       "slug": "zekrom",
-      "name": "Zekrom"
+      "name": "Zekrom",
+      "cardCount": 35
     },
     {
       "dex": 645,
       "slug": "landorus",
-      "name": "Landorus"
+      "name": "Landorus",
+      "cardCount": 14
     },
     {
       "dex": 646,
       "slug": "kyurem",
-      "name": "Kyurem"
+      "name": "Kyurem",
+      "cardCount": 50
     },
     {
       "dex": 647,
       "slug": "keldeo",
-      "name": "Keldeo"
+      "name": "Keldeo",
+      "cardCount": 22
     },
     {
       "dex": 648,
       "slug": "meloetta",
-      "name": "Meloetta"
+      "name": "Meloetta",
+      "cardCount": 17
     },
     {
       "dex": 649,
       "slug": "genesect",
-      "name": "Genesect"
+      "name": "Genesect",
+      "cardCount": 25
     },
     {
       "dex": 650,
       "slug": "chespin",
-      "name": "Chespin"
+      "name": "Chespin",
+      "cardCount": 11
     },
     {
       "dex": 651,
       "slug": "quilladin",
-      "name": "Quilladin"
+      "name": "Quilladin",
+      "cardCount": 4
     },
     {
       "dex": 652,
       "slug": "chesnaught",
-      "name": "Chesnaught"
+      "name": "Chesnaught",
+      "cardCount": 9
     },
     {
       "dex": 653,
       "slug": "fennekin",
-      "name": "Fennekin"
+      "name": "Fennekin",
+      "cardCount": 13
     },
     {
       "dex": 654,
       "slug": "braixen",
-      "name": "Braixen"
+      "name": "Braixen",
+      "cardCount": 13
     },
     {
       "dex": 655,
       "slug": "delphox",
-      "name": "Delphox"
+      "name": "Delphox",
+      "cardCount": 10
     },
     {
       "dex": 656,
       "slug": "froakie",
-      "name": "Froakie"
+      "name": "Froakie",
+      "cardCount": 17
     },
     {
       "dex": 657,
       "slug": "frogadier",
-      "name": "Frogadier"
+      "name": "Frogadier",
+      "cardCount": 12
     },
     {
       "dex": 658,
       "slug": "greninja",
-      "name": "Greninja"
+      "name": "Greninja",
+      "cardCount": 37
     },
     {
       "dex": 659,
       "slug": "bunnelby",
-      "name": "Bunnelby"
+      "name": "Bunnelby",
+      "cardCount": 15
     },
     {
       "dex": 660,
       "slug": "diggersby",
-      "name": "Diggersby"
+      "name": "Diggersby",
+      "cardCount": 10
     },
     {
       "dex": 661,
       "slug": "fletchling",
-      "name": "Fletchling"
+      "name": "Fletchling",
+      "cardCount": 16
     },
     {
       "dex": 662,
       "slug": "fletchinder",
-      "name": "Fletchinder"
+      "name": "Fletchinder",
+      "cardCount": 14
     },
     {
       "dex": 663,
       "slug": "talonflame",
-      "name": "Talonflame"
+      "name": "Talonflame",
+      "cardCount": 16
     },
     {
       "dex": 664,
       "slug": "scatterbug",
-      "name": "Scatterbug"
+      "name": "Scatterbug",
+      "cardCount": 8
     },
     {
       "dex": 665,
       "slug": "spewpa",
-      "name": "Spewpa"
+      "name": "Spewpa",
+      "cardCount": 8
     },
     {
       "dex": 666,
       "slug": "vivillon",
-      "name": "Vivillon"
+      "name": "Vivillon",
+      "cardCount": 9
     },
     {
       "dex": 667,
       "slug": "litleo",
-      "name": "Litleo"
+      "name": "Litleo",
+      "cardCount": 14
     },
     {
       "dex": 668,
       "slug": "pyroar",
-      "name": "Pyroar"
+      "name": "Pyroar",
+      "cardCount": 16
     },
     {
       "dex": 669,
       "slug": "flabébé",
-      "name": "Flabébé"
+      "name": "Flabébé",
+      "cardCount": 11
     },
     {
       "dex": 670,
       "slug": "floette",
-      "name": "Floette"
+      "name": "Floette",
+      "cardCount": 13
     },
     {
       "dex": 671,
       "slug": "florges",
-      "name": "Florges"
+      "name": "Florges",
+      "cardCount": 10
     },
     {
       "dex": 672,
       "slug": "skiddo",
-      "name": "Skiddo"
+      "name": "Skiddo",
+      "cardCount": 8
     },
     {
       "dex": 673,
       "slug": "gogoat",
-      "name": "Gogoat"
+      "name": "Gogoat",
+      "cardCount": 8
     },
     {
       "dex": 674,
       "slug": "pancham",
-      "name": "Pancham"
+      "name": "Pancham",
+      "cardCount": 13
     },
     {
       "dex": 675,
       "slug": "pangoro",
-      "name": "Pangoro"
+      "name": "Pangoro",
+      "cardCount": 13
     },
     {
       "dex": 676,
       "slug": "furfrou",
-      "name": "Furfrou"
+      "name": "Furfrou",
+      "cardCount": 12
     },
     {
       "dex": 677,
       "slug": "espurr",
-      "name": "Espurr"
+      "name": "Espurr",
+      "cardCount": 12
     },
     {
       "dex": 678,
       "slug": "meowstic",
-      "name": "Meowstic"
+      "name": "Meowstic",
+      "cardCount": 13
     },
     {
       "dex": 679,
       "slug": "honedge",
-      "name": "Honedge"
+      "name": "Honedge",
+      "cardCount": 16
     },
     {
       "dex": 680,
       "slug": "doublade",
-      "name": "Doublade"
+      "name": "Doublade",
+      "cardCount": 12
     },
     {
       "dex": 681,
       "slug": "aegislash",
-      "name": "Aegislash"
+      "name": "Aegislash",
+      "cardCount": 22
     },
     {
       "dex": 682,
       "slug": "spritzee",
-      "name": "Spritzee"
+      "name": "Spritzee",
+      "cardCount": 7
     },
     {
       "dex": 683,
       "slug": "aromatisse",
-      "name": "Aromatisse"
+      "name": "Aromatisse",
+      "cardCount": 6
     },
     {
       "dex": 684,
       "slug": "swirlix",
-      "name": "Swirlix"
+      "name": "Swirlix",
+      "cardCount": 10
     },
     {
       "dex": 685,
       "slug": "slurpuff",
-      "name": "Slurpuff"
+      "name": "Slurpuff",
+      "cardCount": 10
     },
     {
       "dex": 686,
       "slug": "inkay",
-      "name": "Inkay"
+      "name": "Inkay",
+      "cardCount": 17
     },
     {
       "dex": 687,
       "slug": "malamar",
-      "name": "Malamar"
+      "name": "Malamar",
+      "cardCount": 21
     },
     {
       "dex": 688,
       "slug": "binacle",
-      "name": "Binacle"
+      "name": "Binacle",
+      "cardCount": 7
     },
     {
       "dex": 689,
       "slug": "barbaracle",
-      "name": "Barbaracle"
+      "name": "Barbaracle",
+      "cardCount": 6
     },
     {
       "dex": 690,
       "slug": "skrelp",
-      "name": "Skrelp"
+      "name": "Skrelp",
+      "cardCount": 6
     },
     {
       "dex": 691,
       "slug": "dragalge",
-      "name": "Dragalge"
+      "name": "Dragalge",
+      "cardCount": 9
     },
     {
       "dex": 692,
       "slug": "clauncher",
-      "name": "Clauncher"
+      "name": "Clauncher",
+      "cardCount": 8
     },
     {
       "dex": 693,
       "slug": "clawitzer",
-      "name": "Clawitzer"
+      "name": "Clawitzer",
+      "cardCount": 9
     },
     {
       "dex": 694,
       "slug": "helioptile",
-      "name": "Helioptile"
+      "name": "Helioptile",
+      "cardCount": 15
     },
     {
       "dex": 695,
       "slug": "heliolisk",
-      "name": "Heliolisk"
+      "name": "Heliolisk",
+      "cardCount": 16
     },
     {
       "dex": 696,
       "slug": "tyrunt",
-      "name": "Tyrunt"
+      "name": "Tyrunt",
+      "cardCount": 3
     },
     {
       "dex": 697,
       "slug": "tyrantrum",
-      "name": "Tyrantrum"
+      "name": "Tyrantrum",
+      "cardCount": 4
     },
     {
       "dex": 698,
       "slug": "amaura",
-      "name": "Amaura"
+      "name": "Amaura",
+      "cardCount": 3
     },
     {
       "dex": 699,
       "slug": "aurorus",
-      "name": "Aurorus"
+      "name": "Aurorus",
+      "cardCount": 5
     },
     {
       "dex": 700,
       "slug": "sylveon",
-      "name": "Sylveon"
+      "name": "Sylveon",
+      "cardCount": 33
     },
     {
       "dex": 701,
       "slug": "hawlucha",
-      "name": "Hawlucha"
+      "name": "Hawlucha",
+      "cardCount": 21
     },
     {
       "dex": 702,
       "slug": "dedenne",
-      "name": "Dedenne"
+      "name": "Dedenne",
+      "cardCount": 28
     },
     {
       "dex": 703,
       "slug": "carbink",
-      "name": "Carbink"
+      "name": "Carbink",
+      "cardCount": 11
     },
     {
       "dex": 704,
       "slug": "goomy",
-      "name": "Goomy"
+      "name": "Goomy",
+      "cardCount": 9
     },
     {
       "dex": 705,
       "slug": "sliggoo",
-      "name": "Sliggoo"
+      "name": "Sliggoo",
+      "cardCount": 9
     },
     {
       "dex": 706,
       "slug": "goodra",
-      "name": "Goodra"
+      "name": "Goodra",
+      "cardCount": 13
     },
     {
       "dex": 707,
       "slug": "klefki",
-      "name": "Klefki"
+      "name": "Klefki",
+      "cardCount": 11
     },
     {
       "dex": 708,
       "slug": "phantump",
-      "name": "Phantump"
+      "name": "Phantump",
+      "cardCount": 11
     },
     {
       "dex": 709,
       "slug": "trevenant",
-      "name": "Trevenant"
+      "name": "Trevenant",
+      "cardCount": 22
     },
     {
       "dex": 710,
       "slug": "pumpkaboo",
-      "name": "Pumpkaboo"
+      "name": "Pumpkaboo",
+      "cardCount": 6
     },
     {
       "dex": 711,
       "slug": "gourgeist",
-      "name": "Gourgeist"
+      "name": "Gourgeist",
+      "cardCount": 7
     },
     {
       "dex": 712,
       "slug": "bergmite",
-      "name": "Bergmite"
+      "name": "Bergmite",
+      "cardCount": 6
     },
     {
       "dex": 713,
       "slug": "avalugg",
-      "name": "Avalugg"
+      "name": "Avalugg",
+      "cardCount": 6
     },
     {
       "dex": 714,
       "slug": "noibat",
-      "name": "Noibat"
+      "name": "Noibat",
+      "cardCount": 15
     },
     {
       "dex": 715,
       "slug": "noivern",
-      "name": "Noivern"
+      "name": "Noivern",
+      "cardCount": 21
     },
     {
       "dex": 716,
       "slug": "xerneas",
-      "name": "Xerneas"
+      "name": "Xerneas",
+      "cardCount": 23
     },
     {
       "dex": 717,
       "slug": "yveltal",
-      "name": "Yveltal"
+      "name": "Yveltal",
+      "cardCount": 27
     },
     {
       "dex": 718,
       "slug": "zygarde",
-      "name": "Zygarde"
+      "name": "Zygarde",
+      "cardCount": 27
     },
     {
       "dex": 719,
       "slug": "diancie",
-      "name": "Diancie"
+      "name": "Diancie",
+      "cardCount": 15
     },
     {
       "dex": 720,
       "slug": "hoopa",
-      "name": "Hoopa"
+      "name": "Hoopa",
+      "cardCount": 22
     },
     {
       "dex": 721,
       "slug": "volcanion",
-      "name": "Volcanion"
+      "name": "Volcanion",
+      "cardCount": 22
     },
     {
       "dex": 722,
       "slug": "rowlet",
-      "name": "Rowlet"
+      "name": "Rowlet",
+      "cardCount": 23
     },
     {
       "dex": 723,
       "slug": "dartrix",
-      "name": "Dartrix"
+      "name": "Dartrix",
+      "cardCount": 10
     },
     {
       "dex": 724,
       "slug": "decidueye",
-      "name": "Decidueye"
+      "name": "Decidueye",
+      "cardCount": 21
     },
     {
       "dex": 725,
       "slug": "litten",
-      "name": "Litten"
+      "name": "Litten",
+      "cardCount": 14
     },
     {
       "dex": 726,
       "slug": "torracat",
-      "name": "Torracat"
+      "name": "Torracat",
+      "cardCount": 6
     },
     {
       "dex": 727,
       "slug": "incineroar",
-      "name": "Incineroar"
+      "name": "Incineroar",
+      "cardCount": 13
     },
     {
       "dex": 728,
       "slug": "popplio",
-      "name": "Popplio"
+      "name": "Popplio",
+      "cardCount": 7
     },
     {
       "dex": 729,
       "slug": "brionne",
-      "name": "Brionne"
+      "name": "Brionne",
+      "cardCount": 2
     },
     {
       "dex": 730,
       "slug": "primarina",
-      "name": "Primarina"
+      "name": "Primarina",
+      "cardCount": 5
     },
     {
       "dex": 731,
       "slug": "pikipek",
-      "name": "Pikipek"
+      "name": "Pikipek",
+      "cardCount": 6
     },
     {
       "dex": 732,
       "slug": "trumbeak",
-      "name": "Trumbeak"
+      "name": "Trumbeak",
+      "cardCount": 3
     },
     {
       "dex": 733,
       "slug": "toucannon",
-      "name": "Toucannon"
+      "name": "Toucannon",
+      "cardCount": 3
     },
     {
       "dex": 734,
       "slug": "yungoos",
-      "name": "Yungoos"
+      "name": "Yungoos",
+      "cardCount": 7
     },
     {
       "dex": 735,
       "slug": "gumshoos",
-      "name": "Gumshoos"
+      "name": "Gumshoos",
+      "cardCount": 10
     },
     {
       "dex": 736,
       "slug": "grubbin",
-      "name": "Grubbin"
+      "name": "Grubbin",
+      "cardCount": 9
     },
     {
       "dex": 737,
       "slug": "charjabug",
-      "name": "Charjabug"
+      "name": "Charjabug",
+      "cardCount": 9
     },
     {
       "dex": 738,
       "slug": "vikavolt",
-      "name": "Vikavolt"
+      "name": "Vikavolt",
+      "cardCount": 15
     },
     {
       "dex": 739,
       "slug": "crabrawler",
-      "name": "Crabrawler"
+      "name": "Crabrawler",
+      "cardCount": 8
     },
     {
       "dex": 740,
       "slug": "crabominable",
-      "name": "Crabominable"
+      "name": "Crabominable",
+      "cardCount": 12
     },
     {
       "dex": 741,
       "slug": "oricorio",
-      "name": "Oricorio"
+      "name": "Oricorio",
+      "cardCount": 22
     },
     {
       "dex": 742,
       "slug": "cutiefly",
-      "name": "Cutiefly"
+      "name": "Cutiefly",
+      "cardCount": 9
     },
     {
       "dex": 743,
       "slug": "ribombee",
-      "name": "Ribombee"
+      "name": "Ribombee",
+      "cardCount": 8
     },
     {
       "dex": 744,
       "slug": "rockruff",
-      "name": "Rockruff"
+      "name": "Rockruff",
+      "cardCount": 16
     },
     {
       "dex": 745,
       "slug": "lycanroc",
-      "name": "Lycanroc"
+      "name": "Lycanroc",
+      "cardCount": 30
     },
     {
       "dex": 746,
       "slug": "wishiwashi",
-      "name": "Wishiwashi"
+      "name": "Wishiwashi",
+      "cardCount": 11
     },
     {
       "dex": 747,
       "slug": "mareanie",
-      "name": "Mareanie"
+      "name": "Mareanie",
+      "cardCount": 7
     },
     {
       "dex": 748,
       "slug": "toxapex",
-      "name": "Toxapex"
+      "name": "Toxapex",
+      "cardCount": 8
     },
     {
       "dex": 749,
       "slug": "mudbray",
-      "name": "Mudbray"
+      "name": "Mudbray",
+      "cardCount": 6
     },
     {
       "dex": 750,
       "slug": "mudsdale",
-      "name": "Mudsdale"
+      "name": "Mudsdale",
+      "cardCount": 8
     },
     {
       "dex": 751,
       "slug": "dewpider",
-      "name": "Dewpider"
+      "name": "Dewpider",
+      "cardCount": 8
     },
     {
       "dex": 752,
       "slug": "araquanid",
-      "name": "Araquanid"
+      "name": "Araquanid",
+      "cardCount": 8
     },
     {
       "dex": 753,
       "slug": "fomantis",
-      "name": "Fomantis"
+      "name": "Fomantis",
+      "cardCount": 4
     },
     {
       "dex": 754,
       "slug": "lurantis",
-      "name": "Lurantis"
+      "name": "Lurantis",
+      "cardCount": 7
     },
     {
       "dex": 755,
       "slug": "morelull",
-      "name": "Morelull"
+      "name": "Morelull",
+      "cardCount": 7
     },
     {
       "dex": 756,
       "slug": "shiinotic",
-      "name": "Shiinotic"
+      "name": "Shiinotic",
+      "cardCount": 8
     },
     {
       "dex": 757,
       "slug": "salandit",
-      "name": "Salandit"
+      "name": "Salandit",
+      "cardCount": 15
     },
     {
       "dex": 758,
       "slug": "salazzle",
-      "name": "Salazzle"
+      "name": "Salazzle",
+      "cardCount": 21
     },
     {
       "dex": 759,
       "slug": "stufful",
-      "name": "Stufful"
+      "name": "Stufful",
+      "cardCount": 10
     },
     {
       "dex": 760,
       "slug": "bewear",
-      "name": "Bewear"
+      "name": "Bewear",
+      "cardCount": 13
     },
     {
       "dex": 761,
       "slug": "bounsweet",
-      "name": "Bounsweet"
+      "name": "Bounsweet",
+      "cardCount": 6
     },
     {
       "dex": 762,
       "slug": "steenee",
-      "name": "Steenee"
+      "name": "Steenee",
+      "cardCount": 6
     },
     {
       "dex": 763,
       "slug": "tsareena",
-      "name": "Tsareena"
+      "name": "Tsareena",
+      "cardCount": 12
     },
     {
       "dex": 764,
       "slug": "comfey",
-      "name": "Comfey"
+      "name": "Comfey",
+      "cardCount": 6
     },
     {
       "dex": 765,
       "slug": "oranguru",
-      "name": "Oranguru"
+      "name": "Oranguru",
+      "cardCount": 15
     },
     {
       "dex": 766,
       "slug": "passimian",
-      "name": "Passimian"
+      "name": "Passimian",
+      "cardCount": 11
     },
     {
       "dex": 767,
       "slug": "wimpod",
-      "name": "Wimpod"
+      "name": "Wimpod",
+      "cardCount": 10
     },
     {
       "dex": 768,
       "slug": "golisopod",
-      "name": "Golisopod"
+      "name": "Golisopod",
+      "cardCount": 15
     },
     {
       "dex": 769,
       "slug": "sandygast",
-      "name": "Sandygast"
+      "name": "Sandygast",
+      "cardCount": 10
     },
     {
       "dex": 770,
       "slug": "palossand",
-      "name": "Palossand"
+      "name": "Palossand",
+      "cardCount": 11
     },
     {
       "dex": 771,
       "slug": "pyukumuku",
-      "name": "Pyukumuku"
+      "name": "Pyukumuku",
+      "cardCount": 5
     },
     {
       "dex": 772,
       "slug": "type:-null",
-      "name": "Type: Null"
+      "name": "Type: Null",
+      "cardCount": 5
     },
     {
       "dex": 773,
       "slug": "silvally",
-      "name": "Silvally"
+      "name": "Silvally",
+      "cardCount": 11
     },
     {
       "dex": 774,
       "slug": "minior",
-      "name": "Minior"
+      "name": "Minior",
+      "cardCount": 4
     },
     {
       "dex": 775,
       "slug": "komala",
-      "name": "Komala"
+      "name": "Komala",
+      "cardCount": 6
     },
     {
       "dex": 776,
       "slug": "turtonator",
-      "name": "Turtonator"
+      "name": "Turtonator",
+      "cardCount": 16
     },
     {
       "dex": 777,
       "slug": "togedemaru",
-      "name": "Togedemaru"
+      "name": "Togedemaru",
+      "cardCount": 14
     },
     {
       "dex": 778,
       "slug": "mimikyu",
-      "name": "Mimikyu"
+      "name": "Mimikyu",
+      "cardCount": 34
     },
     {
       "dex": 779,
       "slug": "bruxish",
-      "name": "Bruxish"
+      "name": "Bruxish",
+      "cardCount": 8
     },
     {
       "dex": 780,
       "slug": "drampa",
-      "name": "Drampa"
+      "name": "Drampa",
+      "cardCount": 19
     },
     {
       "dex": 781,
       "slug": "dhelmise",
-      "name": "Dhelmise"
+      "name": "Dhelmise",
+      "cardCount": 14
     },
     {
       "dex": 782,
       "slug": "jangmo-o",
-      "name": "Jangmo-o"
+      "name": "Jangmo-o",
+      "cardCount": 6
     },
     {
       "dex": 783,
       "slug": "hakamo-o",
-      "name": "Hakamo-o"
+      "name": "Hakamo-o",
+      "cardCount": 4
     },
     {
       "dex": 784,
       "slug": "kommo-o",
-      "name": "Kommo-o"
+      "name": "Kommo-o",
+      "cardCount": 7
     },
     {
       "dex": 785,
       "slug": "tapu-koko",
-      "name": "Tapu Koko"
+      "name": "Tapu Koko",
+      "cardCount": 24
     },
     {
       "dex": 786,
       "slug": "tapu-lele",
-      "name": "Tapu Lele"
+      "name": "Tapu Lele",
+      "cardCount": 12
     },
     {
       "dex": 787,
       "slug": "tapu-bulu",
-      "name": "Tapu Bulu"
+      "name": "Tapu Bulu",
+      "cardCount": 7
     },
     {
       "dex": 788,
       "slug": "tapu-fini",
-      "name": "Tapu Fini"
+      "name": "Tapu Fini",
+      "cardCount": 10
     },
     {
       "dex": 789,
       "slug": "cosmog",
-      "name": "Cosmog"
+      "name": "Cosmog",
+      "cardCount": 9
     },
     {
       "dex": 790,
       "slug": "cosmoem",
-      "name": "Cosmoem"
+      "name": "Cosmoem",
+      "cardCount": 5
     },
     {
       "dex": 791,
       "slug": "solgaleo",
-      "name": "Solgaleo"
+      "name": "Solgaleo",
+      "cardCount": 15
     },
     {
       "dex": 792,
       "slug": "lunala",
-      "name": "Lunala"
+      "name": "Lunala",
+      "cardCount": 15
     },
     {
       "dex": 793,
       "slug": "nihilego",
-      "name": "Nihilego"
+      "name": "Nihilego",
+      "cardCount": 5
     },
     {
       "dex": 794,
       "slug": "buzzwole",
-      "name": "Buzzwole"
+      "name": "Buzzwole",
+      "cardCount": 13
     },
     {
       "dex": 795,
       "slug": "pheromosa",
-      "name": "Pheromosa"
+      "name": "Pheromosa",
+      "cardCount": 10
     },
     {
       "dex": 796,
       "slug": "xurkitree",
-      "name": "Xurkitree"
+      "name": "Xurkitree",
+      "cardCount": 8
     },
     {
       "dex": 797,
       "slug": "celesteela",
-      "name": "Celesteela"
+      "name": "Celesteela",
+      "cardCount": 9
     },
     {
       "dex": 798,
       "slug": "kartana",
-      "name": "Kartana"
+      "name": "Kartana",
+      "cardCount": 7
     },
     {
       "dex": 799,
       "slug": "guzzlord",
-      "name": "Guzzlord"
+      "name": "Guzzlord",
+      "cardCount": 12
     },
     {
       "dex": 800,
       "slug": "necrozma",
-      "name": "Necrozma"
+      "name": "Necrozma",
+      "cardCount": 27
     },
     {
       "dex": 801,
       "slug": "magearna",
-      "name": "Magearna"
+      "name": "Magearna",
+      "cardCount": 12
     },
     {
       "dex": 802,
       "slug": "marshadow",
-      "name": "Marshadow"
+      "name": "Marshadow",
+      "cardCount": 16
     },
     {
       "dex": 803,
       "slug": "poipole",
-      "name": "Poipole"
+      "name": "Poipole",
+      "cardCount": 4
     },
     {
       "dex": 804,
       "slug": "naganadel",
-      "name": "Naganadel"
+      "name": "Naganadel",
+      "cardCount": 13
     },
     {
       "dex": 805,
       "slug": "stakataka",
-      "name": "Stakataka"
+      "name": "Stakataka",
+      "cardCount": 7
     },
     {
       "dex": 806,
       "slug": "blacephalon",
-      "name": "Blacephalon"
+      "name": "Blacephalon",
+      "cardCount": 6
     },
     {
       "dex": 807,
       "slug": "zeraora",
-      "name": "Zeraora"
+      "name": "Zeraora",
+      "cardCount": 25
     },
     {
       "dex": 808,
       "slug": "meltan",
-      "name": "Meltan"
+      "name": "Meltan",
+      "cardCount": 10
     },
     {
       "dex": 809,
       "slug": "melmetal",
-      "name": "Melmetal"
+      "name": "Melmetal",
+      "cardCount": 20
     },
     {
       "dex": 810,
       "slug": "grookey",
-      "name": "Grookey"
+      "name": "Grookey",
+      "cardCount": 10
     },
     {
       "dex": 811,
       "slug": "thwackey",
-      "name": "Thwackey"
+      "name": "Thwackey",
+      "cardCount": 7
     },
     {
       "dex": 812,
       "slug": "rillaboom",
-      "name": "Rillaboom"
+      "name": "Rillaboom",
+      "cardCount": 18
     },
     {
       "dex": 813,
       "slug": "scorbunny",
-      "name": "Scorbunny"
+      "name": "Scorbunny",
+      "cardCount": 13
     },
     {
       "dex": 814,
       "slug": "raboot",
-      "name": "Raboot"
+      "name": "Raboot",
+      "cardCount": 8
     },
     {
       "dex": 815,
       "slug": "cinderace",
-      "name": "Cinderace"
+      "name": "Cinderace",
+      "cardCount": 22
     },
     {
       "dex": 816,
       "slug": "sobble",
-      "name": "Sobble"
+      "name": "Sobble",
+      "cardCount": 9
     },
     {
       "dex": 817,
       "slug": "drizzile",
-      "name": "Drizzile"
+      "name": "Drizzile",
+      "cardCount": 5
     },
     {
       "dex": 818,
       "slug": "inteleon",
-      "name": "Inteleon"
+      "name": "Inteleon",
+      "cardCount": 17
     },
     {
       "dex": 819,
       "slug": "skwovet",
-      "name": "Skwovet"
+      "name": "Skwovet",
+      "cardCount": 11
     },
     {
       "dex": 820,
       "slug": "greedent",
-      "name": "Greedent"
+      "name": "Greedent",
+      "cardCount": 18
     },
     {
       "dex": 821,
       "slug": "rookidee",
-      "name": "Rookidee"
+      "name": "Rookidee",
+      "cardCount": 7
     },
     {
       "dex": 822,
       "slug": "corvisquire",
-      "name": "Corvisquire"
+      "name": "Corvisquire",
+      "cardCount": 6
     },
     {
       "dex": 823,
       "slug": "corviknight",
-      "name": "Corviknight"
+      "name": "Corviknight",
+      "cardCount": 13
     },
     {
       "dex": 824,
       "slug": "blipbug",
-      "name": "Blipbug"
+      "name": "Blipbug",
+      "cardCount": 7
     },
     {
       "dex": 825,
       "slug": "dottler",
-      "name": "Dottler"
+      "name": "Dottler",
+      "cardCount": 7
     },
     {
       "dex": 826,
       "slug": "orbeetle",
-      "name": "Orbeetle"
+      "name": "Orbeetle",
+      "cardCount": 14
     },
     {
       "dex": 827,
       "slug": "nickit",
-      "name": "Nickit"
+      "name": "Nickit",
+      "cardCount": 9
     },
     {
       "dex": 828,
       "slug": "thievul",
-      "name": "Thievul"
+      "name": "Thievul",
+      "cardCount": 9
     },
     {
       "dex": 829,
       "slug": "gossifleur",
-      "name": "Gossifleur"
+      "name": "Gossifleur",
+      "cardCount": 8
     },
     {
       "dex": 830,
       "slug": "eldegoss",
-      "name": "Eldegoss"
+      "name": "Eldegoss",
+      "cardCount": 11
     },
     {
       "dex": 831,
       "slug": "wooloo",
-      "name": "Wooloo"
+      "name": "Wooloo",
+      "cardCount": 10
     },
     {
       "dex": 832,
       "slug": "dubwool",
-      "name": "Dubwool"
+      "name": "Dubwool",
+      "cardCount": 10
     },
     {
       "dex": 833,
       "slug": "chewtle",
-      "name": "Chewtle"
+      "name": "Chewtle",
+      "cardCount": 6
     },
     {
       "dex": 834,
       "slug": "drednaw",
-      "name": "Drednaw"
+      "name": "Drednaw",
+      "cardCount": 11
     },
     {
       "dex": 835,
       "slug": "yamper",
-      "name": "Yamper"
+      "name": "Yamper",
+      "cardCount": 7
     },
     {
       "dex": 836,
       "slug": "boltund",
-      "name": "Boltund"
+      "name": "Boltund",
+      "cardCount": 15
     },
     {
       "dex": 837,
       "slug": "rolycoly",
-      "name": "Rolycoly"
+      "name": "Rolycoly",
+      "cardCount": 6
     },
     {
       "dex": 838,
       "slug": "carkol",
-      "name": "Carkol"
+      "name": "Carkol",
+      "cardCount": 5
     },
     {
       "dex": 839,
       "slug": "coalossal",
-      "name": "Coalossal"
+      "name": "Coalossal",
+      "cardCount": 12
     },
     {
       "dex": 840,
       "slug": "applin",
-      "name": "Applin"
+      "name": "Applin",
+      "cardCount": 11
     },
     {
       "dex": 841,
       "slug": "flapple",
-      "name": "Flapple"
+      "name": "Flapple",
+      "cardCount": 12
     },
     {
       "dex": 842,
       "slug": "appletun",
-      "name": "Appletun"
+      "name": "Appletun",
+      "cardCount": 6
     },
     {
       "dex": 843,
       "slug": "silicobra",
-      "name": "Silicobra"
+      "name": "Silicobra",
+      "cardCount": 6
     },
     {
       "dex": 844,
       "slug": "sandaconda",
-      "name": "Sandaconda"
+      "name": "Sandaconda",
+      "cardCount": 13
     },
     {
       "dex": 845,
       "slug": "cramorant",
-      "name": "Cramorant"
+      "name": "Cramorant",
+      "cardCount": 16
     },
     {
       "dex": 846,
       "slug": "arrokuda",
-      "name": "Arrokuda"
+      "name": "Arrokuda",
+      "cardCount": 6
     },
     {
       "dex": 847,
       "slug": "barraskewda",
-      "name": "Barraskewda"
+      "name": "Barraskewda",
+      "cardCount": 5
     },
     {
       "dex": 848,
       "slug": "toxel",
-      "name": "Toxel"
+      "name": "Toxel",
+      "cardCount": 12
     },
     {
       "dex": 849,
       "slug": "toxtricity",
-      "name": "Toxtricity"
+      "name": "Toxtricity",
+      "cardCount": 21
     },
     {
       "dex": 850,
       "slug": "sizzlipede",
-      "name": "Sizzlipede"
+      "name": "Sizzlipede",
+      "cardCount": 10
     },
     {
       "dex": 851,
       "slug": "centiskorch",
-      "name": "Centiskorch"
+      "name": "Centiskorch",
+      "cardCount": 18
     },
     {
       "dex": 852,
       "slug": "clobbopus",
-      "name": "Clobbopus"
+      "name": "Clobbopus",
+      "cardCount": 9
     },
     {
       "dex": 853,
       "slug": "grapploct",
-      "name": "Grapploct"
+      "name": "Grapploct",
+      "cardCount": 9
     },
     {
       "dex": 854,
       "slug": "sinistea",
-      "name": "Sinistea"
+      "name": "Sinistea",
+      "cardCount": 5
     },
     {
       "dex": 855,
       "slug": "polteageist",
-      "name": "Polteageist"
+      "name": "Polteageist",
+      "cardCount": 6
     },
     {
       "dex": 856,
       "slug": "hatenna",
-      "name": "Hatenna"
+      "name": "Hatenna",
+      "cardCount": 5
     },
     {
       "dex": 857,
       "slug": "hattrem",
-      "name": "Hattrem"
+      "name": "Hattrem",
+      "cardCount": 4
     },
     {
       "dex": 858,
       "slug": "hatterene",
-      "name": "Hatterene"
+      "name": "Hatterene",
+      "cardCount": 8
     },
     {
       "dex": 859,
       "slug": "impidimp",
-      "name": "Impidimp"
+      "name": "Impidimp",
+      "cardCount": 7
     },
     {
       "dex": 860,
       "slug": "morgrem",
-      "name": "Morgrem"
+      "name": "Morgrem",
+      "cardCount": 7
     },
     {
       "dex": 861,
       "slug": "grimmsnarl",
-      "name": "Grimmsnarl"
+      "name": "Grimmsnarl",
+      "cardCount": 13
     },
     {
       "dex": 862,
       "slug": "obstagoon",
-      "name": "Obstagoon"
+      "name": "Obstagoon",
+      "cardCount": 10
     },
     {
       "dex": 863,
       "slug": "perrserker",
-      "name": "Perrserker"
+      "name": "Perrserker",
+      "cardCount": 11
     },
     {
       "dex": 864,
       "slug": "cursola",
-      "name": "Cursola"
+      "name": "Cursola",
+      "cardCount": 5
     },
     {
       "dex": 865,
       "slug": "sirfetch'd",
-      "name": "Sirfetch'd"
+      "name": "Sirfetch'd",
+      "cardCount": 6
     },
     {
       "dex": 866,
       "slug": "mr.-rime",
-      "name": "Mr. Rime"
+      "name": "Mr. Rime",
+      "cardCount": 6
     },
     {
       "dex": 867,
       "slug": "runerigus",
-      "name": "Runerigus"
+      "name": "Runerigus",
+      "cardCount": 3
     },
     {
       "dex": 868,
       "slug": "milcery",
-      "name": "Milcery"
+      "name": "Milcery",
+      "cardCount": 8
     },
     {
       "dex": 869,
       "slug": "alcremie",
-      "name": "Alcremie"
+      "name": "Alcremie",
+      "cardCount": 13
     },
     {
       "dex": 870,
       "slug": "falinks",
-      "name": "Falinks"
+      "name": "Falinks",
+      "cardCount": 12
     },
     {
       "dex": 871,
       "slug": "pincurchin",
-      "name": "Pincurchin"
+      "name": "Pincurchin",
+      "cardCount": 9
     },
     {
       "dex": 872,
       "slug": "snom",
-      "name": "Snom"
+      "name": "Snom",
+      "cardCount": 8
     },
     {
       "dex": 873,
       "slug": "frosmoth",
-      "name": "Frosmoth"
+      "name": "Frosmoth",
+      "cardCount": 10
     },
     {
       "dex": 874,
       "slug": "stonjourner",
-      "name": "Stonjourner"
+      "name": "Stonjourner",
+      "cardCount": 12
     },
     {
       "dex": 875,
       "slug": "eiscue",
-      "name": "Eiscue"
+      "name": "Eiscue",
+      "cardCount": 12
     },
     {
       "dex": 876,
       "slug": "indeedee",
-      "name": "Indeedee"
+      "name": "Indeedee",
+      "cardCount": 13
     },
     {
       "dex": 877,
       "slug": "morpeko",
-      "name": "Morpeko"
+      "name": "Morpeko",
+      "cardCount": 33
     },
     {
       "dex": 878,
       "slug": "cufant",
-      "name": "Cufant"
+      "name": "Cufant",
+      "cardCount": 9
     },
     {
       "dex": 879,
       "slug": "copperajah",
-      "name": "Copperajah"
+      "name": "Copperajah",
+      "cardCount": 13
     },
     {
       "dex": 880,
       "slug": "dracozolt",
-      "name": "Dracozolt"
+      "name": "Dracozolt",
+      "cardCount": 6
     },
     {
       "dex": 881,
       "slug": "arctozolt",
-      "name": "Arctozolt"
+      "name": "Arctozolt",
+      "cardCount": 3
     },
     {
       "dex": 882,
       "slug": "dracovish",
-      "name": "Dracovish"
+      "name": "Dracovish",
+      "cardCount": 3
     },
     {
       "dex": 883,
       "slug": "arctovish",
-      "name": "Arctovish"
+      "name": "Arctovish",
+      "cardCount": 4
     },
     {
       "dex": 884,
       "slug": "duraludon",
-      "name": "Duraludon"
+      "name": "Duraludon",
+      "cardCount": 20
     },
     {
       "dex": 885,
       "slug": "dreepy",
-      "name": "Dreepy"
+      "name": "Dreepy",
+      "cardCount": 8
     },
     {
       "dex": 886,
       "slug": "drakloak",
-      "name": "Drakloak"
+      "name": "Drakloak",
+      "cardCount": 8
     },
     {
       "dex": 887,
       "slug": "dragapult",
-      "name": "Dragapult"
+      "name": "Dragapult",
+      "cardCount": 16
     },
     {
       "dex": 888,
       "slug": "zacian",
-      "name": "Zacian"
+      "name": "Zacian",
+      "cardCount": 28
     },
     {
       "dex": 889,
       "slug": "zamazenta",
-      "name": "Zamazenta"
+      "name": "Zamazenta",
+      "cardCount": 19
     },
     {
       "dex": 890,
       "slug": "eternatus",
-      "name": "Eternatus"
+      "name": "Eternatus",
+      "cardCount": 13
     },
     {
       "dex": 891,
       "slug": "kubfu",
-      "name": "Kubfu"
+      "name": "Kubfu",
+      "cardCount": 1
     },
     {
       "dex": 892,
       "slug": "urshifu",
-      "name": "Urshifu"
+      "name": "Urshifu",
+      "cardCount": 22
     },
     {
       "dex": 893,
       "slug": "zarude",
-      "name": "Zarude"
+      "name": "Zarude",
+      "cardCount": 9
     },
     {
       "dex": 894,
       "slug": "regieleki",
-      "name": "Regieleki"
+      "name": "Regieleki",
+      "cardCount": 7
     },
     {
       "dex": 895,
       "slug": "regidrago",
-      "name": "Regidrago"
+      "name": "Regidrago",
+      "cardCount": 8
     },
     {
       "dex": 896,
       "slug": "glastrier",
-      "name": "Glastrier"
+      "name": "Glastrier",
+      "cardCount": 2
     },
     {
       "dex": 897,
       "slug": "spectrier",
-      "name": "Spectrier"
+      "name": "Spectrier",
+      "cardCount": 2
     },
     {
       "dex": 898,
       "slug": "calyrex",
-      "name": "Calyrex"
+      "name": "Calyrex",
+      "cardCount": 21
     },
     {
       "dex": 899,
       "slug": "wyrdeer",
-      "name": "Wyrdeer"
+      "name": "Wyrdeer",
+      "cardCount": 5
     },
     {
       "dex": 900,
       "slug": "kleavor",
-      "name": "Kleavor"
+      "name": "Kleavor",
+      "cardCount": 7
     },
     {
       "dex": 901,
       "slug": "ursaluna",
-      "name": "Ursaluna"
+      "name": "Ursaluna",
+      "cardCount": 10
     },
     {
       "dex": 902,
       "slug": "basculegion",
-      "name": "Basculegion"
+      "name": "Basculegion",
+      "cardCount": 3
     },
     {
       "dex": 903,
       "slug": "sneasler",
-      "name": "Sneasler"
+      "name": "Sneasler",
+      "cardCount": 5
     },
     {
       "dex": 904,
       "slug": "overqwil",
-      "name": "Overqwil"
+      "name": "Overqwil",
+      "cardCount": 2
     },
     {
       "dex": 905,
       "slug": "enamorus",
-      "name": "Enamorus"
+      "name": "Enamorus",
+      "cardCount": 6
     },
     {
       "dex": 906,
       "slug": "sprigatito",
-      "name": "Sprigatito"
+      "name": "Sprigatito",
+      "cardCount": 9
     },
     {
       "dex": 907,
       "slug": "floragato",
-      "name": "Floragato"
+      "name": "Floragato",
+      "cardCount": 5
     },
     {
       "dex": 908,
       "slug": "meowscarada",
-      "name": "Meowscarada"
+      "name": "Meowscarada",
+      "cardCount": 8
     },
     {
       "dex": 909,
       "slug": "fuecoco",
-      "name": "Fuecoco"
+      "name": "Fuecoco",
+      "cardCount": 8
     },
     {
       "dex": 910,
       "slug": "crocalor",
-      "name": "Crocalor"
+      "name": "Crocalor",
+      "cardCount": 6
     },
     {
       "dex": 911,
       "slug": "skeledirge",
-      "name": "Skeledirge"
+      "name": "Skeledirge",
+      "cardCount": 9
     },
     {
       "dex": 912,
       "slug": "quaxly",
-      "name": "Quaxly"
+      "name": "Quaxly",
+      "cardCount": 7
     },
     {
       "dex": 913,
       "slug": "quaxwell",
-      "name": "Quaxwell"
+      "name": "Quaxwell",
+      "cardCount": 5
     },
     {
       "dex": 914,
       "slug": "quaquaval",
-      "name": "Quaquaval"
+      "name": "Quaquaval",
+      "cardCount": 9
     },
     {
       "dex": 915,
       "slug": "lechonk",
-      "name": "Lechonk"
+      "name": "Lechonk",
+      "cardCount": 11
     },
     {
       "dex": 916,
       "slug": "oinkologne",
-      "name": "Oinkologne"
+      "name": "Oinkologne",
+      "cardCount": 8
     },
     {
       "dex": 917,
       "slug": "tarountula",
-      "name": "Tarountula"
+      "name": "Tarountula",
+      "cardCount": 8
     },
     {
       "dex": 918,
       "slug": "spidops",
-      "name": "Spidops"
+      "name": "Spidops",
+      "cardCount": 8
     },
     {
       "dex": 919,
       "slug": "nymble",
-      "name": "Nymble"
+      "name": "Nymble",
+      "cardCount": 8
     },
     {
       "dex": 920,
       "slug": "lokix",
-      "name": "Lokix"
+      "name": "Lokix",
+      "cardCount": 5
     },
     {
       "dex": 921,
       "slug": "pawmi",
-      "name": "Pawmi"
+      "name": "Pawmi",
+      "cardCount": 8
     },
     {
       "dex": 922,
       "slug": "pawmo",
-      "name": "Pawmo"
+      "name": "Pawmo",
+      "cardCount": 7
     },
     {
       "dex": 923,
       "slug": "pawmot",
-      "name": "Pawmot"
+      "name": "Pawmot",
+      "cardCount": 4
     },
     {
       "dex": 924,
       "slug": "tandemaus",
-      "name": "Tandemaus"
+      "name": "Tandemaus",
+      "cardCount": 9
     },
     {
       "dex": 925,
       "slug": "maushold",
-      "name": "Maushold"
+      "name": "Maushold",
+      "cardCount": 8
     },
     {
       "dex": 926,
       "slug": "fidough",
-      "name": "Fidough"
+      "name": "Fidough",
+      "cardCount": 6
     },
     {
       "dex": 927,
       "slug": "dachsbun",
-      "name": "Dachsbun"
+      "name": "Dachsbun",
+      "cardCount": 6
     },
     {
       "dex": 928,
       "slug": "smoliv",
-      "name": "Smoliv"
+      "name": "Smoliv",
+      "cardCount": 6
     },
     {
       "dex": 929,
       "slug": "dolliv",
-      "name": "Dolliv"
+      "name": "Dolliv",
+      "cardCount": 5
     },
     {
       "dex": 930,
       "slug": "arboliva",
-      "name": "Arboliva"
+      "name": "Arboliva",
+      "cardCount": 5
     },
     {
       "dex": 931,
       "slug": "squawkabilly",
-      "name": "Squawkabilly"
+      "name": "Squawkabilly",
+      "cardCount": 9
     },
     {
       "dex": 932,
       "slug": "nacli",
-      "name": "Nacli"
+      "name": "Nacli",
+      "cardCount": 7
     },
     {
       "dex": 933,
       "slug": "naclstack",
-      "name": "Naclstack"
+      "name": "Naclstack",
+      "cardCount": 4
     },
     {
       "dex": 934,
       "slug": "garganacl",
-      "name": "Garganacl"
+      "name": "Garganacl",
+      "cardCount": 7
     },
     {
       "dex": 935,
       "slug": "charcadet",
-      "name": "Charcadet"
+      "name": "Charcadet",
+      "cardCount": 13
     },
     {
       "dex": 936,
       "slug": "armarouge",
-      "name": "Armarouge"
+      "name": "Armarouge",
+      "cardCount": 10
     },
     {
       "dex": 937,
       "slug": "ceruledge",
-      "name": "Ceruledge"
+      "name": "Ceruledge",
+      "cardCount": 8
     },
     {
       "dex": 938,
       "slug": "tadbulb",
-      "name": "Tadbulb"
+      "name": "Tadbulb",
+      "cardCount": 8
     },
     {
       "dex": 939,
       "slug": "bellibolt",
-      "name": "Bellibolt"
+      "name": "Bellibolt",
+      "cardCount": 14
     },
     {
       "dex": 940,
       "slug": "wattrel",
-      "name": "Wattrel"
+      "name": "Wattrel",
+      "cardCount": 12
     },
     {
       "dex": 941,
       "slug": "kilowattrel",
-      "name": "Kilowattrel"
+      "name": "Kilowattrel",
+      "cardCount": 10
     },
     {
       "dex": 942,
       "slug": "maschiff",
-      "name": "Maschiff"
+      "name": "Maschiff",
+      "cardCount": 7
     },
     {
       "dex": 943,
       "slug": "mabosstiff",
-      "name": "Mabosstiff"
+      "name": "Mabosstiff",
+      "cardCount": 9
     },
     {
       "dex": 944,
       "slug": "shroodle",
-      "name": "Shroodle"
+      "name": "Shroodle",
+      "cardCount": 7
     },
     {
       "dex": 945,
       "slug": "grafaiai",
-      "name": "Grafaiai"
+      "name": "Grafaiai",
+      "cardCount": 6
     },
     {
       "dex": 946,
       "slug": "bramblin",
-      "name": "Bramblin"
+      "name": "Bramblin",
+      "cardCount": 5
     },
     {
       "dex": 947,
       "slug": "brambleghast",
-      "name": "Brambleghast"
+      "name": "Brambleghast",
+      "cardCount": 3
     },
     {
       "dex": 948,
       "slug": "toedscool",
-      "name": "Toedscool"
+      "name": "Toedscool",
+      "cardCount": 11
     },
     {
       "dex": 949,
       "slug": "toedscruel",
-      "name": "Toedscruel"
+      "name": "Toedscruel",
+      "cardCount": 10
     },
     {
       "dex": 950,
       "slug": "klawf",
-      "name": "Klawf"
+      "name": "Klawf",
+      "cardCount": 5
     },
     {
       "dex": 951,
       "slug": "capsakid",
-      "name": "Capsakid"
+      "name": "Capsakid",
+      "cardCount": 6
     },
     {
       "dex": 952,
       "slug": "scovillain",
-      "name": "Scovillain"
+      "name": "Scovillain",
+      "cardCount": 7
     },
     {
       "dex": 953,
       "slug": "rellor",
-      "name": "Rellor"
+      "name": "Rellor",
+      "cardCount": 6
     },
     {
       "dex": 954,
       "slug": "rabsca",
-      "name": "Rabsca"
+      "name": "Rabsca",
+      "cardCount": 6
     },
     {
       "dex": 955,
       "slug": "flittle",
-      "name": "Flittle"
+      "name": "Flittle",
+      "cardCount": 9
     },
     {
       "dex": 956,
       "slug": "espathra",
-      "name": "Espathra"
+      "name": "Espathra",
+      "cardCount": 8
     },
     {
       "dex": 957,
       "slug": "tinkatink",
-      "name": "Tinkatink"
+      "name": "Tinkatink",
+      "cardCount": 9
     },
     {
       "dex": 958,
       "slug": "tinkatuff",
-      "name": "Tinkatuff"
+      "name": "Tinkatuff",
+      "cardCount": 6
     },
     {
       "dex": 959,
       "slug": "tinkaton",
-      "name": "Tinkaton"
+      "name": "Tinkaton",
+      "cardCount": 9
     },
     {
       "dex": 960,
       "slug": "wiglett",
-      "name": "Wiglett"
+      "name": "Wiglett",
+      "cardCount": 8
     },
     {
       "dex": 961,
       "slug": "wugtrio",
-      "name": "Wugtrio"
+      "name": "Wugtrio",
+      "cardCount": 7
     },
     {
       "dex": 962,
       "slug": "bombirdier",
-      "name": "Bombirdier"
+      "name": "Bombirdier",
+      "cardCount": 7
     },
     {
       "dex": 963,
       "slug": "finizen",
-      "name": "Finizen"
+      "name": "Finizen",
+      "cardCount": 5
     },
     {
       "dex": 964,
       "slug": "palafin",
-      "name": "Palafin"
+      "name": "Palafin",
+      "cardCount": 11
     },
     {
       "dex": 965,
       "slug": "varoom",
-      "name": "Varoom"
+      "name": "Varoom",
+      "cardCount": 11
     },
     {
       "dex": 966,
       "slug": "revavroom",
-      "name": "Revavroom"
+      "name": "Revavroom",
+      "cardCount": 12
     },
     {
       "dex": 967,
       "slug": "cyclizar",
-      "name": "Cyclizar"
+      "name": "Cyclizar",
+      "cardCount": 11
     },
     {
       "dex": 968,
       "slug": "orthworm",
-      "name": "Orthworm"
+      "name": "Orthworm",
+      "cardCount": 5
     },
     {
       "dex": 969,
       "slug": "glimmet",
-      "name": "Glimmet"
+      "name": "Glimmet",
+      "cardCount": 7
     },
     {
       "dex": 970,
       "slug": "glimmora",
-      "name": "Glimmora"
+      "name": "Glimmora",
+      "cardCount": 6
     },
     {
       "dex": 971,
       "slug": "greavard",
-      "name": "Greavard"
+      "name": "Greavard",
+      "cardCount": 9
     },
     {
       "dex": 972,
       "slug": "houndstone",
-      "name": "Houndstone"
+      "name": "Houndstone",
+      "cardCount": 9
     },
     {
       "dex": 973,
       "slug": "flamigo",
-      "name": "Flamigo"
+      "name": "Flamigo",
+      "cardCount": 7
     },
     {
       "dex": 974,
       "slug": "cetoddle",
-      "name": "Cetoddle"
+      "name": "Cetoddle",
+      "cardCount": 6
     },
     {
       "dex": 975,
       "slug": "cetitan",
-      "name": "Cetitan"
+      "name": "Cetitan",
+      "cardCount": 7
     },
     {
       "dex": 976,
       "slug": "veluza",
-      "name": "Veluza"
+      "name": "Veluza",
+      "cardCount": 6
     },
     {
       "dex": 977,
       "slug": "dondozo",
-      "name": "Dondozo"
+      "name": "Dondozo",
+      "cardCount": 7
     },
     {
       "dex": 978,
       "slug": "tatsugiri",
-      "name": "Tatsugiri"
+      "name": "Tatsugiri",
+      "cardCount": 8
     },
     {
       "dex": 979,
       "slug": "annihilape",
-      "name": "Annihilape"
+      "name": "Annihilape",
+      "cardCount": 7
     },
     {
       "dex": 980,
       "slug": "clodsire",
-      "name": "Clodsire"
+      "name": "Clodsire",
+      "cardCount": 7
     },
     {
       "dex": 981,
       "slug": "farigiraf",
-      "name": "Farigiraf"
+      "name": "Farigiraf",
+      "cardCount": 5
     },
     {
       "dex": 982,
       "slug": "dudunsparce",
-      "name": "Dudunsparce"
+      "name": "Dudunsparce",
+      "cardCount": 6
     },
     {
       "dex": 983,
       "slug": "kingambit",
-      "name": "Kingambit"
+      "name": "Kingambit",
+      "cardCount": 7
     },
     {
       "dex": 984,
       "slug": "great-tusk",
-      "name": "Great Tusk"
+      "name": "Great Tusk",
+      "cardCount": 7
     },
     {
       "dex": 985,
       "slug": "scream-tail",
-      "name": "Scream Tail"
+      "name": "Scream Tail",
+      "cardCount": 5
     },
     {
       "dex": 986,
       "slug": "brute-bonnet",
-      "name": "Brute Bonnet"
+      "name": "Brute Bonnet",
+      "cardCount": 3
     },
     {
       "dex": 987,
       "slug": "flutter-mane",
-      "name": "Flutter Mane"
+      "name": "Flutter Mane",
+      "cardCount": 3
     },
     {
       "dex": 988,
       "slug": "slither-wing",
-      "name": "Slither Wing"
+      "name": "Slither Wing",
+      "cardCount": 2
     },
     {
       "dex": 989,
       "slug": "sandy-shocks",
-      "name": "Sandy Shocks"
+      "name": "Sandy Shocks",
+      "cardCount": 4
     },
     {
       "dex": 990,
       "slug": "iron-treads",
-      "name": "Iron Treads"
+      "name": "Iron Treads",
+      "cardCount": 6
     },
     {
       "dex": 991,
       "slug": "iron-bundle",
-      "name": "Iron Bundle"
+      "name": "Iron Bundle",
+      "cardCount": 5
     },
     {
       "dex": 992,
       "slug": "iron-hands",
-      "name": "Iron Hands"
+      "name": "Iron Hands",
+      "cardCount": 4
     },
     {
       "dex": 993,
       "slug": "iron-jugulis",
-      "name": "Iron Jugulis"
+      "name": "Iron Jugulis",
+      "cardCount": 3
     },
     {
       "dex": 994,
       "slug": "iron-moth",
-      "name": "Iron Moth"
+      "name": "Iron Moth",
+      "cardCount": 2
     },
     {
       "dex": 995,
       "slug": "iron-thorns",
-      "name": "Iron Thorns"
+      "name": "Iron Thorns",
+      "cardCount": 4
     },
     {
       "dex": 996,
       "slug": "frigibax",
-      "name": "Frigibax"
+      "name": "Frigibax",
+      "cardCount": 5
     },
     {
       "dex": 997,
       "slug": "arctibax",
-      "name": "Arctibax"
+      "name": "Arctibax",
+      "cardCount": 4
     },
     {
       "dex": 998,
       "slug": "baxcalibur",
-      "name": "Baxcalibur"
+      "name": "Baxcalibur",
+      "cardCount": 4
     },
     {
       "dex": 999,
       "slug": "gimmighoul",
-      "name": "Gimmighoul"
+      "name": "Gimmighoul",
+      "cardCount": 6
     },
     {
       "dex": 1000,
       "slug": "gholdengo",
-      "name": "Gholdengo"
+      "name": "Gholdengo",
+      "cardCount": 7
     },
     {
       "dex": 1001,
       "slug": "wo-chien",
-      "name": "Wo-Chien"
+      "name": "Wo-Chien",
+      "cardCount": 6
     },
     {
       "dex": 1002,
       "slug": "chien-pao",
-      "name": "Chien-Pao"
+      "name": "Chien-Pao",
+      "cardCount": 10
     },
     {
       "dex": 1003,
       "slug": "ting-lu",
-      "name": "Ting-Lu"
+      "name": "Ting-Lu",
+      "cardCount": 7
     },
     {
       "dex": 1004,
       "slug": "chi-yu",
-      "name": "Chi-Yu"
+      "name": "Chi-Yu",
+      "cardCount": 8
     },
     {
       "dex": 1005,
       "slug": "roaring-moon",
-      "name": "Roaring Moon"
+      "name": "Roaring Moon",
+      "cardCount": 6
     },
     {
       "dex": 1006,
       "slug": "iron-valiant",
-      "name": "Iron Valiant"
+      "name": "Iron Valiant",
+      "cardCount": 7
     },
     {
       "dex": 1007,
       "slug": "koraidon",
-      "name": "Koraidon"
+      "name": "Koraidon",
+      "cardCount": 16
     },
     {
       "dex": 1008,
       "slug": "miraidon",
-      "name": "Miraidon"
+      "name": "Miraidon",
+      "cardCount": 16
     },
     {
       "dex": 1009,
       "slug": "walking-wake",
-      "name": "Walking Wake"
+      "name": "Walking Wake",
+      "cardCount": 6
     },
     {
       "dex": 1010,
       "slug": "iron-leaves",
-      "name": "Iron Leaves"
+      "name": "Iron Leaves",
+      "cardCount": 6
     },
     {
       "dex": 1011,
       "slug": "dipplin",
-      "name": "Dipplin"
+      "name": "Dipplin",
+      "cardCount": 2
     },
     {
       "dex": 1015,
       "slug": "munkidori",
-      "name": "Munkidori"
+      "name": "Munkidori",
+      "cardCount": 2
     },
     {
       "dex": 1016,
       "slug": "fezandipiti",
-      "name": "Fezandipiti"
+      "name": "Fezandipiti",
+      "cardCount": 3
     },
     {
       "dex": 1017,
       "slug": "ogerpon",
-      "name": "Ogerpon"
+      "name": "Ogerpon",
+      "cardCount": 15
     },
     {
       "dex": 1018,
       "slug": "archaludon",
-      "name": "Archaludon"
+      "name": "Archaludon",
+      "cardCount": 5
     },
     {
       "dex": 1019,
       "slug": "hydrapple",
-      "name": "Hydrapple"
+      "name": "Hydrapple",
+      "cardCount": 3
     },
     {
       "dex": 1020,
       "slug": "gouging-fire",
-      "name": "Gouging Fire"
+      "name": "Gouging Fire",
+      "cardCount": 1
     },
     {
       "dex": 1023,
       "slug": "iron-crown",
-      "name": "Iron Crown"
+      "name": "Iron Crown",
+      "cardCount": 1
     },
     {
       "dex": 1024,
       "slug": "terapagos",
-      "name": "Terapagos"
+      "name": "Terapagos",
+      "cardCount": 7
     },
     {
       "dex": 1025,
       "slug": "pecharunt",
-      "name": "Pecharunt"
+      "name": "Pecharunt",
+      "cardCount": 3
     }
   ],
   "artists": [
     {
       "slug": "5ban-graphics",
       "name": "5ban Graphics",
-      "cardCount": 1699
+      "cardCount": 1699,
+      "setCount": 93
     },
     {
       "slug": "ken-sugimori",
       "name": "Ken Sugimori",
-      "cardCount": 1109
+      "cardCount": 1109,
+      "setCount": 101
     },
     {
       "slug": "mitsuhiro-arita",
       "name": "Mitsuhiro Arita",
-      "cardCount": 728
+      "cardCount": 728,
+      "setCount": 130
     },
     {
       "slug": "kagemaru-himeno",
       "name": "Kagemaru Himeno",
-      "cardCount": 658
+      "cardCount": 658,
+      "setCount": 129
     },
     {
       "slug": "kouki-saitou",
       "name": "Kouki Saitou",
-      "cardCount": 653
+      "cardCount": 653,
+      "setCount": 124
     },
     {
       "slug": "masakazu-fukuda",
       "name": "Masakazu Fukuda",
-      "cardCount": 472
+      "cardCount": 472,
+      "setCount": 104
     },
     {
       "slug": "ryo-ueda",
       "name": "Ryo Ueda",
-      "cardCount": 463
+      "cardCount": 463,
+      "setCount": 86
     },
     {
       "slug": "atsuko-nishida",
       "name": "Atsuko Nishida",
-      "cardCount": 408
+      "cardCount": 408,
+      "setCount": 104
     },
     {
       "slug": "midori-harada",
       "name": "Midori Harada",
-      "cardCount": 353
+      "cardCount": 353,
+      "setCount": 85
     },
     {
       "slug": "toyste-beach",
       "name": "Toyste Beach",
-      "cardCount": 317
+      "cardCount": 317,
+      "setCount": 68
     },
     {
       "slug": "shin-nagasawa",
       "name": "Shin Nagasawa",
-      "cardCount": 306
+      "cardCount": 306,
+      "setCount": 80
     },
     {
       "slug": "naoki-saito",
       "name": "Naoki Saito",
-      "cardCount": 278
+      "cardCount": 278,
+      "setCount": 86
     },
     {
       "slug": "naoyo-kimura",
       "name": "Naoyo Kimura",
-      "cardCount": 260
+      "cardCount": 260,
+      "setCount": 101
     },
     {
       "slug": "tomokazu-komiya",
       "name": "Tomokazu Komiya",
-      "cardCount": 253
+      "cardCount": 253,
+      "setCount": 95
     },
     {
       "slug": "akira-komayama",
       "name": "Akira Komayama",
-      "cardCount": 252
+      "cardCount": 252,
+      "setCount": 85
     },
     {
       "slug": "kawayoo",
       "name": "kawayoo",
-      "cardCount": 217
+      "cardCount": 217,
+      "setCount": 83
     },
     {
       "slug": "sumiyoshi-kizuki",
       "name": "Sumiyoshi Kizuki",
-      "cardCount": 214
+      "cardCount": 214,
+      "setCount": 86
     },
     {
       "slug": "keiji-kinebuchi",
       "name": "Keiji Kinebuchi",
-      "cardCount": 213
+      "cardCount": 213,
+      "setCount": 31
     },
     {
       "slug": "yuka-morii",
       "name": "Yuka Morii",
-      "cardCount": 208
+      "cardCount": 208,
+      "setCount": 81
     },
     {
       "slug": "hajime-kusajima",
       "name": "Hajime Kusajima",
-      "cardCount": 207
+      "cardCount": 207,
+      "setCount": 48
     },
     {
       "slug": "sui",
       "name": "sui",
-      "cardCount": 199
+      "cardCount": 199,
+      "setCount": 80
     },
     {
       "slug": "miki-tanaka",
       "name": "Miki Tanaka",
-      "cardCount": 198
+      "cardCount": 198,
+      "setCount": 79
     },
     {
       "slug": "kirisaki",
       "name": "kirisAki",
-      "cardCount": 191
+      "cardCount": 191,
+      "setCount": 59
     },
     {
       "slug": "aky-cg-works",
       "name": "aky CG Works",
-      "cardCount": 188
+      "cardCount": 188,
+      "setCount": 41
     },
     {
       "slug": "mizue",
       "name": "Mizue",
-      "cardCount": 186
+      "cardCount": 186,
+      "setCount": 66
     },
     {
       "slug": "kyoko-umemoto",
       "name": "Kyoko Umemoto",
-      "cardCount": 178
+      "cardCount": 178,
+      "setCount": 74
     },
     {
       "slug": "eske-yoshinob",
       "name": "Eske Yoshinob",
-      "cardCount": 177
+      "cardCount": 177,
+      "setCount": 55
     },
     {
       "slug": "sanosuke-sakuma",
       "name": "Sanosuke Sakuma",
-      "cardCount": 171
+      "cardCount": 171,
+      "setCount": 64
     },
     {
       "slug": "nagimiso",
       "name": "nagimiso",
-      "cardCount": 161
+      "cardCount": 161,
+      "setCount": 54
     },
     {
       "slug": "hitoshi-ariga",
       "name": "Hitoshi Ariga",
-      "cardCount": 157
+      "cardCount": 157,
+      "setCount": 61
     },
     {
       "slug": "shigenori-negishi",
       "name": "Shigenori Negishi",
-      "cardCount": 157
+      "cardCount": 157,
+      "setCount": 71
     },
     {
       "slug": "yukiko-baba",
       "name": "Yukiko Baba",
-      "cardCount": 153
+      "cardCount": 153,
+      "setCount": 67
     },
     {
       "slug": "planeta-mochizuki",
       "name": "PLANETA Mochizuki",
-      "cardCount": 149
+      "cardCount": 149,
+      "setCount": 31
     },
     {
       "slug": "anesaki-dynamic",
       "name": "Anesaki Dynamic",
-      "cardCount": 147
+      "cardCount": 147,
+      "setCount": 52
     },
     {
       "slug": "match",
       "name": "match",
-      "cardCount": 144
+      "cardCount": 144,
+      "setCount": 40
     },
     {
       "slug": "megumi-mizutani",
       "name": "Megumi Mizutani",
-      "cardCount": 137
+      "cardCount": 137,
+      "setCount": 54
     },
     {
       "slug": "ayaka-yoshida",
       "name": "Ayaka Yoshida",
-      "cardCount": 135
+      "cardCount": 135,
+      "setCount": 53
     },
     {
       "slug": "aya-kusube",
       "name": "Aya Kusube",
-      "cardCount": 133
+      "cardCount": 133,
+      "setCount": 66
     },
     {
       "slug": "saya-tsuruta",
       "name": "Saya Tsuruta",
-      "cardCount": 125
+      "cardCount": 125,
+      "setCount": 56
     },
     {
       "slug": "mahou",
       "name": "MAHOU",
-      "cardCount": 123
+      "cardCount": 123,
+      "setCount": 55
     },
     {
       "slug": "studio-bora-inc.",
       "name": "Studio Bora Inc.",
-      "cardCount": 117
+      "cardCount": 117,
+      "setCount": 40
     },
     {
       "slug": "sowsow",
       "name": "sowsow",
-      "cardCount": 112
+      "cardCount": 112,
+      "setCount": 45
     },
     {
       "slug": "hideki-ishikawa",
       "name": "Hideki Ishikawa",
-      "cardCount": 110
+      "cardCount": 110,
+      "setCount": 50
     },
     {
       "slug": "ryuta-fuse",
       "name": "Ryuta Fuse",
-      "cardCount": 105
+      "cardCount": 105,
+      "setCount": 37
     },
     {
       "slug": "shibuzoh.",
       "name": "Shibuzoh.",
-      "cardCount": 104
+      "cardCount": 104,
+      "setCount": 46
     },
     {
       "slug": "suwama-chiaki",
       "name": "Suwama Chiaki",
-      "cardCount": 103
+      "cardCount": 103,
+      "setCount": 44
     },
     {
       "slug": "souichirou-gunjima",
       "name": "Souichirou Gunjima",
-      "cardCount": 102
+      "cardCount": 102,
+      "setCount": 36
     },
     {
       "slug": "kanako-eo",
       "name": "Kanako Eo",
-      "cardCount": 100
+      "cardCount": 100,
+      "setCount": 46
     },
     {
       "slug": "kodama",
       "name": "kodama",
-      "cardCount": 98
+      "cardCount": 98,
+      "setCount": 52
     },
     {
       "slug": "misa-tsutsui",
       "name": "Misa Tsutsui",
-      "cardCount": 95
+      "cardCount": 95,
+      "setCount": 32
     },
     {
       "slug": "tokiya",
       "name": "TOKIYA",
-      "cardCount": 94
+      "cardCount": 94,
+      "setCount": 36
     },
     {
       "slug": "oswaldo-kato",
       "name": "Oswaldo KATO",
-      "cardCount": 93
+      "cardCount": 93,
+      "setCount": 29
     },
     {
       "slug": "planeta-tsuji",
       "name": "PLANETA Tsuji",
-      "cardCount": 92
+      "cardCount": 92,
+      "setCount": 29
     },
     {
       "slug": "akira-egawa",
       "name": "AKIRA EGAWA",
-      "cardCount": 91
+      "cardCount": 91,
+      "setCount": 41
     },
     {
       "slug": "teeziro",
       "name": "Teeziro",
-      "cardCount": 88
+      "cardCount": 88,
+      "setCount": 33
     },
     {
       "slug": "hyogonosuke",
       "name": "HYOGONOSUKE",
-      "cardCount": 87
+      "cardCount": 87,
+      "setCount": 44
     },
     {
       "slug": "mina-nakai",
       "name": "Mina Nakai",
-      "cardCount": 86
+      "cardCount": 86,
+      "setCount": 41
     },
     {
       "slug": "takuyoa",
       "name": "takuyoa",
-      "cardCount": 83
+      "cardCount": 83,
+      "setCount": 27
     },
     {
       "slug": "shizurow",
       "name": "Shizurow",
-      "cardCount": 80
+      "cardCount": 80,
+      "setCount": 21
     },
     {
       "slug": "n-design-inc.",
       "name": "N-DESIGN Inc.",
-      "cardCount": 79
+      "cardCount": 79,
+      "setCount": 20
     },
     {
       "slug": "gidora",
       "name": "GIDORA",
-      "cardCount": 78
+      "cardCount": 78,
+      "setCount": 29
     },
     {
       "slug": "hasuno",
       "name": "Hasuno",
-      "cardCount": 78
+      "cardCount": 78,
+      "setCount": 38
     },
     {
       "slug": "kent-kanetsuna",
       "name": "Kent Kanetsuna",
-      "cardCount": 75
+      "cardCount": 75,
+      "setCount": 18
     },
     {
       "slug": "ayumi-odashima",
       "name": "AYUMI ODASHIMA",
-      "cardCount": 74
+      "cardCount": 74,
+      "setCount": 26
     },
     {
       "slug": "sekio",
       "name": "Sekio",
-      "cardCount": 74
+      "cardCount": 74,
+      "setCount": 29
     },
     {
       "slug": "gossan",
       "name": "GOSSAN",
-      "cardCount": 73
+      "cardCount": 73,
+      "setCount": 29
     },
     {
       "slug": "okacheke",
       "name": "OKACHEKE",
-      "cardCount": 73
+      "cardCount": 73,
+      "setCount": 30
     },
     {
       "slug": "yuu-nishida",
       "name": "Yuu Nishida",
-      "cardCount": 73
+      "cardCount": 73,
+      "setCount": 33
     },
     {
       "slug": "hisao-nakamura",
       "name": "Hisao Nakamura",
-      "cardCount": 72
+      "cardCount": 72,
+      "setCount": 16
     },
     {
       "slug": "0313",
       "name": "0313",
-      "cardCount": 66
+      "cardCount": 66,
+      "setCount": 37
     },
     {
       "slug": "toshinao-aoki",
       "name": "Toshinao Aoki",
-      "cardCount": 65
+      "cardCount": 65,
+      "setCount": 30
     },
     {
       "slug": "taira-akitsu",
       "name": "Taira Akitsu",
-      "cardCount": 63
+      "cardCount": 63,
+      "setCount": 36
     },
     {
       "slug": "tetsuya-koizumi",
       "name": "tetsuya koizumi",
-      "cardCount": 63
+      "cardCount": 63,
+      "setCount": 24
     },
     {
       "slug": "yoshinobu-saito",
       "name": "Yoshinobu Saito",
-      "cardCount": 62
+      "cardCount": 62,
+      "setCount": 19
     },
     {
       "slug": "keiichiro-ito",
       "name": "KEIICHIRO ITO",
-      "cardCount": 61
+      "cardCount": 61,
+      "setCount": 35
     },
     {
       "slug": "miki-kudo",
       "name": "miki kudo",
-      "cardCount": 61
+      "cardCount": 61,
+      "setCount": 38
     },
     {
       "slug": "yusuke-ohmura",
       "name": "Yusuke Ohmura",
-      "cardCount": 61
+      "cardCount": 61,
+      "setCount": 36
     },
     {
       "slug": "ryota-murayama",
       "name": "Ryota Murayama",
-      "cardCount": 60
+      "cardCount": 60,
+      "setCount": 34
     },
     {
       "slug": "satoshi-nakai",
       "name": "SATOSHI NAKAI",
-      "cardCount": 59
+      "cardCount": 59,
+      "setCount": 25
     },
     {
       "slug": "uta",
       "name": "Uta",
-      "cardCount": 58
+      "cardCount": 58,
+      "setCount": 31
     },
     {
       "slug": "you-iribi",
       "name": "You Iribi",
-      "cardCount": 53
+      "cardCount": 53,
+      "setCount": 33
     },
     {
       "slug": "planeta-igarashi",
       "name": "PLANETA Igarashi",
-      "cardCount": 52
+      "cardCount": 52,
+      "setCount": 29
     },
     {
       "slug": "shin-ichi-yoshida",
       "name": "Shin-ichi Yoshida",
-      "cardCount": 52
+      "cardCount": 52,
+      "setCount": 14
     },
     {
       "slug": "takumi-akabane",
       "name": "Takumi Akabane",
-      "cardCount": 52
+      "cardCount": 52,
+      "setCount": 23
     },
     {
       "slug": "tika-matsuno",
       "name": "Tika Matsuno",
-      "cardCount": 52
+      "cardCount": 52,
+      "setCount": 24
     },
     {
       "slug": "atsushi-furusawa",
       "name": "Atsushi Furusawa",
-      "cardCount": 51
+      "cardCount": 51,
+      "setCount": 31
     },
     {
       "slug": "narumi-sato",
       "name": "Narumi Sato",
-      "cardCount": 51
+      "cardCount": 51,
+      "setCount": 31
     },
     {
       "slug": "ryoma-uratsuka",
       "name": "ryoma uratsuka",
-      "cardCount": 51
+      "cardCount": 51,
+      "setCount": 31
     },
     {
       "slug": "satoshi-shirai",
       "name": "Satoshi Shirai",
-      "cardCount": 51
+      "cardCount": 51,
+      "setCount": 34
     },
     {
       "slug": "shin-ichi-yoshikawa",
       "name": "Shin-ichi Yoshikawa",
-      "cardCount": 51
+      "cardCount": 51,
+      "setCount": 17
     },
     {
       "slug": "daisuke-ito",
       "name": "Daisuke Ito",
-      "cardCount": 48
+      "cardCount": 48,
+      "setCount": 7
     },
     {
       "slug": "nisota-niso",
       "name": "Nisota Niso",
-      "cardCount": 48
+      "cardCount": 48,
+      "setCount": 26
     },
     {
       "slug": "hikaru-koike",
       "name": "Hikaru Koike",
-      "cardCount": 47
+      "cardCount": 47,
+      "setCount": 16
     },
     {
       "slug": "planeta",
       "name": "PLANETA",
-      "cardCount": 47
+      "cardCount": 47,
+      "setCount": 14
     },
     {
       "slug": "nakaoka",
       "name": "Nakaoka",
-      "cardCount": 46
+      "cardCount": 46,
+      "setCount": 13
     },
     {
       "slug": "sadaji",
       "name": "sadaji",
-      "cardCount": 46
+      "cardCount": 46,
+      "setCount": 18
     },
     {
       "slug": "chibi",
       "name": "chibi",
-      "cardCount": 45
+      "cardCount": 45,
+      "setCount": 35
     },
     {
       "slug": "dom",
       "name": "DOM",
-      "cardCount": 45
+      "cardCount": 45,
+      "setCount": 25
     },
     {
       "slug": "otumami",
       "name": "otumami",
-      "cardCount": 45
+      "cardCount": 45,
+      "setCount": 22
     },
     {
       "slug": "jerky",
       "name": "Jerky",
-      "cardCount": 43
+      "cardCount": 43,
+      "setCount": 20
     },
     {
       "slug": "saino-misaki",
       "name": "saino misaki",
-      "cardCount": 43
+      "cardCount": 43,
+      "setCount": 26
     },
     {
       "slug": "shiburingaru",
       "name": "Shiburingaru",
-      "cardCount": 43
+      "cardCount": 43,
+      "setCount": 25
     },
     {
       "slug": "kantaro",
       "name": "kantaro",
-      "cardCount": 42
+      "cardCount": 42,
+      "setCount": 16
     },
     {
       "slug": "pani-kobayashi",
       "name": "Pani Kobayashi",
-      "cardCount": 42
+      "cardCount": 42,
+      "setCount": 22
     },
     {
       "slug": "sachiko-adachi",
       "name": "Sachiko Adachi",
-      "cardCount": 42
+      "cardCount": 42,
+      "setCount": 17
     },
     {
       "slug": "saki-hayashiro",
       "name": "Saki Hayashiro",
-      "cardCount": 42
+      "cardCount": 42,
+      "setCount": 23
     },
     {
       "slug": "scav",
       "name": "Scav",
-      "cardCount": 41
+      "cardCount": 41,
+      "setCount": 21
     },
     {
       "slug": "yuya-oka",
       "name": "Yuya Oka",
-      "cardCount": 41
+      "cardCount": 41,
+      "setCount": 23
     },
     {
       "slug": "eri-yamaki",
       "name": "Eri Yamaki",
-      "cardCount": 40
+      "cardCount": 40,
+      "setCount": 25
     },
     {
       "slug": "hncl",
       "name": "hncl",
-      "cardCount": 40
+      "cardCount": 40,
+      "setCount": 17
     },
     {
       "slug": "nc-empire",
       "name": "NC Empire",
-      "cardCount": 40
+      "cardCount": 40,
+      "setCount": 25
     },
     {
       "slug": "hironobu-yoshida",
       "name": "Hironobu Yoshida",
-      "cardCount": 39
+      "cardCount": 39,
+      "setCount": 18
     },
     {
       "slug": "hideaki-hakozaki",
       "name": "Hideaki Hakozaki",
-      "cardCount": 36
+      "cardCount": 36,
+      "setCount": 10
     },
     {
       "slug": "katsura-tabata",
       "name": "Katsura Tabata",
-      "cardCount": 36
+      "cardCount": 36,
+      "setCount": 17
     },
     {
       "slug": "wataru-kawahara",
       "name": "Wataru Kawahara",
-      "cardCount": 36
+      "cardCount": 36,
+      "setCount": 8
     },
     {
       "slug": "asako-ito",
       "name": "Asako Ito",
-      "cardCount": 35
+      "cardCount": 35,
+      "setCount": 25
     },
     {
       "slug": "kurumitsu",
       "name": "kurumitsu",
-      "cardCount": 35
+      "cardCount": 35,
+      "setCount": 17
     },
     {
       "slug": "hiromichi-sugiyama",
       "name": "Hiromichi Sugiyama",
-      "cardCount": 33
+      "cardCount": 33,
+      "setCount": 15
     },
     {
       "slug": "yuu",
       "name": "yuu",
-      "cardCount": 33
+      "cardCount": 33,
+      "setCount": 17
     },
     {
       "slug": "hatachu",
       "name": "hatachu",
-      "cardCount": 32
+      "cardCount": 32,
+      "setCount": 27
     },
     {
       "slug": "jiro-sasumo",
       "name": "Jiro Sasumo",
-      "cardCount": 31
+      "cardCount": 31,
+      "setCount": 18
     },
     {
       "slug": "kiyotaka-oshiyama",
       "name": "KIYOTAKA OSHIYAMA",
-      "cardCount": 31
+      "cardCount": 31,
+      "setCount": 16
     },
     {
       "slug": "lee-hyunjung",
       "name": "Lee HyunJung",
-      "cardCount": 31
+      "cardCount": 31,
+      "setCount": 23
     },
     {
       "slug": "saboteri",
       "name": "Saboteri",
-      "cardCount": 31
+      "cardCount": 31,
+      "setCount": 14
     },
     {
       "slug": "inose-yukie",
       "name": "inose yukie",
-      "cardCount": 29
+      "cardCount": 29,
+      "setCount": 22
     },
     {
       "slug": "ooyama",
       "name": "OOYAMA",
-      "cardCount": 29
+      "cardCount": 29,
+      "setCount": 20
     },
     {
       "slug": "shinji-kanda",
       "name": "Shinji Kanda",
-      "cardCount": 28
+      "cardCount": 28,
+      "setCount": 19
     },
     {
       "slug": "akagi",
       "name": "akagi",
-      "cardCount": 27
+      "cardCount": 27,
+      "setCount": 15
     },
     {
       "slug": "cr-cg-gangs",
       "name": "CR CG gangs",
-      "cardCount": 27
+      "cardCount": 27,
+      "setCount": 3
     },
     {
       "slug": "kazuyuki-kano",
       "name": "Kazuyuki Kano",
-      "cardCount": 27
+      "cardCount": 27,
+      "setCount": 5
     },
     {
       "slug": "tetsu-kayama",
       "name": "Tetsu Kayama",
-      "cardCount": 27
+      "cardCount": 27,
+      "setCount": 18
     },
     {
       "slug": "dsuke",
       "name": "Dsuke",
-      "cardCount": 26
+      "cardCount": 26,
+      "setCount": 14
     },
     {
       "slug": "kimiya-masago",
       "name": "Kimiya Masago",
-      "cardCount": 25
+      "cardCount": 25,
+      "setCount": 5
     },
     {
       "slug": "kurata-so",
       "name": "Kurata So",
-      "cardCount": 25
+      "cardCount": 25,
+      "setCount": 15
     },
     {
       "slug": "okubo",
       "name": "OKUBO",
-      "cardCount": 25
+      "cardCount": 25,
+      "setCount": 17
     },
     {
       "slug": "planeta-yamashita",
       "name": "PLANETA Yamashita",
-      "cardCount": 25
+      "cardCount": 25,
+      "setCount": 12
     },
     {
       "slug": "takeshi-nakamura",
       "name": "Takeshi Nakamura",
-      "cardCount": 25
+      "cardCount": 25,
+      "setCount": 17
     },
     {
       "slug": "yumi",
       "name": "Yumi",
-      "cardCount": 25
+      "cardCount": 25,
+      "setCount": 13
     },
     {
       "slug": "masako-yamashita",
       "name": "Masako Yamashita",
-      "cardCount": 24
+      "cardCount": 24,
+      "setCount": 6
     },
     {
       "slug": "satoma",
       "name": "satoma",
-      "cardCount": 24
+      "cardCount": 24,
+      "setCount": 14
     },
     {
       "slug": "kazumasa-yasukuni",
       "name": "Kazumasa Yasukuni",
-      "cardCount": 23
+      "cardCount": 23,
+      "setCount": 13
     },
     {
       "slug": "marina-chikazawa",
       "name": "MARINA Chikazawa",
-      "cardCount": 23
+      "cardCount": 23,
+      "setCount": 11
     },
     {
       "slug": "milky-isobe",
       "name": "Milky Isobe",
-      "cardCount": 23
+      "cardCount": 23,
+      "setCount": 14
     },
     {
       "slug": "taiga-kasai",
       "name": "Taiga Kasai",
-      "cardCount": 23
+      "cardCount": 23,
+      "setCount": 12
     },
     {
       "slug": "yoriyuki-ikegami",
       "name": "Yoriyuki Ikegami",
-      "cardCount": 23
+      "cardCount": 23,
+      "setCount": 15
     },
     {
       "slug": "nurikabe",
       "name": "Nurikabe",
-      "cardCount": 22
+      "cardCount": 22,
+      "setCount": 17
     },
     {
       "slug": "rend",
       "name": "REND",
-      "cardCount": 22
+      "cardCount": 22,
+      "setCount": 14
     },
     {
       "slug": "rika",
       "name": "rika",
-      "cardCount": 22
+      "cardCount": 22,
+      "setCount": 15
     },
     {
       "slug": "shinya-komatsu",
       "name": "Shinya Komatsu",
-      "cardCount": 22
+      "cardCount": 22,
+      "setCount": 18
     },
     {
       "slug": "uninori",
       "name": "Uninori",
-      "cardCount": 22
+      "cardCount": 22,
+      "setCount": 13
     },
     {
       "slug": "aoki",
       "name": "aoki",
-      "cardCount": 21
+      "cardCount": 21,
+      "setCount": 13
     },
     {
       "slug": "gemi",
       "name": "Gemi",
-      "cardCount": 21
+      "cardCount": 21,
+      "setCount": 15
     },
     {
       "slug": "matazo",
       "name": "matazo",
-      "cardCount": 21
+      "cardCount": 21,
+      "setCount": 15
     },
     {
       "slug": "noriko-hotta",
       "name": "Noriko Hotta",
-      "cardCount": 21
+      "cardCount": 21,
+      "setCount": 7
     },
     {
       "slug": "tonji-matsuno",
       "name": "Tonji Matsuno",
-      "cardCount": 21
+      "cardCount": 21,
+      "setCount": 16
     },
     {
       "slug": "cona-nitanda",
       "name": "Cona Nitanda",
-      "cardCount": 20
+      "cardCount": 20,
+      "setCount": 10
     },
     {
       "slug": "conceptlab",
       "name": "ConceptLab",
-      "cardCount": 20
+      "cardCount": 20,
+      "setCount": 1
     },
     {
       "slug": "keiko-fukuyama",
       "name": "Keiko Fukuyama",
-      "cardCount": 20
+      "cardCount": 20,
+      "setCount": 3
     },
     {
       "slug": "nelnal",
       "name": "Nelnal",
-      "cardCount": 20
+      "cardCount": 20,
+      "setCount": 13
     },
     {
       "slug": "take",
       "name": "take",
-      "cardCount": 20
+      "cardCount": 20,
+      "setCount": 11
     },
     {
       "slug": "aspara",
       "name": "aspara",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 13
     },
     {
       "slug": "en-morikura",
       "name": "En Morikura",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 12
     },
     {
       "slug": "ligton",
       "name": "Ligton",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 14
     },
     {
       "slug": "minaminami-take",
       "name": "MINAMINAMI Take",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 13
     },
     {
       "slug": "motofumi-fujiwara",
       "name": "Motofumi Fujiwara",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 13
     },
     {
       "slug": "natsumi-yoshida",
       "name": "Natsumi Yoshida",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 11
     },
     {
       "slug": "shimaris-yukichi",
       "name": "Shimaris Yukichi",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 15
     },
     {
       "slug": "so-taro",
       "name": "so-taro",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 14
     },
     {
       "slug": "takumi-wada",
       "name": "Takumi Wada",
-      "cardCount": 19
+      "cardCount": 19,
+      "setCount": 12
     },
     {
       "slug": "megumi-higuchi",
       "name": "Megumi Higuchi",
-      "cardCount": 18
+      "cardCount": 18,
+      "setCount": 12
     },
     {
       "slug": "nagomi-nijo",
       "name": "Nagomi Nijo",
-      "cardCount": 18
+      "cardCount": 18,
+      "setCount": 11
     },
     {
       "slug": "osare",
       "name": "osare",
-      "cardCount": 18
+      "cardCount": 18,
+      "setCount": 13
     },
     {
       "slug": "takashi-yamaguchi",
       "name": "Takashi Yamaguchi",
-      "cardCount": 18
+      "cardCount": 18,
+      "setCount": 7
     },
     {
       "slug": "\"big-mama\"-tagawa",
       "name": "\"Big Mama\" Tagawa",
-      "cardCount": 17
+      "cardCount": 17,
+      "setCount": 7
     },
     {
       "slug": "haru-akasaka",
       "name": "Haru Akasaka",
-      "cardCount": 17
+      "cardCount": 17,
+      "setCount": 10
     },
     {
       "slug": "ken-ikuji",
       "name": "Ken Ikuji",
-      "cardCount": 17
+      "cardCount": 17,
+      "setCount": 11
     },
     {
       "slug": "susumu-maeya",
       "name": "Susumu Maeya",
-      "cardCount": 17
+      "cardCount": 17,
+      "setCount": 9
     },
     {
       "slug": "mousho",
       "name": "Mousho",
-      "cardCount": 16
+      "cardCount": 16,
+      "setCount": 12
     },
     {
       "slug": "pokemon-rumble",
       "name": "Pokemon Rumble",
-      "cardCount": 16
+      "cardCount": 16,
+      "setCount": 1
     },
     {
       "slug": "the-pokémon-company-art-team",
       "name": "The Pokémon Company Art Team",
-      "cardCount": 16
+      "cardCount": 16,
+      "setCount": 3
     },
     {
       "slug": "tomomi-ozaki",
       "name": "Tomomi Ozaki",
-      "cardCount": 16
+      "cardCount": 16,
+      "setCount": 9
     },
     {
       "slug": "yukihiro-tada",
       "name": "Yukihiro Tada",
-      "cardCount": 16
+      "cardCount": 16,
+      "setCount": 9
     },
     {
       "slug": "kariya",
       "name": "Kariya",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 13
     },
     {
       "slug": "kyoko-koizumi",
       "name": "Kyoko Koizumi",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 3
     },
     {
       "slug": "masako-tomii",
       "name": "Masako Tomii",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 14
     },
     {
       "slug": "mpc-film",
       "name": "MPC Film",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 2
     },
     {
       "slug": "planeta-otani",
       "name": "PLANETA Otani",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 5
     },
     {
       "slug": "sie-nanahara",
       "name": "SIE NANAHARA",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 13
     },
     {
       "slug": "yusuke-ishikawa",
       "name": "Yusuke Ishikawa",
-      "cardCount": 15
+      "cardCount": 15,
+      "setCount": 5
     },
     {
       "slug": "kazuma-koda",
       "name": "Kazuma Koda",
-      "cardCount": 14
+      "cardCount": 14,
+      "setCount": 10
     },
     {
       "slug": "mugenup",
       "name": "MUGENUP",
-      "cardCount": 14
+      "cardCount": 14,
+      "setCount": 8
     },
     {
       "slug": "orca",
       "name": "Orca",
-      "cardCount": 14
+      "cardCount": 14,
+      "setCount": 11
     },
     {
       "slug": "tomoaki-imakuni",
       "name": "Tomoaki Imakuni",
-      "cardCount": 14
+      "cardCount": 14,
+      "setCount": 11
     },
     {
       "slug": "amelicart",
       "name": "Amelicart",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 8
     },
     {
       "slug": "ayako-ozaki",
       "name": "Ayako Ozaki",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 5
     },
     {
       "slug": "cochi8i",
       "name": "cochi8i",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 9
     },
     {
       "slug": "hiroki-fuchino",
       "name": "Hiroki Fuchino",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 12
     },
     {
       "slug": "hiron",
       "name": "HiRON",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 10
     },
     {
       "slug": "krgc",
       "name": "Krgc",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 9
     },
     {
       "slug": "kuroimori",
       "name": "Kuroimori",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 11
     },
     {
       "slug": "mékayu",
       "name": "Mékayu",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 10
     },
     {
       "slug": "nisimono",
       "name": "nisimono",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 9
     },
     {
       "slug": "toriyufu",
       "name": "toriyufu",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 13
     },
     {
       "slug": "whisker",
       "name": "Whisker",
-      "cardCount": 13
+      "cardCount": 13,
+      "setCount": 10
     },
     {
       "slug": "danciao",
       "name": "danciao",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 10
     },
     {
       "slug": "iori-suzuki",
       "name": "Iori Suzuki",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 9
     },
     {
       "slug": "kazuaki-aihara",
       "name": "Kazuaki Aihara",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 1
     },
     {
       "slug": "mashu",
       "name": "mashu",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 8
     },
     {
       "slug": "mingo",
       "name": "mingo",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 10
     },
     {
       "slug": "oku",
       "name": "Oku",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 7
     },
     {
       "slug": "taiga-kayama",
       "name": "Taiga Kayama",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 10
     },
     {
       "slug": "takao-unno",
       "name": "Takao Unno",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 9
     },
     {
       "slug": "zig",
       "name": "zig",
-      "cardCount": 12
+      "cardCount": 12,
+      "setCount": 9
     },
     {
       "slug": "bun-toujo",
       "name": "Bun Toujo",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 9
     },
     {
       "slug": "framestore",
       "name": "Framestore",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 2
     },
     {
       "slug": "gapao",
       "name": "Gapao",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 7
     },
     {
       "slug": "goto-minori",
       "name": "GOTO minori",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 9
     },
     {
       "slug": "kedamahadaitai-yawarakai",
       "name": "Kedamahadaitai Yawarakai",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 9
     },
     {
       "slug": "keisin",
       "name": "Keisin",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 7
     },
     {
       "slug": "makoto-imai",
       "name": "Makoto Imai",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 3
     },
     {
       "slug": "ryota-saito",
       "name": "Ryota Saito",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 5
     },
     {
       "slug": "yuriko-akase",
       "name": "Yuriko Akase",
-      "cardCount": 11
+      "cardCount": 11,
+      "setCount": 9
     },
     {
       "slug": "atsuya-uki",
       "name": "Atsuya Uki",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 10
     },
     {
       "slug": "hiroki-asanuma",
       "name": "Hiroki Asanuma",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 10
     },
     {
       "slug": "ikeda-saki",
       "name": "IKEDA Saki",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 7
     },
     {
       "slug": "kai-ishikawa",
       "name": "Kai Ishikawa",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 10
     },
     {
       "slug": "kazuo-yazawa",
       "name": "Kazuo Yazawa",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 7
     },
     {
       "slug": "linne",
       "name": "LINNE",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 6
     },
     {
       "slug": "minahamu",
       "name": "Minahamu",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 7
     },
     {
       "slug": "nobuhiro-imagawa",
       "name": "Nobuhiro Imagawa",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 7
     },
     {
       "slug": "ounishi",
       "name": "Ounishi",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 7
     },
     {
       "slug": "rianti-hidayat",
       "name": "Rianti Hidayat",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 9
     },
     {
       "slug": "shinji-higuchi-+-sachiko-eba",
       "name": "Shinji Higuchi + Sachiko Eba",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 3
     },
     {
       "slug": "shinya-mizuno",
       "name": "Shinya Mizuno",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 4
     },
     {
       "slug": "svlt",
       "name": "svlt",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 9
     },
     {
       "slug": "tomowaka",
       "name": "Tomowaka",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 5
     },
     {
       "slug": "yano-keiji",
       "name": "Yano Keiji",
-      "cardCount": 10
+      "cardCount": 10,
+      "setCount": 7
     },
     {
       "slug": "hataya",
       "name": "Hataya",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 6
     },
     {
       "slug": "julie-hang",
       "name": "Julie Hang",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 8
     },
     {
       "slug": "jungo-suzuki",
       "name": "Jungo Suzuki",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 4
     },
     {
       "slug": "mori-yuu",
       "name": "Mori Yuu",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 8
     },
     {
       "slug": "narano",
       "name": "Narano",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 5
     },
     {
       "slug": "takashi-shiraishi",
       "name": "takashi shiraishi",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 7
     },
     {
       "slug": "tono",
       "name": "tono",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 8
     },
     {
       "slug": "wintr-wandr",
       "name": "Wintr Wandr",
-      "cardCount": 9
+      "cardCount": 9,
+      "setCount": 8
     },
     {
       "slug": "apios",
       "name": "Apios",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 6
     },
     {
       "slug": "fujimoto-gold",
       "name": "Fujimoto Gold",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 8
     },
     {
       "slug": "hasegawa-saki",
       "name": "Hasegawa Saki",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 7
     },
     {
       "slug": "imoniii",
       "name": "imoniii",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 6
     },
     {
       "slug": "kamonabe",
       "name": "kamonabe",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 6
     },
     {
       "slug": "makura-tami",
       "name": "Makura Tami",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 6
     },
     {
       "slug": "mugi-hamada",
       "name": "Mugi Hamada",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 6
     },
     {
       "slug": "planeta-hiiragi",
       "name": "PLANETA Hiiragi",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 7
     },
     {
       "slug": "satoshi-ohta",
       "name": "Satoshi Ohta",
-      "cardCount": 8
+      "cardCount": 8,
+      "setCount": 7
     },
     {
       "slug": "2017-pikachu-project",
       "name": "2017 Pikachu Project",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 1
     },
     {
       "slug": "atsuko-ujiie",
       "name": "Atsuko Ujiie",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 2
     },
     {
       "slug": "felicia-chen",
       "name": "Felicia Chen",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 6
     },
     {
       "slug": "k.-hoshiba",
       "name": "K. Hoshiba",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 5
     },
     {
       "slug": "k.-hoshiba,-cr-cg-gangs",
       "name": "K. Hoshiba, CR CG gangs",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 3
     },
     {
       "slug": "katsunori-sato",
       "name": "Katsunori Sato",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 5
     },
     {
       "slug": "kenkichi-toyama",
       "name": "Kenkichi Toyama",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 7
     },
     {
       "slug": "nakamura-ippan",
       "name": "Nakamura Ippan",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 7
     },
     {
       "slug": "rond",
       "name": "Rond",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 7
     },
     {
       "slug": "toi8",
       "name": "toi8",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 7
     },
     {
       "slug": "zu-ka",
       "name": "Zu-Ka",
-      "cardCount": 7
+      "cardCount": 7,
+      "setCount": 5
     },
     {
       "slug": "buchi",
       "name": "buchi",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 4
     },
     {
       "slug": "emi-ando",
       "name": "Emi Ando",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 5
     },
     {
       "slug": "eri-kamei",
       "name": "Eri Kamei",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 4
     },
     {
       "slug": "k.-utsunomiya",
       "name": "K. Utsunomiya",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 2
     },
     {
       "slug": "masahiko-ishii",
       "name": "Masahiko Ishii",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 3
     },
     {
       "slug": "orbitallink-inc.",
       "name": "ORBITALLINK Inc.",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 3
     },
     {
       "slug": "po-suzuki",
       "name": "Po-Suzuki",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 6
     },
     {
       "slug": "terada-tera",
       "name": "Terada Tera",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 6
     },
     {
       "slug": "yashiro-nanaco",
       "name": "YASHIRO Nanaco",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 6
     },
     {
       "slug": "yoshimi-miyoshi",
       "name": "Yoshimi Miyoshi",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 6
     },
     {
       "slug": "yoshioka",
       "name": "Yoshioka",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 6
     },
     {
       "slug": "yuri-umemura",
       "name": "Yuri Umemura",
-      "cardCount": 6
+      "cardCount": 6,
+      "setCount": 4
     },
     {
       "slug": "aliya-chen",
       "name": "Aliya Chen",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 5
     },
     {
       "slug": "beruburi",
       "name": "BERUBURI",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 3
     },
     {
       "slug": "demizuposuka",
       "name": "DemizuPosuka",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 4
     },
     {
       "slug": "game-freak-inc.",
       "name": "GAME FREAK inc.",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 2
     },
     {
       "slug": "heisuke-kitazawa",
       "name": "Heisuke Kitazawa",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 5
     },
     {
       "slug": "james-turner",
       "name": "James Turner",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 3
     },
     {
       "slug": "kinu-nishimura",
       "name": "Kinu Nishimura",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 5
     },
     {
       "slug": "tomomi-kaneko",
       "name": "Tomomi Kaneko",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 5
     },
     {
       "slug": "usgmen",
       "name": "USGMEN",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 4
     },
     {
       "slug": "yoko-hishida",
       "name": "Yoko Hishida",
-      "cardCount": 5
+      "cardCount": 5,
+      "setCount": 3
     },
     {
       "slug": "\"big-mama\"-tagawa,-cr-cg-gangs",
       "name": "\"Big Mama\" Tagawa, CR CG gangs",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "emi-miwa",
       "name": "Emi Miwa",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 1
     },
     {
       "slug": "emi-yoshida",
       "name": "Emi Yoshida",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "hideyuki-nakajima",
       "name": "Hideyuki Nakajima",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "hiroaki-ito",
       "name": "Hiroaki Ito",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 3
     },
     {
       "slug": "hiroyuki-yamamoto",
       "name": "Hiroyuki Yamamoto",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "hizuki-misono",
       "name": "Hizuki Misono",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 2
     },
     {
       "slug": "iwamoto05",
       "name": "Iwamoto05",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "izucch",
       "name": "Izucch",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 3
     },
     {
       "slug": "kamome-shirahama",
       "name": "Kamome Shirahama",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "kanahei",
       "name": "kanahei",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 3
     },
     {
       "slug": "mana-ibe",
       "name": "Mana Ibe",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 3
     },
     {
       "slug": "masa",
       "name": "Masa",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 4
     },
     {
       "slug": "mele",
       "name": "mele",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 3
     },
     {
       "slug": "natsumi-miyanose",
       "name": "Natsumi Miyanose",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 3
     },
     {
       "slug": "okayamatakatoshi",
       "name": "okayamatakatoshi",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 1
     },
     {
       "slug": "shinji-higuchi",
       "name": "Shinji Higuchi",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 1
     },
     {
       "slug": "shinji-higuchi-+-noriko-takaya",
       "name": "Shinji Higuchi + Noriko Takaya",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 2
     },
     {
       "slug": "t.-honda",
       "name": "T. Honda",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 1
     },
     {
       "slug": "yuichi-sawayama",
       "name": "Yuichi Sawayama",
-      "cardCount": 4
+      "cardCount": 4,
+      "setCount": 1
     },
     {
       "slug": "2019-pikachu-project",
       "name": "2019 Pikachu Project",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 1
     },
     {
       "slug": "akino-fukuji",
       "name": "Akino Fukuji",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "arai-kiriko",
       "name": "Arai Kiriko",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "fumie-kittaka",
       "name": "Fumie Kittaka",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "hideki-kazama",
       "name": "Hideki Kazama",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "kanami-ogata",
       "name": "Kanami Ogata",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "kazuhisa-uragami",
       "name": "Kazuhisa Uragami",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "kyupiyama",
       "name": "KYUPIYAMA",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "m.-akiyama",
       "name": "M. Akiyama",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 1
     },
     {
       "slug": "maiko-fujiwara",
       "name": "Maiko Fujiwara",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "misaki-hashimoto",
       "name": "Misaki Hashimoto",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "nobusawa/mochipuyo",
       "name": "Nobusawa/Mochipuyo",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "raita-kazama",
       "name": "Raita Kazama",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "shin-ichi-yoshikawa,-cr-cg-gangs",
       "name": "Shin-ichi Yoshikawa, CR CG gangs",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "souchirou-gunjima",
       "name": "Souchirou Gunjima",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 1
     },
     {
       "slug": "tomoko-wakai",
       "name": "Tomoko Wakai",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 1
     },
     {
       "slug": "tsuyoshi-nagano",
       "name": "Tsuyoshi Nagano",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 3
     },
     {
       "slug": "yoshimoto-yoshimon",
       "name": "Yoshimoto Yoshimon",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "yosuke-da-silva",
       "name": "Yosuke Da Silva",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 1
     },
     {
       "slug": "yousuke-hirata,-cr-cg-gangs",
       "name": "Yousuke Hirata, CR CG gangs",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "yusuke-kozaki",
       "name": "Yusuke Kozaki",
-      "cardCount": 3
+      "cardCount": 3,
+      "setCount": 2
     },
     {
       "slug": "aimi-tomita",
       "name": "Aimi Tomita",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "asuka-iwashita",
       "name": "Asuka Iwashita",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "benimaru-itoh",
       "name": "Benimaru Itoh",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "burari",
       "name": "burari",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "choriso",
       "name": "CHORISO",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "christopher-rush",
       "name": "Christopher Rush",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "d.a.g-inc.",
       "name": "D.A.G Inc.",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "daisuke-iwamoto",
       "name": "Daisuke Iwamoto",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "haccan",
       "name": "HACCAN",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "hico-kim",
       "name": "HICO KIM",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "hiromichi-sugiyama,-cr-cg-gangs",
       "name": "Hiromichi Sugiyama, CR CG gangs",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "hoshino-kuro",
       "name": "Hoshino KURO",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "imakuni?",
       "name": "Imakuni?",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "keisuke-azuma",
       "name": "Keisuke Azuma",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "koji-nakata",
       "name": "Koji Nakata",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "kouji-tajima",
       "name": "Kouji Tajima",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "kunihiko-yuyama",
       "name": "Kunihiko Yuyama",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "mika-pikazo",
       "name": "Mika Pikazo",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "mikiko-takeda",
       "name": "Mikiko Takeda",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "mikio-menjo",
       "name": "Mikio Menjo",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "minato",
       "name": "Minato",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "mt.-tbt",
       "name": "Mt. TBT",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "nabatame-kazutaka",
       "name": "Nabatame Kazutaka",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "nobuyuki-fujimoto",
       "name": "Nobuyuki Fujimoto",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "reiko-tanoue",
       "name": "Reiko Tanoue",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "ryuta-kusumi,-cr-cg-gangs",
       "name": "Ryuta Kusumi, CR CG gangs",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "sachi-matoba",
       "name": "Sachi Matoba",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 1
     },
     {
       "slug": "takabon",
       "name": "Takabon",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "yuka-tanaka",
       "name": "Yuka Tanaka",
-      "cardCount": 2
+      "cardCount": 2,
+      "setCount": 2
     },
     {
       "slug": "\"big-mama\"-tagawa-&-benimaru-itoh",
       "name": "\"Big Mama\" Tagawa & Benimaru Itoh",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "akycg-works",
       "name": "akyCG Works",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "avec-yoko",
       "name": "Avec Yoko",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "booota",
       "name": "booota",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "craig-turvey",
       "name": "Craig Turvey",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "dr.ooyama",
       "name": "Dr.Ooyama",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "ebila",
       "name": "Ebila",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "etsuya-hattori",
       "name": "Etsuya Hattori",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "gakuji-nomoto",
       "name": "Gakuji Nomoto",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "hagiya-kaoru",
       "name": "HAGIYA Kaoru",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "hanabushi",
       "name": "hanabushi",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "haruko-ichikawa",
       "name": "Haruko Ichikawa",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "huang-tzu-en",
       "name": "Huang Tzu En",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "jumpei-akasaka",
       "name": "Jumpei Akasaka",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "jungo-suzuki,-cr-cg-gangs",
       "name": "Jungo Suzuki, CR CG gangs",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "junsei-kuninobu",
       "name": "Junsei Kuninobu",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "k-hoshiba",
       "name": "K Hoshiba",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "kannnu",
       "name": "Kannnu",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "katsura-tabata,-cr-cg-gangs",
       "name": "Katsura Tabata, CR CG gangs",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "kazumasa-yasukunio",
       "name": "Kazumasa Yasukunio",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "keiko-moritsugu",
       "name": "Keiko Moritsugu",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "keita-komatsuya,-cr-cg-gangs",
       "name": "Keita Komatsuya, CR CG gangs",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "ken-sugimori/yusuke-ohmura",
       "name": "Ken Sugimori/Yusuke Ohmura",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "kent-kanetsuna/direc.-shinji-higuchi",
       "name": "Kent Kanetsuna/Direc. Shinji Higuchi",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "kg-2000",
       "name": "KG-2000",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "miranda-branley",
       "name": "Miranda Branley",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "mori-you",
       "name": "Mori You",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "nabana-kensaku",
       "name": "Nabana Kensaku",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "nagano",
       "name": "nagano",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "natsuko-shoji-été",
       "name": "Natsuko Shoji été",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "noriko-uono",
       "name": "Noriko Uono",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "q-rais",
       "name": "Q-rais",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "sakiko-maeda",
       "name": "Sakiko Maeda",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "satoshi-ito",
       "name": "Satoshi Ito",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "tetsuo-hara",
       "name": "Tetsuo Hara",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "tomohiro-kitakaze",
       "name": "Tomohiro Kitakaze",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "tomoki-sone",
       "name": "Tomoki Sone",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "ukumo-viti",
       "name": "UKUMO viti",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "ultimateinudog",
       "name": "Ultimateinudog",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "wataru-kawahara/direc.-shinji-higuchi",
       "name": "Wataru Kawahara/Direc. Shinji Higuchi",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "yasuki-watanabe",
       "name": "Yasuki Watanabe",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     },
     {
       "slug": "yusuke-shimada",
       "name": "Yusuke Shimada",
-      "cardCount": 1
+      "cardCount": 1,
+      "setCount": 1
     }
   ]
 }

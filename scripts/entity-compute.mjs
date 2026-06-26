@@ -135,7 +135,7 @@ export function artistStatsFrom(cards, threshold, nameByDex) {
     [...g.rawNameCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
 
   const artistIndex = [...groups.values()]
-    .map((g) => ({ slug: g.slug, name: displayName(g), cardCount: g.cards.length }))
+    .map((g) => ({ slug: g.slug, name: displayName(g), cardCount: g.cards.length, setCount: distinctSetCount(g.cards) }))
     .sort((a, b) => b.cardCount - a.cardCount || a.name.localeCompare(b.name));
 
   const artists = [...groups.values()]

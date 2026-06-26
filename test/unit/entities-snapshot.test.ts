@@ -68,4 +68,12 @@ describe("entity snapshot — data.json and index.json agree", () => {
     const catSlugs = new Set(cat.artists.filter((a) => a.cardCount >= ARTIST_MIN).map((a) => a.slug));
     for (const a of snap.artists) expect(catSlugs.has(a.slug)).toBe(true);
   });
+
+  it("the light catalog carries the fields the browse directories sort on", () => {
+    for (const p of cat.pokemon) expect(typeof p.cardCount).toBe("number");
+    for (const a of cat.artists) {
+      expect(typeof a.cardCount).toBe("number");
+      expect(typeof a.setCount).toBe("number");
+    }
+  });
 });

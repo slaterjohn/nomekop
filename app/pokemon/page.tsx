@@ -3,7 +3,9 @@ import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { PokemonTypeahead } from "@/components/pokemon/pokemon-typeahead";
-import { encodePokemonToken, DEFAULT_POKEMON_OPTIONS } from "@/lib/pokemon-binder";
+import { PokemonDirectory, parsePokemonSort } from "@/components/pokemon/pokemon-directory";
+import { SortTabs } from "@/components/entities/sort-tabs";
+import { pokemonSlugByName } from "@/lib/content/entities/catalog";
 import { getServerDictionary } from "@/lib/i18n/server";
 
 const TITLE = "Pokémon binders — every card of one Pokémon";
@@ -29,11 +31,16 @@ const POPULAR = [
   "Lucario",
 ];
 
-/** Landing page: search any Pokémon, or jump to a popular one. */
-export default async function PokemonLandingPage() {
+/** Landing page: search any Pokémon, jump to a popular one, or browse them all. */
+export default async function PokemonLandingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ sort?: string }>;
+}) {
   const { dict } = await getServerDictionary();
+  const sort = parsePokemonSort((await searchParams).sort);
   return (
-    <main id="main" className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-6">
+    <main id="main" className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
       <h1 className="font-pixel text-lg uppercase leading-relaxed sm:text-xl">{dict.pokemonLanding.title}</h1>
       <p className="font-body text-xl leading-tight">
         {dict.pokemonLanding.intro}
@@ -50,16 +57,25 @@ export default async function PokemonLandingPage() {
           <p className="font-pixel text-[10px] uppercase">{dict.common.popular}</p>
           <div className="flex flex-wrap gap-2">
             {POPULAR.map((name) => (
-              <GbLinkButton
-                key={name}
-                variant="b"
-                size="sm"
-                href={`/pokemon/${encodePokemonToken(name, DEFAULT_POKEMON_OPTIONS)}`}
-              >
+              <GbLinkButton key={name} variant="b" size="sm" href={`/pokemon/${pokemonSlugByName(name) ?? ""}`}>
                 {name}
               </GbLinkButton>
             ))}
           </div>
+        </div>
+      </GbScreen>
+
+      <GbScreen title="Browse every Pokémon">
+        <div className="flex flex-col gap-4">
+          <SortTabs
+            basePath="/pokemon"
+            current={sort}
+            options={[
+              { value: "dex", label: "Pokédex no." },
+              { value: "cards", label: "Most cards" },
+            ]}
+          />
+          <PokemonDirectory sort={sort} />
         </div>
       </GbScreen>
     </main>

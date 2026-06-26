@@ -3,11 +3,13 @@
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { GbButton } from "@/components/gb/gb-button";
-import { DEFAULT_ILLUSTRATOR_OPTIONS, encodeIllustratorToken } from "@/lib/illustrator-binder";
+import { slugifyArtistName } from "@/lib/illustrator-binder";
 import { play } from "@/lib/sound";
 import { useDict } from "@/components/i18n/language-provider";
 
-/** Artist input → /illustrator/<token>. Validation mirrors the token grammar. */
+/** Artist input → /illustrator/<slug>. The route shows the artist's info page
+ *  when one exists, and falls back to the binder otherwise — so any artist (or
+ *  a free-text name) still resolves. Validation mirrors the slug grammar. */
 export function IllustratorSearchForm() {
   const dict = useDict();
   const [name, setName] = useState("");
@@ -25,7 +27,7 @@ export function IllustratorSearchForm() {
     }
     setError(null);
     play("confirm");
-    router.push(`/illustrator/${encodeIllustratorToken(trimmed, DEFAULT_ILLUSTRATOR_OPTIONS)}`);
+    router.push(`/illustrator/${encodeURIComponent(slugifyArtistName(trimmed))}`);
   };
 
   return (

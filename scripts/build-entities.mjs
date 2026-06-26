@@ -83,8 +83,8 @@ writeFileSync(dataDest, JSON.stringify(full, null, 2) + "\n");
 const index = {
   asOf: AS_OF,
   thresholds: { artistMinCards: ARTIST_MIN_CARDS },
-  pokemon: pokemon.map((p) => ({ dex: p.dex, slug: p.slug, name: p.name })),
-  artists: artistIndex, // { slug, name, cardCount } for everyone
+  pokemon: pokemon.map((p) => ({ dex: p.dex, slug: p.slug, name: p.name, cardCount: p.cardCount })),
+  artists: artistIndex, // { slug, name, cardCount, setCount } for everyone
 };
 const indexDest = path.join(dir, "index.json");
 writeFileSync(indexDest, JSON.stringify(index, null, 2) + "\n");

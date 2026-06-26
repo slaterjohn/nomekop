@@ -45,7 +45,7 @@ export type ArtistEntity = {
   signatureCard?: EntityCardRef;
 };
 
-export type ArtistIndexEntry = { slug: string; name: string; cardCount: number };
+export type ArtistIndexEntry = { slug: string; name: string; cardCount: number; setCount: number };
 
 export type EntitySnapshot = {
   asOf: string;
@@ -55,7 +55,7 @@ export type EntitySnapshot = {
   artistIndex: ArtistIndexEntry[];
 };
 
-export type PokemonCatalogEntry = { dex: number; slug: string; name: string };
+export type PokemonCatalogEntry = { dex: number; slug: string; name: string; cardCount: number };
 
 export type EntityCatalog = {
   asOf: string;
