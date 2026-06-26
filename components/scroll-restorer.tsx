@@ -50,8 +50,9 @@ export function ScrollRestorer() {
 
   // On navigation: restore (Back/Forward/reload) or reset to top (link click).
   useEffect(() => {
-    // Save the page we're leaving before switching the active key.
-    if (currentRef.current !== pathname) rememberScroll(currentRef.current, window.scrollY);
+    // The continuous scroll handler already saved the page we're leaving (by the
+    // time this runs, the route has swapped and scroll is 0 — reading it here
+    // would clobber the saved offset). Just point the handler at the new page.
     currentRef.current = pathname;
 
     let popped = poppedRef.current;
