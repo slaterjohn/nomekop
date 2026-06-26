@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 vi.mock("next/navigation", () => ({ usePathname: () => "/card/me4-1" }));
 
@@ -30,6 +30,12 @@ describe("Breadcrumbs", () => {
     // the logical default (All sets) is NOT shown — the real path wins
     expect(container.querySelector('a[href="/sets"]')).toBeNull();
     expect(screen.getByText("Weedle")).toBeInTheDocument();
+  });
+
+  it("clicking a crumb sets a scroll-restore intent for that page", () => {
+    const { container } = render(<Breadcrumbs parents={parents} label="Weedle" />);
+    fireEvent.click(container.querySelector('a[href="/set/me4"]')!);
+    expect(sessionStorage.getItem("bindermon:v1:scroll-intent")).toBe("/set/me4");
   });
 
   it("records the current page in the trail", () => {

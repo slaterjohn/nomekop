@@ -45,3 +45,30 @@ export function recallScroll(url: string): number | undefined {
   const y = read()[url];
   return typeof y === "number" && Number.isFinite(y) ? y : undefined;
 }
+
+const INTENT_KEY = "bindermon:v1:scroll-intent";
+
+/** Mark that the next navigation should RESTORE scroll (not reset to top) —
+ *  e.g. a breadcrumb click going back to a page, which is a push (forward) nav
+ *  the ScrollRestorer would otherwise send to the top. */
+export function setRestoreIntent(url: string): void {
+  if (typeof sessionStorage === "undefined") return;
+  try {
+    sessionStorage.setItem(INTENT_KEY, url);
+  } catch {
+    // best-effort
+  }
+}
+
+/** Single-use: clears any pending intent and reports whether it was for `url`.
+ *  Always clears, so a stale intent can't fire on a later unrelated navigation. */
+export function consumeRestoreIntent(url: string): boolean {
+  if (typeof sessionStorage === "undefined") return false;
+  try {
+    const intent = sessionStorage.getItem(INTENT_KEY);
+    if (intent !== null) sessionStorage.removeItem(INTENT_KEY);
+    return intent === url;
+  } catch {
+    return false;
+  }
+}

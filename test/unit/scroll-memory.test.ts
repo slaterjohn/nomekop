@@ -1,5 +1,11 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { rememberScroll, recallScroll, MAX_SCROLL_ENTRIES } from "@/lib/scroll-memory";
+import {
+  rememberScroll,
+  recallScroll,
+  MAX_SCROLL_ENTRIES,
+  setRestoreIntent,
+  consumeRestoreIntent,
+} from "@/lib/scroll-memory";
 
 beforeEach(() => sessionStorage.clear());
 
@@ -30,6 +36,22 @@ describe("scroll-memory", () => {
     for (let i = 0; i < MAX_SCROLL_ENTRIES + 5; i++) rememberScroll(`/p/${i}`, i);
     expect(recallScroll("/p/0")).toBeUndefined(); // evicted
     expect(recallScroll(`/p/${MAX_SCROLL_ENTRIES + 4}`)).toBe(MAX_SCROLL_ENTRIES + 4); // newest kept
+  });
+
+  it("restore intent matches the target url once, then is consumed", () => {
+    setRestoreIntent("/set/me4");
+    expect(consumeRestoreIntent("/set/me4")).toBe(true);
+    expect(consumeRestoreIntent("/set/me4")).toBe(false); // single-use
+  });
+
+  it("restore intent is single-use even on a non-matching navigation", () => {
+    setRestoreIntent("/a");
+    expect(consumeRestoreIntent("/b")).toBe(false); // wrong target — and cleared
+    expect(consumeRestoreIntent("/a")).toBe(false); // so it can't fire later
+  });
+
+  it("consumeRestoreIntent with no intent is false and safe", () => {
+    expect(consumeRestoreIntent("/x")).toBe(false);
   });
 
   it("survives corrupt storage without throwing", () => {

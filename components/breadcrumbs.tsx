@@ -4,6 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { pushTrail, type Crumb } from "@/lib/nav-trail";
+import { setRestoreIntent } from "@/lib/scroll-memory";
 
 /** Records the current page in the trail without rendering anything — for hub /
  *  landing pages that don't show a breadcrumb but should still appear in the
@@ -60,7 +61,7 @@ export function Breadcrumbs({ parents, label }: { parents: Crumb[]; label: strin
                 {c.label}
               </span>
             ) : (
-              <Link href={c.url} className="no-underline">
+              <Link href={c.url} className="no-underline" onClick={() => setRestoreIntent(c.url)}>
                 {c.label}
               </Link>
             )}

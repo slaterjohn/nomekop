@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { rememberScroll, recallScroll } from "@/lib/scroll-memory";
+import { rememberScroll, recallScroll, consumeRestoreIntent } from "@/lib/scroll-memory";
 
 /**
  * Restores window scroll on Back/Forward (in-app ◀ BACK or the browser button),
@@ -55,7 +55,11 @@ export function ScrollRestorer() {
     // would clobber the saved offset). Just point the handler at the new page.
     currentRef.current = pathname;
 
-    let popped = poppedRef.current;
+    // Restore on Back/Forward (popstate) or when a breadcrumb asked us to
+    // (a push that's semantically "go back to where I was"). consume always, so
+    // a stale intent can't fire on a later navigation.
+    const intent = consumeRestoreIntent(pathname);
+    let popped = poppedRef.current || intent;
     poppedRef.current = false;
     if (firstRef.current) {
       firstRef.current = false;
