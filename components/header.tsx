@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SettingsPanel } from "@/components/settings/settings-panel";
 import { MusicToggle } from "@/components/music/music-toggle";
+import { SiteSearchDialog } from "@/components/search/site-search-dialog";
 import { useDict } from "@/components/i18n/language-provider";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { cn } from "@/lib/utils";
@@ -69,6 +70,7 @@ export function Header() {
             </span>
           </Link>
           <div className="flex items-center gap-2">
+            <SiteSearchDialog />
             <MusicToggle />
             <SettingsPanel />
           </div>

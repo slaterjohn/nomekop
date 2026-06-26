@@ -1,4 +1,5 @@
 import { HomeTiles } from "@/components/home/home-tiles";
+import { SiteSearchBox } from "@/components/search/site-search-box";
 import { FaqSection } from "@/components/faq-section";
 import { DidYouKnow } from "@/components/did-you-know";
 import { SetFaqSpotlight } from "@/components/home/set-faq-spotlight";
@@ -53,6 +54,9 @@ export default async function Home() {
             {SITE_IDENTITY}
           </p>
           <p className="max-w-3xl font-body text-xl leading-tight sm:text-2xl">{APP_INTRO}</p>
+        </section>
+        <section aria-label="Search the site" className="-mt-2 max-w-3xl">
+          <SiteSearchBox placeholder="Search Pokémon, sets, artists, FAQs…" />
         </section>
         <HomeTiles />
         <DidYouKnow />

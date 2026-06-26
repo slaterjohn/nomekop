@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { SetOverlaySelect } from "@/components/sets/set-overlay-select";
+import { SiteSearchBox } from "@/components/search/site-search-box";
 import { SetsBrowser, type SetsGroup, type SetsBrowserLabels } from "@/components/sets/sets-browser";
 import { TrailRecorder } from "@/components/breadcrumbs";
 import { GbScreen } from "@/components/gb/gb-screen";
@@ -121,11 +122,6 @@ export default async function SetsIndexPage({ searchParams }: Props) {
 
   const labels: SetsBrowserLabels = {
     masterCards: t.masterCards,
-    searchPlaceholder: t.searchPlaceholder,
-    searchLabel: t.searchLabel,
-    searchClear: t.searchClear,
-    noResults: t.noResults,
-    resultCount: t.resultCount,
     expandSection: t.expandSection,
     collapseSection: t.collapseSection,
     setCount: t.setCount,
@@ -196,7 +192,9 @@ export default async function SetsIndexPage({ searchParams }: Props) {
         </p>
       ) : null}
 
-      <SetsBrowser groups={groups} labels={labels} initialQuery={queryParam ?? ""} />
+      <SiteSearchBox scope="set" placeholder={t.searchPlaceholder} initialQuery={queryParam ?? ""} />
+
+      <SetsBrowser groups={groups} labels={labels} />
 
       {lang !== "en" && language && localizedRefs.length > 0 ? (
         <GbScreen title={language.label.toUpperCase()}>

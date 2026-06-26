@@ -1,9 +1,8 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import {
   Dialog,
@@ -40,11 +39,6 @@ export type SetsGroup = {
 /** Just the strings the client needs — keeps the whole dict off the wire. */
 export type SetsBrowserLabels = {
   masterCards: string;
-  searchPlaceholder: string;
-  searchLabel: string;
-  searchClear: string;
-  noResults: string;
-  resultCount: string;
   expandSection: string;
   collapseSection: string;
   setCount: string;
@@ -64,9 +58,6 @@ type Props = {
   /** Already sorted newest-series-first, sets newest-first within each. */
   groups: SetsGroup[];
   labels: SetsBrowserLabels;
-  /** Initial search query — set from ?q so the WebSite SearchAction (Sitelinks
-   *  Searchbox) lands here pre-filtered. */
-  initialQuery?: string;
 };
 
 /** A left-click with no modifier keys — the only case we hijack for the modal.
@@ -77,96 +68,41 @@ function isPlainLeftClick(e: React.MouseEvent): boolean {
 }
 
 /**
- * The interactive /sets index: a name search, collapsible series sections
- * (latest two open by default), crawlable set links, and a click-to-open detail
- * modal. The page stays a server component; this receives only serializable
- * props so the anchors render in SSR HTML (SEO) with the modal as progressive
- * enhancement on top.
+ * The interactive /sets index: collapsible series sections (latest two open by
+ * default), crawlable set links, and a click-to-open detail modal. Search lives
+ * on the page above this (the unified SiteSearchBox). The page stays a server
+ * component; this receives only serializable props so the anchors render in SSR
+ * HTML (SEO) with the modal as progressive enhancement on top.
  */
-export function SetsBrowser({ groups, labels, initialQuery = "" }: Props) {
-  const [query, setQuery] = useState(initialQuery);
+export function SetsBrowser({ groups, labels }: Props) {
   const [active, setActive] = useState<SetItem | null>(null);
   // Latest + latest-1 series open by default; everything older collapsed.
   const [open, setOpen] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(groups.map((g, i) => [g.series, i < 2])),
   );
-  const searchId = useId();
-
-  const trimmed = query.trim().toLowerCase();
-  const matches = useMemo(() => {
-    if (!trimmed) return [];
-    return groups
-      .flatMap((g) => g.sets)
-      .filter((s) => s.name.toLowerCase().includes(trimmed));
-  }, [groups, trimmed]);
-
-  const searching = trimmed.length > 0;
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-1">
-        <label htmlFor={searchId} className="sr-only">
-          {labels.searchLabel}
-        </label>
-        <div className="flex items-stretch gap-2">
-          <input
-            id={searchId}
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={labels.searchPlaceholder}
-            autoComplete="off"
-            className="min-h-11 w-full min-w-0 border-[3px] border-gb-ink bg-gb-bg px-3 py-2 font-body text-lg text-gb-ink shadow-[2px_2px_0_0_var(--gb-ink)] outline-none placeholder:text-gb-ink/70 focus-visible:-translate-y-px"
+      {groups.map((group) => {
+        const isOpen = open[group.series] ?? false;
+        return (
+          <CollapsibleSeries
+            key={group.series}
+            group={group}
+            labels={labels}
+            open={isOpen}
+            onToggle={() => setOpen((prev) => ({ ...prev, [group.series]: !isOpen }))}
+            onOpenSet={setActive}
           />
-          {searching ? (
-            <button
-              type="button"
-              onClick={() => setQuery("")}
-              className="inline-flex min-h-11 shrink-0 cursor-pointer items-center justify-center border-[3px] border-gb-ink bg-gb-bg px-3 font-pixel text-[10px] uppercase text-gb-ink shadow-[2px_2px_0_0_var(--gb-ink)] motion-safe:transition-transform motion-safe:hover:-translate-y-px"
-            >
-              {labels.searchClear}
-            </button>
-          ) : null}
-        </div>
-        {searching ? (
-          <p aria-live="polite" className="font-body text-base text-gb-ink/80">
-            {matches.length === 0
-              ? format(labels.noResults, { query: query.trim() })
-              : format(labels.resultCount, { count: matches.length, query: query.trim() })}
-          </p>
-        ) : null}
-      </div>
-
-      {searching ? (
-        matches.length > 0 ? (
-          <GbScreen title="">
-            <SetGrid sets={matches} labels={labels} onOpen={setActive} />
-          </GbScreen>
-        ) : null
-      ) : (
-        groups.map((group) => {
-          const isOpen = open[group.series] ?? false;
-          return (
-            <CollapsibleSeries
-              key={group.series}
-              group={group}
-              labels={labels}
-              open={isOpen}
-              onToggle={() =>
-                setOpen((prev) => ({ ...prev, [group.series]: !isOpen }))
-              }
-              onOpenSet={setActive}
-            />
-          );
-        })
-      )}
+        );
+      })}
 
       <SetDetailModal set={active} labels={labels} onClose={() => setActive(null)} />
     </div>
   );
 }
 
-/** A series group: a GbScreen whose title bar is a collapse toggle. The content
+/** A series group: a bordered section whose title bar is a collapse toggle. The content
  *  is always in the DOM (so crawlers see the links) and merely `hidden` when
  *  collapsed, keeping the SSR HTML crawlable. */
 function CollapsibleSeries({

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
-import { IllustratorSearchForm } from "@/components/illustrator/illustrator-search-form";
+import { SiteSearchBox } from "@/components/search/site-search-box";
 import { ArtistDirectory, parseArtistSort } from "@/components/illustrator/artist-directory";
 import { SortTabs } from "@/components/entities/sort-tabs";
 import { TrailRecorder } from "@/components/breadcrumbs";
@@ -56,7 +56,7 @@ export default async function IllustratorLandingPage({
 
       <GbScreen title={dict.illustratorLanding.chooseHeading}>
         <div className="flex flex-col gap-4">
-          <IllustratorSearchForm />
+          <SiteSearchBox scope="artist" placeholder="Search illustrators…" />
           <p className="font-pixel text-[10px] uppercase">{dict.common.popular}</p>
           <div className="flex flex-wrap gap-2">
             {POPULAR.map((name) => (
