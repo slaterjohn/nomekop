@@ -72,18 +72,36 @@ export function ScrollRestorer() {
       return;
     }
 
-    // Re-apply across frames: streamed content grows after the route swaps in,
-    // so a single scrollTo would clamp short. Stop once we reach it or ~1.5s in.
-    let raf = 0;
-    const start = performance.now();
-    const tick = () => {
-      window.scrollTo(0, target);
-      if (window.scrollY < target - 2 && performance.now() - start < 1500) {
-        raf = requestAnimationFrame(tick);
-      }
+    // Re-apply on a timer: a force-dynamic page refetches its content on Back and
+    // streamed content grows after the route swaps in, so a single scrollTo clamps
+    // short while the page is still loading. Keep re-applying until we actually
+    // reach the offset, capped generously for a slow refetch. A timer (not
+    // requestAnimationFrame, which browsers pause on backgrounded tabs) drives it
+    // so it still fires if the tab isn't focused. Bail the moment the user scrolls
+    // themselves, so we never fight them.
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let aborted = false;
+    const start = Date.now();
+    const onUserScroll = () => {
+      aborted = true;
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    window.addEventListener("wheel", onUserScroll, { passive: true });
+    window.addEventListener("touchstart", onUserScroll, { passive: true });
+    window.addEventListener("keydown", onUserScroll);
+    const stop = () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener("wheel", onUserScroll);
+      window.removeEventListener("touchstart", onUserScroll);
+      window.removeEventListener("keydown", onUserScroll);
+    };
+    const tick = () => {
+      if (aborted) return stop();
+      window.scrollTo(0, target);
+      if (window.scrollY >= target - 2 || Date.now() - start >= 5000) return stop();
+      timer = setTimeout(tick, 50);
+    };
+    tick();
+    return stop;
   }, [pathname]);
 
   return null;
