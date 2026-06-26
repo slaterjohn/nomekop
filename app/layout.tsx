@@ -14,6 +14,7 @@ import { SplashScreen } from "@/components/splash/splash-screen";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { EasterEggs } from "@/components/easter-eggs/easter-eggs";
 import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
+import { ScrollRestorer } from "@/components/scroll-restorer";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 
 const pressStart = Press_Start_2P({
@@ -121,6 +122,7 @@ export default async function RootLayout({
             <a href="#main" className="skip-link uppercase">
               {dict.common.skipToContent}
             </a>
+            <ScrollRestorer />
             <Header />
             {children}
             <SiteFooter />
