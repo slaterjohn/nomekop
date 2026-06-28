@@ -18,9 +18,11 @@ const ENTRIES: SearchEntry[] = [
 vi.mock("@/lib/search/use-search-index", () => ({
   useSearchIndex: () => ({ entries: ENTRIES, ready: true }),
 }));
+vi.mock("@/lib/analytics/events", () => ({ capture: vi.fn() }));
 
 import { SiteSearchBox } from "@/components/search/site-search-box";
 import { SiteSearchDialog } from "@/components/search/site-search-dialog";
+import { capture } from "@/lib/analytics/events";
 
 function type(value: string) {
   const input = screen.getByRole("combobox");
@@ -29,7 +31,10 @@ function type(value: string) {
   return input;
 }
 
-beforeEach(() => push.mockClear());
+beforeEach(() => {
+  push.mockClear();
+  vi.mocked(capture).mockClear();
+});
 
 describe("SiteSearchBox", () => {
   it("shows grouped suggestions for the matching types only", () => {
@@ -73,6 +78,40 @@ describe("SiteSearchBox", () => {
     const { container } = render(<SiteSearchBox placeholder="Search…" />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("captures search_result_selected with the result type", () => {
+    render(<SiteSearchBox />);
+    type("pika");
+    fireEvent.click(screen.getByText("Pikachu"));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "search_result_selected",
+      expect.objectContaining({ result_type: "pokemon", scope: "global", surface: "inline" }),
+    );
+  });
+
+  it("captures search_opened on focus", () => {
+    render(<SiteSearchBox scope="pokemon" />);
+    fireEvent.focus(screen.getByRole("combobox"));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "search_opened",
+      expect.objectContaining({ surface: "inline", scope: "pokemon" }),
+    );
+  });
+
+  it("captures search_performed (debounced) with the query and result_count", () => {
+    vi.useFakeTimers();
+    try {
+      render(<SiteSearchBox scope="pokemon" />);
+      type("pika");
+      vi.advanceTimersByTime(450);
+    } finally {
+      vi.useRealTimers();
+    }
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "search_performed",
+      expect.objectContaining({ query: "pika", scope: "pokemon", surface: "inline", result_count: 1 }),
+    );
+  });
 });
 
 describe("SiteSearchDialog (⌘K)", () => {
@@ -85,6 +124,10 @@ describe("SiteSearchDialog (⌘K)", () => {
     expect(within(dialog).getByText("Ken Sugimori")).toBeInTheDocument();
     fireEvent.click(within(dialog).getByText("Ken Sugimori"));
     expect(push).toHaveBeenCalledWith("/illustrator/ken-sugimori");
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "search_result_selected",
+      expect.objectContaining({ result_type: "artist", surface: "dialog", scope: "global" }),
+    );
   });
 
   it("opens on the ⌘K shortcut", async () => {

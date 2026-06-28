@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useSearchIndex } from "@/lib/search/use-search-index";
 import { runSearch } from "@/lib/search/search";
 import { SearchResults } from "@/components/search/search-results";
+import { capture } from "@/lib/analytics/events";
+import type { SearchEntry } from "@/lib/search/types";
 
 /** Global ⌘K search: a header trigger + a focus-trapped dialog that searches
  *  every section, grouped. Mounted once in the layout, so ⌘K works everywhere. */
@@ -28,7 +30,37 @@ export function SiteSearchDialog() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const go = (url: string) => {
+  // Fire search_opened once per open transition (header button or ⌘K).
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (open && !wasOpen.current) capture("search_opened", { surface: "dialog", scope: "global" });
+    wasOpen.current = open;
+  }, [open]);
+
+  // Debounced search_performed — intent, not keystrokes.
+  useEffect(() => {
+    const q = query.trim();
+    if (!q) return;
+    const id = window.setTimeout(() => {
+      capture("search_performed", {
+        query: q,
+        query_length: q.length,
+        scope: "global",
+        surface: "dialog",
+        result_count: groups.reduce((n, g) => n + g.items.length, 0),
+      });
+    }, 400);
+    return () => window.clearTimeout(id);
+  }, [query, groups]);
+
+  const go = (url: string, item: SearchEntry, position: number) => {
+    capture("search_result_selected", {
+      query: query.trim(),
+      result_type: item.type,
+      scope: "global",
+      surface: "dialog",
+      position,
+    });
     setOpen(false);
     setQuery("");
     router.push(url);

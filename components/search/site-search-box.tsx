@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
 import { useSearchIndex } from "@/lib/search/use-search-index";
 import { runSearch } from "@/lib/search/search";
 import { SearchResults } from "@/components/search/search-results";
-import type { SearchType } from "@/lib/search/types";
+import { capture } from "@/lib/analytics/events";
+import type { SearchEntry, SearchType } from "@/lib/search/types";
 
 /** Inline search: an input with a dropdown of grouped suggestions. `scope`
  *  restricts to one section (Pokémon / sets / artists); omit for global.
@@ -27,8 +28,40 @@ export function SiteSearchBox({
   const { entries } = useSearchIndex(open || query.length > 0);
   const groups = runSearch(query, entries, { scope });
   const show = open && query.trim().length > 0;
+  const surface = "inline";
+  const scopeProp = scope ?? "global";
 
-  const go = (url: string) => {
+  // Fire search_opened once per open transition (focus, or an initialQuery landing).
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (open && !wasOpen.current) capture("search_opened", { surface, scope: scopeProp });
+    wasOpen.current = open;
+  }, [open, scopeProp]);
+
+  // Debounced: capture intent, not keystrokes.
+  useEffect(() => {
+    const q = query.trim();
+    if (!q) return;
+    const id = window.setTimeout(() => {
+      capture("search_performed", {
+        query: q,
+        query_length: q.length,
+        scope: scopeProp,
+        surface,
+        result_count: groups.reduce((n, g) => n + g.items.length, 0),
+      });
+    }, 400);
+    return () => window.clearTimeout(id);
+  }, [query, scopeProp, groups]);
+
+  const go = (url: string, item: SearchEntry, position: number) => {
+    capture("search_result_selected", {
+      query: query.trim(),
+      result_type: item.type,
+      scope: scopeProp,
+      surface,
+      position,
+    });
     setOpen(false);
     setQuery("");
     router.push(url);
