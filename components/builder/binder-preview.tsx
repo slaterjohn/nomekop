@@ -5,6 +5,7 @@ import { CardSlot } from "@/components/builder/card-slot";
 import { flyToCollectionBar } from "@/lib/fly-to";
 import { useRememberedSpread } from "@/lib/use-remembered-spread";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 import type { BinderLayout, Page, SlotKind } from "@/lib/layout";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
@@ -45,9 +46,21 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
     );
   }
 
-  const go = (next: number) => {
+  const go = (
+    next: number,
+    direction: "next" | "prev" | "first" | "last",
+    via: "button" | "keyboard",
+  ) => {
     const clampedNext = Math.max(0, Math.min(spreads.length - 1, next));
-    if (clampedNext !== clamped) play("move");
+    if (clampedNext !== clamped) {
+      play("move");
+      capture("binder_page_turned", {
+        direction,
+        spread_index: clampedNext,
+        spread_count: spreads.length,
+        via,
+      });
+    }
     setSpreadIndex(clampedNext);
   };
 
@@ -55,19 +68,19 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
     switch (e.key) {
       case "ArrowRight":
         e.preventDefault();
-        go(clamped + 1);
+        go(clamped + 1, "next", "keyboard");
         break;
       case "ArrowLeft":
         e.preventDefault();
-        go(clamped - 1);
+        go(clamped - 1, "prev", "keyboard");
         break;
       case "Home":
         e.preventDefault();
-        go(0);
+        go(0, "first", "keyboard");
         break;
       case "End":
         e.preventDefault();
-        go(spreads.length - 1);
+        go(spreads.length - 1, "last", "keyboard");
         break;
     }
   };
@@ -88,7 +101,7 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
           size="sm"
           aria-label="Previous pages"
           disabled={clamped === 0}
-          onClick={() => go(clamped - 1)}
+          onClick={() => go(clamped - 1, "prev", "button")}
         >
           ◀
         </GbButton>
@@ -100,7 +113,7 @@ export function BinderPreview({ set, layout, tick, onInspect, rememberKey }: Bin
           size="sm"
           aria-label="Next pages"
           disabled={clamped === spreads.length - 1}
-          onClick={() => go(clamped + 1)}
+          onClick={() => go(clamped + 1, "next", "button")}
         >
           ▶
         </GbButton>
@@ -154,6 +167,7 @@ function PageGrid({
                     onToggle: (element: HTMLElement) => {
                       if (!checked) flyToCollectionBar(element);
                       play(checked ? "back" : "move");
+                      capture("card_marked", { set: set.id, kind: slot.kind, checked: !checked });
                       tick.toggle(key);
                     },
                   };
@@ -161,7 +175,10 @@ function PageGrid({
               : undefined;
           const inspect =
             !tick && onInspect && slot.kind !== "empty"
-              ? () => onInspect(slot.card, slot.kind)
+              ? () => {
+                  capture("card_inspected", { card_id: slot.card.id, kind: slot.kind, set: set.id });
+                  onInspect(slot.card, slot.kind);
+                }
               : undefined;
           return (
             <div key={key} className="motion-safe:animate-gb-deal" style={{ animationDelay: `${i * 22}ms` }}>

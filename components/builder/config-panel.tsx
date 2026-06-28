@@ -9,6 +9,7 @@ import { buildBinderLayout } from "@/lib/layout";
 import { POCKET_PRESETS, type BinderConfig } from "@/lib/config";
 import { setHasBallPatterns, setPatternKinds } from "@/lib/tcg/ball-patterns";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
 
 type ConfigPanelProps = {
@@ -42,6 +43,10 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
   const showBallOptions = config.mode === "master" && ballSet;
   const showPlacement = config.mode === "master" && hasParallels;
 
+  // One discriminated analytics event for every config tweak.
+  const logConfig = (field: string, value: string | number | boolean) =>
+    capture("binder_config_changed", { field, value, set: set.id });
+
   return (
     <div className="flex flex-col gap-4" data-no-click-sound>
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Binder size">
@@ -56,6 +61,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
               onClick={() => {
                 play("confirm");
                 setCustomOpen(false);
+                logConfig("grid", `${preset.rows}x${preset.cols}`);
                 onChange({ rows: preset.rows, cols: preset.cols });
               }}
             >
@@ -70,6 +76,7 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           onClick={() => {
             play("confirm");
             setCustomOpen(true);
+            logConfig("grid", "custom");
           }}
         >
           Custom
@@ -83,14 +90,20 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
             value={config.rows}
             min={1}
             max={5}
-            onChange={(rows) => onChange({ rows })}
+            onChange={(rows) => {
+              logConfig("grid", `${rows}x${config.cols}`);
+              onChange({ rows });
+            }}
           />
           <GbStepper
             label="Cols"
             value={config.cols}
             min={1}
             max={5}
-            onChange={(cols) => onChange({ cols })}
+            onChange={(cols) => {
+              logConfig("grid", `${config.rows}x${cols}`);
+              onChange({ cols });
+            }}
           />
         </div>
       ) : null}
@@ -100,7 +113,10 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           <GbMenu
             label="Collection mode"
             value={config.mode}
-            onChange={(mode) => onChange({ mode })}
+            onChange={(mode) => {
+              logConfig("mode", mode);
+              onChange({ mode });
+            }}
             options={[
               { value: "standard", label: "Standard", hint: "one pocket per card" },
               {
@@ -120,7 +136,10 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
           <GbToggle
             label="Secret rares"
             checked={config.secrets}
-            onChange={(secrets) => onChange({ secrets })}
+            onChange={(secrets) => {
+              logConfig("secrets", secrets);
+              onChange({ secrets });
+            }}
           />
           {showBallOptions ? (
             <>
@@ -128,21 +147,30 @@ export function ConfigPanel({ set, cards, config, onChange }: ConfigPanelProps) 
                 <GbToggle
                   label="Poké Ball"
                   checked={config.pb}
-                  onChange={(pb) => onChange({ pb })}
+                  onChange={(pb) => {
+                    logConfig("pokeball", pb);
+                    onChange({ pb });
+                  }}
                 />
               ) : null}
               {patternKinds.masterball ? (
                 <GbToggle
                   label="Master Ball"
                   checked={config.mb}
-                  onChange={(mb) => onChange({ mb })}
+                  onChange={(mb) => {
+                    logConfig("masterball", mb);
+                    onChange({ mb });
+                  }}
                 />
               ) : null}
               {patternKinds.energy ? (
                 <GbToggle
                   label="Energy"
                   checked={config.ep}
-                  onChange={(ep) => onChange({ ep })}
+                  onChange={(ep) => {
+                    logConfig("energy", ep);
+                    onChange({ ep });
+                  }}
                 />
               ) : null}
             </>

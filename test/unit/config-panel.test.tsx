@@ -6,7 +6,10 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ConfigPanel } from "@/components/builder/config-panel";
 import { DEFAULT_CONFIG } from "@/lib/config";
+import { capture } from "@/lib/analytics/events";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+
+vi.mock("@/lib/analytics/events", () => ({ capture: vi.fn() }));
 
 let sv1Cards: TcgCard[];
 let preCards: TcgCard[];
@@ -265,5 +268,33 @@ describe("ConfigPanel — Ascended Heroes (Energy pattern, no Master Ball)", () 
     );
     await user.click(screen.getByRole("switch", { name: "Energy" }));
     expect(onChange).toHaveBeenCalledWith({ ep: false });
+  });
+});
+
+describe("ConfigPanel — analytics", () => {
+  it("captures binder_config_changed (grid) when a pocket preset is chosen", async () => {
+    vi.mocked(capture).mockClear();
+    const user = userEvent.setup();
+    render(
+      <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={vi.fn()} />,
+    );
+    await user.click(screen.getByRole("button", { name: "9 PKT" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "binder_config_changed",
+      expect.objectContaining({ field: "grid", value: "3x3", set: "sv1" }),
+    );
+  });
+
+  it("captures binder_config_changed (secrets) when Secret rares is toggled", async () => {
+    vi.mocked(capture).mockClear();
+    const user = userEvent.setup();
+    render(
+      <ConfigPanel set={sv1Set} cards={sv1Cards} config={{ ...DEFAULT_CONFIG, set: "sv1" }} onChange={vi.fn()} />,
+    );
+    await user.click(screen.getByRole("switch", { name: "Secret rares" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "binder_config_changed",
+      expect.objectContaining({ field: "secrets", set: "sv1" }),
+    );
   });
 });

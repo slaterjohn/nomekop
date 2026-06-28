@@ -32,6 +32,7 @@ import { buildBinderLayout } from "@/lib/layout";
 import { isSeriesVerified } from "@/lib/tcg/era-coverage";
 import { toCollectionCsv } from "@/lib/csv";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils";
 import type { TcgSet } from "@/lib/tcg/types";
 
@@ -95,6 +96,7 @@ export function Builder({ initialSets }: BuilderProps) {
     a.remove();
     URL.revokeObjectURL(url);
     play("success");
+    capture("csv_downloaded", { set: config.set, collected_count: checklist.count });
   };
 
   return (
@@ -189,7 +191,10 @@ export function Builder({ initialSets }: BuilderProps) {
                 <GbToggle
                   label="Collection mode"
                   checked={collectionMode.enabled}
-                  onChange={(on) => collectionMode.setEnabled(on)}
+                  onChange={(on) => {
+                    capture("collection_mode_toggled", { enabled: on, set: config.set });
+                    collectionMode.setEnabled(on);
+                  }}
                 />
                 {collectionMode.enabled ? (
                   <div className="flex flex-col gap-2">
@@ -259,6 +264,7 @@ export function Builder({ initialSets }: BuilderProps) {
               data-no-click-sound
               onClick={() => {
                 play("back");
+                capture("checklist_cleared", { set: config.set, count: checklist.count });
                 clearChecklist(config.set, config.mode);
                 setConfirmClear(false);
               }}

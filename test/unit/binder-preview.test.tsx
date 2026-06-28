@@ -7,7 +7,11 @@ import path from "node:path";
 import { BinderPreview } from "@/components/builder/binder-preview";
 import { buildBinderLayout } from "@/lib/layout";
 import { DEFAULT_CONFIG } from "@/lib/config";
+import { capture } from "@/lib/analytics/events";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+
+vi.mock("@/lib/analytics/events", () => ({ capture: vi.fn() }));
+vi.mock("@/lib/fly-to", () => ({ flyToCollectionBar: vi.fn() }));
 
 let sv1Cards: TcgCard[];
 const sv1Set: TcgSet = {
@@ -168,6 +172,49 @@ describe("BinderPreview", () => {
       );
       expect(screen.getAllByRole("checkbox").length).toBeGreaterThan(0);
       expect(screen.queryByRole("button", { name: /View details/ })).not.toBeInTheDocument();
+    });
+  });
+
+  describe("analytics", () => {
+    it("captures binder_page_turned when paging forward with a button", async () => {
+      vi.mocked(capture).mockClear();
+      const user = userEvent.setup();
+      renderPreview();
+      await user.click(screen.getByRole("button", { name: "Next pages" }));
+      expect(vi.mocked(capture)).toHaveBeenCalledWith(
+        "binder_page_turned",
+        expect.objectContaining({ direction: "next", via: "button", spread_index: 1 }),
+      );
+    });
+
+    it("captures card_marked when a pocket is ticked", async () => {
+      vi.mocked(capture).mockClear();
+      const user = userEvent.setup();
+      const layout = buildBinderLayout(sv1Cards.slice(0, 9), sv1Set, DEFAULT_CONFIG);
+      render(
+        <BinderPreview
+          set={sv1Set}
+          layout={layout}
+          tick={{ isChecked: () => false, toggle: vi.fn() }}
+        />,
+      );
+      await user.click(screen.getAllByRole("checkbox")[0]!);
+      expect(vi.mocked(capture)).toHaveBeenCalledWith(
+        "card_marked",
+        expect.objectContaining({ set: "sv1", checked: true }),
+      );
+    });
+
+    it("captures card_inspected when a pocket is opened", async () => {
+      vi.mocked(capture).mockClear();
+      const user = userEvent.setup();
+      const layout = buildBinderLayout(sv1Cards, sv1Set, { ...DEFAULT_CONFIG });
+      render(<BinderPreview set={sv1Set} layout={layout} onInspect={vi.fn()} />);
+      await user.click(screen.getByRole("button", { name: "View details: Pineco · 1/198 · Common" }));
+      expect(vi.mocked(capture)).toHaveBeenCalledWith(
+        "card_inspected",
+        expect.objectContaining({ card_id: "sv1-1", kind: "card", set: "sv1" }),
+      );
     });
   });
 });

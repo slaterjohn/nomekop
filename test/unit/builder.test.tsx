@@ -7,7 +7,10 @@ import path from "node:path";
 import { Providers } from "@/components/providers";
 import { Builder } from "@/components/builder/builder";
 import { __resetChecklistStoreForTests } from "@/lib/checklist-store";
+import { capture } from "@/lib/analytics/events";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+
+vi.mock("@/lib/analytics/events", () => ({ capture: vi.fn() }));
 
 // --- next/navigation mock: a reactive fake router so URL state re-renders ----
 // The hook drives the address bar via history.replaceState (as Next does in
@@ -248,4 +251,51 @@ describe("Builder", () => {
     await screen.findByRole("heading", { name: /^preview$/i });
     expect(await axe(container)).toHaveNoViolations();
   }, 20_000);
+});
+
+describe("Builder — analytics", () => {
+  it("captures collection_mode_toggled when collection mode is switched on", async () => {
+    vi.mocked(capture).mockClear();
+    mockCardsFetch(sv1Cards);
+    const user = userEvent.setup();
+    renderBuilder();
+    await screen.findByRole("heading", { name: /^preview$/i });
+    await user.click(screen.getByRole("switch", { name: "Collection mode" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "collection_mode_toggled",
+      expect.objectContaining({ enabled: true, set: "sv1" }),
+    );
+  });
+
+  it("captures csv_downloaded when CSV is exported", async () => {
+    URL.createObjectURL = vi.fn(() => "blob:test");
+    URL.revokeObjectURL = vi.fn();
+    vi.mocked(capture).mockClear();
+    mockCardsFetch(sv1Cards);
+    const user = userEvent.setup();
+    renderBuilder();
+    await screen.findByRole("heading", { name: /^preview$/i });
+    await user.click(screen.getByRole("switch", { name: "Collection mode" }));
+    await user.click(screen.getByRole("button", { name: "CSV" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "csv_downloaded",
+      expect.objectContaining({ set: "sv1" }),
+    );
+  });
+
+  it("captures checklist_cleared when the collection is wiped", async () => {
+    vi.mocked(capture).mockClear();
+    mockCardsFetch(sv1Cards);
+    const user = userEvent.setup();
+    renderBuilder();
+    await screen.findByRole("heading", { name: /^preview$/i });
+    await user.click(screen.getByRole("switch", { name: "Collection mode" }));
+    await user.click(screen.getAllByRole("checkbox")[0]!);
+    await user.click(screen.getByRole("button", { name: "Clear" }));
+    await user.click(await screen.findByRole("button", { name: "Clear all" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "checklist_cleared",
+      expect.objectContaining({ set: "sv1" }),
+    );
+  });
 });
