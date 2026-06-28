@@ -20,6 +20,7 @@ import {
   type PokemonBinderOptions,
 } from "@/lib/pokemon-binder";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 import type { CardWithSet, TcgSet } from "@/lib/tcg/types";
 
 type PokemonBinderViewProps = {
@@ -46,9 +47,13 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
     window.history.replaceState(null, "", `/pokemon/${encodePokemonToken(slug, next)}`);
   };
 
+  const logConfig = (field: string, value: string | number | boolean) =>
+    capture("binder_config_changed", { field, value, context: "pokemon", slug });
+
   // Languages change which cards are fetched, so navigate (the server re-renders
   // with the new card set) rather than just patching local state.
   const changeLanguages = (langs: string[]) => {
+    logConfig("languages", langs.join(",") || "en");
     router.push(`/pokemon/${encodePokemonToken(slug, { ...options, langs })}`);
   };
 
@@ -82,6 +87,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
                   onClick={() => {
                     play("confirm");
                     setCustomOpen(false);
+                    logConfig("grid", `${preset.rows}x${preset.cols}`);
                     update({ rows: preset.rows, cols: preset.cols });
                   }}
                 >
@@ -96,6 +102,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
               onClick={() => {
                 play("confirm");
                 setCustomOpen(true);
+                logConfig("grid", "custom");
               }}
             >
               {dict.binder.custom}
@@ -104,8 +111,8 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
 
           {customOpen || !matchingPreset ? (
             <div className="flex flex-wrap items-center gap-4">
-              <GbStepper label={dict.binder.rows} value={options.rows} min={1} max={5} onChange={(rows) => update({ rows })} />
-              <GbStepper label={dict.binder.cols} value={options.cols} min={1} max={5} onChange={(cols) => update({ cols })} />
+              <GbStepper label={dict.binder.rows} value={options.rows} min={1} max={5} onChange={(rows) => { logConfig("grid", `${rows}x${options.cols}`); update({ rows }); }} />
+              <GbStepper label={dict.binder.cols} value={options.cols} min={1} max={5} onChange={(cols) => { logConfig("grid", `${options.rows}x${cols}`); update({ cols }); }} />
             </div>
           ) : null}
 
@@ -113,7 +120,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
             <GbMenu
               label={dict.binder.cardsToInclude}
               value={options.filter}
-              onChange={(filter) => update({ filter })}
+              onChange={(filter) => { logConfig("filter", filter); update({ filter }); }}
               options={[
                 { value: "all", label: dict.binder.allPrints, hint: format(dict.binder.allPrintsHint, { count: cards.length }) },
                 { value: "secret", label: dict.binder.secretsOnly, hint: format(dict.binder.secretsHint, { count: secretCount }) },
@@ -124,7 +131,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
             <GbMenu
               label={dict.binder.order}
               value={options.order}
-              onChange={(order) => update({ order })}
+              onChange={(order) => { logConfig("order", order); update({ order }); }}
               options={[
                 { value: "new", label: dict.binder.newestFirst, hint: dict.binder.newestHint },
                 { value: "old", label: dict.binder.oldestFirst, hint: dict.binder.oldestHint },
@@ -170,6 +177,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
           ]}
           printHref={`/print/pokemon?t=${encodeURIComponent(encodePokemonToken(slug, options))}`}
           filenameBase={`nomekop-${slug}`}
+          context="pokemon"
         />
       </GbScreen>
 

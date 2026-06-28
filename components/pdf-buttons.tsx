@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { GbButton, GbLinkButton } from "@/components/gb/gb-button";
 import { GbSpinner } from "@/components/gb/gb-spinner";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 
 export type PdfButtonSpec = {
   label: string;
@@ -20,10 +21,12 @@ type PdfButtonsProps = {
   buttons: PdfButtonSpec[];
   printHref: string;
   filenameBase: string;
+  /** Analytics surface, e.g. "pokemon" | "illustrator" | "pokedex". */
+  context: string;
 };
 
 /** Shared PDF download row: POST /api/pdf, stream to a download, GB feedback. */
-export function PdfButtons({ buttons, printHref, filenameBase }: PdfButtonsProps) {
+export function PdfButtons({ buttons, printHref, filenameBase, context }: PdfButtonsProps) {
   const [busy, setBusy] = useState<string | null>(null);
 
   const download = async (spec: PdfButtonSpec) => {
@@ -55,8 +58,14 @@ export function PdfButtons({ buttons, printHref, filenameBase }: PdfButtonsProps
       a.remove();
       URL.revokeObjectURL(url);
       play("success");
+      capture("pdf_downloaded", { type: spec.type, context });
       toast.success(`${spec.label} ready!`);
     } catch (err) {
+      capture("pdf_download_failed", {
+        type: spec.type,
+        context,
+        error: err instanceof Error ? err.message : "unknown",
+      });
       toast.error(err instanceof Error ? err.message : "PDF generation failed.");
     } finally {
       setBusy(null);
@@ -70,7 +79,13 @@ export function PdfButtons({ buttons, printHref, filenameBase }: PdfButtonsProps
           {spec.label}
         </GbButton>
       ))}
-      <GbLinkButton variant="b" href={printHref} target="_blank" rel="noopener">
+      <GbLinkButton
+        variant="b"
+        href={printHref}
+        target="_blank"
+        rel="noopener"
+        onClick={() => capture("print_opened", { context })}
+      >
         Print
       </GbLinkButton>
       <span className="min-h-6">{busy ? <GbSpinner label="Generating…" /> : null}</span>

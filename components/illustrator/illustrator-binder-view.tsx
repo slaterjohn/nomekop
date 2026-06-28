@@ -20,6 +20,7 @@ import {
   type IllustratorBinderOptions,
 } from "@/lib/illustrator-binder";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 import type { CardWithSet, TcgSet } from "@/lib/tcg/types";
 
 type IllustratorBinderViewProps = {
@@ -51,8 +52,12 @@ export function IllustratorBinderView({
     window.history.replaceState(null, "", `/illustrator/${encodeIllustratorToken(slug, next)}`);
   };
 
+  const logConfig = (field: string, value: string | number | boolean) =>
+    capture("binder_config_changed", { field, value, context: "illustrator", slug });
+
   // Languages change which cards are fetched, so navigate (server re-renders).
   const changeLanguages = (langs: string[]) => {
+    logConfig("languages", langs.join(",") || "en");
     router.push(`/illustrator/${encodeIllustratorToken(slug, { ...options, langs })}`);
   };
 
@@ -85,6 +90,7 @@ export function IllustratorBinderView({
                   onClick={() => {
                     play("confirm");
                     setCustomOpen(false);
+                    logConfig("grid", `${preset.rows}x${preset.cols}`);
                     update({ rows: preset.rows, cols: preset.cols });
                   }}
                 >
@@ -99,6 +105,7 @@ export function IllustratorBinderView({
               onClick={() => {
                 play("confirm");
                 setCustomOpen(true);
+                logConfig("grid", "custom");
               }}
             >
               {dict.binder.custom}
@@ -107,8 +114,8 @@ export function IllustratorBinderView({
 
           {customOpen || !matchingPreset ? (
             <div className="flex flex-wrap items-center gap-4">
-              <GbStepper label={dict.binder.rows} value={options.rows} min={1} max={5} onChange={(rows) => update({ rows })} />
-              <GbStepper label={dict.binder.cols} value={options.cols} min={1} max={5} onChange={(cols) => update({ cols })} />
+              <GbStepper label={dict.binder.rows} value={options.rows} min={1} max={5} onChange={(rows) => { logConfig("grid", `${rows}x${options.cols}`); update({ rows }); }} />
+              <GbStepper label={dict.binder.cols} value={options.cols} min={1} max={5} onChange={(cols) => { logConfig("grid", `${options.rows}x${cols}`); update({ cols }); }} />
             </div>
           ) : null}
 
@@ -116,7 +123,7 @@ export function IllustratorBinderView({
             <GbMenu
               label={dict.binder.order}
               value={options.order}
-              onChange={(order) => update({ order })}
+              onChange={(order) => { logConfig("order", order); update({ order }); }}
               options={[
                 { value: "new", label: dict.binder.newestFirst, hint: dict.binder.newestHint },
                 { value: "old", label: dict.binder.oldestFirst, hint: dict.binder.oldestHint },
@@ -161,6 +168,7 @@ export function IllustratorBinderView({
           ]}
           printHref={`/print/illustrator?t=${encodeURIComponent(encodeIllustratorToken(slug, options))}`}
           filenameBase={`nomekop-${slug}`}
+          context="illustrator"
         />
       </GbScreen>
 

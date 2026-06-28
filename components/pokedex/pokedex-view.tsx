@@ -252,6 +252,7 @@ export function PokedexView({ initialConfig, cards }: PokedexViewProps) {
           ]}
           printHref={`/print/pokedex?t=${encodeURIComponent(token)}`}
           filenameBase={`nomekop-pokedex-${config.gen}`}
+          context="pokedex"
         />
       </GbScreen>
 
