@@ -33,7 +33,7 @@ export function CookieConsent() {
       <p className="font-body text-base leading-snug">{dict.consent.message}</p>
       <div className="flex w-full flex-wrap items-center gap-2">
         {/* DOM order = tab order: Allow (1), Deny (2), Close (3). */}
-        <GbButton variant="a" onClick={grantConsent}>
+        <GbButton variant="a" onClick={() => grantConsent("banner")}>
           {dict.consent.allow}
         </GbButton>
         <GbButton variant="b" onClick={denyConsent}>

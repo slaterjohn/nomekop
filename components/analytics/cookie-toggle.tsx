@@ -21,7 +21,7 @@ export function CookieToggle() {
     <GbToggle
       label={dict.settings.cookies}
       checked={status === "granted"}
-      onChange={(on) => (on ? grantConsent() : denyConsent())}
+      onChange={(on) => (on ? grantConsent("settings") : denyConsent())}
     />
   );
 }

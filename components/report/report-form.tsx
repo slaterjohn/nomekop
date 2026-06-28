@@ -6,6 +6,7 @@ import { GbButton } from "@/components/gb/gb-button";
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { submitReport, type ReportState } from "@/app/report/actions";
 import { ISSUE_TYPES } from "@/lib/report/schema";
+import { capture } from "@/lib/analytics/events";
 
 export type ReportSetRef = { id: string; name: string; series: string };
 
@@ -70,6 +71,15 @@ export function ReportForm({
   useEffect(() => {
     if (state.status === "sent") sentRef.current?.focus();
   }, [state]);
+
+  // Analytics — never the reporter's name/email/message; just what they reported on.
+  useEffect(() => {
+    if (state.status === "sent") capture("report_submitted", { era, set });
+    else if (state.status === "error" || state.status === "unconfigured")
+      capture("report_submit_failed", { reason: state.status });
+    // era/set are stable once the form is submitted (it's replaced on success).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.status]);
 
   if (state.status === "sent") {
     return (
