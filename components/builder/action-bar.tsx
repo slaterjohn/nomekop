@@ -8,6 +8,7 @@ import { GbToggle } from "@/components/gb/gb-toggle";
 import { serializeConfig, type BinderConfig } from "@/lib/config";
 import { encodeShareToken } from "@/lib/share";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 
 export type PdfType = "binder" | "checklist" | "placeholders";
 
@@ -55,8 +56,17 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
       a.remove();
       URL.revokeObjectURL(url);
       play("success");
+      capture("pdf_downloaded", {
+        type,
+        set: config.set,
+        grid: `${config.rows}x${config.cols}`,
+      });
       toast.success(`${type.toUpperCase()} PDF ready!`);
     } catch (err) {
+      capture("pdf_download_failed", {
+        type,
+        error: err instanceof Error ? err.message : "unknown",
+      });
       toast.error(err instanceof Error ? err.message : "PDF generation failed.");
     } finally {
       setBusy(null);
@@ -81,6 +91,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
         variant="b"
         onClick={() => {
           play("confirm");
+          capture("print_opened", { context: "builder" });
           window.open(printHref, "_blank", "noopener");
         }}
       >
@@ -93,6 +104,7 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
           try {
             await navigator.clipboard.writeText(link);
             play("success");
+            capture("share_link_copied", { context: "builder", set: config.set });
             toast.success("Share link copied!");
           } catch {
             toast.error(`Copy failed — your link: ${link}`);
@@ -104,7 +116,10 @@ export function ActionBar({ config, onStyleChange }: ActionBarProps) {
       <GbToggle
         label="Retro print"
         checked={config.style === "retro"}
-        onChange={(retro) => onStyleChange(retro ? "retro" : "clean")}
+        onChange={(retro) => {
+          capture("print_style_changed", { style: retro ? "retro" : "clean" });
+          onStyleChange(retro ? "retro" : "clean");
+        }}
       />
       <span className="min-h-6">{busy ? <GbSpinner label="Generating…" /> : null}</span>
     </div>

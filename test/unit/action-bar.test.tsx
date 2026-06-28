@@ -4,9 +4,11 @@ import userEvent from "@testing-library/user-event";
 import { axe } from "vitest-axe";
 import { ActionBar } from "@/components/builder/action-bar";
 import { DEFAULT_CONFIG } from "@/lib/config";
+import { capture } from "@/lib/analytics/events";
 
 const toastMock = vi.hoisted(() => ({ success: vi.fn(), error: vi.fn() }));
 vi.mock("sonner", () => ({ toast: toastMock }));
+vi.mock("@/lib/analytics/events", () => ({ capture: vi.fn() }));
 
 const config = { ...DEFAULT_CONFIG, set: "base1" };
 
@@ -97,5 +99,67 @@ describe("ActionBar", () => {
   it("axe clean", async () => {
     const { container } = render(<ActionBar config={config} onStyleChange={vi.fn()} />);
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe("ActionBar — analytics", () => {
+  beforeEach(() => vi.mocked(capture).mockClear());
+
+  it("captures pdf_downloaded on a successful download", async () => {
+    const user = userEvent.setup();
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("%PDF", { status: 200 })));
+    const clickSpy = vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
+    render(<ActionBar config={config} onStyleChange={vi.fn()} />);
+    await user.click(screen.getByRole("button", { name: "Binder PDF" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "pdf_downloaded",
+      expect.objectContaining({ type: "binder", set: "base1" }),
+    );
+    clickSpy.mockRestore();
+  });
+
+  it("captures pdf_download_failed when the server errors", async () => {
+    const user = userEvent.setup();
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("nope", { status: 500 })));
+    render(<ActionBar config={config} onStyleChange={vi.fn()} />);
+    await user.click(screen.getByRole("button", { name: "Placeholders PDF" }));
+    await vi.waitFor(() =>
+      expect(vi.mocked(capture)).toHaveBeenCalledWith(
+        "pdf_download_failed",
+        expect.objectContaining({ type: "placeholders" }),
+      ),
+    );
+  });
+
+  it("captures print_opened when Print is clicked", async () => {
+    const user = userEvent.setup();
+    const openSpy = vi.spyOn(window, "open").mockReturnValue(null);
+    render(<ActionBar config={config} onStyleChange={vi.fn()} />);
+    await user.click(screen.getByRole("button", { name: /Print/ }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith("print_opened", { context: "builder" });
+    openSpy.mockRestore();
+  });
+
+  it("captures share_link_copied when the link is copied", async () => {
+    const user = userEvent.setup();
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText: vi.fn().mockResolvedValue(undefined) },
+      configurable: true,
+    });
+    render(<ActionBar config={config} onStyleChange={vi.fn()} />);
+    await user.click(screen.getByRole("button", { name: "Share" }));
+    await vi.waitFor(() =>
+      expect(vi.mocked(capture)).toHaveBeenCalledWith(
+        "share_link_copied",
+        expect.objectContaining({ context: "builder", set: "base1" }),
+      ),
+    );
+  });
+
+  it("captures print_style_changed when the retro toggle flips", async () => {
+    const user = userEvent.setup();
+    render(<ActionBar config={config} onStyleChange={vi.fn()} />);
+    await user.click(screen.getByRole("switch", { name: "Retro print" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith("print_style_changed", { style: "retro" });
   });
 });
