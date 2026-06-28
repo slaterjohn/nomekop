@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { AccuracyDisclaimer } from "@/components/accuracy-disclaimer";
 import { format } from "@/lib/i18n/format";
+import { capture } from "@/lib/analytics/events";
 
 /** One set, with everything the browser + modal need — fully serializable. */
 export type SetItem = {
@@ -81,6 +82,11 @@ export function SetsBrowser({ groups, labels }: Props) {
     Object.fromEntries(groups.map((g, i) => [g.series, i < 2])),
   );
 
+  const openSet = (set: SetItem) => {
+    capture("set_opened", { set: set.id, series: set.series, source: "sets_browser" });
+    setActive(set);
+  };
+
   return (
     <div className="flex flex-col gap-4">
       {groups.map((group) => {
@@ -91,8 +97,11 @@ export function SetsBrowser({ groups, labels }: Props) {
             group={group}
             labels={labels}
             open={isOpen}
-            onToggle={() => setOpen((prev) => ({ ...prev, [group.series]: !isOpen }))}
-            onOpenSet={setActive}
+            onToggle={() => {
+              capture("series_toggled", { series: group.series, expanded: !isOpen });
+              setOpen((prev) => ({ ...prev, [group.series]: !isOpen }));
+            }}
+            onOpenSet={openSet}
           />
         );
       })}
