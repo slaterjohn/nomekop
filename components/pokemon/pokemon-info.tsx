@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { GbScreen } from "@/components/gb/gb-screen";
-import { GbLinkButton } from "@/components/gb/gb-button";
+import { TrackedLinkButton } from "@/components/analytics/tracked-link-button";
 import { StatGrid, type Stat } from "@/components/entities/stat-grid";
 import { EntityCardGallery } from "@/components/entities/entity-card-gallery";
 import { EntityFaqSection } from "@/components/entities/entity-faq-section";
@@ -88,9 +88,14 @@ export async function PokemonInfo({ entity }: { entity: PokemonEntity }) {
       <EntityFaqSection heading={`Common questions about ${entity.name} cards`} entries={faqs} />
 
       <div className="flex flex-wrap gap-2">
-        <GbLinkButton variant="a" href={binderHref}>
+        <TrackedLinkButton
+          variant="a"
+          href={binderHref}
+          event="entity_binder_started"
+          eventProps={{ type: "pokemon", slug: entity.slug }}
+        >
           Build a {entity.name} binder
-        </GbLinkButton>
+        </TrackedLinkButton>
       </div>
 
       {sorted.length > 0 ? (

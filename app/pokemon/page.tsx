@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
-import { GbLinkButton } from "@/components/gb/gb-button";
+import { TrackedLinkButton } from "@/components/analytics/tracked-link-button";
 import { SiteSearchBox } from "@/components/search/site-search-box";
 import { PokemonDirectory, parsePokemonSort } from "@/components/pokemon/pokemon-directory";
 import { SortTabs } from "@/components/entities/sort-tabs";
@@ -59,9 +59,16 @@ export default async function PokemonLandingPage({
           <p className="font-pixel text-[10px] uppercase">{dict.common.popular}</p>
           <div className="flex flex-wrap gap-2">
             {POPULAR.map((name) => (
-              <GbLinkButton key={name} variant="b" size="sm" href={`/pokemon/${pokemonSlugByName(name) ?? ""}`}>
+              <TrackedLinkButton
+                key={name}
+                variant="b"
+                size="sm"
+                href={`/pokemon/${pokemonSlugByName(name) ?? ""}`}
+                event="popular_entity_clicked"
+                eventProps={{ type: "pokemon", name }}
+              >
                 {name}
-              </GbLinkButton>
+              </TrackedLinkButton>
             ))}
           </div>
         </div>

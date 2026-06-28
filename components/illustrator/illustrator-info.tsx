@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { GbScreen } from "@/components/gb/gb-screen";
 import { GbLinkButton } from "@/components/gb/gb-button";
+import { TrackedLinkButton } from "@/components/analytics/tracked-link-button";
 import { StatGrid, type Stat } from "@/components/entities/stat-grid";
 import { EntityCardGallery } from "@/components/entities/entity-card-gallery";
 import { EntityFaqSection } from "@/components/entities/entity-faq-section";
@@ -118,9 +119,14 @@ export async function IllustratorInfo({ artist }: { artist: ArtistEntity }) {
       <EntityFaqSection heading={`Common questions about ${artist.name}`} entries={faqs} />
 
       <div className="flex flex-wrap gap-2">
-        <GbLinkButton variant="a" href={binderHref}>
+        <TrackedLinkButton
+          variant="a"
+          href={binderHref}
+          event="entity_binder_started"
+          eventProps={{ type: "artist", slug: artist.slug }}
+        >
           Build a {artist.name} binder
-        </GbLinkButton>
+        </TrackedLinkButton>
         {artist.illustrationCount > 0 ? (
           <GbLinkButton variant="b" href={`${base}/illustrations`}>
             Illustration cards ({artist.illustrationCount})

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { GbScreen } from "@/components/gb/gb-screen";
-import { GbLinkButton } from "@/components/gb/gb-button";
+import { TrackedLinkButton } from "@/components/analytics/tracked-link-button";
 import { SiteSearchBox } from "@/components/search/site-search-box";
 import { ArtistDirectory, parseArtistSort } from "@/components/illustrator/artist-directory";
 import { SortTabs } from "@/components/entities/sort-tabs";
@@ -60,9 +60,16 @@ export default async function IllustratorLandingPage({
           <p className="font-pixel text-[10px] uppercase">{dict.common.popular}</p>
           <div className="flex flex-wrap gap-2">
             {POPULAR.map((name) => (
-              <GbLinkButton key={name} variant="b" size="sm" href={`/illustrator/${artistSlugByName(name) ?? ""}`}>
+              <TrackedLinkButton
+                key={name}
+                variant="b"
+                size="sm"
+                href={`/illustrator/${artistSlugByName(name) ?? ""}`}
+                event="popular_entity_clicked"
+                eventProps={{ type: "artist", name }}
+              >
                 {name}
-              </GbLinkButton>
+              </TrackedLinkButton>
             ))}
           </div>
         </div>
