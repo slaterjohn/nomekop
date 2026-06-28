@@ -7,6 +7,7 @@ import { startMusic, stopMusic } from "@/lib/music/engine";
 import { trackForPath } from "@/lib/music/tracks";
 import { useDict } from "@/components/i18n/language-provider";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils";
 
 /** Header toggle for the background soundtrack. Starting it here (in the click)
@@ -19,6 +20,7 @@ export function MusicToggle() {
 
   const toggle = () => {
     const next = !enabled;
+    capture("music_toggled", { playing: next });
     setEnabled(next);
     if (next) {
       play("confirm");

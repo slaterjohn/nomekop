@@ -1,9 +1,12 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, screen, fireEvent, within, cleanup } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import { SettingsPanel } from "@/components/settings/settings-panel";
 import { __resetMotionForTests } from "@/lib/motion";
 import { __resetSoundForTests } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
+
+vi.mock("@/lib/analytics/events", () => ({ capture: vi.fn() }));
 
 afterEach(() => {
   cleanup();
@@ -49,5 +52,16 @@ describe("SettingsPanel", () => {
     // sentinels as siblings of the popup that are not part of our markup.
     const dialog = await screen.findByRole("dialog");
     expect(await axe(dialog)).toHaveNoViolations();
+  });
+
+  it("captures setting_changed when reduce-animation is toggled", async () => {
+    vi.mocked(capture).mockClear();
+    render(<SettingsPanel />);
+    fireEvent.click(screen.getByRole("button", { name: "Settings" }));
+    fireEvent.click(await screen.findByRole("switch", { name: "Reduce animation" }));
+    expect(vi.mocked(capture)).toHaveBeenCalledWith(
+      "setting_changed",
+      expect.objectContaining({ setting: "reduce_motion" }),
+    );
   });
 });

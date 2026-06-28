@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { THEMES } from "@/lib/themes";
 import { useTheme } from "@/components/theme/theme-provider";
 import { play } from "@/lib/sound";
+import { capture } from "@/lib/analytics/events";
 
 /**
  * Palette picker: one swatch per Game Boy palette, radiogroup semantics with
@@ -62,6 +63,7 @@ export function ThemeSwitcher() {
             onKeyDown={onKeyDown}
             onFocus={() => setActiveIndex(i)}
             onClick={() => {
+              capture("setting_changed", { setting: "palette", value: t.id });
               setTheme(t.id);
               play("confirm");
             }}

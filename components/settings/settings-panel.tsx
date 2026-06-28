@@ -21,6 +21,7 @@ import { useFont, type FontType } from "@/lib/font";
 import { useFontSize, type FontSize } from "@/lib/font-size";
 import { useColorScheme, type ColorSchemePref } from "@/lib/color-scheme";
 import { analyticsEnabled } from "@/lib/analytics/posthog";
+import { capture } from "@/lib/analytics/events";
 
 /**
  * The app's personalisation knobs in one header-launched dialog: UI language,
@@ -106,6 +107,7 @@ export function SettingsPanel() {
               onChange={(code) => {
                 if (code === locale) return;
                 play("confirm");
+                capture("setting_changed", { setting: "language", value: code });
                 setLocale(code);
               }}
               options={languageOptions}
@@ -133,6 +135,7 @@ export function SettingsPanel() {
                 const next = fontOptions.find((option) => option.value === value)?.value;
                 if (!next || next === font) return;
                 play("confirm");
+                capture("setting_changed", { setting: "font", value: next });
                 setFont(next);
               }}
               options={fontOptions}
@@ -151,6 +154,7 @@ export function SettingsPanel() {
                 const next = textSizeOptions.find((option) => option.value === value)?.value;
                 if (!next || next === size) return;
                 play("confirm");
+                capture("setting_changed", { setting: "text_size", value: next });
                 setSize(next);
               }}
               options={textSizeOptions}
@@ -169,6 +173,7 @@ export function SettingsPanel() {
                 const next = appearanceOptions.find((option) => option.value === value)?.value;
                 if (!next || next === scheme) return;
                 play("confirm");
+                capture("setting_changed", { setting: "appearance", value: next });
                 setScheme(next);
               }}
               options={appearanceOptions}
@@ -184,6 +189,7 @@ export function SettingsPanel() {
               label={dict.settings.sound}
               checked={soundOn}
               onChange={(on) => {
+                capture("setting_changed", { setting: "sound", value: on });
                 setSound(on);
                 if (on) play("success");
               }}
@@ -191,7 +197,10 @@ export function SettingsPanel() {
             <GbToggle
               label={dict.settings.reduceAnimation}
               checked={reduced}
-              onChange={setReduced}
+              onChange={(value) => {
+                capture("setting_changed", { setting: "reduce_motion", value });
+                setReduced(value);
+              }}
             />
           </section>
 
