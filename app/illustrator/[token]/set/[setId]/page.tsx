@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getArtistEntity } from "@/lib/content/entities/registry";
 import { getArtistCards } from "@/lib/tcg";
 import { ArtistCardsSubpage } from "@/components/illustrator/artist-cards-subpage";
+import { decodeParam } from "@/lib/url-params";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ const setLabel = (name: string) => (name === "Base" ? "Base Set" : name);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token, setId } = await params;
-  const artist = getArtistEntity(decodeURIComponent(token));
+  const artist = getArtistEntity(decodeParam(token));
   if (!artist) return { title: "Illustrator" };
   const cards = (await getArtistCards(artist.slug)).filter((c) => c.setId === setId);
   if (cards.length === 0) return { title: artist.name };
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /** One illustrator's cards within a single set. */
 export default async function ArtistSetPage({ params }: Props) {
   const { token, setId } = await params;
-  const slug = decodeURIComponent(token);
+  const slug = decodeParam(token);
   const artist = getArtistEntity(slug);
   if (!artist) notFound();
   const cards = (await getArtistCards(slug)).filter((c) => c.setId === setId);

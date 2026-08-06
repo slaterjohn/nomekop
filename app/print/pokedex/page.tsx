@@ -5,6 +5,7 @@ import { PrintPokedex } from "@/components/print/print-pokedex";
 import { buildPokedexEntries, decodePokedexToken, generationById } from "@/lib/pokedex";
 import { getLocalizedPokedexCards, getPokedexCards } from "@/lib/tcg";
 import { cardLanguagesEnabled } from "@/lib/features";
+import { decodeParam } from "@/lib/url-params";
 
 export const metadata: Metadata = {
   title: "Pokédex print — Nomekop",
@@ -17,7 +18,7 @@ type Props = {
 
 export default async function PrintPokedexPage({ searchParams }: Props) {
   const { t, view } = await searchParams;
-  const config = t ? decodePokedexToken(decodeURIComponent(t)) : null;
+  const config = t ? decodePokedexToken(decodeParam(t)) : null;
   if (!config) notFound();
   const gen = generationById(config.gen)!;
   const lang = cardLanguagesEnabled() ? config.lang : "en";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
 import { IllustratorBinderView } from "@/components/illustrator/illustrator-binder-view";
 import { BinderSkeleton } from "@/components/binder-skeleton";
@@ -18,6 +18,7 @@ import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
 import { getArtistEntity } from "@/lib/content/entities/registry";
 import { IllustratorInfo } from "@/components/illustrator/illustrator-info";
+import { binderRedirectPath, decodeParam } from "@/lib/url-params";
 
 /** Drop any non-English card languages from a token when the feature is off, so
  *  a hand-typed/stale multi-language URL still renders a clean English binder. */
@@ -33,14 +34,14 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const raw = decodeURIComponent(token);
+  const raw = decodeParam(token);
   const decoded = decodeIllustratorToken(raw);
   if (decoded) {
     const name = displayNameFromSlug(decoded.name);
     return {
       title: `${name} binder — every card by this illustrator`,
       description: `Build a printable binder of every Pokemon TCG card illustrated by ${name}, across all sets, newest or oldest first, with A4 pages and placeholders.`,
-      alternates: { canonical: `/illustrator/${encodeURIComponent(token)}` },
+      alternates: { canonical: `/illustrator/${encodeURIComponent(raw)}` },
     };
   }
   // Bare slug → the illustrator information page.
@@ -108,14 +109,23 @@ async function IllustratorBinderData({
  *  binder; a bare artist slug renders the information page; anything else 404s. */
 export default async function IllustratorRoutePage({ params }: Props) {
   const { token } = await params;
-  const raw = decodeURIComponent(token);
+  const raw = decodeParam(token);
   const decoded = decodeIllustratorToken(raw);
   if (!decoded) {
     const artist = getArtistEntity(raw);
     if (artist) return <IllustratorInfo artist={artist} />;
     // No info page for this slug (below the card threshold / free-text / typo) —
     // fall back to the binder, which works for any artist via name search.
-    redirect(`/illustrator/${encodeIllustratorToken(raw, DEFAULT_ILLUSTRATOR_OPTIONS)}`);
+    // The path must be percent-encoded: Node rejects a Location header holding a
+    // code point above U+00FF, and a token its own decoder rejects has no URL to
+    // redirect to at all (it would bounce straight back here).
+    const target = binderRedirectPath(
+      "/illustrator",
+      encodeIllustratorToken(raw, DEFAULT_ILLUSTRATOR_OPTIONS),
+      decodeIllustratorToken,
+    );
+    if (!target) notFound();
+    redirect(target);
   }
   const displayName = displayNameFromSlug(decoded.name);
   const { dict } = await getServerDictionary();

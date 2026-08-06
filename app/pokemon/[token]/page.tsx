@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
 import { PokemonBinderView } from "@/components/pokemon/pokemon-binder-view";
 import { PokemonNoResults } from "@/components/pokemon/pokemon-no-results";
@@ -18,6 +18,7 @@ import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
 import { getPokemonEntity } from "@/lib/content/entities/registry";
 import { PokemonInfo } from "@/components/pokemon/pokemon-info";
+import { binderRedirectPath, decodeParam } from "@/lib/url-params";
 
 /** Drop any non-English card languages from a token when the feature is off, so
  *  a hand-typed/stale multi-language URL still renders a clean English binder. */
@@ -33,14 +34,14 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const raw = decodeURIComponent(token);
+  const raw = decodeParam(token);
   const decoded = decodePokemonToken(raw);
   if (decoded) {
     const name = displayNameFromSlug(decoded.name);
     return {
       title: `${name} binder — every card in one layout`,
       description: `Build a printable binder of every ${name} card across all Pokemon TCG sets: secrets only or rarest per set, newest or oldest first, A4 pages and placeholders.`,
-      alternates: { canonical: `/pokemon/${encodeURIComponent(token)}` },
+      alternates: { canonical: `/pokemon/${encodeURIComponent(raw)}` },
     };
   }
   // Bare slug → the Pokémon information page.
@@ -98,14 +99,23 @@ async function PokemonBinderData({
  *  binder; a bare Pokémon slug renders the information page; anything else 404s. */
 export default async function PokemonRoutePage({ params }: Props) {
   const { token } = await params;
-  const raw = decodeURIComponent(token);
+  const raw = decodeParam(token);
   const decoded = decodePokemonToken(raw);
   if (!decoded) {
     const entity = getPokemonEntity(raw);
     if (entity) return <PokemonInfo entity={entity} />;
     // No info page for this slug (cardless species / free-text / typo) — fall
     // back to the binder, which handles any name (and shows "no results" if none).
-    redirect(`/pokemon/${encodePokemonToken(raw, DEFAULT_POKEMON_OPTIONS)}`);
+    // The path must be percent-encoded: Node rejects a Location header holding a
+    // code point above U+00FF, and a token its own decoder rejects has no URL to
+    // redirect to at all (it would bounce straight back here).
+    const target = binderRedirectPath(
+      "/pokemon",
+      encodePokemonToken(raw, DEFAULT_POKEMON_OPTIONS),
+      decodePokemonToken,
+    );
+    if (!target) notFound();
+    redirect(target);
   }
   const displayName = displayNameFromSlug(decoded.name);
   const { dict } = await getServerDictionary();

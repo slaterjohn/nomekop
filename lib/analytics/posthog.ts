@@ -26,6 +26,16 @@ export const POSTHOG_API_HOST = "/ingest";
 export const POSTHOG_UI_HOST = "https://eu.posthog.com";
 
 /**
+ * Direct EU ingestion host for server-side capture (posthog-node, see
+ * lib/analytics/posthog-server.ts). Unlike the browser client, the server talks to
+ * PostHog directly instead of going through the `/ingest` rewrite in next.config.ts —
+ * that rewrite exists purely to keep the strict browser CSP (`connect-src 'self'`)
+ * happy and to dodge ad-blockers, neither of which applies to a server-to-server call.
+ * Keep this in sync with the rewrite's destination if the project ever moves off EU.
+ */
+export const POSTHOG_SERVER_HOST = "https://eu.i.posthog.com";
+
+/**
  * The active key: the env override when set (including "" to disable), else the
  * bundled default. Read live (not a module constant) so it stays correct under
  * test env stubbing; in the browser bundle the reference is inlined anyway.

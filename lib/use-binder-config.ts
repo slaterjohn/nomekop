@@ -4,6 +4,7 @@ import { useCallback, useMemo } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { parseConfig, type BinderConfig } from "@/lib/config";
 import { decodeShareToken, encodeShareToken } from "@/lib/share";
+import { decodeParam } from "@/lib/url-params";
 
 /**
  * Binder config lives in the address bar as a share token — /b/sv1~34m111ic —
@@ -24,7 +25,7 @@ export function useBinderConfig(): {
   const config = useMemo(() => {
     const tokenMatch = /^\/b\/([^/]+)$/.exec(pathname);
     if (tokenMatch) {
-      const decoded = decodeShareToken(decodeURIComponent(tokenMatch[1]!));
+      const decoded = decodeShareToken(decodeParam(tokenMatch[1]!));
       if (decoded) return decoded;
     }
     return parseConfig(Object.fromEntries(searchParams.entries()));

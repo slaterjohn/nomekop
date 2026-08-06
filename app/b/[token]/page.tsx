@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BuilderShell } from "@/components/builder-shell";
 import { decodeShareToken } from "@/lib/share";
+import { decodeParam } from "@/lib/url-params";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const config = decodeShareToken(decodeURIComponent(token));
+  const config = decodeShareToken(decodeParam(token));
   if (!config) return { title: "Nomekop" };
   return {
     title: `${config.set} binder layout (${config.rows}×${config.cols}, ${config.mode})`,
@@ -25,6 +26,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  *  This IS the canonical address-bar URL while configuring. */
 export default async function SharedBinderPage({ params }: Props) {
   const { token } = await params;
-  if (!decodeShareToken(decodeURIComponent(token))) notFound();
+  if (!decodeShareToken(decodeParam(token))) notFound();
   return <BuilderShell />;
 }

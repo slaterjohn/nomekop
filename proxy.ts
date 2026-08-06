@@ -18,7 +18,25 @@ const { canonicalHost, apexHost } = (() => {
   }
 })();
 
+/** True when every path segment is a valid percent-encoding. A bare `%` (or a
+ *  truncated escape like `%E9`) is a malformed URL: Next's router throws
+ *  "failed to decode param" on it and answers 500 before any route code runs.
+ *  Browsers never emit these, but crawlers and scanners do constantly. */
+function hasDecodablePath(pathname: string): boolean {
+  try {
+    decodeURIComponent(pathname);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function proxy(request: NextRequest): NextResponse {
+  // Answer malformed URLs with a 404 rather than letting the router 500.
+  if (!hasDecodablePath(request.nextUrl.pathname)) {
+    return new NextResponse(null, { status: 404 });
+  }
+
   const host = request.headers.get("host");
   if (apexHost && host === apexHost) {
     const url = new URL(request.nextUrl.pathname + request.nextUrl.search, `https://${canonicalHost}`);

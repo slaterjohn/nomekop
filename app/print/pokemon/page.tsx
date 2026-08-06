@@ -12,6 +12,7 @@ import {
 import { searchPokemonCards } from "@/lib/tcg";
 import { cardLanguagesEnabled } from "@/lib/features";
 import type { TcgSet } from "@/lib/tcg/types";
+import { decodeParam } from "@/lib/url-params";
 
 export const metadata: Metadata = {
   title: "Pokémon binder print — Nomekop",
@@ -24,7 +25,7 @@ type Props = {
 
 export default async function PrintPokemonPage({ searchParams }: Props) {
   const { t, view } = await searchParams;
-  const decoded = t ? decodePokemonToken(decodeURIComponent(t)) : null;
+  const decoded = t ? decodePokemonToken(decodeParam(t)) : null;
   if (!decoded) notFound();
   const options = cardLanguagesEnabled() ? decoded.options : { ...decoded.options, langs: ["en"] };
   const cards = await searchPokemonCards(decoded.name, options.langs);

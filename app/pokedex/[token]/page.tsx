@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { decodePokedexToken, generationById, type PokedexConfig } from "@/lib/pokedex";
 import { getLocalizedPokedexCards, getPokedexCards } from "@/lib/tcg";
 import { cardLanguagesEnabled } from "@/lib/features";
+import { decodeParam } from "@/lib/url-params";
 
 /** Force a Pokédex binder back to English when the multi-language feature is off,
  *  so a stale/hand-typed localized token still renders instead of going empty. */
@@ -22,7 +23,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const config = decodePokedexToken(decodeURIComponent(token));
+  const config = decodePokedexToken(decodeParam(token));
   if (!config) return { title: "Pokédex binder" };
   const gen = generationById(config.gen)!;
   return {
@@ -49,7 +50,7 @@ async function PokedexData({ config }: { config: PokedexConfig }) {
 /** The Pokédex binder for one generation, with the user's swaps applied. */
 export default async function PokedexPage({ params }: Props) {
   const { token } = await params;
-  const decoded = decodePokedexToken(decodeURIComponent(token));
+  const decoded = decodePokedexToken(decodeParam(token));
   if (!decoded) notFound();
   const config = gateLang(decoded);
   const gen = generationById(config.gen)!;
