@@ -93,13 +93,31 @@ describe("binderRedirectPath", () => {
   });
 
   // A token the decoder rejects has no reachable URL: redirecting to it lands
-  // back on the same route, appends another suffix and redirects again.
+  // back on the same route, appends another suffix and redirects again. The slug
+  // charset used to reject these three real credits, so they hit that branch;
+  // now they decode and redirect ONCE to a working binder. Either way the
+  // property under test is the same — the route must terminate.
   it.each([
     ["curly apostrophe", "farfetch’d"],
     ["quotes and comma", '"Big Mama" Tagawa, CR CG gangs'],
     ["slash", "Nobusawa/Mochipuyo"],
-  ])("returns null for %s rather than looping", (_label, value) => {
+    ["question mark", "Imakuni?"],
+  ])("redirects %s exactly once, to a target that decodes", (_label, value) => {
     const token = encodeIllustratorToken(value, DEFAULT_ILLUSTRATOR_OPTIONS);
+    const path = binderRedirectPath("/illustrator", token, decodeIllustratorToken);
+    expect(path).not.toBeNull();
+    // One hop only: the target decodes, so the next request renders the binder
+    // rather than falling back into the redirect branch a second time.
+    const next = decodeParam(path!.slice("/illustrator/".length));
+    expect(decodeIllustratorToken(next)).not.toBeNull();
+    expect(binderRedirectPath("/illustrator", next, decodeIllustratorToken)).toBe(path);
+  });
+
+  // Some slugs still have no URL — the token grammar caps the slug at 40
+  // characters, and a name that slugifies past it cannot round-trip. Callers
+  // must notFound() on null rather than redirect into a loop.
+  it("returns null when the name cannot fit a token at all", () => {
+    const token = encodeIllustratorToken("x".repeat(41), DEFAULT_ILLUSTRATOR_OPTIONS);
     expect(binderRedirectPath("/illustrator", token, decodeIllustratorToken)).toBeNull();
   });
 

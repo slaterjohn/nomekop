@@ -21,6 +21,7 @@ import {
 } from "@/lib/illustrator-binder";
 import { play } from "@/lib/sound";
 import { capture } from "@/lib/analytics/events";
+import { encodeSegmentPath } from "@/lib/url-params";
 import type { CardWithSet, TcgSet } from "@/lib/tcg/types";
 
 type IllustratorBinderViewProps = {
@@ -49,7 +50,7 @@ export function IllustratorBinderView({
   const update = (patch: Partial<IllustratorBinderOptions>) => {
     const next = { ...options, ...patch };
     setOptions(next);
-    window.history.replaceState(null, "", `/illustrator/${encodeIllustratorToken(slug, next)}`);
+    window.history.replaceState(null, "", encodeSegmentPath("/illustrator", encodeIllustratorToken(slug, next)));
   };
 
   const logConfig = (field: string, value: string | number | boolean) =>
@@ -58,7 +59,7 @@ export function IllustratorBinderView({
   // Languages change which cards are fetched, so navigate (server re-renders).
   const changeLanguages = (langs: string[]) => {
     logConfig("languages", langs.join(",") || "en");
-    router.push(`/illustrator/${encodeIllustratorToken(slug, { ...options, langs })}`);
+    router.push(encodeSegmentPath("/illustrator", encodeIllustratorToken(slug, { ...options, langs })));
   };
 
   const pseudoSet: TcgSet = {

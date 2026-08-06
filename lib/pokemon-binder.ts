@@ -48,7 +48,14 @@ export function encodePokemonToken(name: string, options: PokemonBinderOptions):
   return `${slugifyPokemonName(name)}~${options.rows}${options.cols}${FILTER_CH[options.filter]}${ORDER_CH[options.order]}${langSuffix(options.langs)}`;
 }
 
-const TOKEN_RE = /^([a-z0-9.'\-:♀♂é ]{2,40})~([1-5])([1-5])([asb])([no])([a-z]*)$/i;
+// Free-text slug half — same reasoning as lib/illustrator-binder.ts, and the
+// same pressure from the data: card pages link `/pokemon/<card.name>` for every
+// Pokémon-supertype card, and card names carry the delta-species `δ`, the
+// Shining `★` and Prism `◇` suffixes, Unown's bracketed letter (`Unown [J]`) and
+// tag-team `&`. An allow-list left all of those with no reachable URL. Only the
+// `~` delimiter and control characters are excluded; see that file for why `/`
+// is allowed and how the token survives a single path segment.
+const TOKEN_RE = /^([^~\p{Cc}]{2,40})~([1-5])([1-5])([asb])([no])([a-z]*)$/iu;
 
 export function decodePokemonToken(
   token: string,

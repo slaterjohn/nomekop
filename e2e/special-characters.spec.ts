@@ -60,6 +60,50 @@ for (const type of ["pokemon", "illustrator", "pokedex"]) {
   });
 }
 
+// Artists whose credit line contains a character the token grammar used to
+// reject. Each had NO reachable binder URL: the route could not build a redirect
+// target its own decoder would accept, so it 404'd (and before that, looped).
+// `/` is the interesting one — it only survives a path segment as %2F.
+const AWKWARD_ARTIST_BINDERS = [
+  ["slash", "/illustrator/nobusawa%2Fmochipuyo~34n"],
+  ["question mark", "/illustrator/imakuni%3F~34n"],
+  ["quotes and comma", "/illustrator/%22big-mama%22-tagawa%2C-cr-cg-gangs~34n"],
+  ["plus", "/illustrator/shinji-higuchi-%2B-noriko-takaya~34n"],
+  ["delta species", "/pokemon/charizard-%CE%B4~34an"],
+  ["bracketed Unown letter", "/pokemon/unown-%5Bj%5D~34an"],
+];
+
+for (const [label, url] of AWKWARD_ARTIST_BINDERS) {
+  test(`binder token with ${label} resolves: ${url}`, async ({ page }) => {
+    const res = await page.request.get(url!, { maxRedirects: 0 });
+    expect(res.status(), `${url} should render, not redirect or 404`).toBe(200);
+  });
+}
+
+// The original symptom of the too-narrow charset was an infinite redirect loop
+// (12 hops, appending `~34n` each time) before it was converted to a 404. Assert
+// the bound directly: a bare name redirects at most once, to a page that renders.
+const REDIRECT_ONCE = [
+  "/illustrator/Nobusawa%2FMochipuyo",
+  "/illustrator/Imakuni%3F",
+  '/illustrator/"Big Mama" Tagawa, CR CG gangs',
+  "/pokemon/ピカチュウ",
+];
+
+for (const url of REDIRECT_ONCE) {
+  test(`redirects at most once: ${url}`, async ({ page }) => {
+    const target = encodeURI(url);
+    const first = await page.request.get(target, { maxRedirects: 0 });
+    expect(first.status(), `${url} should redirect or render, never error`).toBeLessThan(400);
+    if (first.status() < 300) return;
+    // The redirect target must be terminal: following it once must NOT redirect
+    // again, or the route is back to bouncing a token off its own decoder.
+    const location = first.headers()["location"]!;
+    const second = await page.request.get(location, { maxRedirects: 0 });
+    expect(second.status(), `${location} must be the end of the chain`).toBe(200);
+  });
+}
+
 test("a real ♀ slug still renders its info page", async ({ page }) => {
   await page.goto(encodeURI("/pokemon/nidoran♀"));
   await expect(page.getByRole("heading", { level: 1 })).toContainText(/nidoran/i);

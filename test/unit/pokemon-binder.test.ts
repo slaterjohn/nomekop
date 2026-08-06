@@ -64,7 +64,11 @@ describe("pokemon binder tokens", () => {
   });
 
   it("rejects malformed tokens", () => {
-    for (const bad of ["", "~34an", "pikachu~99an", "pikachu~34zn", "pika/chu~34an"]) {
+    // `pika/chu~34an` used to belong here. It no longer does: a slash in the slug
+    // is now valid (real card names and artist credits contain one — see
+    // test/unit/binder-token-urls.test.ts). A second `~` still is not, because it
+    // would make the slug/options split ambiguous.
+    for (const bad of ["", "~34an", "pikachu~99an", "pikachu~34zn", "pika~chu~34an"]) {
       expect(decodePokemonToken(bad), bad).toBeNull();
     }
   });

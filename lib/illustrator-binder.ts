@@ -47,7 +47,21 @@ export function encodeIllustratorToken(name: string, options: IllustratorBinderO
   return `${slugifyArtistName(name)}~${options.rows}${options.cols}${ORDER_CH[options.order]}${langSuffix(options.langs)}`;
 }
 
-const TOKEN_RE = /^([a-z0-9.'\-:♀♂é ]{2,40})~([1-5])([1-5])([no])([a-z]*)$/i;
+// The slug half of a token is free text lifted straight from a credit line, so
+// it cannot be an allow-list: pokemontcg.io credits real artists as
+// `"Big Mama" Tagawa, CR CG gangs`, `Nobusawa/Mochipuyo`, `Imakuni?` and
+// `Shinji Higuchi + Noriko Takaya`, and every character an allow-list forgets
+// costs that artist their ONLY reachable URL. So match anything except the two
+// things that would genuinely break parsing:
+//   `~`   the delimiter — excluding it makes the split unambiguous (the slug is
+//         everything before the FIRST tilde, and a second tilde cannot appear)
+//   \p{Cc} control characters, which no URL can carry and which only ever arrive
+//         from a hand-crafted percent-escape
+// `/` is deliberately allowed. It is illegal RAW in a path segment but legal as
+// %2F, so the token still occupies one segment — provided the link builder
+// percent-encodes it (encodeSegmentPath) and the router hands the escape back
+// undecoded, which it does. See test/unit/binder-token-urls.test.ts.
+const TOKEN_RE = /^([^~\p{Cc}]{2,40})~([1-5])([1-5])([no])([a-z]*)$/iu;
 
 export function decodeIllustratorToken(
   token: string,

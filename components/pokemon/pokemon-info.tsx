@@ -12,6 +12,7 @@ import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { pokemonFaqEntries } from "@/lib/content/entities/faq";
 import { getPokemonCardsByDex } from "@/lib/tcg";
 import { encodePokemonToken, DEFAULT_POKEMON_OPTIONS } from "@/lib/pokemon-binder";
+import { encodeSegmentPath } from "@/lib/url-params";
 import type { PokemonEntity } from "@/lib/content/entities/types";
 
 function setLink(set: { id: string; name: string; releaseDate: string }, withYear = false) {
@@ -34,7 +35,7 @@ export async function PokemonInfo({ entity }: { entity: PokemonEntity }) {
       a.number.localeCompare(b.number, undefined, { numeric: true }),
   );
   const faqs = pokemonFaqEntries(entity);
-  const binderHref = `/pokemon/${encodePokemonToken(entity.name, DEFAULT_POKEMON_OPTIONS)}`;
+  const binderHref = encodeSegmentPath("/pokemon", encodePokemonToken(entity.name, DEFAULT_POKEMON_OPTIONS));
 
   const stats: Stat[] = [
     { label: "Cards", value: entity.cardCount },

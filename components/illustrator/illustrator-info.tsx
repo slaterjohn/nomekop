@@ -13,6 +13,7 @@ import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { artistFaqEntries } from "@/lib/content/entities/faq";
 import { getArtistCards } from "@/lib/tcg";
 import { encodeIllustratorToken, DEFAULT_ILLUSTRATOR_OPTIONS } from "@/lib/illustrator-binder";
+import { encodeSegmentPath } from "@/lib/url-params";
 import type { ArtistEntity } from "@/lib/content/entities/types";
 
 /** Big artists (e.g. 5ban Graphics, ~1,700 cards) would render a punishing
@@ -41,7 +42,7 @@ export async function IllustratorInfo({ artist }: { artist: ArtistEntity }) {
       a.number.localeCompare(b.number, undefined, { numeric: true }),
   );
   const faqs = artistFaqEntries(artist);
-  const binderHref = `/illustrator/${encodeIllustratorToken(artist.name, DEFAULT_ILLUSTRATOR_OPTIONS)}`;
+  const binderHref = encodeSegmentPath("/illustrator", encodeIllustratorToken(artist.name, DEFAULT_ILLUSTRATOR_OPTIONS));
   const base = `/illustrator/${encodeURIComponent(artist.slug)}`;
 
   // Distinct sets this artist appears in, newest first — each its own sub-page.

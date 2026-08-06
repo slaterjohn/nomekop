@@ -21,6 +21,7 @@ import {
 } from "@/lib/pokemon-binder";
 import { play } from "@/lib/sound";
 import { capture } from "@/lib/analytics/events";
+import { encodeSegmentPath } from "@/lib/url-params";
 import type { CardWithSet, TcgSet } from "@/lib/tcg/types";
 
 type PokemonBinderViewProps = {
@@ -44,7 +45,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
   const update = (patch: Partial<PokemonBinderOptions>) => {
     const next = { ...options, ...patch };
     setOptions(next);
-    window.history.replaceState(null, "", `/pokemon/${encodePokemonToken(slug, next)}`);
+    window.history.replaceState(null, "", encodeSegmentPath("/pokemon", encodePokemonToken(slug, next)));
   };
 
   const logConfig = (field: string, value: string | number | boolean) =>
@@ -54,7 +55,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
   // with the new card set) rather than just patching local state.
   const changeLanguages = (langs: string[]) => {
     logConfig("languages", langs.join(",") || "en");
-    router.push(`/pokemon/${encodePokemonToken(slug, { ...options, langs })}`);
+    router.push(encodeSegmentPath("/pokemon", encodePokemonToken(slug, { ...options, langs })));
   };
 
   const pseudoSet: TcgSet = {

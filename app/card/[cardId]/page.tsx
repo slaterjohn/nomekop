@@ -14,6 +14,7 @@ import { encodeShareToken } from "@/lib/share";
 import { DEFAULT_ILLUSTRATOR_OPTIONS, encodeIllustratorToken } from "@/lib/illustrator-binder";
 import { TcgError } from "@/lib/tcg/types";
 import type { SlotKind } from "@/lib/layout";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 export const dynamic = "force-dynamic";
 
@@ -122,7 +123,7 @@ export default async function CardPage({ params, searchParams }: Props) {
             <GbLinkButton
               variant="b"
               size="sm"
-              href={`/pokemon/${encodePokemonToken(card.name, DEFAULT_POKEMON_OPTIONS)}`}
+              href={encodeSegmentPath("/pokemon", encodePokemonToken(card.name, DEFAULT_POKEMON_OPTIONS))}
             >
               All {card.name} cards ▶
             </GbLinkButton>
@@ -131,7 +132,7 @@ export default async function CardPage({ params, searchParams }: Props) {
             <GbLinkButton
               variant="b"
               size="sm"
-              href={`/illustrator/${encodeIllustratorToken(card.artist, DEFAULT_ILLUSTRATOR_OPTIONS)}`}
+              href={encodeSegmentPath("/illustrator", encodeIllustratorToken(card.artist, DEFAULT_ILLUSTRATOR_OPTIONS))}
             >
               More by {card.artist} ▶
             </GbLinkButton>

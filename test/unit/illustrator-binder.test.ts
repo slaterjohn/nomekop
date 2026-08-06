@@ -65,7 +65,11 @@ describe("illustrator binder tokens", () => {
   });
 
   it("rejects malformed tokens", () => {
-    for (const bad of ["", "~34n", "ken-sugimori~99n", "ken-sugimori~34z", "ken/sugimori~34n", "ken-sugimori~34an"]) {
+    // `ken/sugimori~34n` used to belong here. It no longer does: `Nobusawa/Mochipuyo`
+    // is a real credit, so a slash in the slug is now a valid token (see
+    // test/unit/binder-token-urls.test.ts). What stays invalid is a second `~`,
+    // which would make the slug/options split ambiguous.
+    for (const bad of ["", "~34n", "ken-sugimori~99n", "ken-sugimori~34z", "ken~sugimori~34n", "ken-sugimori~34an"]) {
       expect(decodeIllustratorToken(bad), bad).toBeNull();
     }
   });

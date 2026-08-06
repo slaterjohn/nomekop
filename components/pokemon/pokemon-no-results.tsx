@@ -1,6 +1,7 @@
 import { GbDialogBox } from "@/components/gb/gb-dialog-box";
 import { GbLinkButton } from "@/components/gb/gb-button";
 import { DEFAULT_POKEMON_OPTIONS, encodePokemonToken } from "@/lib/pokemon-binder";
+import { encodeSegmentPath } from "@/lib/url-params";
 import { suggestSimilarPokemon } from "@/lib/pokemon-search";
 
 /**
@@ -24,7 +25,7 @@ export function PokemonNoResults({ query }: { query: string }) {
             {suggestions.map((p) => (
               <li key={p.dex}>
                 <GbLinkButton
-                  href={`/pokemon/${encodePokemonToken(p.name, DEFAULT_POKEMON_OPTIONS)}`}
+                  href={encodeSegmentPath("/pokemon", encodePokemonToken(p.name, DEFAULT_POKEMON_OPTIONS))}
                   variant="b"
                   size="sm"
                 >
