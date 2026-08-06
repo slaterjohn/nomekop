@@ -17,14 +17,33 @@
 //     redirect target therefore throws after the response has started — which
 //     surfaces as a 500, not a redirect.
 
-/** Percent-decode a value that may already be decoded, without ever throwing.
+/** Compose text to Unicode NFC — the form every slug in this app's data is
+ *  stored in.
+ *
+ *  macOS and iOS hand applications DECOMPOSED text (NFD): `é` arrives as `e` +
+ *  U+0301, two code points that are canonically equivalent to one but compare
+ *  unequal. Nothing about that survives an exact string match, so `flabébé`
+ *  typed or pasted on a Mac missed a Map keyed on the composed slug and 404'd a
+ *  page that exists. Both ends of every entity lookup call this, so agreement is
+ *  by construction rather than by luck about which platform sent the request.
+ *
+ *  NFC only ever composes — it never strips accents — so `flabébé` and `flabebe`
+ *  stay different pages, and slugs with no decomposition (♀, ♂, katakana) are
+ *  returned untouched. */
+export function toNfc(value: string): string {
+  return value.normalize("NFC");
+}
+
+/** Percent-decode a value that may already be decoded, without ever throwing,
+ *  and compose the result to NFC.
+ *
  *  Returns the input unchanged when it isn't a valid percent-encoding, so a
  *  malformed URL degrades to "no match" (404) instead of a 500. */
 export function decodeParam(value: string): string {
   try {
-    return decodeURIComponent(value);
+    return toNfc(decodeURIComponent(value));
   } catch {
-    return value;
+    return toNfc(value);
   }
 }
 

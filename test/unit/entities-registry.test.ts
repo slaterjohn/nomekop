@@ -81,3 +81,36 @@ describe("entities registry (full stats)", () => {
     expect(artists.every((a) => a.cardCount >= 5)).toBe(true);
   });
 });
+
+// The app's snapshots store slugs composed (NFC); macOS/iOS emit decomposed
+// (NFD). A Map keyed on the exact string therefore missed on the three Pokémon
+// and three artist slugs that carry an accent, 404ing pages that exist. Both
+// sides of the comparison are normalised, so the lookup no longer depends on
+// which platform typed the URL.
+describe("entity lookups accept decomposed (NFD) input", () => {
+  const nfd = (s: string) => s.normalize("NFD");
+
+  it("finds an accented Pokémon slug", () => {
+    expect(getPokemonEntity(nfd("flabébé"))?.slug).toBe("flabébé");
+    expect(getPokemonCatalogEntry(nfd("flabébé"))?.slug).toBe("flabébé");
+  });
+
+  it("finds accented artist slugs", () => {
+    for (const slug of ["mékayu", "natsuko-shoji-été", "the-pokémon-company-art-team"]) {
+      expect(artistCatalog().some((a) => a.slug === slug), slug).toBe(true);
+      expect(artistHasPage(nfd(slug)), slug).toBe(artistHasPage(slug));
+    }
+    const gated = gatedArtistSlugs().find((s) => /[^\x00-\x7f]/.test(s));
+    if (gated) expect(getArtistEntity(nfd(gated))?.slug).toBe(gated);
+  });
+
+  it("resolves display names typed in either form", () => {
+    expect(pokemonSlugByName(nfd("Flabébé"))).toBe("flabébé");
+    expect(artistSlugByName(nfd("Mékayu"))).toBe("mékayu");
+  });
+
+  it("still misses names that are genuinely absent", () => {
+    expect(getPokemonEntity(nfd("flabébéx"))).toBeUndefined();
+    expect(pokemonSlugByName("not-a-pokemon")).toBeUndefined();
+  });
+});

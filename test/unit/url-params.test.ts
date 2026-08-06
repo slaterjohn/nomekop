@@ -44,6 +44,36 @@ describe("decodeParam", () => {
   );
 });
 
+// macOS and iOS produce decomposed (NFD) text: a keyboard, a Finder filename or
+// a copy-paste of `flabébé` from a Mac carries `e` + U+0301, not `é`. Every slug
+// in the app's data is composed (NFC) and looked up by exact match, so NFD input
+// silently missed and 404'd a page that exists.
+describe("decodeParam normalises to NFC", () => {
+  const NFD = "flabe\u0301be\u0301";
+  const NFC = "flab\u00e9b\u00e9";
+
+  it("composes decomposed input", () => {
+    expect(decodeParam(NFD)).toBe(NFC);
+  });
+
+  it("composes it out of the percent-encoded form the browser sends", () => {
+    expect(decodeParam(encodeURIComponent(NFD))).toBe(NFC);
+  });
+
+  it("leaves already-composed input alone", () => {
+    expect(decodeParam(NFC)).toBe(NFC);
+  });
+
+  // ♀/♂ have no decomposition — normalising must not disturb the slugs that
+  // already worked.
+  it.each(["nidoran♀", "nidoran♂", "ピカチュウ", "farfetch’d", "pikachu~34an"])(
+    "leaves %j unchanged",
+    (value) => {
+      expect(decodeParam(value)).toBe(value);
+    },
+  );
+});
+
 describe("isHeaderSafe", () => {
   it("accepts Latin-1, which Node allows in a header", () => {
     expect(isHeaderSafe("flabébé")).toBe(true);
