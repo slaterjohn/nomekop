@@ -44,11 +44,17 @@ describe("GET /api/cards/[setId]", () => {
     expect(body.error).toContain("nope");
   });
 
-  it("400s on malformed set ids", async () => {
-    const res = await getCards(new Request("http://test/api/cards/..%2Fetc"), {
-      params: Promise.resolve({ setId: "../etc" }),
+  // A set id lives in the PATH, so an unparseable one names no resource — the
+  // same thing an unknown-but-well-formed id means, and the same thing every
+  // page route says for the identical input (/set/% is a 404). Answering 400
+  // here made the one JSON route the odd one out for no gain: nothing branches
+  // on the status, and the guard still rejects traversal attempts either way.
+  it.each(["../etc", "%", "a b", ""])("404s on malformed set id %j", async (setId) => {
+    const res = await getCards(new Request("http://test/api/cards/x"), {
+      params: Promise.resolve({ setId }),
     });
-    expect(res.status).toBe(400);
+    expect(res.status).toBe(404);
+    expect((await res.json()) as { error: string }).toHaveProperty("error");
   });
 });
 
