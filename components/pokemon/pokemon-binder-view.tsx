@@ -161,7 +161,7 @@ export function PokemonBinderView({ slug, displayName, cards, initialOptions }: 
             // have no detail page yet, so they're not click-through.
             if ((card.lang ?? "en") !== "en") return;
             play("confirm");
-            router.push(`/card/${card.id}`);
+            router.push(encodeSegmentPath("/card", card.id));
           }}
         />
       </GbScreen>

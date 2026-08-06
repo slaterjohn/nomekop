@@ -62,7 +62,7 @@ export async function PokemonInfo({ entity }: { entity: PokemonEntity }) {
 
       <header className="flex flex-wrap items-center gap-4">
         {entity.signatureCard?.imageSmall ? (
-          <Link href={`/card/${entity.signatureCard.id}`} className="shrink-0 no-underline">
+          <Link href={encodeSegmentPath("/card", entity.signatureCard.id)} className="shrink-0 no-underline">
             <Image
               src={entity.signatureCard.imageSmall}
               alt={`${entity.name} — ${entity.signatureCard.name}`}

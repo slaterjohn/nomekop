@@ -9,6 +9,7 @@
 import type { FaqEntry } from "@/lib/faq";
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from "@/lib/site";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 export type JsonLdObject = Record<string, unknown>;
 
@@ -251,7 +252,7 @@ export function setCollectionJsonLd(set: TcgSet, cards: TcgCard[]): JsonLdObject
         "@type": "ListItem",
         position: index + 1,
         name: card.name,
-        url: absolute(`/card/${card.id}`),
+        url: absolute(encodeSegmentPath("/card", card.id)),
       })),
     },
   };

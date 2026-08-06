@@ -14,7 +14,7 @@ import { encodeShareToken } from "@/lib/share";
 import { DEFAULT_ILLUSTRATOR_OPTIONS, encodeIllustratorToken } from "@/lib/illustrator-binder";
 import { TcgError } from "@/lib/tcg/types";
 import type { SlotKind } from "@/lib/layout";
-import { encodeSegmentPath } from "@/lib/url-params";
+import { decodeParam, encodeSegmentPath } from "@/lib/url-params";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +31,14 @@ function parseCardId(cardId: string): { setId: string; number: string } | null {
 }
 
 /** Shared by generateMetadata and the page body — cache() dedupes the fetch
- *  so both run off a single sets+cards lookup per request. */
+ *  so both run off a single sets+cards lookup per request.
+ *
+ *  Takes the DECODED id. pokemontcg.io mints ids containing characters a URL
+ *  reserves — `ex10-!` and `ex10-?` are real cards — and a page component
+ *  receives its params still percent-encoded while generateMetadata receives
+ *  them decoded. Comparing the raw param with `card.id` therefore 404'd
+ *  /card/ex10-%3F, and keyed this cache differently in the two call sites, so
+ *  the same request fetched the set twice. Both callers decode first. */
 const loadCard = cache(async (cardId: string) => {
   const parsed = parseCardId(cardId);
   if (!parsed) notFound();
@@ -49,7 +56,8 @@ const loadCard = cache(async (cardId: string) => {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { cardId } = await params;
-  const { set, card } = await loadCard(cardId);
+  const id = decodeParam(cardId);
+  const { set, card } = await loadCard(id);
 
   const prices = card.tcgplayer?.prices;
   const market =
@@ -68,10 +76,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `/card/${cardId}` },
+    // Encoded, not the bare id: /card/ex10-? would truncate at the query string.
+    alternates: { canonical: encodeSegmentPath("/card", id) },
     // No images here on purpose: app/card/[cardId]/opengraph-image.tsx (file
     // convention) supplies og:image and twitter:image for this route.
-    openGraph: { title, description, type: "website", url: `/card/${cardId}` },
+    openGraph: { title, description, type: "website", url: encodeSegmentPath("/card", id) },
     twitter: { card: "summary_large_image" },
   };
 }
@@ -80,7 +89,7 @@ const KINDS: SlotKind[] = ["card", "reverse", "pokeball", "masterball"];
 
 export default async function CardPage({ params, searchParams }: Props) {
   const [{ cardId }, { variant }] = await Promise.all([params, searchParams]);
-  const { set, card } = await loadCard(cardId);
+  const { set, card } = await loadCard(decodeParam(cardId));
   const kind: SlotKind = KINDS.includes(variant as SlotKind) ? (variant as SlotKind) : "card";
 
   // Only priced cards get a Product node — an offerless Product is a Search
@@ -91,7 +100,7 @@ export default async function CardPage({ params, searchParams }: Props) {
     { name: "NOMEKOP", path: "/" },
     { name: "SETS", path: "/sets" },
     { name: set.name, path: `/set/${set.id}` },
-    { name: `${card.name} ${card.number}`, path: `/card/${card.id}` },
+    { name: `${card.name} ${card.number}`, path: encodeSegmentPath("/card", card.id) },
   ]);
 
   return (

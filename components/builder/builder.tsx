@@ -35,6 +35,7 @@ import { play } from "@/lib/sound";
 import { capture } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils";
 import type { TcgSet } from "@/lib/tcg/types";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 type BuilderProps = {
   initialSets?: TcgSet[];
@@ -226,7 +227,7 @@ export function Builder({ initialSets }: BuilderProps) {
                 tick={collectionMode.enabled ? checklist : undefined}
                 onInspect={(card, kind) => {
                   play("confirm");
-                  router.push(`/card/${card.id}${kind !== "card" ? `?variant=${kind}` : ""}`);
+                  router.push(`${encodeSegmentPath("/card", card.id)}${kind !== "card" ? `?variant=${kind}` : ""}`);
                 }}
               />
             </GbScreen>

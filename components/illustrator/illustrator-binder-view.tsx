@@ -152,7 +152,7 @@ export function IllustratorBinderView({
             // click-through yet.
             if ((card.lang ?? "en") !== "en") return;
             play("confirm");
-            router.push(`/card/${card.id}`);
+            router.push(encodeSegmentPath("/card", card.id));
           }}
         />
       </GbScreen>

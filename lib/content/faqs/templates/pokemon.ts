@@ -1,6 +1,7 @@
 import type { FaqPage, FaqSetFacts, FaqPokemon } from "@/lib/content/faqs/types";
 import { indefiniteArticle, pokemonInSetSlug, setFaqSlug } from "@/lib/content/faqs/slug";
 import { cardLabel, cardBullet, money, joinAnd } from "@/lib/content/faqs/format";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 export function pokemonInSetPage(s: FaqSetFacts, p: FaqPokemon): FaqPage {
   const slug = pokemonInSetSlug(p.slug, s.slug);
@@ -102,7 +103,7 @@ export function pokemonInSetPage(s: FaqSetFacts, p: FaqPokemon): FaqPage {
     description, body,
     cards: p.cards,
     related: [
-      ...(first ? [{ href: `/card/${first.id}`, label: `View ${first.name}` }] : []),
+      ...(first ? [{ href: encodeSegmentPath("/card", first.id), label: `View ${first.name}` }] : []),
       { href: `/pokemon/${p.slug}~34an`, label: `Build a ${p.displayName} binder` },
       { href: setFaqSlug("chase-cards", s.slug), label: `${s.name} chase cards` },
       { href: `/set/${s.id}`, label: `Browse ${s.name}` },

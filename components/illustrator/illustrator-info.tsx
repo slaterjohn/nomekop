@@ -76,7 +76,7 @@ export async function IllustratorInfo({ artist }: { artist: ArtistEntity }) {
 
       <header className="flex flex-wrap items-center gap-4">
         {artist.signatureCard?.imageSmall ? (
-          <Link href={`/card/${artist.signatureCard.id}`} className="shrink-0 no-underline">
+          <Link href={encodeSegmentPath("/card", artist.signatureCard.id)} className="shrink-0 no-underline">
             <Image
               src={artist.signatureCard.imageSmall}
               alt={`${artist.signatureCard.name} by ${artist.name}`}

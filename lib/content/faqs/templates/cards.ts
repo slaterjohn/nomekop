@@ -1,6 +1,7 @@
 import type { FaqPage, FaqSetFacts } from "@/lib/content/faqs/types";
 import { indefiniteArticle, setFaqSlug } from "@/lib/content/faqs/slug";
 import { money, cardLabel, cardBullet, joinAnd, num, possessive } from "@/lib/content/faqs/format";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 const NOTE = "Figures are from the pokemontcg.io dataset (TCGplayer pricing), as of June 2026.";
 
@@ -71,7 +72,7 @@ export function rarestCardPage(s: FaqSetFacts): FaqPage {
     description, body,
     cards: [c, ...otherChase],
     related: [
-      { href: `/card/${c.id}`, label: `View ${c.name}` },
+      { href: encodeSegmentPath("/card", c.id), label: `View ${c.name}` },
       ...(s.mostValuableCard ? [{ href: setFaqSlug("valuable-card", s.slug), label: `Most valuable ${s.name} card` }] : []),
       { href: setFaqSlug("chase-cards", s.slug), label: `${s.name} chase cards` },
       { href: setFaqSlug("secret-rares", s.slug), label: `Secret rares in ${s.name}` },
@@ -135,7 +136,7 @@ export function valuableCardPage(s: FaqSetFacts): FaqPage {
     description, body,
     cards: [c, ...runnersUp],
     related: [
-      { href: `/card/${c.id}`, label: `View ${c.name}` },
+      { href: encodeSegmentPath("/card", c.id), label: `View ${c.name}` },
       { href: setFaqSlug("rarest-card", s.slug), label: `Rarest card in ${s.name}` },
       { href: setFaqSlug("chase-cards", s.slug), label: `${s.name} chase cards` },
     ],

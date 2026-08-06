@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import type { ReactNode } from "react";
 import { getCards, getSets } from "@/lib/tcg";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+import { decodeParam } from "@/lib/url-params";
 
 /* DMG Game Boy palette — keep in sync with the app-wide theme. */
 const INK = "#0f380f";
@@ -190,7 +191,11 @@ export default async function Image({
 }: {
   params: Promise<{ cardId: string }>;
 }) {
-  const { cardId } = await params;
+  // Decoded: a page component's params arrive still percent-encoded, and real
+  // card ids contain reserved characters (`ex10-?` reaches us as `ex10-%3F`).
+  // Without this the lookup below misses and every such card gets the generic
+  // fallback image instead of its own.
+  const cardId = decodeParam((await params).cardId);
   try {
     // cardId is `<setId>-<number>`; set ids can contain dashes in principle,
     // card numbers cannot — so split on the LAST dash.

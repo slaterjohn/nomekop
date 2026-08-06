@@ -15,6 +15,7 @@ import { slotKindLabel } from "@/lib/variant-labels";
 import { toCollectionCsv } from "@/lib/csv";
 import { play } from "@/lib/sound";
 import type { TcgCard, TcgSet } from "@/lib/tcg/types";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 type CollectionViewProps = {
   set: TcgSet;
@@ -104,7 +105,7 @@ export function CollectionView({ set, cards, mode }: CollectionViewProps) {
               {collected.map((slot) => (
                   <li key={`${slot.card.id}-${slot.kind}`} className="relative">
                     <Link
-                      href={`/card/${slot.card.id}${slot.kind !== "card" ? `?variant=${slot.kind}` : ""}`}
+                      href={`${encodeSegmentPath("/card", slot.card.id)}${slot.kind !== "card" ? `?variant=${slot.kind}` : ""}`}
                       aria-label={`${slot.card.name} ${slot.card.number} (${slotKindLabel(slot.kind)})`}
                       className="block no-underline"
                     >

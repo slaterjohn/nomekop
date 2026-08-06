@@ -5,6 +5,7 @@ import { GENERATIONS } from "@/lib/pokedex";
 import { ARTICLES } from "@/lib/content/articles";
 import { ALL_FAQ_PAGES, faqSetIds } from "@/lib/content/faqs/registry";
 import { pokemonCatalog, gatedArtistSlugs } from "@/lib/content/entities/catalog";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 /** The overview sitemap (home, /sets, every /set/<id>); the other sitemap ids
  *  are set ids, each listing that set's /card/<cardId> pages. Next serves each
@@ -136,7 +137,7 @@ export default async function sitemap(props: {
   try {
     const cards = await getCardsForSitemap(id);
     return cards.map((card) => ({
-      url: `${base}/card/${card.id}`,
+      url: `${base}${encodeSegmentPath("/card", card.id)}`,
       changeFrequency: "weekly" as const,
       priority: 0.5,
     }));

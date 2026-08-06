@@ -1,5 +1,6 @@
 import { evaluatePresets } from "@/lib/binders";
 import type { FaqCardRef, FaqSetFacts } from "@/lib/content/faqs/types";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 export function num(n: number): string {
   return n.toLocaleString("en-US");
@@ -39,7 +40,7 @@ export function cardLabel(card: Pick<FaqCardRef, "name" | "number" | "id">): str
 export function cardBullet(card: FaqCardRef): string {
   const rarity = card.rarity ? ` — ${card.rarity}` : "";
   const price = typeof card.marketPrice === "number" ? ` (~${money(card.marketPrice)})` : "";
-  return `- [${cardLabel(card)}](/card/${card.id})${rarity}${price}`;
+  return `- [${cardLabel(card)}](${encodeSegmentPath("/card", card.id)})${rarity}${price}`;
 }
 
 /** A linked card thumbnail in Markdown — the image opens the card page. Returns
@@ -48,7 +49,7 @@ export function cardImageLink(
   card: Pick<FaqCardRef, "id" | "name" | "number" | "imageSmall">,
 ): string {
   if (!card.imageSmall) return "";
-  return `[![${cardLabel(card)}](${card.imageSmall})](/card/${card.id})`;
+  return `[![${cardLabel(card)}](${card.imageSmall})](${encodeSegmentPath("/card", card.id)})`;
 }
 
 /** A row of linked card thumbnails (one Markdown paragraph). "" when none of the

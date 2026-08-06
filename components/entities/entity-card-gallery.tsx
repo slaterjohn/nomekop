@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CardWithSet } from "@/lib/tcg/types";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 /** A responsive grid of card thumbnails, each linking to its /card/[id] page —
  *  the server-rendered trail crawlers follow, and the visual link web for a
@@ -11,7 +12,7 @@ export function EntityCardGallery({ cards }: { cards: ReadonlyArray<CardWithSet>
     <ul className="m-0 grid list-none grid-cols-3 gap-2 p-0 sm:grid-cols-5 md:grid-cols-6">
       {cards.map((card) => (
         <li key={card.id}>
-          <Link href={`/card/${card.id}`} className="flex h-full flex-col gap-1 no-underline">
+          <Link href={encodeSegmentPath("/card", card.id)} className="flex h-full flex-col gap-1 no-underline">
             {card.imageSmall ? (
               <Image
                 src={card.imageSmall}

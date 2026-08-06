@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { FaqCardRef } from "@/lib/content/faqs/types";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 /** A horizontal strip of card scans, each linking to that card's page. Skips
  *  cards with no scan; renders nothing if none have one. */
@@ -12,7 +13,7 @@ export function CardThumbStrip({ cards, limit = 6 }: { cards: FaqCardRef[]; limi
       {shown.map((card) => (
         <li key={card.id}>
           <Link
-            href={`/card/${card.id}`}
+            href={encodeSegmentPath("/card", card.id)}
             aria-label={`${card.name} (#${card.number})`}
             className="block no-underline motion-safe:transition-transform motion-safe:hover:-translate-y-0.5"
           >

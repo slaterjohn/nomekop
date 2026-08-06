@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { entityIconSvg, ENTITY_LINK_CLASS, type EntityType } from "@/lib/content/entity-icons";
 import { capture } from "@/lib/analytics/events";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 /** A typed internal link: a pixel icon + a type-specific underline, matching the
  *  prose links the Markdown renderer emits (lib/content/render.ts). The icon is a
@@ -48,7 +49,7 @@ export function SetLink({ id, children }: { id: string; children: ReactNode }) {
 
 export function CardLink({ id, children }: { id: string; children: ReactNode }) {
   return (
-    <EntityLink type="card" href={`/card/${id}`}>
+    <EntityLink type="card" href={encodeSegmentPath("/card", id)}>
       {children}
     </EntityLink>
   );

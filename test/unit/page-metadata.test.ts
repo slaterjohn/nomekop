@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { generateMetadata as cardMetadata } from "@/app/card/[cardId]/page";
+import CardPage, { generateMetadata as cardMetadata } from "@/app/card/[cardId]/page";
 import { generateMetadata as setMetadata } from "@/app/set/[setId]/page";
 import { generateMetadata as collectionMetadata } from "@/app/collection/[setId]/page";
 import { metadata as printBinderMetadata } from "@/app/print/binder/page";
@@ -58,6 +58,30 @@ describe("card page generateMetadata (/card/[cardId])", () => {
     await expect(cardMetadata(cardProps("malformed"))).rejects.toThrow(
       /NEXT_HTTP_ERROR_FALLBACK;404/,
     );
+  });
+});
+
+// pokemontcg.io really does mint card ids containing reserved characters:
+// `ex10-!` and `ex10-?` (Unseen Forces Unown). `!` needs no escape, but `?` can
+// only reach the server as `%3F` — and a page component receives its params
+// STILL percent-encoded (generateMetadata receives them decoded). So the page
+// compared `ex10-%3F` against the real id `ex10-?` and 404'd a card it had.
+describe("card page with a percent-encoded id (/card/[cardId])", () => {
+  it("renders the card rather than 404ing", async () => {
+    await expect(CardPage(cardProps("base1-%34"))).resolves.toBeTruthy();
+  });
+
+  it("still 404s an id that decodes to nothing real", async () => {
+    await expect(CardPage(cardProps("base1-%39%39%39"))).rejects.toThrow(
+      /NEXT_HTTP_ERROR_FALLBACK;404/,
+    );
+  });
+
+  // The canonical must point at the URL that actually works — the encoded one,
+  // not the decoded id, which would truncate at the `?`.
+  it("canonicalises to the encoded path", async () => {
+    const md = await cardMetadata(cardProps("base1-%34"));
+    expect(md.alternates?.canonical).toBe("/card/base1-4");
   });
 });
 

@@ -20,6 +20,7 @@ import { isSeriesVerified } from "@/lib/tcg/era-coverage";
 import { TcgError } from "@/lib/tcg/types";
 import { getServerDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
+import { encodeSegmentPath } from "@/lib/url-params";
 
 export const dynamic = "force-dynamic";
 
@@ -224,7 +225,7 @@ export default async function SetPage({ params }: Props) {
         <ul className="m-0 grid list-none grid-cols-3 gap-2 p-0 sm:grid-cols-5 md:grid-cols-6">
           {sorted.map((card) => (
             <li key={card.id}>
-              <Link href={`/card/${card.id}`} className="flex h-full flex-col gap-1 no-underline">
+              <Link href={encodeSegmentPath("/card", card.id)} className="flex h-full flex-col gap-1 no-underline">
                 {card.imageSmall ? (
                   <Image
                     src={card.imageSmall}
