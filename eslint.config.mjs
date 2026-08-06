@@ -25,6 +25,10 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "playwright-report/**",
     "test-results/**",
+    // Coding-agent scratch space — untracked, and `.claude/worktrees/*` holds
+    // full checkouts of the repo. Without this, lint walks every one of them
+    // and reports the same file several times over.
+    ".claude/**",
   ]),
 ]);
 

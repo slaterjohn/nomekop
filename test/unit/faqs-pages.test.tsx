@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import FaqsIndexPage from "@/app/faqs/page";
@@ -12,6 +12,21 @@ import {
 } from "@/lib/content/faqs/registry";
 
 const reEscape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// These pages decide "coming soon" from the current date (see the note in
+// lib/content/faqs/registry.ts), and they call the registry with no explicit
+// `now`. Pin the clock so the suite doesn't quietly change meaning — and then
+// start failing — as each announced set's real release date goes by.
+//
+// 2026-08-04: Pitch Black (2026-07-17) has released; 30th Celebration
+// (2026-09-16) and Delta Reign (2026-11-06) are still to come.
+const FIXED_NOW = Date.parse("2026-08-04T12:00:00Z");
+beforeEach(() => {
+  vi.spyOn(Date, "now").mockReturnValue(FIXED_NOW);
+});
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 describe("/faqs index (set cards grouped by era)", () => {
   it("renders an era heading and a hub-linked card for every set", () => {
@@ -68,11 +83,29 @@ describe("/faqs/set/[setId] hub", () => {
     expect(cardLinks.length).toBeGreaterThan(0);
   });
 
-  it("marks an upcoming hub coming soon with no /set info link", async () => {
+  it("marks an unreleased hub coming soon with no /set info link", async () => {
+    render(
+      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-30th-celebration" }) }),
+    );
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/30th Celebration FAQs/i);
+    expect(screen.getAllByText(/coming soon/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/isn't out yet/i)).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /See every .* card/i })).toBeNull();
+  });
+
+  // A hand-authored set that has released but has no card data yet. It must drop
+  // the "coming soon" framing, and it must NOT offer the /set or /build buttons —
+  // its id ("upcoming-pitch-black") isn't a real set, so both would be dead links.
+  it("drops coming-soon on a released hand-authored set, without dead card links", async () => {
     render(await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-pitch-black" }) }));
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Pitch Black FAQs/i);
-    expect(screen.getAllByText(/coming soon/i).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/coming soon/i)).toBeNull();
+    expect(screen.queryByText(/isn't out yet/i)).toBeNull();
+    expect(screen.getByText(/came out on July 17, 2026/i)).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /See every .* card/i })).toBeNull();
+    expect(
+      screen.getAllByRole("link").filter((a) => a.getAttribute("href")?.startsWith("/build")),
+    ).toHaveLength(0);
   });
 
   it("has no axe violations (released + upcoming)", async () => {
@@ -80,9 +113,14 @@ describe("/faqs/set/[setId] hub", () => {
     expect(await axe(released.container)).toHaveNoViolations();
     released.unmount();
     const upcoming = render(
-      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-pitch-black" }) }),
+      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-30th-celebration" }) }),
     );
     expect(await axe(upcoming.container)).toHaveNoViolations();
+    upcoming.unmount();
+    const awaitingData = render(
+      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-pitch-black" }) }),
+    );
+    expect(await axe(awaitingData.container)).toHaveNoViolations();
   });
 });
 
@@ -121,6 +159,25 @@ describe("home FAQ spotlight + upcoming sections", () => {
         screen.getByRole("link", { name: new RegExp(`${reEscape(set.fullName)} FAQs`, "i") }),
       ).toHaveAttribute("href", `/faqs/set/${set.id}`);
     }
+  });
+
+  // The bug this replaced: Pitch Black released on 2026-07-17 and sat under
+  // "Coming soon" until a human noticed. With the clock pinned past that date it
+  // has to be gone, and the sets that genuinely are still coming have to remain.
+  it("upcoming section drops a set once its release date has passed", () => {
+    const ids = upcomingFaqSets().map((s) => s.id);
+    expect(ids).not.toContain("upcoming-pitch-black");
+    expect(ids).toEqual(["upcoming-30th-celebration", "upcoming-delta-reign"]);
+
+    render(<UpcomingSets sets={upcomingFaqSets()} />);
+    expect(screen.queryByText(/Pitch Black/i)).toBeNull();
+    expect(screen.getAllByText(/30th Celebration/i).length).toBeGreaterThan(0);
+  });
+
+  // Nothing to preview → render nothing, rather than an empty dashed panel.
+  it("upcoming section disappears entirely once every announced set has shipped", () => {
+    const { container } = render(<UpcomingSets sets={[]} />);
+    expect(container).toBeEmptyDOMElement();
   });
 
   it("axe clean", async () => {

@@ -10,11 +10,13 @@ import { rarestCardPage, valuableCardPage, chaseCardsPage } from "@/lib/content/
 import { binderSizePage, releaseDatePage, ballPatternsPage } from "@/lib/content/faqs/templates/sets";
 import { pokemonInSetPage } from "@/lib/content/faqs/templates/pokemon";
 import {
-  UPCOMING_FAQ_PAGES,
-  UPCOMING_SETS,
-  upcomingSetById,
-  upcomingSetsWithPages,
-  type UpcomingSet,
+  ANNOUNCED_FAQ_PAGES,
+  ANNOUNCED_SETS,
+  announcedSetById,
+  announcedSetsWithPages,
+  hasReleased,
+  todayIso,
+  type AnnouncedSet,
 } from "@/lib/content/faqs/upcoming";
 
 const snap = snapshot as unknown as FaqSnapshot;
@@ -44,12 +46,12 @@ function pagesForSetFacts(s: FaqSetFacts): FaqPage[] {
   return pages;
 }
 
-const upcomingSlugs = new Set(UPCOMING_FAQ_PAGES.map((p) => p.slug));
+const handAuthoredSlugs = new Set(ANNOUNCED_FAQ_PAGES.map((p) => p.slug));
 
 const rawReleased = snap.sets
   .flatMap(pagesForSetFacts)
-  .filter((p) => !upcomingSlugs.has(p.slug));
-const rawAll = [...UPCOMING_FAQ_PAGES, ...rawReleased];
+  .filter((p) => !handAuthoredSlugs.has(p.slug));
+const rawAll = [...ANNOUNCED_FAQ_PAGES, ...rawReleased];
 
 // Every slug that actually renders. Templates cross-link by bare slug, and
 // feature-gated pages (master-set, secret-rares, …) may not exist for a given
@@ -65,11 +67,18 @@ function pruneRelated(page: FaqPage): FaqPage {
 }
 
 /** Released-set pages (data-driven from the snapshot). Any slug a hand-authored
- *  upcoming page already owns is dropped so the pre-release page wins until it's
+ *  page already owns is dropped so the hand-authored page wins until it's
  *  pruned — this keeps slugs unique even after a set releases into the DB. */
 export const FAQ_PAGES: FaqPage[] = rawReleased.map(pruneRelated);
 
-/** Every FAQ page for routing/sitemap — upcoming (hand-authored) first. */
+/**
+ * Every FAQ page for routing/sitemap — hand-authored first.
+ *
+ * Deliberately module-scope and date-independent. A hand-authored set's pages
+ * must keep resolving after its release date passes: they're indexed URLs, and
+ * expiring the page set would 404 them the moment the clock rolled over. Only
+ * the "is this still coming soon?" presentation below is date-driven.
+ */
 export const ALL_FAQ_PAGES: FaqPage[] = rawAll.map(pruneRelated);
 
 const BY_SLUG = new Map(ALL_FAQ_PAGES.map((p) => [p.slug, p]));
@@ -92,7 +101,7 @@ export function getFaqSetFacts(setId: string): FaqSetFacts | undefined {
 /** Display name for a set id — released (snapshot) or upcoming. */
 export function faqSetName(setId: string): string | undefined {
   const released = snap.sets.find((s) => s.id === setId);
-  return released ? released.name : upcomingSetById(setId)?.shortName;
+  return released ? released.name : announcedSetById(setId)?.shortName;
 }
 
 /** Released sets, newest first, each with its pages — for the grouped index. */
@@ -117,49 +126,88 @@ function releasedSummary(s: FaqSetFacts): FaqSetSummary {
   };
 }
 
-function upcomingSummary(set: UpcomingSet, order: number): FaqSetSummary {
+/**
+ * WHERE "NOW" COMES FROM — read this before changing any signature below.
+ *
+ * Whether a hand-authored set still counts as "coming soon" is decided by
+ * comparing its ISO `releaseDate` against today, so a released set drops off the
+ * home page and out of the upcoming grouping without anyone editing a file.
+ *
+ * Every function that needs that answer takes an optional `now` (epoch ms) and
+ * falls back to `Date.now()` INSIDE the call — the same shape as
+ * `runCacheCheck()` in lib/tcg/cache-manager.ts, for the same reason. A
+ * module-scope `Date.now()` (or a module-scope Map built from one, which is what
+ * `SUMMARY_BY_ID` used to be) is evaluated once per process. On a long-running
+ * `next start` server that pins the list to whenever the server booted; in a
+ * prerender it bakes build day into the HTML. Either way a set that released
+ * yesterday sits under "Coming soon" until someone redeploys — the exact bug
+ * this replaced.
+ *
+ * Two follow-on consequences:
+ *  - The page-level exports above (ALL_FAQ_PAGES, faqSlugs) and `faqSetIds`
+ *    below stay date-independent, so a released set keeps its pages and its hub
+ *    route. Expiry is about presentation, never about routing.
+ *  - `/faqs` and `/faqs/set/[setId]` are statically prerendered, so their HTML
+ *    is only as fresh as the last render no matter where the clock is read.
+ *    Both carry `export const revalidate` so a build that straddles a release
+ *    date can't pin stale copy until the next deploy. The home page is
+ *    force-dynamic and needs no help.
+ */
+function announcedSummary(set: AnnouncedSet, today: string, order: number): FaqSetSummary {
+  const isUpcoming = !hasReleased(set, today);
   return {
     id: set.id,
     name: set.shortName,
     fullName: set.name,
     era: set.era,
     slug: set.slug,
+    // Once it's out, hand it a real releaseDate (the summary's YYYY/MM/DD form)
+    // so it sorts among the released sets. It still has no logoUrl or infoHref:
+    // those come from card data, and a hand-authored set has none by definition.
+    releaseDate: isUpcoming ? undefined : set.releaseDate.replaceAll("-", "/"),
     releaseLabel: set.releaseLabel,
-    order,
-    faqCount: UPCOMING_FAQ_PAGES.filter((p) => p.setId === set.id).length,
-    isUpcoming: true,
+    order: isUpcoming ? order : undefined,
+    faqCount: ANNOUNCED_FAQ_PAGES.filter((p) => p.setId === set.id).length,
+    isUpcoming,
     hubHref: `/faqs/set/${set.id}`,
   };
 }
 
-/** Every set with FAQ pages (upcoming + released), unified for the index/hub. */
-export function faqSetSummaries(): FaqSetSummary[] {
+/** Every set with FAQ pages (hand-authored + released), unified for the
+ *  index/hub. `now` defaults to the current time — see the note above. */
+export function faqSetSummaries(now: number = Date.now()): FaqSetSummary[] {
+  const today = todayIso(now);
   return [
-    ...UPCOMING_SETS.map((set, i) => upcomingSummary(set, i)),
+    ...ANNOUNCED_SETS.map((set, i) => announcedSummary(set, today, i)),
     ...snap.sets.map(releasedSummary),
   ];
 }
 
-const SUMMARY_BY_ID = new Map(faqSetSummaries().map((s) => [s.id, s]));
-
 /** The index/hub summary for a set id (released or upcoming). */
-export function getFaqSetSummary(setId: string): FaqSetSummary | undefined {
-  return SUMMARY_BY_ID.get(setId);
+export function getFaqSetSummary(setId: string, now: number = Date.now()): FaqSetSummary | undefined {
+  return faqSetSummaries(now).find((s) => s.id === setId);
 }
 
 /** The newest released set (snapshot is newest-first) — for the home spotlight. */
-export function latestReleasedFaqSet(): FaqSetSummary | undefined {
+export function latestReleasedFaqSet(now: number = Date.now()): FaqSetSummary | undefined {
   const first = snap.sets[0];
-  return first ? getFaqSetSummary(first.id) : undefined;
+  return first ? getFaqSetSummary(first.id, now) : undefined;
 }
 
-/** Upcoming sets, soonest release first — for the home "coming soon" section. */
-export function upcomingFaqSets(): FaqSetSummary[] {
-  return faqSetSummaries().filter((s) => s.isUpcoming);
+/** Sets still ahead of today, soonest release first — the home "coming soon"
+ *  section. Returns [] once every announced set has shipped, which hides the
+ *  section rather than showing stale entries. */
+export function upcomingFaqSets(now: number = Date.now()): FaqSetSummary[] {
+  return faqSetSummaries(now).filter((s) => s.isUpcoming);
 }
 
-/** Every set id that has a per-set FAQ hub (released + upcoming). */
-export const faqSetIds: string[] = faqSetSummaries().map((s) => s.id);
+/** Every set id that has a per-set FAQ hub. Date-independent on purpose: a
+ *  hand-authored set keeps its hub after release, so generateStaticParams
+ *  covers it either way. */
+export const faqSetIds: string[] = [
+  ...ANNOUNCED_SETS.map((s) => s.id),
+  ...snap.sets.map((s) => s.id),
+];
 
 /** Within an era: upcoming sets first (soonest release first), then released
  *  sets newest-first. */
@@ -176,9 +224,9 @@ function newestDate(sets: FaqSetSummary[]): string {
 
 /** Sets grouped by era for the FAQ index. Known eras (eras.ts) lead in their
  *  declared order; any unlisted era follows, newest set first. */
-export function faqSetsByEra(): FaqEraGroup[] {
+export function faqSetsByEra(now: number = Date.now()): FaqEraGroup[] {
   const byEra = new Map<string, FaqSetSummary[]>();
-  for (const s of faqSetSummaries()) {
+  for (const s of faqSetSummaries(now)) {
     const members = byEra.get(s.era);
     if (members) members.push(s);
     else byEra.set(s.era, [s]);
@@ -191,4 +239,4 @@ export function faqSetsByEra(): FaqEraGroup[] {
     });
 }
 
-export { upcomingSetsWithPages };
+export { announcedSetsWithPages };

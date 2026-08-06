@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
+// This page is statically prerendered, but "coming soon" is decided from the
+// current date (see the note in lib/content/faqs/registry.ts). Without a
+// revalidate window the HTML built today would keep flagging a set as upcoming
+// long after it shipped, until the next deploy. An hour is far finer than the
+// once-per-day granularity the answer can actually change at.
+export const revalidate = 3600;
+
 /** The FAQ directory: a card per set, grouped into eras (newest first). Each
  *  card links to that set's FAQ hub; upcoming sets are flagged "coming soon".
  *  Replaces the old single long list with a browse-by-set surface. */
