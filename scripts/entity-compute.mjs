@@ -48,7 +48,17 @@ export function distinctSetCount(cards) {
 
 /** The set with the min (earliest) or max (latest) release date among `cards`,
  *  as { id, name, releaseDate }. All cards of a set share the date, so any card
- *  of the extreme set yields the right tuple. */
+ *  of the extreme set yields the right tuple.
+ *
+ *  Same-date sets are common — an expansion and its Black Star Promos usually
+ *  share a street date, and 18 dates in the current cache are shared by two or
+ *  more sets. A pure date comparison leaves those ties to whichever card came
+ *  first, i.e. to the order pokemontcg.io happened to return the sets in, which
+ *  is not stable between fetches: one refresh moved `smp` ahead of `sm1` and
+ *  silently rewrote "first appeared in Sun & Moon" to "SM Black Star Promos"
+ *  for 21 Pokémon that had not changed at all. Breaking ties on set id pins the
+ *  answer to the data instead, and reads well as a bonus: a numbered main set
+ *  (`sm1`) sorts ahead of its promo sibling (`smp`). */
 function extremeSet(cards, pickLater) {
   let best;
   for (const c of cards) {
@@ -58,7 +68,13 @@ function extremeSet(cards, pickLater) {
       continue;
     }
     const cmp = String(c.setReleaseDate ?? "").localeCompare(String(best.setReleaseDate ?? ""));
-    if (pickLater ? cmp > 0 : cmp < 0) best = c;
+    const wins =
+      cmp === 0
+        ? String(c.setId).localeCompare(String(best.setId)) < 0
+        : pickLater
+          ? cmp > 0
+          : cmp < 0;
+    if (wins) best = c;
   }
   return best ? { id: best.setId, name: best.setName, releaseDate: best.setReleaseDate } : undefined;
 }

@@ -110,6 +110,20 @@ describe("entity-compute — distinct counts & set range", () => {
     expect(earliestSet(cards)).toEqual({ id: "base1", name: "Base", releaseDate: "1999-01-09" });
     expect(latestSet(cards)).toEqual({ id: "sv1", name: "Scarlet & Violet", releaseDate: "2023-03-31" });
   });
+
+  it("breaks same-date ties on set id, whatever order the cards arrive in", () => {
+    // A main set and its promo siblings routinely share a street date. Without a
+    // tie-break the winner is just whichever card came first, so a reshuffled
+    // sets list rewrites "first appeared in" for Pokémon that never changed.
+    const main = mk({ id: "a", setId: "sm1", setName: "Sun & Moon", setReleaseDate: "2017-02-03" });
+    const promo = mk({ id: "b", setId: "smp", setName: "SM Black Star Promos", setReleaseDate: "2017-02-03" });
+    const expected = { id: "sm1", name: "Sun & Moon", releaseDate: "2017-02-03" };
+
+    for (const cards of [[main, promo], [promo, main]]) {
+      expect(earliestSet(cards)).toEqual(expected);
+      expect(latestSet(cards)).toEqual(expected);
+    }
+  });
 });
 
 describe("entity-compute — signature card", () => {
