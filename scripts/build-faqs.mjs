@@ -20,7 +20,9 @@ const CURATED_MASTER_COUNTS = JSON.parse(
 ).counts;
 
 const POKEMON_PER_SET = 5;
-const AS_OF = "June 2026";
+// Stamped on every generated figure ("as of …"). Bump this to the month you
+// regenerate in — a stale value dates the whole snapshot wrongly.
+const AS_OF = "August 2026";
 // How many eras (series) back to cover, newest first.
 const ERA_COUNT = 3;
 // Non-expansion sets that don't fit the per-set FAQ shape (master sets, reverse

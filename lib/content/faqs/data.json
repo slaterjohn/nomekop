@@ -1,6 +1,241 @@
 {
-  "asOf": "June 2026",
+  "asOf": "August 2026",
   "sets": [
+    {
+      "id": "me5",
+      "name": "Pitch Black",
+      "slug": "pitch-black",
+      "series": "Mega Evolution",
+      "logoUrl": "https://images.scrydex.com/pokemon/me5-logo/logo",
+      "symbolUrl": "https://images.scrydex.com/pokemon/me5-symbol/symbol",
+      "releaseDate": "2026/07/17",
+      "printedTotal": 84,
+      "total": 120,
+      "secretCount": 36,
+      "pokemonCount": 95,
+      "trainerCount": 23,
+      "energyCount": 2,
+      "reverseHoloCount": 74,
+      "masterSetCount": 194,
+      "pokeballCount": 0,
+      "masterballCount": 0,
+      "energyPatternCount": 0,
+      "hasBallPatterns": false,
+      "illustrationRareCount": 17,
+      "rarityHistogram": {
+        "Common": 37,
+        "Ultra Rare": 18,
+        "Special Illustration Rare": 6,
+        "Rare": 11,
+        "Mega Hyper Rare": 1,
+        "Uncommon": 26,
+        "Double Rare": 10,
+        "Illustration Rare": 11
+      },
+      "rarestCard": {
+        "id": "me5-120",
+        "name": "Mega Darkrai ex",
+        "number": "120",
+        "rarity": "Mega Hyper Rare",
+        "imageSmall": "https://images.scrydex.com/pokemon/me5-120/small",
+        "imageLarge": "https://images.scrydex.com/pokemon/me5-120/large"
+      },
+      "chaseCards": [
+        {
+          "id": "me5-120",
+          "name": "Mega Darkrai ex",
+          "number": "120",
+          "rarity": "Mega Hyper Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me5-120/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me5-120/large"
+        },
+        {
+          "id": "me5-114",
+          "name": "Mega Zeraora ex",
+          "number": "114",
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me5-114/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me5-114/large"
+        },
+        {
+          "id": "me5-115",
+          "name": "Mega Chandelure ex",
+          "number": "115",
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me5-115/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me5-115/large"
+        },
+        {
+          "id": "me5-116",
+          "name": "Mega Darkrai ex",
+          "number": "116",
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me5-116/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me5-116/large"
+        },
+        {
+          "id": "me5-117",
+          "name": "Morpeko ex",
+          "number": "117",
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me5-117/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me5-117/large"
+        },
+        {
+          "id": "me5-118",
+          "name": "Gladion's Final Battle",
+          "number": "118",
+          "rarity": "Special Illustration Rare",
+          "imageSmall": "https://images.scrydex.com/pokemon/me5-118/small",
+          "imageLarge": "https://images.scrydex.com/pokemon/me5-118/large"
+        }
+      ],
+      "marqueePokemon": [
+        {
+          "slug": "mega-darkrai",
+          "displayName": "Mega Darkrai",
+          "cards": [
+            {
+              "id": "me5-48",
+              "name": "Mega Darkrai ex",
+              "number": "48",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-48/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-48/large"
+            },
+            {
+              "id": "me5-101",
+              "name": "Mega Darkrai ex",
+              "number": "101",
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-101/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-101/large"
+            },
+            {
+              "id": "me5-116",
+              "name": "Mega Darkrai ex",
+              "number": "116",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-116/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-116/large"
+            },
+            {
+              "id": "me5-120",
+              "name": "Mega Darkrai ex",
+              "number": "120",
+              "rarity": "Mega Hyper Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-120/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-120/large"
+            }
+          ]
+        },
+        {
+          "slug": "morpeko",
+          "displayName": "Morpeko",
+          "cards": [
+            {
+              "id": "me5-55",
+              "name": "Morpeko ex",
+              "number": "55",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-55/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-55/large"
+            },
+            {
+              "id": "me5-102",
+              "name": "Morpeko ex",
+              "number": "102",
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-102/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-102/large"
+            },
+            {
+              "id": "me5-117",
+              "name": "Morpeko ex",
+              "number": "117",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-117/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-117/large"
+            }
+          ]
+        },
+        {
+          "slug": "mega-zeraora",
+          "displayName": "Mega Zeraora",
+          "cards": [
+            {
+              "id": "me5-27",
+              "name": "Mega Zeraora ex",
+              "number": "27",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-27/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-27/large"
+            },
+            {
+              "id": "me5-98",
+              "name": "Mega Zeraora ex",
+              "number": "98",
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-98/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-98/large"
+            },
+            {
+              "id": "me5-114",
+              "name": "Mega Zeraora ex",
+              "number": "114",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-114/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-114/large"
+            }
+          ]
+        },
+        {
+          "slug": "mega-chandelure",
+          "displayName": "Mega Chandelure",
+          "cards": [
+            {
+              "id": "me5-38",
+              "name": "Mega Chandelure ex",
+              "number": "38",
+              "rarity": "Double Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-38/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-38/large"
+            },
+            {
+              "id": "me5-99",
+              "name": "Mega Chandelure ex",
+              "number": "99",
+              "rarity": "Ultra Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-99/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-99/large"
+            },
+            {
+              "id": "me5-115",
+              "name": "Mega Chandelure ex",
+              "number": "115",
+              "rarity": "Special Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-115/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-115/large"
+            }
+          ]
+        },
+        {
+          "slug": "fomantis",
+          "displayName": "Fomantis",
+          "cards": [
+            {
+              "id": "me5-85",
+              "name": "Fomantis",
+              "number": "85",
+              "rarity": "Illustration Rare",
+              "imageSmall": "https://images.scrydex.com/pokemon/me5-85/small",
+              "imageLarge": "https://images.scrydex.com/pokemon/me5-85/large"
+            }
+          ]
+        }
+      ],
+      "sizeRankAmongRecent": 34
+    },
     {
       "id": "me4",
       "name": "Chaos Rising",
@@ -3240,7 +3475,7 @@
           ]
         }
       ],
-      "sizeRankAmongRecent": 37
+      "sizeRankAmongRecent": 38
     },
     {
       "id": "sv6",
@@ -5960,7 +6195,7 @@
           ]
         }
       ],
-      "sizeRankAmongRecent": 34
+      "sizeRankAmongRecent": 35
     },
     {
       "id": "swsh10",
@@ -6776,7 +7011,7 @@
         }
       ],
       "marqueePokemon": [],
-      "sizeRankAmongRecent": 38
+      "sizeRankAmongRecent": 39
     },
     {
       "id": "swsh7",
@@ -7753,7 +7988,7 @@
           ]
         }
       ],
-      "sizeRankAmongRecent": 36
+      "sizeRankAmongRecent": 37
     },
     {
       "id": "swsh4",
@@ -8168,7 +8403,7 @@
           ]
         }
       ],
-      "sizeRankAmongRecent": 35
+      "sizeRankAmongRecent": 36
     },
     {
       "id": "swsh3",

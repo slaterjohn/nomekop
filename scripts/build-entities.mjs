@@ -10,7 +10,9 @@ import path from "node:path";
 import { applyBallPatterns } from "./faq-compute.mjs";
 import { pokemonStatsFor, artistStatsFrom } from "./entity-compute.mjs";
 
-const AS_OF = "June 2026";
+// Stamped on every generated figure ("as of …"). Bump this to the month you
+// regenerate in — a stale value dates the whole snapshot wrongly.
+const AS_OF = "August 2026";
 const ARTIST_MIN_CARDS = 5;
 
 const db = new DatabaseSync(path.join(process.cwd(), ".cache", "bindermon.db"), { readOnly: true });
