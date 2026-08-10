@@ -131,6 +131,32 @@ describe("runCacheCheck", () => {
     expect(store.peek("cards:ccc")).toHaveLength(2);
   });
 
+  it("retries a set whose fetch failed outright on the next run", async () => {
+    store = new SqliteStore(":memory:");
+    let broken = true;
+    // 'bbb' answers 500 — not a rate limit, so the run skips it and moves on.
+    const src = source(["aaa", "bbb"], (id) => {
+      if (id === "bbb" && broken) throw new TcgError("http", "500", 500);
+    });
+    const first = await runCacheCheck({ ...base, store, source: src, now: T0 });
+
+    expect(first.failed).toEqual(["bbb"]);
+    expect(store.peek("cards:bbb")).toBeUndefined();
+    // No cards cached for 'bbb', so it must NOT count as known — otherwise the
+    // new-release diff skips it forever and it stays silently missing.
+    expect(readManifest(store)!.knownSetIds).toEqual(["aaa"]);
+
+    // Next run sees 'bbb' as new again and picks it up without a full refresh.
+    broken = false;
+    const second = await runCacheCheck({ ...base, store, source: src, now: T0 + DAY });
+
+    expect(second.action).toBe("incremental");
+    expect(second.fetched).toBe(1);
+    expect(src.calls.aaa).toBe(1); // 'aaa' was NOT re-fetched
+    expect(store.peek("cards:bbb")).toHaveLength(2);
+    expect(readManifest(store)!.knownSetIds).toEqual(["aaa", "bbb"]);
+  });
+
   it("stops on sustained rate limiting and resumes where it left off", async () => {
     store = new SqliteStore(":memory:");
     let bbbBlocked = true;

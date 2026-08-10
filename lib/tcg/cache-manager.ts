@@ -271,9 +271,16 @@ export async function runCacheCheck(options: Options = {}): Promise<CacheCheckSu
     invalidateCardIndex();
     const sets = store.peek<TcgSet[]>("sets") ?? [];
     const prev = readManifest(store);
+    // A set whose fetch failed outright has no cards cached. Recording it as
+    // "known" would retire it from the new-release diff, so the next run would
+    // see nothing to do and the set would stay missing until the 14-day full
+    // refresh came round — silently absent for up to a fortnight, which is how
+    // Pitch Black went unnoticed after a run of API 500s. Leaving failures out
+    // means they read as new again next run and get retried on their own.
+    const failed = new Set(result.failed);
     writeManifest(store, {
       builtAt: kind === "full" || !prev ? now : prev.builtAt,
-      knownSetIds: sets.map((s) => s.id),
+      knownSetIds: sets.map((s) => s.id).filter((id) => !failed.has(id)),
       lastRunAt: now,
     });
     clearQueue(store);
