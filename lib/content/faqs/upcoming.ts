@@ -16,11 +16,20 @@
 // HAND-OFF: once a set enters the cache DB and `scripts/build-faqs.mjs` is
 // re-run, the data-driven templates cover it. registry.ts dedupes by slug (the
 // hand-authored page wins) so nothing ever breaks; prune the entry here when the
-// live data beats the hand-written copy. Caveat on that dedupe: it only bites on
-// slugs that match the template scheme in slug.ts. A few Pitch Black slugs
-// predate the scheme (`when-does-pitch-black-come-out`, `what-is-pitch-black`)
-// and are deliberately left alone because they're already indexed — prune them
-// by hand, don't rely on the collision.
+// live data beats the hand-written copy.
+//
+// Two things that pruning taught us, when Pitch Black made the trip in August
+// 2026 — budget for both before deleting a block:
+//
+//  1. The dedupe only bites on slugs matching the template scheme in slug.ts.
+//     Anything else — a slug that predates the scheme, or a question no template
+//     asks — is an indexed URL with no successor, and deleting it 404s. Pitch
+//     Black left six behind. They are redirected in next.config.ts; send yours
+//     to the closest surviving page, or to the set's `/faqs/set/<id>` hub.
+//  2. Templates only answer what card data can answer. Set identity, sub-themes,
+//     Build & Battle promos and product line-ups have no data-driven twin, so
+//     that copy is retired rather than replaced. That is a content call, not a
+//     mechanical one — make it deliberately.
 //
 // NOTHING IN THIS FILE READS THE CLOCK. It exposes `hasReleased(set, today)`
 // and leaves "now" to registry.ts, which reads it per request — see the
@@ -67,21 +76,6 @@ export type AnnouncedSet = {
  * `upcomingFaqSets()` (registry.ts) for the subset that's still to come.
  */
 export const ANNOUNCED_SETS: AnnouncedSet[] = [
-  {
-    id: "upcoming-pitch-black",
-    name: "Pokémon TCG: Mega Evolution — Pitch Black",
-    shortName: "Pitch Black",
-    slug: "pitch-black",
-    era: "Mega Evolution",
-    releaseDate: "2026-07-17",
-    releaseLabel: "July 17, 2026",
-    checkedOn: "2026-08-10",
-    sources: [
-      { label: "Pokemon.com — Pitch Black", url: "https://www.pokemon.com/us/pokemon-tcg/mega-evolution-pitch-black" },
-      { label: "Pokemon.com — release announcement", url: "https://www.pokemon.com/us/pokemon-news/the-pokemon-tcg-mega-evolution-pitch-black-expansion-arrives-july-17-2026" },
-      { label: "Bulbapedia — Pitch Black (TCG)", url: "https://bulbapedia.bulbagarden.net/wiki/Pitch_Black_(TCG)" },
-    ],
-  },
   {
     id: "upcoming-30th-celebration",
     name: "Pokémon TCG: 30th Celebration",
@@ -203,288 +197,8 @@ function page(
   };
 }
 
-const PB = announcedSet("upcoming-pitch-black");
 const C30 = announcedSet("upcoming-30th-celebration");
 const DR = announcedSet("upcoming-delta-reign");
-
-// Pitch Black released on 2026-07-17 but is NOT in the cache DB (last written
-// 2026-06-24), so `scripts/build-faqs.mjs` can't cover it and these pages stay
-// hand-authored. They were rewritten from pre-release into released framing on
-// 2026-08-04 using only the sources already cited on the set — no counts, chase
-// cards or release facts were added that those sources don't support. Once the
-// cache picks the set up and data.json is regenerated, prune this block.
-const PITCH_BLACK_PAGES: FaqPage[] = [
-  page(
-    PB,
-    "when-does-pitch-black-come-out",
-    "When did Pitch Black come out?",
-    "When did Pitch Black come out? (Release date)",
-    "Pokémon TCG: Mega Evolution — Pitch Black came out worldwide on July 17, 2026. Build & Battle Boxes went on sale early at pre-release events from July 4.",
-    [
-      "## Pitch Black release date",
-      "",
-      "Pitch Black (set code **ME05**) went on sale worldwide on **July 17, 2026**. It's the fifth main expansion of the Mega Evolution Series; Chaos Rising, in May 2026, was the one before it.",
-      "",
-      "## The pre-release window",
-      "",
-      "Anyone who went to a pre-release opened it nearly a fortnight early. Pokémon sold **Build & Battle Boxes at select Play! Pokémon stores from July 4, 2026**, ahead of the July 17 street date.",
-      "",
-      "## What comes after Pitch Black",
-      "",
-      "Pitch Black opened a busy second half of 2026. The all-foil **30th Celebration** set follows on September 16, and **Mega Evolution — Delta Reign** (Mega Rayquaza ex) closes the year on November 6.",
-    ].join("\n"),
-    [
-      { href: "what-is-pitch-black", label: "What is Pitch Black?" },
-      { href: "chase-cards-in-pitch-black", label: "Pitch Black chase cards" },
-      { href: "/faqs", label: "All set FAQs" },
-    ],
-  ),
-  page(
-    PB,
-    "what-is-pitch-black",
-    "What is Pokémon TCG Pitch Black?",
-    "What is Pokémon TCG Pitch Black?",
-    "Pitch Black (ME05) is a dark-themed Mega Evolution set released on July 17, 2026 — the first English set built on Pokémon Legends: Z-A's Mega Dimension, headlined by Mega Darkrai ex and Mega Zeraora ex.",
-    [
-      "## A dark-themed Mega Evolution expansion",
-      "",
-      "**Pitch Black** is the fifth main Mega Evolution Series expansion (**ME05**), out since July 17, 2026. It's the first English set to draw on the **Mega Dimension DLC of Pokémon Legends: Z-A**, and the art leans hard into a dark, gothic look.",
-      "",
-      "## New Mega Pokémon",
-      "",
-      "The headliners are **Mega Darkrai ex** and **Mega Zeraora ex**. **Mega Chandelure ex**, **Mega Excadrill ex**, **Mega Delphox ex** and **Mega Slowbro ex** round out the set's six new Mega ex cards. (Pokémon never confirmed whether all six trace back to the Legends: Z-A DLC.)",
-      "",
-      "## The \"Antique\" fossil sub-theme",
-      "",
-      "Pitch Black also introduced an **\"Antique\" fossil archetype**: a **Fossil Quarry** Stadium that searches out Antique Item cards, with support from **Relicanth**, **Dhelmise** and **Chi-Yu**. The full set runs to 120 cards, with more than 20 Trainers and over 35 special illustrations, so the Megas are only part of what's worth chasing.",
-    ].join("\n"),
-    [
-      { href: "what-mega-pokemon-are-in-pitch-black", label: "Every Mega in Pitch Black" },
-      { href: "what-are-the-antique-cards-in-pitch-black", label: "The Antique fossil cards" },
-      { href: "how-many-cards-in-pitch-black", label: "How many cards in Pitch Black?" },
-    ],
-  ),
-  page(
-    PB,
-    "how-many-cards-in-pitch-black",
-    "How many cards are in Pitch Black?",
-    "How many cards are in Pitch Black?",
-    "Pitch Black's printed checklist runs to 120 cards: an 84-card main set plus 36 secret rares, including 18 Ultra Rares, 11 Illustration Rares, 6 Special Illustration Rares and 1 Mega Hyper Rare.",
-    [
-      "## The confirmed Pitch Black card count",
-      "",
-      "Pitch Black's printed checklist runs to **120 cards**: an **84-card main set** plus **36 secret rares** numbered above it.",
-      "",
-      "## How the secret rares break down",
-      "",
-      "The 36 secret rares split into **18 Ultra Rares**, **11 Illustration Rares**, **6 Special Illustration Rares** and **1 Mega Hyper Rare** — the Mega Darkrai ex chase card that closes out the set.",
-      "",
-      "## How that compares",
-      "",
-      "A 120-card total makes Pitch Black one of the smaller Mega Evolution Series sets, but it still carries the same depth of secret rares as its predecessors, with more than 20 Trainer cards and over 35 special illustrations across the full checklist.",
-      "",
-      "## Planning a Pitch Black binder",
-      "",
-      "A master set will run above 120 once reverse holos are counted alongside the numbered checklist. See a [binder layout](/sets) for planning a full set.",
-    ].join("\n"),
-    [
-      { href: "chase-cards-in-pitch-black", label: "Pitch Black chase cards" },
-      { href: "/sets", label: "Plan a binder" },
-      { href: "when-does-pitch-black-come-out", label: "Pitch Black release date" },
-    ],
-  ),
-  page(
-    PB,
-    "chase-cards-in-pitch-black",
-    "What are the chase cards in Pitch Black?",
-    "What are the chase cards in Pitch Black?",
-    "Mega Darkrai ex is Pitch Black's top chase card as the set's Mega Hyper Rare, with Mega Zeraora ex close behind. Both have special-illustration versions, and Mega Chandelure ex, Mega Excadrill ex, Mega Delphox ex and Mega Slowbro ex round out the set's six Megas.",
-    [
-      "## Pitch Black's headline chase cards",
-      "",
-      "The card everyone wants is **Mega Darkrai ex**, the set's dark-themed cover star and its **Mega Hyper Rare** — the top rarity in the checklist. **Mega Zeraora ex** is the other headliner. Both have **special-illustration (alt-art) versions**, and those are the expensive pulls.",
-      "",
-      "## The full Mega line-up",
-      "",
-      "**Mega Chandelure ex**, **Mega Excadrill ex**, **Mega Delphox ex** and **Mega Slowbro ex** fill out the six new Mega ex cards. With **6 Special Illustration Rares** and **11 Illustration Rares** among the set's 36 secret rares, there's a long run of chase cards beyond the Megas.",
-      "",
-      "## What we can't tell you yet",
-      "",
-      "We have no market data for Pitch Black — its cards aren't in our database — so any price attached to these cards elsewhere is a marketplace figure, not one of ours.",
-    ].join("\n"),
-    [
-      { href: "is-there-a-mega-darkrai-card-in-pitch-black", label: "Is Mega Darkrai in Pitch Black?" },
-      { href: "is-there-a-mega-zeraora-card-in-pitch-black", label: "Is Mega Zeraora in Pitch Black?" },
-      { href: "what-mega-pokemon-are-in-pitch-black", label: "Every Mega in Pitch Black" },
-    ],
-  ),
-  page(
-    PB,
-    "what-mega-pokemon-are-in-pitch-black",
-    "Which Mega Pokémon are in Pitch Black?",
-    "Which Mega Pokémon are in Pitch Black?",
-    "Pitch Black has six new Mega ex cards: Mega Darkrai ex and Mega Zeraora ex as the headliners, plus Mega Chandelure ex, Mega Excadrill ex, Mega Delphox ex and Mega Slowbro ex.",
-    [
-      "## The six Megas",
-      "",
-      "Pitch Black added six Mega Pokémon ex to the game:",
-      "",
-      "- **Mega Darkrai ex** — the set's cover star and Mega Hyper Rare",
-      "- **Mega Zeraora ex** — the second headliner",
-      "- **Mega Chandelure ex**",
-      "- **Mega Excadrill ex**",
-      "- **Mega Delphox ex**",
-      "- **Mega Slowbro ex**",
-      "",
-      "## Where they come from",
-      "",
-      "Pitch Black is the first English set to draw on the **Mega Dimension DLC of Pokémon Legends: Z-A**, which is where its dark theme comes from. Pokémon never confirmed that all six Megas originate there, so don't assume the DLC accounts for the whole line-up.",
-    ].join("\n"),
-    [
-      { href: "is-there-a-mega-darkrai-card-in-pitch-black", label: "Is Mega Darkrai in Pitch Black?" },
-      { href: "is-there-a-mega-zeraora-card-in-pitch-black", label: "Is Mega Zeraora in Pitch Black?" },
-      { href: "chase-cards-in-pitch-black", label: "Pitch Black chase cards" },
-    ],
-  ),
-  page(
-    PB,
-    "is-there-a-mega-darkrai-card-in-pitch-black",
-    "Is there a Mega Darkrai card in Pitch Black?",
-    "Is there a Mega Darkrai card in Pitch Black?",
-    "Yes — Mega Darkrai ex is Pitch Black's headline chase card and the set's cover star, and it also appears with a special-illustration alternate art.",
-    [
-      "## Yes — Mega Darkrai ex headlines Pitch Black",
-      "",
-      "**Mega Darkrai ex** is the face of Pitch Black and its single biggest chase card. As a Legends: Z-A Mega Dimension boss, it's the natural cover star for a set built on a dark, gothic theme.",
-      "",
-      "## Which Mega Darkrai to chase",
-      "",
-      "Alongside the standard **Mega Darkrai ex** there's a **special-illustration (alt-art)** version, and that's where the money goes. Alt-arts of cover-star Megas are usually the most valuable cards in a Mega Evolution set. Pokémon's preview counted over 35 special illustrations across Pitch Black without naming them individually, so check a printed checklist for exact card numbers.",
-      "",
-      "## Building a Darkrai binder",
-      "",
-      "Want every Darkrai card, not just this one? Slot Pitch Black's Darkrai prints into a [Darkrai binder](/pokemon/darkrai~34an) alongside Darkrai from every other set.",
-    ].join("\n"),
-    [
-      { href: "/pokemon/darkrai~34an", label: "Build a Darkrai binder" },
-      { href: "chase-cards-in-pitch-black", label: "Pitch Black chase cards" },
-      { href: "what-is-pitch-black", label: "What is Pitch Black?" },
-    ],
-  ),
-  page(
-    PB,
-    "is-there-a-mega-zeraora-card-in-pitch-black",
-    "Is there a Mega Zeraora card in Pitch Black?",
-    "Is there a Mega Zeraora card in Pitch Black?",
-    "Yes — Mega Zeraora ex is one of Pitch Black's two headline Megas, alongside Mega Darkrai ex, and it also appears with a special-illustration alternate art.",
-    [
-      "## Yes — Mega Zeraora ex is in Pitch Black",
-      "",
-      "**Mega Zeraora ex** is one of the two cards Pokémon led the Pitch Black reveal with; Mega Darkrai ex is the other. The pair headline the set's six new Megas.",
-      "",
-      "## Which one to chase",
-      "",
-      "There's the standard **Mega Zeraora ex** and a **special-illustration (alt-art)** version, and the alt-art is the one that carries a premium. Mega Darkrai ex is the cover star, so it usually draws the most attention of the two.",
-      "",
-      "## Building a Zeraora binder",
-      "",
-      "Collecting Zeraora across every set it's appeared in? A [Zeraora binder](/pokemon/zeraora~34an) lays out every print in one layout.",
-    ].join("\n"),
-    [
-      { href: "/pokemon/zeraora~34an", label: "Build a Zeraora binder" },
-      { href: "is-there-a-mega-darkrai-card-in-pitch-black", label: "Is Mega Darkrai in Pitch Black?" },
-      { href: "what-mega-pokemon-are-in-pitch-black", label: "Every Mega in Pitch Black" },
-    ],
-  ),
-  page(
-    PB,
-    "what-are-the-antique-cards-in-pitch-black",
-    "What are the Antique cards in Pitch Black?",
-    "What are the Antique cards in Pitch Black?",
-    "Antique is a fossil-themed archetype introduced in Pitch Black, built around a Fossil Quarry Stadium that searches out Antique Item cards, with Relicanth, Dhelmise and Chi-Yu supporting it.",
-    [
-      "## The Antique archetype",
-      "",
-      "**Antique** is a fossil sub-theme Pokémon revealed alongside Pitch Black's Megas. It hangs off **Fossil Quarry**, a Stadium card that searches out **Antique Item** cards, so the Items are the engine rather than a side attraction.",
-      "",
-      "## Which Pokémon support it",
-      "",
-      "Pokémon named **Relicanth**, **Dhelmise** and **Chi-Yu** as part of the Antique line-up. Dhelmise also turns up as one of the four Build & Battle Box promos.",
-      "",
-      "## Worth collecting on its own",
-      "",
-      "Pitch Black has **more than 20 Trainer cards**, and the Antique Items are a chunk of that. If you collect by theme rather than by rarity, they're a self-contained mini-set inside the expansion.",
-    ].join("\n"),
-    [
-      { href: "what-promos-are-in-the-pitch-black-build-and-battle-box", label: "Build & Battle promos" },
-      { href: "what-is-pitch-black", label: "What is Pitch Black?" },
-      { href: "how-many-cards-in-pitch-black", label: "How many cards in Pitch Black?" },
-    ],
-  ),
-  page(
-    PB,
-    "what-promos-are-in-the-pitch-black-build-and-battle-box",
-    "Which promos are in the Pitch Black Build & Battle Box?",
-    "Pitch Black Build & Battle Box promos",
-    "The Pitch Black Build & Battle Box holds 4 booster packs, a 40-card deck, and 1 of 4 foil promos: Miraidon, Slowbro, Dhelmise or Bastiodon.",
-    [
-      "## The four promos",
-      "",
-      "Every Pitch Black Build & Battle Box contains **4 booster packs**, a **40-card ready-to-play deck**, and **one of four foil promos**:",
-      "",
-      "- **Miraidon**",
-      "- **Slowbro**",
-      "- **Dhelmise**",
-      "- **Bastiodon**",
-      "",
-      "Which one you get is random, so all four means opening four boxes or trading for the rest.",
-      "",
-      "## When they went on sale",
-      "",
-      "Build & Battle Boxes were sold at pre-release events from **July 4, 2026**, ahead of the set's July 17 launch.",
-      "",
-      "## Do they count towards the set?",
-      "",
-      "They're foil promos with their own card numbers, so yes — they belong in a complete Pitch Black collection even though they never come out of a booster pack. Dhelmise doubles as part of the set's Antique fossil theme.",
-    ].join("\n"),
-    [
-      { href: "where-to-preorder-pitch-black", label: "All Pitch Black products" },
-      { href: "what-are-the-antique-cards-in-pitch-black", label: "The Antique fossil cards" },
-      { href: "/binders", label: "Shop binders" },
-    ],
-  ),
-  page(
-    PB,
-    "where-to-preorder-pitch-black",
-    "What Pitch Black products are there?",
-    "Pitch Black products (ETB, boosters, Build & Battle)",
-    "Pitch Black launched with an Elite Trainer Box, a 36-pack Booster Display, a Booster Bundle, a Pokémon Center–exclusive ETB, and a Build & Battle Box that went on sale early from July 4.",
-    [
-      "## Pitch Black product line-up",
-      "",
-      "Pokémon gave Pitch Black the standard Mega Evolution release slate:",
-      "",
-      "- **Elite Trainer Box (ETB)** — packs, sleeves, dice and accessories",
-      "- **Booster Display** — 36 booster packs",
-      "- **Booster Bundle** — a smaller multi-pack option",
-      "- **Pokémon Center–exclusive ETB** — alternate artwork",
-      "- **Build & Battle Box** — 4 packs plus a 40-card deck, with **1 of 4 foil promos** (Miraidon, Slowbro, Dhelmise or Bastiodon)",
-      "",
-      "## Getting it early",
-      "",
-      "The **Build & Battle Box went on sale at pre-release events from July 4, 2026**, nearly a fortnight before the July 17 retail launch. That was the earliest anyone opened Pitch Black cards.",
-      "",
-      "## A note on prices",
-      "",
-      "The Pokémon Company doesn't publish official MSRPs for these. Figures you'll see quoted (ETBs around $50–60, for instance) are retailer listings, and they move about by store and by stock.",
-    ].join("\n"),
-    [
-      { href: "what-promos-are-in-the-pitch-black-build-and-battle-box", label: "Build & Battle promos" },
-      { href: "/binders", label: "Shop binders" },
-      { href: "when-does-pitch-black-come-out", label: "Pitch Black release date" },
-    ],
-  ),
-];
 
 const CELEBRATION_PAGES: FaqPage[] = [
   page(
@@ -798,11 +512,7 @@ const DELTA_REIGN_PAGES: FaqPage[] = [
   ),
 ];
 
-export const ANNOUNCED_FAQ_PAGES: FaqPage[] = [
-  ...PITCH_BLACK_PAGES,
-  ...CELEBRATION_PAGES,
-  ...DELTA_REIGN_PAGES,
-];
+export const ANNOUNCED_FAQ_PAGES: FaqPage[] = [...CELEBRATION_PAGES, ...DELTA_REIGN_PAGES];
 
 /** Sets in scope, each with its pages — soonest release first, for the index.
  *  Date-independent: a set keeps its pages after it releases, right up until

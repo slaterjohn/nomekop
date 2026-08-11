@@ -3,13 +3,17 @@ import snapshot from "@/lib/content/faqs/data.json";
 import type { FaqSnapshot } from "@/lib/content/faqs/types";
 
 const snap = snapshot as unknown as FaqSnapshot;
-const PRICELESS = new Set(["me4", "me3", "me2pt5"]);
+// pokemontcg.io publishes no prices for the recent Mega Evolution sets — every
+// card carries a tcgplayer URL and no `prices` object, me5 included three weeks
+// after release. Nothing to compute a most-valuable card from, so the snapshot
+// omits the field and the page that needs it is never generated.
+const PRICELESS = new Set(["me5", "me4", "me3", "me2pt5"]);
 // me2pt5 (Ascended Heroes) qualifies via its Poké Ball + Energy patterns.
 const BALL_SETS = new Set(["sv8pt5", "zsv10pt5", "rsv10pt5", "me2pt5"]);
 
 describe("faq snapshot", () => {
   it("covers the 3 newest eras, newest first", () => {
-    expect(snap.sets).toHaveLength(38);
+    expect(snap.sets).toHaveLength(39);
     // Exactly the three newest series in scope.
     const series = new Set(snap.sets.map((s) => s.series));
     expect(series).toEqual(new Set(["Mega Evolution", "Scarlet & Violet", "Sword & Shield"]));

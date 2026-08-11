@@ -104,6 +104,30 @@ const nextConfig: NextConfig = {
         destination: "/sets",
         permanent: true,
       },
+      // Pitch Black's hand-authored FAQs (lib/content/faqs/upcoming.ts) were
+      // retired once the set reached the cache DB and the data-driven templates
+      // took over. Most slugs collided with a template slug and were simply
+      // taken over in place; these six had no successor and would otherwise
+      // 404 an indexed URL. The release-date page has an exact equivalent under
+      // the template's own wording; the rest answered questions no template
+      // asks (set identity, the Antique sub-theme, Build & Battle promos,
+      // products), so they point at the set's FAQ hub.
+      {
+        source: "/faqs/when-does-pitch-black-come-out",
+        destination: "/faqs/when-did-pitch-black-come-out",
+        permanent: true,
+      },
+      ...[
+        "what-is-pitch-black",
+        "what-mega-pokemon-are-in-pitch-black",
+        "what-are-the-antique-cards-in-pitch-black",
+        "what-promos-are-in-the-pitch-black-build-and-battle-box",
+        "where-to-preorder-pitch-black",
+      ].map((slug) => ({
+        source: `/faqs/${slug}`,
+        destination: "/faqs/set/me5",
+        permanent: true,
+      })),
     ];
   },
   // PostHog reverse proxy: analytics traffic is sent same-origin to `/ingest` and

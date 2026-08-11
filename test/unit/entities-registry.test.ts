@@ -20,7 +20,7 @@ import {
 describe("entities catalog (light)", () => {
   it("lists every Pokémon with cards", () => {
     expect(pokemonSlugs()).toContain("pikachu");
-    expect(pokemonCatalog().length).toBe(1020);
+    expect(pokemonCatalog().length).toBe(1022);
   });
 
   it("resolves a Pokémon slug to its dex", () => {
@@ -65,7 +65,7 @@ describe("entities registry (full stats)", () => {
   });
 
   it("lists all Pokémon entities", () => {
-    expect(allPokemonEntities().length).toBe(1020);
+    expect(allPokemonEntities().length).toBe(1022);
   });
 
   it("returns full artist entities and undefined for unknowns", () => {

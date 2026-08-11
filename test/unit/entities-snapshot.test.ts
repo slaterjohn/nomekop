@@ -9,7 +9,7 @@ const ARTIST_MIN = snap.thresholds.artistMinCards;
 
 describe("entity snapshot — Pokémon", () => {
   it("has one entity per species with cards", () => {
-    expect(snap.pokemon.length).toBe(1020);
+    expect(snap.pokemon.length).toBe(1022);
   });
 
   it("every Pokémon has sane stats", () => {

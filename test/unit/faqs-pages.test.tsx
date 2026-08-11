@@ -18,9 +18,12 @@ const reEscape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 // `now`. Pin the clock so the suite doesn't quietly change meaning — and then
 // start failing — as each announced set's real release date goes by.
 //
-// 2026-08-04: Pitch Black (2026-07-17) has released; 30th Celebration
-// (2026-09-16) and Delta Reign (2026-11-06) are still to come.
-const FIXED_NOW = Date.parse("2026-08-04T12:00:00Z");
+// 2026-08-11: Pitch Black (2026-07-17) has released AND reached the cache DB,
+// so it is a data-driven set (me5) rather than a hand-authored one. 30th
+// Celebration (2026-09-16) and Delta Reign (2026-11-06) are still to come.
+const FIXED_NOW = Date.parse("2026-08-11T12:00:00Z");
+/** After 30th Celebration's release date, while it still has no card data. */
+const AWAITING_DATA_NOW = Date.parse("2026-10-01T12:00:00Z");
 beforeEach(() => {
   vi.spyOn(Date, "now").mockReturnValue(FIXED_NOW);
 });
@@ -95,13 +98,19 @@ describe("/faqs/set/[setId] hub", () => {
 
   // A hand-authored set that has released but has no card data yet. It must drop
   // the "coming soon" framing, and it must NOT offer the /set or /build buttons —
-  // its id ("upcoming-pitch-black") isn't a real set, so both would be dead links.
+  // its id ("upcoming-30th-celebration") isn't a real set, so both would be dead
+  // links. Pitch Black used to be the example; it has since reached the cache DB
+  // and become a real set, so the clock is wound forward to put the next
+  // announced set into the same state.
   it("drops coming-soon on a released hand-authored set, without dead card links", async () => {
-    render(await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-pitch-black" }) }));
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/Pitch Black FAQs/i);
+    vi.spyOn(Date, "now").mockReturnValue(AWAITING_DATA_NOW);
+    render(
+      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-30th-celebration" }) }),
+    );
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/30th Celebration FAQs/i);
     expect(screen.queryByText(/coming soon/i)).toBeNull();
     expect(screen.queryByText(/isn't out yet/i)).toBeNull();
-    expect(screen.getByText(/came out on July 17, 2026/i)).toBeInTheDocument();
+    expect(screen.getByText(/came out on September 16, 2026/i)).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /See every .* card/i })).toBeNull();
     expect(
       screen.getAllByRole("link").filter((a) => a.getAttribute("href")?.startsWith("/build")),
@@ -117,8 +126,9 @@ describe("/faqs/set/[setId] hub", () => {
     );
     expect(await axe(upcoming.container)).toHaveNoViolations();
     upcoming.unmount();
+    vi.spyOn(Date, "now").mockReturnValue(AWAITING_DATA_NOW);
     const awaitingData = render(
-      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-pitch-black" }) }),
+      await FaqSetHubPage({ params: Promise.resolve({ setId: "upcoming-30th-celebration" }) }),
     );
     expect(await axe(awaitingData.container)).toHaveNoViolations();
   });
