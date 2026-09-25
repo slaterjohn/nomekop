@@ -192,6 +192,42 @@ describe("PokemonTcgIoSource.getCards", () => {
   });
 });
 
+describe("PokemonTcgIoSource.searchCardsByName / searchCardsByArtist", () => {
+  function decodedQuery(fetchMock: ReturnType<typeof vi.fn>): string {
+    const url = new URL(String(fetchMock.mock.calls[0]![0]));
+    return url.searchParams.get("q")!;
+  }
+
+  // pokemontcg.io's search parses `q` as a Lucene query. Left unescaped, real
+  // card/artist names turn that into invalid query syntax that the backend
+  // 500s on instead of matching literally — see lib/tcg/pokemontcgio.ts's
+  // fuzzyLuceneQuery for the character-by-character reasoning.
+  it.each([
+    ["Unown [S]", "unown-[s]", 'name:"*unown*\\[s\\]*"'],
+    ["Kyogre & Groudon LEGEND", "kyogre-&-groudon-legend", 'name:"*kyogre*\\&*groudon*legend*"'],
+    ["Imakuni?", "imakuni?", 'name:"*imakuni\\?*"'],
+  ])("escapes Lucene metacharacters in %s", async (_label, slug, expectedQuery) => {
+    const fetchMock = vi.fn(async () => jsonResponse({ data: [], totalCount: 0 }));
+    vi.stubGlobal("fetch", fetchMock);
+    await new PokemonTcgIoSource({ retries: 0 }).searchCardsByName(slug);
+    expect(decodedQuery(fetchMock)).toBe(expectedQuery);
+  });
+
+  it("escapes a collaborator credit containing a slash", async () => {
+    const fetchMock = vi.fn(async () => jsonResponse({ data: [], totalCount: 0 }));
+    vi.stubGlobal("fetch", fetchMock);
+    await new PokemonTcgIoSource({ retries: 0 }).searchCardsByArtist("nobusawa/mochipuyo");
+    expect(decodedQuery(fetchMock)).toBe('artist:"*nobusawa\\/mochipuyo*"');
+  });
+
+  it("still wildcards ordinary names on whitespace/hyphen boundaries", async () => {
+    const fetchMock = vi.fn(async () => jsonResponse({ data: [], totalCount: 0 }));
+    vi.stubGlobal("fetch", fetchMock);
+    await new PokemonTcgIoSource({ retries: 0 }).searchCardsByName("mr.-mime");
+    expect(decodedQuery(fetchMock)).toBe('name:"*mr.*mime*"');
+  });
+});
+
 describe("PokemonTcgIoSource pagination integrity", () => {
   const mkCard = (n: number) => ({ ...CARD_JSON, id: `sv1-${n}`, number: String(n) });
 
