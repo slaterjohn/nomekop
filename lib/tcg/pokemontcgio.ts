@@ -90,16 +90,14 @@ export class PokemonTcgIoSource implements CardDataSource {
     // Slug separators become wildcards: "mr.-mime" → *mr.*mime* (matches
     // "Mr. Mime"), "ho-oh" → *ho*oh* (matches "Ho-Oh"). Also matches variants
     // like "Charizard ex" and "Dark Charizard" by design.
-    const fuzzy = name.replace(/"/g, "").replace(/[\s-]+/g, "*");
-    return this.pagedCardsWithSet(`name:"*${fuzzy}*"`);
+    return this.pagedCardsWithSet(`name:"${fuzzyLuceneQuery(name)}"`);
   }
 
   async searchCardsByArtist(artist: string): Promise<CardWithSet[]> {
     // Slug separators become wildcards so a token slug ("ken-sugimori") matches
     // "Ken Sugimori", and wildcards on both ends catch trailing collaborator
     // credits ("Ken Sugimori & 5ban Graphics").
-    const fuzzy = artist.replace(/"/g, "").replace(/[\s-]+/g, "*");
-    return this.pagedCardsWithSet(`artist:"*${fuzzy}*"`);
+    return this.pagedCardsWithSet(`artist:"${fuzzyLuceneQuery(artist)}"`);
   }
 
   async getCardsByDexRange(min: number, max: number): Promise<CardWithSet[]> {
@@ -294,4 +292,27 @@ function mapTcgPlayer(raw: ApiCard["tcgplayer"]): TcgPlayerInfo | undefined {
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Lucene query-syntax metacharacters. Left unescaped, real card/artist names
+// that contain them turn our search into invalid query syntax rather than a
+// literal match: `[` opens a range query (Unown "[S]"), `&` and `+` are
+// boolean operators (tag-team "Kyogre & Groudon LEGEND", collaborator credits
+// like "Shinji Higuchi + Sachiko Eba"), `/` opens a regex query
+// ("Nobusawa/Mochipuyo"), `?` is a single-char wildcard ("Imakuni?"). Rather
+// than pokemontcg.io rejecting that with a clean 400, its backend 500s.
+const LUCENE_SPECIAL_CHARS_RE = /[+!(){}[\]^"~*?:\\/&|]/g;
+
+/**
+ * Builds a fuzzy Lucene wildcard query from free-text input: whitespace/hyphen
+ * runs become `*` (so "mr.-mime" matches "Mr. Mime"), and every other Lucene
+ * metacharacter is backslash-escaped so it's matched literally instead of
+ * parsed as query syntax. Returns the wildcarded term WITHOUT the surrounding
+ * quotes — callers wrap it in `field:"..."`.
+ */
+function fuzzyLuceneQuery(raw: string): string {
+  const WILDCARD = "\u0000";
+  const withWildcards = raw.replace(/"/g, "").replace(/[\s-]+/g, WILDCARD);
+  const escaped = withWildcards.replace(LUCENE_SPECIAL_CHARS_RE, "\\$&");
+  return `*${escaped.split(WILDCARD).join("*")}*`;
 }
